@@ -15,14 +15,14 @@ var map = AmCharts.makeChart("mapdiv",{
     [
         {
             "id" : "LK",
-            "url" : "sri-lanka/index.html",
+            "url" : "country/sri-lanka/index.html",
             "title" : "Sri Lanka - 130 properties",
             "color" : "#009933",
             "rollOverColor" : "#75CFED"
         },
         {
             "id" : "MY",
-            "url" : "malaysia/index.html",
+            "url" : "country/malaysia/index.html",
             "title" : "Malaysia - 90 properties",
             "color" : "#009933",
             "rollOverColor" : "#75CFED"

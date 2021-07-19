@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 
 /**
  * Class HomeController.
@@ -14,6 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $country = Country::all();
+
         return view('frontend.landing');
     }
 }
