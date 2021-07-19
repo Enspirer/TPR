@@ -1,0 +1,103 @@
+/* banner */
+.banner {
+    background-image: url('../images/index_banner.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    height: 1000px;
+}
+
+
+
+/* search */
+.search {
+    position: relative;
+    top: -5.5rem;
+}
+.input-group .btn {
+    z-index: 0;
+}
+
+
+
+/* recent projects */
+.project-item a {
+    color: #212529;
+    border: none;
+}
+.project-item a:hover {
+    border-bottom: 1px solid black;
+    font-weight: 600;
+    color: #212529;
+}
+.project-item .active {
+    border-bottom: 1px solid black!important;
+}
+
+
+
+/* cards */
+#index-cards .card-title, #featured-projects .card-title {
+    color: #83BC3E;
+}
+
+
+
+/* featured projects */
+#index-featured-projects .text-info {
+    color: #79CEEC!important;
+}
+
+
+
+/* property search */
+.properties {
+    height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 8px;
+    border: 1px solid #d5d5d5;
+}
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #eeeeee;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: #b0b0b0;
+}
+.small-num {
+    color: #79CEEC;
+}
+.small-heart {
+    color: #E88DAF;
+    cursor: pointer;
+}
+
+
+
+
+/* bottom banner */
+.bottom-banner {
+    background-image: url('../images/index_bottom_banner.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+.bottom-banner-stars {
+    color: #E9B815;
+    font-size: 1.5rem;
+}
+
+
+
+
+/* get app banner */
+.get-app {
+    background-image: linear-gradient(to right, rgba(135, 206, 235), rgba(25, 164, 25,0.5));
+    padding: 15rem;
+}

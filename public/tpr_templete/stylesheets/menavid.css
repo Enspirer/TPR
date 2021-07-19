@@ -1,0 +1,68 @@
+/* banner */
+.banner {
+    background-image: url('../images/menavid_banner.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    top: 7rem;
+    height: 600px;
+}
+
+
+.profile-picture {
+    position: absolute;
+    top: -5rem;
+    height: 10rem;
+}
+.individual-about-buttons {
+    border: 1px solid #707070;
+    color: #404040;
+    padding: 0.5rem 1rem;
+}
+#agent-tabs .all .active {
+    background-color: #4A4A4A;
+    color: white!important;
+}
+#agent-tabs .sales .active {
+    background-color: #77CEEC;
+    color: white!important;
+}
+#agent-tabs .rentals .active {
+    background-color: #4195E1;
+    color: white!important;
+}
+#agent-tabs .commercial .active {
+    background-color: #83BE43;
+    color: white!important;
+}
+#agent-tabs .property-land .active {
+    background-color: #7CCABD;
+    color: white!important;
+}
+.tab-price {
+    color: #E88EAF;
+    position: relative;
+    top: 1.3rem;
+}
+.tab-price small {
+    font-size: 0.8rem
+}
+
+
+.page-link {
+    color: #515151;
+    border: none;
+}
+.page-item.active .page-link {
+    background-color: #E88EAF;
+    border-color: #E88EAF;
+}
+
+
+/* get app banner */
+.get-app {
+    background-image: linear-gradient(to right, rgba(135, 206, 235), rgba(25, 164, 25,0.5));
+    padding: 15rem;
+}

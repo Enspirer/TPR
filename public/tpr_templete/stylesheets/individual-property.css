@@ -1,0 +1,41 @@
+.carousel-control-prev-icon , .carousel-control-next-icon {
+    background-color: rgb(36, 33, 33, 0.5);
+    padding: 25px 20px;
+    border-radius: 0.2rem;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    opacity: 1;
+}
+
+
+.features #collapseExample.collapse:not(.show) {
+    display: flex;
+    height: 11rem;
+    overflow: hidden;
+}
+
+.features #collapseExample.collapsing {
+    height: 11rem;
+}
+
+.features a.collapsed::after {
+    content: 'See full description';
+}
+
+.features a:not(.collapsed)::after {
+    content: 'Hide description';
+}
+
+.more-box {
+    border: 2px solid #707070;
+    width: 47%;
+    padding: 0.5rem 1rem;
+}
+
+
+/* get app banner */
+.get-app {
+    background-image: linear-gradient(to right, rgba(135, 206, 235), rgba(25, 164, 25,0.5));
+    padding: 15rem;
+}

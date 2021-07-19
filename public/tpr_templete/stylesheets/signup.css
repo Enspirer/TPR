@@ -1,0 +1,58 @@
+/* banner */
+.banner {
+    background-image: url('../images/sign_up_banner.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center right;
+    height: 600px;
+}
+.sign-up-box {
+    font-size: 1rem!important;
+    border: none;
+    border-radius: 0;
+}
+
+
+.form-control::placeholder {
+    color: #747272;
+    opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+    color: #747272;
+}
+
+.form-control::-ms-input-placeholder {
+    color: #747272;
+}
+
+
+
+
+.terms {
+    height: 130px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 13px;
+    border: 1px solid #d5d5d5;
+}
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #eeeeee;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: #b0b0b0;
+}
+
+
+
+
+/* get app banner */
+.get-app {
+    background-image: linear-gradient(to right, rgba(135, 206, 235), rgba(25, 164, 25,0.5));
+    padding: 15rem;
+}

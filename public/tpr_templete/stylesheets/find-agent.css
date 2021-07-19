@@ -1,0 +1,41 @@
+/* banner */
+.banner {
+    background-image: url('../images/find_agent_banner.svg');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    height: 700px;
+    filter: brightness(90%);
+}
+/* .banner::before {
+    content: "";
+    position: absolute;
+    top: 0rem;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 685px;
+    background-color: rgba(0,0,0,0.25);
+} */
+
+
+.stars {
+    color: #E9B815;
+    font-size: 1rem;
+}
+.gray-stars {
+    color: #C9C9C9;
+}
+.agent-contact {
+    border: 2px solid #EB8EB0;
+    border-radius: 1.5rem;
+    color: #EB8EB0;
+    padding: 0.5rem 1rem;
+}
+
+/* get app banner */
+.get-app {
+    background-image: linear-gradient(to right, rgba(135, 206, 235), rgba(25, 164, 25,0.5));
+    padding: 15rem;
+}
