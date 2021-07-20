@@ -24,12 +24,22 @@
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
                         <a class="nav-link text-white fw-bold" href="#">Market Trends</a>
                     </li>
-                    <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
-                        <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.login')}}">Login <i class="bi bi-person-check"></i></a>
-                    </li>
-                    <li class="nav-item join" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" style="padding-left : 2rem">
-                        <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
-                    </li>
+
+                    @auth
+                        <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
+                            <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.login')}}">{{auth()->user()->first_name}} <i class="bi bi-person-check"></i></a>
+                        </li>
+                    @else
+                        <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
+                            <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.login')}}">Login <i class="bi bi-person-check"></i></a>
+                        </li>
+                        <li class="nav-item join" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" style="padding-left : 2rem">
+                            <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
+                        </li>
+                    @endauth
+
+
+
                 </ul>
             </div>
         </div>

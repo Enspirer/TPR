@@ -15,6 +15,31 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('long');
+            $table->text('lat');
+            $table->text('beds')->nullable();
+            $table->text('baths')->nullable();
+            $table->text('property_type');
+            $table->text('price');
+            $table->text('negotiable')->nullable();
+            $table->text('land_size')->nullable();
+            $table->text('listed_since')->nullable();
+            $table->text('open_houses_only')->nullable();
+            $table->text('zoning_type')->nullable();
+            $table->text('number_of_units')->nullable();
+            $table->text('building_size')->nullable();
+            $table->text('farm_type')->nullable();
+            $table->text('building_type')->nullable();
+            $table->text('open_house_only')->nullable();
+            $table->text('transaction_type');
+            $table->text('parking_type')->nullable();
+            $table->text('country');
+            $table->text('name');
+            $table->text('main_category');
+            $table->text('meta_description')->nullable();
+            $table->text('slug');
+            $table->text('image_ids')->nullable();
+            $table->text('feature_image_id')->nullable();
             $table->timestamps();
         });
     }

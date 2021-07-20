@@ -5,7 +5,6 @@
 @section('content')
 
     <!-- navbar -->
-    @include('frontend.includes.nav')
 
 
     <!-- banner -->
