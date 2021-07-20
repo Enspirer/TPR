@@ -28,6 +28,8 @@
 
         <div class="">
             @include('includes.partials.messages')
+            @include('frontend.includes.nav')
+
             @yield('content')
         </div><!-- container -->
     </div><!-- #app -->
