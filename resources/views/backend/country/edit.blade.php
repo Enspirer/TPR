@@ -11,11 +11,11 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>Country Name</label>
-                            <input type="text" class="form-control" name="country_name" value="{{ $country->country_name }}" required>
+                            <input type="text" class="form-control" id="country_name" name="country_name" value="{{ $country->country_name }}" required>
                         </div>
                         <div class="form-group">
                             <label>SLUG</label>
-                            <input type="text" class="form-control" name="slug" value="{{ $country->slug }}" required>
+                            <input type="text" class="form-control" id="slug" name="slug" value="{{ $country->slug }}" required>
                         </div>
                         <div class="form-group">
                             <label>Currency</label>
@@ -45,8 +45,8 @@
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status" required>
-                                <option value="Enabled" {{ $country->status == 'Enabled' ? "selected" : "" }}>Enable</option>   
-                                <option value="Disabled" {{ $country->status == 'Disabled' ? "selected" : "" }}>Disable</option>                                
+                                <option value="1" {{ $country->status == '1' ? "selected" : "" }}>Enable</option>   
+                                <option value="0" {{ $country->status == '0' ? "selected" : "" }}>Disable</option>                                
                             </select>
                         </div>
                         
@@ -66,7 +66,16 @@
 
 
 
+<script>
 
+$("#country_name").keyup(function(){
+    var str = $(this).val();
+    var trims = $.trim(str)
+    var slug = trims.replace(/[^a-z0-9]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
+    $("#slug").val(slug.toLowerCase()) 
+})
+
+</script>
 
 
 <br><br>

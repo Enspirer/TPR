@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\CountryController;
+use App\Http\Controllers\Backend\PropertyController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -14,3 +15,9 @@ Route::get('country/getdetails', [CountryController::class, 'getDetails'])->name
 Route::get('country/edit/{id}', [CountryController::class, 'edit'])->name('country.edit');
 Route::post('country/update', [CountryController::class, 'update'])->name('country.update');
 Route::get('country/delete/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
+
+Route::get('property', [PropertyController::class, 'index'])->name('property.index');
+Route::get('property/getdetails', [PropertyController::class, 'getDetails'])->name('property.getDetails');
+Route::get('property/edit/{id}', [PropertyController::class, 'edit'])->name('property.edit');
+Route::post('property/update', [PropertyController::class, 'update'])->name('property.update');
+Route::get('property/delete/{id}', [PropertyController::class, 'destroy'])->name('property.destroy');

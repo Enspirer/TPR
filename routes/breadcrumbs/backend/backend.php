@@ -18,3 +18,12 @@ Breadcrumbs::for('admin.country.create', function ($trail) {
 Breadcrumbs::for('admin.country.edit', function ($trail) {
     $trail->push('Edit', route('admin.country.edit',1));
 });
+
+Breadcrumbs::for('admin.property.index', function ($trail) {
+    $trail->push('Property', route('admin.property.index'));
+});
+
+Breadcrumbs::for('admin.property.edit', function ($trail) {
+    $trail->push('Edit', route('admin.property.edit',1));
+});
+
