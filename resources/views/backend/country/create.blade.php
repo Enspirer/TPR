@@ -11,11 +11,11 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>Country Name</label>
-                            <input type="text" class="form-control" name="country_name" required>
+                            <input type="text" id="country_name" class="form-control" name="country_name" required>
                         </div>
                         <div class="form-group">
                             <label>SLUG</label>
-                            <input type="text" class="form-control" name="slug" required>
+                            <input type="text" id="slug" class="form-control" name="slug" required>
                         </div>
                         <div class="form-group">
                             <label>Currency</label>
@@ -61,7 +61,16 @@
     </form>
 
 
+<script>
 
+    $("#country_name").keyup(function(){
+        var str = $(this).val();
+        var trims = $.trim(str)
+        var slug = trims.replace(/[^a-z0-9]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
+        $("#slug").val(slug.toLowerCase()) 
+    })
+
+</script>
 
 
 
