@@ -6,3 +6,15 @@ Breadcrumbs::for('admin.dashboard', function ($trail) {
 
 require __DIR__.'/auth.php';
 require __DIR__.'/log-viewer.php';
+
+Breadcrumbs::for('admin.country.index', function ($trail) {
+    $trail->push('Country', route('admin.country.index'));
+});
+
+Breadcrumbs::for('admin.country.create', function ($trail) {
+    $trail->push('Create', route('admin.country.create'));
+});
+
+Breadcrumbs::for('admin.country.edit', function ($trail) {
+    $trail->push('Edit', route('admin.country.edit',1));
+});
