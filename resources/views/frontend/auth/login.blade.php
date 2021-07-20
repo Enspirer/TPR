@@ -3,7 +3,12 @@
 @section('title', app_name() . ' | ' . __('labels.frontend.auth.login_box_title'))
 
 @section('content')
-    <div class="container-fluid p-0 second-nav bg-light">
+
+@push('after-styles')
+    <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/login.css') }}">
+@endpush
+
+    <!-- <div class="container-fluid p-0 second-nav bg-light">
         <nav class="container navbar navbar-expand-lg bg-light navbar-light">
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav2" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,11 +39,11 @@
             </div>
         </nav>
     </div>
-    </section>
+    </section> -->
 
     <!-- sign in form -->
     <section id="sign-in">
-        <div class="container-fluid">
+        <div class="container-fluid banner">
             <div class="container" style="margin-top: 10rem;">
                 <h2 class="fw-bolder text-center">Sign In</h2>
 
@@ -110,17 +115,17 @@
     </section>
 
 
-    <!--residential get app-->
-    <section id="index-get-app">
-        <div class="container-fluid p-0 get-app" style="margin-top: 10rem;">
+    <!--get app-->
+    <section id="get-app">
+        <div class="container-fluid p-0 get-app" style="margin-top: 4rem;">
             <div class="container">
                 <div class="row py-5 align-items-center justify-content-center">
                     <div class="col-6 text-center">
                         <h2 class="text-white fw-bolder">Get The App Now!</h2>
                     </div>
                     <div class="col-6 text-center">
-                        <img src="images/appstore.svg" alt="" height="50rem" class="me-3">
-                        <img src="images/playstore.svg" alt="" height="50rem">
+                        <img src="{{ asset('tpr_templete/images/appstore.svg') }}" alt="" height="50rem" class="me-3">
+                        <img src="{{ asset('tpr_templete/images/playstore.svg') }}" alt="" height="50rem">
                     </div>
                 </div>
             </div>

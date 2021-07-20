@@ -1,0 +1,36 @@
+.user-settings label {
+    font-size: 0.9rem;
+}
+.user-settings .required:after {
+    content: " *";
+    color: red;
+}
+.user-settings .form-select,
+.user-settings .form-control {
+    padding: 16px!important;
+}
+.profile-settings a.active {
+    font-weight: 800!important;
+}
+
+#nav-communication label {
+    font-size: 1rem;
+}
+#nav-results label {
+    font-size: 1rem;
+}
+.show-unsubscribe-div {
+    visibility: visible!important;
+}
+.form-check .form-check-input {
+    margin-left: -1.0rem!important;
+    margin-right: 1rem;
+}
+.fa, .fas {
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    background-color: #23A1C0;
+    padding: 1.25rem;
+    border-radius: 50px;
+}
