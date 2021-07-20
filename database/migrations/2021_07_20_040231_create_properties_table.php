@@ -39,6 +39,9 @@ class CreatePropertiesTable extends Migration
             $table->text('meta_description')->nullable();
             $table->text('slug');
             $table->text('image_ids')->nullable();
+            $table->text('user_id');
+            $table->text('admin_approval')->nullable();
+            $table->text('country_manager_approval')->nullable();
             $table->text('feature_image_id')->nullable();
             $table->timestamps();
         });
