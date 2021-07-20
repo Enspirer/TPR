@@ -13,10 +13,17 @@ class HomeController extends Controller
     /**
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function landing()
     {
-        $country = Country::all();
+        $country = Country::where('status',1)->get();
 
-        return view('frontend.landing');
+        return view('frontend.landing',[
+            'countries_data' => $country
+        ]);
+    }
+
+    public function index($slug,$currency)
+    {
+        return view('frontend.home_page.index');
     }
 }

@@ -60,27 +60,11 @@
             <h4 class="text-center mb-4 fw-bolder" style="color: #75CFED;">Select your preferred Tropical Region to view Properties</h4>
             <div class="col-3">
                 <div class="countries">
-                    <h6><a href="#">Cambodia</a></56>
-                    <h6><a href="#">Kenya</a></56>
-                    <h6><a href="malaysia/index.html">Malaysia</a></56>
-                    <h6><a href="#">Mexico</a></56>
-                    <h6><a href="#">Nigeria</a></56>
-                    <h6><a href="sri-lanka/index.html">Sri Lanka</a></56>
-                    <h6><a href="#">US Virgin Islands</a></56>
-                    <h6><a href="#">Cambodia</a></56>
-                    <h6><a href="#">Kenya</a></56>
-                    <h6><a href="malaysia/index.html">Malaysia</a></56>
-                    <h6><a href="#">Mexico</a></56>
-                    <h6><a href="#">Nigeria</a></56>
-                    <h6><a href="sri-lanka/index.html">Sri Lanka</a></56>
-                    <h6><a href="#">US Virgin Islands</a></56>
-                    <h6><a href="#">Cambodia</a></56>
-                    <h6><a href="#">Kenya</a></56>
-                    <h6><a href="malaysia/index.html">Malaysia</a></56>
-                    <h6><a href="#">Mexico</a></56>
-                    <h6><a href="#">Nigeria</a></56>
-                    <h6><a href="sri-lanka/index.html">Sri Lanka</a></56>
-                    <h6><a href="#">US Virgin Islands</a></56>
+                    @foreach($countries_data as $countryq)
+                        <h6>
+                            <a href="country/{{$countryq->slug}}/{{$countryq->currency}}">{{$countryq->country_name}} </a>
+                        </h6>
+                    @endforeach
                 </div>
             </div>
 
@@ -384,7 +368,46 @@ type="text/javascript"></script> -->
 <script src="https://www.amcharts.com/lib/3/maps/js/worldHigh.js" type="text/javascript"></script>
 <script src="https://www.amcharts.com/lib/3/themes/dark.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="{{url('tpr_templete/landing.js')}}"></script>
+<script>
+    var map = AmCharts.makeChart("mapdiv",{
+        type: "map",
+        theme: "dark",
+        projection: "mercator",
+        panEventsEnabled : true,
+        backgroundColor : "#FFFFFF",
+        backgroundAlpha : 1,
+        zoomControl: {
+            zoomControlEnabled : true,
+        },
+        dataProvider : {
+            map : "worldHigh",
+            getAreasFromMap : true,
+            areas :
+                [
+                    @foreach($countries_data as $countryq)
+                    {
+                        "id" : "{{$countryq->country_id}}",
+                        "url" : "country/{{$countryq->slug}}/{{$countryq->currency}}",
+                        "title" : "{{$countryq->country_name}} - 0 properties",
+                        "color" : "#009933",
+                        "rollOverColor" : "#75CFED"
+                    },
+                    @endforeach
+                ]
+        },
+        areasSettings : {
+            autoZoom : true,
+            selectedColor : "#B4B4B7",
+            color : "#B4B4B7",
+            colorSolid : "#84ADE9",
+            outlineColor : "#707070",
+            rollOverColor : "#B4B4B7",
+            rollOverOutlineColor : "#B4B4B7",
+        },
+        "mouseWheelZoomEnabled": true
+    });
+</script>
+
 
 
 

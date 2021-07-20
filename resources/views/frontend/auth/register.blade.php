@@ -1,114 +1,109 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.theme_app')
 
 @section('title', app_name() . ' | ' . __('labels.frontend.auth.register_box_title'))
 
 @section('content')
-    <div class="row justify-content-center align-items-center">
-        <div class="col col-sm-8 align-self-center">
-            <div class="card">
-                <div class="card-header">
-                    <strong>
-                        @lang('labels.frontend.auth.register_box_title')
-                    </strong>
-                </div><!--card-header-->
+    <section id="sign-up">
+        <div class="container-fluid">
+            <div class="container" style="padding-top: 10rem;">
+                <h2 class="fw-bolder text-center">Sign Up</h2>
 
-                <div class="card-body">
-                    {{ html()->form('POST', route('frontend.auth.register.post'))->open() }}
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.first_name'))->for('first_name') }}
-
-                                    {{ html()->text('first_name')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.first_name'))
-                                        ->attribute('maxlength', 191)
-                                        ->required()}}
-                                </div><!--col-->
-                            </div><!--row-->
-
-                            <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.last_name'))->for('last_name') }}
-
-                                    {{ html()->text('last_name')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.last_name'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
-
-                                    {{ html()->email('email')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.email'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password'))->for('password') }}
-
-                                    {{ html()->password('password')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.password'))
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password_confirmation'))->for('password_confirmation') }}
-
-                                    {{ html()->password('password_confirmation')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.password_confirmation'))
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        @if(config('access.captcha.registration'))
-                            <div class="row">
-                                <div class="col">
-                                    @captcha
-                                    {{ html()->hidden('captcha_status', 'true') }}
-                                </div><!--col-->
-                            </div><!--row-->
-                        @endif
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group mb-0 clearfix">
-                                    {{ form_submit(__('labels.frontend.auth.register_button')) }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-                    {{ html()->form()->close() }}
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="text-center">
-                                @include('frontend.auth.includes.socialite')
+                <div class="row justify-content-center mt-5">
+                    <div class="col-6">
+                        <form class="needs-validation" novalidate>
+                            <div class="input-group has-validation mb-5">
+                                <input type="text" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputFirstName" placeholder="First Name" aria-describedby="firstName" required>
+                                <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-person fs-5"></i></span>
+                                <div class="invalid-feedback">
+                                    This is a mandatory field and must be entered to continue.
+                                </div>
                             </div>
-                        </div><!--/ .col -->
-                    </div><!-- / .row -->
-                </div><!-- card-body -->
-            </div><!-- card -->
-        </div><!-- col-md-8 -->
-    </div><!-- row -->
+
+                            <div class="input-group has-validation mb-5">
+                                <input type="text" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputLastName" placeholder="Last Name" aria-describedby="emailHelp" required>
+                                <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-person-check fs-5"></i></span>
+                                <div class="invalid-feedback">
+                                    This is a mandatory field and must be entered to continue.
+                                </div>
+                            </div>
+
+                            <div class="input-group has-validation mb-5">
+                                <input type="email" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required>
+                                <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-envelope fs-5"></i></span>
+                                <div class="invalid-feedback">
+                                    This is a mandatory field and must be entered to continue.
+                                </div>
+                            </div>
+
+                            <div class="input-group has-validation mb-5">
+                                <input type="password" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputPassword" placeholder="Password" aria-describedby="password" required>
+                                <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-lock fs-5"></i></span>
+                                <div class="invalid-feedback">
+                                    This is a mandatory field and must be entered to continue.
+                                </div>
+                            </div>
+
+                            <div class="input-group has-validation mb-5">
+                                <input type="password" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputConfirmPassword" placeholder="Confirm Password" required>
+                                <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-lock fs-5"></i></span>
+                                <div class="invalid-feedback">
+                                    This is a mandatory field and must be entered to continue.
+                                </div>
+                            </div>
+
+                            <div class="row shadow-sm p-0 terms">
+                                <h6 class="fw-bolder">
+                                    Terms of User Agreement
+                                </h6>
+                                <p style="text-align: justify;">By accessing any of the websites or mobile applications (collectively, hereinafter "website" or "websites") operated by The Canadian Real Estate Association (CREA), including , you, the user, agree to be bound by all of the terms for use and agree these terms constitute a binding contract between the user.
+                                </p>
+
+                                <p style="text-align: justify;">By accessing any of the websites or mobile applications (collectively, hereinafter "website" or "websites") operated by The Canadian Real Estate Association (CREA), including , you, the user, agree to be bound by all of the terms for use and agree these terms constitute a binding contract between the user.
+                                </p>
+
+                                <p style="text-align: justify;">By accessing any of the websites or mobile applications (collectively, hereinafter "website" or "websites") operated by The Canadian Real Estate Association (CREA), including , you, the user, agree to be bound by all of the terms for use and agree these terms constitute a binding contract between the user.
+                                </p>
+                            </div>
+
+                            <div class="row">
+                                <div class="clearfix">
+                                    <div class="float-end">
+                                        <div class="mb-3 form-check mt-3">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                            <label class="form-check-label" for="exampleCheck1" style="font-size: 0.9rem;">I agree to the Terms of Use/Privacy Policy</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>Enter code below</p>
+
+                            <div class="row">
+                                <div class="col-7">
+                                    <div class="row align-items-center">
+                                        <div class="col-10 shadow-sm ps-4">
+                                            <div class="mb-3 form-check mt-3">
+                                                <input type="checkbox" class="form-check-input" id="exampleCheck1" style="font-size: 1.3rem; border-radius: 0!important; margin-top: 0;">
+                                                <label class="form-check-label" for="exampleCheck1" style="font-size: 1rem; color: #747272;">I'm not a Robot</label>
+                                                <img src="{{url('tpr_templete/images/recaptcha_icon.svg')}}" alt="" class="float-end mb-2" height="45px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary w-100 mt-4 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Sign Up</button>
+                        </form>
+
+
+                        <p class="text-end mt-3">Already have an account? <a href="login.html" class="text-decoration-none" style="color: #77CEEC;">Sign In</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 
 @push('after-scripts')

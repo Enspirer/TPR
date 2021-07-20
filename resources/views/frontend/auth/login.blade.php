@@ -1,93 +1,131 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.theme_app')
 
 @section('title', app_name() . ' | ' . __('labels.frontend.auth.login_box_title'))
 
 @section('content')
-    <div class="row justify-content-center align-items-center">
-        <div class="col col-sm-8 align-self-center">
-            <div class="card">
-                <div class="card-header">
-                    <strong>
-                        @lang('labels.frontend.auth.login_box_title')
-                    </strong>
-                </div><!--card-header-->
+    <div class="container-fluid p-0 second-nav bg-light">
+        <nav class="container navbar navbar-expand-lg bg-light navbar-light">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav2" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
+                <ul class="navbar-nav">
+                    <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400">
+                        <a class="nav-link text-body fw-bold" href="residential.html">Residential</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">
+                        <a class="nav-link text-body fw-bold" href="#">Commercial</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="600">
+                        <a class="nav-link text-body fw-bold" href="#">New Homes</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="700">
+                        <a class="nav-link text-body fw-bold" href="#">Text</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="nav-item contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800" style="padding-left : 3rem">
+                        <a class="nav-link text-body fw-bold" href="contact-us.html">Contact Us</a>
+                        <div class="line"></div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    </section>
 
-                <div class="card-body">
-                    {{ html()->form('POST', route('frontend.auth.login.post'))->open() }}
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
+    <!-- sign in form -->
+    <section id="sign-in">
+        <div class="container-fluid">
+            <div class="container" style="margin-top: 10rem;">
+                <h2 class="fw-bolder text-center">Sign In</h2>
 
-                                    {{ html()->email('email')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.email'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password'))->for('password') }}
-
-                                    {{ html()->password('password')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.password'))
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        {{ html()->label(html()->checkbox('remember', true, 1) . ' ' . __('labels.frontend.auth.remember_me'))->for('remember') }}
-                                    </div>
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group clearfix">
-                                    {{ form_submit(__('labels.frontend.auth.login_button')) }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        @if(config('access.captcha.login'))
-                            <div class="row">
-                                <div class="col">
-                                    @captcha
-                                    {{ html()->hidden('captcha_status', 'true') }}
-                                </div><!--col-->
-                            </div><!--row-->
-                        @endif
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group text-right">
-                                    <a href="{{ route('frontend.auth.password.reset') }}">@lang('labels.frontend.passwords.forgot_password')</a>
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-                    {{ html()->form()->close() }}
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="text-center">
-                                @include('frontend.auth.includes.socialite')
+                <div class="row justify-content-center mt-5">
+                    <div class="col-6">
+                        <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation" novalidate>
+                            {{csrf_field()}}
+                            <div class="input-group has-validation mb-5">
+                                <input type="email" name="email" class="form-control form-control-lg sign-in-box shadow-sm" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required>
+                                <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-envelope fs-5"></i></span>
+                                <div class="invalid-feedback">
+                                    This is a mandatory field and must be entered to continue.
+                                </div>
                             </div>
-                        </div><!--col-->
-                    </div><!--row-->
-                </div><!--card body-->
-            </div><!--card-->
-        </div><!-- col-md-8 -->
-    </div><!-- row -->
+
+                            <div class="input-group has-validation mb-5">
+                                <input type="password" name="password" class="form-control form-control-lg sign-in-box shadow-sm" id="exampleInputPassword1" placeholder="Password" required>
+                                <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-lock fs-5"></i></span>
+                                <div class="invalid-feedback">
+                                    This is a mandatory field and must be entered to continue.
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="clearfix">
+                                    <div class="float-start">
+                                        <div class="mb-3 form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                            <label class="form-check-label" for="exampleCheck1" style="font-size: 0.9rem;">Remember me</label>
+                                        </div>
+                                    </div>
+                                    <div class="float-end">
+                                        <a href="#" class="text-decoration-none" style="font-size: 0.9rem; color: #77CEEC;">Forgot Password</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Sign In</button>
+                        </form>
+
+
+                        <p class="text-end mt-3">Don't have an account? <a href="signup.html" class="text-decoration-none" style="color: #77CEEC;">Sign Up</a></p>
+
+
+                        <div class="follow" style="margin-top: 6rem;">
+                            <h6 class="fw-bolder mb-5">With Social Media</h6>
+                            <div class="row mt-5">
+                                <div class="col-2 me-3">
+                                    <a href="#" class="fs-3" style="color: #79CEEB; border: 2px solid #79CEEB; padding: 24px 28px;"><i class="fab fa-facebook-f"></i></a>
+                                </div>
+                                <div class="col-2 me-3">
+                                    <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
+                                </div>
+                                <div class="col-2 me-3">
+                                    <a href="#" class="p-4 fs-3" style="color: #7DC8B1; border: 2px solid #7DC8B1"><i class="bi bi-google"></i></a>
+                                </div>
+                                <div class="col-2 me-3">
+                                    <a href="#" class="p-4 fs-3" style="color: #7FC481; border: 2px solid #7FC481;"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <div class="col-2">
+                                    <a href="#" class="fs-3" style="color: #83BE4A; border: 2px solid #83BE4A; padding: 24px 27px;"><i class="fab fa-apple"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--residential get app-->
+    <section id="index-get-app">
+        <div class="container-fluid p-0 get-app" style="margin-top: 10rem;">
+            <div class="container">
+                <div class="row py-5 align-items-center justify-content-center">
+                    <div class="col-6 text-center">
+                        <h2 class="text-white fw-bolder">Get The App Now!</h2>
+                    </div>
+                    <div class="col-6 text-center">
+                        <img src="images/appstore.svg" alt="" height="50rem" class="me-3">
+                        <img src="images/playstore.svg" alt="" height="50rem">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 
 @push('after-scripts')
