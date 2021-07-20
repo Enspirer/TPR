@@ -11,7 +11,7 @@ use App\Http\Controllers\Frontend\User\ProfileController;
  * All route names are prefixed with 'frontend.'.
  */
 Route::get('/', [HomeController::class, 'landing'])->name('landing');
-Route::get('/country/{slug}/{currency}', [HomeController::class, 'index'])->name('home_page');
+Route::get('country/{country_id}', [HomeController::class, 'index'])->name('home_page');
 
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');
 //Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');

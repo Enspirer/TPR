@@ -62,7 +62,7 @@
                 <div class="countries">
                     @foreach($countries_data as $countryq)
                         <h6>
-                            <a href="country/{{$countryq->slug}}/{{$countryq->currency}}">{{$countryq->country_name}} </a>
+                            <a href="country/{{$countryq->country_id}}">{{$countryq->country_name}} </a>
                         </h6>
                     @endforeach
                 </div>
@@ -387,7 +387,7 @@ type="text/javascript"></script> -->
                     @foreach($countries_data as $countryq)
                     {
                         "id" : "{{$countryq->country_id}}",
-                        "url" : "country/{{$countryq->slug}}/{{$countryq->currency}}",
+                        "url" : "country/{{$countryq->country_id}}",
                         "title" : "{{$countryq->country_name}} - 0 properties",
                         "color" : "#009933",
                         "rollOverColor" : "#75CFED"

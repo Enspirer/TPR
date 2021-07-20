@@ -22,8 +22,10 @@ class HomeController extends Controller
         ]);
     }
 
-    public function index($slug,$currency)
+    public function index($country_id)
     {
-        return view('frontend.home_page.index');
+        return view('frontend.home_page.index',[
+            'country_id' => $country_id
+        ]);
     }
 }

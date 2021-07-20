@@ -3,11 +3,15 @@
         <div class="container">
             <div class="row logo-flag">
                 <div class="col-9">
-                    <a href="{{route('frontend.home_page',['sri-lanka','LKR'])}}"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo img-fluid rounded" alt=""></a>
+                    <a href="{{route('frontend.home_page','sri-lanka')}}"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo img-fluid rounded" alt=""></a>
                 </div>
                 <div class="col-2">
                     <a href="#">
-                        <img src="{{url('tpr_templete/images/sri_lanka_flag.svg')}}" alt="" class="flag img-fluid"></a>
+                        @if(isset($country_id))
+                            <img src="https://www.countryflags.io/{{$country_id}}/flat/64.png" alt="" class="flag img-fluid"></a>
+                        @else
+
+                        @endif
                 </div>
             </div>
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
