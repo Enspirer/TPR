@@ -1,14 +1,5 @@
 jQuery(function(){
 
-    $('.collapse-button').on('click', function(){
-        $(".bi bi-chevron-down").hide();
-        $(".bi bi-chevron-up").show();
-        
-        $(".features i").toggle();
-    });
-
-
-
     // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
     'use strict'

@@ -5,6 +5,8 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\FindAgentController;
 use App\Http\Controllers\Frontend\IndividualAgentController;
 use App\Http\Controllers\Frontend\MapSearchController;
+use App\Http\Controllers\Frontend\ResidentialController;
+use App\Http\Controllers\Frontend\IndividualPropertyController;
 
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\DashboardController;
@@ -20,6 +22,8 @@ Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::get('find-agent', [FindAgentController::class, 'index'])->name('find-agent');
 Route::get('individual-agent', [IndividualAgentController::class, 'index'])->name('individual-agent');
 Route::get('map-search', [MapSearchController::class, 'index'])->name('map-search');
+Route::get('residential', [ResidentialController::class, 'index'])->name('residential');
+Route::get('individual-property', [IndividualPropertyController::class, 'index'])->name('individual-property');
 
 
 

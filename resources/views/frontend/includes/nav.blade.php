@@ -20,10 +20,10 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
                 <ul class="navbar-nav">
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500">
-                        <a class="nav-link text-white fw-bold" href="{{route('frontend.map-search')}}">Map Search</a>
+                        <a class="nav-link text-white fw-bold" href="{{ route('frontend.map-search' )}}">Map Search</a>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
-                        <a class="nav-link text-white fw-bold" href="{{route('frontend.find-agent')}}">Find Agent</a>
+                        <a class="nav-link text-white fw-bold" href="{{ route('frontend.find-agent' )}}">Find Agent</a>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
                         <a class="nav-link text-white fw-bold" href="#">Market Trends</a>
@@ -68,7 +68,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
                 <ul class="navbar-nav">
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400">
-                        <a class="nav-link text-body fw-bold" href="residential.html">Residential</a>
+                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.residential' )}}">Residential</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">
