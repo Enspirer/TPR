@@ -427,6 +427,19 @@
                         coordinate_data: myArray
                     },
                     function(data, status){
+
+                        var obj = JSON.parse(data);
+
+                        for (tag_ob in obj) {
+                            alert(tag_ob.name);
+                        }
+
+
+
+
+                        //getMap Data
+
+
                         alert("Data: " + data + "\nStatus: " + status);
                     });
                 console.log(myArray);
