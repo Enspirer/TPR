@@ -17,14 +17,41 @@
     <!--search-->
     <section id="index-search">
         <div class="container-md search">
-            <button class="btn text-white rounded-0 py-3 px-5 fs-5 me-1" style="background-color : #83BC3E" data-aos="fade-up" data-aos-duration="500"><img src="images/sale_icon.svg" class="me-3" height="25rem" alt="">Residential</button>
-            <button class="btn text-white rounded-0 py-3 px-5 fs-5" style="background-color : #75CFED" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"><img src="images/commercial_icon.svg" class="me-3" height="25rem" alt="">Commercial</button>
+            <!-- <button class="btn text-white rounded-0 py-3 px-5 fs-5 me-1" style="background-color : #83BC3E" data-aos="fade-up" data-aos-duration="500"><img src="images/sale_icon.svg" class="me-3" height="25rem" alt="">Residential</button>
+            <button class="btn text-white rounded-0 py-3 px-5 fs-5" style="background-color : #75CFED" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"><img src="images/commercial_icon.svg" class="me-3" height="25rem" alt="">Commercial</button> -->
 
-            <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                <li class="nav-item text-white rounded-0 fs-5 me-1" role="presentation">
+                    <button class="nav-link text-white active" style="background-color : #83BC3E" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500"><img src="{{ asset('tpr_templete/images/sale_icon.svg') }}" class="me-3" height="25rem" alt="">Residential</button>
+                </li>
+                <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                    <button class="nav-link text-white" style="background-color : #75CFED" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"><img src="{{ asset('tpr_templete/images/commercial_icon.svg') }}" class="me-3" height="25rem" alt="">Commercial</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-residential" role="tabpanel" aria-labelledby="pills-residential-tab">
+                    <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                        <input type="text" class="form-control p-3 rounded-0" aria-label="search">
+                        <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
+                        <button class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pills-commercial" role="tabpanel" aria-labelledby="pills-commercial-tab">
+                    <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                        <input type="text" class="form-control p-3 rounded-0" aria-label="search">
+                        <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
+                        <button class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
                 <input type="text" class="form-control p-3 rounded-0" aria-label="search">
                 <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
                 <button class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -146,7 +173,7 @@
                         </div>
                     </div>
                     <div class="properties">
-                        <div class="row border align-items-center p-1">
+                        <!-- <div class="row border align-items-center p-1">
                             <div class="col-6">
                                 <img src="{{url('tpr_templete/images/ps_1.svg')}}" alt="" class="img-fluid">
                             </div>
@@ -164,9 +191,9 @@
                                 <p class="fw-bold mb-0">$450, 000</p>
                                 <p class="mb-0" style="font-size: 0.8rem;">541, Rosewood Place</p>
                                 <p class="mb-0"  style="font-size: 0.8rem;">Colombo, Sri Lanka</p>
-                                <p class="mb-0"  style="font-size: 0.8rem;">3 <i class="fas fa-bed me-4"></i> 5 <i class="fas fa-bath"></i></p>
+                                <p class="mb-0"  style="font-size: 0.8rem;"><span class="beds">3</span> <i class="fas fa-bed me-4"></i><span class="bath">3</span> <i class="fas fa-bath"></i></p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-9">
@@ -348,7 +375,7 @@
 
 
     <!--footer-->
-    <section id="footer">
+    <!-- <section id="footer">
         <div class="container" style="margin-top:6rem;">
             <div class="row">
                 <div class="col-3" data-aos="fade-up" data-aos-duration="500">
@@ -376,7 +403,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     @push('before-scripts')
     <script>
@@ -404,9 +431,9 @@
             });
 
             google.maps.event.addListener(markerCluster, 'click', function(c) {
-                console.log('Number of managed markers in cluster: ' + c.getSize());
+                // console.log('Number of managed markers in cluster: ' + c.getSize());
                 var markers = c.getMarkers();
-                console.log('Number of managed markers in cluster: ' + c.getSize());
+                // console.log('Number of managed markers in cluster: ' + c.getSize());
                 var newArray = [];
 
                 for (marker in markers) {
@@ -422,7 +449,7 @@
                 }
                 myArray = JSON.stringify(Object.assign({}, newArray));
 
-                $.post("http://localhost:8000/api/country_request",
+                $.post("http://127.0.0.1:8000/api/country_request",
                     {
                         coordinate_data: myArray
                     },
@@ -430,9 +457,9 @@
 
                         var obj = JSON.parse(data);
 
-                        for (tag_ob in obj) {
-                            alert(tag_ob.name);
-                        }
+                        // for (tag_ob in obj) {
+                        //     alert(tag_ob.name);
+                        // }
 
 
 
@@ -440,9 +467,45 @@
                         //getMap Data
 
 
-                        alert("Data: " + data + "\nStatus: " + status);
+                        // alert("Data: " + data + "\nStatus: " + status);
+                        // let uri = data;
+
+                        // $(".beds").text(obj[0]['beds']);
+                        
+
+                        let template = '';
+
+                        for(let i = 0; i < obj.length; i++) {
+                            template += `
+                                <div class="row border align-items-center p-1">
+                                    <div class="col-6">
+                                        <img src="../tpr_templete/images/ps_1.svg" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row justify-content-between">
+                                            <div class="col-3">
+                                                <p class="mb-0 small-num" style="font-size: 0.7rem;">3051</p>
+                                            </div>
+                                            <div class="col-3 small-heart">
+                                                <i class="bi bi-heart" style="font-size: 0.9rem;"></i>
+                                                <i class="bi bi-heart-fill" style="font-size: 0.9rem; display: none;"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <p class="fw-bold mb-0">${obj[i]['price']}</p>
+                                        <p class="mb-0" style="font-size: 0.8rem;">541, Rosewood Place</p>
+                                        <p class="mb-0"  style="font-size: 0.8rem;">Colombo, ${obj[i]['country']}</p>
+                                        <p class="mb-0"  style="font-size: 0.8rem;"> ${obj[i]['beds']} <i class="fas fa-bed me-4"></i> ${obj[i]['baths']} <i class="fas fa-bath"></i></p>
+                                    </div>
+                                </div>
+                            `
+                        };
+
+                        $(".properties").html(template);
+                        // console.log(obj);
+                        
                     });
-                console.log(myArray);
+                // console.log(myArray);
             });
         }
         const locations = [
@@ -457,8 +520,10 @@
 @endsection
 
 @push('after-scripts')
-<script src="{{ asset('tpr_templete/scripts/map.js') }}"></script>
+<!-- <script src="{{ asset('tpr_templete/scripts/map.js') }}"></script> -->
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArF7tuecnSc3AvTh5V_mabinQqE6TuiYM&callback=initMap"
 type="text/javascript"></script>
+
+
 @endpush
