@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
                 <ul class="navbar-nav">
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500">
-                        <a class="nav-link text-white fw-bold" href="map-search.html">Map Search</a>
+                        <a class="nav-link text-white fw-bold" href="{{route('frontend.map-search')}}">Map Search</a>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
                         <a class="nav-link text-white fw-bold" href="{{route('frontend.find-agent')}}">Find Agent</a>
