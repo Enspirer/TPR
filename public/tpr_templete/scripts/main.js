@@ -1,14 +1,5 @@
 jQuery(function(){
 
-
-    $('.small-heart').on('click', function(){
-        $(".small-heart bi-heart").hide();
-        $(".small-heart bi-heart-fill").show();
-        
-        $("i", this).toggle();
-    });
-
-
     $('.collapse-button').on('click', function(){
         $(".bi bi-chevron-down").hide();
         $(".bi bi-chevron-up").show();
