@@ -21,6 +21,8 @@ Route::get('find-agent', [FindAgentController::class, 'index'])->name('find-agen
 Route::get('individual-agent', [IndividualAgentController::class, 'index'])->name('individual-agent');
 Route::get('map-search', [MapSearchController::class, 'index'])->name('map-search');
 
+
+
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');
 //Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 
