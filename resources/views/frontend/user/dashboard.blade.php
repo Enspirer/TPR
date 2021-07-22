@@ -25,20 +25,22 @@
 
                         <h5 class="px-3 mt-4 pb-2 mb-0">My Account</h5>
 
-                        <a class="nav-link active border-0 bg-light ps-5 w-100" id="nav-account-tab" data-bs-toggle="tab" data-bs-target="#nav-account" type="button" role="tab" aria-controls="nav-account" aria-selected="true">Account Information</a>
+                        <a class="nav-link active border-0 bg-white ps-5 w-100" id="nav-account-tab" data-bs-toggle="tab" data-bs-target="#nav-account" type="button" role="tab" aria-controls="nav-account" aria-selected="true">Account Information</a>
 
-                        <a class="nav-link border-0 bg-light ps-5 border-bottom w-100 pb-3" id="nav-communication-tab" data-bs-toggle="tab" data-bs-target="#nav-communication" type="button" role="tab" aria-controls="nav-communication" aria-selected="false">Communications</a>
+                        <a class="nav-link bg-white border-0 ps-5 w-100 pb-3" id="nav-communication-tab" data-bs-toggle="tab" data-bs-target="#nav-communication" type="button" role="tab" aria-controls="nav-communication" aria-selected="false">Communications</a>
+
+                        <a class="nav-link bg-white border-0 border-bottom w-100 px-5 pb-3" id="nav-agent-tab" data-bs-toggle="tab" data-bs-target="#nav-agent" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 text-light w-100" style="background-color: #ff9900">Agent</button> </a>
 
                         <h5 class="px-3 mt-4 pb-2 mb-0">My Settings</h5>
 
-                        <a class="nav-link border-0 bg-light ps-5 w-100" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search" type="button" role="tab" aria-controls="nav-search" aria-selected="true">Search Criteria</a>
+                        <a class="nav-link border-0 bg-white ps-5 w-100" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search" type="button" role="tab" aria-controls="nav-search" aria-selected="true">Search Criteria</a>
 
-                        <a class="nav-link border-0 bg-light ps-5 border-bottom w-100 pb-3" id="nav-results-tab" data-bs-toggle="tab" data-bs-target="#nav-results" type="button" role="tab" aria-controls="nav-results" aria-selected="false">Results View</a>
+                        <a class="nav-link border-0 bg-white ps-5 border-bottom w-100 pb-3" id="nav-results-tab" data-bs-toggle="tab" data-bs-target="#nav-results" type="button" role="tab" aria-controls="nav-results" aria-selected="false">Results View</a>
 
 
                         <h4 class="px-3 mt-4 pb-2 mb-0">Notification Settings</h4>
 
-                        <a class="nav-link border-0 bg-light ps-5 w-100 pb-3" id="nav-preferences-tab" data-bs-toggle="tab" data-bs-target="#nav-preferences" type="button" role="tab" aria-controls="nav-preferences" aria-selected="true">Preferences</a>
+                        <a class="nav-link border-0 bg-white ps-5 w-100 pb-3" id="nav-preferences-tab" data-bs-toggle="tab" data-bs-target="#nav-preferences" type="button" role="tab" aria-controls="nav-preferences" aria-selected="true">Preferences</a>
 
                     </div>
                 </div>
@@ -182,8 +184,8 @@
                                 </div>
                             </div>
                             <div class="mt-5 text-center">
-                                <button type="button" class="btn rounded-pill text-light px-5 py-3 me-2" style="background-color: #6e6e70;">Deactivate Account</button>
-                                <button type="submit" class="btn rounded-pill text-light px-5 py-3 ms-2" style="background-color: #94ca60;">Save</button>
+                                <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #6e6e70;">Deactivate Account</button>
+                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
                             </div>
                         </form>
                     </div>
@@ -225,7 +227,128 @@
                             </div>
 
                             <div class="mt-5 text-center">
-                                <button type="submit" class="btn rounded-pill text-light px-5 py-3 ms-2" style="background-color: #94ca60;">Save</button>
+                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade show px-2 py-3" id="nav-agent" role="tabpanel" aria-labelledby="nav-agent-tab">
+                        <h4>About Agent</h4>
+                        
+                        <form>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div>
+                                        <label for="country" class="form-label mb-0 required">Country</label>
+                                        <input type="text" class="form-control" id="country" aria-describedby="country">
+                                    </div>  
+                                </div>
+                                <div class="col-6">
+                                    <div>
+                                        <label for="name" class="form-label mb-0 required">Name</label>
+                                        <input type="text" class="form-control" id="name" aria-describedby="name">
+                                    </div>  
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div>
+                                        <label for="agentType" class="form-label mb-0 mt-4 required">Agent Type</label>
+                                        <select class="form-select" aria-label="agentType" id="agentType">
+                                            <option selected>Company</option>
+                                            <option value="individual">Individual</option>
+                                        </select>
+                                    </div>  
+                                </div>
+                                <div class="col-6">
+                                    <div>
+                                        <label for="companyName" class="form-label mb-0 mt-4 required">Company Name</label>
+                                        <input type="text" class="form-control" id="companyName" aria-describedby="companyName">
+                                    </div>  
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div>
+                                        <label for="companyRegNo" class="form-label mb-0 mt-4 required">Company Registration Number</label>
+                                        <input type="text" class="form-control" id="companyRegNo" aria-describedby="companyRegNo">
+                                    </div>  
+                                </div>
+                                <div class="col-6">
+                                    <div>
+                                        <label for="email" class="form-label mb-0 mt-4 required">Email</label>
+                                        <input type="email" class="form-control" id="email" aria-describedby="email">
+                                    </div>  
+                                </div>
+                            </div>
+                        
+
+                            <h4 class="mt-5 mb-1">More About Agent</h4>
+                            <h6 style="color: #5e6871">Tell us more about the agent</h6>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div>
+                                        <label for="request" class="form-label mb-0 required">Request</label>
+                                        <input type="text" class="form-control" id="request" aria-describedby="request">
+                                    </div> 
+                                </div>
+                                <div class="col-6">
+                                    <div>
+                                        <label for="photo" class="form-label mb-0 required">Photo</label>
+                                        <div class="input-group">
+                                            <input type="file" class="form-control" id="inputGroupFile02">
+                                            <!-- <label class="input-group-text" for="inputGroupFile02">Upload</label> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div>
+                                        <label for="id" class="form-label mb-0 mt-4 required">NIC/ Passport/ License</label>
+                                        <input type="text" class="form-control" id="id" aria-describedby="id">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div>
+                                        <label for="taxNo" class="form-label mb-0 mt-4 required">Tax Number - Nullable</label>
+                                        <input type="text" class="form-control" id="taxNo" aria-describedby="taxNo">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <h4 class="mt-5 mb-1">Contact Information</h4>
+                            <h6 style="color: #5e6871">Keep your contact details up to date</h6>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div>
+                                        <label for="address" class="form-label mb-0 required">Address</label>
+                                        <input type="address" class="form-control" id="address" aria-describedby="address">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div>
+                                        <label for="telephone" class="form-label mb-0 required">Telephone</label>
+                                        <input type="telephone" class="form-control" id="telephone" aria-describedby="telephone">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="description" class="form-label mb-0 mt-4 required">Description Message</label>
+                                    <textarea class="form-control" rows="4" placeholder="Description Message" aria-label="description" aria-describedby="description"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 text-center">
+                                <button type="submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -259,7 +382,7 @@
 
                             <div class="mt-5 text-center">
                                 <button type="button" class="btn rounded-pill me-2 p-0 ps-3" style="border: 1px solid #CCCCCC; color: #23A1C0">Reset <i class="fas fa-undo ms-3"></i></button>
-                                <button type="submit" class="btn rounded-pill text-light px-5 py-3 ms-2" style="background-color: #94ca60;">Save</button>
+                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
                             </div>
                         </form>
                     </div>
@@ -282,7 +405,7 @@
                             </div>
                         </div>
                         <div class="mt-5 text-center">
-                            <button type="submit" class="btn rounded-pill text-light px-5 py-3 ms-2" style="background-color: #94ca60;">Save</button>
+                            <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
                         </div>
                     </div>
                 </div>
@@ -297,3 +420,38 @@
         </div>
     </div>
 @endsection
+
+
+@push('after-scripts')
+<script>
+        $('#nav-account-tab').on('click', function(){
+            $('.user-settings-head').text('Account Information');
+            $('.user-settings-sub').text('Here you can customize your basic account set-up information.');
+            $('.unsubscribe-div').removeClass('show-unsubscribe-div');
+        });
+
+        $('#nav-communication-tab').on('click', function(){
+            $('.user-settings-head').text('Communications');
+            $('.user-settings-sub').text('Stay connected with TROPICAL.com by subscribing to emails.');
+            $('.unsubscribe-div').addClass('show-unsubscribe-div');
+        });
+
+        $('#nav-agent-tab').on('click', function(){
+            $('.user-settings-head').text('Agent Request Form');
+            $('.user-settings-sub').text('');
+            $('.unsubscribe-div').removeClass('show-unsubscribe-div');
+        });
+
+        $('#nav-results-tab').on('click', function(){
+            $('.user-settings-head').text('Results View');
+            $('.user-settings-sub').text('Customize how you see listings on TROPICAL.com');
+            $('.unsubscribe-div').removeClass('show-unsubscribe-div');
+        });
+
+        $('#nav-preferences-tab').on('click', function(){
+            $('.user-settings-head').text('Notification Settings');
+            $('.user-settings-sub').text('Make changes to your notification settings at any time.');
+            $('.unsubscribe-div').addClass('show-unsubscribe-div');
+        });
+    </script>
+@endpush

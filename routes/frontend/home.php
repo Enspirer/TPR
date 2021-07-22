@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\FindAgentController;
+use App\Http\Controllers\Frontend\IndividualAgentController;
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\User\ProfileController;
@@ -12,6 +14,9 @@ use App\Http\Controllers\Frontend\User\ProfileController;
  */
 Route::get('/', [HomeController::class, 'landing'])->name('landing');
 Route::get('country/{country_id}', [HomeController::class, 'index'])->name('home_page');
+Route::get('contact', [ContactController::class, 'index'])->name('contact');
+Route::get('find-agent', [FindAgentController::class, 'index'])->name('find-agent');
+Route::get('individual-agent', [IndividualAgentController::class, 'index'])->name('individual-agent');
 
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');
 //Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');

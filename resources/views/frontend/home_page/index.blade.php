@@ -479,37 +479,11 @@
     </section>
 
 
-    <!--footer-->
-    <section id="footer">
-        <div class="container" style="margin-top:6rem;">
-            <div class="row">
-                <div class="col-3" data-aos="fade-up" data-aos-duration="500">
-                    <img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="img-fluid" alt="">
-                </div>
-                <div class="col-3 ps-5" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-                    <h5 class="fw-bolder mt-2">TITLES</h5>
-                    <p class="mt-4">About Us</p>
-                    <p>Contact Us</p>
-                    <p>Mobile Apps</p>
-                </div>
-                <div class="col-3 ps-5" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                    <h5 class="fw-bolder mt-2">MORE</h5>
-                    <p class="mt-4">Privacy Policy</p>
-                    <p>Terms of Use</p>
-                    <p>FAQ</p>
-                    <p>Sitemap</p>
-                </div>
-                <div class="col-3 ps-5" data-aos="fade-up" data-aos-duration="500" data-aos-delay="600">
-                    <h5 class="fw-bolder mt-2">TOPICS</h5>
-                    <p class="mt-4">Tips for buyers</p>
-                    <p>Tips for sellers</p>
-                    <p>Commercial Resources</p>
-                    <p>Property for Sale</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
 @endsection
 
+@push('after-scripts')
+<script src="{{ asset('tpr_templete/scripts/map.js') }}"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArF7tuecnSc3AvTh5V_mabinQqE6TuiYM&callback=initMap"
+type="text/javascript"></script>
+@endpush

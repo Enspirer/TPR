@@ -1,97 +1,125 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.theme_app')
 
 @section('title', app_name() . ' | ' . __('labels.frontend.contact.box_title'))
 
 @section('content')
-    <div class="row justify-content-center">
-        <div class="col col-sm-8 align-self-center">
-            <div class="card">
-                <div class="card-header">
-                    <strong>
-                        @lang('labels.frontend.contact.box_title')
-                    </strong>
-                </div><!--card-header-->
+    
+@push('after-styles')
+    <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/contact-us.css') }}">
+@endpush
 
-                <div class="card-body">
-                    {{ html()->form('POST', route('frontend.contact.send'))->open() }}
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.name'))->for('name') }}
 
-                                    {{ html()->text('name', optional(auth()->user())->name)
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.name'))
-                                        ->attribute('maxlength', 191)
-                                        ->required()
-                                        ->autofocus() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
+    <!-- banner -->
+    <section id="index-banner">
+        <div class="container-fluid banner">
+        </div>
+    </section>
 
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
 
-                                    {{ html()->email('email', optional(auth()->user())->email)
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.email'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
+    <!-- contact-us -->
+    <section id="contact-us">
+        <div class="container" style="margin-top: 6rem;">
+            <div class="row justify-content-between">
+                <div class="col-6">
+                    <h3 class="fw-bolder">Contact Us</h3>
 
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.phone'))->for('phone') }}
+                    <p class="mt-5" style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quo saepe odio error fugiat numquam eum, minima tenetur qui voluptates repudiandae doloribus porro eos iste tempore rerum! Nisi, molestias consectetur.</p>
 
-                                    {{ html()->text('phone')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.phone'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
+                    <div class="row align-items-center mt-5">
+                        <div class="col-1">
+                            <i class="bi bi-geo-alt-fill fs-3"></i>
+                        </div>
+                        <div class="col-11">
+                            <p class="mb-0">15, Colombo, Sri Lanka.</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-2">
+                        <div class="col-1">
+                            <i class="bi bi-clock-fill fs-3"></i>
+                        </div>
+                        <div class="col-11">
+                            <p class="mb-0">Monday - Saturday from 08:00 to 20:00</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-3">
+                        <div class="col-1">
+                            <img src="{{ asset('tpr_templete/images/contact_phone_icon.svg') }}" alt="">
+                        </div>
+                        <div class="col-11">
+                            <p class="mb-0">15, Colombo, Sri Lanka.</p>
+                        </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.message'))->for('message') }}
 
-                                    {{ html()->textarea('message')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.message'))
-                                        ->attribute('rows', 3)
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
+                    <div class="contact-map" style="margin-top: 7rem;">
+                        <div class="mapouter"><div class="gmap_canvas"><iframe width="500" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=16/3%20Elliot%20Pl,%20Colombo%2000800&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies2.org"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:500px;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:500px; border-radius: 25rem;}</style></div></div>
+                    </div>
+                </div>
 
-                        @if(config('access.captcha.contact'))
+                <div class="col-5">
+                    <form>
+                        <div class="mb-4">
                             <div class="row">
                                 <div class="col">
-                                    @captcha
-                                    {{ html()->hidden('captcha_status', 'true') }}
-                                </div><!--col-->
-                            </div><!--row-->
-                        @endif
+                                    <input type="text" class="form-control py-3 shadow" id="name" placeholder="Name" aria-describedby="name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control py-3 shadow" id="phone" placeholder="Phone" aria-describedby="phone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <input type="email" class="form-control py-3 shadow" id="email" placeholder="Email" aria-describedby="email">
+                        </div>
+                        <div class="mb-4">
+                          <textarea class="form-control py-3 shadow" name="message" id="message" cols="60" rows="5" placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn rounded-0 fw-bold w-100 text-white p-3" style="background-color: #77CEEC;">Submit</button>
+                    </form>
 
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group mb-0 clearfix">
-                                    {{ form_submit(__('labels.frontend.contact.button')) }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-                    {{ html()->form()->close() }}
-                </div><!--card-body-->
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+                    <div class="follow" style="margin-top: 7rem;">
+                        <h5 class="fw-bolde mb-5">Follow Us</h5>
+                        <div class="row mt-5">
+                            <div class="col-2 me-3">
+                                <a href="#" class="p-4 fs-3" style="color: #79CEEB; border: 2px solid #79CEEB;"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                            <div class="col-2 me-3">
+                                <a href="#" class="p-4 fs-3" style="color: #7BCBD4; border: 2px solid #7BCBD4;"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <div class="col-2 me-3">
+                                <a href="#" class="p-4 fs-3" style="color: #7DC9AF; border: 2px solid #7DC9AF;"><i class="fab fa-facebook-messenger"></i></a>
+                            </div>
+                            <div class="col-2 me-3">
+                                <a href="#" class="p-4 fs-3" style="color: #7FC587; border: 2px solid #7FC587;"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <div class="col-2">
+                                <a href="#" class="p-4 fs-3" style="color: #81BF50; border: 2px solid #81BF50;"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--get app-->
+    <section id="index-get-app">
+        <div class="container-fluid p-0 get-app" style="margin-top: 10rem;">
+            <div class="container">
+                <div class="row py-5 align-items-center justify-content-center">
+                    <div class="col-6 text-center">
+                        <h2 class="text-white fw-bolder">Get The App Now!</h2>
+                    </div>
+                    <div class="col-6 text-center">
+                        <img src="{{ asset('tpr_templete/images/appstore.svg') }}" alt="" height="50rem" class="me-3">
+                        <img src="{{ asset('tpr_templete/images/playstore.svg') }}" alt="" height="50rem">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 @endsection
 
 @push('after-scripts')

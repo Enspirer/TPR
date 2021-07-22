@@ -1,22 +1,7 @@
-$(document).ready(function(){
-
-    $('.first-nav .nav-item').hover(function() {
-        $(this).children('.nav-link').addClass('nav-hover');
-    }, function(){
-        $(this).children('.nav-link').removeClass('nav-hover');
-    });
+jQuery(function(){
 
 
-    $('.second-nav .nav-item').hover(function() {
-        $(this).children('.line').css({'visibility' : 'visible', 'width' : '100%'});
-    }, function(){
-        $(this).children('.line').css({'visibility' : 'hidden', 'width' : '0'});
-    });
-
-
-
-    $('.small-heart').click(function(){
-        
+    $('.small-heart').on('click', function(){
         $(".small-heart bi-heart").hide();
         $(".small-heart bi-heart-fill").show();
         
@@ -24,26 +9,13 @@ $(document).ready(function(){
     });
 
 
-    let color;
-
-    $('#agent-tabs .nav-item').hover(function(){
-        color = $(this).children('.nav-link').css('color');
-        $(this).css('backgroundColor', color);
-        $(this).children('.nav-link').css('color' , 'white');
-    }, function(){
-        $(this).css('backgroundColor', '');
-        $(this).children('.nav-link').css('color' , color);
-    });
-
-
-    
-    $('.collapse-button').click(function(){
-        
+    $('.collapse-button').on('click', function(){
         $(".bi bi-chevron-down").hide();
         $(".bi bi-chevron-up").show();
         
         $(".features i").toggle();
     });
+
 
 
     // Example starter JavaScript for disabling form submissions if there are invalid fields

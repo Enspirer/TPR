@@ -59,10 +59,3 @@
     background-color: #E88EAF;
     border-color: #E88EAF;
 }
-
-
-/* get app banner */
-.get-app {
-    background-image: linear-gradient(to right, rgba(135, 206, 235), rgba(25, 164, 25,0.5));
-    padding: 15rem;
-}
