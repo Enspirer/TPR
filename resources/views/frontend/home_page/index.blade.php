@@ -443,3 +443,9 @@
 
 @endsection
 
+@push('after-scripts')
+<script src="{{ asset('tpr_templete/scripts/map.js') }}"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArF7tuecnSc3AvTh5V_mabinQqE6TuiYM&callback=initMap"
+type="text/javascript"></script>
+@endpush

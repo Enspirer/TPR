@@ -23,7 +23,7 @@
                         <a class="nav-link text-white fw-bold" href="map-search.html">Map Search</a>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
-                        <a class="nav-link text-white fw-bold" href="find-agent.html">Find Agent</a>
+                        <a class="nav-link text-white fw-bold" href="{{route('frontend.find-agent')}}">Find Agent</a>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
                         <a class="nav-link text-white fw-bold" href="#">Market Trends</a>
@@ -38,7 +38,7 @@
                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="30" height="30" class="rounded-circle me-2"> <span class="text-white fw-bold user-name">{{auth()->user()->first_name}}</span>
                               </a>
                               <div class="dropdown-menu text-light" aria-labelledby="navbarDropdownMenuLink" style="background-color: #4195E1">
-                                <a class="dropdown-item text-light" href="profile-settings.html">My Account</a>
+                                <a class="dropdown-item text-light" href="{{ route('frontend.user.dashboard') }}">My Account</a>
                                 <a class="dropdown-item text-light" href="#">My Settings</a>
                                 <a class="dropdown-item text-light" href="#">My Notification Settings</a>
                                 <a class="dropdown-item text-light" href="{{route('frontend.auth.logout')}}">Log Out</a>
@@ -84,7 +84,7 @@
                         <div class="line"></div>
                     </li>
                     <li class="nav-item contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800" style="padding-left : 3rem">
-                        <a class="nav-link text-body fw-bold" href="contact-us.html">Contact Us</a>
+                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.contact') }}">Contact Us</a>
                         <div class="line"></div>
                     </li>
                 </ul>
@@ -92,3 +92,22 @@
         </nav>
     </div>
 </section>
+
+
+
+@push('after-scripts')
+<script>
+        $('.first-nav .nav-item').on('mouseenter', function(){
+            $(this).children('.nav-link').addClass('nav-hover');
+        }).on('mouseleave', function() {
+            $(this).children('.nav-link').removeClass('nav-hover');
+        });
+
+
+        $('.second-nav .nav-item').on('mouseenter', function(){
+            $(this).children('.line').css({'visibility' : 'visible', 'width' : '100%'});
+        }).on('mouseleave', function() {
+            $(this).children('.line').css({'visibility' : 'hidden', 'width' : '0'});
+        });
+    </script>
+@endpush

@@ -42,9 +42,29 @@
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
                         <a class="nav-link text-white fw-bold" href="#">TITLE</a>
                     </li>
-                    <li class="nav-item join" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" style="padding-left : 2rem">
-                        <a class="nav-link text-white fw-bold" href="#">TITLE</a>
-                    </li>
+                    @auth
+                        <!-- <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
+                            <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.login')}}">{{auth()->user()->first_name}} <i class="bi bi-person-check"></i></a>
+                        </li> -->
+                        <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
+                            <a class="nav-link dropdown-toggle" href="{{route('frontend.auth.login')}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="30" height="30" class="rounded-circle me-2"> <span class="text-white fw-bold user-name">{{auth()->user()->first_name}}</span>
+                              </a>
+                              <div class="dropdown-menu text-light" aria-labelledby="navbarDropdownMenuLink" style="background-color: #4195E1">
+                                <a class="dropdown-item text-light" href="{{ route('frontend.user.dashboard') }}">My Account</a>
+                                <a class="dropdown-item text-light" href="#">My Settings</a>
+                                <a class="dropdown-item text-light" href="#">My Notification Settings</a>
+                                <a class="dropdown-item text-light" href="{{route('frontend.auth.logout')}}">Log Out</a>
+                              </div>
+                        </li>
+                    @else
+                        <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
+                            <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.login')}}">Login <i class="bi bi-person-check"></i></a>
+                        </li>
+                        <li class="nav-item join" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" style="padding-left : 2rem">
+                            <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
