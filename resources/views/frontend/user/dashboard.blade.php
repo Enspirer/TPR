@@ -17,441 +17,159 @@
 
             </div>
         </div>
+
         <div class="row justify-content-between">
+
             <div class="col-4 p-0">
-                <div class="border">
-
-                    <div class="nav flex-column profile-settings align-items-start justify-content-start" id="nav-tab" role="tablist">
-
-                        <h5 class="px-3 mt-4 pb-2 mb-0">My Account</h5>
-
-                        <a class="nav-link active border-0 bg-white ps-5 w-100" id="nav-account-tab" data-bs-toggle="tab" data-bs-target="#nav-account" type="button" role="tab" aria-controls="nav-account" aria-selected="true">Account Information</a>
-
-                        <a class="nav-link bg-white border-0 ps-5 w-100 pb-3" id="nav-communication-tab" data-bs-toggle="tab" data-bs-target="#nav-communication" type="button" role="tab" aria-controls="nav-communication" aria-selected="false">Communications</a>
-
-                        <a class="nav-link bg-white border-0 border-bottom w-100 px-5 pb-3" id="nav-agent-tab" data-bs-toggle="tab" data-bs-target="#nav-agent" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 text-light w-100" style="background-color: #ff9900">Agent</button> </a>
-
-                        <h5 class="px-3 mt-4 pb-2 mb-0">My Settings</h5>
-
-                        <a class="nav-link border-0 bg-white ps-5 w-100" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search" type="button" role="tab" aria-controls="nav-search" aria-selected="true">Search Criteria</a>
-
-                        <a class="nav-link border-0 bg-white ps-5 border-bottom w-100 pb-3" id="nav-results-tab" data-bs-toggle="tab" data-bs-target="#nav-results" type="button" role="tab" aria-controls="nav-results" aria-selected="false">Results View</a>
-
-
-                        <h4 class="px-3 mt-4 pb-2 mb-0">Notification Settings</h4>
-
-                        <a class="nav-link border-0 bg-white ps-5 w-100 pb-3" id="nav-preferences-tab" data-bs-toggle="tab" data-bs-target="#nav-preferences" type="button" role="tab" aria-controls="nav-preferences" aria-selected="true">Preferences</a>
-
-                    </div>
-                </div>
+                @include('frontend.includes.profile-settings-links')
             </div>
 
             <div class="col-7 border">
-                <div class="tab-content" id="nav-tabContent">
 
-                    <div class="tab-pane fade show active px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
-                        <h4>About You</h4>
-                        
-                        <form>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div>
-                                        <label for="firstName" class="form-label mb-0 required">First Name</label>
-                                        <input type="text" class="form-control" id="firstName" aria-describedby="firstName">
-                                    </div>  
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <label for="lastName" class="form-label mb-0 required">Last Name</label>
-                                        <input type="text" class="form-control" id="lastName" aria-describedby="lastName">
-                                    </div>  
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div>
-                                        <label for="displayName" class="form-label mb-0 mt-4 required">Display Name</label>
-                                        <input type="text" class="form-control" id="displayName" aria-describedby="displayName">
-                                    </div>  
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <label for="email" class="form-label mb-0 mt-4 required">Email</label>
-                                        <input type="email" class="form-control" id="email" aria-describedby="email">
-                                    </div>  
-                                </div>
-                            </div>
-                        
-
-                            <h4 class="mt-5 mb-1">More About You</h4>
-                            <h6 style="color: #5e6871">Tell us more about you and your real estate needs.</h6>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="userType" class="form-label mb-0">I am a</label>
-                                    <select class="form-select" aria-label="userType" id="userType">
-                                        <option selected>No Preference</option>
-                                        <option value="1">First time buyer</option>
-                                        <option value="2">Repeat buyer</option>
-                                        <option value="3">Seller</option>
-                                        <option value="3">Residential investor</option>
-                                        <option value="3">Commercial investor</option>
-                                        <option value="3">Seller</option>
-                                      </select>
-                                </div>
-                                <div class="col-6">
-                                    <label for="birth" class="form-label mb-0">Year of birth</label>
-                                    <select class="form-select" aria-label="birth" id="birth">
-                                        <option selected>Select</option>
-                                        <option value="1">2021</option>
-                                        <option value="2">2020</option>
-                                        <option value="3">2019</option>
-                                      </select>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="gender" class="form-label mb-0 mt-4">Gender</label>
-                                    <select class="form-select" aria-label="gender" id="gender">
-                                        <option selected>Select</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                      </select>
-                                </div>
-                                <div class="col-6">
-                                    <label for=displayName" class="form-label mb-0 mt-4">Marital Status</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Select</option>
-                                        <option value="single">Single</option>
-                                        <option value="common-law">Common Law</option>
-                                        <option value="married">Married</option>
-                                        <option value="separated">separated</option>
-                                        <option value="divorced">Divorced</option>
-                                      </select>
-                                </div>
-                            </div>
-
-
-                            <h4 class="mt-5 mb-1">Contact Information</h4>
-                            <h6 style="color: #5e6871">Keep your contact details up to date</h6>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div>
-                                        <label for="city" class="form-label mb-0">City</label>
-                                        <input type="city" class="form-control" id="city" aria-describedby="city">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <label for="province" class="form-label mb-0">Province</label>
-                                        <input type="province" class="form-control" id="province" aria-describedby="province">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="country" class="form-label mb-0 mt-4">Country</label>
-                                    <select class="form-select" aria-label="country" id="country">
-                                        <option selected>Sri Lanka</option>
-                                        <option value="india">India</option>
-                                        <option value="australia">Australia</option>
-                                      </select>
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <label for="postal-code" class="form-label mb-0 mt-4">Postal Code</label>
-                                        <input type="postal-code" class="form-control" id="postal-code" aria-describedby="postal-code">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div>
-                                        <label for="home-phone" class="form-label mb-0 mt-4">Home Phone</label>
-                                        <input type="home-phone" class="form-control" id="home-phone" aria-describedby="home-phone">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <label for="mobile-phone" class="form-label mb-0 mt-4">Mobile Phone</label>
-                                        <input type="mobile-phone" class="form-control" id="mobile-phone" aria-describedby="mobile-phone">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-5 text-center">
-                                <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #6e6e70;">Deactivate Account</button>
-                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="tab-pane fade px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
-                        <form>
-                            <div class="row">
-                                <div class="col-7">
-                                    <div>
-                                        <label for="language" class="form-label mb-1 required">Communication Language</label>
-                                        <select class="form-select" aria-label="language" id="language">
-                                            <option selected>English</option>
-                                            <option value="malaysia">Malaysia</option>
-                                          </select>
-                                    </div> 
-                                </div>
-                            </div>
-                            <div class="row mt-5">
-                                <div class="form-check mb-3 ps-4">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Send me updates on the latest REALTOR.ca features, promotions, trends and insights.
-                                    </label>
-                                </div>
-    
-                                <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        Send me confirmation email when I contact the TROPICAL®.
-                                    </label>
-                                </div>
-    
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Yes, always add My Notes to email I send to friends.
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 text-center">
-                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="tab-pane fade show px-2 py-3" id="nav-agent" role="tabpanel" aria-labelledby="nav-agent-tab">
-                        <h4>About Agent</h4>
-                        
-                        <form>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div>
-                                        <label for="country" class="form-label mb-0 required">Country</label>
-                                        <input type="text" class="form-control" id="country" aria-describedby="country">
-                                    </div>  
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <label for="name" class="form-label mb-0 required">Name</label>
-                                        <input type="text" class="form-control" id="name" aria-describedby="name">
-                                    </div>  
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div>
-                                        <label for="agentType" class="form-label mb-0 mt-4 required">Agent Type</label>
-                                        <select class="form-select" aria-label="agentType" id="agentType">
-                                            <option selected>Company</option>
-                                            <option value="individual">Individual</option>
-                                        </select>
-                                    </div>  
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <label for="companyName" class="form-label mb-0 mt-4 required">Company Name</label>
-                                        <input type="text" class="form-control" id="companyName" aria-describedby="companyName">
-                                    </div>  
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div>
-                                        <label for="companyRegNo" class="form-label mb-0 mt-4 required">Company Registration Number</label>
-                                        <input type="text" class="form-control" id="companyRegNo" aria-describedby="companyRegNo">
-                                    </div>  
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <label for="email" class="form-label mb-0 mt-4 required">Email</label>
-                                        <input type="email" class="form-control" id="email" aria-describedby="email">
-                                    </div>  
-                                </div>
-                            </div>
-                        
-
-                            <h4 class="mt-5 mb-1">More About Agent</h4>
-                            <h6 style="color: #5e6871">Tell us more about the agent</h6>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div>
-                                        <label for="request" class="form-label mb-0 required">Request</label>
-                                        <input type="text" class="form-control" id="request" aria-describedby="request">
-                                    </div> 
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <label for="photo" class="form-label mb-0 required">Photo</label>
-                                        <div class="input-group">
-                                            <input type="file" class="form-control" id="inputGroupFile02">
-                                            <!-- <label class="input-group-text" for="inputGroupFile02">Upload</label> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div>
-                                        <label for="id" class="form-label mb-0 mt-4 required">NIC/ Passport/ License</label>
-                                        <input type="text" class="form-control" id="id" aria-describedby="id">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <label for="taxNo" class="form-label mb-0 mt-4 required">Tax Number - Nullable</label>
-                                        <input type="text" class="form-control" id="taxNo" aria-describedby="taxNo">
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <h4 class="mt-5 mb-1">Contact Information</h4>
-                            <h6 style="color: #5e6871">Keep your contact details up to date</h6>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div>
-                                        <label for="address" class="form-label mb-0 required">Address</label>
-                                        <input type="address" class="form-control" id="address" aria-describedby="address">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div>
-                                        <label for="telephone" class="form-label mb-0 required">Telephone</label>
-                                        <input type="telephone" class="form-control" id="telephone" aria-describedby="telephone">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <label for="description" class="form-label mb-0 mt-4 required">Description Message</label>
-                                    <textarea class="form-control" rows="4" placeholder="Description Message" aria-label="description" aria-describedby="description"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 text-center">
-                                <button type="submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="tab-pane fade px-2 py-3" id="nav-results" role="tabpanel" aria-labelledby="nav-results-tab">
-                        <form>
-                            <div class="row">
-                                <div class="col-7">
-                                    <div>
-                                        <label for="language" class="form-label mb-1 required">Sort results by</label>
-                                        <select class="form-select" aria-label="language" id="language">
-                                            <option selected>Newest</option>
-                                            <option value="oldest">Oldest</option>
-                                            <option value="lowest">Lowest Price</option>
-                                            <option value="highest">Higest price</option>
-                                          </select>
-                                    </div> 
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-7">
-                                    <div>
-                                        <label for="language" class="form-label mb-1 required">View results on</label>
-                                        <select class="form-select" aria-label="language" id="language">
-                                            <option selected>Map</option>
-                                            <option value="list">List</option>
-                                          </select>
-                                    </div> 
-                                </div>
-                            </div>
-
-                            <div class="mt-5 text-center">
-                                <button type="button" class="btn rounded-pill me-2 p-0 ps-3" style="border: 1px solid #CCCCCC; color: #23A1C0">Reset <i class="fas fa-undo ms-3"></i></button>
-                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="tab-pane fade px-2 py-3" id="nav-preferences" role="tabpanel" aria-labelledby="nav-preferences-tab">
+                <div class="px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
+                    <h4>About You</h4>
+                    
+                    <form>
                         <div class="row">
-                            <h4><i class="bi bi-bookmark-fill" style="color: #94ca60"></i> &nbsp;My Searches</h4>
-                            <p class="mt-3 ps-5 p-0">You don't have any saved searches yet. <a href="#" style="color: #4195E1">Learn how to add a Saved Search</a></p>
+                            <div class="col-6">
+                                <div>
+                                    <label for="firstName" class="form-label mb-0 required">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" aria-describedby="firstName">
+                                </div>  
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <label for="lastName" class="form-label mb-0 required">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" aria-describedby="lastName">
+                                </div>  
+                            </div>
                         </div>
 
-                        <div class="row mt-5">
-                            <h4><i class="bi bi-heart-fill" style="color: red"></i> &nbsp;My Favourites</h4>
-                            <p class="mt-3 ps-5 p-0">Updates to Price, Photo, Open House</p>
+                        <div class="row">
+                            <div class="col-6">
+                                <div>
+                                    <label for="displayName" class="form-label mb-0 mt-4 required">Display Name</label>
+                                    <input type="text" class="form-control" id="displayName" aria-describedby="displayName">
+                                </div>  
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <label for="email" class="form-label mb-0 mt-4 required">Email</label>
+                                    <input type="email" class="form-control" id="email" aria-describedby="email">
+                                </div>  
+                            </div>
+                        </div>
+                    
 
-                            <div class="form-check mb-3" style="margin-left: 2.5rem;">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    All Favourites
-                                </label>
+                        <h4 class="mt-5 mb-1">More About You</h4>
+                        <h6 style="color: #5e6871">Tell us more about you and your real estate needs.</h6>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="userType" class="form-label mb-0">I am a</label>
+                                <select class="form-select" aria-label="userType" id="userType">
+                                    <option selected>No Preference</option>
+                                    <option value="1">First time buyer</option>
+                                    <option value="2">Repeat buyer</option>
+                                    <option value="3">Seller</option>
+                                    <option value="3">Residential investor</option>
+                                    <option value="3">Commercial investor</option>
+                                    <option value="3">Seller</option>
+                                    </select>
+                            </div>
+                            <div class="col-6">
+                                <label for="birth" class="form-label mb-0">Year of birth</label>
+                                <select class="form-select" aria-label="birth" id="birth">
+                                    <option selected>Select</option>
+                                    <option value="1">2021</option>
+                                    <option value="2">2020</option>
+                                    <option value="3">2019</option>
+                                    </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="gender" class="form-label mb-0 mt-4">Gender</label>
+                                <select class="form-select" aria-label="gender" id="gender">
+                                    <option selected>Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    </select>
+                            </div>
+                            <div class="col-6">
+                                <label for=displayName" class="form-label mb-0 mt-4">Marital Status</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Select</option>
+                                    <option value="single">Single</option>
+                                    <option value="common-law">Common Law</option>
+                                    <option value="married">Married</option>
+                                    <option value="separated">separated</option>
+                                    <option value="divorced">Divorced</option>
+                                    </select>
+                            </div>
+                        </div>
+
+
+                        <h4 class="mt-5 mb-1">Contact Information</h4>
+                        <h6 style="color: #5e6871">Keep your contact details up to date</h6>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div>
+                                    <label for="city" class="form-label mb-0">City</label>
+                                    <input type="city" class="form-control" id="city" aria-describedby="city">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <label for="province" class="form-label mb-0">Province</label>
+                                    <input type="province" class="form-control" id="province" aria-describedby="province">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="country" class="form-label mb-0 mt-4">Country</label>
+                                <select class="form-select" aria-label="country" id="country">
+                                    <option selected>Sri Lanka</option>
+                                    <option value="india">India</option>
+                                    <option value="australia">Australia</option>
+                                    </select>
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <label for="postal-code" class="form-label mb-0 mt-4">Postal Code</label>
+                                    <input type="postal-code" class="form-control" id="postal-code" aria-describedby="postal-code">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div>
+                                    <label for="home-phone" class="form-label mb-0 mt-4">Home Phone</label>
+                                    <input type="home-phone" class="form-control" id="home-phone" aria-describedby="home-phone">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <label for="mobile-phone" class="form-label mb-0 mt-4">Mobile Phone</label>
+                                    <input type="mobile-phone" class="form-control" id="mobile-phone" aria-describedby="mobile-phone">
+                                </div>
                             </div>
                         </div>
                         <div class="mt-5 text-center">
+                            <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #6e6e70;">Deactivate Account</button>
                             <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </div>
 
-            <div class="row justify-content-between mt-3 invisible unsubscribe-div">
-                <div class="col-4"></div>
-                <div class="col-7">
-                    <p>You can withdraw your consent at any time by clicking <a href="#" style="color: #4195E1">unsubscribe</a> here or by clicking the "unsubscribe" link in TROPICAL.com emails.</p>
-                </div>
             </div>
         </div>
     </div>
+
 @endsection
 
-
-@push('after-scripts')
-<script>
-        $('#nav-account-tab').on('click', function(){
-            $('.user-settings-head').text('Account Information');
-            $('.user-settings-sub').text('Here you can customize your basic account set-up information.');
-            $('.unsubscribe-div').removeClass('show-unsubscribe-div');
-        });
-
-        $('#nav-communication-tab').on('click', function(){
-            $('.user-settings-head').text('Communications');
-            $('.user-settings-sub').text('Stay connected with TROPICAL.com by subscribing to emails.');
-            $('.unsubscribe-div').addClass('show-unsubscribe-div');
-        });
-
-        $('#nav-agent-tab').on('click', function(){
-            $('.user-settings-head').text('Agent Request Form');
-            $('.user-settings-sub').text('');
-            $('.unsubscribe-div').removeClass('show-unsubscribe-div');
-        });
-
-        $('#nav-results-tab').on('click', function(){
-            $('.user-settings-head').text('Results View');
-            $('.user-settings-sub').text('Customize how you see listings on TROPICAL.com');
-            $('.unsubscribe-div').removeClass('show-unsubscribe-div');
-        });
-
-        $('#nav-preferences-tab').on('click', function(){
-            $('.user-settings-head').text('Notification Settings');
-            $('.user-settings-sub').text('Make changes to your notification settings at any time.');
-            $('.unsubscribe-div').addClass('show-unsubscribe-div');
-        });
-    </script>
-@endpush
