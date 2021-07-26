@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/profile-settings.css') }}">
 @endpush
 
-    <div class="container user-settings" style="margin-top:12rem;">
+    <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
             <div class="col-4"></div>
             <div class="col-7 p-0">

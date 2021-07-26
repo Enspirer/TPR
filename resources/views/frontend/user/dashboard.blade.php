@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/profile-settings.css') }}">
 @endpush
 
-    <div class="container user-settings" style="margin-top:12rem;">
+    <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
             <div class="col-4"></div>
             <div class="col-7 p-0">
                 <h4 class="fs-4 fw-bolder user-settings-head">Account Information</h4>
                 <h6 class="user-settings-sub" style="color: #5e6871">Here you can customize your basic account set-up information.</h6>
-
             </div>
         </div>
 
