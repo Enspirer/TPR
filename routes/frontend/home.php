@@ -12,12 +12,18 @@ use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\User\CommunicationsController;
+use App\Http\Controllers\Frontend\User\AccountDashboardController;
+use App\Http\Controllers\Frontend\User\FavouritesController;
 use App\Http\Controllers\Frontend\User\AgentController;
 use App\Http\Controllers\Frontend\User\PropertiesController;
+use App\Http\Controllers\Frontend\User\BookingBoxController;
+use App\Http\Controllers\Frontend\User\CompanyController;
 use App\Http\Controllers\Frontend\User\ResultsController;
 use App\Http\Controllers\Frontend\User\PreferencesController;
 
 use App\Http\Controllers\Frontend\User\CreatePropertyController;
+use App\Http\Controllers\Frontend\User\UserChatController;
+
 /*
  * Frontend Controllers
  * All route names are prefixed with 'frontend.'.
@@ -48,9 +54,17 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('communications', [CommunicationsController::class, 'index'])->name('communications');
 
+        Route::get('account-dashboard', [AccountDashboardController::class, 'index'])->name('account-dashboard');
+
+        Route::get('favourites', [FavouritesController::class, 'index'])->name('favourites');
+
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
 
         Route::get('properties', [PropertiesController::class, 'index'])->name('properties');
+
+        Route::get('booking', [BookingBoxController::class, 'index'])->name('booking');
+
+        Route::get('company', [CompanyController::class, 'index'])->name('company');
 
         Route::get('results', [ResultsController::class, 'index'])->name('results');
 
@@ -58,6 +72,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
         Route::get('properties/create', [CreatePropertyController::class, 'index'])->name('create-property');
+
+        Route::get('booking/user-chat', [UserChatController::class, 'index'])->name('user-chat');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');

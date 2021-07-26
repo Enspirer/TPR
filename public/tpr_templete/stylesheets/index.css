@@ -60,15 +60,15 @@
     overflow-y: scroll;
     overflow-x: hidden;
 }
-::-webkit-scrollbar {
+.properties::-webkit-scrollbar {
     width: 8px;
     border: 1px solid #d5d5d5;
 }
-::-webkit-scrollbar-track {
+.properties::-webkit-scrollbar-track {
     border-radius: 0;
     background: #eeeeee;
 }
-::-webkit-scrollbar-thumb {
+.properties::-webkit-scrollbar-thumb {
     border-radius: 0;
     background: #b0b0b0;
 }

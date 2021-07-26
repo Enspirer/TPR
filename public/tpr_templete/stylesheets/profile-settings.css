@@ -19,9 +19,7 @@
 #nav-results label {
     font-size: 1rem;
 }
-.show-unsubscribe-div {
-    visibility: visible!important;
-}
+
 .form-check .form-check-input {
     margin-left: -1.0rem!important;
     margin-right: 1rem;
@@ -33,4 +31,46 @@
     background-color: #23A1C0;
     padding: 0.75rem;
     border-radius: 50px;
+}
+
+
+.user-chat-name {
+    padding: 0.5rem 0;
+}
+.user-chat-name:hover {
+    background-color: #23A1C0;
+    cursor: pointer;
+    color: white;
+}
+
+.user-chat {
+    height: 610px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.user-chat::-webkit-scrollbar {
+    width: 4px;
+    border: 1px solid #d5d5d5;
+}
+.user-chat::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #eeeeee;
+}
+.user-chat::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: #b0b0b0;
+}
+
+
+.account-dashboard-cards {
+    border: 3px solid #94ca60;
+    display: inline-block;
+    border-radius: 80px;
+    color: #ff8000;
+}
+
+
+.select2-container .select2-selection--single {
+    height: 45px;
+    width: 500px;
 }
