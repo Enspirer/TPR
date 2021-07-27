@@ -32,7 +32,8 @@
                 <div class="px-2 py-3" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
                     <h4>About Property</h4>
                     
-                    <form>
+                    <form action="" method="">
+                        {{csrf_field()}}
                         <div class="row">
                             <div class="col-6">
                                 <div>
@@ -96,11 +97,13 @@
                             </div>
                             <div class="col-6">
                                 <div>
-                                    <label for="photo" class="form-label mb-0 required">Photo</label>
-                                    <div class="input-group">
-                                        <input type="file" class="form-control" id="inputGroupFile02">
-                                        <!-- <label class="input-group-text" for="inputGroupFile02">Upload</label> -->
-                                    </div>
+
+                                    @include('frontend.file_manager.file_manager_dialog',[
+                                        'fm_name' => 'photo',
+                                        'fm_caption' => 'Photo'
+                                    ])
+
+
                                 </div>
                             </div>
                         </div>
