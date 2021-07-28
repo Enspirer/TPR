@@ -148,26 +148,21 @@
 
                             </div>
 
-                            <div class="col-8 ps-4">
-                                <div class="col-6 ">
-                                    <div class="row align-items-center mb-2 py-3">
-                                        <div class="col-3 text-start p-0 pe-2 border-end">
-                                            <img src="{{ asset('tpr_templete/images/users/user-1.png') }}" alt="" class="img-fluid rounded-circle" style="border: 3px solid #0dcaf0">
-                                        </div>
-                                        <div class="col-8">
-                                            <h6 class="mb-0">Emma Newman</h6>
-                                        </div>
+                            <div class="col-8 ps-4 position-relative">
+                                <div class="col-6">
+                                    <div class="row align-items-center mb-2 py-3 px-0">
+                                        <h6 class="mb-0 p-0">Emma Newman</h6>
                                     </div>
                                 </div>
                                 
 
                                 <div class="row mb-5">
-                                    <div class="row p-0">
-                                        <p class="mb-2 fw-bolder">Agent - 26/07/2021</p>
+                                    <div class="col-1">
+                                        <img src="{{ asset('tpr_templete/images/users/user-2.png') }}" alt="" class="img-fluid rounded-circle" style="border: 3px solid #0dcaf0">
                                     </div>
 
-                                    <div class="col-11">
-                                        <div class="row align-items-center justify-content-between p-2 border">
+                                    <div class="col-9">
+                                        <div class="row align-items-center justify-content-between p-2 border rounded">
                                             <div class="col-6 p-0">
                                                 <img src="{{url('tpr_templete/images/fp_fm_1.svg')}}" class="card-img-top" alt="...">
                                             </div>
@@ -182,14 +177,27 @@
                                 </div>
 
 
-                                <div class="row justify-content-end pe-2">
-                                    <div class="col-11 mb-2">
-                                        <div class="row align-items-center justify-content-between border">
+                                <div class="row justify-content-end pe-2 align-items-end">
+                                    <div class="col-9">
+                                        <div class="row align-items-center justify-content-between border rounded">
                                             <p class="mb-0 p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, culpa! Hic harum ab illo aliquam quos facere asperiores explicabo fugiat molestiae autem nesciunt alias ratione eos, dicta vel perspiciatis.</p>
                                         </div>
+                                    </div>
 
-                                        <div class="row justify-content-end text-end mt-2">
-                                            <p class="fw-bolder">You - 26/07/2021</p>
+                                    <div class="col-1">
+                                        <img src="{{ asset('tpr_templete/images/users/user-1.png') }}" alt="" class="img-fluid rounded-circle" style="border: 3px solid #0dcaf0">
+                                    </div>
+                                </div>
+                                
+                                <div class="row mt-5 position-absolute bottom-0 w-100">
+                                    <div class="col-10 p-0">
+                                        <div>
+                                            <input type="text" class="form-control" id="message" aria-describedby="message" placeholder="send a message">
+                                        </div>
+                                    </div>
+                                    <div class="col-2 p-0">
+                                        <div>
+                                            <button type="submit" class="btn rounded text-light px-3 py-3 ms-2" style="background-color: #94ca60;">Send</button>
                                         </div>
                                     </div>
                                 </div>

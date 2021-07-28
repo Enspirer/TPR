@@ -148,60 +148,56 @@
 
                             </div>
 
-                            <div class="col-8 ps-4">
+                            <div class="col-8 ps-4 position-relative">
                                 <div class="col-6">
-                                    <div class="row align-items-center mb-2 py-3">
-                                        <div class="col-3 text-start p-0">
-                                            <img src="{{ asset('tpr_templete/images/users/user-2.png') }}" alt="" class="img-fluid rounded-circle" style="border: 3px solid #0dcaf0">
-                                        </div>
-                                        <div class="col-8">
-                                            <h6 class="mb-0">John Wick</h6>
-                                        </div>
+                                    <div class="row align-items-center mb-2 py-3 px-0">
+                                        <h6 class="mb-0 p-0">John Wick</h6>
                                     </div>
                                 </div>
                                 
 
                                 <div class="row mb-5">
-                                    <div class="row p-0">
-                                        <div class="col-2">
-                                            <p class="mb-2 fw-bolder">Agent</p>
-                                        </div>
-
-                                        <div class="col-3">
-                                            <p class="mb-2 fw-bolder">26/07/2021</p>
-                                        </div>
+                                    <div class="col-1">
+                                        <img src="{{ asset('tpr_templete/images/users/user-2.png') }}" alt="" class="img-fluid rounded-circle" style="border: 3px solid #0dcaf0">
                                     </div>
 
-                                    <div class="col-11">
-                                        <div class="row align-items-center justify-content-between p-2 border">
+                                    <div class="col-9">
+                                        <div class="row align-items-center justify-content-between p-2 border rounded">
                                             <div class="col-6 p-0">
-                                                <img src="{{url('tpr_templete/images/fp_fm_3.svg')}}" class="card-img-top" alt="...">
+                                                <img src="{{url('tpr_templete/images/fp_fm_1.svg')}}" class="card-img-top" alt="...">
                                             </div>
                                             <div class="col-6 p-0 ps-3">
-                                                <p class="card-title fw-bolder mb-2">Colombo, Sri Lanka</p>
-                                                <p class="card-text mb-1" style="font-size: 0.8rem">2 Bed house</p>
-                                                <p class="card-text mb-1" style="font-size: 0.8rem">Rajagiriya</p>
-                                                <p class="text-info mb-0">$ 100,000</p>
+                                                <p class="card-title fw-bolder mb-2">Jaffna, Sri Lanka</p>
+                                                <p class="card-text mb-1" style="font-size: 0.8rem">4 Bed Semidetached house</p>
+                                                <p class="card-text mb-1" style="font-size: 0.8rem">Lancaster, claited Kingdom</p>
+                                                <p class="text-info mb-0">$ 480,000</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <div class="row justify-content-end pe-2">
-                                    <div class="col-11 mb-2">
-                                        <div class="row align-items-center justify-content-between border">
-                                            <p class="mb-0 p-2">Is that house have balcony?</p>
+                                <div class="row justify-content-end pe-2 align-items-end">
+                                    <div class="col-9">
+                                        <div class="row align-items-center justify-content-between border rounded">
+                                            <p class="mb-0 p-2">Is this house have balcony?</p>
                                         </div>
+                                    </div>
 
-                                        <div class="row justify-content-end text-end mt-2">
-                                            <div class="col-2">
-                                                <p class="fw-bolder">You</p>
-                                            </div>
+                                    <div class="col-1">
+                                        <img src="{{ asset('tpr_templete/images/users/user-1.png') }}" alt="" class="img-fluid rounded-circle" style="border: 3px solid #0dcaf0">
+                                    </div>
+                                </div>
 
-                                            <div class="col-3 p-0">
-                                                <p class="fw-bolder">26/07/2021</p>
-                                            </div>
+                                <div class="row mt-5 position-absolute bottom-0 w-100">
+                                    <div class="col-10 p-0">
+                                        <div>
+                                            <input type="text" class="form-control" id="message" aria-describedby="message" placeholder="send a message">
+                                        </div>
+                                    </div>
+                                    <div class="col-2 p-0">
+                                        <div>
+                                            <button type="submit" class="btn rounded text-light px-3 py-3 ms-2" style="background-color: #94ca60;">Send</button>
                                         </div>
                                     </div>
                                 </div>
