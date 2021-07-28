@@ -31,7 +31,6 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
                         <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
                         <!-- Change /upload-target to your upload address -->
                         <form action="/upload-target" class="dropzone"></form>

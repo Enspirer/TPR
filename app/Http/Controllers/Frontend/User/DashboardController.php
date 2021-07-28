@@ -16,4 +16,18 @@ class DashboardController extends Controller
     {
         return view('frontend.user.dashboard');
     }
+
+    public function communications() {
+        return view('frontend.user.communications');
+    }
+
+    public function accountDashboard()
+    {
+        return view('frontend.user.account-dashboard');
+    }
+
+    public function favourites()
+    {
+        return view('frontend.user.favourites');
+    }
 }
