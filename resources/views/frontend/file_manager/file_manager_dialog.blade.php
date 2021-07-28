@@ -1,3 +1,5 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css'>
+
 <label for="photo" class="form-label mb-0 required">{{$fm_caption}}</label>
 
 <div class="row">
@@ -10,7 +12,7 @@
     </div>
 </div>
 
-
+@push('dialog_modal')
 <div class="modal fade bd-example-modal-lg" id="file_manager{{$fm_name}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -29,10 +31,21 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-
+                        <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+                        <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+                        <!-- Change /upload-target to your upload address -->
+                        <form action="/upload-target" class="dropzone"></form>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">sdfsdf</div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            @foreach(\App\Models\FileManager::where('user_id',auth()->user()->id)->get() as $files)
+                                <div class="col-md-4">
+                                    {{$files->file_name}}
+
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -42,3 +55,5 @@
         </div>
     </div>
 </div>
+
+@endpush

@@ -100,11 +100,8 @@
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label for="photo" class="form-label mb-0 required">Photo</label>
-                                            <div class="input-group">
-                                                <input type="file" class="form-control" id="inputGroupFile02">
-                                                <!-- <label class="input-group-text" for="inputGroupFile02">Upload</label> -->
-                                            </div>
+                                            @include('frontend.file_manager.file_manager_dialog',['fm_caption' => 'Photo','fm_name' => 'fm_name'])
+
                                         </div>
                                     </div>
                                 </div>
@@ -160,4 +157,6 @@
             </div>
         </div>
     </div>
+
+
 @endsection
