@@ -33,12 +33,15 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
                         <!-- Change /upload-target to your upload address -->
-                        <form action="/upload-target" class="dropzone"></form>
+                        <form action="{{route('frontend.file_store')}}" class="dropzone">
+                            {{csrf_field()}}
+                        </form>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
                             @foreach(\App\Models\FileManager::where('user_id',auth()->user()->id)->get() as $files)
                                 <div class="col-md-4">
+                                    <div class="" style="background-image: url('{{url('')}}');height: 200px;"></div>
                                     {{$files->file_name}}
 
                                 </div>

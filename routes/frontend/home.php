@@ -15,7 +15,7 @@ use App\Http\Controllers\Frontend\User\AgentController;
 use App\Http\Controllers\Frontend\User\CompanyController;
 use App\Http\Controllers\Frontend\User\ResultsController;
 use App\Http\Controllers\Frontend\User\PreferencesController;
-
+use App\Http\Controllers\Frontend\FileManagerController;
 
 /*
  * Frontend Controllers
@@ -30,7 +30,7 @@ Route::get('map-search', [MapSearchController::class, 'index'])->name('map-searc
 Route::get('residential', [ResidentialController::class, 'index'])->name('residential');
 Route::get('individual-property', [IndividualPropertyController::class, 'index'])->name('individual-property');
 
-
+Route::post('file_manager-store',[FileManagerController::class,'store'])->name('file_store');
 
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');
 //Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
