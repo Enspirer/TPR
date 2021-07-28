@@ -45,19 +45,19 @@
                                     <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
                                     <p class="card-text">Lancaster, claited Kingdom</p>
                                     <p class="mt-1 text-info">$ 480,000</p>
-                                </div>
 
-                                <div class="row justify-content-end mt-3">
-                                    <div class="col-5">
-                                        <div class="row ps-3">
-                                            <div class="col-4">
-                                                <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #5aa45a">View</button>
-                                            </div>
-                                            <div class="col-4">
-                                                <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Edit</button>
-                                            </div>
-                                            <div class="col-4">
-                                                <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #ff2c4b">Remove</button>
+                                    <div class="row justify-content-between">
+                                        <div class="col-9">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
+                                                </div>
+                                                <div class="col-4">
+                                                    <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Edit</button>
+                                                </div>
+                                                <div class="col-4 ps-1">
+                                                    <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -73,19 +73,19 @@
                                     <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
                                     <p class="card-text">Lancaster, claited Kingdom</p>
                                     <p class="mt-1 text-info">$ 480,000</p>
-                                </div>
 
-                                <div class="row justify-content-end mt-3">
-                                    <div class="col-5">
-                                        <div class="row ps-3">
-                                            <div class="col-4">
-                                                <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #5aa45a">View</button>
-                                            </div>
-                                            <div class="col-4">
-                                                <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Edit</button>
-                                            </div>
-                                            <div class="col-4">
-                                                <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #ff2c4b">Remove</button>
+                                    <div class="row justify-content-between">
+                                        <div class="col-9">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
+                                                </div>
+                                                <div class="col-4">
+                                                    <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Edit</button>
+                                                </div>
+                                                <div class="col-4 ps-1">
+                                                    <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -101,19 +101,19 @@
                                     <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
                                     <p class="card-text">Lancaster, claited Kingdom</p>
                                     <p class="mt-1 text-info">$ 480,000</p>
-                                </div>
 
-                                <div class="row justify-content-end mt-3">
-                                    <div class="col-5">
-                                        <div class="row ps-3">
-                                            <div class="col-4">
-                                                <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #5aa45a">View</button>
-                                            </div>
-                                            <div class="col-4">
-                                                <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Edit</button>
-                                            </div>
-                                            <div class="col-4">
-                                                <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #ff2c4b">Remove</button>
+                                    <div class="row justify-content-between">
+                                        <div class="col-9">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
+                                                </div>
+                                                <div class="col-4">
+                                                    <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Edit</button>
+                                                </div>
+                                                <div class="col-4 ps-1">
+                                                    <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -59,6 +59,8 @@
                                     <div class="col-12">
                                         <label for="map" class="form-label mb-2 mt-4 required">Location</label>
                                         <div id="map" style="width: 100%; height: 400px;"></div>
+                                        <input type="text" id="lat" class="mt-3 d-none">
+                                        <input type="text" id="lng" class="mt-3 d-none">
                                     </div>
                                 </div>
 
@@ -182,8 +184,8 @@
             //Get location.
             var currentLocation = marker.getPosition();
             //Add lat and lng values to a field that we can save.
-            // document.getElementById('lat').value = currentLocation.lat(); //latitude
-            // document.getElementById('lng').value = currentLocation.lng(); //longitude
+            document.getElementById('lat').value = currentLocation.lat(); //latitude
+            document.getElementById('lng').value = currentLocation.lng(); //longitude
             console.log(marker.getPosition().lat());
             console.log(marker.getPosition().lng());
         }
