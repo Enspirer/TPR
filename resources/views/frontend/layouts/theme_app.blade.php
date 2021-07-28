@@ -96,6 +96,8 @@
     </div>
 
 
+@stack('dialog_modal')
+
 <!-- Scripts -->
 
 

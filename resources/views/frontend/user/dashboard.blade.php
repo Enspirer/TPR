@@ -10,15 +10,6 @@
 
     <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
-            <div class="col-3"></div>
-            <div class="col-8 p-0">
-                <h4 class="fs-4 fw-bolder user-settings-head">Account Information</h4>
-                <h6 class="user-settings-sub" style="color: #5e6871">Here you can customize your basic account set-up information.</h6>
-            </div>
-        </div>
-
-        <div class="row justify-content-between">
-
             <div class="col-4">
                 <div class="row">
                     <div class="col-12">
@@ -28,6 +19,12 @@
             </div>
 
             <div class="col-8">
+                <div class="row justify-content-between">
+                    <div class="col-8 p-0">
+                        <h4 class="fs-4 fw-bolder user-settings-head">Account Information</h4>
+                        <h6 class="user-settings-sub" style="color: #5e6871">Here you can customize your basic account set-up information.</h6>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-12 border">
                         <div class="px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
@@ -38,13 +35,13 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="firstName" class="form-label mb-0 required">First Name</label>
-                                            <input type="text" class="form-control" id="firstName" aria-describedby="firstName">
+                                            <input type="text" class="form-control" value="{{auth()->user()->first_name}}" id="firstName" aria-describedby="firstName">
                                         </div>  
                                     </div>
                                     <div class="col-6">
                                         <div>
                                             <label for="lastName" class="form-label mb-0 required">Last Name</label>
-                                            <input type="text" class="form-control" id="lastName" aria-describedby="lastName">
+                                            <input type="text" value="{{auth()->user()->last_name}}" class="form-control" id="lastName" aria-describedby="lastName">
                                         </div>  
                                     </div>
                                 </div>
@@ -59,7 +56,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="email" class="form-label mb-0 mt-4 required">Email</label>
-                                            <input type="email" class="form-control" id="email" aria-describedby="email">
+                                            <input value="{{auth()->user()->email}}" type="email" class="form-control" id="email" aria-describedby="email">
                                         </div>  
                                     </div>
                                 </div>
