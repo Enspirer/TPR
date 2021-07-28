@@ -74,3 +74,10 @@
     height: 45px;
     width: 500px;
 }
+
+.btn-close {
+    width: 0.4em;
+    height: 0.3em;
+    position: relative;
+    top: -0.8rem;
+}

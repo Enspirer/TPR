@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/profile-settings.css') }}">
 @endpush
 
-    <div class="container user-settings" style="margin-top:8rem;">
+    <div class="container user-settings" style="margin-top:9rem;">
         <div class="row justify-content-between">
             <div class="col-3"></div>
             <div class="col-8 p-0">
-                <h4 class="fs-4 fw-bolder user-settings-head">Company</h4>
+                <!-- <h4 class="fs-4 fw-bolder user-settings-head">Company</h4> -->
             </div>
         </div>
 
@@ -38,7 +38,7 @@
                                     <button class="nav-link" id="pills-agent-tab" data-bs-toggle="pill" data-bs-target="#pills-agent" type="button" role="tab" aria-controls="pills-agent" aria-selected="false">Add Agent</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Properties</button>
+                                    <a class="nav-link" id="pills-contact-tab" href="{{ route('frontend.user.company-property') }}" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Properties</a>
                                 </li>
                             </ul>
                                     
@@ -167,13 +167,61 @@
                                             <div class="col-12">
                                                 <label for="agentType" class="form-label mb-0 required">Select Agent</label>
 
-                                                <div class="row align-items-center">
+                                                <div class="row align-items-center mb-4">
                                                     <div class="col-9">
-                                                        <select class="form-select js-example-basic-multiple" name="states[]" aria-label="agent" id="agent">
-                                                            <option value="menavid">Menavid</option>
-                                                            <option value="rentals">City Center</option>
-                                                            <option value="commercial">Majestic</option>
-                                                            <option value="property-land">Cine World</option>
+                                                    <select class="combobox input-large form-control" name="normal">
+                                                        <option value="" selected="selected"></option>
+                                                        <option value="AL">Alabama</option>
+                                                        <option value="AK">Alaska</option>
+                                                        <option value="AZ">Arizona</option>
+                                                        <option value="AR">Arkansas</option>
+                                                        <option value="CA">California</option>
+                                                        <option value="CO">Colorado</option>
+                                                        <option value="CT">Connecticut</option>
+                                                        <option value="DE">Delaware</option>
+                                                        <option value="DC">District Of Columbia</option>
+                                                        <option value="FL">Florida</option>
+                                                        <option value="GA">Georgia</option>
+                                                        <option value="HI">Hawaii</option>
+                                                        <option value="ID">Idaho</option>
+                                                        <option value="IL">Illinois</option>
+                                                        <option value="IN">Indiana</option>
+                                                        <option value="IA">Iowa</option>
+                                                        <option value="KS">Kansas</option>
+                                                        <option value="KY">Kentucky</option>
+                                                        <option value="LA">Louisiana</option>
+                                                        <option value="ME">Maine</option>
+                                                        <option value="MD">Maryland</option>
+                                                        <option value="MA">Massachusetts</option>
+                                                        <option value="MI">Michigan</option>
+                                                        <option value="MN">Minnesota</option>
+                                                        <option value="MS">Mississippi</option>
+                                                        <option value="MO">Missouri</option>
+                                                        <option value="MT">Montana</option>
+                                                        <option value="NE">Nebraska</option>
+                                                        <option value="NV">Nevada</option>
+                                                        <option value="NH">New Hampshire</option>
+                                                        <option value="NJ">New Jersey</option>
+                                                        <option value="NM">New Mexico</option>
+                                                        <option value="NY">New York</option>
+                                                        <option value="NC">North Carolina</option>
+                                                        <option value="ND">North Dakota</option>
+                                                        <option value="OH">Ohio</option>
+                                                        <option value="OK">Oklahoma</option>
+                                                        <option value="OR">Oregon</option>
+                                                        <option value="PA">Pennsylvania</option>
+                                                        <option value="RI">Rhode Island</option>
+                                                        <option value="SC">South Carolina</option>
+                                                        <option value="SD">South Dakota</option>
+                                                        <option value="TN">Tennessee</option>
+                                                        <option value="TX">Texas</option>
+                                                        <option value="UT">Utah</option>
+                                                        <option value="VT">Vermont</option>
+                                                        <option value="VA">Virginia</option>
+                                                        <option value="WA">Washington</option>
+                                                        <option value="WV">West Virginia</option>
+                                                        <option value="WI">Wisconsin</option>
+                                                        <option value="WY">Wyoming</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-3 text-center">
@@ -184,7 +232,7 @@
                                         </div>
                                     </form>
 
-                                    <div class="row mb-4 border p-1">
+                                    <div class="row mb-4 border p-2 pe-1">
                                         <div class="col-3">
                                             <img src="{{url('tpr_templete/images/directory_menavid.svg')}}" class="card-img-top" alt="..." style="height=">
                                         </div>
@@ -201,7 +249,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-4 border p-1">
+                                    <div class="row mb-4 border p-2 pe-1">
                                         <div class="col-3">
                                             <img src="{{url('tpr_templete/images/directory_menavid.svg')}}" class="card-img-top" alt="..." style="height=">
                                         </div>
@@ -218,7 +266,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-4 border p-1">
+                                    <div class="row mb-4 border p-2 pe-1">
                                         <div class="col-3">
                                             <img src="{{url('tpr_templete/images/directory_menavid.svg')}}" class="card-img-top" alt="..." style="height=">
                                         </div>
@@ -235,7 +283,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-4 border p-1">
+                                    <div class="row mb-4 border p-2 pe-1">
                                         <div class="col-3">
                                             <img src="{{url('tpr_templete/images/directory_menavid.svg')}}" class="card-img-top" alt="..." style="height=">
                                         </div>
@@ -264,8 +312,8 @@
 
 @push('after-scripts')
 <script>
-    $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
+    $(document).ready(function(){
+          $('.combobox').combobox()
+        });
 </script>
 @endpush

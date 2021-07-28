@@ -11,18 +11,11 @@ use App\Http\Controllers\Frontend\IndividualPropertyController;
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\DashboardController;
-use App\Http\Controllers\Frontend\User\CommunicationsController;
-use App\Http\Controllers\Frontend\User\AccountDashboardController;
-use App\Http\Controllers\Frontend\User\FavouritesController;
 use App\Http\Controllers\Frontend\User\AgentController;
-use App\Http\Controllers\Frontend\User\PropertiesController;
-use App\Http\Controllers\Frontend\User\BookingBoxController;
 use App\Http\Controllers\Frontend\User\CompanyController;
 use App\Http\Controllers\Frontend\User\ResultsController;
 use App\Http\Controllers\Frontend\User\PreferencesController;
 
-use App\Http\Controllers\Frontend\User\CreatePropertyController;
-use App\Http\Controllers\Frontend\User\UserChatController;
 
 /*
  * Frontend Controllers
@@ -52,28 +45,30 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         // User Dashboard Specific
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-        Route::get('communications', [CommunicationsController::class, 'index'])->name('communications');
+        Route::get('communications', [DashboardController::class, 'communications'])->name('communications');
 
-        Route::get('account-dashboard', [AccountDashboardController::class, 'index'])->name('account-dashboard');
+        Route::get('account-dashboard', [DashboardController::class, 'accountDashboard'])->name('account-dashboard');
 
-        Route::get('favourites', [FavouritesController::class, 'index'])->name('favourites');
+        Route::get('favourites', [DashboardController::class, 'favourites'])->name('favourites');
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
 
-        Route::get('properties', [PropertiesController::class, 'index'])->name('properties');
+        Route::get('properties', [AgentController::class, 'properties'])->name('properties');
 
-        Route::get('booking', [BookingBoxController::class, 'index'])->name('booking');
+        Route::get('booking', [AgentController::class, 'bookingBox'])->name('booking');
 
-        Route::get('company', [CompanyController::class, 'index'])->name('company');
+        Route::get('company', [AgentController::class, 'company'])->name('company');
 
         Route::get('results', [ResultsController::class, 'index'])->name('results');
 
         Route::get('preferences', [PreferencesController::class, 'index'])->name('preferences');
 
 
-        Route::get('properties/create', [CreatePropertyController::class, 'index'])->name('create-property');
+        Route::get('properties/create', [AgentController::class, 'createProperty'])->name('create-property');
 
-        Route::get('booking/user-chat', [UserChatController::class, 'index'])->name('user-chat');
+        Route::get('booking/user-chat', [AgentController::class, 'userChat'])->name('user-chat');
+
+        Route::get('company/property', [AgentController::class, 'companyProperty'])->name('company-property');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');
