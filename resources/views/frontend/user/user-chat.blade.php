@@ -10,18 +10,6 @@
 
     <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
-            <div class="col-3"></div>
-            <div class="col-8 p-0">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Booking Box</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-between">
-
             <div class="col-4">
                 <div class="row">
                     <div class="col-12">
@@ -30,9 +18,19 @@
                 </div>
             </div>
 
-            <div class="col-8 border">
+            <div class="col-8">
+                <div class="row justify-content-between">
+                    <div class="col-8 p-0">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h4 class="fs-4 fw-bolder user-settings-head">Booking Box</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 border">
                         <div class="row justify-content-between">
                             <div class="col-4 user-chat">
                                 <div class="input-group mb-4 mt-2">

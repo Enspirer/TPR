@@ -232,69 +232,85 @@
                                         </div>
                                     </form>
 
-                                    <div class="row mb-4 border p-2 pe-1">
+                                    <div class="row mb-4 border p-2 align-items-center">
                                         <div class="col-3">
                                             <img src="{{url('tpr_templete/images/directory_menavid.svg')}}" class="card-img-top" alt="..." style="height=">
                                         </div>
-                                        <div class="col-9 pe-0">
-                                            <div class="clearfix">
-                                                <div class="float-start mt-3">
-                                                    <h5 class="card-title">Menavid</h5>
-                                                    <p class="card-text mt-3 mb-1">Sri Lanka</p>
-                                                </div>
-                                                <div class="float-end">
-                                                    <button type="button" class="btn-close" aria-label="Close"></button>
+                                        <div class="col-9">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h5 class="card-title mb-0">Menavid</h5>
+                                                    <div class="row align-items-center">
+                                                        <div class="col-6">
+                                                            <p class="card-text mb-0">Sri Lanka</p>
+                                                        </div>
+                                                        <div class="col-6 text-end">
+                                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row mb-4 border p-2 pe-1">
+                                    <div class="row mb-4 border p-2 align-items-center">
                                         <div class="col-3">
                                             <img src="{{url('tpr_templete/images/directory_menavid.svg')}}" class="card-img-top" alt="..." style="height=">
                                         </div>
-                                        <div class="col-9 pe-0">
-                                            <div class="clearfix">
-                                                <div class="float-start mt-3">
-                                                    <h5 class="card-title">Menavid</h5>
-                                                    <p class="card-text mt-3 mb-1">Sri Lanka</p>
-                                                </div>
-                                                <div class="float-end">
-                                                    <button type="button" class="btn-close" aria-label="Close"></button>
+                                        <div class="col-9">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h5 class="card-title mb-0">Menavid</h5>
+                                                    <div class="row align-items-center">
+                                                        <div class="col-6">
+                                                            <p class="card-text mb-0">Sri Lanka</p>
+                                                        </div>
+                                                        <div class="col-6 text-end">
+                                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row mb-4 border p-2 pe-1">
+                                    <div class="row mb-4 border p-2 align-items-center">
                                         <div class="col-3">
                                             <img src="{{url('tpr_templete/images/directory_menavid.svg')}}" class="card-img-top" alt="..." style="height=">
                                         </div>
-                                        <div class="col-9 pe-0">
-                                            <div class="clearfix">
-                                                <div class="float-start mt-3">
-                                                    <h5 class="card-title">Menavid</h5>
-                                                    <p class="card-text mt-3 mb-1">Sri Lanka</p>
-                                                </div>
-                                                <div class="float-end">
-                                                    <button type="button" class="btn-close" aria-label="Close"></button>
+                                        <div class="col-9">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h5 class="card-title mb-0">Menavid</h5>
+                                                    <div class="row align-items-center">
+                                                        <div class="col-6">
+                                                            <p class="card-text mb-0">Sri Lanka</p>
+                                                        </div>
+                                                        <div class="col-6 text-end">
+                                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row mb-4 border p-2 pe-1">
+                                    <div class="row mb-4 border p-2 align-items-center">
                                         <div class="col-3">
                                             <img src="{{url('tpr_templete/images/directory_menavid.svg')}}" class="card-img-top" alt="..." style="height=">
                                         </div>
-                                        <div class="col-9 pe-0">
-                                            <div class="clearfix">
-                                                <div class="float-start mt-3">
-                                                    <h5 class="card-title">Menavid</h5>
-                                                    <p class="card-text mt-3 mb-1">Sri Lanka</p>
-                                                </div>
-                                                <div class="float-end">
-                                                    <button type="button" class="btn-close" aria-label="Close"></button>
+                                        <div class="col-9">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h5 class="card-title mb-0">Menavid</h5>
+                                                    <div class="row align-items-center">
+                                                        <div class="col-6">
+                                                            <p class="card-text mb-0">Sri Lanka</p>
+                                                        </div>
+                                                        <div class="col-6 text-end">
+                                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

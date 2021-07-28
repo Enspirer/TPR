@@ -10,18 +10,6 @@
 
     <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
-            <div class="col-3"></div>
-            <div class="col-8 p-0">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Create Property</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-between">
-
             <div class="col-4">
                 <div class="row">
                     <div class="col-12">
@@ -30,9 +18,19 @@
                 </div>
             </div>
 
-            <div class="col-8 border">
+            <div class="col-8">
+                <div class="row justify-content-between">
+                    <div class="col-8 p-0">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h4 class="fs-4 fw-bolder user-settings-head">Create Property</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 border">
                         <div class="px-2 py-3" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
                             <h4>About Property</h4>
                     
@@ -40,22 +38,13 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="country" class="form-label mb-0 required">Country</label>
-                                            <input type="text" class="form-control" id="country" aria-describedby="country">
-                                        </div>  
-                                    </div>
-                                    <div class="col-6">
-                                        <div>
                                             <label for="name" class="form-label mb-0 required">Name</label>
                                             <input type="text" class="form-control" id="name" aria-describedby="name">
-                                        </div>  
+                                        </div> 
                                     </div>
-                                </div>
-
-                                <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="agentType" class="form-label mb-0 mt-4 required">Property Type</label>
+                                            <label for="agentType" class="form-label mb-0 required">Property Type</label>
                                             <select class="form-select" aria-label="agentType" id="agentType">
                                                 <option selected>Sales</option>
                                                 <option value="rentals">Rentals</option>
@@ -64,25 +53,26 @@
                                             </select>
                                         </div>  
                                     </div>
-                                    <div class="col-6">
-                                        <div>
-                                            <label for="companyName" class="form-label mb-0 mt-4 required">Company Name</label>
-                                            <input type="text" class="form-control" id="companyName" aria-describedby="companyName">
-                                        </div>  
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="map" class="form-label mb-2 mt-4 required">Location</label>
+                                        <div id="map" style="width: 100%; height: 400px;"></div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="companyRegNo" class="form-label mb-0 mt-4 required">Company Registration Number</label>
-                                            <input type="text" class="form-control" id="companyRegNo" aria-describedby="companyRegNo">
+                                            <label for="price" class="form-label mb-0 mt-4 required">Price</label>
+                                            <input type="text" class="form-control" id="price" aria-describedby="price">
                                         </div>  
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label for="email" class="form-label mb-0 mt-4 required">Email</label>
-                                            <input type="email" class="form-control" id="email" aria-describedby="email">
+                                            <label for="category" class="form-label mb-0 mt-4 required">Category</label>
+                                            <input type="text" class="form-control" id="category" aria-describedby="category">
                                         </div>  
                                     </div>
                                 </div>
@@ -94,13 +84,12 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="request" class="form-label mb-0 required">Request</label>
-                                            <input type="text" class="form-control" id="request" aria-describedby="request">
+                                            @include('frontend.file_manager.file_manager_dialog',['fm_caption' => 'Featured Image','fm_name' => 'fm_name'])
                                         </div> 
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            @include('frontend.file_manager.file_manager_dialog',['fm_caption' => 'Photo','fm_name' => 'fm_name'])
+                                            @include('frontend.file_manager.file_manager_dialog',['fm_caption' => 'More Images','fm_name' => 'fm_name'])
 
                                         </div>
                                     </div>
@@ -109,47 +98,31 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="id" class="form-label mb-0 mt-4 required">NIC/ Passport/ License</label>
-                                            <input type="text" class="form-control" id="id" aria-describedby="id">
+                                            <label for="meta-description" class="form-label mb-0 mt-4 required">Meta Description</label>
+                                            <input type="text" class="form-control" id="meta-description" aria-describedby="meta-description">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label for="taxNo" class="form-label mb-0 mt-4 required">Tax Number - Nullable</label>
-                                            <input type="text" class="form-control" id="taxNo" aria-describedby="taxNo">
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <h4 class="mt-5 mb-1">Contact Information</h4>
-                                <h6 style="color: #5e6871">Keep your contact details up to date</h6>
-
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div>
-                                            <label for="address" class="form-label mb-0 required">Address</label>
-                                            <input type="address" class="form-control" id="address" aria-describedby="address">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div>
-                                            <label for="telephone" class="form-label mb-0 required">Telephone</label>
-                                            <input type="telephone" class="form-control" id="telephone" aria-describedby="telephone">
+                                            <label for="slug" class="form-label mb-0 mt-4 required">Slug</label>
+                                            <input type="text" class="form-control" id="slug" aria-describedby="slug">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-12">
-                                        <label for="description" class="form-label mb-0 mt-4 required">Description Message</label>
-                                        <textarea class="form-control" rows="4" placeholder="Description Message" aria-label="description" aria-describedby="description"></textarea>
+                                    <div class="col-6">
+                                        <div>
+                                            <label for="transaction-type" class="form-label mb-0 mt-4 required">Transaction Type</label>
+                                            <input type="text" class="form-control" id="transaction-type" aria-describedby="transaction-type">
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="mt-5 text-center">
                                     <button type="submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">Submit</button>
                                 </div>
+
                             </form>
                         </div>
                     </div>
@@ -160,3 +133,64 @@
 
 
 @endsection
+
+@push('after-scripts')
+
+<script>
+
+        //Set up some of our variables.
+        var marker = false; ////Has the user plotted their location marker? 
+                
+        //Function called to initialize / create the map.
+        //This is called when the page has loaded.
+        function initMap() {
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 5,
+                center: { lat: -28.024, lng: 140.887 },
+            });
+
+            //Listen for any clicks on the map.
+            google.maps.event.addListener(map, 'click', function(event) {                
+                //Get the location that the user clicked.
+                var clickedLocation = event.latLng;
+                //If the marker hasn't been added.
+
+                if(marker === false){
+                    //Create the marker.
+                    marker = new google.maps.Marker({
+                        position: clickedLocation,
+                        map: map,
+                        draggable: true //make it draggable
+                    });
+                    //Listen for drag events!
+                    google.maps.event.addListener(marker, 'dragend', function(event){
+                        markerLocation();
+                    });
+                } else{
+                    //Marker has already been added, so just change its location.
+                    marker.setPosition(clickedLocation);
+                }
+                //Get the marker's location.
+                markerLocation();
+            });
+        }
+                
+        //This function will get the marker's current location and then add the lat/long
+        //values to our textfields so that we can save the location.
+        function markerLocation(){
+            //Get location.
+            var currentLocation = marker.getPosition();
+            //Add lat and lng values to a field that we can save.
+            // document.getElementById('lat').value = currentLocation.lat(); //latitude
+            // document.getElementById('lng').value = currentLocation.lng(); //longitude
+            console.log(marker.getPosition().lat());
+            console.log(marker.getPosition().lng());
+        }
+        
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArF7tuecnSc3AvTh5V_mabinQqE6TuiYM&callback=initMap"
+type="text/javascript"></script>
+
+@endpush

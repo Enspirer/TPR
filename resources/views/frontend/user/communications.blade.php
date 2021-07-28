@@ -10,15 +10,6 @@
 
     <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
-            <div class="col-3"></div>
-            <div class="col-8 p-0">
-                <h4 class="fs-4 fw-bolder user-settings-head">Communications</h4>
-                <h6 class="user-settings-sub" style="color: #5e6871">Stay connected with TROPICAL.com by subscribing to emails</h6>
-            </div>
-        </div>
-
-        <div class="row justify-content-between">
-
             <div class="col-4">
                 <div class="row">
                     <div class="col-12">
@@ -27,9 +18,16 @@
                 </div>
             </div>
 
-            <div class="col-8 border">
+            <div class="col-8">
+                <div class="row justify-content-between">
+                    <div class="col-8 p-0">
+                        <h4 class="fs-4 fw-bolder user-settings-head">Communications</h4>
+                        <h6 class="user-settings-sub" style="color: #5e6871">Stay connected with TROPICAL.com by subscribing to emails</h6>
+                    </div>
+                </div>
+
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 border">
                         <div class="px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
                             <form>
                                 <div class="row">

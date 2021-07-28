@@ -10,18 +10,6 @@
 
     <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
-            <div class="col-3"></div>
-            <div class="col-8 p-0">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Booking Box</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-between">
-
             <div class="col-4">
                 <div class="row">
                     <div class="col-12">
@@ -30,9 +18,19 @@
                 </div>
             </div>
 
-            <div class="col-8 border">
+            <div class="col-8">
+                <div class="row justify-content-between">
+                    <div class="col-8 p-0">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h4 class="fs-4 fw-bolder user-settings-head">Booking Box</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 border">
                         <div class="row justify-content-between">
                             <div class="col-4 user-chat">
                                 <div class="input-group mb-4 mt-2">
@@ -151,9 +149,9 @@
                             </div>
 
                             <div class="col-8 ps-4">
-                                <div class="col-6">
+                                <div class="col-6 ">
                                     <div class="row align-items-center mb-2 py-3">
-                                        <div class="col-3 text-start p-0">
+                                        <div class="col-3 text-start p-0 pe-2 border-end">
                                             <img src="{{ asset('tpr_templete/images/users/user-1.png') }}" alt="" class="img-fluid rounded-circle" style="border: 3px solid #0dcaf0">
                                         </div>
                                         <div class="col-8">
@@ -165,13 +163,7 @@
 
                                 <div class="row mb-5">
                                     <div class="row p-0">
-                                        <div class="col-2">
-                                            <p class="mb-2 fw-bolder">Agent</p>
-                                        </div>
-
-                                        <div class="col-3">
-                                            <p class="mb-2 fw-bolder">26/07/2021</p>
-                                        </div>
+                                        <p class="mb-2 fw-bolder">Agent - 26/07/2021</p>
                                     </div>
 
                                     <div class="col-11">
@@ -197,13 +189,7 @@
                                         </div>
 
                                         <div class="row justify-content-end text-end mt-2">
-                                            <div class="col-2">
-                                                <p class="fw-bolder">You</p>
-                                            </div>
-
-                                            <div class="col-3 p-0">
-                                                <p class="fw-bolder">26/07/2021</p>
-                                            </div>
+                                            <p class="fw-bolder">You - 26/07/2021</p>
                                         </div>
                                     </div>
                                 </div>
