@@ -27,3 +27,10 @@ Breadcrumbs::for('admin.property.edit', function ($trail) {
     $trail->push('Edit', route('admin.property.edit',1));
 });
 
+Breadcrumbs::for('admin.agent.index', function ($trail) {
+    $trail->push('Agent Request', route('admin.agent.index'));
+});
+Breadcrumbs::for('admin.agent.edit', function ($trail) {
+    $trail->push('Edit', route('admin.agent.edit',1));
+});
+

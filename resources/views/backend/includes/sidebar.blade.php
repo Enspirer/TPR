@@ -28,6 +28,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/agent'))}}" href="{{ route('admin.agent.index') }}">
+                    <i class="nav-icon fas fa-user-tie"></i>
+                    Agent Request
+                </a>
+            </li>
+
 
 
             @if ($logged_in_user->isAdmin())

@@ -35,6 +35,7 @@
                 </div>
 
                 <input type="hidden" name="hidden_id" value="{{ $property->id }}"/>
+                <a href="{{route('admin.property.index')}}" class="btn btn-primary pull-right ml-4">Back</a>&nbsp;&nbsp;&nbsp;
                 <button type="submit" class="btn btn-success pull-right">Update</button><br>
             </div><br>
             

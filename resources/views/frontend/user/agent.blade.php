@@ -6,6 +6,7 @@
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/profile-settings.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 @endpush
 
     <div class="container user-settings" style="margin-top:8rem;">
@@ -30,18 +31,19 @@
                         <div class="px-2 py-3" id="nav-agent" role="tabpanel" aria-labelledby="nav-agent-tab">
                             <h4>About Agent</h4>
                         
-                            <form>
+                            <form action="{{route('frontend.user.agent.store')}}" method="post" enctype="multipart/form-data">
+                            {{csrf_field()}}
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="country" class="form-label mb-0 required">Country</label>
-                                            <input type="text" class="form-control" id="country" aria-describedby="country">
+                                            <label class="form-label mb-0 required">Country</label>
+                                            <input type="text" class="form-control" name="country" required>
                                         </div>  
                                     </div>
                                     <div class="col-6">
                                         <div>
                                             <label for="name" class="form-label mb-0 required">Name</label>
-                                            <input type="text" class="form-control" id="name" aria-describedby="name">
+                                            <input type="text" class="form-control" name="name" required>
                                         </div>  
                                     </div>
                                 </div>
@@ -49,17 +51,17 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="agentType" class="form-label mb-0 mt-4 required">Agent Type</label>
-                                            <select class="form-select" aria-label="agentType" id="agentType">
-                                                <option selected>Company</option>
+                                            <label class="form-label mb-0 mt-4 required">Agent Type</label>
+                                            <select class="form-select" name="agent_type" required>
+                                                <option value="Company">Company</option>
                                                 <option value="individual">Individual</option>
                                             </select>
                                         </div>  
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label for="companyName" class="form-label mb-0 mt-4 required">Company Name</label>
-                                            <input type="text" class="form-control" id="companyName" aria-describedby="companyName">
+                                            <label class="form-label mb-0 mt-4 required">Company Name</label>
+                                            <input type="text" class="form-control" name="company_name" required>
                                         </div>  
                                     </div>
                                 </div>
@@ -67,14 +69,14 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="companyRegNo" class="form-label mb-0 mt-4 required">Company Registration Number</label>
-                                            <input type="text" class="form-control" id="companyRegNo" aria-describedby="companyRegNo">
+                                            <label class="form-label mb-0 mt-4 required">Company Registration Number</label>
+                                            <input type="text" class="form-control" name="company_reg_no" required>
                                         </div>  
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label for="email" class="form-label mb-0 mt-4 required">Email</label>
-                                            <input type="email" class="form-control" id="email" aria-describedby="email">
+                                            <label class="form-label mb-0 mt-4 required">Email</label>
+                                            <input type="email" class="form-control" name="email" required>
                                         </div>  
                                     </div>
                                 </div>
@@ -86,16 +88,15 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="request" class="form-label mb-0 required">Request</label>
-                                            <input type="text" class="form-control" id="request" aria-describedby="request">
+                                            <label class="form-label mb-0 required">Request</label>
+                                            <input type="text" class="form-control" name="request_field" required>
                                         </div> 
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label for="photo" class="form-label mb-0 required">Photo</label>
+                                            <label class="form-label mb-0 required">Photo</label>
                                             <div class="input-group">
-                                                <input type="file" class="form-control" id="inputGroupFile02">
-                                                <!-- <label class="input-group-text" for="inputGroupFile02">Upload</label> -->
+                                                <input type="file" class="form-control" name="photo" required>
                                             </div>
                                         </div>
                                     </div>
@@ -104,18 +105,42 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="id" class="form-label mb-0 mt-4 required">NIC/ Passport/ License</label>
-                                            <input type="text" class="form-control" id="id" aria-describedby="id">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div>
-                                            <label for="taxNo" class="form-label mb-0 mt-4 required">Tax Number - Nullable</label>
-                                            <input type="text" class="form-control" id="taxNo" aria-describedby="taxNo">
+                                            <label class="form-label mb-0 mt-4 required">Tax Number - Nullable</label>
+                                            <input type="text" class="form-control" name="tax" required>
                                         </div>
                                     </div>
                                 </div>
 
+                                <h4 class="mt-5 mb-1">Validate Informations</h4>
+                                <!-- <h6 style="color: #5e6871">Tell us more about the agent</h6> -->
+                                
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">NIC/ Passport/ License</label>
+                                            <select class="form-select" name="validate" id="validate" required>
+                                                <option value="NIC">NIC</option>
+                                                <option value="Passport">Passport</option>
+                                                <option value="License">License</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">   
+                                        <div id="divFrmNIC" class="form-group form-validate-div" style="display:none">
+                                            <label class="form-label mb-0 mt-4 required">NIC</label>
+                                            <input type="text" class="form-control" name="nic" placeholder="NIC Number" > 
+                                        </div>
+                                        <div id="divFrmPassport" class="form-group form-validate-div" style="display:none">
+                                            <label class="form-label mb-0 mt-4 required">Passport</label>
+                                            <input type="text" class="form-control" name="passport" placeholder="Passport Number"> 
+                                        </div>
+                                        <div id="divFrmLicense" class="form-group form-validate-div" style="display:none">
+                                            <label class="form-label mb-0 mt-4 required">License</label>
+                                            <input type="text" class="form-control" name="license" placeholder="License Number" > 
+                                        </div>
+                                    </div>
+                                </div>
+                                
 
                                 <h4 class="mt-5 mb-1">Contact Information</h4>
                                 <h6 style="color: #5e6871">Keep your contact details up to date</h6>
@@ -123,27 +148,28 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="address" class="form-label mb-0 required">Address</label>
-                                            <input type="address" class="form-control" id="address" aria-describedby="address">
+                                            <label class="form-label mb-0 required">Address</label>
+                                            <input type="address" class="form-control" name="address" required>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label for="telephone" class="form-label mb-0 required">Telephone</label>
-                                            <input type="telephone" class="form-control" id="telephone" aria-describedby="telephone">
+                                            <label class="form-label mb-0 required">Telephone</label>
+                                            <input type="telephone" class="form-control" name="telephone" required>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-12">
-                                        <label for="description" class="form-label mb-0 mt-4 required">Description Message</label>
-                                        <textarea class="form-control" rows="4" placeholder="Description Message" aria-label="description" aria-describedby="description"></textarea>
+                                        <label class="form-label mb-0 mt-4 required">Description Message</label>
+                                        <textarea class="form-control" rows="4" name="description_msg" placeholder="Description Message" required></textarea>
                                     </div>
                                 </div>
 
                                 <div class="mt-5 text-center">
-                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">Submit</button>
+                                    <!-- <button type="submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">Submit</button> -->
+                                    <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                                 </div>
                             </form>
                         </div>
@@ -152,6 +178,24 @@
             </div>
         </div>
     </div>
+
+
+
+<script>
+        
+    $(function() {
+
+        $( "#validate" ).change(function() {  
+            validate();
+        });
+        function validate() {
+            $('.form-validate-div').hide();
+            var divKey = $( "#validate option:selected" ).val();                
+            $('#divFrm'+divKey).show();
+        }       
+        validate();
+    });
+</script>
 
 @endsection
 

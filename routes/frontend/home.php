@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('favourites', [DashboardController::class, 'favourites'])->name('favourites');
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
+        Route::post('agent/store', [AgentController::class, 'store'])->name('agent.store');
 
         Route::get('properties', [AgentController::class, 'properties'])->name('properties');
 
