@@ -80,20 +80,25 @@
     function delete_image(element_id) {
         $('#'+element_id).remove();
     }
+
     $("#select_img_{{$file_input_name}}").click(function(){
         distroy_table{{$file_input_name}}();
         load_tables{{$file_input_name}}();
         $('#file_manager_{{$file_input_name}}').modal('show');
         console.log('aaa');
+
     });
+
     $('#myModal_{{$file_input_name}}').on('hidden.bs.modal', function (e) {
         console.log('assssseeeaa');
     });
+
     @if($multiple)
     function select_item{{$file_input_name}}(id,url) {
         $("#img_list{{$file_input_name}}").append('' +
             '<div class="col-md-3" id="'+ id +'">' +
             '<a class="" onclick="delete_image('+ id +')" style="background-color: #e91e63;padding: 2px;padding-left: 5px;padding-right: 16px;color: white;border-radius: 0px 19px 0px 0px;padding-left: 20px;">X</a>' +
+
             '<div class="card">' +
             '<div class="" style="height: 200px;background-image: url(\''+ url +'\');background-repeat: no-repeat;background-size: cover;"></div>' +
             ' </div>' +
@@ -109,10 +114,16 @@
         $('#image_preview_{{$file_input_name}}').attr('src',url);
     }
     @endif
+
+
+
     function distroy_table{{$file_input_name}}() {
         var table = $('#villadatatable_{{$file_input_name}}').DataTable();
         table.destroy();
     }
+
+
+
     function load_tables{{$file_input_name}}() {
         var table = $('#villadatatable_{{$file_input_name}}').DataTable({
             processing: true,
@@ -124,7 +135,7 @@
             order: [[ 0, "desc" ]],
             bAutoWidth: false,
             scrollCollapse: true,
-            ajax: "{{route('frontend.user.getFileDetails')}}",
+            ajax: "{{route('frontend.user.getFileDetails',$file_input_name)}}",
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'file', name: 'file',orderable: false, searchable: false},
@@ -133,12 +144,18 @@
             ]
         });
     }
+    $(function () {
+        load_tables{{$file_input_name}}()
+    });
+
     function autoajust{{$file_input_name}}() {
         var table = $('#villadatatable_{{$file_input_name}}').DataTable();
         $('#villadatatable_{{$file_input_name}}').css( 'display', 'block' );
         table.columns.adjust().draw();
     }
+
     //    autoajust();
+
     //    $(function () {
     //        load_tables()
     //    });
