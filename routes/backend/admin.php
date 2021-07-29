@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\PropertyController;
+use App\Http\Controllers\Backend\AgentRequestController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -21,3 +22,9 @@ Route::get('property/getdetails', [PropertyController::class, 'getDetails'])->na
 Route::get('property/edit/{id}', [PropertyController::class, 'edit'])->name('property.edit');
 Route::post('property/update', [PropertyController::class, 'update'])->name('property.update');
 Route::get('property/delete/{id}', [PropertyController::class, 'destroy'])->name('property.destroy');
+
+Route::get('agent', [AgentRequestController::class, 'index'])->name('agent.index');
+Route::get('agent/getdetails', [AgentRequestController::class, 'getDetails'])->name('agent.getDetails');
+Route::get('agent/edit/{id}', [AgentRequestController::class, 'edit'])->name('agent.edit');
+Route::post('agent/update', [AgentRequestController::class, 'update'])->name('agent.update');
+Route::get('agent/delete/{id}', [AgentRequestController::class, 'destroy'])->name('agent.destroy');
