@@ -433,6 +433,7 @@
             google.maps.event.addListener(markerCluster, 'click', function(c) {
                 // console.log('Number of managed markers in cluster: ' + c.getSize());
                 var markers = c.getMarkers();
+
                 // console.log('Number of managed markers in cluster: ' + c.getSize());
                 var newArray = [];
 
@@ -457,23 +458,43 @@
 
                         var obj = JSON.parse(data);
 
-                        // for (tag_ob in obj) {
-                        //     alert(tag_ob.name);
-                        // }
+                        let template = '';
+                        let info = [];
+
+                        for(let i = 0; i < obj.length; i++) {
+
+                            info[i] = [obj[i]['country'], obj[i]['long'], obj[i]['lat']];;
+                        }
 
 
+                        var infowindow = new google.maps.InfoWindow();
 
 
-                        //getMap Data
-
-
-                        // alert("Data: " + data + "\nStatus: " + status);
-                        // let uri = data;
-
-                        // $(".beds").text(obj[0]['beds']);
+                        for(let i = 0; i < obj.length; i++) {
+                            let details;
+                            markers[i].addListener('click', function() {
+                                if(info[i][1] == markers[i].getPosition().lng() && info[i][2] == markers[i].getPosition().lat()) {
+                                    details = `  <div class="row align-items-center p-1">
+                                                    <div class="col-6">
+                                                        <img src="../tpr_templete/images/ps_1.svg" alt="" class="img-fluid" style="max-width: 100%!important">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h5 class="fw-bold mb-2">${obj[i]['name']}</h5>
+                                                        <p class="mb-1" style="font-size: 0.8rem;">541, Rosewood Place</p>
+                                                        <p class="mb-1" style="font-size: 0.8rem;">Colombo, ${obj[i]['country']}</p>
+                                                        <p class="mb-0" style="font-size: 0.8rem;"> ${obj[i]['beds']} <i class="fas fa-bed me-4"></i> ${obj[i]['baths']} <i class="fas fa-bath"></i></p>
+                                                    </div>
+                                                </div>`;
+                                    
+                                    infowindow.setContent(details);           
+                                    infowindow.open(map, markers[i]);
+                                }
+                            });
+                        }
                         
 
-                        let template = '';
+                        
+                        
 
                         for(let i = 0; i < obj.length; i++) {
                             template += `
@@ -499,14 +520,30 @@
                                     </div>
                                 </div>
                             `
+                            // info[i] = [obj[i]['long'], obj[i]['lat']];
+
+                            
+
                         };
 
-                        $(".properties").html(template);
                         // console.log(obj);
-                        
-                    });
-                // console.log(myArray);
+
+                        $(".properties").html(template);
+
+                        // var infoWindow = new google.maps.InfoWindow({
+                        //     content:'<h1>dfdf</h1>'
+                        // });
+
+                        // for (marker in markers) {
+                        //     const cars = [];
+                        //     cars['lat']= markers[marker].getPosition().lat();
+                        //     cars['long']= markers[marker].getPosition().lng();
+                        // }
+
+                });
             });
+
+
         }
         const locations = [
             @foreach($promo as $prom)
