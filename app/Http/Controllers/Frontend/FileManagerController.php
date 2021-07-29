@@ -7,6 +7,8 @@ use App\Models\FileManager;
 use Illuminate\Http\Request;
 use File;
 
+use DataTables;
+
 class FileManagerController extends Controller
 {
     public function index()
@@ -25,5 +27,21 @@ class FileManagerController extends Controller
         $fileManager->file_type = $image->getClientOriginalExtension();
         $fileManager->save();
         return 'success';
+    }
+
+    public function get_files()
+    {
+        $files = Filemanager::all();
+        return Datatables::of($files)
+            ->addColumn('file', function($row){
+                return '<img src="'.url('images/',$row->file_name).'" style="height: 40px;">';
+            })
+
+            ->addColumn('action', function($row){
+                $btn1 = '<a href="#"  onclick="" class="edit btn btn-primary btn-sm"><i class="fa fa-check-circle"></i></a>';
+                return $btn1;
+            })
+            ->rawColumns(['action','file'])
+            ->make();
     }
 }

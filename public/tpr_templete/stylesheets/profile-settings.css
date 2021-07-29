@@ -7,7 +7,7 @@
 }
 .user-settings .form-select,
 .user-settings .form-control {
-    padding: 16px!important;
+    /* padding: 16px!important; */
 }
 .profile-settings a.active {
     font-weight: 800!important;

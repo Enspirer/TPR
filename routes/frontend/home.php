@@ -43,6 +43,8 @@ Route::post('file_manager-store',[FileManagerController::class,'store'])->name('
 Route::group(['middleware' => ['auth', 'password_expires']], function () {
     Route::group(['namespace' => 'User', 'as' => 'user.'], function () {
         // User Dashboard Specific
+
+        Route::get('property_detail',[FileManagerController::class,'get_files'])->name('getFileDetails');
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::get('communications', [DashboardController::class, 'communications'])->name('communications');

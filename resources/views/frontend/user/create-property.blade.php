@@ -86,12 +86,12 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            @include('frontend.file_manager.file_manager_dialog',['fm_caption' => 'Featured Image','fm_name' => 'fm_name'])
-                                        </div> 
+                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Project Images','file_input_name' => 'images','multiple' => true, 'data' =>null ])
+
+                                        </div>
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            @include('frontend.file_manager.file_manager_dialog',['fm_caption' => 'More Images','fm_name' => 'fm_name'])
 
                                         </div>
                                     </div>
