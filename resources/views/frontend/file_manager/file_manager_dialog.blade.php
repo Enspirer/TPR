@@ -1,8 +1,9 @@
 
 <label class="form-label">{{$file_caption}}</label>
-    <div type="text" style="border-color: grey; color: grey; padding: 45px; text-align: center; border-style: dashed; border-width: 1px;" data-bs-toggle="modal" data-bs-target="#file_manager_{{$file_input_name}}">
-        <div class="" id="upload_content_{{$file_input_name}}">
+    <div type="text" class="box" style="border-color: grey; color: grey; padding: 45px; text-align: center; border-style: dashed; border-width: 1px;" data-bs-toggle="modal" data-bs-target="#file_manager_{{$file_input_name}}">
+        <div class="upload" id="upload_content_{{$file_input_name}}">
             <h5>Upload Images</h5>
+            <p id="id"></p>
         </div>
     </div>
 
@@ -15,7 +16,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">File Manager</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">File Manager - {{$multiple}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <!-- <form action="{{ route('frontend.file_store') }}" class="dropzone" id="my-awesome-dropzone"></form> -->
                 </div>
@@ -144,9 +145,11 @@
             ]
         });
     }
+
     $(function () {
-        load_tables{{$file_input_name}}()
+        load_tables{{$file_input_name}}();
     });
+
 
     function autoajust{{$file_input_name}}() {
         var table = $('#villadatatable_{{$file_input_name}}').DataTable();
@@ -159,4 +162,49 @@
     //    $(function () {
     //        load_tables()
     //    });
+
+    // $jQuery(function() {
+    //     $('#append').on('click', function(){
+    //     alert(';dsfds');
+    //     });
+    // });
+
+
+    $(window).on( "shown.bs.modal", function() {
+        var type = "<?php echo $multiple; ?>";
+
+        if(type == 1) {
+            $('.append').off('click').on('click', function(){
+            let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
+            let id = $(this).parents("tr").find('.sorting_1').text();
+            $('.box').css('padding', '10px');
+            $('.upload').append(`<img src="${image}" style="height: 80px; display:inline-block; margin: 5px"></img>`);
+            $('#id').append(`${id} `);
+            });
+        } 
+        else if (type != 1) {
+            if ($('.upload').find('img').length) {
+
+                
+            } else {
+                $('.append').on('click', function(){
+                    let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
+                    let id = $(this).parents("tr").find('.sorting_1').text();
+                    $('.box').css('padding', '10px');
+                    $('.upload').append(`<img src="${image}" style="height: 80px; display:inline-block; margin: 5px"></img>`);
+                    $('#id').append(`${id} `);
+                    $('.append').off('click');
+                });
+            }
+
+                
+                
+        }
+    });
+
+    // $('#pills-library-tab').on('click', function() {
+    //     table.ajax.reload();
+    // })
+    
+    
 </script>

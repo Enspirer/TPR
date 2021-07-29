@@ -38,7 +38,7 @@ class FileManagerController extends Controller
             })
 
             ->addColumn('action', function($row){
-                $btn1 = '<a href="#"  onclick="" class="edit btn btn-primary btn-sm"><i class="fa fa-check-circle"></i></a>';
+                $btn1 = '<a class="edit btn btn-primary btn-sm append"><i class="fa fa-check-circle"></i></a>';
                 return $btn1;
             })
             ->rawColumns(['action','file'])
