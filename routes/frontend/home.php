@@ -32,6 +32,7 @@ Route::get('individual-property', [IndividualPropertyController::class, 'index']
 
 Route::post('file_manager-store',[FileManagerController::class,'store'])->name('file_store');
 
+
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');
 //Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 
@@ -45,6 +46,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         // User Dashboard Specific
 
         Route::get('property_detail',[FileManagerController::class,'get_files'])->name('getFileDetails');
+
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::get('communications', [DashboardController::class, 'communications'])->name('communications');
