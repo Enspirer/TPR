@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Edit'))
+@section('title', __('Approval'))
 
 @section('content')
     
@@ -52,6 +52,10 @@
                             <input type="text" class="form-control" name="email" value="{{ $agent_request->request }}" readonly>
                         </div> 
                         <div class="form-group">
+                            <label>Tax Number</label>
+                            <input type="text" class="form-control" name="email" value="{{ $agent_request->tax_number }}" readonly>
+                        </div> 
+                        <div class="form-group">
                             <label>Validation Type</label>
                             <input type="text" class="form-control" name="email" value="{{ $agent_request->validation_type }}" readonly>
                         </div> 
@@ -76,12 +80,32 @@
                         
                         @endif
 
+
+                        @if($agent_request->validation_type == 'NIC')
+                            <div class="form-group">
+                                <label>NIC Photo</label>
+                                <br>
+                                <img src="{{url('files/agent_request/',$agent_request->nic_photo)}}" style="width: 40%;" alt="" >
+                            </div>
+                        
+                        @elseif($agent_request->validation_type == 'Passport')
+                            <div class="form-group">
+                                <label>Passport Photo</label>
+                                <br>
+                                <img src="{{url('files/agent_request/',$agent_request->passport_photo)}}" style="width: 40%;" alt="" >
+                            </div>
+                        
+                        @else                        
+                            <div class="form-group">
+                                <label>License Photo</label>
+                                <br>
+                                <img src="{{url('files/agent_request/',$agent_request->license_photo)}}" style="width: 40%;" alt="" >
+                            </div>
+                        
+                        @endif
+
                         <div class="form-group">
-                            <label>Tax Number</label>
-                            <input type="text" class="form-control" name="email" value="{{ $agent_request->tax_number }}" readonly>
-                        </div> 
-                        <div class="form-group">
-                            <label>Photo</label>
+                            <label>Agent Photo</label>
                             <br>
                             <img src="{{url('files/agent_request/',$agent_request->photo)}}" style="width: 40%;" alt="" >
                         </div>
