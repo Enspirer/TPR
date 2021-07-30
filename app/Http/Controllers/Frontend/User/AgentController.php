@@ -37,7 +37,31 @@ class AgentController extends Controller
         }else{
             $image_url = null;
         } 
-        // dd($image_url);
+
+        if($request->file('nic_photo'))
+        {            
+            $preview_fileName1 = time().'_'.rand(1000,10000).'.'.$request->nic_photo->getClientOriginalExtension();
+            $fullURLsPreviewFile1 = $request->nic_photo->move(public_path('files/agent_request'), $preview_fileName1);
+            $image_url1 = $preview_fileName1;
+        }else{
+            $image_url1 = null;
+        } 
+        if($request->file('passport_photo'))
+        {            
+            $preview_fileName2 = time().'_'.rand(1000,10000).'.'.$request->passport_photo->getClientOriginalExtension();
+            $fullURLsPreviewFile2 = $request->passport_photo->move(public_path('files/agent_request'), $preview_fileName2);
+            $image_url2 = $preview_fileName2;
+        }else{
+            $image_url2 = null;
+        } 
+        if($request->file('license_photo'))
+        {            
+            $preview_fileName3 = time().'_'.rand(1000,10000).'.'.$request->license_photo->getClientOriginalExtension();
+            $fullURLsPreviewFile3 = $request->license_photo->move(public_path('files/agent_request'), $preview_fileName3);
+            $image_url3 = $preview_fileName3;
+        }else{
+            $image_url3 = null;
+        } 
 
         $addagent = new AgentRequest;
 
@@ -65,9 +89,18 @@ class AgentController extends Controller
         }else{
             $addagent->license=$request->license;
         }
-        
+
+        if($request->validate == 'NIC'){
+            $addagent->nic_photo=$image_url1;
+        }elseif($request->validate == 'Passport'){
+            $addagent->passport_photo=$image_url2;
+        }else{
+            $addagent->license_photo=$image_url3;
+        }        
 
         $addagent->save();
+
+        session()->flash('message','Thanks!');
 
         return back();                      
 

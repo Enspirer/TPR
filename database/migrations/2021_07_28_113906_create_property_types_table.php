@@ -15,6 +15,11 @@ class CreatePropertyTypesTable extends Migration
     {
         Schema::create('property_types', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('property_type_name');
+            $table->text('property_description')->nullable();
+            $table->text('user_id');
+            $table->text('activated_fields')->nullable();
+            $table->text('status')->nullable();
             $table->timestamps();
         });
     }
