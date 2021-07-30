@@ -19,6 +19,7 @@ class CreatePropertyTypesTable extends Migration
             $table->text('property_description')->nullable();
             $table->text('user_id');
             $table->text('activated_fields')->nullable();
+            $table->text('status')->nullable();
             $table->timestamps();
         });
     }
