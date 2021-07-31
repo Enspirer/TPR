@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\PropertyController;
+use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\Backend\AgentRequestController;
 
 // All route names are prefixed with 'admin.'.
@@ -22,6 +23,14 @@ Route::get('property/getdetails', [PropertyController::class, 'getDetails'])->na
 Route::get('property/edit/{id}', [PropertyController::class, 'edit'])->name('property.edit');
 Route::post('property/update', [PropertyController::class, 'update'])->name('property.update');
 Route::get('property/delete/{id}', [PropertyController::class, 'destroy'])->name('property.destroy');
+
+Route::get('property_type', [PropertyTypeController::class, 'index'])->name('property_type.index');
+Route::get('property_type/create', [PropertyTypeController::class, 'create'])->name('property_type.create');
+Route::post('property_type/create', [PropertyTypeController::class, 'store'])->name('property_type.store');
+Route::get('property_type/getdetails', [PropertyTypeController::class, 'getDetails'])->name('property_type.getDetails');
+Route::get('property_type/edit/{id}', [PropertyTypeController::class, 'edit'])->name('property_type.edit');
+Route::post('property_type/update', [PropertyTypeController::class, 'update'])->name('property_type.update');
+Route::get('property_type/delete/{id}', [PropertyTypeController::class, 'destroy'])->name('property_type.destroy');
 
 Route::get('agent', [AgentRequestController::class, 'index'])->name('agent.index');
 Route::get('agent/getdetails', [AgentRequestController::class, 'getDetails'])->name('agent.getDetails');

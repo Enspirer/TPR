@@ -20,11 +20,23 @@ Breadcrumbs::for('admin.country.edit', function ($trail) {
 });
 
 Breadcrumbs::for('admin.property.index', function ($trail) {
-    $trail->push('Property', route('admin.property.index'));
+    $trail->push('Property List', route('admin.property.index'));
 });
 
 Breadcrumbs::for('admin.property.edit', function ($trail) {
-    $trail->push('Edit', route('admin.property.edit',1));
+    $trail->push('Approval', route('admin.property.edit',1));
+});
+
+Breadcrumbs::for('admin.property_type.index', function ($trail) {
+    $trail->push('Property Type', route('admin.property_type.index'));
+});
+
+Breadcrumbs::for('admin.property_type.create', function ($trail) {
+    $trail->push('Create', route('admin.property_type.create'));
+});
+
+Breadcrumbs::for('admin.property_type.edit', function ($trail) {
+    $trail->push('Approval', route('admin.property_type.edit',1));
 });
 
 Breadcrumbs::for('admin.agent.index', function ($trail) {

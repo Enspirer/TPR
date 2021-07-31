@@ -21,12 +21,28 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link {{active_class(Route::is('admin/property'))}}" href="{{ route('admin.property.index') }}">
-                    <i class="nav-icon fas fa-building"></i> 
+            <li class="nav-item nav-dropdown ">
+                <a class="nav-link nav-dropdown-toggle " href="#">
+                    <i class="nav-icon fas fa-building"></i>
                     Properties
                 </a>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/property'))}}" href="{{ route('admin.property.index') }}">
+                            Property List
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/property_type'))}}" href="{{ route('admin.property_type.index') }}">
+                            Property Type
+                        </a>
+                    </li>
+                        
+                </ul>
             </li>
+
+            
 
             <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/agent'))}}" href="{{ route('admin.agent.index') }}">

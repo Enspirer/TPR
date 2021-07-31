@@ -67,7 +67,7 @@
                             <h4>About Agent</h4>
                             <!-- class="needs-validation" novalidate -->
                         
-                            <form action="{{route('frontend.user.agent.store')}}" method="post" enctype="multipart/form-data" onsubmit="myFunction()" class="needs-validation" novalidate>
+                            <form action="{{route('frontend.user.agent.store')}}" method="post" enctype="multipart/form-data" >
                             {{csrf_field()}}
                                 <div class="row">
                                     <div class="col-6">
@@ -201,8 +201,8 @@
                                     </div>
 
                                 </div>
-                                
 
+                                
                                 <h4 class="mt-5 mb-1">Contact Information</h4>
                                 <h6 style="color: #5e6871">Keep your contact details up to date</h6>
 
@@ -269,6 +269,16 @@
     // }
 
 </script>
+
+<!-- <script>
+    $(document).ready(function(){
+        $("form").submit(function(){
+        alert("Submitted");
+        });
+    });
+</script> -->
+
+
 
 
 

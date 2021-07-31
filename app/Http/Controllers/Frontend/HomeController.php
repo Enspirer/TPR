@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\Properties;
 use Illuminate\Http\Request;
+use App\Models\PropertyType;
 
 /**
  * Class HomeController.
@@ -56,4 +57,34 @@ class HomeController extends Controller
             'promo' => $promu
         ]);
     }
+
+    public function property_type($id)
+    {
+        $property_type = PropertyType::where('status','=','1')->where('id',$id)->get();
+        // dd($property_type);
+
+        $final_out = [];
+
+        foreach($property_type as $key => $pro_type){
+
+            $array = [
+                'id' => $pro_type->id,
+                'property_type_name' => $pro_type->property_type_name,
+                'property_description' => $pro_type->property_description,
+                'activated_fields' => $pro_type->activated_fields
+            ];
+
+            array_push($final_out,$array);
+
+        }
+
+        // dd($final_out);
+
+        return json_encode($final_out);
+    }
+
+
+
+
+
 }

@@ -60,10 +60,7 @@ class PropertyController extends Controller
 
     public function update(Request $request)
     {    
-        // $request->validate([
-        //     'order' => 'numeric'                
-        // ]); 
-
+        
         $updatproperty = new Properties;
         
         $updatproperty->admin_approval=$request->admin_approval;
