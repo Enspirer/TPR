@@ -93,10 +93,13 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div>
-                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Images','file_input_name' => 'images','multiple' => true, 'data' =>[31] ])
+                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Images','file_input_name' => 'images','multiple' => true, 'data' =>[25], 'id' => 'id-multiple', 'upload' => 'upload-multiple' ])
                                         </div>
                                     </div>
                                 </div>
+
+            
+
 
 
                                 <div class="row">

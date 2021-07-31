@@ -64,6 +64,9 @@ p {
 .nav2 .active {
     border-bottom: 1px solid black!important;
 }
+.dropdown-menu {
+    min-width: 12rem!important;
+}
 
 
 /* user image styles */
