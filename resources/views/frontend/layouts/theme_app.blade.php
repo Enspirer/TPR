@@ -11,6 +11,7 @@
     <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
     <!-- <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.js" integrity="sha512-4p9OjnfBk18Aavg91853yEZCA7ywJYcZpFt+YB+p+gLNPFIAlt2zMBGzTxREYh+sHFsttK0CTYephWaY7I3Wbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
 

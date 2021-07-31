@@ -6,20 +6,24 @@
         </div>
     </div>
 
-    <div id="id">
+    <div id="id_single">
         @foreach($data as $d)
             <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p>
         @endforeach
     </div>
-    <div class="upload mt-3 row">
+    <div class="upload_single mt-3 row">
         @foreach($data as $d)
             <div class="col-3 text-end">
                 <img src="{{ url('images', App\Models\FileManager::where('id', $d) -> first() -> file_name) }}" style="height: 150px;" class="w-100"></img>
                 <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i>
             </div>    
         @endforeach
-
     </div>
+
+    <!-- Modal -->
+
+    
+
 
 
     <!-- Modal -->
@@ -29,6 +33,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">File Manager</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!-- <form action="{{ route('frontend.file_store') }}" class="dropzone" id="my-awesome-dropzone"></form> -->
                 </div>
                 <div class="modal-body">
                     
@@ -146,6 +151,8 @@
             order: [[ 0, "desc" ]],
             bAutoWidth: false,
             scrollCollapse: true,
+            paging: false,
+            searching: false,
             ajax: "{{route('frontend.user.getFileDetails',$file_input_name)}}",
             columns: [
                 {data: 'id', name: 'id'},
@@ -154,7 +161,7 @@
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
             "fnDrawCallback": function( oSettings ) {
-                dropBox();
+                dropBox1();
             }
         });
     }
@@ -188,15 +195,15 @@
         })
     });
 
-    function dropBox() {
+    function dropBox1() {
         var type = "<?php echo $multiple; ?>";
 
         if(type == 1) {
             $('.append').off('click').on('click', function(){
                 let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
                 let id = $(this).parents("tr").find('.sorting_1').text();
-                $('.upload').append(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img> <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i></div>`);
-                $('#id').append(`<p>${id}</p>`);
+                $('.upload_single').append(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img> <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i></div>`);
+                $('#id_single').append(`<p>${id}</p>`);
             });
 
             $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
@@ -211,18 +218,44 @@
             $('.append').off('click').on('click', function(){
                 let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
                 let id = $(this).parents("tr").find('.sorting_1').text();
-                $('.upload').html(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img> <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i></div>`);
-                $('#id').html(`<p>${id}</p>`);
+                $('.upload_single').html(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img> <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i></div>`);
+                $('#id_single').html(`<p>${id}</p>`);
+                // $('.append').off('click');
             });   
 
             $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
                 $('.close-image').on('click', function() {
                     let id = $(this).parent().index();
-                    $(this).parents('.upload').siblings('#id').empty();
+                    $(this).parents('.upload_single').siblings('#id_single').empty();
                     $(this).parent().remove();
                 })
             })
         }
     }
 
+    // $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
+    //     $('.close-image').on('click', function() {
+    //         // let id = $(this).parents('.upload').siblings('#id').text();
+    //         let id = $(this).parent().index();
+    //         console.log(id);
+    //         $(this).parents('.upload').siblings('#id').remove();
+    //         $(this).parent().remove();
+            
+    //     })
+    // })
+
+
+
+    
+    
 </script>
+
+<!-- <div class="row">
+    <div class="col-3">
+        <img src="${image}" style="height: 150px;" class="w-100"></img>
+    </div>
+</div> -->
+
+<!-- <i class="bi bi-x" style="position: absolute; top: -0.4rem; left: 6.1rem; color: white; font-size: 25px; cursor: pointer;"></i> -->
+
+<!-- <img src="${image}" style="height: 120px; display:inline-block; margin: 5px"></img> -->
