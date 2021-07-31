@@ -46,10 +46,15 @@
                                         <div>
                                             <label for="agentType" class="form-label mb-0 required">Property Type</label>
                                             <select class="form-select" aria-label="agentType" id="agentType">
-                                                <option selected>Sales</option>
+
+                                            @foreach($property_type as $type)
+                                                <option value="{{$type->id}}"> {{$type->property_type_name}} </option>
+                                            @endforeach
+
+                                                <!-- <option selected>Sales</option>
                                                 <option value="rentals">Rentals</option>
                                                 <option value="commercial">Commercial</option>
-                                                <option value="property-land">Property Land</option>
+                                                <option value="property-land">Property Land</option> -->
                                             </select>
                                         </div>  
                                     </div>

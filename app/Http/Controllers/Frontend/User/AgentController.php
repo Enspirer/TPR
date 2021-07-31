@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\AgentRequest;
+use App\Models\PropertyType;
 
 /**
  * Class DashboardController.
@@ -23,11 +24,6 @@ class AgentController extends Controller
     public function store(Request $request)
     {        
         // dd($request);
-
-        // $request->validate([
-        //     'image'  => 'mimes:jpeg,png,jpg|max:20000',
-        //     'order' => 'numeric'            
-        // ]); 
     
         if($request->file('photo'))
         {            
@@ -78,6 +74,7 @@ class AgentController extends Controller
         $addagent->telephone=$request->telephone;
         $addagent->description_message=$request->description_msg;
         $addagent->status='Pending';
+        $addagent->user_id = auth()->user()->id;
 
         $addagent->validation_type=$request->validate;
         // $addagent->nic=$request->selected_validate;
@@ -107,14 +104,6 @@ class AgentController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
     public function properties()
     {
         return view('frontend.user.properties');
@@ -122,7 +111,11 @@ class AgentController extends Controller
 
     public function createProperty()
     {
-        return view('frontend.user.create-property');
+        $property_type = PropertyType::where('status','=','1')->get();
+
+        return view('frontend.user.create-property',[
+            'property_type' => $property_type
+        ]);
     }
 
     public function bookingBox()

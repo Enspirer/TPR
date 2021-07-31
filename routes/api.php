@@ -19,3 +19,5 @@ use App\Http\Controllers\Frontend\HomeController;
 });*/
 
 Route::post('country_request', [HomeController::class, 'map_index'])->name('map_index');
+
+Route::get('get_property_type_details/{id}', [HomeController::class, 'property_type'])->name('property_type');
