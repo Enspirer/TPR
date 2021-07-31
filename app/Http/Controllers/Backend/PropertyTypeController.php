@@ -87,7 +87,7 @@ class PropertyTypeController extends Controller
         $property_type = PropertyType::where('id',$id)->first();
         
         // dd($property_type);              
-
+        
         return view('backend.property_type.edit',[
             'property_type' => $property_type         
         ]);  

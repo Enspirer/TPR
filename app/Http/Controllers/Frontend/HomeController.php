@@ -71,7 +71,8 @@ class HomeController extends Controller
                 'id' => $pro_type->id,
                 'property_type_name' => $pro_type->property_type_name,
                 'property_description' => $pro_type->property_description,
-                'activated_fields' => $pro_type->activated_fields
+                'activated_fields' => json_decode($pro_type->activated_fields)
+                
             ];
 
             array_push($final_out,$array);
