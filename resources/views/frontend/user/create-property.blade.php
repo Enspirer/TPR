@@ -44,8 +44,8 @@
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label for="agentType" class="form-label mb-0 required">Property Type</label>
-                                            <select class="form-select" aria-label="agentType" id="agentType">
+                                            <label for="propertyType" class="form-label mb-0 required">Property Type</label>
+                                            <select class="form-select" aria-label="agentType" id="propertyType" onChange="renderFields()">
 
                                             @foreach($property_type as $type)
                                                 <option value="{{$type->id}}"> {{$type->property_type_name}} </option>
@@ -98,14 +98,12 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div>
-                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Images','file_input_name' => 'images','multiple' => true, 'data' =>[1,2], 'id' => 'id-multiple', 'upload' => 'upload-multiple' ])
+                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Images','file_input_name' => 'images','multiple' => true, 'data' =>[56, 57, 58], 'id' => 'id-multiple', 'upload' => 'upload-multiple' ])
                                         </div>
                                     </div>
                                 </div>
 
-            
-
-
+        
 
                                 <div class="row">
                                     <div class="col-6">
@@ -129,6 +127,10 @@
                                             <input type="text" class="form-control" id="transaction-type" aria-describedby="transaction-type">
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="row" id="incoming_fields">
+
                                 </div>
 
                                 <div class="mt-5 text-center">
@@ -255,6 +257,42 @@
             document.getElementById('lat').value = currentLocation.lat(); //latitude
             document.getElementById('lng').value = currentLocation.lng(); //longitude
         }
+
+
+        
+
+        // dropdown box changing field
+        const renderFields = async () => {
+            let value = $('#propertyType').val();
+
+            let url = 'http://127.0.0.1:8000/api/get_property_type_details/' + value;
+            console.log(url);
+
+            const res = await fetch(url);
+            const data = await res.json();
+
+            const fields = (data[0]['activated_fields']);
+
+
+            let template = '';
+
+            fields.forEach ((field) => {
+                template += `<div class="col-6">
+                                <div>
+                                    <label for="${field}" class="form-label mb-0 mt-4 required">${field}</label>
+                                    <input type="text" class="form-control" id="${field}" aria-describedby="${field}">
+                                </div>
+                            </div>`
+            });
+
+            $('#incoming_fields').html(template);
+
+        }
+
+        
+
+        window.addEventListener('DOMContentLoaded', () => renderFields());
+        
                 
         
         

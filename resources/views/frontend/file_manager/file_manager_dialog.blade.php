@@ -6,7 +6,7 @@
         </div>
     </div>
 
-    <div id="{{ $id }}">
+    <div id="{{ $id }}" class="d-none">
         @foreach($data as $d)
             <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p>
         @endforeach
