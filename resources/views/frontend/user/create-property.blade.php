@@ -95,16 +95,25 @@
                                 <h4 class="mt-5 mb-1">More About Property</h4>
                                 <h6 style="color: #5e6871">Tell us more about the agent</h6>
 
+
                                 <div class="row">
                                     <div class="col-12">
                                         <div>
-                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Images','file_input_name' => 'images','multiple' => true, 'data' =>[56, 57, 58], 'id' => 'id-multiple', 'upload' => 'upload-multiple' ])
+                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Images','file_input_name' => 'ima','multiple' => true, 'data' => null, 'id' => 'id-multiple', 'upload' => 'upload-multiple' ])
                                         </div>
                                     </div>
                                 </div>
 
-        
 
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div>
+                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Single Images','file_input_name' => 'images','multiple' => false, 'data' => null, 'id' => 'id-single', 'upload' => 'upload-single'])
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
@@ -126,6 +135,10 @@
                                             <label for="transaction-type" class="form-label mb-0 mt-4 required">Transaction Type</label>
                                             <input type="text" class="form-control" id="transaction-type" aria-describedby="transaction-type">
                                         </div>
+                                    </div>
+
+                                    <div class="col-6 first-incoming-field">
+                                        
                                     </div>
                                 </div>
 
@@ -275,17 +288,36 @@
 
 
             let template = '';
+            let first = '';
 
-            fields.forEach ((field) => {
-                template += `<div class="col-6">
+            // fields.forEach ((field) => {
+            //     template += `<div class="col-6">
+            //                     <div>
+            //                         <label for="${field}" class="form-label mb-0 mt-4 required">${field}</label>
+            //                         <input type="text" class="form-control" id="${field}" aria-describedby="${field}">
+            //                     </div>
+            //                 </div>`
+            // });
+            for(let i = 0; i < fields.length; i++) {
+                if(i == 0) {
+                    first = `<div>
+                                <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                <input type="text" class="form-control" id="${fields[i]}" aria-describedby="${fields[i]}">
+                            </div>`
+                }
+                else {
+                    template += `<div class="col-6">
                                 <div>
-                                    <label for="${field}" class="form-label mb-0 mt-4 required">${field}</label>
-                                    <input type="text" class="form-control" id="${field}" aria-describedby="${field}">
+                                    <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                    <input type="text" class="form-control" id="${fields[i]}" aria-describedby="${fields[i]}">
                                 </div>
                             </div>`
-            });
+                }
+            }
 
+            $('.first-incoming-field').html(first);
             $('#incoming_fields').html(template);
+
 
         }
 

@@ -7,17 +7,26 @@
     </div>
 
     <div id="{{ $id }}">
-        @foreach($data as $d)
-            <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p>
-        @endforeach
+        @if($data == null)
+        
+        @else
+            @foreach($data as $d)
+                <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p>
+            @endforeach
+        @endif  
     </div>
+    
     <div class="{{ $upload }} mt-3 row">
-        @foreach($data as $d)
-            <div class="col-3 text-end">
-                <img src="{{ url('images', App\Models\FileManager::where('id', $d) -> first() -> file_name) }}" style="height: 150px;" class="w-100"></img>
-                <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i>
-            </div>    
-        @endforeach
+        @if($data == null)
+
+        @else
+            @foreach($data as $d)
+                <div class="col-3 text-end">
+                    <img src="{{ url('images', App\Models\FileManager::where('id', $d) -> first() -> file_name) }}" style="height: 150px;" class="w-100"></img>
+                    <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i>
+                </div>    
+            @endforeach
+        @endif
     </div>
 
     <!-- Modal -->
