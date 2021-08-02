@@ -46,9 +46,8 @@
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="pills-upload-tab-{{$file_input_name}}" data-bs-toggle="pill" data-bs-target="#pills-upload-{{$file_input_name}}" type="button" role="tab" aria-controls="pills-upload-{{$file_input_name}}" aria-selected="true">Upload</button>
-                            @if($file_input_name == 'featured_image')
-                                <form action="{{ route('frontend.file_store') }}" class="dropzone" id="my-awesome-dropzone-{{$file_input_name}}"></form>
-                            @endif
+                            
+                            <!-- <form action="{{ route('frontend.file_store') }}" class="dropzone" id="my-awesome-dropzone-{{$file_input_name}}"></form> -->
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-library-tab-{{$file_input_name}}" data-bs-toggle="pill" data-bs-target="#pills-library-{{$file_input_name}}" type="button" role="tab" aria-controls="pills-library-{{$file_input_name}}" aria-selected="false">Library</button>
@@ -96,10 +95,7 @@
             </div>
         </div>
     </div>
-    @endpush
-
-
-
+    
 <script>
     function delete_image{{$file_input_name}}(element_id) {
         $('#'+element_id).remove();
@@ -243,3 +239,4 @@
     }
 
 </script>
+@endpush
