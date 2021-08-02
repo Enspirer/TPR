@@ -72,19 +72,22 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('preferences', [PreferencesController::class, 'index'])->name('preferences');
 
 
-
         Route::get('properties/create', [AgentController::class, 'createProperty'])->name('create-property');
-        Route::post('properties/store', [AgentController::class, 'createPropertyStore'])->name('create-property.createPropertyStore');
 
+        Route::post('properties/store', [AgentController::class, 'createPropertyStore'])->name('create-property.createPropertyStore');
 
 
         Route::get('booking/user-chat', [AgentController::class, 'userChat'])->name('user-chat');
 
         Route::get('company/property', [AgentController::class, 'companyProperty'])->name('company-property');
 
-        Route::get('property-managment-dashboard', [PropertyManagementController::class, 'index'])->name('property-management');
+        Route::get('country-managment-dashboard', [PropertyManagementController::class, 'index'])->name('country-management');
 
-        Route::get('property-approval', [PropertyManagementController::class, 'propertyApproval'])->name('property-approval');
+        Route::get('country-management/property-approval', [PropertyManagementController::class, 'propertyApproval'])->name('property-approval');
+
+        Route::get('country-management/supports', [PropertyManagementController::class, 'supports'])->name('supports');
+
+        Route::get('country-management/agent-approval', [PropertyManagementController::class, 'agentApproval'])->name('agent-approval');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');

@@ -21,7 +21,7 @@
             <div class="col-8">
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Property Managment Dashboard</h4>
+                        <h4 class="fs-4 fw-bolder user-settings-head">Country Managment Dashboard</h4>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">11</p>
                                         </div>
                                         <div class="card-body">
-                                            <h4 class="card-title text-center" style="color: #0d6efd;">Help</h4>
+                                            <h4 class="card-title text-center" style="color: #0d6efd;">Supports</h4>
                                             <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, ea. Architecto nihil hic quasi consequatur iure distinctio consectetur et atque?</p>
                                         </div>
                                     </div>
@@ -69,8 +69,6 @@
                         </div>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     </div>
