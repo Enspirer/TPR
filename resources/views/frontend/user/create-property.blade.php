@@ -278,7 +278,6 @@
             let value = $('#propertyType').val();
 
             let url = 'http://127.0.0.1:8000/api/get_property_type_details/' + value;
-            console.log(url);
 
             const res = await fetch(url);
             const data = await res.json();
