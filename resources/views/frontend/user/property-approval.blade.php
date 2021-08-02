@@ -55,10 +55,10 @@
                                 <td>
                                     <div class="row">
                                         <div class="col-6">
-                                            <button class="btn" style="background-color: #4195E1">Approve</button>
+                                            <button class="btn text-light" style="background-color: #4195E1">Approve</button>
                                         </div>
                                         <div class="col-6">
-                                            <button class="btn" style="background-color: #FF2C4B">Disapprove</button>
+                                            <button class="btn text-light" style="background-color: #FF2C4B">Disapprove</button>
                                         </div>
                                     </div>
                                 </td>
@@ -69,10 +69,10 @@
                                 <td>
                                     <div class="row">
                                         <div class="col-6">
-                                            <button class="btn" style="background-color: #4195E1">Approve</button>
+                                            <button class="btn text-light" style="background-color: #4195E1">Approve</button>
                                         </div>
                                         <div class="col-6">
-                                            <button class="btn" style="background-color: #FF2C4B">Disapprove</button>
+                                            <button class="btn text-light" style="background-color: #FF2C4B">Disapprove</button>
                                         </div>
                                     </div>
                                 </td>
