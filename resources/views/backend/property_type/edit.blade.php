@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <label>Property Description</label>
-                            <input type="text" class="form-control" name="property_description" value="{{ $property_type->property_description }}" required>
+                            <textarea class="form-control" name="property_description" rows="5" required>{{ $property_type->property_description }}</textarea>
                         </div>
 
                         <div class="form-group">
@@ -43,7 +43,7 @@
                             <label>Activated Field</label>
                         </div>
 
-                       
+                        <div class="form-group">                       
                                 <div style="border-style: ridge;border-width: 3px;padding: 50px;">
 
                                     <div id="example2Left" class="list-group mb-4 mt-3" data-id="1">
@@ -137,6 +137,7 @@
 
                                     </div>
                                 </div>
+                        </div>        
                             
                         
                     </div>
@@ -159,11 +160,11 @@
                             <label>Attributes</label>
                         </div>
                         <div style="border-style: ridge;border-width: 3px;padding: 40px;">
-                            <div id="example2Right" class="list-group mb-4" data-id="2">                                   
+                            <div id="example2Right" class="list-group mb-4" data-id="2">  
 
-                            
-
-                               
+                                @if (in_array("Land Size", json_decode($property_type->activated_fields)))
+                                        
+                                @else                              
                                     <div class="list-group-item d-flex align-items-center justify-content-between" data-id="2">
                                         <div>
                                             <p class="mb-0 d-inline-flex align-items-center">
@@ -171,7 +172,11 @@
                                             <input type="hidden" name="item[]" value="Land Size"/>
                                         </div>
                                     </div>
-                               
+                                @endif
+
+                                @if (in_array("Zoning Type", json_decode($property_type->activated_fields)))
+                                        
+                                @else                              
                                     <div class="list-group-item d-flex align-items-center justify-content-between" data-id="3">
                                         <div>
                                             <p class="mb-0 d-inline-flex align-items-center">
@@ -179,7 +184,11 @@
                                             <input type="hidden" name="item[]" value="Zoning Type"/>
                                         </div>
                                     </div>
-                              
+                                @endif
+
+                                @if (in_array("Number Of Units", json_decode($property_type->activated_fields)))
+                                        
+                                @else                              
                                     <div class="list-group-item d-flex align-items-center justify-content-between" data-id="4">
                                         <div>
                                             <p class="mb-0 d-inline-flex align-items-center">
@@ -187,7 +196,11 @@
                                             <input type="hidden" name="item[]" value="Number Of Units"/>
                                         </div>
                                     </div>
-                                
+                                @endif
+
+                                @if (in_array("Building Size", json_decode($property_type->activated_fields)))
+                                        
+                                @else                              
                                     <div class="list-group-item d-flex align-items-center justify-content-between" data-id="5">
                                         <div>
                                             <p class="mb-0 d-inline-flex align-items-center">
@@ -195,7 +208,11 @@
                                             <input type="hidden" name="item[]" value="Building Size"/>
                                         </div>
                                     </div> 
-                                
+                                @endif
+
+                                @if (in_array("Farm Type", json_decode($property_type->activated_fields)))
+                                        
+                                @else                              
                                     <div class="list-group-item d-flex align-items-center justify-content-between" data-id="6">
                                         <div>
                                             <p class="mb-0 d-inline-flex align-items-center">
@@ -203,7 +220,11 @@
                                             <input type="hidden" name="item[]" value="Farm Type"/>
                                         </div>
                                     </div> 
-                                 
+                                @endif
+
+                                @if (in_array("Building Type", json_decode($property_type->activated_fields)))
+                                        
+                                @else                              
                                     <div class="list-group-item d-flex align-items-center justify-content-between" data-id="7">
                                         <div>
                                             <p class="mb-0 d-inline-flex align-items-center">
@@ -211,7 +232,11 @@
                                             <input type="hidden" name="item[]" value="Building Type"/>
                                         </div>
                                     </div>
-                                  
+                                @endif
+
+                                @if (in_array("Open House Only", json_decode($property_type->activated_fields)))
+                                        
+                                @else                              
                                     <div class="list-group-item d-flex align-items-center justify-content-between" data-id="7">
                                         <div>
                                             <p class="mb-0 d-inline-flex align-items-center">
@@ -219,7 +244,11 @@
                                             <input type="hidden" name="item[]" value="Open House Only"/>
                                         </div>
                                     </div>
-                                  
+                                @endif
+
+                                @if (in_array("Parking Type", json_decode($property_type->activated_fields)))
+                                        
+                                @else                              
                                     <div class="list-group-item d-flex align-items-center justify-content-between" data-id="7">
                                         <div>
                                             <p class="mb-0 d-inline-flex align-items-center">
@@ -227,7 +256,11 @@
                                             <input type="hidden" name="item[]" value="Parking Type"/>
                                         </div>
                                     </div>
-                                
+                                @endif
+
+                                @if (in_array("Beds", json_decode($property_type->activated_fields)))
+                                        
+                                @else                              
                                     <div class="list-group-item d-flex align-items-center justify-content-between" data-id="7">
                                         <div>
                                             <p class="mb-0 d-inline-flex align-items-center">
@@ -235,7 +268,11 @@
                                             <input type="hidden" name="item[]" value="Beds"/>
                                         </div>
                                     </div>
-                             
+                                @endif
+
+                                @if (in_array("Baths", json_decode($property_type->activated_fields)))
+                                        
+                                @else                              
                                     <div class="list-group-item d-flex align-items-center justify-content-between" data-id="7">
                                         <div>
                                             <p class="mb-0 d-inline-flex align-items-center">
@@ -243,13 +280,7 @@
                                             <input type="hidden" name="item[]" value="Baths"/>
                                         </div>
                                     </div> 
-
-                                                                         
-
-                                                
-
-                             
-                                
+                                @endif                               
 
                             </div>
                         </div>    

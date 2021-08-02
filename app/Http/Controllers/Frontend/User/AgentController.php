@@ -118,6 +118,20 @@ class AgentController extends Controller
         ]);
     }
 
+
+    public function createPropertyStore(Request $request)
+    {        
+        dd($request);
+    
+        
+
+        return back();                      
+
+    }
+
+
+
+
     public function bookingBox()
     {
         return view('frontend.user.booking');
