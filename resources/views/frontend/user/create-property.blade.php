@@ -99,21 +99,21 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div>
-                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Images','file_input_name' => 'ima','multiple' => true, 'data' => null, 'id' => 'id-multiple', 'upload' => 'upload-multiple' ])
+                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Featured Image','file_input_name' => 'featured_image','multiple' => false, 'data' => null, 'id' => 'id-single', 'upload' => 'upload-single', 'title' => 'Upload Image'])
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <div class="row">
+                                <div class="row mt-4">
                                     <div class="col-12">
                                         <div>
-                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Single Images','file_input_name' => 'images','multiple' => false, 'data' => null, 'id' => 'id-single', 'upload' => 'upload-single'])
+                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Images','file_input_name' => 'property_images','multiple' => true, 'data' => null, 'id' => 'id-multiple', 'upload' => 'upload-multiple', 'title' => 'Upload Images' ])
                                         </div>
                                     </div>
                                 </div>
 
-                                
+
                                 <div class="row">
                                     <div class="col-6">
                                         <div>

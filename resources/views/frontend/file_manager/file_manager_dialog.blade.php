@@ -1,8 +1,8 @@
 
 <label class="form-label">{{$file_caption}}</label>
-    <div type="text" class="box" style="border-color: grey; color: grey; padding: 35px; text-align: center; border-style: dashed; border-width: 1px;" data-bs-toggle="modal" data-bs-target="#file_manager_{{$file_input_name}}">
+    <div type="text" class="box-{{$file_input_name}}" style="border-color: grey; color: grey; padding: 35px; text-align: center; border-style: dashed; border-width: 1px;" data-bs-toggle="modal" data-bs-target="#file_manager_{{$file_input_name}}">
         <div id="upload_content_{{$file_input_name}}">
-            <h5>Upload Images</h5>
+            <h5>{{ $title }}</h5>
         </div>
     </div>
 
@@ -44,26 +44,28 @@
                     
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-upload-tab" data-bs-toggle="pill" data-bs-target="#pills-upload" type="button" role="tab" aria-controls="pills-upload" aria-selected="true">Upload</button>
-                            <form action="{{ route('frontend.file_store') }}" class="dropzone" id="my-awesome-dropzone"></form>
+                            <button class="nav-link active" id="pills-upload-tab-{{$file_input_name}}" data-bs-toggle="pill" data-bs-target="#pills-upload-{{$file_input_name}}" type="button" role="tab" aria-controls="pills-upload-{{$file_input_name}}" aria-selected="true">Upload</button>
+                            @if($file_input_name == 'featured_image')
+                                <form action="{{ route('frontend.file_store') }}" class="dropzone" id="my-awesome-dropzone-{{$file_input_name}}"></form>
+                            @endif
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-library-tab" data-bs-toggle="pill" data-bs-target="#pills-library" type="button" role="tab" aria-controls="pills-library" aria-selected="false">Library</button>
+                            <button class="nav-link" id="pills-library-tab-{{$file_input_name}}" data-bs-toggle="pill" data-bs-target="#pills-library-{{$file_input_name}}" type="button" role="tab" aria-controls="pills-library-{{$file_input_name}}" aria-selected="false">Library</button>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-upload" role="tabpanel" aria-labelledby="pills-upload-tab">
+                        <div class="tab-pane fade show active" id="pills-upload-{{$file_input_name}}" role="tabpanel" aria-labelledby="pills-upload-tab-{{$file_input_name}}">
                             <div class="row">
                                 <div class="col-12">
-                                    <form action="{{ route('frontend.file_store') }}" class="dropzone" id="my-awesome-dropzone">
+                                    <form action="{{ route('frontend.file_store') }}" class="dropzone" id="my-awesome-dropzone-{{$file_input_name}}">
                                         {{csrf_field()}}
                                     </form>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="tab-pane fade" id="pills-library" role="tabpanel" aria-labelledby="pills-library-tab">
+                        <div class="tab-pane fade" id="pills-library-{{$file_input_name}}" role="tabpanel" aria-labelledby="pills-library-tab-{{$file_input_name}}">
                             <div class="row">
                                 <div class="col-12">
                                     <table class="table table-hover" id="villadatatable_{{$file_input_name}}" style="width:100%">
@@ -97,7 +99,7 @@
 
 
 <script>
-    function delete_image(element_id) {
+    function delete_image{{$file_input_name}}(element_id) {
         $('#'+element_id).remove();
     }
 
@@ -163,7 +165,7 @@
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
             "fnDrawCallback": function( oSettings ) {
-                dropBox();
+                dropBox{{$file_input_name}}();
             }
         });
     }
@@ -182,7 +184,12 @@
   
 
 
-    $('#pills-library-tab').on('click', function() {
+    $('#pills-library-tab-{{$file_input_name}}').on('click', function() {
+        var table = $('#villadatatable_{{$file_input_name}}').DataTable();
+        table.ajax.reload(); 
+    })
+
+    $('.box-{{$file_input_name}}').on('click', function() {
         var table = $('#villadatatable_{{$file_input_name}}').DataTable();
         table.ajax.reload(); 
     })
@@ -196,7 +203,7 @@
         })
     });
 
-    function dropBox() {
+    function dropBox{{$file_input_name}}() {
         var type = "<?php echo $multiple; ?>";
 
         if(type == 1) {
