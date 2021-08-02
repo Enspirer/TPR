@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mt-4">
                     <table class="table table-bordered">
                         <thead>
                             <tr class="text-center">
