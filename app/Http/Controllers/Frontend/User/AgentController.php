@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\AgentRequest;
 use App\Models\PropertyType;
+use App\Models\Properties;
 
 /**
  * Class DashboardController.
@@ -122,6 +123,25 @@ class AgentController extends Controller
     public function createPropertyStore(Request $request)
     {        
         dd($request);
+
+        $addprop = new Properties;
+
+        $addprop->name=$request->name; 
+        $addprop->property_type=$request->propertyType;        
+        $addprop->lat=$request->lat;
+        $addprop->long=$request->lng;
+        $addprop->price=$request->price;
+        $addprop->main_category=$request->category; 
+        $addprop->meta_description=$request->meta_description;        
+        $addprop->slug=$request->slug;        
+        $addprop->transaction_type=$request->transaction_type;
+        $addprop->admin_approval='Pending';
+        $addprop->country_manager_approval='Pending';
+        $addprop->user_id = auth()->user()->id;
+
+        $addprop->country='country_no_feild';
+
+        $addprop->save();
     
         
 

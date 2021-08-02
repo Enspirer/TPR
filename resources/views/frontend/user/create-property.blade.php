@@ -63,12 +63,12 @@
                                     <div class="col-12">
                                         <label for="map" class="form-label mb-2 mt-4 required">Location</label>
                                         <div id="map" style="width: 100%; height: 400px;"></div>
-                                        <input type="text" id="lat" class="mt-3 d-none">
-                                        <input type="text" id="lng" class="mt-3 d-none">
+                                        <input type="text" name="lat" id="lat" class="mt-3 d-none">
+                                        <input type="text" name="lng" id="lng" class="mt-3 d-none">
                                         
                                         <div class="row mt-3">
                                             <div class="col-6">
-                                                <input id="search" name="search" class="form-control" type="text" placeholder="Search" />
+                                                <input id="search" class="form-control" type="text" placeholder="Search" />
                                             </div>
                                         </div>
                                         
@@ -117,7 +117,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="meta-description" class="form-label mb-0 mt-4 required">Meta Description</label>
-                                            <input type="text" class="form-control" name="meta-description" id="meta-description" aria-describedby="meta-description">
+                                            <input type="text" class="form-control" name="meta_description" id="meta-description" aria-describedby="meta-description">
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -132,7 +132,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="transaction-type" class="form-label mb-0 mt-4 required">Transaction Type</label>
-                                            <input type="text" class="form-control" name="transaction-type" id="transaction-type" aria-describedby="transaction-type">
+                                            <input type="text" class="form-control" name="transaction_type" id="transaction-type" aria-describedby="transaction-type">
                                         </div>
                                     </div>
 
