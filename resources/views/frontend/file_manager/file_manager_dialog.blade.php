@@ -32,6 +32,7 @@
 
 
     <!-- Modal -->
+    @push('dialog_modal')
     <div class="modal fade" id="file_manager_{{$file_input_name}}" tabindex="-1" aria-labelledby="file_manager_{{$file_input_name}}" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -95,6 +96,7 @@
             </div>
         </div>
     </div>
+    @endpush
 
 
 
