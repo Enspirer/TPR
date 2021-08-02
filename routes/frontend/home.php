@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\User\AgentController;
 use App\Http\Controllers\Frontend\User\CompanyController;
 use App\Http\Controllers\Frontend\User\ResultsController;
 use App\Http\Controllers\Frontend\User\PreferencesController;
+use App\Http\Controllers\Frontend\User\PropertyManagementController;
 use App\Http\Controllers\Frontend\FileManagerController;
 
 /*
@@ -80,6 +81,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('booking/user-chat', [AgentController::class, 'userChat'])->name('user-chat');
 
         Route::get('company/property', [AgentController::class, 'companyProperty'])->name('company-property');
+
+        Route::get('property-managment-dashboard', [PropertyManagementController::class, 'index'])->name('property-management');
+
+        Route::get('property-approval', [PropertyManagementController::class, 'propertyApproval'])->name('property-approval');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');

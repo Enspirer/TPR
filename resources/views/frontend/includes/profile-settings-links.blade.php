@@ -23,6 +23,12 @@
 
         <a class="nav-link bg-white border-0 border-bottom ps-5 w-100 pb-3 {{ Request::segment(1) == 'company' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.company') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Company</a>
 
+        <h5 class="px-3 mt-4 pb-2 mb-0">Property Managment</h5>
+
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'property-managment-dashboard' ? 'active' : null }}" href="{{ route('frontend.user.property-management') }}" type="button" role="tab" aria-controls="nav-properties" aria-selected="true">Dashboard</a>
+
+        <a class="nav-link bg-white border-0 border-bottom ps-5 w-100 pb-3 {{ Request::segment(1) == 'property-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.property-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Property Approval</a>
+
         <h5 class="px-3 mt-4 pb-2 mb-0">My Settings</h5>
 
         <a class="nav-link border-0 bg-white ps-5 w-100" id="nav-search-tab" href="{{ route('frontend.user.properties') }}" type="button" role="tab" aria-controls="nav-search" aria-selected="true">Search Criteria</a>
