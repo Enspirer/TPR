@@ -39,11 +39,11 @@
                                 <td class="m-auto">Hilton Hotel</td>
                                 <td>Restaurant</td>
                                 <td>
-                                    <div class="row">
-                                        <div class="col-6">
+                                    <div class="row justify-content-center">
+                                        <div class="col-3">
                                             <button class="btn text-light" style="background-color: #4195E1">Approve</button>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-3">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Disapprove</button>
                                         </div>
                                     </div>
@@ -53,11 +53,11 @@
                                 <td>Hilton Hotel</td>
                                 <td>Restaurant</td>
                                 <td>
-                                    <div class="row">
-                                        <div class="col-6">
+                                    <div class="row justify-content-center">
+                                        <div class="col-3">
                                             <button class="btn text-light" style="background-color: #4195E1">Approve</button>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-3">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Disapprove</button>
                                         </div>
                                     </div>
@@ -67,11 +67,11 @@
                                 <td>Hilton Hotel</td>
                                 <td>Restaurant</td>
                                 <td>
-                                    <div class="row">
-                                        <div class="col-6">
+                                    <div class="row justify-content-center">
+                                        <div class="col-3">
                                             <button class="btn text-light" style="background-color: #4195E1">Approve</button>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-3">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Disapprove</button>
                                         </div>
                                     </div>
