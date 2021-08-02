@@ -208,7 +208,7 @@
             $('.append').off('click').on('click', function(){
                 let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
                 let id = $(this).parents("tr").find('.sorting_1').text();
-                $('.{{ $upload }}').append(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img><i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i><input type="hidden" name="{{$file_input_name}}[]" value="${image}"></input></div>`);
+                $('.{{ $upload }}').append(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img><i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i><input type="hidden" name="{{$file_input_name}}" value="${image}[]"></input></div>`);
                 $('#{{ $id }}').append(`<p>${id}</p>`);
             });
 
