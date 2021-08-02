@@ -55,8 +55,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('favourites', [DashboardController::class, 'favourites'])->name('favourites');
 
+
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
         Route::post('agent/store', [AgentController::class, 'store'])->name('agent.store');
+        
 
         Route::get('properties', [AgentController::class, 'properties'])->name('properties');
 
@@ -69,7 +71,11 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('preferences', [PreferencesController::class, 'index'])->name('preferences');
 
 
+
         Route::get('properties/create', [AgentController::class, 'createProperty'])->name('create-property');
+        Route::post('properties/store', [AgentController::class, 'createPropertyStore'])->name('create-property.createPropertyStore');
+
+
 
         Route::get('booking/user-chat', [AgentController::class, 'userChat'])->name('user-chat');
 

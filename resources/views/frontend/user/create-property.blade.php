@@ -34,27 +34,26 @@
                         <div class="px-2 py-3" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
                             <h4>About Property</h4>
                     
-                            <form>
+                            <form action="{{route('frontend.user.create-property.createPropertyStore')}}" method="post" enctype="multipart/form-data" >
+                                {{csrf_field()}}
+
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
                                             <label for="name" class="form-label mb-0 required">Name</label>
-                                            <input type="text" class="form-control" id="name" aria-describedby="name">
+                                            <input type="text" class="form-control" name="name" id="name" aria-describedby="name" required>
                                         </div> 
                                     </div>
                                     <div class="col-6">
                                         <div>
                                             <label for="propertyType" class="form-label mb-0 required">Property Type</label>
-                                            <select class="form-select" aria-label="agentType" id="propertyType" onChange="renderFields()">
+                                            <select class="form-select" aria-label="agentType" name="propertyType" id="propertyType" onChange="renderFields()">
 
                                             @foreach($property_type as $type)
                                                 <option value="{{$type->id}}"> {{$type->property_type_name}} </option>
                                             @endforeach
 
-                                                <!-- <option selected>Sales</option>
-                                                <option value="rentals">Rentals</option>
-                                                <option value="commercial">Commercial</option>
-                                                <option value="property-land">Property Land</option> -->
+                                              
                                             </select>
                                         </div>  
                                     </div>
@@ -69,7 +68,7 @@
                                         
                                         <div class="row mt-3">
                                             <div class="col-6">
-                                                <input id="search" class="form-control" type="text" placeholder="Search" />
+                                                <input id="search" name="search" class="form-control" type="text" placeholder="Search" />
                                             </div>
                                         </div>
                                         
@@ -80,13 +79,13 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="price" class="form-label mb-0 mt-4 required">Price</label>
-                                            <input type="text" class="form-control" id="price" aria-describedby="price">
+                                            <input type="text" class="form-control" name="price" id="price" aria-describedby="price">
                                         </div>  
                                     </div>
                                     <div class="col-6">
                                         <div>
                                             <label for="category" class="form-label mb-0 mt-4 required">Category</label>
-                                            <input type="text" class="form-control" id="category" aria-describedby="category">
+                                            <input type="text" class="form-control" name="category" id="category" aria-describedby="category">
                                         </div>  
                                     </div>
                                 </div>
@@ -118,13 +117,13 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="meta-description" class="form-label mb-0 mt-4 required">Meta Description</label>
-                                            <input type="text" class="form-control" id="meta-description" aria-describedby="meta-description">
+                                            <input type="text" class="form-control" name="meta-description" id="meta-description" aria-describedby="meta-description">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div>
                                             <label for="slug" class="form-label mb-0 mt-4 required">Slug</label>
-                                            <input type="text" class="form-control" id="slug" aria-describedby="slug">
+                                            <input type="text" class="form-control" name="slug" id="slug" aria-describedby="slug">
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +132,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="transaction-type" class="form-label mb-0 mt-4 required">Transaction Type</label>
-                                            <input type="text" class="form-control" id="transaction-type" aria-describedby="transaction-type">
+                                            <input type="text" class="form-control" name="transaction-type" id="transaction-type" aria-describedby="transaction-type">
                                         </div>
                                     </div>
 
@@ -147,7 +146,7 @@
                                 </div>
 
                                 <div class="mt-5 text-center">
-                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">Submit</button>
+                                    <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;" >
                                 </div>
 
                             </form>
@@ -302,14 +301,14 @@
                 if(i == 0) {
                     first = `<div>
                                 <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                <input type="text" class="form-control" id="${fields[i]}" aria-describedby="${fields[i]}">
+                                <input type="text" class="form-control" name="protypesvalue[]" id="${fields[i]}" aria-describedby="${fields[i]}">
                             </div>`
                 }
                 else {
                     template += `<div class="col-6">
                                 <div>
                                     <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                    <input type="text" class="form-control" id="${fields[i]}" aria-describedby="${fields[i]}">
+                                    <input type="text" class="form-control" name="protypesvalue[]" id="${fields[i]}" aria-describedby="${fields[i]}">
                                 </div>
                             </div>`
                 }

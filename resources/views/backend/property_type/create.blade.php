@@ -14,12 +14,23 @@
 }
 </style>
 
+<!-- <div class="form-group">
+            <div class="row m-0">
+              
+              @if(session()->has('error'))
+                  <div class="alert alert-danger">
+                      {{ session()->get('error') }}
+                  </div>
+              @endif
+                                      
+            </div>
+          </div> -->
+
 <div class="row">
     <div class="col-6">
         <form action="{{route('admin.property_type.store')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
-        
-            
+
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
@@ -28,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label>Property Description</label>
-                        <input type="text" class="form-control" name="property_description" required>
+                        <textarea class="form-control" name="property_description" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
@@ -42,22 +53,18 @@
                         <label>Activated Field</label>
                     </div>
 
-                    <!-- <div class="row"> -->
-                        <!-- <div class="col-12"> -->
-                            <div style="border-style: ridge;border-width: 3px;padding: 50px;">
+                    <div class="form-group">
+                        <div style="border-style: ridge;border-width: 3px;padding: 50px;">
+                            <div id="example2Left" class="list-group mb-4 mt-3" data-id="1">
 
-                                <div id="example2Left" class="list-group mb-4 mt-3" data-id="1">
-
-                                </div>
                             </div>
-                        <!-- </div>  -->
-                    <!-- </div> -->
+                        </div>
+                    </div>
                     
                     
                 </div>
             </div>
             <button type="submit" class="btn btn-success pull-right">Create New</button><br>
-            <!-- </div> -->
             
             <br>
         </form>

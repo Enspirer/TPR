@@ -56,30 +56,30 @@ class PropertyTypeController extends Controller
     {        
         // dd($request);
 
-        // $request->validate([
-        //     'image'  => 'mimes:jpeg,png,jpg|max:25000',
-        //     'order' => 'numeric'            
-        // ]); 
-            
+        if($request->get('item') == null){
+            return back()->withErrors('Add at least one attribute');
+        } 
+        else {
 
-        // $feild = [            
-        //     '1' => $request->item,
-        // ];
-
-        $out_json = $request->item;
+            $out_json = $request->item;
         
-        $addprotype = new PropertyType;
+            $addprotype = new PropertyType;
 
-        $addprotype->property_type_name=$request->property_type_name; 
-        $addprotype->property_description=$request->property_description;  
-        $addprotype->user_id = auth()->user()->id;
-        $addprotype->status=$request->status;        
+            $addprotype->property_type_name=$request->property_type_name; 
+            $addprotype->property_description=$request->property_description;  
+            $addprotype->user_id = auth()->user()->id;
+            $addprotype->status=$request->status;        
 
-        $addprotype->activated_fields=json_encode($out_json);
+            $addprotype->activated_fields=json_encode($out_json);
 
-        $addprotype->save();
+            $addprotype->save();
 
-        return redirect()->route('admin.property_type.index')->withFlashSuccess('Added Successfully');  
+            return redirect()->route('admin.property_type.index')->withFlashSuccess('Added Successfully');
+
+        }
+
+
+          
     }
 
     public function edit($id)
@@ -96,6 +96,11 @@ class PropertyTypeController extends Controller
     public function update(Request $request)
     {    
 
+        if($request->get('item') == null){
+            return back()->withErrors('Add at least one attribute');
+        } 
+        else {
+
         $out_json = $request->item;
         
         $updatpro_type = new PropertyType;
@@ -109,7 +114,8 @@ class PropertyTypeController extends Controller
    
         PropertyType::whereId($request->hidden_id)->update($updatpro_type->toArray());
 
-        return redirect()->route('admin.property_type.index')->withFlashSuccess('Updated Successfully');                      
+        return redirect()->route('admin.property_type.index')->withFlashSuccess('Updated Successfully'); 
+        }                     
 
     }
 
