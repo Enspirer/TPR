@@ -19,18 +19,18 @@
             </div>
 
             <div class="col-8">
-            <div class="row justify-content-between">
-                <div class="col-12 p-0">
-                    <div class="row align-items-center">
-                        <div class="col-6 ps-4">
-                            <h4 class="fs-4 fw-bolder user-settings-head">Properties</h4>
-                        </div>
-                        <div class="col-6 text-end pb-3 pe-4">
-                            <a class="btn create-property-btn text-light {{ Request::segment(1) == 'properties' ? 'active' : null }}" href="{{ route('frontend.user.create-property') }}" style="background-color: #4195E1">Create Property</a>
+                <div class="row justify-content-between">
+                    <div class="col-12 p-0">
+                        <div class="row align-items-center">
+                            <div class="col-6 ps-4">
+                                <h4 class="fs-4 fw-bolder user-settings-head">Properties</h4>
+                            </div>
+                            <div class="col-6 text-end pb-3 pe-4">
+                                <a class="btn create-property-btn text-light {{ Request::segment(1) == 'properties' ? 'active' : null }}" href="{{ route('frontend.user.create-property') }}" style="background-color: #4195E1">Create Property</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
                 <div class="row">
                     <div class="col-12">

@@ -23,7 +23,7 @@
                     <div class="col-12 p-0">
                         <div class="row align-items-center">
                             <div class="col-6">
-                                <h4 class="fs-4 fw-bolder user-settings-head mb-0">Property Approval</h4>
+                                <h4 class="fs-4 fw-bolder user-settings-head mb-0">Agent Approval</h4>
                             </div>
                             <div class="col-6 text-end justify-content-end">
                                 <input type="text" class="form-control w-75 ms-auto" placeholder="search" aria-label="search" aria-describedby="search">
@@ -36,54 +36,54 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr class="text-center">
-                                <th scope="col">Property Name</th>
-                                <th scope="col">Property Type</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="align-middle">
                             <tr class="align-items-center">
-                                <td class="m-auto">Hilton Hotel</td>
-                                <td>Restaurant</td>
+                                <td class="m-auto">Menavid</td>
+                                <td>menavid@gmail.com</td>
                                 <td>2021/08/01</td>
                                 <td>
                                     <div class="row justify-content-center">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">Approve</button>
+                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
                                         </div>
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #FF2C4B">Disapprove</button>
+                                            <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Hilton Hotel</td>
-                                <td>Restaurant</td>
+                                <td>City Center</td>
+                                <td>citycenter@gmail.com</td>
                                 <td>2021/07/31</td>
                                 <td>
                                     <div class="row justify-content-center">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">Approve</button>
+                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
                                         </div>
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #FF2C4B">Disapprove</button>
+                                            <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Hilton Hotel</td>
-                                <td>Restaurant</td>
+                                <td>RDC</td>
+                                <td>rdc@gmail.com</td>
                                 <td>2021/07/30</td>
                                 <td>
                                     <div class="row justify-content-center">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">Approve</button>
+                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
                                         </div>
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #FF2C4B">Disapprove</button>
+                                            <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
                                         </div>
                                     </div>
                                 </td>

@@ -298,16 +298,18 @@
             // });
             for(let i = 0; i < fields.length; i++) {
                 if(i == 0) {
+                    let name = fields[i].split(' ').join('-').toLowerCase();
                     first = `<div>
                                 <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                <input type="text" class="form-control" name="protypesvalue[]" id="${fields[i]}" aria-describedby="${fields[i]}">
+                                <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
                             </div>`
                 }
                 else {
+                    let name = fields[i].split(' ').join('-').toLowerCase();
                     template += `<div class="col-6">
                                 <div>
                                     <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                    <input type="text" class="form-control" name="protypesvalue[]" id="${fields[i]}" aria-describedby="${fields[i]}">
+                                    <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
                                 </div>
                             </div>`
                 }
