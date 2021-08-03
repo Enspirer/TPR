@@ -76,7 +76,7 @@
                                             <option value="3">Residential investor</option>
                                             <option value="3">Commercial investor</option>
                                             <option value="3">Seller</option>
-                                            </select>
+                                        </select>
                                     </div>
                                     <div class="col-6">
                                         <label for="birth" class="form-label mb-0">Year of birth</label>
