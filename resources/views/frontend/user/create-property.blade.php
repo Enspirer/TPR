@@ -8,6 +8,40 @@
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/profile-settings.css') }}">
 @endpush
 
+
+@if ( session()->has('message') )
+
+<div class="container user-settings" style="margin-top:8rem;">
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-12">
+                        @include('frontend.includes.profile-settings-links')
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-8">
+                <div class="row justify-content-between mt-4">
+
+                    <div class="container-fluid jumbotron text-center" style="background-color: #c6e4ee; border-radius: 15px 50px;">
+                    <h1 style="margin-top:60px;" class="display-5">Succesfully Created!</h1><br>
+                        <!-- <p class="lead"><h3>Your request is sent. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p> -->
+                        <hr><br>    
+                        <p class="lead">
+                            <a class="btn btn-success btn-md" href="{{url('/')}}" role="button">Go Back to Home Page</a>
+                        </p>
+                        <br>
+                    </div>
+
+                </div>                
+            </div>
+        </div>
+    </div>
+
+
+@else
+
     <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
             <div class="col-4">
@@ -298,14 +332,14 @@
             // });
             for(let i = 0; i < fields.length; i++) {
                 if(i == 0) {
-                    let name = fields[i].split(' ').join('-').toLowerCase();
+                    let name = fields[i].split(' ').join('_').toLowerCase();
                     first = `<div>
                                 <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
                                 <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
                             </div>`
                 }
                 else {
-                    let name = fields[i].split(' ').join('-').toLowerCase();
+                    let name = fields[i].split(' ').join('_').toLowerCase();
                     template += `<div class="col-6">
                                 <div>
                                     <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
@@ -334,3 +368,6 @@
 type="text/javascript"></script>
 
 @endpush
+
+
+@endif
