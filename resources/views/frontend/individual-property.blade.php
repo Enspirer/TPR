@@ -6,6 +6,7 @@
     
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/individual-property.css') }}">
+    <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/swiper.css') }}">
 @endpush
 
 
@@ -247,63 +248,195 @@
             <h6 class="fw-bold">Similar Properties</h6>
 
             <div class="row mt-4">
+                <div class="swiper-container mySwiper">
+                    <div class="swiper-wrapper">
 
-                <div class="col-3">
-                    <div class="card p-2 shadow border-0">
-                        <img src="{{ asset('tpr_templete/images/similar_1.svg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                        <div class="swiper-slide">
+                            <div class="row px-5">
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_1.svg') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_2.png') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_3.svg') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_1.svg') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-3">
-                    <div class="card p-2 shadow border-0">
-                        <img src="{{ asset('tpr_templete/images/similar_2.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                        <div class="swiper-slide">
+                            <div class="row px-5">
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_3.svg') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_3.svg') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_2.png') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_1.svg') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-3">
-                    <div class="card p-2 shadow border-0">
-                        <img src="{{ asset('tpr_templete/images/similar_3.svg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                        <div class="swiper-slide">
+                            <div class="row px-5">
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_2.png') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_3.svg') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_1.svg') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <img src="{{ asset('tpr_templete/images/similar_2.png') }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
+                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-3">
-                    <div class="card p-2 shadow border-0">
-                        <img src="{{ asset('tpr_templete/images/similar_1.svg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                        </div>
                     </div>
-                </div>
 
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+
+                </div>
             </div>
 
             <div class="row text-end mt-5">
@@ -332,12 +465,12 @@
 
 @endsection
 
+
+
 @push('after-scripts')
     @if(config('access.captcha.contact'))
         @captchaScripts
     @endif
-
-
 
 
 <script src="{{ asset('tpr_templete/scripts/individual.js') }}"></script>
@@ -352,6 +485,19 @@ type="text/javascript"></script>
         
         $(".features i").toggle();
     });
+</script>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
 </script>
 
 @endpush

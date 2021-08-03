@@ -9,6 +9,7 @@
                     <a href="#">
                         @if(isset($country_id))
                             <img src="https://www.countryflags.io/{{$country_id}}/flat/64.png" alt="" class="flag img-fluid"></a>
+                            <p class="d-none">{{ $country_id }}</p>
                         @else
 
                         @endif

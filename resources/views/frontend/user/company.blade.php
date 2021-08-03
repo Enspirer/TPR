@@ -44,7 +44,7 @@
                                     
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-company" role="tabpanel" aria-labelledby="pills-company-tab">
-                        
+
                                     <h4>About Company</h4>
                                     <form>
                                         <div class="row">
@@ -52,13 +52,13 @@
                                                 <div>
                                                     <label for="companyName" class="form-label mb-0 required">Company Name</label>
                                                     <input type="text" class="form-control" id="companyName" aria-describedby="companyName">
-                                                </div>  
+                                                </div>
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="country" class="form-label mb-0 required">Country</label>
                                                     <input type="text" class="form-control" id="country" aria-describedby="country">
-                                                </div>  
+                                                </div>
                                             </div>
                                         </div>
 
@@ -70,13 +70,13 @@
                                                         <option selected>Company</option>
                                                         <option value="individual">Individual</option>
                                                     </select>
-                                                </div>  
+                                                </div>
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="companyRegNo" class="form-label mb-0 mt-4 required">Company Registration Number</label>
                                                     <input type="text" class="form-control" id="companyRegNo" aria-describedby="companyRegNo">
-                                                </div>  
+                                                </div>
                                             </div>
                                         </div>
 
@@ -86,11 +86,11 @@
                                                 <div>
                                                     <label for="email" class="form-label mb-0 mt-4 required">Email</label>
                                                     <input type="email" class="form-control" id="email" aria-describedby="email">
-                                                </div> 
-                                                </div>  
+                                                </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    
+
 
                                         <h4 class="mt-5 mb-1">More About Company</h4>
                                         <h6 style="color: #5e6871">Tell us more about the company</h6>
@@ -100,7 +100,7 @@
                                                 <div>
                                                     <label for="request" class="form-label mb-0 required">Request</label>
                                                     <input type="text" class="form-control" id="request" aria-describedby="request">
-                                                </div> 
+                                                </div>
                                             </div>
                                             <div class="col-6">
                                                 <div>
