@@ -74,6 +74,7 @@ class AgentController extends Controller
         $addagent->telephone=$request->telephone;
         $addagent->description_message=$request->description_msg;
         $addagent->status='Pending';
+        $addagent->country_manager_approval = 'Pending';
         $addagent->user_id = auth()->user()->id;
 
         $addagent->validation_type=$request->validate;
