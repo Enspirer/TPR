@@ -28,4 +28,8 @@ class PropertyManagementController extends Controller
     public function agentApproval() {
         return view('frontend.user.agent-approval');
     }
+
+    public function singlePropertyApproval() {
+        return view('frontend.user.single-property-approval');
+    }
 }

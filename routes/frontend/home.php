@@ -58,8 +58,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
+
         Route::post('agent/store', [AgentController::class, 'store'])->name('agent.store');
-        
 
         Route::get('properties', [AgentController::class, 'properties'])->name('properties');
 
@@ -84,6 +84,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('country-managment-dashboard', [PropertyManagementController::class, 'index'])->name('country-management');
 
         Route::get('country-management/property-approval', [PropertyManagementController::class, 'propertyApproval'])->name('property-approval');
+
+        Route::get('country-management/single-property-approval', [PropertyManagementController::class, 'singlePropertyApproval'])->name('single-property-approval');
 
         Route::get('country-management/supports', [PropertyManagementController::class, 'supports'])->name('supports');
 
