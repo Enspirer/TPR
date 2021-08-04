@@ -8,6 +8,40 @@
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/profile-settings.css') }}">
 @endpush
 
+
+@if ( session()->has('message') )
+
+<div class="container user-settings" style="margin-top:8rem;">
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-12">
+                        @include('frontend.includes.profile-settings-links')
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-8">
+                <div class="row justify-content-between mt-4">
+
+                    <div class="container-fluid jumbotron text-center" style="background-color: #c6e4ee; border-radius: 15px 50px;">
+                    <h1 style="margin-top:60px;" class="display-5">Succesfully Created!</h1><br>
+                        <!-- <p class="lead"><h3>Your request is sent. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p> -->
+                        <hr><br>    
+                        <p class="lead">
+                            <a class="btn btn-success btn-md" href="{{url('/')}}" role="button">Go Back to Home Page</a>
+                        </p>
+                        <br>
+                    </div>
+
+                </div>                
+            </div>
+        </div>
+    </div>
+
+
+@else
+
     <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
             <div class="col-4">
@@ -46,8 +80,8 @@
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label for="property_type" class="form-label mb-0 required">Property Type</label>
-                                            <select class="form-select" aria-label="property_type" name="property_type" id="property_type" onChange="renderFields()">
+                                            <label for="propertyType" class="form-label mb-0 required">Property Type</label>
+                                            <select class="form-select" aria-label="agentType" name="propertyType" id="propertyType" onChange="renderFields()">
 
                                             @foreach($property_type as $type)
                                                 <option value="{{$type->id}}"> {{$type->property_type_name}} </option>
@@ -63,12 +97,12 @@
                                     <div class="col-12">
                                         <label for="map" class="form-label mb-2 mt-4 required">Location</label>
                                         <div id="map" style="width: 100%; height: 400px;"></div>
-                                        <input type="text" id="lat" class="mt-3 d-none">
-                                        <input type="text" id="lng" class="mt-3 d-none">
+                                        <input type="text" name="lat" id="lat" class="mt-3 d-none">
+                                        <input type="text" name="lng" id="lng" class="mt-3 d-none">
                                         
                                         <div class="row mt-3">
                                             <div class="col-6">
-                                                <input id="search" name="search" class="form-control" type="text" placeholder="Search" />
+                                                <input id="search" class="form-control" type="text" placeholder="Search" />
                                             </div>
                                         </div>
                                         
@@ -116,8 +150,8 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="meta_description" class="form-label mb-0 mt-4 required">Meta Description</label>
-                                            <input type="text" class="form-control" name="meta_description" id="meta_description" aria-describedby="meta_description">
+                                            <label for="meta-description" class="form-label mb-0 mt-4 required">Meta Description</label>
+                                            <input type="text" class="form-control" name="meta_description" id="meta-description" aria-describedby="meta-description">
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -131,11 +165,8 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="transaction_type" class="form-label mb-0 mt-4 required">Transaction Type</label>
-                                            <select class="form-select" aria-label="transaction_type" id="transaction_type" name="transaction_type">
-                                                <option value="sale" selected>For Sale</option>
-                                                <option value="rent">For Rent</option>
-                                            </select>
+                                            <label for="transaction-type" class="form-label mb-0 mt-4 required">Transaction Type</label>
+                                            <input type="text" class="form-control" name="transaction_type" id="transaction-type" aria-describedby="transaction-type">
                                         </div>
                                     </div>
 
@@ -278,7 +309,7 @@
 
         // dropdown box changing field
         const renderFields = async () => {
-            let value = $('#property_type').val();
+            let value = $('#propertyType').val();
 
             let url = 'http://127.0.0.1:8000/api/get_property_type_details/' + value;
 
@@ -302,206 +333,19 @@
             for(let i = 0; i < fields.length; i++) {
                 if(i == 0) {
                     let name = fields[i].split(' ').join('_').toLowerCase();
-                    if(name == 'beds' || name == 'baths' || name == 'building_type' || name == 'parking_type' || name == 'zoning_type' || name == 'farm_type') {
-                        if(name == 'beds' || name == 'baths') {
-                            first = `<div>
-                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                <input type="number" class="form-control" name="${name}" id="${name}" aria-describedby="${name}" min="1" max="100">
-                            </div>`
-                        }
-                        else if (name == 'building_type') {
-                                        first = `<div>
-                                                    <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                    <select class="form-select" aria-label="${name}" id="${name}">
-                                                        <option value="any" selected>Any</option>
-                                                        <option value="house">House</option>
-                                                        <option value="row/townhouse">Row / Townhouse</option>
-                                                        <option value="apartment">Apartment</option>
-                                                        <option value="duplex">Duplex</option>
-                                                        <option value="triplex">Triplex</option>
-                                                        <option value="fourplex">Fourplex</option>
-                                                        <option value="garden-home">Garden Home</option>
-                                                        <option value="mobile-home">Mobile Home</option>
-                                                        <option value="manufactured-home">Manufactured Home/Mobile</option>
-                                                        <option value="special-purpose">Special Purpose</option>
-                                                        <option value="residential-commercial-mix">Residential Commercial Mix</option>
-                                                        <option value="manufactured-home">Manufactured Home</option>
-                                                        <option value="commercial-apartment">Commercial Apartment</option>
-                                                        <option value="two-apartment-house">Two Apartment House</option>
-                                                        <option value="park-model-mobile-home">Park Model Mobile Home</option>
-                                                    </select>
-                                                </div>`
-                        }
-                        else if (name == 'parking_type') {
-                                    first = `<div>
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
-                                                    <option value="boat-house">Boat House</option>
-                                                    <option value="concrete">Concrete</option>
-                                                    <option value="heated-garage">Heated Garage</option>
-                                                    <option value="attached-garage">Attached Garage</option>
-                                                    <option value="integrated-garage">Integrated Garage</option>
-                                                    <option value="detached-garage">Detached Garage</option>
-                                                    <option value="garage">Garage</option>
-                                                    <option value="carport">Carport</option>
-                                                    <option value="underground">Underground</option>
-                                                    <option value="indoor">Indoor</option>
-                                                    <option value="open">Open</option>
-                                                    <option value="covered">Covered</option>
-                                                    <option value="parking-pad">Parking Pad</option>
-                                                    <option value="paved-yard">Paved Yard</option>
-                                                </select>
-                                            </div>`
-                        }
-                        else if (name == 'zoning_type') {
-                                    first = `<div>
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
-                                                    <option value="commercial-retail">Commercial Retail</option>
-                                                    <option value="commercial-office">Commercial Office</option>
-                                                    <option value="commercial-mixed">Commercial Mixed</option>
-                                                    <option value="industrial">Industrial</option>
-                                                    <option value="industrial-light">Industrial-Light</option>
-                                                    <option value="industrial-medium">Industrial-Medium</option>
-                                                    <option value="industrial-heavy">Industrial-Heavy</option>
-                                                    <option value="residential-low-density">Residential-Low Density</option>
-                                                    <option value="residential-medium-density">Residential - Medium Density</option>
-                                                    <option value="residential-high-density">Residential-High Density</option>
-                                                    <option value="institutional">Institutional</option>
-                                                    <option value="agricultural">Agricultural</option>
-                                                    <option value="recreational">Recreational</option>
-                                                    <option value="other">Other</option>
-                                                </select>
-                                            </div>`
-                        }
-                        else if (name == 'farm_type') {
-                                    first = `<div>
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
-                                                    <option value="animal">Animal</option>
-                                                    <option value="cash-crop">Cash Crop</option>
-                                                    <option value="hobby-farm">Hobby Farm</option>
-                                                    <option value="market-gardening">Market Gardening</option>
-                                                    <option value="nursery">Nursery</option>
-                                                    <option value="greenhouse">Greenhouse</option>
-                                                    <option value="orchard">Orchard</option>
-                                                    <option value="vineyard">Vineyard</option>
-                                                    <option value="feed-lot">Feed Lot</option>
-                                                    <option value="boarding">Boarding</option>
-                                                    <option value="mixed">Mixed</option>
-                                                </select>
-                                            </div>`
-                        }
-                    }
-                        else {
-                            first = `<div>
-                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                    first = `<div>
+                                <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
                                 <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
                             </div>`
-                        }
                 }
                 else {
                     let name = fields[i].split(' ').join('_').toLowerCase();
-
-                    if(name == 'beds' || name == 'baths' || name == 'building_type' || name == 'parking_type' || name == 'zoning_type' || name == 'farm_type') {
-                        if(name == 'beds' || name == 'baths') {
-                            template += `<div class="col-6">
-                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                <input type="number" class="form-control" name="${name}" id="${name}" aria-describedby="${name}" min="1" max="100">
+                    template += `<div class="col-6">
+                                <div>
+                                    <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                    <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
+                                </div>
                             </div>`
-                        }
-                        else if (name == 'building_type') {
-                                    template += `<div class="col-6">
-                                                    <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                    <select class="form-select" aria-label="${name}" id="${name}">
-                                                        <option value="any" selected>Any</option>
-                                                        <option value="house">House</option>
-                                                        <option value="row/townhouse">Row / Townhouse</option>
-                                                        <option value="apartment">Apartment</option>
-                                                        <option value="duplex">Duplex</option>
-                                                        <option value="triplex">Triplex</option>
-                                                        <option value="fourplex">Fourplex</option>
-                                                        <option value="garden-home">Garden Home</option>
-                                                        <option value="mobile-home">Mobile Home</option>
-                                                        <option value="manufactured-home">Manufactured Home/Mobile</option>
-                                                        <option value="special-purpose">Special Purpose</option>
-                                                        <option value="residential-commercial-mix">Residential Commercial Mix</option>
-                                                        <option value="manufactured-home">Manufactured Home</option>
-                                                        <option value="commercial-apartment">Commercial Apartment</option>
-                                                        <option value="two-apartment-house">Two Apartment House</option>
-                                                        <option value="park-model-mobile-home">Park Model Mobile Home</option>
-                                                    </select>
-                                                </div>`
-                        }
-                        else if (name == 'parking_type') {
-                                    template += `<div class="col-6">
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
-                                                    <option value="boat-house">Boat House</option>
-                                                    <option value="concrete">Concrete</option>
-                                                    <option value="heated-garage">Heated Garage</option>
-                                                    <option value="attached-garage">Attached Garage</option>
-                                                    <option value="integrated-garage">Integrated Garage</option>
-                                                    <option value="detached-garage">Detached Garage</option>
-                                                    <option value="garage">Garage</option>
-                                                    <option value="carport">Carport</option>
-                                                    <option value="underground">Underground</option>
-                                                    <option value="indoor">Indoor</option>
-                                                    <option value="open">Open</option>
-                                                    <option value="covered">Covered</option>
-                                                    <option value="parking-pad">Parking Pad</option>
-                                                    <option value="paved-yard">Paved Yard</option>
-                                                </select>
-                                            </div>`
-                        }
-                        else if (name == 'zoning_type') {
-                                    template += `<div class="col-6">
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
-                                                    <option value="commercial-retail">Commercial Retail</option>
-                                                    <option value="commercial-office">Commercial Office</option>
-                                                    <option value="commercial-mixed">Commercial Mixed</option>
-                                                    <option value="industrial">Industrial</option>
-                                                    <option value="industrial-light">Industrial-Light</option>
-                                                    <option value="industrial-medium">Industrial-Medium</option>
-                                                    <option value="industrial-heavy">Industrial-Heavy</option>
-                                                    <option value="residential-low-density">Residential-Low Density</option>
-                                                    <option value="residential-medium-density">Residential - Medium Density</option>
-                                                    <option value="residential-high-density">Residential-High Density</option>
-                                                    <option value="institutional">Institutional</option>
-                                                    <option value="agricultural">Agricultural</option>
-                                                    <option value="recreational">Recreational</option>
-                                                    <option value="other">Other</option>
-                                                </select>
-                                            </div>`
-                        }
-                        else if (name == 'farm_type') {
-                                    template += `<div class="col-6">
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
-                                                    <option value="animal">Animal</option>
-                                                    <option value="cash-crop">Cash Crop</option>
-                                                    <option value="hobby-farm">Hobby Farm</option>
-                                                    <option value="market-gardening">Market Gardening</option>
-                                                    <option value="nursery">Nursery</option>
-                                                    <option value="greenhouse">Greenhouse</option>
-                                                    <option value="orchard">Orchard</option>
-                                                    <option value="vineyard">Vineyard</option>
-                                                    <option value="feed-lot">Feed Lot</option>
-                                                    <option value="boarding">Boarding</option>
-                                                    <option value="mixed">Mixed</option>
-                                                </select>
-                                            </div>`
-                        }
-                    }
-                    else {
-                        template += `<div class="col-6">
-                            <div>
-                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
-                            </div>
-                        </div>`
-                    }
                 }
             }
 
@@ -524,3 +368,6 @@
 type="text/javascript"></script>
 
 @endpush
+
+
+@endif

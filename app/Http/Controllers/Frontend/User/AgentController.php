@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\AgentRequest;
 use App\Models\PropertyType;
+use App\Models\Properties;
 
 /**
  * Class DashboardController.
@@ -122,7 +123,65 @@ class AgentController extends Controller
 
     public function createPropertyStore(Request $request)
     {        
-        dd($request);
+        // dd($request);
+
+        $out_json = $request->property_images;
+
+        $addprop = new Properties;
+
+        $addprop->name=$request->name; 
+        $addprop->property_type=$request->propertyType;        
+        $addprop->lat=$request->lat;
+        $addprop->long=$request->lng;
+        $addprop->price=$request->price;
+        $addprop->main_category=$request->category; 
+        $addprop->meta_description=$request->meta_description;        
+        $addprop->slug=$request->slug;        
+        $addprop->transaction_type=$request->transaction_type;
+        $addprop->feature_image_id=$request->featured_image;
+        $addprop->image_ids=json_encode($out_json);
+        $addprop->admin_approval='Pending';
+        $addprop->country_manager_approval='Pending';
+        $addprop->user_id = auth()->user()->id;
+
+        $addprop->country='country_no_feild';      
+        
+
+        if($request->land_size){
+            $addprop->land_size=$request->land_size;
+        }else{}
+        if($request->zoning_type){
+            $addprop->zoning_type=$request->zoning_type;
+        }else{}
+        if($request->number_of_units){
+            $addprop->number_of_units=$request->number_of_units;
+        }else{}
+        if($request->building_size){
+            $addprop->building_size=$request->building_size;
+        }else{}
+        if($request->farm_type){
+            $addprop->farm_type=$request->farm_type;
+        }else{}
+        if($request->building_type){
+            $addprop->building_type=$request->building_type;
+        }else{}
+        if($request->open_house_only){
+            $addprop->open_house_only=$request->open_house_only;
+        }else{}
+        if($request->parking_type){
+            $addprop->parking_type=$request->parking_type;
+        }else{}
+        if($request->beds){
+            $addprop->beds=$request->beds;        
+        }else{}
+        if($request->baths){
+            $addprop->baths=$request->baths;       
+        }else{}
+      
+
+        $addprop->save();
+
+        session()->flash('message','Thanks!');
     
         
 
