@@ -29,7 +29,8 @@ Route::get('find-agent', [FindAgentController::class, 'index'])->name('find-agen
 Route::get('individual-agent', [IndividualAgentController::class, 'index'])->name('individual-agent');
 Route::get('map-search', [MapSearchController::class, 'index'])->name('map-search');
 Route::get('residential', [ResidentialController::class, 'index'])->name('residential');
-Route::get('individual-property', [IndividualPropertyController::class, 'index'])->name('individual-property');
+Route::get('individual-property/{id}', [IndividualPropertyController::class, 'index'])->name('individual-property');
+// Route::get('individual-property/{id}', [IndividualPropertyController::class, 'property_details'])->name('individual-property.property_details');
 
 Route::post('file_manager-store',[FileManagerController::class,'store'])->name('file_store');
 
