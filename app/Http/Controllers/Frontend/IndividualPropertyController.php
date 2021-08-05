@@ -25,19 +25,24 @@ class IndividualPropertyController extends Controller
         $feature_image = FileManager::where('id',$property_details->feature_image_id)->get();
         // dd($feature_image);
 
-
+        $final_out = [];
         foreach(json_decode($property_details->image_ids) as $key => $image){
             
-            $image_ids = FileManager::where('id',$image)->get();
-        }
-        // dd($image_ids);
+            $image_ids = FileManager::where('id',$image)->first();
 
+            $file_details = [
+                $image_ids->file_name
+            ];
+
+            array_push($final_out,$file_details);
+        }
+        // dd($final_out);
 
         return view('frontend.individual-property',[
             'property_details' => $property_details,
             'users' => $users,
             'feature_image' => $feature_image,
-            // 'users' => $users
+            'final_out' => $final_out
         ]);
     }
 

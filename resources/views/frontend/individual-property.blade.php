@@ -28,15 +28,19 @@
                     <div class="carousel">
                         <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="{{ asset('tpr_templete/images/individual_property_1.svg') }}" class="d-block w-100" alt="...">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="{{ asset('tpr_templete/images/individual_property_1.svg') }}" class="d-block w-100" alt="...">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="{{ asset('tpr_templete/images/individual_property_1.svg') }}" class="d-block w-100" alt="...">
-                              </div>
+
+                            @foreach($final_out as $key => $image)
+                                @if($key == 0)
+                                <div class="carousel-item active">
+                                    <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
+                                </div>
+                                @else  
+                                <div class="carousel-item">
+                                    <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
+                                </div>
+                                @endif    
+                            @endforeach
+
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -67,6 +71,8 @@
 
                     <div class="location">
                         <div id="map" style="height: 400px; width: 100%;"></div>
+                        <input type="text" name="lat" id="lat" value="$property_details->lat" class="mt-3 d-none">
+                        <input type="text" name="lng" id="lng" value="$property_details->long" class="mt-3 d-none">
                     </div>
 
                     <div class="extra-details mt-2">
