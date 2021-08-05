@@ -33,24 +33,24 @@
                 </div>
 
                 <div class="row mt-3">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr class="text-center">
+                    <table class="table table-borderless table-responsive">
+                        <thead class="table-head">
+                            <tr>
                                 <th scope="col">User Name</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="align-middle">
+                        <tbody class="align-middle table-data">
                             <tr class="align-items-center">
-                                <td class="m-auto">Zajjith Vedha</td>
-                                <td>Pending</td>
-                                <td>2021/08/02</td>
+                                <td>Zajjith Vedha</td>
+                                <td><i class="bi bi-circle-fill text-warning me-2" style="font-size: 0.5rem; vertical-align: middle;"></i>Pending</td>
+                                <td>2021-08-02</td>
                                 <td>
-                                    <div class="row justify-content-center">
+                                    <div class="row">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
+                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
@@ -60,12 +60,12 @@
                             </tr>
                             <tr>
                                 <td>Glenn Maxwell</td>
-                                <td>Solved</td>
-                                <td>2021/08/01</td>
+                                <td><i class="bi bi-circle-fill text-success me-2" style="font-size: 0.5rem; vertical-align: middle;"></i>Solved</td>
+                                <td>2021-08-01</td>
                                 <td>
-                                    <div class="row justify-content-center">
+                                    <div class="row">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
+                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
@@ -74,13 +74,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Isusru Udana</td>
-                                <td>Not Solved</td>
-                                <td>2021/07/31</td>
+                                <td>Isuru Udana</td>
+                                <td><i class="bi bi-circle-fill text-danger me-2" style="font-size: 0.5rem; vertical-align: middle;"></i>Not Solved</td>
+                                <td>2021-07-31</td>
                                 <td>
-                                    <div class="row justify-content-center">
+                                    <div class="row">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
+                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>

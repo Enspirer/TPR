@@ -94,6 +94,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('country-management/single-agent-approval', [CountryManagementController::class, 'singleAgentApproval'])->name('single-agent-approval');
 
+        Route::get('country-management/individual-help', [CountryManagementController::class, 'individualHelp'])->name('individual-help');
+
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');
 

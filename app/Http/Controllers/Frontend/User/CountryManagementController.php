@@ -36,4 +36,8 @@ class CountryManagementController extends Controller
     public function singleAgentApproval() {
         return view('frontend.user.single-agent-approval');
     }
+
+    public function individualHelp() {
+        return view('frontend.user.individual-help');
+    }
 }
