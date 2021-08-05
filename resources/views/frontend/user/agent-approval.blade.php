@@ -50,7 +50,7 @@
                                 <td>
                                     <div class="row justify-content-center">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
+                                            <a href="{{ route('frontend.user.single-agent-approval') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
@@ -65,7 +65,7 @@
                                 <td>
                                     <div class="row justify-content-center">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
+                                            <a href="{{ route('frontend.user.single-agent-approval') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
@@ -80,7 +80,7 @@
                                 <td>
                                     <div class="row justify-content-center">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
+                                            <a href="{{ route('frontend.user.single-agent-approval') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
