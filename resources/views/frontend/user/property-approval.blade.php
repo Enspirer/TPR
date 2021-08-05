@@ -33,22 +33,22 @@
                 </div>
 
                 <div class="row mt-3">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr class="text-center">
+                    <table class="table table-borderless table-responsive">
+                        <thead class="table-head">
+                            <tr>
                                 <th scope="col">Property Name</th>
                                 <th scope="col">Property Type</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="align-middle">
+                        <tbody class="align-middle table-data">
                             <tr class="align-items-center">
-                                <td class="m-auto">Hilton Hotel</td>
+                                <td>Hilton Hotel</td>
                                 <td>Restaurant</td>
-                                <td>2021/08/01</td>
+                                <td>2021-08-01</td>
                                 <td>
-                                    <div class="row justify-content-center">
+                                    <div class="row">
                                         <div class="col-5">
                                             <a href="{{ route('frontend.user.single-property-approval') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
@@ -61,9 +61,9 @@
                             <tr>
                                 <td>Hilton Hotel</td>
                                 <td>Restaurant</td>
-                                <td>2021/07/31</td>
+                                <td>2021-07-31</td>
                                 <td>
-                                    <div class="row justify-content-center">
+                                    <div class="row">
                                         <div class="col-5">
                                             <a href="{{ route('frontend.user.single-property-approval') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
@@ -76,9 +76,9 @@
                             <tr>
                                 <td>Hilton Hotel</td>
                                 <td>Restaurant</td>
-                                <td>2021/07/30</td>
+                                <td>2021-07-30</td>
                                 <td>
-                                    <div class="row justify-content-center">
+                                    <div class="row">
                                         <div class="col-5">
                                             <a href="{{ route('frontend.user.properties') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
