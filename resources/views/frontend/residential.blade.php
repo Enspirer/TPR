@@ -248,7 +248,7 @@
                     <div class="property mb-5 p-3 shadow">
                         <div class="row">
                             <div class="col-6">
-                                <a href="{{ route('frontend.individual-property') }}"><img src="{{ asset('tpr_templete/images/residential_1.svg') }}" alt="" class="img-fluid"></a>
+                                <a href=""><img src="{{ asset('tpr_templete/images/residential_1.svg') }}" alt="" class="img-fluid"></a>
                             </div>
                             <div class="col-6 ps-4">
                                 <div class="row justify-content-between">

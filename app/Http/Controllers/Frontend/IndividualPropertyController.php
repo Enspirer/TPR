@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Properties;
 use App\Models\FileManager;
 use App\Models\Auth\User;
+use App\Models\AgentRequest; 
 
 /**
  * Class ContactController.
@@ -22,6 +23,10 @@ class IndividualPropertyController extends Controller
         // dd($property_details);
         $users = User::where('id',$property_details->user_id)->get();
         // dd($users);
+        
+        $agent = AgentRequest::where('user_id',$property_details->user_id)->first();
+        // dd($agent);
+
         $feature_image = FileManager::where('id',$property_details->feature_image_id)->get();
         // dd($feature_image);
 
@@ -42,11 +47,11 @@ class IndividualPropertyController extends Controller
             'property_details' => $property_details,
             'users' => $users,
             'feature_image' => $feature_image,
-            'final_out' => $final_out
+            'final_out' => $final_out,
+            'agent' => $agent
         ]);
     }
 
-    // image_ids
 
     // public function property_details($id)
     // {

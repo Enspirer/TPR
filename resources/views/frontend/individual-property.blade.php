@@ -64,7 +64,21 @@
                             </div>
                             <div class="col-6 text-end">
                                 <button class="btn rounded-0 text-light px-4 py-2 mt-2" style="background-color: #EB8EB0;">Floor Plans</button>
-                                <p class="text-secondary mt-5"><i class="fas fa-bath me-1"></i>1 bath<i class="fas fa-bed ms-3 me-1"></i>2 bed</p>
+                                
+                                <p class="text-secondary mt-5">
+                                    @if($property_details->baths == null)
+                                    @else
+                                    <i class="fas fa-bath me-1"></i>{{ $property_details->baths }} bath
+                                    @endif
+
+                                    @if($property_details->beds == null)
+                                    @else
+                                    <i class="fas fa-bed ms-3 me-1"></i>{{ $property_details->beds }} bed
+                                    @endif
+                                </p>
+
+                                <!-- <p class="text-secondary mt-5"><i class="fas fa-bath me-1"></i>1 bath<i class="fas fa-bed ms-3 me-1"></i>2 bed</p> -->
+
                             </div>
                         </div>
                     </div>
