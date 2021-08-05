@@ -15,7 +15,7 @@ use App\Http\Controllers\Frontend\User\AgentController;
 use App\Http\Controllers\Frontend\User\CompanyController;
 use App\Http\Controllers\Frontend\User\ResultsController;
 use App\Http\Controllers\Frontend\User\PreferencesController;
-use App\Http\Controllers\Frontend\User\PropertyManagementController;
+use App\Http\Controllers\Frontend\User\CountryManagementController;
 use App\Http\Controllers\Frontend\FileManagerController;
 
 /*
@@ -82,15 +82,17 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('company/property', [AgentController::class, 'companyProperty'])->name('company-property');
 
-        Route::get('country-managment-dashboard', [PropertyManagementController::class, 'index'])->name('country-management');
+        Route::get('country-managment-dashboard', [CountryManagementController::class, 'index'])->name('country-management');
 
-        Route::get('country-management/property-approval', [PropertyManagementController::class, 'propertyApproval'])->name('property-approval');
+        Route::get('country-management/property-approval', [CountryManagementController::class, 'propertyApproval'])->name('property-approval');
 
-        Route::get('country-management/single-property-approval', [PropertyManagementController::class, 'singlePropertyApproval'])->name('single-property-approval');
+        Route::get('country-management/single-property-approval', [CountryManagementController::class, 'singlePropertyApproval'])->name('single-property-approval');
 
-        Route::get('country-management/supports', [PropertyManagementController::class, 'supports'])->name('supports');
+        Route::get('country-management/supports', [CountryManagementController::class, 'supports'])->name('supports');
 
-        Route::get('country-management/agent-approval', [PropertyManagementController::class, 'agentApproval'])->name('agent-approval');
+        Route::get('country-management/agent-approval', [CountryManagementController::class, 'agentApproval'])->name('agent-approval');
+
+        Route::get('country-management/single-agent-approval', [CountryManagementController::class, 'singleAgentApproval'])->name('single-agent-approval');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');
