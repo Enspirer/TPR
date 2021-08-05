@@ -71,8 +71,8 @@
 
                     <div class="location">
                         <div id="map" style="height: 400px; width: 100%;"></div>
-                        <input type="text" name="lat" id="lat" value="$property_details->lat" class="mt-3 d-none">
-                        <input type="text" name="lng" id="lng" value="$property_details->long" class="mt-3 d-none">
+                        <input type="text" name="lat" id="lat" value="{{$property_details->lat}}" class="mt-3 d-none">
+                        <input type="text" name="lng" id="lng" value="{{$property_details->long}}" class="mt-3 d-none">
                     </div>
 
                     <div class="extra-details mt-2">
@@ -479,7 +479,30 @@
     @endif
 
 
-<script src="{{ asset('tpr_templete/scripts/individual.js') }}"></script>
+<script>
+
+    function initMap() {
+        let lat = $('#lat').val();
+        let lng = $('#lng').val();
+
+        const myLatLng = { lat: parseFloat(lat), lng: parseFloat(lng) };
+
+            let options = {
+            zoom: 8,
+            center: myLatLng
+            };
+
+            const map = new google.maps.Map(document.getElementById("map"), options);
+
+
+            let marker = new google.maps.Marker({
+                position: myLatLng,
+                map:map
+            });
+
+            console.log(myLatLng);
+}
+</script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArF7tuecnSc3AvTh5V_mabinQqE6TuiYM&callback=initMap"
 type="text/javascript"></script>

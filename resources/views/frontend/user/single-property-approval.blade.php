@@ -178,6 +178,8 @@
     map,
     title: "Hello World!",
   });
+
+  console.log(myLatLng)
 }
 </script>
 
