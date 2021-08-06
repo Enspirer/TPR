@@ -36,7 +36,7 @@
                     <div class="col-12">
                         <div class="px-2" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
 
-                            <div class="row align-items-center justify-content-between mb-4 border py-3">
+                            <!-- <div class="row align-items-center justify-content-between mb-4 border py-3">
                                 <div class="col-6">
                                     <img src="{{url('tpr_templete/images/fp_fm_1.svg')}}" class="card-img-top" alt="...">
                                 </div>
@@ -202,7 +202,102 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+
+                            @foreach($properties as $property)
+
+                                @if($property->admin_approval == 'Approved' && $property->country_manager_approval == 'Approved')
+                                    <div class="row align-items-center justify-content-between mb-4 border py-3 border-success">
+                                        <div class="col-6">
+                                            
+                                                <img src="{{url('images', App\Models\FileManager::where('id', $property->feature_image_id)->first()->file_name)}}" class="card-img-top" alt="...">
+                                        </div>
+                                        <div class="col-5">
+                                            <h5 class="card-title">Jaffna, Sri Lanka</h5>
+                                            <p class="card-text mt-3 mb-1">{{ $property['beds'] }} Bed Semidetached honse</p>
+                                            <p class="card-text">{{ $property['long'] }} & {{ $property['lat'] }}</p>
+                                            <p class="mt-1 text-info">{{ $property['price'] }}</p>
+
+                                            <div class="row justify-content-between">
+                                                <div class="col-9">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Edit</button>
+                                                        </div>
+                                                        <div class="col-4 ps-1">
+                                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+
+                                @elseif($property->admin_approval == 'Pending' && $property->country_manager_approval == 'Pending')
+                                    <div class="row align-items-center justify-content-between mb-4 border py-3 border-warning">
+                                        <div class="col-6">
+                                            
+                                                <img src="{{url('images', App\Models\FileManager::where('id', $property->feature_image_id)->first()->file_name)}}" class="card-img-top" alt="...">
+                                        </div>
+                                        <div class="col-5">
+                                            <h5 class="card-title">Jaffna, Sri Lanka</h5>
+                                            <p class="card-text mt-3 mb-1">{{ $property['beds'] }} Bed Semidetached honse</p>
+                                            <p class="card-text">{{ $property['long'] }} & {{ $property['lat'] }}</p>
+                                            <p class="mt-1 text-info">{{ $property['price'] }}</p>
+
+                                            <div class="row justify-content-between">
+                                                <div class="col-9">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Edit</button>
+                                                        </div>
+                                                        <div class="col-4 ps-1">
+                                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="row align-items-center justify-content-between mb-4 border py-3 border-danger">
+                                        <div class="col-6">
+                                            
+                                                <img src="{{url('images', App\Models\FileManager::where('id', $property->feature_image_id)->first()->file_name)}}" class="card-img-top" alt="...">
+                                        </div>
+                                        <div class="col-5">
+                                            <h5 class="card-title">Jaffna, Sri Lanka</h5>
+                                            <p class="card-text mt-3 mb-1">{{ $property['beds'] }} Bed Semidetached honse</p>
+                                            <p class="card-text">{{ $property['long'] }} & {{ $property['lat'] }}</p>
+                                            <p class="mt-1 text-info">{{ $property['price'] }}</p>
+
+                                            <div class="row justify-content-between">
+                                                <div class="col-9">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Edit</button>
+                                                        </div>
+                                                        <div class="col-4 ps-1">
+                                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ use DB;
 use App\Models\AgentRequest;
 use App\Models\PropertyType;
 use App\Models\Properties;
+use Auth;
 
 /**
  * Class DashboardController.
@@ -107,7 +108,10 @@ class AgentController extends Controller
 
     public function properties()
     {
-        return view('frontend.user.properties');
+        $id = Auth::user()->id;
+        $properties = Properties::where('user_id',  $id)->get();
+
+        return view('frontend.user.properties', ['properties' => $properties]);
     }
 
     public function createProperty()

@@ -97,8 +97,8 @@
                                     <div class="col-12">
                                         <label for="map" class="form-label mb-2 mt-4 required">Location</label>
                                         <div id="map" style="width: 100%; height: 400px;"></div>
-                                        <input type="text" name="lat" id="lat" class="mt-3 d-none">
-                                        <input type="text" name="lng" id="lng" class="mt-3 d-none">
+                                        <input type="text" name="lat" id="lat" class="mt-3">
+                                        <input type="text" name="lng" id="lng" class="mt-3">
                                         
                                         <div class="row mt-3">
                                             <div class="col-6">
@@ -210,11 +210,15 @@
                 center: { lat: -28.024, lng: 140.887 },
             });
 
+            const geocoder = new google.maps.Geocoder();
+
             //Listen for any clicks on the map.
             google.maps.event.addListener(map, 'click', function(event) {                
                 //Get the location that the user clicked.
                 var clickedLocation = event.latLng;
                 //If the marker hasn't been added.
+
+                
 
                 if(marker === false){
                     //Create the marker.
@@ -302,6 +306,27 @@
             //Add lat and lng values to a field that we can save.
             document.getElementById('lat').value = currentLocation.lat(); //latitude
             document.getElementById('lng').value = currentLocation.lng(); //longitude
+
+            getCountryName(currentLocation.lat(), currentLocation.lng(), country => {
+                    alert(country);
+                    console.log(country);
+                    // You can do anything here like showing it to ui or using it elsewhere
+                });
+        }
+
+        function getCountryName(latitude, longitude, country){
+            const geocoder = new google.maps.Geocoder();
+            geocoder.geocode({location: {lat: latitude, lng: longitude}}, (results, status) => {
+                if(status === "OK"){
+                    if(results[0]){
+                        onSucess(results[0].address_components[0].types[0].country);
+                    }
+                    else{
+                        onSucess("N/A");
+                    }
+                }
+            });
+            return country;
         }
 
 
