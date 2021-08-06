@@ -91,7 +91,7 @@
                                             <select class="form-select" name="agent_type" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option value="Company">Company</option>
-                                                <option value="individual">Individual</option>
+                                                <option value="Individual">Individual</option>
                                             </select>
                                         </div>  
                                     </div>

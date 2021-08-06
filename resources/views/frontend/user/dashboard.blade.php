@@ -25,7 +25,7 @@
                         <button class="nav-link active" id="pills-accountInformation-tab" data-bs-toggle="pill" data-bs-target="#pills-accountInformation" type="button" role="tab" aria-controls="pills-accountInformation" aria-selected="true">Accout Information</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-lorem-tab" data-bs-toggle="pill" data-bs-target="#pills-lorem" type="button" role="tab" aria-controls="pills-lorem" aria-selected="false">Lorem</button>
+                        <button class="nav-link" id="pills-lorem-tab" data-bs-toggle="pill" data-bs-target="#pills-lorem" type="button" role="tab" aria-controls="pills-lorem" aria-selected="false">Agent Information</button>
                     </li>
                 </ul>
                                     
@@ -112,7 +112,7 @@
                                                     </select>
                                             </div>
                                             <div class="col-6">
-                                                <label for=displayName" class="form-label mb-0 mt-4">Marital Status</label>
+                                                <label for="displayName" class="form-label mb-0 mt-4">Marital Status</label>
                                                 <select class="form-select" aria-label="Default select example">
                                                     <option selected>Select</option>
                                                     <option value="single">Single</option>
@@ -184,14 +184,241 @@
                             </div>
                         </div>
                     </div>
+<!-- ***************************************  agent information  *************************************************************************************************************************************** -->
+                   
+
 
                     <div class="tab-pane fade" id="pills-lorem" role="tabpanel" aria-labelledby="pills-lorem-tab">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, non placeat commodi quasi vel cum vero numquam autem ratione id tenetur totam quam assumenda repellendus culpa ex tempora inventore modi harum nihil facere laborum eius voluptas. A, doloremque pariatur quisquam laboriosam assumenda cumque quam minima, dolore, eveniet illum veritatis harum. Fuga quos, adipisci ad hic nostrum minima repellendus quia praesentium temporibus a, placeat culpa maxime exercitationem libero ut eaque quibusdam tempora? Necessitatibus deserunt, quis incidunt nemo minus possimus velit, rem culpa inventore, laudantium eos. Architecto beatae sint asperiores impedit? Ullam culpa aut asperiores optio commodi exercitationem tempore non reprehenderit voluptatum?</p>          
+
+                        <form action="{{route('frontend.user.dashboard.editAgent')}}" method="post" enctype="multipart/form-data" >
+                            {{csrf_field()}}
+
+                            <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 required">Country</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->country }}" name="country" required>
+                                        </div>  
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <label for="name" class="form-label mb-0 required">Name</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->name }}" name="name" required>
+                                        </div>  
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">Agent Type</label>
+                                            <select class="form-select" name="agent_type" required>
+                                                <!-- <option selected disabled value="">Choose...</option> -->
+                                                <option value="Company" {{ $agent_edit->agent_type == 'Company' ? "selected" : "" }}>Company</option>
+                                                <option value="Individual" {{ $agent_edit->agent_type == 'Individual' ? "selected" : "" }}>Individual</option>
+                                            </select>
+                                        </div>  
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">Company Name</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->company_name }}" name="company_name" required>
+                                        </div>  
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">Company Registration Number</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->company_registration_number }}" name="company_reg_no" required>
+                                        </div>  
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">Email</label>
+                                            <input type="email" class="form-control" value="{{ $agent_edit->email }}" name="email" required>
+                                        </div>  
+                                    </div>
+                                </div>
+                            
+
+                                <h4 class="mt-5 mb-1">More About Agent</h4>
+                                <h6 style="color: #5e6871">Tell us more about the agent</h6>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 required">Request</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->request }}" name="request_field" required>
+                                        </div> 
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 required">Agent Photo</label>
+                                            <div class="input-group">
+                                                <input type="file" class="form-control" name="photo">                                                
+                                            </div>
+                                            <br>
+                                            <img src="{{url('files/agent_request',$agent_edit->photo)}}" style="width: 30%;" alt="" >
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">Tax Number - Nullable</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->tax_number }}" name="tax" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h4 class="mt-5 mb-1">Validate Informations</h4>
+                                <!-- <h6 style="color: #5e6871">Tell us more about the agent</h6> -->
+                                
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">NIC/ Passport/ License</label>
+                                            <select class="form-select" name="validate" id="validate" required>
+                                                <!-- <option selected disabled value="">Choose...</option> -->
+                                                <option value="NIC" {{ $agent_edit->validation_type == 'NIC' ? "selected" : "" }}>NIC</option>
+                                                <option value="Passport" {{ $agent_edit->validation_type == 'Passport' ? "selected" : "" }}>Passport</option>
+                                                <option value="License" {{ $agent_edit->validation_type == 'License' ? "selected" : "" }}>License</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-6">  
+                                    
+                                        <div id="divFrmNIC" class="form-group form-validate-div" style="display:none">
+                                            <label class="form-label mb-0 mt-4 required">NIC</label>
+                                            <input type="text" class="form-control" name="nic" value="{{ $agent_edit->nic }}" placeholder="NIC Number" > 
+                                        </div>
+                                        <div id="divFrmPassport" class="form-group form-validate-div" style="display:none">
+                                            <label class="form-label mb-0 mt-4 required">Passport</label>
+                                            <input type="text" class="form-control" name="passport" value="{{ $agent_edit->passport }}" placeholder="Passport Number" > 
+                                        </div>
+                                        <div id="divFrmLicense" class="form-group form-validate-div" style="display:none">
+                                            <label class="form-label mb-0 mt-4 required">License</label>
+                                            <input type="text" class="form-control" name="license" value="{{ $agent_edit->license }}" placeholder="License Number" > 
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-6">
+
+                                        <div id="imgNIC" class="form-group form-image-div" style="display:none">
+                                            <label class="form-label mb-0 mt-4 required">NIC Photo</label>
+                                            <input type="file" class="form-control" name="nic_photo" >   
+                                            <br>
+                                            @if($agent_edit->nic_photo == !null)
+                                            <img src="{{url('files/agent_request',$agent_edit->nic_photo)}}" style="width: 40%;" alt="" >
+                                            @endif                                        
+                                        </div>
+                                        <div id="imgPassport" class="form-group form-image-div" style="display:none">
+                                            <label class="form-label mb-0 mt-4 required">Passport Photo</label>
+                                            <input type="file" class="form-control" name="passport_photo" >   
+                                            <br>
+                                            @if($agent_edit->passport_photo == !null)
+                                            <img src="{{url('files/agent_request',$agent_edit->passport_photo)}}" style="width: 40%;" alt="" >
+                                            @endif                                          
+                                        </div>
+                                        <div id="imgLicense" class="form-group form-image-div" style="display:none">
+                                            <label class="form-label mb-0 mt-4 required">License Photo</label>
+                                            <input type="file" class="form-control" name="license_photo" >  
+                                            <br>
+                                            @if($agent_edit->license_photo == !null)
+                                            <img src="{{url('files/agent_request',$agent_edit->license_photo)}}" style="width: 40%;" alt="" >
+                                            @endif                                           
+                                        </div>
+                                       
+
+                                    </div>
+
+                                </div>
+
+                                
+                                <h4 class="mt-5 mb-1">Contact Information</h4>
+                                <h6 style="color: #5e6871">Keep your contact details up to date</h6>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 required">Address</label>
+                                            <input type="address" class="form-control" name="address" value="{{ $agent_edit->address }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 required">Telephone</label>
+                                            <input type="telephone" class="form-control" value="{{ $agent_edit->telephone }}" name="telephone" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label mb-0 mt-4 required">Description Message</label>
+                                        <textarea class="form-control" rows="4" name="description_msg" placeholder="Description Message" required> {{ $agent_edit->description_message }} </textarea>
+                                    </div>
+                                </div>
+
+
+                            <div class="col-6 mt-4">
+                                <div>
+                                    <label class="form-label mb-0 required">Cover Photo</label>
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" name="cover_photo">
+                                    </div>
+                                    <br>
+                                    @if($agent_edit->cover_photo == !null)
+                                        <img src="{{url('files/agent_request',$agent_edit->cover_photo)}}" style="width: 60%;" alt="" >
+                                    @endif 
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="mt-5 text-center">
+                                <input type="hidden" class="form-control" value="{{$agent_edit->id}}" name="hidden_id">
+                                <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                            </div>
+
+                        </form>      
+                        
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+    <script>
+        
+        $(function() {
+            $( "#validate" ).change(function() {  
+                validate();
+            });
+            function validate() {
+                $('.form-validate-div').hide();
+                var divKey = $( "#validate option:selected" ).val();                
+                $('#divFrm'+divKey).show();
+    
+                $('.form-image-div').hide();
+                var divKey = $( "#validate option:selected" ).val();                
+                $('#img'+divKey).show();
+            }       
+            validate();
+        });
+        
+    
+    </script>    
 
 @endsection
 
