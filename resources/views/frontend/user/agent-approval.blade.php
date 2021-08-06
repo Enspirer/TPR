@@ -33,24 +33,24 @@
                 </div>
 
                 <div class="row mt-3">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr class="text-center">
+                    <table class="table table-borderless table-responsive">
+                        <thead class="table-head">
+                            <tr>
                                 <th scope="col">User Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="align-middle">
+                        <tbody class="align-middle table-data">
                             <tr class="align-items-center">
-                                <td class="m-auto">Menavid</td>
+                                <td>Menavid</td>
                                 <td>menavid@gmail.com</td>
-                                <td>2021/08/01</td>
+                                <td>2021-08-01</td>
                                 <td>
-                                    <div class="row justify-content-center">
+                                    <div class="row">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
+                                            <a href="{{ route('frontend.user.single-agent-approval') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
@@ -61,11 +61,11 @@
                             <tr>
                                 <td>City Center</td>
                                 <td>citycenter@gmail.com</td>
-                                <td>2021/07/31</td>
+                                <td>2021-07-31</td>
                                 <td>
-                                    <div class="row justify-content-center">
+                                    <div class="row">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
+                                            <a href="{{ route('frontend.user.single-agent-approval') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
@@ -76,11 +76,11 @@
                             <tr>
                                 <td>RDC</td>
                                 <td>rdc@gmail.com</td>
-                                <td>2021/07/30</td>
+                                <td>2021-07-30</td>
                                 <td>
-                                    <div class="row justify-content-center">
+                                    <div class="row">
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #4195E1">View</button>
+                                            <a href="{{ route('frontend.user.single-agent-approval') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
                                             <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>

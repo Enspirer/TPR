@@ -161,7 +161,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
                                 <div class="mt-5 text-center">
                                     <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #6e6e70;">Deactivate Account</button>
                                     <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>

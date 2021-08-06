@@ -28,15 +28,19 @@
                     <div class="carousel">
                         <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="{{ asset('tpr_templete/images/individual_property_1.svg') }}" class="d-block w-100" alt="...">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="{{ asset('tpr_templete/images/individual_property_1.svg') }}" class="d-block w-100" alt="...">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="{{ asset('tpr_templete/images/individual_property_1.svg') }}" class="d-block w-100" alt="...">
-                              </div>
+
+                            @foreach($final_out as $key => $image)
+                                @if($key == 0)
+                                <div class="carousel-item active">
+                                    <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
+                                </div>
+                                @else  
+                                <div class="carousel-item">
+                                    <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
+                                </div>
+                                @endif    
+                            @endforeach
+
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -60,13 +64,29 @@
                             </div>
                             <div class="col-6 text-end">
                                 <button class="btn rounded-0 text-light px-4 py-2 mt-2" style="background-color: #EB8EB0;">Floor Plans</button>
-                                <p class="text-secondary mt-5"><i class="fas fa-bath me-1"></i>1 bath<i class="fas fa-bed ms-3 me-1"></i>2 bed</p>
+                                
+                                <p class="text-secondary mt-5">
+                                    @if($property_details->baths == null)
+                                    @else
+                                    <i class="fas fa-bath me-1"></i>{{ $property_details->baths }} bath
+                                    @endif
+
+                                    @if($property_details->beds == null)
+                                    @else
+                                    <i class="fas fa-bed ms-3 me-1"></i>{{ $property_details->beds }} bed
+                                    @endif
+                                </p>
+
+                                <!-- <p class="text-secondary mt-5"><i class="fas fa-bath me-1"></i>1 bath<i class="fas fa-bed ms-3 me-1"></i>2 bed</p> -->
+
                             </div>
                         </div>
                     </div>
 
                     <div class="location">
                         <div id="map" style="height: 400px; width: 100%;"></div>
+                        <input type="text" name="lat" id="lat" value="{{$property_details->lat}}" class="mt-3 d-none">
+                        <input type="text" name="lng" id="lng" value="{{$property_details->long}}" class="mt-3 d-none">
                     </div>
 
                     <div class="extra-details mt-2">
@@ -473,7 +493,30 @@
     @endif
 
 
-<script src="{{ asset('tpr_templete/scripts/individual.js') }}"></script>
+<script>
+
+    function initMap() {
+        let lat = $('#lat').val();
+        let lng = $('#lng').val();
+
+        const myLatLng = { lat: parseFloat(lat), lng: parseFloat(lng) };
+
+            let options = {
+            zoom: 8,
+            center: myLatLng
+            };
+
+            const map = new google.maps.Map(document.getElementById("map"), options);
+
+
+            let marker = new google.maps.Marker({
+                position: myLatLng,
+                map:map
+            });
+
+            console.log(myLatLng);
+}
+</script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArF7tuecnSc3AvTh5V_mabinQqE6TuiYM&callback=initMap"
 type="text/javascript"></script>

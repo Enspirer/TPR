@@ -15,7 +15,7 @@ use App\Http\Controllers\Frontend\User\AgentController;
 use App\Http\Controllers\Frontend\User\CompanyController;
 use App\Http\Controllers\Frontend\User\ResultsController;
 use App\Http\Controllers\Frontend\User\PreferencesController;
-use App\Http\Controllers\Frontend\User\PropertyManagementController;
+use App\Http\Controllers\Frontend\User\CountryManagementController;
 use App\Http\Controllers\Frontend\FileManagerController;
 
 /*
@@ -29,7 +29,8 @@ Route::get('find-agent', [FindAgentController::class, 'index'])->name('find-agen
 Route::get('individual-agent', [IndividualAgentController::class, 'index'])->name('individual-agent');
 Route::get('map-search', [MapSearchController::class, 'index'])->name('map-search');
 Route::get('residential', [ResidentialController::class, 'index'])->name('residential');
-Route::get('individual-property', [IndividualPropertyController::class, 'index'])->name('individual-property');
+Route::get('individual-property/{id}', [IndividualPropertyController::class, 'index'])->name('individual-property');
+// Route::get('individual-property/{id}', [IndividualPropertyController::class, 'property_details'])->name('individual-property.property_details');
 
 Route::post('file_manager-store',[FileManagerController::class,'store'])->name('file_store');
 
@@ -58,8 +59,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
+
         Route::post('agent/store', [AgentController::class, 'store'])->name('agent.store');
-        
 
         Route::get('properties', [AgentController::class, 'properties'])->name('properties');
 
@@ -81,13 +82,19 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('company/property', [AgentController::class, 'companyProperty'])->name('company-property');
 
-        Route::get('country-managment-dashboard', [PropertyManagementController::class, 'index'])->name('country-management');
+        Route::get('country-managment-dashboard', [CountryManagementController::class, 'index'])->name('country-management');
 
-        Route::get('country-management/property-approval', [PropertyManagementController::class, 'propertyApproval'])->name('property-approval');
+        Route::get('country-management/property-approval', [CountryManagementController::class, 'propertyApproval'])->name('property-approval');
 
-        Route::get('country-management/supports', [PropertyManagementController::class, 'supports'])->name('supports');
+        Route::get('country-management/single-property-approval', [CountryManagementController::class, 'singlePropertyApproval'])->name('single-property-approval');
 
-        Route::get('country-management/agent-approval', [PropertyManagementController::class, 'agentApproval'])->name('agent-approval');
+        Route::get('country-management/supports', [CountryManagementController::class, 'supports'])->name('supports');
+
+        Route::get('country-management/agent-approval', [CountryManagementController::class, 'agentApproval'])->name('agent-approval');
+
+        Route::get('country-management/single-agent-approval', [CountryManagementController::class, 'singleAgentApproval'])->name('single-agent-approval');
+
+        Route::get('country-management/individual-help', [CountryManagementController::class, 'individualHelp'])->name('individual-help');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');
