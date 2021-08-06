@@ -25,42 +25,58 @@
 
                 <div class="col-8">
 
-                    <div class="carousel">
-                        <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
+                    @if(json_decode($property_details->image_ids) == null)
 
-                            @foreach($final_out as $key => $image)
-                                @if($key == 0)
-                                <div class="carousel-item active">
-                                    <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
-                                </div>
-                                @else  
-                                <div class="carousel-item">
-                                    <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
-                                </div>
-                                @endif    
-                            @endforeach
+                        <div align="center">
+                            <img src="{{ url('images/no_image_available.png') }}" style="object-fit: cover;" width="100%" height="300" alt="...">
+                        </div>
 
+                    @else
+                        <div class="carousel">
+                            <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+
+                                @foreach($final_out as $key => $image)
+                                    @if($key == 0)
+                                    <div class="carousel-item active">
+                                        <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
+                                    </div>
+                                    @else  
+                                    <div class="carousel-item">
+                                        <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
+                                    </div>
+                                    @endif    
+                                @endforeach
+
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
-                    </div>
+                        </div>
+                    @endif
 
                     <div class="details mt-5">
                         <div class="row">
                             <div class="col-6">
-                                <h5 class="mb-1" style="color: #79CEEC;">$ 480, 000</h5>
-                                <h5 style="color: #83BE43">Colombo, Sri Lanka</h5>
-                                <p class="fw-bold mt-5" style="font-size: 1rem;">
+                                <h5 class="mb-1" style="color: #79CEEC;">$ {{ $property_details->price }}</h5>
+                                <h5 style="color: #83BE43">Colombo, {{ $property_details->country }}</h5>
+
+                                @if($property_details->beds == null)
+                                @else
+                                    <p class="fw-bold mt-5" style="font-size: 1rem;">
+                                        {{ $property_details->beds }} bed semi-detached house
+                                    </p>
+                                @endif
+
+                                <!-- <p class="fw-bold mt-5" style="font-size: 1rem;">
                                     2 bed semi-detached house
-                                </p>
+                                </p> -->
                             </div>
                             <div class="col-6 text-end">
                                 <button class="btn rounded-0 text-light px-4 py-2 mt-2" style="background-color: #EB8EB0;">Floor Plans</button>
@@ -119,26 +135,61 @@
                         <div class="row mt-4 collapse" id="collapseExample" aria-expanded="false">
                             <div class="col-6">
                                 <ul>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating Electric panel heating Electric panel heating Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating Electric panel heating Electric panel heating Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating Electric panel heating Electric panel heating Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating Electric panel heating Electric panel heating Electric panel heating</li>
+
+                                @if($property_details->baths == null)
+                                @else
+                                    <li class="mb-3" style="font-size: 0.9rem;">Baths : {{ $property_details->baths }}</li>
+                                @endif 
+                                @if($property_details->beds == null)
+                                @else
+                                    <li class="mb-3" style="font-size: 0.9rem;">Beds : {{ $property_details->beds }}</li>
+                                @endif                                 
+                                @if($property_details->parking_type == null)
+                                @else
+                                    <li class="mb-3" style="font-size: 0.9rem;">Parking Type : {{ $property_details->parking_type }}</li>
+                                @endif 
+                                @if($property_details->building_type == null)
+                                @else
+                                    <li class="mb-3" style="font-size: 0.9rem;">Building Type : {{ $property_details->building_type }}</li>
+                                @endif 
+                                @if($property_details->farm_type == null)
+                                @else
+                                    <li class="mb-3" style="font-size: 0.9rem;">Farm Type : {{ $property_details->farm_type }}</li>
+                                @endif 
+                                @if($property_details->open_house_only == null)
+                                @else
+                                    <li class="mb-3" style="font-size: 0.9rem;">Open House Only : {{ $property_details->open_house_only }}</li>
+                                @endif 
+                                @if($property_details->number_of_units == null)
+                                @else
+                                    <li class="mb-3" style="font-size: 0.9rem;">Number of Units : {{ $property_details->number_of_units }}</li>
+                                @endif 
+                                @if($property_details->land_size == null)
+                                @else
+                                    <li class="mb-3" style="font-size: 0.9rem;">Land Size : {{ $property_details->land_size }}</li>
+                                @endif 
+                                @if($property_details->zoning_type == null)
+                                @else
+                                    <li class="mb-3" style="font-size: 0.9rem;">Zoning Type : {{ $property_details->zoning_type }}</li>
+                                @endif 
+                                @if($property_details->building_size == null)
+                                @else
+                                    <li class="mb-3" style="font-size: 0.9rem;">Building Size : {{ $property_details->building_size }}</li>
+                                @endif 
+
+
                                 </ul>
                             </div>
                             <div class="col-6">
                                 <ul>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">Electric panel heating Electric panel heating</li>
+                                    <!-- <li class="mb-3" style="font-size: 0.9rem;">11Electric panel heating</li>
+                                    <li class="mb-3" style="font-size: 0.9rem;">22Electric panel heating Electric panel heating</li>
+                                    <li class="mb-3" style="font-size: 0.9rem;">33Electric panel heating</li>
+                                    <li class="mb-3" style="font-size: 0.9rem;">44Electric panel heating Electric panel heating</li>
+                                    <li class="mb-3" style="font-size: 0.9rem;">55Electric panel heating</li>
+                                    <li class="mb-3" style="font-size: 0.9rem;">66Electric panel heating Electric panel heating</li>
+                                    <li class="mb-3" style="font-size: 0.9rem;">77Electric panel heating</li>
+                                    <li class="mb-3" style="font-size: 0.9rem;">88Electric panel heating Electric panel heating</li> -->
                                 </ul>
                             </div>
                         </div>
@@ -239,14 +290,20 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-center shadow py-4" style="margin-top: 6rem;">
-                        <h6 class="fw-bold mb-0">Hamptons - New Homes</h6>
-                        <p>View agent property</p>
+                    <div class="row justify-content-center shadow py-4" style="margin-top: 3rem;">
+                        <div align="center">
+                            <img src="{{ url('files/agent_request',$agent->photo) }}" class="mb-4" style="border-radius: 50%; width: 150px" height="150px"> 
+                        </div>
 
-                        <h6 class="fw-bold mb-0 text-center mt-3">Call agent : 038 258 1476</h6>
+                        <!-- <h6 class="fw-bold mb-0">Hamptons - New Homes</h6> -->
+                        
+                        <h6 align="center" class="justify-content-center fw-bold mb-2">{{ $agent->name }}</h6>
+                        <p align="center">View agent property</p>
+
+                        <h6 class="fw-bold mb-0 text-center mt-3">Call agent : {{ $agent->telephone }}</h6>
 
                         <div class="col-12 text-center mt-3">
-                            <button class="btn rounded-0 py-2 fw-bold w-75 text-light" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</button>
+                            <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="mailto:{{ $agent->email }}" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
                         </div>
 
                         <div class="row mt-5 justify-content-between">
@@ -273,184 +330,50 @@
 
                         <div class="swiper-slide">
                             <div class="row px-5">
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_1.svg') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_2.png') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            @foreach($random as $key=> $ran)
+                                @foreach(App\Models\FileManager::where('id',$ran->feature_image_id)->get() as $feature_image)
+                                    <div class="col-3">
+                                        <div class="card p-2 shadow border-0">
+                                            <a href="{{ url('individual-property',$ran->id) }}" class="text-decoration-none">
+                                                <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:200px" width="100%" class="card-img-top" alt="...">
+                                            </a>
+                                            <div class="card-body">
+                                                <p class="text-danger fw-bold mb-0">$ {{$ran->price}}</p>
+                                                <h6 class="card-title">Colombo, Sri Lanka</h6>
 
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_3.svg') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                                <p class="text-secondary">
+                                                    @if($ran->baths == null)
+                                                    @else
+                                                    <i class="fas fa-bath me-2"></i>{{ $ran->baths }} bath
+                                                    @endif
 
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_1.svg') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                                    @if($ran->beds == null)
+                                                    @else
+                                                    <i class="fas fa-bed ms-4 me-2"></i>{{ $ran->beds }} bed
+                                                    @endif
+                                                </p>
+
+                                                <!-- <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p> -->
+                                                
+                                                @if($ran->beds == null)
+                                                @else
+                                                    <p class="card-text mt-3 mb-0 text-body fw-bold">
+                                                        {{ $ran->beds }} bed semi-detached house
+                                                    </p>
+                                                @endif
+
+                                                <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                                <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                            </div>
                                         </div>
+                                        <br>
                                     </div>
-                                </div>
+                                @endforeach
+                            @endforeach
+                                
                             </div>
                         </div>
-
-                        <div class="swiper-slide">
-                            <div class="row px-5">
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_3.svg') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_3.svg') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_2.png') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_1.svg') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="row px-5">
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_2.png') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_3.svg') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_1.svg') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
-                                        <img src="{{ asset('tpr_templete/images/similar_2.png') }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ 480,000</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
-                                            <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p>
-                                            <p class="card-text mt-3 mb-0 text-body fw-bold">2 Bed Semidetached house</p>
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
                     <div class="swiper-button-next"></div>
