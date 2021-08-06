@@ -93,6 +93,11 @@
     font-size: 0.95rem;
 }
 
-.btn {
+.table-btn {
     padding: .100rem .50rem;
 }
+
+.pen-dis {
+    filter: grayscale(100%);
+}
+

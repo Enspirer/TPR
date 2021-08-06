@@ -97,8 +97,9 @@
                                     <div class="col-12">
                                         <label for="map" class="form-label mb-2 mt-4 required">Location</label>
                                         <div id="map" style="width: 100%; height: 400px;"></div>
-                                        <input type="text" name="lat" id="lat" class="mt-3">
-                                        <input type="text" name="lng" id="lng" class="mt-3">
+                                        <input type="hidden" name="lat" id="lat" class="mt-3">
+                                        <input type="hidden" name="lng" id="lng" class="mt-3 d-none">
+                                        <input type="hidden" name="country" id="country" class="mt-3 d-none">
                                         
                                         <div class="row mt-3">
                                             <div class="col-6">
@@ -198,11 +199,9 @@
 
 <script>
 
-        //Set up some of our variables.
-        var marker = false; ////Has the user plotted their location marker? 
+        var marker = false;
                 
-        //Function called to initialize / create the map.
-        //This is called when the page has loaded.
+
         function initMap() {
 
             const map = new google.maps.Map(document.getElementById("map"), {
@@ -211,12 +210,12 @@
             });
 
             const geocoder = new google.maps.Geocoder();
+            const infowindow = new google.maps.InfoWindow();
 
-            //Listen for any clicks on the map.
             google.maps.event.addListener(map, 'click', function(event) {                
-                //Get the location that the user clicked.
+                
                 var clickedLocation = event.latLng;
-                //If the marker hasn't been added.
+                
 
                 
 
@@ -225,18 +224,19 @@
                     marker = new google.maps.Marker({
                         position: clickedLocation,
                         map: map,
-                        draggable: true //make it draggable
+                        draggable: true 
                     });
-                    //Listen for drag events!
+   
                     google.maps.event.addListener(marker, 'dragend', function(event){
-                        markerLocation();
+                    
+                        geocodeLatLng(geocoder, map, infowindow);
                     });
                 } else{
-                    //Marker has already been added, so just change its location.
+
                     marker.setPosition(clickedLocation);
                 }
-                //Get the marker's location.
-                markerLocation();
+
+                geocodeLatLng(geocoder, map, infowindow);
             });
 
 
@@ -298,36 +298,46 @@
         }
 
         
-//This function will get the marker's current location and then add the lat/long
-        //values to our textfields so that we can save the location.
+
         function markerLocation(){
-            //Get location.
+
             var currentLocation = marker.getPosition();
-            //Add lat and lng values to a field that we can save.
+
             document.getElementById('lat').value = currentLocation.lat(); //latitude
-            document.getElementById('lng').value = currentLocation.lng(); //longitude
-
-            getCountryName(currentLocation.lat(), currentLocation.lng(), country => {
-                    alert(country);
-                    console.log(country);
-                    // You can do anything here like showing it to ui or using it elsewhere
-                });
+            document.getElementById('lng').value = currentLocation.lng(); //longitude 
         }
 
-        function getCountryName(latitude, longitude, country){
-            const geocoder = new google.maps.Geocoder();
-            geocoder.geocode({location: {lat: latitude, lng: longitude}}, (results, status) => {
-                if(status === "OK"){
-                    if(results[0]){
-                        onSucess(results[0].address_components[0].types[0].country);
-                    }
-                    else{
-                        onSucess("N/A");
-                    }
+
+        function geocodeLatLng(geocoder, map, infowindow) {
+            var clickedLocation = event.latLng;
+
+            var currentLocation = marker.getPosition();
+
+            geocoder
+                .geocode({ location: currentLocation })
+                .then((response) => {
+                if (response.results[0]) {
+                    // map.setZoom(5);
+                    let marker = new google.maps.Marker({
+                    position: clickedLocation,
+                    map: map,
+                    draggable: true,
+                    add : response.results[0].formatted_address
+                    });
+                    infowindow.setContent(response.results[0].formatted_address);
+                    infowindow.open(map, marker);
+
+                    var output = marker.add.split(/[,]+/).pop();
+                    $('#country').val(output);
+
+                    markerLocation();
+
+                } else {
+                    window.alert("No results found");
                 }
-            });
-            return country;
-        }
+                })
+                .catch((e) => window.alert("Geocoder failed due to: " + e));
+            }
 
 
         
@@ -335,18 +345,12 @@
         // dropdown box changing field
         const renderFields = async () => {
             let value = $('#propertyType').val();
-
             let url = 'http://127.0.0.1:8000/api/get_property_type_details/' + value;
-
             const res = await fetch(url);
             const data = await res.json();
-
             const fields = (data[0]['activated_fields']);
-
-
             let template = '';
             let first = '';
-
             // fields.forEach ((field) => {
             //     template += `<div class="col-6">
             //                     <div>
@@ -358,26 +362,209 @@
             for(let i = 0; i < fields.length; i++) {
                 if(i == 0) {
                     let name = fields[i].split(' ').join('_').toLowerCase();
-                    first = `<div>
-                                <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                    if(name == 'beds' || name == 'baths' || name == 'building_type' || name == 'parking_type' || name == 'zoning_type' || name == 'farm_type') {
+                        if(name == 'beds' || name == 'baths') {
+                            first = `<div>
+                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                <input type="number" class="form-control" name="${name}" id="${name}" aria-describedby="${name}" min="1" max="100">
+                            </div>`
+                        }
+                        else if (name == 'building_type') {
+                                        first = `<div>
+                                                    <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                                    <select class="form-select" aria-label="${name}" id="${name}">
+                                                        <option value="any" selected>Any</option>
+                                                        <option value="house">House</option>
+                                                        <option value="row/townhouse">Row / Townhouse</option>
+                                                        <option value="apartment">Apartment</option>
+                                                        <option value="duplex">Duplex</option>
+                                                        <option value="triplex">Triplex</option>
+                                                        <option value="fourplex">Fourplex</option>
+                                                        <option value="garden-home">Garden Home</option>
+                                                        <option value="mobile-home">Mobile Home</option>
+                                                        <option value="manufactured-home">Manufactured Home/Mobile</option>
+                                                        <option value="special-purpose">Special Purpose</option>
+                                                        <option value="residential-commercial-mix">Residential Commercial Mix</option>
+                                                        <option value="manufactured-home">Manufactured Home</option>
+                                                        <option value="commercial-apartment">Commercial Apartment</option>
+                                                        <option value="two-apartment-house">Two Apartment House</option>
+                                                        <option value="park-model-mobile-home">Park Model Mobile Home</option>
+                                                    </select>
+                                                </div>`
+                        }
+                        else if (name == 'parking_type') {
+                                    first = `<div>
+                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                    <option value="boat-house">Boat House</option>
+                                                    <option value="concrete">Concrete</option>
+                                                    <option value="heated-garage">Heated Garage</option>
+                                                    <option value="attached-garage">Attached Garage</option>
+                                                    <option value="integrated-garage">Integrated Garage</option>
+                                                    <option value="detached-garage">Detached Garage</option>
+                                                    <option value="garage">Garage</option>
+                                                    <option value="carport">Carport</option>
+                                                    <option value="underground">Underground</option>
+                                                    <option value="indoor">Indoor</option>
+                                                    <option value="open">Open</option>
+                                                    <option value="covered">Covered</option>
+                                                    <option value="parking-pad">Parking Pad</option>
+                                                    <option value="paved-yard">Paved Yard</option>
+                                                </select>
+                                            </div>`
+                        }
+                        else if (name == 'zoning_type') {
+                                    first = `<div>
+                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                    <option value="commercial-retail">Commercial Retail</option>
+                                                    <option value="commercial-office">Commercial Office</option>
+                                                    <option value="commercial-mixed">Commercial Mixed</option>
+                                                    <option value="industrial">Industrial</option>
+                                                    <option value="industrial-light">Industrial-Light</option>
+                                                    <option value="industrial-medium">Industrial-Medium</option>
+                                                    <option value="industrial-heavy">Industrial-Heavy</option>
+                                                    <option value="residential-low-density">Residential-Low Density</option>
+                                                    <option value="residential-medium-density">Residential - Medium Density</option>
+                                                    <option value="residential-high-density">Residential-High Density</option>
+                                                    <option value="institutional">Institutional</option>
+                                                    <option value="agricultural">Agricultural</option>
+                                                    <option value="recreational">Recreational</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>`
+                        }
+                        else if (name == 'farm_type') {
+                                    first = `<div>
+                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                    <option value="animal">Animal</option>
+                                                    <option value="cash-crop">Cash Crop</option>
+                                                    <option value="hobby-farm">Hobby Farm</option>
+                                                    <option value="market-gardening">Market Gardening</option>
+                                                    <option value="nursery">Nursery</option>
+                                                    <option value="greenhouse">Greenhouse</option>
+                                                    <option value="orchard">Orchard</option>
+                                                    <option value="vineyard">Vineyard</option>
+                                                    <option value="feed-lot">Feed Lot</option>
+                                                    <option value="boarding">Boarding</option>
+                                                    <option value="mixed">Mixed</option>
+                                                </select>
+                                            </div>`
+                        }
+                    }
+                        else {
+                            first = `<div>
+                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
                                 <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
                             </div>`
+                        }
                 }
                 else {
                     let name = fields[i].split(' ').join('_').toLowerCase();
-                    template += `<div class="col-6">
-                                <div>
-                                    <label for="${fields[i]}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                    <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
-                                </div>
+                    if(name == 'beds' || name == 'baths' || name == 'building_type' || name == 'parking_type' || name == 'zoning_type' || name == 'farm_type') {
+                        if(name == 'beds' || name == 'baths') {
+                            template += `<div class="col-6">
+                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                <input type="number" class="form-control" name="${name}" id="${name}" aria-describedby="${name}" min="1" max="100">
                             </div>`
+                        }
+                        else if (name == 'building_type') {
+                                    template += `<div class="col-6">
+                                                    <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                                    <select class="form-select" aria-label="${name}" id="${name}">
+                                                        <option value="any" selected>Any</option>
+                                                        <option value="house">House</option>
+                                                        <option value="row/townhouse">Row / Townhouse</option>
+                                                        <option value="apartment">Apartment</option>
+                                                        <option value="duplex">Duplex</option>
+                                                        <option value="triplex">Triplex</option>
+                                                        <option value="fourplex">Fourplex</option>
+                                                        <option value="garden-home">Garden Home</option>
+                                                        <option value="mobile-home">Mobile Home</option>
+                                                        <option value="manufactured-home">Manufactured Home/Mobile</option>
+                                                        <option value="special-purpose">Special Purpose</option>
+                                                        <option value="residential-commercial-mix">Residential Commercial Mix</option>
+                                                        <option value="manufactured-home">Manufactured Home</option>
+                                                        <option value="commercial-apartment">Commercial Apartment</option>
+                                                        <option value="two-apartment-house">Two Apartment House</option>
+                                                        <option value="park-model-mobile-home">Park Model Mobile Home</option>
+                                                    </select>
+                                                </div>`
+                        }
+                        else if (name == 'parking_type') {
+                                    template += `<div class="col-6">
+                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                    <option value="boat-house">Boat House</option>
+                                                    <option value="concrete">Concrete</option>
+                                                    <option value="heated-garage">Heated Garage</option>
+                                                    <option value="attached-garage">Attached Garage</option>
+                                                    <option value="integrated-garage">Integrated Garage</option>
+                                                    <option value="detached-garage">Detached Garage</option>
+                                                    <option value="garage">Garage</option>
+                                                    <option value="carport">Carport</option>
+                                                    <option value="underground">Underground</option>
+                                                    <option value="indoor">Indoor</option>
+                                                    <option value="open">Open</option>
+                                                    <option value="covered">Covered</option>
+                                                    <option value="parking-pad">Parking Pad</option>
+                                                    <option value="paved-yard">Paved Yard</option>
+                                                </select>
+                                            </div>`
+                        }
+                        else if (name == 'zoning_type') {
+                                    template += `<div class="col-6">
+                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                    <option value="commercial-retail">Commercial Retail</option>
+                                                    <option value="commercial-office">Commercial Office</option>
+                                                    <option value="commercial-mixed">Commercial Mixed</option>
+                                                    <option value="industrial">Industrial</option>
+                                                    <option value="industrial-light">Industrial-Light</option>
+                                                    <option value="industrial-medium">Industrial-Medium</option>
+                                                    <option value="industrial-heavy">Industrial-Heavy</option>
+                                                    <option value="residential-low-density">Residential-Low Density</option>
+                                                    <option value="residential-medium-density">Residential - Medium Density</option>
+                                                    <option value="residential-high-density">Residential-High Density</option>
+                                                    <option value="institutional">Institutional</option>
+                                                    <option value="agricultural">Agricultural</option>
+                                                    <option value="recreational">Recreational</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>`
+                        }
+                        else if (name == 'farm_type') {
+                                    template += `<div class="col-6">
+                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                    <option value="animal">Animal</option>
+                                                    <option value="cash-crop">Cash Crop</option>
+                                                    <option value="hobby-farm">Hobby Farm</option>
+                                                    <option value="market-gardening">Market Gardening</option>
+                                                    <option value="nursery">Nursery</option>
+                                                    <option value="greenhouse">Greenhouse</option>
+                                                    <option value="orchard">Orchard</option>
+                                                    <option value="vineyard">Vineyard</option>
+                                                    <option value="feed-lot">Feed Lot</option>
+                                                    <option value="boarding">Boarding</option>
+                                                    <option value="mixed">Mixed</option>
+                                                </select>
+                                            </div>`
+                        }
+                    }
+                    else {
+                        template += `<div class="col-6">
+                            <div>
+                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
+                                <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
+                            </div>
+                        </div>`
+                    }
                 }
             }
-
             $('.first-incoming-field').html(first);
             $('#incoming_fields').html(template);
-
-
         }
 
         
@@ -389,8 +576,9 @@
         
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArF7tuecnSc3AvTh5V_mabinQqE6TuiYM&callback=initMap&libraries=places&v=weekly&channel=2"
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap&libraries=places&v=weekly&channel=2"
 type="text/javascript"></script>
+
 
 @endpush
 

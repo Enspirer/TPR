@@ -458,7 +458,6 @@
                     function(data, status){
 
                         var obj = JSON.parse(data);
-                        console.log(obj);
 
                         let template = '';
                         let info = [];

@@ -148,7 +148,7 @@ class AgentController extends Controller
         $addprop->country_manager_approval='Pending';
         $addprop->user_id = auth()->user()->id;
 
-        $addprop->country='country_no_feild';      
+        $addprop->country = $request->country;      
         
 
         if($request->land_size){
