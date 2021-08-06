@@ -120,7 +120,10 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="category" class="form-label mb-0 mt-4 required">Category</label>
-                                            <input type="text" class="form-control" name="category" id="category" aria-describedby="category">
+                                            <select class="form-select" aria-label="category" id="category">
+                                                <option selected value="commercial">Commercial</option>
+                                                <option value="residential">Residential</option>
+                                            </select>
                                         </div>  
                                     </div>
                                 </div>
@@ -570,6 +573,14 @@
         
 
         window.addEventListener('DOMContentLoaded', () => renderFields());
+
+
+        $( "#name" ).change(function() {
+            let name = $(this).val().split(' ').join('-').toLowerCase();
+            
+
+            $('#slug').val(name);
+        });
         
                 
         
