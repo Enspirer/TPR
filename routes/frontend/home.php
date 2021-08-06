@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\IndividualAgentController;
 use App\Http\Controllers\Frontend\MapSearchController;
 use App\Http\Controllers\Frontend\ResidentialController;
 use App\Http\Controllers\Frontend\IndividualPropertyController;
+use App\Http\Controllers\Frontend\CommercialController;
 
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\ProfileController;
@@ -30,6 +31,7 @@ Route::get('individual-agent', [IndividualAgentController::class, 'index'])->nam
 Route::get('map-search', [MapSearchController::class, 'index'])->name('map-search');
 Route::get('residential', [ResidentialController::class, 'index'])->name('residential');
 Route::get('individual-property/{id}', [IndividualPropertyController::class, 'index'])->name('individual-property');
+Route::get('commercial', [CommercialController::class, 'index'])->name('commercial');
 // Route::get('individual-property/{id}', [IndividualPropertyController::class, 'property_details'])->name('individual-property.property_details');
 
 Route::post('file_manager-store',[FileManagerController::class,'store'])->name('file_store');

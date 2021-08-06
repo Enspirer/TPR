@@ -39,9 +39,8 @@
                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="30" height="30" class="rounded-circle me-2"> <span class="text-white fw-bold user-name">{{auth()->user()->first_name}}</span>
                               </a>
                               <div class="dropdown-menu text-light" aria-labelledby="navbarDropdownMenuLink" style="background-color: #4195E1">
-                                <a class="dropdown-item text-light" href="{{ route('frontend.user.dashboard') }}">My Account</a>
-                                <a class="dropdown-item text-light" href="#">My Settings</a>
-                                <a class="dropdown-item text-light" href="#">My Notification Settings</a>
+                                <a class="dropdown-item text-light" href="{{ route('frontend.user.account-dashboard') }}">My Account</a>
+                                <a class="dropdown-item text-light" href="{{ route('frontend.user.dashboard') }}">My Settings</a>
                                 <a class="dropdown-item text-light" href="{{route('frontend.auth.logout')}}">Log Out</a>
                               </div>
                         </li>
@@ -73,15 +72,11 @@
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">
-                        <a class="nav-link text-body fw-bold" href="#">Commercial</a>
+                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.commercial' )}}">Commercial</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="600">
                         <a class="nav-link text-body fw-bold" href="#">New Homes</a>
-                        <div class="line"></div>
-                    </li>
-                    <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="700">
-                        <a class="nav-link text-body fw-bold" href="#">Text</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800" style="padding-left : 3rem">

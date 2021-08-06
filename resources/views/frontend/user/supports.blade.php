@@ -50,10 +50,10 @@
                                 <td>
                                     <div class="row">
                                         <div class="col-5">
-                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
+                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
+                                            <button class="btn text-light table-btn" style="background-color: #FF2C4B">Delete</button>
                                         </div>
                                     </div>
                                 </td>
@@ -65,10 +65,10 @@
                                 <td>
                                     <div class="row">
                                         <div class="col-5">
-                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
+                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
+                                            <button class="btn text-light table-btn" style="background-color: #FF2C4B">Delete</button>
                                         </div>
                                     </div>
                                 </td>
@@ -80,10 +80,10 @@
                                 <td>
                                     <div class="row">
                                         <div class="col-5">
-                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light" style="background-color: #4195E1">View</button></a>
+                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
-                                            <button class="btn text-light" style="background-color: #FF2C4B">Delete</button>
+                                            <button class="btn text-light table-btn" style="background-color: #FF2C4B">Delete</button>
                                         </div>
                                     </div>
                                 </td>

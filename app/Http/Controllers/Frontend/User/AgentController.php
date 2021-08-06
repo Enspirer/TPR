@@ -8,6 +8,7 @@ use DB;
 use App\Models\AgentRequest;
 use App\Models\PropertyType;
 use App\Models\Properties;
+use Auth;
 
 /**
  * Class DashboardController.
@@ -75,6 +76,7 @@ class AgentController extends Controller
         $addagent->telephone=$request->telephone;
         $addagent->description_message=$request->description_msg;
         $addagent->status='Pending';
+        $addagent->country_manager_approval = 'Pending';
         $addagent->user_id = auth()->user()->id;
 
         $addagent->validation_type=$request->validate;
@@ -107,7 +109,10 @@ class AgentController extends Controller
 
     public function properties()
     {
-        return view('frontend.user.properties');
+        $id = Auth::user()->id;
+        $properties = Properties::where('user_id',  $id)->get();
+
+        return view('frontend.user.properties', ['properties' => $properties]);
     }
 
     public function createProperty()
@@ -143,7 +148,7 @@ class AgentController extends Controller
         $addprop->country_manager_approval='Pending';
         $addprop->user_id = auth()->user()->id;
 
-        $addprop->country='country_no_feild';      
+        $addprop->country = $request->country;      
         
 
         if($request->land_size){
