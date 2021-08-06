@@ -29,16 +29,17 @@ class HomeController extends Controller
     {
         if ($request->coordinate_data){
             $coordinate_data = json_decode($request->coordinate_data);
+
+
             $out = [];
             foreach ($coordinate_data as $coodinate)
             {
                if ($coodinate){
                    $cordinate = json_decode($coodinate);
 
-                   $property = Properties::where('lat',$cordinate->lat)
-                       ->where('long',$cordinate->long)
+                   $property = Properties::where('lat', 'like', '%' .  substr($cordinate->lat, 0, 7) . '%')
+                       ->where('long', 'like', '%' .  substr($cordinate->long, 0, 7) . '%')
                        ->first();
-
                    array_push($out,$property);
                }
             }
