@@ -84,23 +84,22 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="userType" class="form-label mb-0">I am a</label>
-                                                <select class="form-select" aria-label="userType" id="userType">
+                                                <select class="form-select" aria-label="userType" id="userType" name="user_type">
                                                     <option selected>No Preference</option>
-                                                    <option value="1">First time buyer</option>
-                                                    <option value="2">Repeat buyer</option>
-                                                    <option value="3">Seller</option>
-                                                    <option value="3">Residential investor</option>
-                                                    <option value="3">Commercial investor</option>
-                                                    <option value="3">Seller</option>
+                                                    <option value="first-time-buyer">First time buyer</option>
+                                                    <option value="repeat-buyer">Repeat buyer</option>
+                                                    <option value="seller">Seller</option>
+                                                    <option value="residential-investor">Residential investor</option>
+                                                    <option value="commercial-investor">Commercial investor</option>
                                                 </select>
                                             </div>
                                             <div class="col-6">
                                                 <label for="birth" class="form-label mb-0">Year of birth</label>
-                                                <select class="form-select" aria-label="birth" id="birth">
+                                                <select class="form-select" aria-label="birth" id="birth" name="dob">
                                                     <option selected>Select</option>
-                                                    <option value="1">2021</option>
-                                                    <option value="2">2020</option>
-                                                    <option value="3">2019</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2020">2020</option>
+                                                    <option value="2019">2019</option>
                                                     </select>
                                             </div>
                                         </div>
@@ -108,7 +107,7 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="gender" class="form-label mb-0 mt-4">Gender</label>
-                                                <select class="form-select" aria-label="gender" id="gender">
+                                                <select class="form-select" aria-label="gender" id="gender" name="gender">
                                                     <option selected>Select</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
@@ -116,7 +115,7 @@
                                             </div>
                                             <div class="col-6">
                                                 <label for="displayName" class="form-label mb-0 mt-4">Marital Status</label>
-                                                <select class="form-select" aria-label="Default select example">
+                                                <select class="form-select" aria-label="Default select example" name="marital">
                                                     <option selected>Select</option>
                                                     <option value="single">Single</option>
                                                     <option value="common-law">Common Law</option>
@@ -135,13 +134,13 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="city" class="form-label mb-0">City</label>
-                                                    <input type="city" class="form-control" id="city" aria-describedby="city">
+                                                    <input type="text" class="form-control" id="city" aria-describedby="city" name="city">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="province" class="form-label mb-0">Province</label>
-                                                    <input type="province" class="form-control" id="province" aria-describedby="province">
+                                                    <input type="province" class="form-control" id="province" aria-describedby="province" name="province">
                                                 </div>
                                             </div>
                                         </div>
@@ -149,7 +148,7 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="country" class="form-label mb-0 mt-4">Country</label>
-                                                <select class="form-select" aria-label="country" id="country">
+                                                <select class="form-select" aria-label="country" id="country" name="country">
                                                     <option selected>Sri Lanka</option>
                                                     <option value="india">India</option>
                                                     <option value="australia">Australia</option>
@@ -158,7 +157,7 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="postal-code" class="form-label mb-0 mt-4">Postal Code</label>
-                                                    <input type="postal-code" class="form-control" id="postal-code" aria-describedby="postal-code">
+                                                    <input type="postal-code" class="form-control" id="postal-code" name="postal_code" aria-describedby="postal-code">
                                                 </div>
                                             </div>
                                         </div>
@@ -167,13 +166,13 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="home-phone" class="form-label mb-0 mt-4">Home Phone</label>
-                                                    <input type="home-phone" class="form-control" id="home-phone" aria-describedby="home-phone">
+                                                    <input type="home-phone" class="form-control" id="home-phone" name="home_phone" aria-describedby="home-phone">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="mobile-phone" class="form-label mb-0 mt-4">Mobile Phone</label>
-                                                    <input type="mobile-phone" class="form-control" id="mobile-phone" aria-describedby="mobile-phone">
+                                                    <input type="mobile-phone" class="form-control" id="mobile-phone" name="mobile_phone" aria-describedby="mobile-phone">
                                                 </div>
                                             </div>
                                         </div>

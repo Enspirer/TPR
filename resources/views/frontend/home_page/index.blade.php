@@ -480,7 +480,7 @@
                                 if(info[i][1] == markers[i].getPosition().lng() && info[i][2] == markers[i].getPosition().lat()) {
                                     details = `  <div class="row align-items-center p-1">
                                                     <div class="col-6">
-                                                        <img src="../tpr_templete/images/ps_1.svg" alt="" class="img-fluid" style="max-width: 100%!important">
+                                                        <img src="/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="max-width: 100%!important">
                                                     </div>
                                                     <div class="col-6">
                                                         <h5 class="fw-bold mb-2">${obj[i]['name']}</h5>
@@ -504,7 +504,7 @@
                             template += `
                                 <div class="row border align-items-center p-1">
                                     <div class="col-6">
-                                        <img src="" alt="" class="img-fluid">
+                                        <img src="/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid">
                                     </div>
                                     <div class="col-6">
                                         <div class="row justify-content-between">
