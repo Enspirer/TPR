@@ -20,6 +20,7 @@ class AgentController extends Controller
      */
     public function index()
     {
+        
         return view('frontend.user.agent');
     }
 

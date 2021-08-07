@@ -292,13 +292,15 @@
 
                     <div class="row justify-content-center shadow py-4" style="margin-top: 3rem;">
                         <div align="center">
+                        <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none">
                             <img src="{{ url('files/agent_request',$agent->photo) }}" class="mb-4" style="border-radius: 50%; width: 150px" height="150px"> 
+                        </a>
                         </div>
 
                         <!-- <h6 class="fw-bold mb-0">Hamptons - New Homes</h6> -->
                         
-                        <h6 align="center" class="justify-content-center fw-bold mb-2">{{ $agent->name }}</h6>
-                        <p align="center">View agent property</p>
+                        <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none; color:black"><h6 align="center" class="justify-content-center fw-bold mb-2">{{ $agent->name }}</h6></a>
+                        <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none; color:black"><p align="center">View agent property</p></a>
 
                         <h6 class="fw-bold mb-0 text-center mt-3">Call agent : {{ $agent->telephone }}</h6>
 

@@ -11,7 +11,7 @@
 
     <!-- banner -->
     <section id="index-banner">
-        <div class="container-fluid banner">
+        <div class="container-fluid banner" style="background-image: url('{{url('files/agent_request/',$agent_details->cover_photo)}}');">
         </div>
     </section>
 
@@ -19,7 +19,7 @@
     <!-- profile picture -->
     <section id="profile-picture">
         <div class="container position-relative" style="margin-top: 7rem;">
-            <img src="{{ asset('tpr_templete/images/directory_menavid.svg') }}" alt="" class="profile-picture">
+            <img src="{{ url('files/agent_request',$agent_details->photo) }}" alt="" class="profile-picture">
         </div>
     </section>
 
@@ -28,13 +28,15 @@
     <!-- about -->
     <section id="about">
         <div class="container" style="margin-top: 15rem;">
-            <h3 class="fw-bolder text-center">MENAVID Private Limited</h3>
+            <h3 class="fw-bolder text-center">{{ $agent_details->company_name }}</h3>
 
-            <p class="mt-4" style="text-align: justify;">Established in June 1980 by Rimza Zaveer, MENAVID (Pvt) Ltd was set up with the aim of offering superior and unparalleled real estate options via high-class properties to purchase, own, rent out, sell, lease and manage for both residential and commercial purposes. Our commercial projects in clude up-market business premises/buildings for office spaces, embassies and overseas/local companies in the BOI, NGOs, and expatriates on projects funded by international organisations.</p>
+            <p class="mt-4" style="text-align: justify;">{!! $agent_details->description_message !!}</p>
+
+            <!-- <p class="mt-4" style="text-align: justify;">Established in June 1980 by Rimza Zaveer, MENAVID (Pvt) Ltd was set up with the aim of offering superior and unparalleled real estate options via high-class properties to purchase, own, rent out, sell, lease and manage for both residential and commercial purposes. Our commercial projects in clude up-market business premises/buildings for office spaces, embassies and overseas/local companies in the BOI, NGOs, and expatriates on projects funded by international organisations.</p>
 
             <p style="text-align: justify;">With over 3 decades of experience in the industry and continuous success in fulfilling the ever-changing needs of our clients, MENAVID (Pvt) Ltd has grown from strength-to-strength over the years. Our values are rooted in our foundations, allowing us to provide consistently professional, friendly, and unparalleled services when helping you develop concepts designs, market strategies, building solutions and frameworks as per your individual requirements.</p>
 
-            <p style="text-align: justify;">We offer peace of mind with our extensive knowledge of the city and suburbs, as well as diverse neighborhoods to walk our customers through their options thoroughly. This ensures hassle-free arrangements and the highest quality every step of the way, no matter whether you are after a house, apartment or any other form of building space.</p>
+            <p style="text-align: justify;">We offer peace of mind with our extensive knowledge of the city and suburbs, as well as diverse neighborhoods to walk our customers through their options thoroughly. This ensures hassle-free arrangements and the highest quality every step of the way, no matter whether you are after a house, apartment or any other form of building space.</p> -->
 
 
             <div class="row">
@@ -42,10 +44,10 @@
                     <div class="col-7 float-end">
                         <div class="row mt-3">
                             <div class="col-3">
-                                <button class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_phone_icon.svg') }}" alt="" class="img-fluid me-2"> Call</button>
+                                <a href="tel:{{ $agent_details->telephone }}" class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_phone_icon.svg') }}" alt="" class="img-fluid me-2"> Call</a>
                             </div>
                             <div class="col-3">
-                                <button class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_email_icon.svg') }}" alt="" class="img-fluid me-2"> Email</button>
+                                <a href="mailto:{{ $agent_details->email }}" class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_email_icon.svg') }}" alt="" class="img-fluid me-2"> Email</a>
                             </div>
                             <div class="col-3">
                                 <button class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_heart_icon.svg') }}" alt="" class="img-fluid me-2"> Save</button>
