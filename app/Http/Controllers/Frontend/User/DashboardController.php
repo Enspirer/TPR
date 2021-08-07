@@ -154,7 +154,6 @@ class DashboardController extends Controller
         return back();
 
 
-
     }
 
     public function favourites()

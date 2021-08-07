@@ -24,9 +24,11 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="pills-accountInformation-tab" data-bs-toggle="pill" data-bs-target="#pills-accountInformation" type="button" role="tab" aria-controls="pills-accountInformation" aria-selected="true">Accout Information</button>
                     </li>
+                    @if($agent_edit)
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-lorem-tab" data-bs-toggle="pill" data-bs-target="#pills-lorem" type="button" role="tab" aria-controls="pills-lorem" aria-selected="false">Agent Information</button>
                     </li>
+                    @endif
                 </ul>
                                     
                 <div class="tab-content" id="pills-tabContent">
@@ -189,7 +191,7 @@
 <!-- ***************************************  agent information  *************************************************************************************************************************************** -->
                    
 
-
+                    @if($agent_edit)
                     <div class="tab-pane fade" id="pills-lorem" role="tabpanel" aria-labelledby="pills-lorem-tab">
 
                         <form action="{{route('frontend.user.dashboard.editAgent')}}" method="post" enctype="multipart/form-data" >
@@ -206,6 +208,7 @@
                                         <div>
                                             <label for="name" class="form-label mb-0 required">Name</label>
                                             <input type="text" class="form-control" value="{{ $agent_edit->name }}" name="name" required>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->name }}" name="name" required>
                                         </div>  
                                     </div>
                                 </div>
@@ -215,7 +218,7 @@
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">Agent Type</label>
                                             <select class="form-select" name="agent_type" required>
-                                                <!-- <option selected disabled value="">Choose...</option> -->
+                 
                                                 <option value="Company" {{ $agent_edit->agent_type == 'Company' ? "selected" : "" }}>Company</option>
                                                 <option value="Individual" {{ $agent_edit->agent_type == 'Individual' ? "selected" : "" }}>Individual</option>
                                             </select>
@@ -277,14 +280,14 @@
                                 </div>
 
                                 <h4 class="mt-5 mb-1">Validate Informations</h4>
-                                <!-- <h6 style="color: #5e6871">Tell us more about the agent</h6> -->
+
                                 
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">NIC/ Passport/ License</label>
                                             <select class="form-select" name="validate" id="validate" required>
-                                                <!-- <option selected disabled value="">Choose...</option> -->
+    
                                                 <option value="NIC" {{ $agent_edit->validation_type == 'NIC' ? "selected" : "" }}>NIC</option>
                                                 <option value="Passport" {{ $agent_edit->validation_type == 'Passport' ? "selected" : "" }}>Passport</option>
                                                 <option value="License" {{ $agent_edit->validation_type == 'License' ? "selected" : "" }}>License</option>
@@ -394,6 +397,8 @@
                         
                         
                     </div>
+
+                    @endif
                 </div>
             </div>
         </div>
