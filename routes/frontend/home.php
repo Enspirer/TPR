@@ -34,7 +34,13 @@ Route::get('individual-property/{id}', [IndividualPropertyController::class, 'in
 Route::get('commercial', [CommercialController::class, 'index'])->name('commercial');
 // Route::get('individual-property/{id}', [IndividualPropertyController::class, 'property_details'])->name('individual-property.property_details');
 
+
+Route::get('image_assest/{id}',[HomeController::class,'image_assets'])->name('image_assets');
+
+
 Route::post('file_manager-store',[FileManagerController::class,'store'])->name('file_store');
+
+Route::post('search_result',[HomeController::class,'get_search_result'])->name('search_result_function');
 
 
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');
