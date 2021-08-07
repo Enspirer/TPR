@@ -135,6 +135,16 @@ class DashboardController extends Controller
         return view('frontend.user.account-dashboard');
     }
 
+    public function store() {
+        $user = new User();
+
+        $user -> request('first_name');
+
+        $user -> save();
+
+        return redirect('/dashboard');
+    }
+
     public function favourites()
     {
         return view('frontend.user.favourites');

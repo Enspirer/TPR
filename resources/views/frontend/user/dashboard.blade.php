@@ -48,7 +48,7 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="firstName" class="form-label mb-0 required">First Name</label>
-                                                    <input type="text" class="form-control" value="{{auth()->user()->first_name}}" id="firstName" aria-describedby="firstName">
+                                                    <input type="text" class="form-control" value="{{auth()->user()->first_name}}" id="firstName" aria-describedby="firstName" name="first_name">
                                                 </div>  
                                             </div>
                                             <div class="col-6">
