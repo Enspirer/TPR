@@ -504,7 +504,7 @@
                             template += `
                                 <div class="row border align-items-center p-1">
                                     <div class="col-6">
-                                        <img src="../tpr_templete/images/ps_1.svg" alt="" class="img-fluid">
+                                        <img src="" alt="" class="img-fluid">
                                     </div>
                                     <div class="col-6">
                                         <div class="row justify-content-between">

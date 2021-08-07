@@ -92,7 +92,8 @@
                         <div class="row">
                             <div class="clearfix">
                                 <div class="float-end">
-                                    <a href="{{ route('frontend.individual-agent') }}"><button class="btn border-1 border-dark rounded-0 px-5 py-2">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                                    <a href=""><button class="btn border-1 border-dark rounded-0 px-5 py-2">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                                    <!-- {{ route('frontend.individual-agent') }} -->
                                 </div>
                             </div>
                         </div>
