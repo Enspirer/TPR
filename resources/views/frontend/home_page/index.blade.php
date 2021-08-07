@@ -31,11 +31,14 @@
 
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-residential" role="tabpanel" aria-labelledby="pills-residential-tab">
-                    <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                        <input type="text" class="form-control p-3 rounded-0" aria-label="search">
-                        <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
-                        <button class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
-                    </div>
+                    <form method="post" action="{{route('frontend.search_result_function')}}">
+                        <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                             {{csrf_field()}}
+                               <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search">
+                               <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
+                               <button type="submit" class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="tab-pane fade" id="pills-commercial" role="tabpanel" aria-labelledby="pills-commercial-tab">
@@ -477,7 +480,7 @@
                                 if(info[i][1] == markers[i].getPosition().lng() && info[i][2] == markers[i].getPosition().lat()) {
                                     details = `  <div class="row align-items-center p-1">
                                                     <div class="col-6">
-                                                        <img src="../tpr_templete/images/ps_1.svg" alt="" class="img-fluid" style="max-width: 100%!important">
+                                                        <img src="/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="max-width: 100%!important">
                                                     </div>
                                                     <div class="col-6">
                                                         <h5 class="fw-bold mb-2">${obj[i]['name']}</h5>
@@ -501,7 +504,7 @@
                             template += `
                                 <div class="row border align-items-center p-1">
                                     <div class="col-6">
-                                        <img src="" alt="" class="img-fluid">
+                                        <img src="/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid">
                                     </div>
                                     <div class="col-6">
                                         <div class="row justify-content-between">

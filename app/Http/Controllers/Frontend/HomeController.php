@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\Properties;
 use Illuminate\Http\Request;
 use App\Models\PropertyType;
+use App\Models\FileManager;
 
 /**
  * Class HomeController.
@@ -83,6 +84,27 @@ class HomeController extends Controller
         // dd($final_out);
 
         return json_encode($final_out);
+    }
+
+
+    public function get_search_result(Request $request)
+    {
+        dd($request);
+    }
+
+
+    public function image_assets($id)
+    {
+        $fileDetails = FileManager::where('id',$id)->first();
+
+        if ($fileDetails){
+            return response( file_get_contents('./images/'.$fileDetails->file_name) )
+                ->header('Content-Type','image/png');
+        }else{
+            return response( file_get_contents('./img/'.'blank.png') )
+                ->header('Content-Type','image/png');
+        }
+
     }
 
 

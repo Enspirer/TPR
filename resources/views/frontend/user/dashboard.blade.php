@@ -24,9 +24,11 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="pills-accountInformation-tab" data-bs-toggle="pill" data-bs-target="#pills-accountInformation" type="button" role="tab" aria-controls="pills-accountInformation" aria-selected="true">Accout Information</button>
                     </li>
+                    @if($agent_edit)
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-lorem-tab" data-bs-toggle="pill" data-bs-target="#pills-lorem" type="button" role="tab" aria-controls="pills-lorem" aria-selected="false">Agent Information</button>
                     </li>
+                    @endif
                 </ul>
                                     
                 <div class="tab-content" id="pills-tabContent">
@@ -43,18 +45,19 @@
                                 <div class="px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
                                     <h4>About You</h4>
                                     
-                                    <form>
+                                    <form action="{{route('frontend.user.dashboard.userStore')}}" method="post" enctype="multipart/form-data" >
+                                        {{csrf_field()}}
                                         <div class="row">
                                             <div class="col-6">
                                                 <div>
                                                     <label for="firstName" class="form-label mb-0 required">First Name</label>
-                                                    <input type="text" class="form-control" value="{{auth()->user()->first_name}}" id="firstName" aria-describedby="firstName">
+                                                    <input type="text" class="form-control" value="{{auth()->user()->first_name}}" id="firstName" aria-describedby="firstName" name="first_name">
                                                 </div>  
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="lastName" class="form-label mb-0 required">Last Name</label>
-                                                    <input type="text" value="{{auth()->user()->last_name}}" class="form-control" id="lastName" aria-describedby="lastName">
+                                                    <input type="text" value="{{auth()->user()->last_name}}" class="form-control" id="lastName" aria-describedby="lastName" name="last_name">
                                                 </div>  
                                             </div>
                                         </div>
@@ -63,13 +66,13 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="displayName" class="form-label mb-0 mt-4 required">Display Name</label>
-                                                    <input type="text" class="form-control" id="displayName" aria-describedby="displayName">
+                                                    <input type="text" class="form-control" id="displayName" name="display_name" aria-describedby="displayName">
                                                 </div>  
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="email" class="form-label mb-0 mt-4 required">Email</label>
-                                                    <input value="{{auth()->user()->email}}" type="email" class="form-control" id="email" aria-describedby="email">
+                                                    <input value="{{auth()->user()->email}}" type="email" class="form-control" id="email" aria-describedby="email" name="email">
                                                 </div>  
                                             </div>
                                         </div>
@@ -81,23 +84,22 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="userType" class="form-label mb-0">I am a</label>
-                                                <select class="form-select" aria-label="userType" id="userType">
+                                                <select class="form-select" aria-label="userType" id="userType" name="user_type">
                                                     <option selected>No Preference</option>
-                                                    <option value="1">First time buyer</option>
-                                                    <option value="2">Repeat buyer</option>
-                                                    <option value="3">Seller</option>
-                                                    <option value="3">Residential investor</option>
-                                                    <option value="3">Commercial investor</option>
-                                                    <option value="3">Seller</option>
+                                                    <option value="first-time-buyer">First time buyer</option>
+                                                    <option value="repeat-buyer">Repeat buyer</option>
+                                                    <option value="seller">Seller</option>
+                                                    <option value="residential-investor">Residential investor</option>
+                                                    <option value="commercial-investor">Commercial investor</option>
                                                 </select>
                                             </div>
                                             <div class="col-6">
                                                 <label for="birth" class="form-label mb-0">Year of birth</label>
-                                                <select class="form-select" aria-label="birth" id="birth">
+                                                <select class="form-select" aria-label="birth" id="birth" name="dob">
                                                     <option selected>Select</option>
-                                                    <option value="1">2021</option>
-                                                    <option value="2">2020</option>
-                                                    <option value="3">2019</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2020">2020</option>
+                                                    <option value="2019">2019</option>
                                                     </select>
                                             </div>
                                         </div>
@@ -105,7 +107,7 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="gender" class="form-label mb-0 mt-4">Gender</label>
-                                                <select class="form-select" aria-label="gender" id="gender">
+                                                <select class="form-select" aria-label="gender" id="gender" name="gender">
                                                     <option selected>Select</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
@@ -113,7 +115,7 @@
                                             </div>
                                             <div class="col-6">
                                                 <label for="displayName" class="form-label mb-0 mt-4">Marital Status</label>
-                                                <select class="form-select" aria-label="Default select example">
+                                                <select class="form-select" aria-label="Default select example" name="marital">
                                                     <option selected>Select</option>
                                                     <option value="single">Single</option>
                                                     <option value="common-law">Common Law</option>
@@ -132,13 +134,13 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="city" class="form-label mb-0">City</label>
-                                                    <input type="city" class="form-control" id="city" aria-describedby="city">
+                                                    <input type="text" class="form-control" id="city" aria-describedby="city" name="city">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="province" class="form-label mb-0">Province</label>
-                                                    <input type="province" class="form-control" id="province" aria-describedby="province">
+                                                    <input type="province" class="form-control" id="province" aria-describedby="province" name="province">
                                                 </div>
                                             </div>
                                         </div>
@@ -146,7 +148,7 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="country" class="form-label mb-0 mt-4">Country</label>
-                                                <select class="form-select" aria-label="country" id="country">
+                                                <select class="form-select" aria-label="country" id="country" name="country">
                                                     <option selected>Sri Lanka</option>
                                                     <option value="india">India</option>
                                                     <option value="australia">Australia</option>
@@ -155,7 +157,7 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="postal-code" class="form-label mb-0 mt-4">Postal Code</label>
-                                                    <input type="postal-code" class="form-control" id="postal-code" aria-describedby="postal-code">
+                                                    <input type="postal-code" class="form-control" id="postal-code" name="postal_code" aria-describedby="postal-code">
                                                 </div>
                                             </div>
                                         </div>
@@ -164,19 +166,20 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="home-phone" class="form-label mb-0 mt-4">Home Phone</label>
-                                                    <input type="home-phone" class="form-control" id="home-phone" aria-describedby="home-phone">
+                                                    <input type="home-phone" class="form-control" id="home-phone" name="home_phone" aria-describedby="home-phone">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="mobile-phone" class="form-label mb-0 mt-4">Mobile Phone</label>
-                                                    <input type="mobile-phone" class="form-control" id="mobile-phone" aria-describedby="mobile-phone">
+                                                    <input type="mobile-phone" class="form-control" id="mobile-phone" name="mobile_phone" aria-describedby="mobile-phone">
                                                 </div>
                                             </div>
                                         </div>
                                         
                                         <div class="mt-5 text-center">
                                             <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #6e6e70;">Deactivate Account</button>
+                                            <input type="hidden" class="form-control" value="{{$user_edit->id}}" name="hid_id">
                                             <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
                                         </div>
                                     </form>
@@ -187,7 +190,7 @@
 <!-- ***************************************  agent information  *************************************************************************************************************************************** -->
                    
 
-
+                    @if($agent_edit)
                     <div class="tab-pane fade" id="pills-lorem" role="tabpanel" aria-labelledby="pills-lorem-tab">
 
                         <form action="{{route('frontend.user.dashboard.editAgent')}}" method="post" enctype="multipart/form-data" >
@@ -204,6 +207,7 @@
                                         <div>
                                             <label for="name" class="form-label mb-0 required">Name</label>
                                             <input type="text" class="form-control" value="{{ $agent_edit->name }}" name="name" required>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->name }}" name="name" required>
                                         </div>  
                                     </div>
                                 </div>
@@ -213,7 +217,7 @@
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">Agent Type</label>
                                             <select class="form-select" name="agent_type" required>
-                                                <!-- <option selected disabled value="">Choose...</option> -->
+                 
                                                 <option value="Company" {{ $agent_edit->agent_type == 'Company' ? "selected" : "" }}>Company</option>
                                                 <option value="Individual" {{ $agent_edit->agent_type == 'Individual' ? "selected" : "" }}>Individual</option>
                                             </select>
@@ -275,14 +279,14 @@
                                 </div>
 
                                 <h4 class="mt-5 mb-1">Validate Informations</h4>
-                                <!-- <h6 style="color: #5e6871">Tell us more about the agent</h6> -->
+
                                 
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">NIC/ Passport/ License</label>
                                             <select class="form-select" name="validate" id="validate" required>
-                                                <!-- <option selected disabled value="">Choose...</option> -->
+    
                                                 <option value="NIC" {{ $agent_edit->validation_type == 'NIC' ? "selected" : "" }}>NIC</option>
                                                 <option value="Passport" {{ $agent_edit->validation_type == 'Passport' ? "selected" : "" }}>Passport</option>
                                                 <option value="License" {{ $agent_edit->validation_type == 'License' ? "selected" : "" }}>License</option>
@@ -392,6 +396,8 @@
                         
                         
                     </div>
+
+                    @endif
                 </div>
             </div>
         </div>

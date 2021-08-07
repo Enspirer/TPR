@@ -35,7 +35,13 @@ Route::get('individual-property/{id}', [IndividualPropertyController::class, 'in
 Route::get('commercial', [CommercialController::class, 'index'])->name('commercial');
 // Route::get('individual-property/{id}', [IndividualPropertyController::class, 'property_details'])->name('individual-property.property_details');
 
+
+Route::get('image_assest/{id}',[HomeController::class,'image_assets'])->name('image_assets');
+
+
 Route::post('file_manager-store',[FileManagerController::class,'store'])->name('file_store');
+
+Route::post('search_result',[HomeController::class,'get_search_result'])->name('search_result_function');
 
 
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');
@@ -53,7 +59,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('property_detail',[FileManagerController::class,'get_files'])->name('getFileDetails');
 
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
         Route::post('dashboard/edit', [DashboardController::class, 'editAgent'])->name('dashboard.editAgent');
+
+        Route::post('dashboard/user/store', [DashboardController::class, 'store'])->name('dashboard.userStore');
 
         Route::get('communications', [DashboardController::class, 'communications'])->name('communications');
 
@@ -63,6 +72,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
+
         Route::post('agent/store', [AgentController::class, 'store'])->name('agent.store');
 
         Route::get('properties', [AgentController::class, 'properties'])->name('properties');
