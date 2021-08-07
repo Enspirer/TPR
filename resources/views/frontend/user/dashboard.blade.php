@@ -43,7 +43,8 @@
                                 <div class="px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
                                     <h4>About You</h4>
                                     
-                                    <form>
+                                    <form action="{{route('frontend.user.dashboard.userStore')}}" method="post" enctype="multipart/form-data" >
+                                        {{csrf_field()}}
                                         <div class="row">
                                             <div class="col-6">
                                                 <div>
@@ -54,7 +55,7 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="lastName" class="form-label mb-0 required">Last Name</label>
-                                                    <input type="text" value="{{auth()->user()->last_name}}" class="form-control" id="lastName" aria-describedby="lastName">
+                                                    <input type="text" value="{{auth()->user()->last_name}}" class="form-control" id="lastName" aria-describedby="lastName" name="last_name">
                                                 </div>  
                                             </div>
                                         </div>
@@ -63,13 +64,13 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="displayName" class="form-label mb-0 mt-4 required">Display Name</label>
-                                                    <input type="text" class="form-control" id="displayName" aria-describedby="displayName">
+                                                    <input type="text" class="form-control" id="displayName" name="display_name" aria-describedby="displayName">
                                                 </div>  
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="email" class="form-label mb-0 mt-4 required">Email</label>
-                                                    <input value="{{auth()->user()->email}}" type="email" class="form-control" id="email" aria-describedby="email">
+                                                    <input value="{{auth()->user()->email}}" type="email" class="form-control" id="email" aria-describedby="email" name="email">
                                                 </div>  
                                             </div>
                                         </div>
@@ -177,6 +178,7 @@
                                         
                                         <div class="mt-5 text-center">
                                             <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #6e6e70;">Deactivate Account</button>
+                                            <input type="hidden" class="form-control" value="{{$user_edit->id}}" name="hid_id">
                                             <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
                                         </div>
                                     </form>

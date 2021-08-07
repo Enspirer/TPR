@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\AgentRequest;
+use App\Models\Auth\User;
 /**
  * Class DashboardController.
  */
@@ -19,10 +20,13 @@ class DashboardController extends Controller
         $user_id = auth()->user()->id;
 
         $agent_edit = AgentRequest::where('user_id',$user_id)->first();
+        $user_edit = User::where('id',$user_id)->first();
+
         // dd($agent_edit);
         
         return view('frontend.user.dashboard',[
-            'agent_edit' => $agent_edit
+            'agent_edit' => $agent_edit,
+            'user_edit' => $user_edit
         ]);
     }
 
@@ -135,14 +139,22 @@ class DashboardController extends Controller
         return view('frontend.user.account-dashboard');
     }
 
-    public function store() {
-        $user = new User();
+    public function store(Request $request) {
+        // dd($request);
 
-        $user -> request('first_name');
+        $user = new User;
 
-        $user -> save();
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        $user->display_name = $request->display_name;
 
-        return redirect('/dashboard');
+        User::whereId($request->hid_id)->update($user->toArray());
+
+        return back();
+
+
+
     }
 
     public function favourites()

@@ -16,12 +16,12 @@ class AddFormColumnsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->text('display_name')->nullable();
             $table->text('user_type')->nullable();
-            $table->text('dob');
-            $table->text('gender');
-            $table->text('marital_status');
+            $table->text('dob')->nullable();
+            $table->text('gender')->nullable();
+            $table->text('marital_status')->nullable();
             $table->text('city')->nullable();
             $table->text('province')->nullable();
-            $table->text('country');
+            $table->text('country')->nullable();
             $table->text('postal_code')->nullable();
             $table->text('home_phone')->nullable();
             $table->text('mobile_phone')->nullable();
