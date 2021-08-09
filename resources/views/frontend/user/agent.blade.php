@@ -27,8 +27,8 @@
                 <div class="row justify-content-between mt-4">
 
                     <div class="container-fluid jumbotron text-center" style="background-color: #c6e4ee; border-radius: 15px 50px;">
-                    <h1 style="margin-top:60px;" class="display-3">Thank You!</h1><br>
-                        <p class="lead"><h3>Your request is sent. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p>
+                    <h1 style="margin-top:60px;" class="display-5">Succesfully Created!</h1><br>
+                        <!-- <p class="lead"><h3>Your request is sent. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p> -->
                         <hr><br>    
                         <p class="lead">
                             <a class="btn btn-success btn-md" href="{{url('/')}}" role="button">Go Back to Home Page</a>
@@ -229,7 +229,14 @@
                                 </div>
 
                                 <div class="mt-5 text-center">
+                                @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
                                     <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                @else
+                                    <input type="submit" value="Already added an Agent Request" class="btn rounded-pill text-light px-4 py-2 disabled" style="background-color: #85B556;">
+                                @endif
+
+                                    <!-- <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;"> -->
+                                
                                 </div>
                             </form>
                         </div>

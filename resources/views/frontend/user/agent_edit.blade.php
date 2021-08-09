@@ -6,7 +6,43 @@
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/profile-settings.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 @endpush
+
+
+@if ( session()->has('message') )
+
+
+<div class="container user-settings" style="margin-top:8rem;">
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-12">
+                        @include('frontend.includes.profile-settings-links')
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-8">
+                <div class="row justify-content-between mt-4">
+
+                    <div class="container-fluid jumbotron text-center" style="background-color: #c6e4ee; border-radius: 15px 50px;">
+                    <h1 style="margin-top:60px;" class="display-5">Succesfully Updated!</h1><br>
+                        <!-- <p class="lead"><h3>Your request is sent. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p> -->
+                        <hr><br>    
+                        <p class="lead">
+                            <a class="btn btn-success btn-md" href="{{url('/')}}" role="button">Go Back to Home Page</a>
+                        </p>
+                        <br>
+                    </div>
+
+                </div>                
+            </div>
+        </div>
+    </div>
+
+
+@else
 
     <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
@@ -19,181 +55,19 @@
             </div>
 
             <div class="col-8">
-
-                <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-accountInformation-tab" data-bs-toggle="pill" data-bs-target="#pills-accountInformation" type="button" role="tab" aria-controls="pills-accountInformation" aria-selected="true">Accout Information</button>
-                    </li>
-                    @if($agent_edit)
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-lorem-tab" data-bs-toggle="pill" data-bs-target="#pills-lorem" type="button" role="tab" aria-controls="pills-lorem" aria-selected="false">Agent Information</button>
-                    </li>
-                    @endif
-                </ul>
-                                    
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-accountInformation" role="tabpanel" aria-labelledby="pills-accountInformation-tab">
-
-                        <div class="row justify-content-between">
-                            <div class="col-8 p-0">
-                                <h4 class="fs-4 fw-bolder user-settings-head">Account Information</h4>
-                                <h6 class="user-settings-sub" style="color: #5e6871">Here you can customize your basic account set-up information.</h6>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 border">
-                                <div class="px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
-                                    <h4>About You</h4>
-                                    
-                                    <form action="{{route('frontend.user.dashboard.userStore')}}" method="post" enctype="multipart/form-data" >
-                                        {{csrf_field()}}
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div>
-                                                    <label for="firstName" class="form-label mb-0 required">First Name</label>
-                                                    <input type="text" class="form-control" value="{{auth()->user()->first_name}}" id="firstName" aria-describedby="firstName" name="first_name">
-                                                </div>  
-                                            </div>
-                                            <div class="col-6">
-                                                <div>
-                                                    <label for="lastName" class="form-label mb-0 required">Last Name</label>
-                                                    <input type="text" value="{{auth()->user()->last_name}}" class="form-control" id="lastName" aria-describedby="lastName" name="last_name">
-                                                </div>  
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div>
-                                                    <label for="displayName" class="form-label mb-0 mt-4 required">Display Name</label>
-                                                    <input type="text" class="form-control" id="displayName" name="display_name" aria-describedby="displayName">
-                                                </div>  
-                                            </div>
-                                            <div class="col-6">
-                                                <div>
-                                                    <label for="email" class="form-label mb-0 mt-4 required">Email</label>
-                                                    <input value="{{auth()->user()->email}}" type="email" class="form-control" id="email" aria-describedby="email" name="email">
-                                                </div>  
-                                            </div>
-                                        </div>
-                                    
-
-                                        <h4 class="mt-5 mb-1">More About You</h4>
-                                        <h6 style="color: #5e6871">Tell us more about you and your real estate needs.</h6>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <label for="userType" class="form-label mb-0">I am a</label>
-                                                <select class="form-select" aria-label="userType" id="userType" name="user_type">
-                                                    <option selected>No Preference</option>
-                                                    <option value="first-time-buyer">First time buyer</option>
-                                                    <option value="repeat-buyer">Repeat buyer</option>
-                                                    <option value="seller">Seller</option>
-                                                    <option value="residential-investor">Residential investor</option>
-                                                    <option value="commercial-investor">Commercial investor</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-6">
-                                                <label for="birth" class="form-label mb-0">Year of birth</label>
-                                                <select class="form-select" aria-label="birth" id="birth" name="dob">
-                                                    <option selected>Select</option>
-                                                    <option value="2021">2021</option>
-                                                    <option value="2020">2020</option>
-                                                    <option value="2019">2019</option>
-                                                    </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <label for="gender" class="form-label mb-0 mt-4">Gender</label>
-                                                <select class="form-select" aria-label="gender" id="gender" name="gender">
-                                                    <option selected>Select</option>
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
-                                                    </select>
-                                            </div>
-                                            <div class="col-6">
-                                                <label for="displayName" class="form-label mb-0 mt-4">Marital Status</label>
-                                                <select class="form-select" aria-label="Default select example" name="marital">
-                                                    <option selected>Select</option>
-                                                    <option value="single">Single</option>
-                                                    <option value="common-law">Common Law</option>
-                                                    <option value="married">Married</option>
-                                                    <option value="separated">separated</option>
-                                                    <option value="divorced">Divorced</option>
-                                                    </select>
-                                            </div>
-                                        </div>
-
-
-                                        <h4 class="mt-5 mb-1">Contact Information</h4>
-                                        <h6 style="color: #5e6871">Keep your contact details up to date</h6>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div>
-                                                    <label for="city" class="form-label mb-0">City</label>
-                                                    <input type="text" class="form-control" id="city" aria-describedby="city" name="city">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div>
-                                                    <label for="province" class="form-label mb-0">Province</label>
-                                                    <input type="province" class="form-control" id="province" aria-describedby="province" name="province">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <label for="country" class="form-label mb-0 mt-4">Country</label>
-                                                <select class="form-select" aria-label="country" id="country" name="country">
-                                                    <option selected>Sri Lanka</option>
-                                                    <option value="india">India</option>
-                                                    <option value="australia">Australia</option>
-                                                    </select>
-                                            </div>
-                                            <div class="col-6">
-                                                <div>
-                                                    <label for="postal-code" class="form-label mb-0 mt-4">Postal Code</label>
-                                                    <input type="postal-code" class="form-control" id="postal-code" name="postal_code" aria-describedby="postal-code">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div>
-                                                    <label for="home-phone" class="form-label mb-0 mt-4">Home Phone</label>
-                                                    <input type="home-phone" class="form-control" id="home-phone" name="home_phone" aria-describedby="home-phone">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div>
-                                                    <label for="mobile-phone" class="form-label mb-0 mt-4">Mobile Phone</label>
-                                                    <input type="mobile-phone" class="form-control" id="mobile-phone" name="mobile_phone" aria-describedby="mobile-phone">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="mt-5 text-center">
-                                            <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #6e6e70;">Deactivate Account</button>
-                                            <input type="hidden" class="form-control" value="{{$user_edit->id}}" name="hid_id">
-                                            <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                <div class="row justify-content-between">
+                    <div class="col-8 p-0">
+                        <h4 class="fs-4 fw-bolder user-settings-head">Edit Agent Request Form</h4>
                     </div>
-<!-- ***************************************  agent information  *************************************************************************************************************************************** -->
-                   
+                </div>
 
-                    @if($agent_edit)
-                    <div class="tab-pane fade" id="pills-lorem" role="tabpanel" aria-labelledby="pills-lorem-tab">
-
-                        <form action="{{route('frontend.user.dashboard.update_agent')}}" method="post" enctype="multipart/form-data" >
+                <div class="row">
+                    <div class="col-12 border">
+                        <div class="px-2 py-3" id="nav-agent" role="tabpanel" aria-labelledby="nav-agent-tab">
+                            <h4>About Agent</h4>
+                            <!-- class="needs-validation" novalidate -->
+                        
+                            <form action="{{route('frontend.user.agent.update_agent')}}" method="post" enctype="multipart/form-data" >
                             {{csrf_field()}}
 
                             <div class="row">
@@ -392,39 +266,58 @@
                                 <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
 
-                        </form>      
-                        
-                        
+                            </form>
+                        </div>
                     </div>
-
-                    @endif
-                </div>
+                </div> 
             </div>
         </div>
     </div>
 
 
 
-    <script>
+<script>
         
-        $(function() {
-            $( "#validate" ).change(function() {  
-                validate();
-            });
-            function validate() {
-                $('.form-validate-div').hide();
-                var divKey = $( "#validate option:selected" ).val();                
-                $('#divFrm'+divKey).show();
-    
-                $('.form-image-div').hide();
-                var divKey = $( "#validate option:selected" ).val();                
-                $('#img'+divKey).show();
-            }       
+    $(function() {
+        $( "#validate" ).change(function() {  
             validate();
         });
-        
+        function validate() {
+            $('.form-validate-div').hide();
+            var divKey = $( "#validate option:selected" ).val();                
+            $('#divFrm'+divKey).show();
+
+            $('.form-image-div').hide();
+            var divKey = $( "#validate option:selected" ).val();                
+            $('#img'+divKey).show();
+        }       
+        validate();
+    });
     
-    </script>    
+
+    // function validateForm() {
+    //     let x = document.forms["myForm"]["nic"].value;
+    //     if (x == "") {
+    //         alert("NIC Number must be filled out");
+    //         return false;
+    //     }
+    // }
+
+</script>
+
+<!-- <script>
+    $(document).ready(function(){
+        $("form").submit(function(){
+        alert("Submitted");
+        });
+    });
+</script> -->
+
+
+
+
+
+@endif
 
 @endsection
 
