@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Properties;
 
 /**
  * Class ContactController.
@@ -14,6 +15,10 @@ class CommercialController extends Controller
      */
     public function index()
     {
-        return view('frontend.commercial');
+        $promu = Properties::all();
+
+        return view('frontend.commercial',[
+            'promo' => $promu
+        ]);
     }
 }
