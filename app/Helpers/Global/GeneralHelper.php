@@ -1,4 +1,5 @@
 <?php
+use App\Medels\AgentRequest;
 
 if (! function_exists('app_name')) {
     /**
@@ -39,5 +40,28 @@ if (! function_exists('home_route')) {
         }
 
         return 'frontend.landing';
+    }
+}
+
+
+if (! function_exists('is_company')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_company($user_id)
+    {
+
+        $companyDetail = AgentRequest::where('user_id',$user_id)
+            ->where('agent_type','Company')
+            ->first();
+
+        if($companyDetail)
+        {
+            return $companyDetail;
+        }else{
+            return null;
+        }
     }
 }
