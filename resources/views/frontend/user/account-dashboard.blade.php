@@ -36,7 +36,6 @@
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title text-center" style="color: #0d6efd;">Search Result</h4>
-                                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, ea. Architecto nihil hic quasi consequatur iure distinctio consectetur et atque?</p>
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +47,6 @@
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title text-center" style="color: #0d6efd;">Booking Property</h4>
-                                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, ea. Architecto nihil hic quasi consequatur iure distinctio consectetur et atque?</p>
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +58,6 @@
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title text-center" style="color: #0d6efd;">Favourites</h4>
-                                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, ea. Architecto nihil hic quasi consequatur iure distinctio consectetur et atque?</p>
                                         </div>
                                     </div>
                                 </div>

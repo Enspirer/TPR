@@ -88,32 +88,32 @@
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">Agent Type</label>
-                                            <select class="form-select" name="agent_type" required>
+                                            <select class="form-select agent_type" name="agent_type" required>
                                                 <option selected disabled value="">Choose...</option>
-                                                <option value="Company">Company</option>
-                                                <option value="Individual">Individual</option>
+                                                <option value="company">Company</option>
+                                                <option value="individual">Individual</option>
                                             </select>
-                                        </div>  
-                                    </div>
-                                    <div class="col-6">
-                                        <div>
-                                            <label class="form-label mb-0 mt-4 required">Company Name</label>
-                                            <input type="text" class="form-control" name="company_name" required>
-                                        </div>  
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div>
-                                            <label class="form-label mb-0 mt-4 required">Company Registration Number</label>
-                                            <input type="text" class="form-control" name="company_reg_no" required>
                                         </div>  
                                     </div>
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">Email</label>
                                             <input type="email" class="form-control" name="email" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 company_name">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">Company Name</label>
+                                            <input type="text" class="form-control" name="company_name" required>
+                                        </div> 
+                                    </div>
+                                    <div class="col-6 company_reg_no">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">Company Registration Number</label>
+                                            <input type="text" class="form-control" name="company_reg_no" required>
                                         </div>  
                                     </div>
                                 </div>
@@ -267,6 +267,18 @@
     //         return false;
     //     }
     // }
+
+
+    $('.agent_type').change(function() {
+        if ($(this).val() == 'individual') {
+            $('.company_name').css('display' , "none");
+            $('.company_reg_no').css('display' , "none");
+        }
+        else {
+            $('.company_name').css('display' , "block");
+            $('.company_reg_no').css('display' , "block");
+        }
+    });
 
 </script>
 
