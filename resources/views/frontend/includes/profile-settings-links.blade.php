@@ -45,8 +45,6 @@
             @endcan
 
 
-
-
         <h5 class="px-3 mt-4 pb-2 mb-0">Country Managment</h5>
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'country-managment-dashboard' ? 'active' : null }}" href="{{ route('frontend.user.country-management') }}" type="button" role="tab" aria-controls="nav-properties" aria-selected="true">Dashboard</a>
