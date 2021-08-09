@@ -106,9 +106,7 @@
                                 <div class="col-4">
                                     <button class="btn w-100 agent-contact"><i class="fas fa-envelope me-2"></i>{{ $agent->email }}</button>
                                 </div>
-                                
                             </div>
-                        
                         </div>
                     </div>
                 @endif
