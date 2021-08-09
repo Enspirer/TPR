@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DataTables;
 use DB;
 use App\Models\Country;
+use App\Models\Auth\User;
 
 class CountryController extends Controller
 {
@@ -18,7 +19,8 @@ class CountryController extends Controller
 
     public function create()
     {
-        return view('backend.country.create');
+        $users = User::all();
+        return view('backend.country.create', ['users' => $users]);
     }
 
     public function getDetails(Request $request)
