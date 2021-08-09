@@ -24,7 +24,7 @@
                         <a class="nav-link text-white fw-bold" href="{{ route('frontend.map-search' )}}">Map Search</a>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
-                        <a class="nav-link text-white fw-bold" href="{{ route('frontend.find-agent' )}}">Find Agent</a>
+                        <a class="nav-link text-white fw-bold" href="{{ route('frontend.find-agent', ['area', 'agent_type', 'agent_name'] )}}">Find Agent</a>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
                         <a class="nav-link text-white fw-bold" href="#">Market Trends</a>

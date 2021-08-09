@@ -26,7 +26,7 @@ use App\Http\Controllers\Frontend\FileManagerController;
 Route::get('/', [HomeController::class, 'landing'])->name('landing');
 Route::get('country/{country_id}', [HomeController::class, 'index'])->name('home_page');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
-Route::get('find-agent', [FindAgentController::class, 'index'])->name('find-agent');
+Route::get('find-agent/{area}/{agent_type}/{agent_name}', [FindAgentController::class, 'index'])->name('find-agent');
 Route::get('individual-agent/{id}', [IndividualAgentController::class, 'index'])->name('individual-agent');
 // Route::get('individual-agent', [IndividualAgentController::class, 'index'])->name('individual-agent');
 Route::get('map-search', [MapSearchController::class, 'index'])->name('map-search');
