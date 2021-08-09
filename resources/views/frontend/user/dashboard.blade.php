@@ -207,7 +207,7 @@
                                         <div>
                                             <label for="name" class="form-label mb-0 required">Name</label>
                                             <input type="text" class="form-control" value="{{ $agent_edit->name }}" name="name" required>
-                                            <input type="text" class="form-control" value="{{ $agent_edit->name }}" name="name" required>
+                                            <!-- <input type="text" class="form-control" value="{{ $agent_edit->name }}" name="name" required> -->
                                         </div>  
                                     </div>
                                 </div>

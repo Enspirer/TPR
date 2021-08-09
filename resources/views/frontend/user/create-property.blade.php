@@ -120,7 +120,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="category" class="form-label mb-0 mt-4 required">Category</label>
-                                            <select class="form-select" aria-label="category" id="category">
+                                            <select class="form-select" aria-label="category" id="category" name="category">
                                                 <option selected value="commercial">Commercial</option>
                                                 <option value="residential">Residential</option>
                                             </select>
