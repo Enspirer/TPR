@@ -101,3 +101,12 @@
     filter: grayscale(100%);
 }
 
+.advertisement .fa, .fas {
+    color: #4195E1;
+    background-color: white!important;
+    padding: 0 0.75rem;
+}
+
+.ad-hide {
+    display: block!important;
+}
