@@ -272,23 +272,31 @@
                         <h6 class="fw-bold" style="margin-left: 3rem;">Sample Text</h6>
                     </div>
 
-                    <div class="row shadow mt-5">
+                    
+                    @if($ad1->status == 0)                    
+                    @else
+                        <div class="row shadow mt-5">
                         <div class="col-12">
-                            <img src="{{ asset('tpr_templete/images/rp_3.svg') }}" alt="" class="img-fluid">
+                            <img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover; width:285px;" alt="">
                         </div>
                         <div class="col-12 mt-3" style="text-align: justify;">
-                            <p class="ns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente sint facilis dignissimos optio maiores eius nisi repellat aliquam amet quod voluptate delectus pariatur minima soluta maxime consequuntur, accusamus totam exercitationem?</p>
-                        </div>
+                            <p class="ns">{{ $ad1->description }}</p>
+                        </div>        
                     </div>
+                    @endif
 
+                    @if($ad2->status == 0)
+                    @else
                     <div class="row shadow mt-5">
                         <div class="col-12">
-                            <img src="{{ asset('tpr_templete/images/rp_1.svg') }}" alt="" class="img-fluid">
+                            <img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover; width:285px;" alt="">                           
                         </div>
                         <div class="col-12 mt-3" style="text-align: justify;">
-                            <p class="ns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente sint facilis dignissimos optio maiores eius nisi repellat aliquam amet quod voluptate delectus pariatur minima soluta maxime consequuntur, accusamus totam exercitationem?</p>
+                            <p class="ns">{{ $ad2->description }}</p>
                         </div>
                     </div>
+                    @endif
+
 
                     <div class="row justify-content-center shadow py-4" style="margin-top: 3rem;">
                         <div align="center">

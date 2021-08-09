@@ -66,7 +66,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('dashboard/user/store', [DashboardController::class, 'store'])->name('dashboard.userStore');
         Route::post('dashboard/agent/update', [AgentController::class, 'update_agent'])->name('dashboard.update_agent');
 
-        
+
         Route::get('communications', [DashboardController::class, 'communications'])->name('communications');
 
         Route::get('account-dashboard', [DashboardController::class, 'accountDashboard'])->name('account-dashboard');
@@ -112,6 +112,12 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('country-management/single-agent-approval', [CountryManagementController::class, 'singleAgentApproval'])->name('single-agent-approval');
 
         Route::get('country-management/individual-help', [CountryManagementController::class, 'individualHelp'])->name('individual-help');
+
+        Route::get('country-management/sidebar-ad', [CountryManagementController::class, 'sidebarAD'])->name('sidebar_ad');
+        Route::post('sidebar-ad/store', [CountryManagementController::class, 'sidebarAD_store'])->name('sidebar_ad.sidebarAD_store');
+        Route::post('sidebar-ad/update', [CountryManagementController::class, 'sidebarAD_update'])->name('sidebar_ad.sidebarAD_update');
+        Route::get('sidebar-ad/delete/{id}', [CountryManagementController::class, 'sidebarAD_delete'])->name('sidebar_ad.sidebarAD_delete');
+
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');
