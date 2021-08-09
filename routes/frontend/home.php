@@ -59,11 +59,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('property_detail',[FileManagerController::class,'get_files'])->name('getFileDetails');
 
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-        Route::post('dashboard/edit', [DashboardController::class, 'editAgent'])->name('dashboard.editAgent');
-
         Route::post('dashboard/user/store', [DashboardController::class, 'store'])->name('dashboard.userStore');
+        Route::post('dashboard/agent/update', [AgentController::class, 'update_agent'])->name('dashboard.update_agent');
 
+        
         Route::get('communications', [DashboardController::class, 'communications'])->name('communications');
 
         Route::get('account-dashboard', [DashboardController::class, 'accountDashboard'])->name('account-dashboard');
@@ -72,8 +71,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
-
         Route::post('agent/store', [AgentController::class, 'store'])->name('agent.store');
+        Route::get('agent/edit', [AgentController::class, 'agent_edit'])->name('agent.edit');
+        Route::post('agent/update', [AgentController::class, 'update_agent'])->name('agent.update_agent');
+
 
         Route::get('properties', [AgentController::class, 'properties'])->name('properties');
 
@@ -87,7 +88,6 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
         Route::get('properties/create', [AgentController::class, 'createProperty'])->name('create-property');
-
         Route::post('properties/store', [AgentController::class, 'createPropertyStore'])->name('create-property.createPropertyStore');
 
 
