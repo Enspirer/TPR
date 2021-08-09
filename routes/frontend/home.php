@@ -44,6 +44,10 @@ Route::post('file_manager-store',[FileManagerController::class,'store'])->name('
 Route::post('search_result',[HomeController::class,'get_search_result'])->name('search_result_function');
 
 
+
+Route::get('search_result_filter/{key_name}/{max_price}/{min_price}/{transaction_type}/{property_type}',[HomeController::class,'search_function'])->name('search_function');
+
+
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');
 //Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 
