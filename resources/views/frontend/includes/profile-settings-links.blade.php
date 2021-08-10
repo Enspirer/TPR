@@ -1,3 +1,19 @@
+<style>
+.dropdown-btn {
+  display: block;
+  border: none;
+  background: none;
+  /* width: 100%; */
+  /* text-align: left; */
+  cursor: pointer;
+  outline: none;
+}
+.dropdown-container {
+  display: none;
+  padding-left: 70px;
+}
+</style>
+
 <div class="border">
 
     <div class="nav flex-column profile-settings align-items-start justify-content-start" id="nav-tab" role="tablist">
@@ -56,6 +72,8 @@
 
             <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Agent Approval</a>
 
+                    
+        <!-- <a class="border-bottom w-100 pb-3 nav-link bg-white border-0 ps-5 w-100 advertisement" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Advertisement Management<i class="fas fa-caret-down"></i></a>
 
             <a class="border-bottom w-100 pb-3 nav-link bg-white border-0 ps-5 w-100 advertisement" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Advertisement Management<i class="fas fa-caret-down"></i></a>
 
@@ -67,7 +85,19 @@
 
         @endif
 
+        <a class="nav-link bg-white border-0 border-bottom w-100 pb-3 text-center sidebar-ad d-none {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Sidebar Advertisement</a> -->
 
+
+            <button class="dropdown-btn border-bottom w-100 pb-3" style="color:#0d6efd; margin: 5px 0 0 -10px;">
+                Advertisement Management 
+                <i class="fas fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+
+                <a class="nav-link bg-white border-0 ps-5 w-100 pb-3 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Home Page Advertisement</a>
+                <a class="nav-link bg-white border-0 border-bottom ps-5 w-100 pb-3 {{ Request::segment(2) == 'sidebar-ad' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.sidebar_ad') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Sidebar Advertisement</a>
+
+            </div>
         
 
         <h5 class="px-3 mt-4 pb-2 mb-0 border-t">My Settings</h5>
@@ -85,11 +115,28 @@
 </div>
 
 
-<script>
+<!-- <script>
 
     $('.advertisement').click(function() {
         $('.home-page-ad').toggleClass('ad-hide');
         $('.sidebar-ad').toggleClass('ad-hide');
     });
     
+</script> -->
+
+
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
 </script>
