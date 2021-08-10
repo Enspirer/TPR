@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\SidebarAd;
+use App\Models\Country;
 use App\Models\Auth\User;
 use Auth;
 
@@ -52,9 +53,13 @@ class CountryManagementController extends Controller
         $ad2 = SidebarAd::where('other', '=', 'ad2')->first();
         // dd($ad1);
 
+        $country = Country::where('country_manager',auth()->user()->id)->first();
+        // dd($country);
+
         return view('frontend.user.sidebar_ad',[
             'ad1' => $ad1,
-            'ad2' => $ad2
+            'ad2' => $ad2,
+            'country' => $country
         ]);
     }    
      
@@ -78,6 +83,7 @@ class CountryManagementController extends Controller
         $add->description=$request->description;
         $add->link=$request->link;
         $add->status=$request->status;
+        $add->country=$request->country;
         $add->country_management_approval='Pending';  
 
         if($request->ad_position == 'ad1'){ 
@@ -111,7 +117,8 @@ class CountryManagementController extends Controller
         $update->image=$image_url;        
         $update->description=$request->description;
         $update->link=$request->link;
-        $update->status=$request->status;
+        $update->status=$request->status;        
+        $update->country=$request->country;
         $update->country_management_approval='Pending';  
 
         if($request->ad_position == 'ad1'){ 

@@ -273,7 +273,7 @@
                     </div>
 
                     
-                    @if($ad1->status == 0)                    
+                    @if($ad1 == null)                    
                     @else
                         <div class="row shadow mt-5">
                         <div class="col-12">
@@ -285,7 +285,7 @@
                     </div>
                     @endif
 
-                    @if($ad2->status == 0)
+                    @if($ad2 == null)
                     @else
                     <div class="row shadow mt-5">
                         <div class="col-12">
