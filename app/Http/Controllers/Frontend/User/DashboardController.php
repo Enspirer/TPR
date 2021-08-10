@@ -17,6 +17,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
+
+
         $user_id = auth()->user()->id;
 
         $agent_edit = AgentRequest::where('user_id',$user_id)->first();
@@ -34,8 +36,9 @@ class DashboardController extends Controller
         return view('frontend.user.communications');
     }
 
-    public function accountDashboard()
+    public function accountDashboard(Request $request)
     {
+
         return view('frontend.user.account-dashboard');
     }
 

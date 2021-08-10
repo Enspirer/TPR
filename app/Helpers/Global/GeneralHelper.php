@@ -1,5 +1,6 @@
 <?php
 use App\Medels\AgentRequest;
+use App\Models\Country;
 
 if (! function_exists('app_name')) {
     /**
@@ -60,6 +61,28 @@ if (! function_exists('is_company')) {
         if($companyDetail)
         {
             return $companyDetail;
+        }else{
+            return null;
+        }
+    }
+}
+
+if (! function_exists('is_country_manager')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_country_manager($user_id)
+    {
+
+        $countryManager = Country::where('country_manager',$user_id)
+            ->first();
+
+
+        if($countryManager)
+        {
+            return $countryManager;
         }else{
             return null;
         }
