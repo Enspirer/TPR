@@ -191,7 +191,7 @@
 
     <!-- ad 1 -->
     <form action="{{route('frontend.user.sidebar_ad.sidebarAD_store')}}" method="post" enctype="multipart/form-data">
-    {{csrf_field()}}
+        {{csrf_field()}}
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -245,7 +245,7 @@
 
     <!-- ad 2 -->
     <form action="{{route('frontend.user.sidebar_ad.sidebarAD_store')}}" method="post" enctype="multipart/form-data">
-    {{csrf_field()}}
+        {{csrf_field()}}
 
         <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -300,7 +300,7 @@
                                              
     @else
     <form action="{{route('frontend.user.sidebar_ad.sidebarAD_update')}}" method="post" enctype="multipart/form-data">
-    {{csrf_field()}}
+        {{csrf_field()}}
 
         <div class="modal fade" id="exampleModalEdit1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -360,7 +360,7 @@
                                              
     @else
     <form action="{{route('frontend.user.sidebar_ad.sidebarAD_update')}}" method="post" enctype="multipart/form-data">
-    {{csrf_field()}}
+        {{csrf_field()}}
         <div class="modal fade" id="exampleModalEdit2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit2" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content" style="font-size:15px;">
@@ -420,7 +420,7 @@
                                              
     @else
     <div class="modal fade" id="exampleModalDelete1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit2" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+        <div class="modal-dialog" role="document">
         <div class="modal-content">
         
             <form action="{{route('frontend.user.sidebar_ad.sidebarAD_delete',$ad1->id)}}" method="get" enctype="multipart/form-data">
@@ -444,7 +444,6 @@
             
         </div>
     </div>
-    </div>
     @endif
 
     <!-- ad 2 delete-->
@@ -452,7 +451,7 @@
                                              
     @else
     <div class="modal fade" id="exampleModalDelete2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit2" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+        <div class="modal-dialog" role="document">
         <div class="modal-content">
         
             <form action="{{route('frontend.user.sidebar_ad.sidebarAD_delete',$ad2->id)}}" method="get" enctype="multipart/form-data">
@@ -475,7 +474,6 @@
             </form> 
             
         </div>
-    </div>
     </div>
     @endif
 

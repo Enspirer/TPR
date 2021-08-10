@@ -43,22 +43,25 @@
                             </tr>
                         </thead>
                         <tbody class="align-middle table-data">
-                            <tr class="align-items-center">
-                                <td>Hilton Hotel</td>
-                                <td>Restaurant</td>
-                                <td>2021-08-01</td>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <a href="{{ route('frontend.user.single-property-approval') }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
+                            @foreach($properties as $property)
+                                <tr class="align-items-center">
+                                    <td>{{ $property->name }}</td>
+                                    <td>Restaurant</td>
+                                    <td>2021-08-01</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <a href="{{ route('frontend.user.single-property-approval') }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
+                                            </div>
+                                            <div class="col-5">
+                                                <button class="btn text-light table-btn" style="background-color: #FF2C4B">Disapprove</button>
+                                            </div>
                                         </div>
-                                        <div class="col-5">
-                                            <button class="btn text-light table-btn" style="background-color: #FF2C4B">Disapprove</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                            <!-- <tr>
                                 <td>Hilton Hotel</td>
                                 <td>Restaurant</td>
                                 <td>2021-07-31</td>
@@ -87,7 +90,7 @@
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
