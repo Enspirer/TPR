@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\SidebarAd;
 use App\Models\Country;
+use App\Models\Properties;
 use App\Models\Auth\User;
 use Auth;
 
@@ -24,7 +25,9 @@ class CountryManagementController extends Controller
     }
 
     public function propertyApproval() {
-        return view('frontend.user.property-approval');
+        $properties = Properties::where('country_manager_approval', 'pending')->get();
+
+        return view('frontend.user.property-approval', ['properties' => $properties]);
     }
 
     public function supports() {

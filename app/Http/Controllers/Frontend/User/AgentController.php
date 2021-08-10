@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\AgentRequest;
@@ -21,8 +22,10 @@ class AgentController extends Controller
      */
     public function index()
     {
-        
-        return view('frontend.user.agent');
+        $country = Country::all();
+        return view('frontend.user.agent',[
+            'countries' => $country
+        ]);
     }
 
     public function store(Request $request)

@@ -88,3 +88,24 @@ if (! function_exists('is_country_manager')) {
         }
     }
 }
+
+if (! function_exists('is_agent')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_agent($user_id)
+    {
+        $countryManager = AgentRequest::where('status','Approval')
+            ->first();
+        if($countryManager)
+        {
+            return $countryManager;
+        }else{
+            return null;
+        }
+    }
+}
+
+

@@ -54,7 +54,7 @@
             <h3 class="fw-bolder">Directory of Real Estate Agents / Brokers / Realtors in Sri Lanka</h3>
 
             @foreach($agents as $agent)
-                @if($agent->status == 'approved')
+                @if($agent->status == 'Approval')
                     <div class="row shadow py-5 px-4" style="margin-top: 5rem;">
                         <div class="col-4">
                             <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid">
