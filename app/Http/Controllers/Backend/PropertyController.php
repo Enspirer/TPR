@@ -50,11 +50,14 @@ class PropertyController extends Controller
     public function edit($id)
     {
         $property = Properties::where('id',$id)->first();
+
+        $images = json_decode($property->image_ids);
         
         // dd($property);              
 
-        return view('backend.property.edit',[
-            'property' => $property         
+        return view('backend.property.edit', [
+            'property' => $property,
+            'images' => $images        
         ]);  
     }
 

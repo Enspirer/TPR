@@ -179,12 +179,12 @@
     title: "Hello World!",
   });
 
-  console.log(myLatLng)
+//   console.log(myLatLng)
 }
 </script>
 
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArF7tuecnSc3AvTh5V_mabinQqE6TuiYM&callback=initMap"
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
 type="text/javascript"></script>
 
 @endpush
