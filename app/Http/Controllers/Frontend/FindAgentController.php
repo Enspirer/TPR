@@ -18,7 +18,7 @@ class FindAgentController extends Controller
         $agents = AgentRequest::all();
 
 
-        // $area_agents = AgentRequest::where('area', $area)
+         $area_agents = AgentRequest::where('area', $area);
 
         return view('frontend.find-agent', ['agents' => $agents]);
     }

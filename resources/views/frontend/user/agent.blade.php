@@ -73,8 +73,12 @@
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 required">Country</label>
-                                            <input type="text" class="form-control" name="country" required>
-                                        </div>  
+                                            <select class="form-control" name="country">
+                                                @foreach($countries as $country)
+                                                    <option value="{{$country->country_name}}">{{$country->country_name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="col-6">
                                         <div>
