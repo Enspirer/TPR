@@ -7,43 +7,10 @@
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/profile-settings.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 @endpush
 
-
-@if ( session()->has('message') )
-
-
-<div class="container user-settings" style="margin-top:8rem;">
-        <div class="row justify-content-between">
-            <div class="col-4">
-                <div class="row">
-                    <div class="col-12">
-                        @include('frontend.includes.profile-settings-links')
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-8">
-                <div class="row justify-content-between mt-4">
-
-                    <div class="container-fluid jumbotron text-center" style="background-color: #c6e4ee; border-radius: 15px 50px;">
-                    <h1 style="margin-top:60px;" class="display-5">Succesfully Created!</h1><br>
-                        <!-- <p class="lead"><h3>Your request is sent. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p> -->
-                        <hr><br>    
-                        <p class="lead">
-                            <a class="btn btn-success btn-md" href="{{url('/')}}" role="button">Go Back to Home Page</a>
-                        </p>
-                        <br>
-                    </div>
-
-                </div>                
-            </div>
-        </div>
-    </div>
-
-
-@else
 
     <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
@@ -69,85 +36,168 @@
                             <!-- <h4>Advertisement</h4> -->
                             <!-- class="needs-validation" novalidate -->
                         
-                            <form action="{{route('frontend.user.agent.store')}}" method="post" enctype="multipart/form-data" >
-                            {{csrf_field()}}
-                                <div class="row" align="center">
-                                    <div class="col-6">
-                                        <div class="card" style="border-style: dashed;border-width: 1px;padding: 10px; border-color:black;">
-                                            <div class="card-body">
-
+                            <!-- <form action="{{route('frontend.user.agent.store')}}" method="post" enctype="multipart/form-data" > -->
+                            <!-- {{csrf_field()}} -->
+                                <div class="row">
+                                    <div class="col-12">
                                             @if($ad1 == null)
-                                                <button type="button" class="btn btn-info px-5" data-toggle="modal" data-target="#exampleModal" style="padding:30px 30px 30px 30px">
-                                                Advertisement 1
-                                                </button>
+                                            <div class="card" style="border-style: dashed;border-width: 1px; border-color:black;">
+                                                <div class="card-body">
+                                                    <button type="button" class="btn btn-info px-5" data-toggle="modal" data-target="#exampleModal" style="padding:40px 0px 40px 0px; width:100%">
+                                                    Advertisement 1
+                                                    </button>
+                                                </div>
+                                            </div>                                                                        
                                             @else
+                                            <div class="card" style="border-style: solid;border-width: 1px;padding: 10px; border-color:black;">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover; width:100%; margin-top:20px;" height="150px" alt="">
+                                                            </div> 
+                                                        </div>
+                                                        <div class="col-8">
 
-                                                <div class="form-group">
-                                                    <a href="#"><img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover; width:70%;" height="100%" alt="" data-toggle="modal" data-target="#exampleModalEdit1"></a>
-                                                </div>                                            
+                                                            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+            
+                                                            <tr>            
+                                                                <td width="23%" cellpadding="0" cellspacing="0">  
+                                                                    <p align="left"><b>Title:</b> </p>  
+                                                                </td>
+                                                                <td  cellpadding="0" cellspacing="0">  
+                                                                    <p align="left">{{ $ad1->title }}</p> 
+                                                                    <hr>                
+                                                                </td>
+                                                            </tr>
+                                                            <tr>            
+                                                                <td width="23%" cellpadding="0" cellspacing="0">
+                                                                    <p align="left"><b>Status:</b> </p>
+                                                                </td>
+                                                                <td  cellpadding="0" cellspacing="0">     
+                                                                    <p align="left">@if( $ad1->status == 1 ) Enabled 
+                                                                                    @else Disabled 
+                                                                                    @endif
+                                                                    </p>  
+                                                                    <hr>         
+                                                                </td>
+                                                            </tr>
+                                                            <tr>            
+                                                                <td width="23%" cellpadding="0" cellspacing="0">  
+                                                                    <p align="left"><b>Description:</b> </p>  
+                                                                </td>
+                                                                <td  cellpadding="0" cellspacing="0">  
+                                                                    <p align="left" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $ad1->description }}</p> 
+                                                                    <hr>                
+                                                                </td>
+                                                            </tr>                                                    
+                                                            <tr>            
+                                                                <td width="23%" cellpadding="0" cellspacing="0">   
+                                                                    <!-- <p align="left"></p> -->
+                                                                </td>
+                                                                <td  cellpadding="0" cellspacing="0" align="right">
+                                                                    <a href="#" class="btn btn-secondary pull-right" data-toggle="modal" data-target="#exampleModalEdit1">Edit</a>
+                                                                    <a href="#" class="btn btn-danger pull-right" data-toggle="modal" data-target="#exampleModalDelete1">Delete</a>            
+                                                                </td>
+                                                            </tr>
+                                                            </table>
 
-                                                   <b>Title:</b> <p>{{ $ad1->title }}</p>
-                                                   <b>Description:</b><p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $ad1->description }}</p>   
-                                                   <b>Status:</b> 
-                                                   <p>@if( $ad1->status == 1 ) Enabled 
-                                                       @else Disabled 
-                                                       @endif
-                                                    </p>
 
-                                            <a href="#" class="btn btn-danger pull-right" data-toggle="modal" data-target="#exampleModalDelete1">Delete</a>
-
-
-                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                            @endif
+                                            
                                     </div>
-                                    <div class="col-6">
-                                        <div class="card" style="border-style: dashed;border-width: 1px;padding: 10px; border-color:black;">
-                                            <div class="card-body">                                            
+                                </div>  
+                                <br>
 
+                                <div class="row">
+                                    <div class="col-12">
                                             @if($ad2 == null)
-                                                <button type="button" class="btn btn-info px-5" data-toggle="modal" data-target="#exampleModal2" style="padding:30px 30px 30px 30px">
-                                                Advertisement 2
-                                                </button>
+                                            <div class="card" style="border-style: dashed;border-width: 1px; border-color:black;">
+                                                <div class="card-body">
+                                                    <button type="button" class="btn btn-info px-5" data-toggle="modal" data-target="#exampleModal2" style="padding:40px 0px 40px 0px; width:100%">
+                                                    Advertisement 2
+                                                    </button>
+                                                </div>
+                                            </div>                                                                        
                                             @else
-                                                <div class="form-group">
-                                                    <a href="#"><img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover; width:70%;" height="100%" alt="" data-toggle="modal" data-target="#exampleModalEdit2"></a>
-                                                </div>                                           
+                                            <div class="card" style="border-style: solid;border-width: 1px;padding: 10px; border-color:black;">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover; width:100%; margin-top:20px;" height="150px" alt="">
+                                                            </div> 
+                                                        </div>
+                                                        <div class="col-8">
 
-                                                   <b>Title:</b> <p>{{ $ad2->title }}</p>
-                                                   <b>Description:</b><p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $ad2->description }}</p>   
-                                                   <b>Status:</b> 
-                                                   <p>@if( $ad2->status == 1 ) Enabled 
-                                                       @else Disabled 
-                                                       @endif
-                                                    </p>
+                                                            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+            
+                                                            <tr>            
+                                                                <td width="23%" cellpadding="0" cellspacing="0">  
+                                                                    <p align="left"><b>Title:</b> </p>  
+                                                                </td>
+                                                                <td  cellpadding="0" cellspacing="0">  
+                                                                    <p align="left">{{ $ad2->title }}</p> 
+                                                                    <hr>                
+                                                                </td>
+                                                            </tr>
+                                                            <tr>            
+                                                                <td width="23%" cellpadding="0" cellspacing="0">
+                                                                    <p align="left"><b>Status:</b> </p>
+                                                                </td>
+                                                                <td  cellpadding="0" cellspacing="0">     
+                                                                    <p align="left">@if( $ad2->status == 1 ) Enabled 
+                                                                                    @else Disabled 
+                                                                                    @endif
+                                                                    </p>  
+                                                                    <hr>         
+                                                                </td>
+                                                            </tr>
+                                                            <tr>            
+                                                                <td width="23%" cellpadding="0" cellspacing="0">  
+                                                                    <p align="left"><b>Description:</b> </p>  
+                                                                </td>
+                                                                <td  cellpadding="0" cellspacing="0">  
+                                                                    <p align="left" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $ad2->description }}</p> 
+                                                                    <hr>                
+                                                                </td>
+                                                            </tr>                                                    
+                                                            <tr>            
+                                                                <td width="23%" cellpadding="0" cellspacing="0">   
+                                                                    <!-- <p align="left"></p> -->
+                                                                </td>
+                                                                <td  cellpadding="0" cellspacing="0" align="right">
+                                                                    <a href="#" class="btn btn-secondary pull-right" data-toggle="modal" data-target="#exampleModalEdit2">Edit</a>
+                                                                    <a href="#" class="btn btn-danger pull-right" data-toggle="modal" data-target="#exampleModalDelete2">Delete</a>            
+                                                                </td>
+                                                            </tr>
+                                                            </table>
 
-                                            <a href="" class="btn btn-danger pull-right" data-toggle="modal" data-target="#exampleModalDelete2">Delete</a>
-
-                                            @endif
-                                                
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div> 
+                                            @endif
+                                            
                                     </div>
-                                </div>
-
-                                
-                            </form>
-                        </div>
-                    </div>
-                </div> 
-            </div>
-        </div>
-    </div>
+                                </div> 
+        <div>
+    </div>        
 
 
     <!-- ad 1 -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
+    <form action="{{route('frontend.user.sidebar_ad.sidebarAD_store')}}" method="post" enctype="multipart/form-data">
+    {{csrf_field()}}
 
-            <form action="{{route('frontend.user.sidebar_ad.sidebarAD_store')}}" method="post" enctype="multipart/form-data">
-                {{csrf_field()}}
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content" style="font-size:15px;">
+
+            
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Advertisement 1</h5>
@@ -184,19 +234,23 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <input type="hidden" class="form-control" name="ad_position" value="ad1">
+                    <input type="hidden" class="form-control" name="country" value="{{ $country->country_name }}">
                     <input type="submit" class="btn btn-success" value="Submit">
                 </div>
-            </form>    
+               
+            </div>
         </div>
-    </div>
-    </div>
+        </div>
+    </form> 
 
     <!-- ad 2 -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form action="{{route('frontend.user.sidebar_ad.sidebarAD_store')}}" method="post" enctype="multipart/form-data">
-                {{csrf_field()}}
+    <form action="{{route('frontend.user.sidebar_ad.sidebarAD_store')}}" method="post" enctype="multipart/form-data">
+    {{csrf_field()}}
+
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content" style="font-size:15px;">
+            
                 
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel2">Advertisement 2</h5>
@@ -233,22 +287,24 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <input type="hidden" class="form-control" name="ad_position" value="ad2">
+                    <input type="hidden" class="form-control" name="country" value="{{ $country->country_name }}">
                     <input type="submit" class="btn btn-success" value="Submit">
-                </div>
-            </form>    
+                </div>              
+            </div>
         </div>
-    </div>
-    </div>
-   
-
+        </div>
+    </form>      
+  
     <!-- ad 1 edit-->
-    <div class="modal fade" id="exampleModalEdit1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
+    @if($ad1 == null)
+                                             
+    @else
+    <form action="{{route('frontend.user.sidebar_ad.sidebarAD_update')}}" method="post" enctype="multipart/form-data">
+    {{csrf_field()}}
 
-        
-            <form action="{{route('frontend.user.sidebar_ad.sidebarAD_update')}}" method="post" enctype="multipart/form-data">
-                {{csrf_field()}}
+        <div class="modal fade" id="exampleModalEdit1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content" style="font-size:15px;">            
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabelEdit1">Edit Advertisement 1</h5>
@@ -289,21 +345,25 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <input type="hidden" class="form-control" name="ad_position" value="ad1">
                     <input type="hidden" class="form-control" name="hidden_id" value="{{ $ad1->id }}">
+                    <input type="hidden" class="form-control" name="country" value="{{ $country->country_name }}">
                     <input type="submit" class="btn btn-success" value="Update">
-                </div>
-            </form> 
+                </div>            
             
+            </div>
         </div>
-    </div>
-    </div>
+        </div>
+    </form>     
+    @endif
 
     <!-- ad 2 edit-->
-    <div class="modal fade" id="exampleModalEdit2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit2" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        
-            <form action="{{route('frontend.user.sidebar_ad.sidebarAD_update')}}" method="post" enctype="multipart/form-data">
-                {{csrf_field()}}
+    @if($ad2 == null)
+                                             
+    @else
+    <form action="{{route('frontend.user.sidebar_ad.sidebarAD_update')}}" method="post" enctype="multipart/form-data">
+    {{csrf_field()}}
+        <div class="modal fade" id="exampleModalEdit2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content" style="font-size:15px;">
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabelEdit2">Edit Advertisement 2</h5>
@@ -344,15 +404,21 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <input type="hidden" class="form-control" name="ad_position" value="ad2">
                     <input type="hidden" class="form-control" name="hidden_id" value="{{ $ad2->id }}">
+                    <input type="hidden" class="form-control" name="country" value="{{ $country->country_name }}">
                     <input type="submit" class="btn btn-success" value="Update">
                 </div>
-            </form> 
+             
             
+            </div>
         </div>
-    </div>
-    </div>
+        </div>
+    </form>    
+    @endif
 
     <!-- ad 1 delete-->
+    @if($ad1 == null)
+                                             
+    @else
     <div class="modal fade" id="exampleModalDelete1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit2" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -379,8 +445,12 @@
         </div>
     </div>
     </div>
+    @endif
 
     <!-- ad 2 delete-->
+    @if($ad2 == null)
+                                             
+    @else
     <div class="modal fade" id="exampleModalDelete2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit2" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -407,53 +477,8 @@
         </div>
     </div>
     </div>
+    @endif
 
-    
-
-
-
-<script>
-        
-    $(function() {
-        $( "#validate" ).change(function() {  
-            validate();
-        });
-        function validate() {
-            $('.form-validate-div').hide();
-            var divKey = $( "#validate option:selected" ).val();                
-            $('#divFrm'+divKey).show();
-
-            $('.form-image-div').hide();
-            var divKey = $( "#validate option:selected" ).val();                
-            $('#img'+divKey).show();
-        }       
-        validate();
-    });
-    
-
-    // function validateForm() {
-    //     let x = document.forms["myForm"]["nic"].value;
-    //     if (x == "") {
-    //         alert("NIC Number must be filled out");
-    //         return false;
-    //     }
-    // }
-
-</script>
-
-<!-- <script>
-    $(document).ready(function(){
-        $("form").submit(function(){
-        alert("Submitted");
-        });
-    });
-</script> -->
-
-
-
-
-
-@endif
 
 @endsection
 

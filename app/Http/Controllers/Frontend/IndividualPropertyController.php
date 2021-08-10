@@ -31,8 +31,8 @@ class IndividualPropertyController extends Controller
         $feature_image = FileManager::where('id',$property_details->feature_image_id)->get();
         // dd($feature_image);
 
-        $ad1 = SidebarAd::where('other', '=', 'ad1')->first();
-        $ad2 = SidebarAd::where('other', '=', 'ad2')->first();
+        $ad1 = SidebarAd::where('other', '=', 'ad1')->where('status', '=', '1')->first();
+        $ad2 = SidebarAd::where('other', '=', 'ad2')->where('status', '=', '1')->first();
 
          $final_out = [];
 
