@@ -125,9 +125,8 @@ class HomeController extends Controller
     }
 
 
-    public function search_function($key_name=null,$max_price=null,$min_price=null,$transaction_type=null,$property_type=null)
+    public function search_function($key_name,$max_price,$min_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_hours)
     {
-
 
     }
 
