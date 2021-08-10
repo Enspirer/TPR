@@ -89,14 +89,10 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Agent Type</label>
-                                            <select class="form-select" name="agent_type" required>
-                 
-                                                <option value="Company" {{ $agent_edit->agent_type == 'Company' ? "selected" : "" }}>Company</option>
-                                                <option value="Individual" {{ $agent_edit->agent_type == 'Individual' ? "selected" : "" }}>Individual</option>
-                                            </select>
+                                            <label class="form-label mb-0 mt-4 required">City</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->city }}" name="city" required>
                                         </div>  
-                                    </div>
+                                    </div>                                    
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">Company Name</label>
@@ -119,6 +115,19 @@
                                         </div>  
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">Agent Type</label>
+                                            <select class="form-select" name="agent_type" required>
+                 
+                                                <option value="Company" {{ $agent_edit->agent_type == 'Company' ? "selected" : "" }}>Company</option>
+                                                <option value="Individual" {{ $agent_edit->agent_type == 'Individual' ? "selected" : "" }}>Individual</option>
+                                            </select>
+                                        </div>  
+                                    </div>                                    
+                                </div>
+                                
                             
 
                                 <h4 class="mt-5 mb-1">More About Agent</h4>

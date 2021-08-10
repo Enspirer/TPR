@@ -264,9 +264,27 @@
                         <div class="col-12 text-center">
                             <button class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid #707070;"><i class="bi bi-envelope"></i> Create email alert</button>
                         </div>
-                        <div class="col-12 text-center mt-4">
-                            <button class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="bi bi-heart me-1"></i> Save this search</button>
-                        </div>
+
+
+                    @if($favourite  == null)   
+
+                        <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
+                        {{csrf_field()}}
+                            <div class="col-12 text-center mt-4">
+                                <input type="hidden" name="prop_hidden_id" value="{{ $property_details->id }}" />
+                                <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="bi bi-heart me-1"></i> Save this search</button>
+                            </div>
+                        </form>    
+                    @else
+                        <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
+                        {{csrf_field()}}
+                            <div class="col-12 text-center mt-4">
+                                <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
+                                <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid; background-color:#ff4da5; color:white; "><i class="bi bi-heart me-1"></i> Unsave this search</button>
+                            </div>
+                        </form>                    
+                    @endif
+                        
                         <hr class="mt-5" style="border: 1px solid #707070;">
                         <h6 class="fw-bold mt-4 mb-3" style="margin-left: 3rem;">Sample Text</h6>
                         <h6 class="fw-bold" style="margin-left: 3rem;">Sample Text</h6>
@@ -275,26 +293,30 @@
                     
                     @if($ad1 == null)                    
                     @else
+                    <a href="{{ $ad1->link }}" style="text-decoration: none">
                         <div class="row shadow mt-5">
-                        <div class="col-12">
-                            <img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover; width:285px;" alt="">
+                            <div class="col-12">
+                                <img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover; width:285px;" height="160px" alt="">
+                            </div>
+                            <div class="col-12 mt-3" style="text-align: justify;">
+                                <p class="ns">{{ $ad1->description }}</p>
+                            </div>        
                         </div>
-                        <div class="col-12 mt-3" style="text-align: justify;">
-                            <p class="ns">{{ $ad1->description }}</p>
-                        </div>        
-                    </div>
+                    </a>
                     @endif
 
                     @if($ad2 == null)
                     @else
-                    <div class="row shadow mt-5">
-                        <div class="col-12">
-                            <img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover; width:285px;" alt="">                           
+                    <a href="{{ $ad2->link }}" style="text-decoration: none">
+                        <div class="row shadow mt-5">
+                            <div class="col-12">
+                                <img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover; width:285px;" height="160px" alt="">                           
+                            </div>
+                            <div class="col-12 mt-3" style="text-align: justify;">
+                                <p class="ns">{{ $ad2->description }}</p>
+                            </div>
                         </div>
-                        <div class="col-12 mt-3" style="text-align: justify;">
-                            <p class="ns">{{ $ad2->description }}</p>
-                        </div>
-                    </div>
+                    </a>
                     @endif
 
 

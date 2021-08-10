@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\AgentRequest;
 use App\Models\Auth\User;
+use App\Models\Properties;
+use App\Models\FileManager;
+use App\Models\Favorite; 
 /**
  * Class DashboardController.
  */
@@ -17,8 +20,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
-
         $user_id = auth()->user()->id;
 
         $agent_edit = AgentRequest::where('user_id',$user_id)->first();
@@ -106,6 +107,32 @@ class DashboardController extends Controller
 
     public function favourites()
     {
-        return view('frontend.user.favourites');
+        $favourite = Favorite::get();
+        // dd($favourite);
+
+        $final_out = [];
+        foreach($favourite as $fav){
+            array_push($final_out,$fav->property_id);
+        }
+        // dd($final_out);
+
+        $property = Properties::whereIn('id',$final_out)->get();
+        // dd($property);
+
+        $final_out2 = [];
+        foreach($property as $prop){
+            array_push($final_out2,$prop->feature_image_id);
+        }
+        // dd($final_out2);
+
+        $feature_image = FileManager::whereIn('id',$final_out2)->get();
+
+        // dd($feature_image);
+
+        return view('frontend.user.favourites',[
+            'favourite' => $favourite,
+            'property' => $property,
+            'feature_image' => $feature_image
+        ]);
     }
 }

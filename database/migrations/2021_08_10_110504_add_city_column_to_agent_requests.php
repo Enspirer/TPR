@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFavoritesTable extends Migration
+class AddCityColumnToAgentRequests extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateFavoritesTable extends Migration
      */
     public function up()
     {
-        Schema::create('favorites', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->text('favorite')->nullable();
-            $table->text('user_id');
-            $table->text('property_id');
-            $table->timestamps();
+        Schema::table('agent_requests', function (Blueprint $table) {
+            $table->text('city')->nullable()->after('country');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateFavoritesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('favorites');
+        Schema::table('agent_requests', function (Blueprint $table) {
+            $table->dropColumn('city');
+        });
     }
 }

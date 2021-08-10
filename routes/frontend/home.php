@@ -31,7 +31,11 @@ Route::get('individual-agent/{id}', [IndividualAgentController::class, 'index'])
 // Route::get('individual-agent', [IndividualAgentController::class, 'index'])->name('individual-agent');
 Route::get('map-search', [MapSearchController::class, 'index'])->name('map-search');
 Route::get('residential', [ResidentialController::class, 'index'])->name('residential');
+
 Route::get('individual-property/{id}', [IndividualPropertyController::class, 'index'])->name('individual-property');
+Route::post('prop_favourite',[IndividualPropertyController::class,'propertyFavourite'])->name('propertyFavourite');
+Route::post('prop_favourite/unsave/{id}',[IndividualPropertyController::class,'propertyFavouriteDelete'])->name('propertyFavouriteDelete');
+
 Route::get('commercial', [CommercialController::class, 'index'])->name('commercial');
 // Route::get('individual-property/{id}', [IndividualPropertyController::class, 'property_details'])->name('individual-property.property_details');
 
@@ -45,7 +49,7 @@ Route::post('search_result',[HomeController::class,'get_search_result'])->name('
 
 
 
-Route::get('search_result_filter/{key_name}/{max_price}/{min_price}/{transaction_type}/{property_type}',[HomeController::class,'search_function'])->name('search_function');
+Route::get('search_result_filter/{key_name}/{max_price}/{min_price}/{transaction_type}/{property_type}/{beds}/{baths}/{land_size}/{listed_since}/{building_type}/{open_hours}',[HomeController::class,'search_function'])->name('search_function');
 
 
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');

@@ -15,10 +15,24 @@ class FindAgentController extends Controller
      */
     public function index($area, $agent_type, $agent_name)
     {
-        $agents = AgentRequest::all();
+        $agents = AgentRequest::where('status','Approval');
 
+        if($area != 'area'){
 
-        // $area_agents = AgentRequest::where('area', $area)
+        }
+
+        if($agent_type != 'agent_type')
+        {
+           $agents->where('agent_type',$agent_type);
+        }
+
+        if($agent_name != 'agent_name'){
+            $agents->where('agent_name','like','%'.$agent_name.'%');
+        }
+
+        $agents->get();
+
+        $area_agents = AgentRequest::where('area', $area);
 
         return view('frontend.find-agent', ['agents' => $agents]);
     }
