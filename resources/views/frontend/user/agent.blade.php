@@ -88,16 +88,12 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row">                                    
                                     <div class="col-6">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Agent Type</label>
-                                            <select class="form-select agent_type" name="agent_type" required>
-                                                <option selected disabled value="">Choose...</option>
-                                                <option value="company">Company</option>
-                                                <option value="individual">Individual</option>
-                                            </select>
-                                        </div>  
+                                            <label class="form-label mb-0 mt-4 required">City</label>
+                                            <input type="text" class="form-control" name="city" required>
+                                        </div>
                                     </div>
                                     <div class="col-6">
                                         <div>
@@ -121,7 +117,18 @@
                                         </div>  
                                     </div>
                                 </div>
-                            
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">Agent Type</label>
+                                            <select class="form-select agent_type" name="agent_type" required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option value="company">Company</option>
+                                                <option value="individual">Individual</option>
+                                            </select>
+                                        </div>  
+                                    </div>                                    
+                                </div>     
 
                                 <h4 class="mt-5 mb-1">More About Agent</h4>
                                 <h6 style="color: #5e6871">Tell us more about the agent</h6>

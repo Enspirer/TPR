@@ -108,7 +108,7 @@ class DashboardController extends Controller
     public function favourites()
     {
         $favourite = Favorite::get();
-        // dd($favourite->property_id);
+        // dd($favourite);
 
         $final_out = [];
         foreach($favourite as $fav){

@@ -68,7 +68,8 @@ class AgentController extends Controller
 
         $addagent = new AgentRequest;
 
-        $addagent->country=$request->country; 
+        $addagent->country=$request->country;
+        $addagent->city=$request->city; 
         $addagent->name=$request->name;        
         $addagent->agent_type=$request->agent_type;
         $addagent->company_name=$request->company_name;
@@ -81,7 +82,7 @@ class AgentController extends Controller
         $addagent->telephone=$request->telephone;
         $addagent->description_message=$request->description_msg;
         $addagent->status='Pending';
-        $addagent->country_manager_approval = 'Pending';
+        // $addagent->country_manager_approval = 'Pending';
         $addagent->user_id = auth()->user()->id;
 
         $addagent->validation_type=$request->validate;
@@ -183,7 +184,8 @@ class AgentController extends Controller
 
         $edit_agent = new AgentRequest;
 
-        $edit_agent->country=$request->country; 
+        $edit_agent->country=$request->country;
+        $edit_agent->city=$request->city; 
         $edit_agent->name=$request->name;        
         $edit_agent->agent_type=$request->agent_type;
         $edit_agent->company_name=$request->company_name;

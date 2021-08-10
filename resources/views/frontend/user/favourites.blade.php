@@ -34,38 +34,44 @@
                     <div class="col-12">
                         <div class="px-2" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
 
-                        @foreach($property as $key=> $prop)
-                            @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $data)
+                        @if(count($favourite) == 0)
 
-                            <div class="row align-items-center justify-content-between mb-4 border py-3">
-                                <div class="col-6">
-                                    <img src="{{ url('images',$data->file_name) }}" style="width:350px; object-fit:cover;" height="210px" class="card-img-top" alt="...">
-                                </div>
-                                <div class="col-5">
-                                    <h5 class="card-title">Jaffna, {{ $prop->country }}</h5>
+                        <h4 style="margin:200px 0 0 200px">No Any Favourite Properties</h4>
 
-                                    @if($prop->beds == null)
-                                    @else
-                                        <p class="card-text mt-3 mb-1">
-                                            {{ $prop->beds }} Bed Semidetached house
-                                        </p>
-                                    @endif
+                        @else
+                            @foreach($property as $key=> $prop)
+                                @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $data)
 
-                                    <p class="card-text">Lancaster, claited Kingdom</p>
-                                    <p class="mt-1 text-info">$ {{ $prop->price }}</p>
+                                <div class="row align-items-center justify-content-between mb-4 border py-3">
+                                    <div class="col-6">
+                                        <img src="{{ url('images',$data->file_name) }}" style="width:350px; object-fit:cover;" height="210px" class="card-img-top" alt="...">
+                                    </div>
+                                    <div class="col-5">
+                                        <h5 class="card-title">Jaffna, {{ $prop->country }}</h5>
 
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
-                                        </div>
-                                        <div class="col-4">
-                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                        @if($prop->beds == null)
+                                        @else
+                                            <p class="card-text mt-3 mb-1">
+                                                {{ $prop->beds }} Bed Semidetached house
+                                            </p>
+                                        @endif
+
+                                        <p class="card-text">Lancaster, claited Kingdom</p>
+                                        <p class="mt-1 text-info">$ {{ $prop->price }}</p>
+
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
+                                            </div>
+                                            <div class="col-4">
+                                                <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            @endforeach
-                        @endforeach
+                                @endforeach
+                            @endforeach                        
+                        @endif
 
                             
 
