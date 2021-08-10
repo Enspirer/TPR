@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\SidebarAd;
+use App\Models\AgentRequest;
 use App\Models\Country;
 use App\Models\Properties;
 use App\Models\Auth\User;
@@ -35,16 +36,52 @@ class CountryManagementController extends Controller
     }
 
     public function agentApproval() {
-        return view('frontend.user.agent-approval');
+
+        $user_id = auth()->user()->id;
+        $country_manager = Country::where('country_manager',$user_id)->first();
+
+        $agent_request = AgentRequest::where('country',$country_manager->country_name)->get();
+
+        return view('frontend.user.agent-approval',[
+            'agent_request' => $agent_request
+        ]);
     }
+
+    public function agentApprovalDelete($id)
+    {        
+        // dd($id);
+        $data = AgentRequest::findOrFail($id);
+        $data->delete();   
+
+        return back();
+    }
+
+    public function singleAgentApproval($id) {
+
+        $single_agent_request = AgentRequest::where('id',$id)->first();
+        // dd($single_agent_request);
+        return view('frontend.user.single-agent-approval',[
+            'single_agent_request' => $single_agent_request
+        ]);
+    }
+
+    public function singleAgentApprovalUpdate(Request $request)
+    {        
+        // dd($request);
+       
+        $update = new AgentRequest;
+
+        $update->country_manager_approval=$request->action;        
+        
+        AgentRequest::whereId($request->hidden_id)->update($update->toArray());
+
+        return back(); 
+    }
+
 
     public function singlePropertyApproval() {
         return view('frontend.user.single-property-approval');
-    }
-
-    public function singleAgentApproval() {
-        return view('frontend.user.single-agent-approval');
-    }
+    }    
 
     public function individualHelp() {
         return view('frontend.user.individual-help');

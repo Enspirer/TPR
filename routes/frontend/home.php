@@ -111,9 +111,11 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('country-management/supports', [CountryManagementController::class, 'supports'])->name('supports');
 
-        Route::get('country-management/agent-approval', [CountryManagementController::class, 'agentApproval'])->name('agent-approval');
 
-        Route::get('country-management/single-agent-approval', [CountryManagementController::class, 'singleAgentApproval'])->name('single-agent-approval');
+        Route::get('country-management/agent-approval', [CountryManagementController::class, 'agentApproval'])->name('agent-approval');
+        Route::get('country-management/agent-approval-delete/{id}', [CountryManagementController::class, 'agentApprovalDelete'])->name('agentApprovalDelete');
+        Route::get('country-management/single-agent-approval/{id}', [CountryManagementController::class, 'singleAgentApproval'])->name('single-agent-approval');
+        Route::post('country-management/single-agent-approval/update', [CountryManagementController::class, 'singleAgentApprovalUpdate'])->name('singleAgentApprovalUpdate');
 
         Route::get('country-management/individual-help', [CountryManagementController::class, 'individualHelp'])->name('individual-help');
 

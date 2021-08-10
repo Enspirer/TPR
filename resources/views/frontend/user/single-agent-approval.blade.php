@@ -32,7 +32,7 @@
                             <div class="col-12">
                                 <div class="row justify-content-center">
                                     <div class="col-5">
-                                        <img src="{{ asset('tpr_templete/images/users/user-2.png') }}" class="img-fluid border border-2" alt="...">
+                                        <img src="{{ url('files/agent_request',$single_agent_request->photo) }}" class="img-fluid border border-2" style="object-fit:cover; width:180px;" height="130px" alt="...">
                                     </div>
                                 </div>
                             </div>
@@ -41,11 +41,11 @@
                                 <div class="col-12">
                                     <div class="row align-items-center">
                                         <div class="col-6">
-                                            <h4 class="mb-0">Zajjith Vedha</h4>
+                                            <h4 class="mb-0">{{ $single_agent_request->name }}</h4>
                                         </div>
                                         <div class="col-6">
                                             <div class="text-end">
-                                                <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #94ca60;">Sri Lanka</h5>
+                                                <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #94ca60;">{{ $single_agent_request->country }}</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -57,27 +57,27 @@
                                             <tbody>
                                                 <tr>
                                                     <td style="font-weight: 600;">Agent Type</td>
-                                                    <td>Individual</td>
+                                                    <td>{{ $single_agent_request->agent_type }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Company Name</td>
-                                                    <td>Enspirer</td>
+                                                    <td>{{ $single_agent_request->company_name }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Company Reg Number</td>
-                                                    <td>007</td>
+                                                    <td>{{ $single_agent_request->company_registration_number }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Email</td>
-                                                    <td>zajjith@gmail.com</td>
+                                                    <td>{{ $single_agent_request->email }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Request</td>
-                                                    <td>Lorem, ipsum.</td>
+                                                    <td>{{ $single_agent_request->request }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Description</td>
-                                                    <td>You know who am I!</td>
+                                                    <td>{!! $single_agent_request->description_message !!}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -88,23 +88,55 @@
                                             <tbody>
                                                 <tr>
                                                     <td style="font-weight: 600;">Tax Number</td>
-                                                    <td>100</td>
+                                                    <td>{{ $single_agent_request->tax_number }}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td style="font-weight: 600;">Validation</td>
-                                                    <td>NIC</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="font-weight: 600;">Validation No</td>
-                                                    <td>964552365V</td>
-                                                </tr>
+                                                @if($single_agent_request->validation_type == 'NIC' )
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Validation</td>
+                                                        <td>NIC</td>
+                                                    </tr>
+                                                @elseif($single_agent_request->validation_type == 'Passport')
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Validation</td>
+                                                        <td>Passport</td>
+                                                    </tr>
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Validation</td>
+                                                        <td>License</td>
+                                                    </tr>
+                                                @endif
+
+                                                @if($single_agent_request->nic == null )
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">NIC No</td>
+                                                        <td>{{ $single_agent_request->nic }}</td>
+                                                    </tr>
+                                                @endif    
+                                                @if($single_agent_request->passport == null )
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Passport No</td>
+                                                        <td>{{ $single_agent_request->passport }}</td>
+                                                    </tr>
+                                                @endif      
+                                                @if($single_agent_request->license == null )
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">License No</td>
+                                                        <td>{{ $single_agent_request->license }}</td>
+                                                    </tr>
+                                                @endif
+                                                
+                                                
                                                 <tr>
                                                     <td style="font-weight: 600;">Telephone</td>
-                                                    <td>0758121616</td>
+                                                    <td>{{ $single_agent_request->telephone }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Address</td>
-                                                    <td>Colombo, Sri Lanka</td>
+                                                    <td>{{ $single_agent_request->city }}, {{ $single_agent_request->country }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -113,8 +145,26 @@
                             </div>
 
                             <div class="mt-5 text-center">
-                                <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #4195E1;">Approve</button>
-                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #FF2C4B;">Disapprove</button>
+                            <!-- <form action="" method="post" enctype="multipart/form-data">
+                                {{csrf_field()}}
+
+                                <input type="hidden" name="hidden_id" value="{{ $single_agent_request->id }}" />
+                                <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #4195E1;" value="Approved">Approve</button>
+                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #FF2C4B;" value="Disapproved">Disapprove</button>
+                            </form>    -->
+
+
+                            <form action="{{route('frontend.user.singleAgentApprovalUpdate')}}" method="POST">
+                            {{csrf_field()}}
+
+                                <div class="mt-5 text-center">
+                                    <input type="hidden" class="form-control action_value" value="" name="action">
+                                    <input type="hidden" class="form-control" value="{{ $single_agent_request->id }}" name="hidden_id">
+                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2 me-2 approve" style="background-color: #4195E1;">Approve</button>
+                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 disapprove" style="background-color: #FF2C4B;">Disapprove</button>
+                                </div>
+                            </form>
+                                
                             </div>
                         </div>
                     </div>
@@ -126,6 +176,16 @@
 @endsection
 
 @push('after-scripts')
+
+<script>
+    $('.approve').click(function() {
+    $('.action_value').val('Approved');
+    })
+
+    $('.disapprove').click(function() {
+    $('.action_value').val('Disapproved');
+    })
+</script>
 
 <script>
     function initMap() {

@@ -43,55 +43,35 @@
                             </tr>
                         </thead>
                         <tbody class="align-middle table-data">
+
+                        @foreach($agent_request as $key => $agent)
+
                             <tr class="align-items-center">
-                                <td>Menavid</td>
-                                <td>menavid@gmail.com</td>
-                                <td>2021-08-01</td>
+                                <td>{{ $agent->name }}</td>
+                                <td>{{ $agent->email }}</td>
+                                <td>{{ $agent->created_at->toDateString() }}</td>
                                 <td>
                                     <div class="row">
                                         <div class="col-5">
-                                            <a href="{{ route('frontend.user.single-agent-approval') }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
+                                            <a href="{{ route('frontend.user.single-agent-approval',$agent->id) }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
-                                            <button class="btn text-light table-btn" style="background-color: #FF2C4B">Delete</button>
+                                            <a href="{{ route('frontend.user.agentApprovalDelete',$agent->id) }}"><button class="btn text-light table-btn" style="background-color: #FF2C4B; margin-left: -25px;">Delete</button></a>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>City Center</td>
-                                <td>citycenter@gmail.com</td>
-                                <td>2021-07-31</td>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <a href="{{ route('frontend.user.single-agent-approval') }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
-                                        </div>
-                                        <div class="col-5">
-                                            <button class="btn text-light table-btn" style="background-color: #FF2C4B">Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>RDC</td>
-                                <td>rdc@gmail.com</td>
-                                <td>2021-07-30</td>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <a href="{{ route('frontend.user.single-agent-approval') }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
-                                        </div>
-                                        <div class="col-5">
-                                            <button class="btn text-light table-btn" style="background-color: #FF2C4B">Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+
+                        @endforeach 
+                            
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+
+    
+
+
 @endsection
