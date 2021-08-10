@@ -20,12 +20,6 @@
             </div>
 
             <div class="col-8">
-                <!-- <div class="row justify-content-between">
-                    <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Hilton Hotel</h4>
-                        <h6 class="user-settings-sub" style="color: #5e6871">Here you can customize your basic account set-up information.</h6>
-                    </div>
-                </div> -->
                 <div class="row">
                     <div class="col-12 border">
                         <div class="row px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
@@ -33,15 +27,21 @@
                                 <div class="carousel">
                                     <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
                                         <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img src="{{ asset('tpr_templete/images/individual_property_1.svg') }}" class="d-block w-100" alt="...">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="{{ asset('tpr_templete/images/individual_property_1.svg') }}" class="d-block w-100" alt="...">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="{{ asset('tpr_templete/images/individual_property_1.svg') }}" class="d-block w-100" alt="...">
-                                            </div>
+                                            @if($images != NULL)
+                                                @foreach($images as $index => $image)
+                                                    
+                                                    @if($index == 0)
+                                                        <div class="carousel-item active">
+                                                            <img src="{{url('images', App\Models\FileManager::where('id', $image)->first()->file_name)}}" class="d-block w-100" alt="...">
+                                                        </div>
+                                                    @else
+                                                        <div class="carousel-item">
+                                                            <img src="{{url('images', App\Models\FileManager::where('id', $image)->first()->file_name)}}" class="d-block w-100" alt="...">
+                                                        </div>
+                                                    @endif
+
+                                                @endforeach
+                                            @endif
                                         </div>
 
                                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
@@ -60,11 +60,11 @@
                                 <div class="col-12">
                                     <div class="row align-items-center">
                                         <div class="col-6">
-                                            <h4 class="mb-0">Hilton Hotel</h4>
+                                            <h4 class="mb-0">{{ $single_approval->name }}</h4>
                                         </div>
                                         <div class="col-6">
                                             <div class="text-end">
-                                                <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #4195E1;">Restaurant</h5>
+                                                <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #4195E1;">{{ $single_approval->property_type }}</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -76,23 +76,23 @@
                                             <tbody>
                                                 <tr>
                                                     <td style="font-weight: 600;">Location</td>
-                                                    <td>Colombo, Sri Lanka</td>
+                                                    <td>Colombo, {{ $single_approval->country }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Price</td>
-                                                    <td>200,000,000</td>
+                                                    <td>{{ $single_approval->price }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Category</td>
-                                                    <td>Lorem, ipsum.</td>
+                                                    <td>{{ $single_approval->main_category }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Meta Description</td>
-                                                    <td>All facilities available!</td>
+                                                    <td>{{ $single_approval->meta_description }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Slug</td>
-                                                    <td>Lorem, ipsum.</td>
+                                                    <td>{{ $single_approval->slug }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -109,23 +109,23 @@
                                             <tbody>
                                                 <tr>
                                                     <td style="font-weight: 600;">Transaction Type</td>
-                                                    <td>Sale</td>
+                                                    <td>{{ $single_approval->transaction_type }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Zoning Type</td>
-                                                    <td>Commercial Retail</td>
+                                                    <td>{{ $single_approval->zoning_type }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Building Type</td>
-                                                    <td>Fourplex</td>
+                                                    <td>{{ $single_approval->building_type }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Building Size</td>
-                                                    <td>500 sq</td>
+                                                    <td>{{ $single_approval->building_size }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Farm Type</td>
-                                                    <td>Mixed</td>
+                                                    <td>{{ $single_approval->farm_type }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -140,9 +140,9 @@
                                                         </div>
 
                                                     <div class="card-body">
-                                                        <h5 class="card-title text-center">Zajjith Vedha</h5>
-                                                        <p class="card-text mb-0">Email : zajjith@gmail.com</p>
-                                                        <p class="card-text mb-0">Phone : 0758121616</p>
+                                                        <h5 class="card-title text-center">{{ App\Models\AgentRequest::where('id', $single_approval->user_id)->first()->name }}</h5>
+                                                        <p class="card-text mb-0">Email : {{ App\Models\AgentRequest::where('id', $single_approval->user_id)->first()->email }}</p>
+                                                        <p class="card-text mb-0">Phone : {{ App\Models\AgentRequest::where('id', $single_approval->user_id)->first()->telephone }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -151,10 +151,16 @@
                                 </div>
                             </div>
 
-                            <div class="mt-5 text-center">
-                                <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #4195E1;">Approve</button>
-                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #FF2C4B;">Disapprove</button>
-                            </div>
+                            <form action="{{ route('frontend.user.single-property-approved') }}" method="POST">
+                                {{csrf_field()}}
+
+                                <div class="mt-5 text-center">
+                                    <input type="hidden" class="form-control action_value" value="" name="action">
+                                    <input type="hidden" class="form-control" value="{{ $single_approval->id }}" name="hid_id">
+                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2 me-2 approve" style="background-color: #4195E1;">Approve</button>
+                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 disapprove" style="background-color: #FF2C4B;">Disapprove</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -179,8 +185,17 @@
     title: "Hello World!",
   });
 
-//   console.log(myLatLng)
 }
+</script>
+
+<script>
+    $('.approve').click(function() {
+        $('.action_value').val('Approved');
+    })
+
+    $('.disapprove').click(function() {
+        $('.action_value').val('Disapproved');
+    })
 </script>
 
 

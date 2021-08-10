@@ -15,6 +15,7 @@
                                 <div class="carousel">
                                     <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
                                         <div class="carousel-inner">
+                                        @if($images != NULL)
                                             @foreach($images as $index => $image)
                                                 
                                                 @if($index == 0)
@@ -26,7 +27,9 @@
                                                         <img src="{{url('images', App\Models\FileManager::where('id', $image)->first()->file_name)}}" class="d-block w-100" alt="...">
                                                     </div>
                                                 @endif
+
                                             @endforeach
+                                        @endif
                                         </div>
 
                                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">

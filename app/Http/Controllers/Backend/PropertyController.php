@@ -51,7 +51,13 @@ class PropertyController extends Controller
     {
         $property = Properties::where('id',$id)->first();
 
-        $images = json_decode($property->image_ids);
+        if($property->image_ids == NULL){
+            $images = null;
+        } else {
+            $images = json_decode($property->image_ids);
+        }
+
+        // $images = json_decode($property->image_ids);
         
         // dd($property);              
 

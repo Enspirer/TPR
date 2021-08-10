@@ -247,6 +247,91 @@ class AgentController extends Controller
         ]);
     }
 
+    public function editProperty($id) {
+
+        $property_type = PropertyType::where('status','=','1')->get();
+        $property = Properties::where('id', $id)->first();
+        $images = json_decode($property->image_ids);
+
+        return view('frontend.user.property-edit', [
+            'property' => $property,
+            'property_type' => $property_type,
+            'images' => $images
+        ]);
+    }
+
+    public function updateProperty() {
+
+        $name = request('name');
+        $propertyType = request('propertyType');
+        $lat = request('lat');
+        $lng = request('lng');
+        $price = request('price');
+        $category = request('category');
+        $featured_image = request('featured_image');
+        $images = request('images');
+        $meta_description = request('meta_description');
+        $slug = request('slug');
+        $transaction_type = request('transaction_type');
+        
+        if(request('land_size')){
+            $land_size = request('land_size');
+        }
+        // }else{}
+        // if($request->zoning_type){
+        //     $addprop->zoning_type=$request->zoning_type;
+        // }else{}
+        // if($request->number_of_units){
+        //     $addprop->number_of_units=$request->number_of_units;
+        // }else{}
+        // if($request->building_size){
+        //     $addprop->building_size=$request->building_size;
+        // }else{}
+        // if($request->farm_type){
+        //     $addprop->farm_type=$request->farm_type;
+        // }else{}
+        // if($request->building_type){
+        //     $addprop->building_type=$request->building_type;
+        // }else{}
+        // if($request->open_house_only){
+        //     $addprop->open_house_only=$request->open_house_only;
+        // }else{}
+        // if($request->parking_type){
+        //     $addprop->parking_type=$request->parking_type;
+        // }else{}
+        // if($request->beds){
+        //     $addprop->beds=$request->beds;        
+        // }else{}
+        // if($request->baths){
+        //     $addprop->baths=$request->baths;       
+        // }else{}
+
+        $users = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
+            [
+                'name' => $name,
+                'property_type' => $propertyType,
+                'lat' => $lat,
+                'long' => $lng,
+                'price' => $price,
+                'main_category' => $category,
+                'feature_image_id' => $featured_image,
+                'image_ids' => $images,
+                'meta_description' => $meta_description,
+                'slug' => $slug,
+                'transaction_type' => $transaction_type
+            ]
+        );
+
+        return redirect('/dashboard');
+    }
+
+    public function deleteProperty($id) {
+
+        $property = Properties::where('id', $id)->delete();
+
+        return back();
+    }
+
 
     public function createPropertyStore(Request $request)
     {        
