@@ -88,7 +88,7 @@
         <a class="nav-link bg-white border-0 border-bottom w-100 pb-3 text-center sidebar-ad d-none {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Sidebar Advertisement</a> -->
 
 
-            <button class="dropdown-btn border-bottom w-100 pb-3" style="color:#0d6efd; margin: 5px 0 0 -10px;">
+            <button class="dropdown-btn border-bottom w-100 pb-3" style="color:#0d6efd; margin: 5px 0 0 -7px;">
                 Advertisement Management 
                 <i class="fas fa-caret-down"></i>
             </button>
@@ -100,7 +100,7 @@
             </div>
         
 
-        <h5 class="px-3 mt-4 pb-2 mb-0 border-t">My Settings</h5>
+        <h5 class="px-3 mt-4 pb-2 mb-0">My Settings</h5>
 
         <a class="nav-link border-0 bg-white ps-5 w-100" id="nav-search-tab" href="{{ route('frontend.user.properties') }}" type="button" role="tab" aria-controls="nav-search" aria-selected="true">Search Criteria</a>
 

@@ -66,6 +66,10 @@ class CountryManagementController extends Controller
     public function sidebarAD_store(Request $request)
     {        
         // dd($request);
+
+        if(strlen($request->get('description')) < 250){
+            return back()->with('error', 'Minimum length of the characters in Description should be 250');
+        }
     
         if($request->file('image'))
         {            
@@ -94,13 +98,16 @@ class CountryManagementController extends Controller
 
         $add->save();
 
-        return back(); 
+        return back();
     }
 
     public function sidebarAD_update(Request $request)
     {        
         // dd($request);
-    
+        if(strlen($request->get('description')) < 250){
+            return back()->with('error', 'Minimum length of the characters in Description should be 250');
+        }
+
         if($request->file('image'))
         {            
             $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();

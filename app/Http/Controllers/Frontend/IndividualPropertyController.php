@@ -9,6 +9,8 @@ use App\Models\FileManager;
 use App\Models\Auth\User;
 use App\Models\AgentRequest; 
 use App\Models\SidebarAd; 
+use App\Models\Favorite; 
+
 
 /**
  * Class ContactController.
@@ -54,6 +56,9 @@ class IndividualPropertyController extends Controller
         $random = Properties::inRandomOrder()->limit(4)->get();
         // dd($random);
 
+        $favourite = Favorite::where('property_id',$id)->first();
+        // dd($favourite);
+
         return view('frontend.individual-property',[
             'property_details' => $property_details,
             'users' => $users,
@@ -62,8 +67,33 @@ class IndividualPropertyController extends Controller
             'random' => $random,          
             'final_out' => $final_out,
             'ad1' => $ad1,
-            'ad2' => $ad2
+            'ad2' => $ad2,
+            'favourite' => $favourite
         ]);
+    }
+
+    public function propertyFavourite(Request $request)
+    { 
+        // dd($request);
+        $addfav = new Favorite;
+
+        $user_id = auth()->user()->id;
+
+        $addfav->property_id=$request->prop_hidden_id; 
+        $addfav->user_id=$user_id;
+
+        $addfav->save();
+
+        return back();
+
+    }
+
+    public function propertyFavouriteDelete($id)
+    {        
+        $data = Favorite::findOrFail($id);
+        $data->delete();   
+
+        return back();
     }
 
 

@@ -31,7 +31,11 @@ Route::get('individual-agent/{id}', [IndividualAgentController::class, 'index'])
 // Route::get('individual-agent', [IndividualAgentController::class, 'index'])->name('individual-agent');
 Route::get('map-search', [MapSearchController::class, 'index'])->name('map-search');
 Route::get('residential', [ResidentialController::class, 'index'])->name('residential');
+
 Route::get('individual-property/{id}', [IndividualPropertyController::class, 'index'])->name('individual-property');
+Route::post('prop_favourite',[IndividualPropertyController::class,'propertyFavourite'])->name('propertyFavourite');
+Route::post('prop_favourite/unsave/{id}',[IndividualPropertyController::class,'propertyFavouriteDelete'])->name('propertyFavouriteDelete');
+
 Route::get('commercial', [CommercialController::class, 'index'])->name('commercial');
 // Route::get('individual-property/{id}', [IndividualPropertyController::class, 'property_details'])->name('individual-property.property_details');
 

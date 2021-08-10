@@ -34,15 +34,25 @@
                     <div class="col-12">
                         <div class="px-2" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
 
+                        @foreach($property as $key=> $prop)
+                            @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $data)
+
                             <div class="row align-items-center justify-content-between mb-4 border py-3">
                                 <div class="col-6">
-                                    <img src="{{url('tpr_templete/images/fp_fm_1.svg')}}" class="card-img-top" alt="...">
+                                    <img src="{{ url('images',$data->file_name) }}" style="width:350px; object-fit:cover;" height="210px" class="card-img-top" alt="...">
                                 </div>
                                 <div class="col-5">
-                                    <h5 class="card-title">Jaffna, Sri Lanka</h5>
-                                    <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
+                                    <h5 class="card-title">Jaffna, {{ $prop->country }}</h5>
+
+                                    @if($prop->beds == null)
+                                    @else
+                                        <p class="card-text mt-3 mb-1">
+                                            {{ $prop->beds }} Bed Semidetached house
+                                        </p>
+                                    @endif
+
                                     <p class="card-text">Lancaster, claited Kingdom</p>
-                                    <p class="mt-1 text-info">$ 480,000</p>
+                                    <p class="mt-1 text-info">$ {{ $prop->price }}</p>
 
                                     <div class="row">
                                         <div class="col-4">
@@ -54,8 +64,12 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
+                        @endforeach
 
-                            <div class="row align-items-center justify-content-between mb-4 border py-3">
+                            
+
+                            <!-- <div class="row align-items-center justify-content-between mb-4 border py-3">
                                 <div class="col-6">
                                     <img src="{{url('tpr_templete/images/fp_fm_2.svg')}}" class="card-img-top" alt="...">
                                 </div>
@@ -95,7 +109,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

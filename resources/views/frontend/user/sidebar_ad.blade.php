@@ -7,8 +7,8 @@
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/profile-settings.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 @endpush
 
 
@@ -26,7 +26,17 @@
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
                         <h4 class="fs-4 fw-bolder user-settings-head">Sidebar Advertisement</h4>
-                        <br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row mt-1">
+                      @if(session()->has('error'))
+                          <div class="alert alert-danger">
+                              {{ session()->get('error') }}
+                          </div>
+                      @endif
+                                              
                     </div>
                 </div>
 
@@ -185,8 +195,15 @@
                                             
                                     </div>
                                 </div> 
-        <div>
-    </div>        
+                        </div>
+                    </div>  
+                </div>  
+            </div>           
+
+        </div>
+    </div>
+
+
 
 
     <!-- ad 1 -->
@@ -207,7 +224,7 @@
                 </div>
                 <div class="modal-body">                
                     <div class="form-group">
-                        <label>Adaverisement Image </label>
+                        <label>Adaverisement Image:</label>
                         <input type="file" class="form-control" name="image" required>
                     </div>
                                                                 
@@ -216,15 +233,15 @@
                         <input type="text" class="form-control" name="title" required>
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea type="text" class="form-control" name="description" rows="3" required></textarea>
+                        <label>Description: (Minimum length of the characters should be 250)</label>
+                        <textarea type="text" class="form-control" name="description" rows="4" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Link:</label>
-                        <input type="text" class="form-control" name="link" required>
+                        <input type="url" class="form-control" name="link" required>
                     </div>
                     <div class="form-group">
-                        <label>Status</label>
+                        <label>Status:</label>
                         <select class="form-control" name="status" required>
                             <option value="1">Enable</option>   
                             <option value="0">Disable</option>                                
@@ -260,7 +277,7 @@
                 </div>
                 <div class="modal-body">            
                     <div class="form-group">
-                        <label>Adaverisement Image </label>
+                        <label>Adaverisement Image:</label>
                         <input type="file" class="form-control" name="image" required>
                     </div>
                                                                 
@@ -269,15 +286,15 @@
                         <input type="text" class="form-control" name="title" required>
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea type="text" class="form-control" name="description" rows="3" required></textarea>
+                        <label>Description: (Minimum length of the characters should be 250)</label>
+                        <textarea type="text" class="form-control" name="description" rows="4" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Link:</label>
-                        <input type="text" class="form-control" name="link" required>
+                        <input type="url" class="form-control" name="link" required>
                     </div>
                     <div class="form-group">
-                        <label>Status</label>
+                        <label>Status:</label>
                         <select class="form-control" name="status" required>
                             <option value="1">Enable</option>   
                             <option value="0">Disable</option>                                
@@ -314,7 +331,7 @@
                 </div>
                 <div class="modal-body">                
                     <div class="form-group">
-                        <label>Adaverisement Image </label>
+                        <label>Adaverisement Image:</label>
                         <input type="file" class="form-control" name="image">
                         <br>
                         <img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover; width:50%;" alt="">
@@ -326,15 +343,15 @@
                         <input type="text" class="form-control" name="title" value="{{ $ad1->title }}" required>
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea type="text" class="form-control" name="description" rows="3" required>{{ $ad1->description }}</textarea>
+                        <label>Description: (Minimum length of the characters should be 250)</label>
+                        <textarea type="text" class="form-control" name="description" rows="4" required>{{ $ad1->description }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Link:</label>
-                        <input type="text" class="form-control" name="link" value="{{ $ad1->link }}" required>
+                        <input type="url" class="form-control" name="link" value="{{ $ad1->link }}" required>
                     </div>
                     <div class="form-group">
-                        <label>Status</label>
+                        <label>Status:</label>
                         <select class="form-control" name="status" required>
                             <option value="1" {{ $ad1->status == '1' ? "selected" : "" }}>Enable</option>   
                             <option value="0" {{ $ad1->status == '0' ? "selected" : "" }}>Disable</option>                                
@@ -373,7 +390,7 @@
                 </div>
                 <div class="modal-body">                
                     <div class="form-group">
-                        <label>Adaverisement Image </label>
+                        <label>Adaverisement Image:</label>
                         <input type="file" class="form-control" name="image">
                         <br>
                         <img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover; width:50%;" alt="">
@@ -385,15 +402,15 @@
                         <input type="text" class="form-control" name="title" value="{{ $ad2->title }}" required>
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea type="text" class="form-control" name="description" rows="3" required>{{ $ad2->description }}</textarea>
+                        <label>Description: (Minimum length of the characters should be 250)</label>
+                        <textarea type="text" class="form-control" name="description" rows="4" required>{{ $ad2->description }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Link:</label>
                         <input type="text" class="form-control" name="link" value="{{ $ad2->link }}" required>
                     </div>
                     <div class="form-group">
-                        <label>Status</label>
+                        <label>Status:</label>
                         <select class="form-control" name="status" required>
                             <option value="1" {{ $ad2->status == '1' ? "selected" : "" }}>Enable</option>   
                             <option value="0" {{ $ad2->status == '0' ? "selected" : "" }}>Disable</option>                                
@@ -478,6 +495,7 @@
     </div>
     </div>
     @endif
+
 
 
 @endsection
