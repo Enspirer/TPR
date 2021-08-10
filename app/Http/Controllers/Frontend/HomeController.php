@@ -8,6 +8,7 @@ use App\Models\Properties;
 use Illuminate\Http\Request;
 use App\Models\PropertyType;
 use App\Models\FileManager;
+use Illuminate\Http\Response;
 
 /**
  * Class HomeController.
@@ -21,10 +22,14 @@ class HomeController extends Controller
     {
         $country = Country::where('status',1)->get();
 
+
+
         return view('frontend.landing',[
             'countries_data' => $country
         ]);
     }
+
+
 
     public function map_index(Request $request)
     {
@@ -50,9 +55,13 @@ class HomeController extends Controller
         return json_encode($request->coordinate_data);
     }
 
-    public function index($country_id)
+    public function index($country_id,Request $request)
     {
         $promu = Properties::all();
+
+
+        $self = self::setCookie($country_id);
+
 
         return view('frontend.home_page.index',[
             'country_id' => $country_id,
@@ -60,10 +69,18 @@ class HomeController extends Controller
         ]);
     }
 
+
+    public static function setCookie($param)
+    {
+        $response = new Response('Set Cookie');
+        $response->withCookie(cookie('country', $param,60));
+        return $response;
+    }
+
+
     public function property_type($id)
     {
         $property_type = PropertyType::where('status','=','1')->where('id',$id)->get();
-        // dd($property_type);
 
         $final_out = [];
 
