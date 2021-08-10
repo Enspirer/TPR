@@ -216,39 +216,19 @@
                 <h4 data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">Fresh in the Market</h4>
 
                 <div class="row mt-4">
-                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                        <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_fm_1.svg')}}" class="card-img-top" alt="...">
-                            <div class="card-body mt-4">
-                                <h5 class="card-title">Jaffna, Sri Lanka</h5>
-                                <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                <p class="card-text">Lancaster, claited Kingdom</p>
-                                <p class="mt-1 text-info">$ 480,000</p>
+                    @foreach($latest as $lat)
+                        <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                            <div class="card p-4 shadow border-0">
+                                <img src="{{url('images', App\Models\FileManager::where('id', $lat->feature_image_id)->first()->file_name)}}" class="card-img-top" alt="...">
+                                <div class="card-body mt-4">
+                                    <h5 class="card-title">Jaffna, {{ $lat->country }}</h5>
+                                    <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
+                                    <p class="card-text">Lancaster, {{ $lat->country }}</p>
+                                    <p class="mt-1 text-info">$ {{ $lat->price }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                        <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_fm_2.svg')}}" class="card-img-top" alt="...">
-                            <div class="card-body mt-4">
-                                <h5 class="card-title">Colombo, Sri Lanka</h5>
-                                <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                <p class="card-text">Lancaster, claited Kingdom</p>
-                                <p class="mt-1 text-info">$ 480,000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="600">
-                        <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_fm_3.svg')}}" class="card-img-top" alt="...">
-                            <div class="card-body mt-4">
-                                <h5 class="card-title">Galle, Sri Lanka</h5>
-                                <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                <p class="card-text">Lancaster, claited Kingdom</p>
-                                <p class="mt-1 text-info">$ 480,000</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 

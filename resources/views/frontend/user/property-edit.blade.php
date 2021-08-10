@@ -25,7 +25,7 @@
                 <div class="row justify-content-between mt-4">
 
                     <div class="container-fluid jumbotron text-center" style="background-color: #c6e4ee; border-radius: 15px 50px;">
-                    <h1 style="margin-top:60px;" class="display-5">Succesfully Created!</h1><br>
+                    <h1 style="margin-top:60px;" class="display-5">Succesfully Edited!</h1><br>
                         <!-- <p class="lead"><h3>Your request is sent. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p> -->
                         <hr><br>    
                         <p class="lead">
@@ -57,7 +57,7 @@
                     <div class="col-8 p-0">
                         <div class="row align-items-center">
                             <div class="col-6">
-                                <h4 class="fs-4 fw-bolder user-settings-head">Create Property</h4>
+                                <h4 class="fs-4 fw-bolder user-settings-head">Edit Property</h4>
                             </div>
                         </div>
                     </div>
@@ -68,14 +68,14 @@
                         <div class="px-2 py-3" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
                             <h4>About Property</h4>
                     
-                            <form action="{{route('frontend.user.create-property.createPropertyStore')}}" method="post" enctype="multipart/form-data" >
+                            <form action="{{route('frontend.user.property-update')}}" method="post" enctype="multipart/form-data" >
                                 {{csrf_field()}}
 
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
                                             <label for="name" class="form-label mb-0 required">Name</label>
-                                            <input type="text" class="form-control" name="name" id="name" aria-describedby="name" required>
+                                            <input type="text" class="form-control" name="name" id="name" value="{{ $property->name }}" aria-describedby="name" required>
                                         </div> 
                                     </div>
                                     <div class="col-6">
@@ -97,8 +97,8 @@
                                     <div class="col-12">
                                         <label for="map" class="form-label mb-2 mt-4 required">Location</label>
                                         <div id="map" style="width: 100%; height: 400px;"></div>
-                                        <input type="hidden" name="lat" id="lat" class="mt-3">
-                                        <input type="hidden" name="lng" id="lng" class="mt-3 d-none">
+                                        <input type="hidden" name="lat" id="lat" class="mt-3" value="{{ $property->lat }}">
+                                        <input type="hidden" name="lng" id="lng" class="mt-3 d-none" value="{{ $property->long }}">
                                         <input type="hidden" name="country" id="country" class="mt-3 d-none">
                                         
                                         <div class="row mt-3">
@@ -114,14 +114,14 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="price" class="form-label mb-0 mt-4 required">Price</label>
-                                            <input type="text" class="form-control" name="price" id="price" aria-describedby="price">
+                                            <input type="text" class="form-control" name="price" id="price" aria-describedby="price" value="{{ $property->price }}">
                                         </div>  
                                     </div>
                                     <div class="col-6">
                                         <div>
                                             <label for="category" class="form-label mb-0 mt-4 required">Category</label>
                                             <select class="form-select" aria-label="category" id="category" name="category">
-                                                <option selected value="commercial">Commercial</option>
+                                                <option value="commercial">Commercial</option>
                                                 <option value="residential">Residential</option>
                                             </select>
                                         </div>  
@@ -136,7 +136,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div>
-                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Featured Image','file_input_name' => 'featured_image','multiple' => false, 'data' => $property->feature_image_id, 'id' => 'id-single', 'upload' => 'upload-single', 'title' => 'Upload Image'])
+                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Featured Image','file_input_name' => 'featured_image','multiple' => false, 'data' => [$property->feature_image_id], 'id' => 'id-single', 'upload' => 'upload-single', 'title' => 'Upload Image'])
                                         </div>
                                     </div>
                                 </div>
@@ -155,13 +155,13 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="meta-description" class="form-label mb-0 mt-4 required">Meta Description</label>
-                                            <input type="text" class="form-control" name="meta_description" id="meta-description" aria-describedby="meta-description">
+                                            <input type="text" class="form-control" name="meta_description" id="meta-description" aria-describedby="meta-description" value="{{ $property->meta_description }}">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div>
                                             <label for="slug" class="form-label mb-0 mt-4 required">Slug</label>
-                                            <input type="text" class="form-control" name="slug" id="slug" aria-describedby="slug">
+                                            <input type="text" class="form-control" name="slug" id="slug" aria-describedby="slug" value="{{ $property->slug }}">
                                         </div>
                                     </div>
                                 </div>
@@ -170,7 +170,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="transaction-type" class="form-label mb-0 mt-4 required">Transaction Type</label>
-                                            <input type="text" class="form-control" name="transaction_type" id="transaction-type" aria-describedby="transaction-type">
+                                            <input type="text" class="form-control" name="transaction_type" id="transaction-type" aria-describedby="transaction-type" value="{{ $property->transaction_type }}">
                                         </div>
                                     </div>
 
@@ -184,6 +184,7 @@
                                 </div>
 
                                 <div class="mt-5 text-center">
+                                    <input type="hidden" class="form-control" value="{{ $property->id }}" name="hid_id">
                                     <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;" >
                                 </div>
 
@@ -581,6 +582,28 @@
 
             $('#slug').val(name);
         });
+
+
+
+        $('document').ready(function() {
+            let value = <?php echo json_encode ($property->property_type ) ?>
+
+            $('#propertyType option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });
+
+        $('document').ready(function() {
+            let value = <?php echo json_encode ($property->main_category ) ?>
+
+            $('#category option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });  
         
                 
         

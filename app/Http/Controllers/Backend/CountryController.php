@@ -84,11 +84,13 @@ class CountryController extends Controller
     public function edit($id)
     {
         $country = Country::where('id',$id)->first();
+        $users = User::all();
         
         // dd($country);              
 
         return view('backend.country.edit',[
-            'country' => $country         
+            'country' => $country,
+            'users' => $users
         ]);  
     }
 

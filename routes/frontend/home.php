@@ -92,7 +92,14 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
         Route::get('properties/create', [AgentController::class, 'createProperty'])->name('create-property');
+
         Route::post('properties/store', [AgentController::class, 'createPropertyStore'])->name('create-property.createPropertyStore');
+
+        Route::get('properties/edit/{id}', [AgentController::class, 'editProperty'])->name('property-edit');
+
+        Route::post('properties/edit', [AgentController::class, 'updateProperty'])->name('property-update');
+
+        Route::get('properties/delete/{id}', [AgentController::class, 'deleteProperty'])->name('property-delete');
 
 
         Route::get('booking/user-chat', [AgentController::class, 'userChat'])->name('user-chat');
@@ -103,7 +110,9 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('country-management/property-approval', [CountryManagementController::class, 'propertyApproval'])->name('property-approval');
 
-        Route::get('country-management/single-property-approval', [CountryManagementController::class, 'singlePropertyApproval'])->name('single-property-approval');
+        Route::get('country-management/single-property-approval/{id}', [CountryManagementController::class, 'singlePropertyApproval'])->name('single-property-approval');
+
+        Route::post('country-management/single-property-approval/update', [CountryManagementController::class, 'singlePropertyApproved'])->name('single-property-approved');
 
         Route::get('country-management/supports', [CountryManagementController::class, 'supports'])->name('supports');
 

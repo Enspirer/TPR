@@ -51,13 +51,13 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="firstName" class="form-label mb-0 required">First Name</label>
-                                                    <input type="text" class="form-control" value="{{auth()->user()->first_name}}" id="firstName" aria-describedby="firstName" name="first_name">
+                                                    <input type="text" class="form-control" value="{{ $user_edit->first_name }}" id="firstName" aria-describedby="firstName" name="first_name">
                                                 </div>  
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="lastName" class="form-label mb-0 required">Last Name</label>
-                                                    <input type="text" value="{{auth()->user()->last_name}}" class="form-control" id="lastName" aria-describedby="lastName" name="last_name">
+                                                    <input type="text" value="{{ $user_edit->last_name }}" class="form-control" id="lastName" aria-describedby="lastName" name="last_name">
                                                 </div>  
                                             </div>
                                         </div>
@@ -66,13 +66,13 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="displayName" class="form-label mb-0 mt-4 required">Display Name</label>
-                                                    <input type="text" class="form-control" id="displayName" name="display_name" aria-describedby="displayName">
+                                                    <input type="text" class="form-control" id="displayName" name="display_name" aria-describedby="displayName" value="{{ $user_edit->display_name }}">
                                                 </div>  
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="email" class="form-label mb-0 mt-4 required">Email</label>
-                                                    <input value="{{auth()->user()->email}}" type="email" class="form-control" id="email" aria-describedby="email" name="email">
+                                                    <input value="{{ $user_edit->email }}" type="email" class="form-control" id="email" aria-describedby="email" name="email">
                                                 </div>  
                                             </div>
                                         </div>
@@ -84,8 +84,8 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="userType" class="form-label mb-0">I am a</label>
-                                                <select class="form-select" aria-label="userType" id="userType" name="user_type">
-                                                    <option selected>No Preference</option>
+                                                <select class="form-select" aria-label="userType" id="userType" name="user_type" value="{{ $user_edit->user_type }}">
+                                                    <option>No Preference</option>
                                                     <option value="first-time-buyer">First time buyer</option>
                                                     <option value="repeat-buyer">Repeat buyer</option>
                                                     <option value="seller">Seller</option>
@@ -95,8 +95,8 @@
                                             </div>
                                             <div class="col-6">
                                                 <label for="birth" class="form-label mb-0">Year of birth</label>
-                                                <select class="form-select" aria-label="birth" id="birth" name="dob">
-                                                    <option selected>Select</option>
+                                                <select class="form-select" aria-label="birth" id="dob" name="dob" value="{{ $user_edit->dob }}">
+                                                    <option>Select</option>
                                                     <option value="2021">2021</option>
                                                     <option value="2020">2020</option>
                                                     <option value="2019">2019</option>
@@ -107,16 +107,16 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="gender" class="form-label mb-0 mt-4">Gender</label>
-                                                <select class="form-select" aria-label="gender" id="gender" name="gender">
-                                                    <option selected>Select</option>
+                                                <select class="form-select" aria-label="gender" id="gender" name="gender" value="{{ $user_edit->gender }}">
+                                                    <option >Select</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
                                                     </select>
                                             </div>
                                             <div class="col-6">
                                                 <label for="displayName" class="form-label mb-0 mt-4">Marital Status</label>
-                                                <select class="form-select" aria-label="Default select example" name="marital">
-                                                    <option selected>Select</option>
+                                                <select class="form-select" aria-label="Default select example" id="marital" name="marital" value="{{ $user_edit->marital_status }}">
+                                                    <option>Select</option>
                                                     <option value="single">Single</option>
                                                     <option value="common-law">Common Law</option>
                                                     <option value="married">Married</option>
@@ -134,13 +134,13 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="city" class="form-label mb-0">City</label>
-                                                    <input type="text" class="form-control" id="city" aria-describedby="city" name="city">
+                                                    <input type="text" class="form-control" id="city" aria-describedby="city" name="city" value="{{ $user_edit->city }}">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="province" class="form-label mb-0">Province</label>
-                                                    <input type="province" class="form-control" id="province" aria-describedby="province" name="province">
+                                                    <input type="province" class="form-control" id="province" aria-describedby="province" name="province" value="{{ $user_edit->province }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -149,15 +149,16 @@
                                             <div class="col-6">
                                                 <label for="country" class="form-label mb-0 mt-4">Country</label>
                                                 <select class="form-select" aria-label="country" id="country" name="country">
-                                                    <option selected>Sri Lanka</option>
+                                                    <option>Select</option>
+                                                    <option value="sri-lanka">Sri Lanka</option>
                                                     <option value="india">India</option>
                                                     <option value="australia">Australia</option>
-                                                    </select>
+                                                </select>
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="postal-code" class="form-label mb-0 mt-4">Postal Code</label>
-                                                    <input type="postal-code" class="form-control" id="postal-code" name="postal_code" aria-describedby="postal-code">
+                                                    <input type="postal-code" class="form-control" id="postal-code" name="postal_code" aria-describedby="postal-code" value="{{ $user_edit->postal_code }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -166,20 +167,20 @@
                                             <div class="col-6">
                                                 <div>
                                                     <label for="home-phone" class="form-label mb-0 mt-4">Home Phone</label>
-                                                    <input type="home-phone" class="form-control" id="home-phone" name="home_phone" aria-describedby="home-phone">
+                                                    <input type="home-phone" class="form-control" id="home-phone" name="home_phone" aria-describedby="home-phone" value="{{ $user_edit->home_phone }}">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div>
                                                     <label for="mobile-phone" class="form-label mb-0 mt-4">Mobile Phone</label>
-                                                    <input type="mobile-phone" class="form-control" id="mobile-phone" name="mobile_phone" aria-describedby="mobile-phone">
+                                                    <input type="mobile-phone" class="form-control" id="mobile-phone" name="mobile_phone" aria-describedby="mobile-phone" value="{{ $user_edit->mobile_phone }}">
                                                 </div>
                                             </div>
                                         </div>
                                         
                                         <div class="mt-5 text-center">
                                             <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #6e6e70;">Deactivate Account</button>
-                                            <input type="hidden" class="form-control" value="{{$user_edit->id}}" name="hid_id">
+                                            <input type="hidden" class="form-control" value="{{ $user_edit->id }}" name="hid_id">
                                             <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
                                         </div>
                                     </form>
@@ -187,8 +188,12 @@
                             </div>
                         </div>
                     </div>
-<!-- ***************************************  agent information  *************************************************************************************************************************************** -->
-                   
+
+
+
+
+
+                <!-- agent information   -->
 
                     @if($agent_edit)
                     <div class="tab-pane fade" id="pills-lorem" role="tabpanel" aria-labelledby="pills-lorem-tab">
@@ -396,7 +401,6 @@
                         
                         
                     </div>
-
                     @endif
                 </div>
             </div>
@@ -422,7 +426,57 @@
             }       
             validate();
         });
-        
+
+
+        $('document').ready(function() {
+            let value = <?php echo json_encode ($user_edit->user_type ) ?>
+
+            $('#userType option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });
+
+        $('document').ready(function() {
+            let value = <?php echo json_encode ($user_edit->dob ) ?>
+
+            $('#dob option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });
+
+        $('document').ready(function() {
+            let value = <?php echo json_encode ($user_edit->gender ) ?>
+
+            $('#gender option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });
+
+        $('document').ready(function() {
+            let value = <?php echo json_encode ($user_edit->marital_status ) ?>
+
+            $('#marital option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });
+
+         $('document').ready(function() {
+            let value = <?php echo json_encode ($user_edit->country ) ?>
+
+            $('#country option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });        
     
     </script>    
 

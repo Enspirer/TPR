@@ -59,13 +59,16 @@ class HomeController extends Controller
     {
         $promu = Properties::all();
 
+        $latest = Properties::latest()->take(3)->get();
+
 
         $self = self::setCookie($country_id);
 
 
         return view('frontend.home_page.index',[
             'country_id' => $country_id,
-            'promo' => $promu
+            'promo' => $promu,
+            'latest' => $latest
         ]);
     }
 

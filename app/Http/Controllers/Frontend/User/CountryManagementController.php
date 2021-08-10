@@ -25,9 +25,13 @@ class CountryManagementController extends Controller
     }
 
     public function propertyApproval() {
-        $properties = Properties::where('country_manager_approval', 'pending')->get();
+        $country = Country::where('country_manager', auth()->user()->id)->first();
+        
+        $properties = Properties::where('country', $country->country_name)->get();
 
-        return view('frontend.user.property-approval', ['properties' => $properties]);
+        return view('frontend.user.property-approval', [
+            'properties' => $properties
+        ]);
     }
 
     public function supports() {
@@ -38,8 +42,35 @@ class CountryManagementController extends Controller
         return view('frontend.user.agent-approval');
     }
 
-    public function singlePropertyApproval() {
-        return view('frontend.user.single-property-approval');
+    public function singlePropertyApproval($id) {
+
+        $single_approval = Properties::where('id', $id)->first();
+
+        if($single_approval->image_ids == NULL){
+            $images = null;
+        } else {
+            $images = json_decode($single_approval->image_ids);
+        }
+
+        return view('frontend.user.single-property-approval', [
+            'single_approval' => $single_approval,
+            'images' => $images
+        ]);
+    }
+
+    public function singlePropertyApproved() {
+
+        $action = request('action');
+
+        
+
+        $property = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
+            [
+                'country_manager_approval' => $action
+            ]
+        );
+
+        return redirect('/country-management/property-approval');
     }
 
     public function singleAgentApproval() {
