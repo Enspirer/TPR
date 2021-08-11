@@ -113,7 +113,51 @@
 
             <div class="row mt-4">
                 <div class="col-8">
-                    <div class="property mb-5 p-3 shadow">
+                    @foreach($filteredProperty as $property)
+                        <div class="property mb-5 p-3 shadow">
+                            <div class="row">
+                                <div class="col-6">
+                                    <a href=""><img src="{{ route('frontend.image_assets', $property->feature_image_id) }}" alt="" class="img-fluid"></a>
+                                </div>
+                                <div class="col-6 ps-4">
+                                    <div class="row justify-content-between">
+                                        <div class="col-9">
+                                            <h5 class="property-price mb-0">{{ $property->name }}</h5>
+                                            <h5 class="property-location">{{ $property->price }}</h5>
+                                        </div>
+                                        <div class="col-3 small-heart">
+                                            <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
+                                            <i class="bi bi-heart-fill" style="font-size: 1.5rem; display: none;"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="fw-bold mt-2 mb-0 property-spec text-body">2 bed semi-detached house</p>
+                                    <p class="text-secondary mt-1">Colombo, {{ $property->country }}</p>
+                                    <div class="project-list">
+                                        <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.4 miles from petta</p>
+                                        <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.7 miles from petta</p>
+                                    </div>
+                                    <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> {{ $property->baths }} <i class="fas fa-bed ms-4 me-2"></i>{{ $property->beds }}</p>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-7">
+                                    <h6 class="text-secondary">Listed on {{ $property->created_at->toDateString() }}</h6>
+                                </div>
+                                <div class="col-5">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p><i class="bi bi-telephone me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p><i class="bi bi-envelope me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    <!-- <div class="property mb-5 p-3 shadow">
                         <div class="row">
                             <div class="col-6">
                                 <a href=""><img src="{{ asset('tpr_templete/images/residential_1.svg') }}" alt="" class="img-fluid"></a>
@@ -154,94 +198,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="property mb-5 p-3 shadow">
-                        <div class="row">
-                            <div class="col-6">
-                                <img src="{{ asset('tpr_templete/images/residential_2.svg') }}" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-6 ps-4">
-                                <div class="row justify-content-between">
-                                    <div class="col-9">
-                                        <h5 class="property-price mb-0">$ 480, 000</h5>
-                                        <h5 class="property-location">Colombo, Sri Lanka</h5>
-                                    </div>
-                                    <div class="col-3 small-heart">
-                                        <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
-                                        <i class="bi bi-heart-fill" style="font-size: 1.5rem; display: none;"></i>
-                                    </div>
-                                </div>
-                                
-                                <p class="fw-bold mt-2 mb-0 property-spec text-body">2 bed semi-detached house</p>
-                                <p class="text-secondary mt-1">Lancaster, claited Kingdom</p>
-                                <div class="project-list">
-                                    <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.4 miles from petta</p>
-                                    <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.7 miles from petta</p>
-                                </div>
-                                <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> 7 <i class="fas fa-bed ms-4 me-2"></i>2</p>
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col-8">
-                                <h6 class="text-secondary">Listed on 26th Jun 2021</h6>
-                            </div>
-                            <div class="col-4">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p><i class="bi bi-telephone me-1"></i> 020 8014 123</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p><i class="bi bi-envelope me-1"></i> Contact</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="property mb-5 p-3 shadow">
-                        <div class="row">
-                            <div class="col-6">
-                                <img src="{{ asset('tpr_templete/images/residential_3.svg') }}" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-6 ps-4">
-                                <div class="row justify-content-between">
-                                    <div class="col-9">
-                                        <h5 class="property-price mb-0">$ 480, 000</h5>
-                                        <h5 class="property-location">Colombo, Sri Lanka</h5>
-                                    </div>
-                                    <div class="col-3 small-heart">
-                                        <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
-                                        <i class="bi bi-heart-fill" style="font-size: 1.5rem; display: none;"></i>
-                                    </div>
-                                </div>
-                                
-                                <p class="fw-bold mt-2 mb-0 property-spec text-body">2 bed semi-detached house</p>
-                                <p class="text-secondary mt-1">Lancaster, claited Kingdom</p>
-                                <div class="project-list">
-                                    <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.4 miles from petta</p>
-                                    <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.7 miles from petta</p>
-                                </div>
-                                <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> 7 <i class="fas fa-bed ms-4 me-2"></i>2</p>
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col-8">
-                                <h6 class="text-secondary">Listed on 26th Jun 2021</h6>
-                            </div>
-                            <div class="col-4">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p><i class="bi bi-telephone me-1"></i> 020 8014 123</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p><i class="bi bi-envelope me-1"></i> Contact</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
+
                 <div class="col-4">
                     <div class="row justify-content-center">
                         <div class="col-12 text-center">
@@ -442,8 +401,8 @@
 
         }
         const locations = [
-            @foreach($promo as $prom)
-                { lat: {{$prom->lat}}, lng: {{$prom->long}} },
+            @foreach($filteredProperty as $property)
+                { lat: {{$property->lat}}, lng: {{$property->long}} },
             @endforeach
         ];
     </script>

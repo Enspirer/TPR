@@ -269,13 +269,20 @@ class AgentController extends Controller
         $lng = request('lng');
         $price = request('price');
         $category = request('category');
-        $feature_image_id = request('feature_image_id');
+        
+        if(request('feature_image_id') == null) {
+            $feature_image_id = request('old_feature_image_id');
+        }
+        else {
+            $feature_image_id = request('feature_image_id');
+        }
+        
         $images = request('image_ids');
         $meta_description = request('meta_description');
         $slug = request('slug');
         $transaction_type = request('transaction_type');
 
-        dd($feature_image_id);
+        // dd($feature_image_id, $images);
         
         if(request('land_size')){
             $land_size = request('land_size');

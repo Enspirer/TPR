@@ -128,14 +128,63 @@ class HomeController extends Controller
     }
 
 
-    public function search_function($key_name,$max_price,$min_price,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_hours)
+    public function search_function($key_name,$max_price,$min_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_hours)
     {
 
+        $properties = Properties::query();
+
+        if($key_name != 'key_name'){
+            $properties->where('name', $key_name);
+        }
+
+        if($max_price != 'max_price'){
+            $properties->where('name', $max_price);
+        }
+
+        if($min_price != 'min_price'){
+            $properties->where('name', $min_price);
+        }
+
+        if($category_type != 'category_type'){
+            $properties->where('main_category', $category_type);
+        }
+
+        if($transaction_type != 'transaction_type'){
+            $properties->where('transaction_type', $transaction_type);
+        }
+
+        if($property_type != 'property_type'){
+            $properties->where('property_type', $property_type);
+        }
+
+        if($beds != 'beds'){
+            $properties->where('beds', $beds);
+        }
+
+        if($baths != 'baths'){
+            $properties->where('baths', $baths);
+        }
+
+        if($land_size != 'land_size'){
+            $properties->where('land_size', $land_size);
+        }
+
+        if($listed_since != 'listed_since'){
+            $properties->where('created_at', $listed_since);
+        }
+
+        if($building_type != 'building_type'){
+            $properties->where('building_type', $building_type);
+        }
+
+        if($open_hours != 'open_hours'){
+            $properties->where('open_hours', $open_hours);
+        }
+
+
+
+        $filteredProperty = $properties->get();
+
+        return view('frontend.residential', ['filteredProperty' => $filteredProperty]);
     }
-
-
-
-
-
-
 }

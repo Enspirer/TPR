@@ -348,13 +348,17 @@
 
         // dropdown box changing field
         const renderFields = async () => {
-            let value = $('#propertyType').val();
-            let url = 'http://127.0.0.1:8000/api/get_property_type_details/' + value;
+
+            let type = <?php echo json_encode ($property->property_type ) ?>
+
+            
+            let url = 'http://127.0.0.1:8000/api/get_property_type_details/' + type;
             const res = await fetch(url);
             const data = await res.json();
             const fields = (data[0]['activated_fields']);
             let template = '';
             let first = '';
+
             // fields.forEach ((field) => {
             //     template += `<div class="col-6">
             //                     <div>
@@ -585,7 +589,7 @@
 
 
 
-        $('document').ready(function() {
+        $(document).ready(function() {
             let value = <?php echo json_encode ($property->property_type ) ?>
 
             $('#propertyType option').each(function(i){
@@ -595,7 +599,7 @@
             });
         });
 
-        $('document').ready(function() {
+        $(document).ready(function() {
             let value = <?php echo json_encode ($property->main_category ) ?>
 
             $('#category option').each(function(i){

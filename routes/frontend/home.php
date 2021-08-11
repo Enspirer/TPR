@@ -52,7 +52,7 @@ Route::post('search_result',[HomeController::class,'get_search_result'])->name('
 
 
 
-Route::get('search_result_filter/{key_name}/{max_price}/{min_price}/{transaction_type}/{property_type}/{beds}/{baths}/{land_size}/{listed_since}/{building_type}/{open_hours}',[HomeController::class,'search_function'])->name('search_function');
+Route::get('search_result_filter/{key_name}/{max_price}/{min_price}/{category_type}/{transaction_type}/{property_type}/{beds}/{baths}/{land_size}/{listed_since}/{building_type}/{open_hours}',[HomeController::class,'search_function'])->name('search_function');
 
 
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');

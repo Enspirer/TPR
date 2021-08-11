@@ -15,7 +15,7 @@ class ResidentialController extends Controller
      */
     public function index()
     {
-        $promu = Properties::all();
+        $promu = Properties::where('main_category', 'residential')->get();
 
         return view('frontend.residential',[
             'promo' => $promu
