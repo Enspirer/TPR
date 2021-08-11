@@ -27,7 +27,7 @@ class FindAgentController extends Controller
         }
 
         if($agent_name != 'agent_name'){
-            $agents->where('agent_name','like','%'.$agent_name.'%');
+            $agents->where('name','like','%'.$agent_name.'%');
         }
 
         $agents->get();
