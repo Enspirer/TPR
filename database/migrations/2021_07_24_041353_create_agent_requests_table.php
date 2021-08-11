@@ -29,7 +29,6 @@ class CreateAgentRequestsTable extends Migration
             $table->text('passport')->nullable();
             $table->text('license')->nullable();
             $table->text('tax_number')->nullable();
-            $table->text('country_manager_approval')->nullable();
             $table->text('user_id');
             $table->timestamps();
         });
