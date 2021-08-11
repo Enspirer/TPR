@@ -6,13 +6,14 @@
         </div>
     </div>
 
-    <div id="{{ $id }}" class="d-none">
+    <div id="{{ $id }}" class="">
             
         @if($data == null)
         
         @else
             @foreach($data as $d)
-                <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p>
+                <!-- <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p> -->
+                <input type="text" value="{{ $d }}" name="feature_image_id">
             @endforeach
         @endif   
     </div>
@@ -25,11 +26,13 @@
                 <div class="col-3 text-end">
                     <img src="{{ url('images', App\Models\FileManager::where('id', $d) -> first() -> file_name) }}" style="height: 150px;" class="w-100"></img>
                     <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i>
+                    <input type="hidden" value="{{ $d }}" name="image_ids[]">
                 </div>    
             @endforeach
         @endif
     </div>
 
+    
 
     <!-- Modal -->
     @push('dialog_modal')
@@ -208,8 +211,9 @@
             $('.append').off('click').on('click', function(){
                 let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
                 let id = $(this).parents("tr").find('.sorting_1').text();
-                $('.{{ $upload }}').append(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img><i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i><input type="hidden" name="{{$file_input_name}}[]" value="${id}"></input></div>`);
-                $('#{{ $id }}').append(`<p>${id}</p>`);
+                $('.{{ $upload }}').append(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img><i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i></div>`);
+                // $('#{{ $id }}').append(`<p>${id}</p>`);
+                $('#{{ $id }}').append(`<input type="hidden" name="image_ids[]" value="${id}"></input>`);
             });
 
             $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
@@ -224,15 +228,18 @@
             $('.append').off('click').on('click', function(){
                 let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
                 let id = $(this).parents("tr").find('.sorting_1').text();
-                $('.{{ $upload }}').html(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img> <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i><input name="{{$file_input_name}}" value="${id}" class="form-control d-none"></input></div>`);
-                $('#{{ $id }}').html(`<p>${id}</p>`);
+                $('.{{ $upload }}').html(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img> <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i></div>`);
+                // $('#{{ $id }}').html(`<p>${id}</p>`);
+                $('#{{ $id }} input').html(`<input type="text" value="${id}" name="feature_image_id">`);
             });   
 
             $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
                 $('.close-image').on('click', function() {
                     let id = $(this).parent().index();
                     $(this).parents('.{{ $upload }}').siblings('#{{ $id }}').empty();
+                    $(this).siblings('#feature_image_id').empty();
                     $(this).parent().remove();
+                    console.log($('#feature_image_id').val());
                 })
             })
         }

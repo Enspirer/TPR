@@ -88,7 +88,7 @@
 
         @endif
 
-        <a class="nav-link bg-white border-0 border-bottom w-100 pb-3 text-center sidebar-ad d-none {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Sidebar Advertisement</a> -->
+        <!-- <a class="nav-link bg-white border-0 border-bottom w-100 pb-3 text-center sidebar-ad d-none {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Sidebar Advertisement</a> -->
 
 
 
