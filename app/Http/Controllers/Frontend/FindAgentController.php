@@ -30,11 +30,11 @@ class FindAgentController extends Controller
             $agents->where('name','like','%'.$agent_name.'%');
         }
 
-        $agents->get();
+        $age = $agents->get();
 
-        $area_agents = AgentRequest::where('area', $area);
+        // $area_agents = AgentRequest::where('area', $area);
 
-        return view('frontend.find-agent', ['agents' => $agents]);
+        return view('frontend.find-agent', ['agents' => $age]);
     }
 
     public function store(Request $request)

@@ -241,7 +241,6 @@ class AgentController extends Controller
     public function createProperty()
     {
         $property_type = PropertyType::where('status','=','1')->get();
-        $properties = Properties::where('user_id',  $id)->get();
 
 
         return view('frontend.user.create-property',[
@@ -270,11 +269,13 @@ class AgentController extends Controller
         $lng = request('lng');
         $price = request('price');
         $category = request('category');
-        $featured_image = request('featured_image');
-        $images = request('images');
+        $feature_image_id = request('feature_image_id');
+        $images = request('image_ids');
         $meta_description = request('meta_description');
         $slug = request('slug');
         $transaction_type = request('transaction_type');
+
+        dd($feature_image_id);
         
         if(request('land_size')){
             $land_size = request('land_size');
@@ -308,7 +309,9 @@ class AgentController extends Controller
         //     $addprop->baths=$request->baths;       
         // }else{}
 
-        $users = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
+        // dd($feature_image_id);
+
+        $property = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
             [
                 'name' => $name,
                 'property_type' => $propertyType,
@@ -316,7 +319,7 @@ class AgentController extends Controller
                 'long' => $lng,
                 'price' => $price,
                 'main_category' => $category,
-                'feature_image_id' => $featured_image,
+                'feature_image_id' => $feature_image_id,
                 'image_ids' => $images,
                 'meta_description' => $meta_description,
                 'slug' => $slug,
@@ -324,7 +327,9 @@ class AgentController extends Controller
             ]
         );
 
-        return redirect('/dashboard');
+        
+
+        return redirect('/properties');
     }
 
     public function deleteProperty($id) {
