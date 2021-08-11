@@ -21,7 +21,7 @@
                         <form action="{{route('frontend.find-agent.store')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                             <div class="mb-4">
-                                <select class="form-select p-3" aria-label="Default select example" name="area">
+                                <select class="form-select p-3" aria-label="Default select example" name="area" required>
                                     <option selected disabled value="">Area</option>
                                     <option value="Colombo">Colombo</option>
                                     <option value="Jaffna">Jaffna</option>
@@ -29,14 +29,14 @@
                                   </select>
                             </div>
                             <div class="mb-4">
-                                <select class="form-select p-3" aria-label="Default select example" name="agent_type">
+                                <select class="form-select p-3" aria-label="Default select example" name="agent_type" required>
                                     <option selected disabled value="">Agent Type</option>
                                     <option value="Company">Company</option>
                                     <option value="Individual">Individual</option>
                                   </select>
                             </div>
                             <div class="mb-4">
-                            <input class="form-control p-3" name="name" id="name" placeholder="Agent Name"></input>
+                            <input class="form-control p-3" name="agent_name" id="agent_name" placeholder="Agent Name" required></input>
                             </div>
                                 <input type="submit" class="btn rounded-0 fw-bold fs-5 p-2" style="background-color: #77CEEC; width:100%; color:white;" value="Search" />
                         </form>
@@ -57,7 +57,7 @@
             @else
 
                 @foreach($agents as $agent)
-                    @if($agent->status == 'Approval')
+                    @if($agent->status == 'Approved')
                         <div class="row shadow py-5 px-4" style="margin-top: 5rem;">
                             <div class="col-4">
                                 <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid">
