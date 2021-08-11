@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/contact-us.css') }}">
 @endpush
 
+@if ( session()->has('message') )
+
+
+    <div class="container" style="background-color: #c6e4ee; padding-top:5px; border-radius: 50px 50px; text-align:center;">
+
+        <h1 style="margin-top:150px;" class="display-4">Thank You!</h1><br>
+        <p class="lead"><h4>We appreciate you contacting us. One of our member will get back in touch with you soon!<br><br> Have a great day!</h4></p>
+        <hr><br>    
+        <p class="lead">
+            <a class="btn btn-success btn-md mb-5" href="{{url('contact')}}" role="button">Go Back to Contact Us Page</a>
+        </p>
+    </div>
+  
+
+@else
 
     <!-- banner -->
     <section id="index-banner">
@@ -57,24 +72,25 @@
                 </div>
 
                 <div class="col-5">
-                    <form>
+                    <form action="{{route('frontend.contact.store')}}" method="post" enctype="multipart/form-data">
+                        {{csrf_field()}}
                         <div class="mb-4">
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control py-3 shadow" id="name" placeholder="Name" aria-describedby="name">
+                                    <input type="text" class="form-control py-3 shadow" name="name" placeholder="Name" aria-describedby="name" required>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control py-3 shadow" id="phone" placeholder="Phone" aria-describedby="phone">
+                                    <input type="text" class="form-control py-3 shadow" name="phone" placeholder="Phone" aria-describedby="phone" required>
                                 </div>
                             </div>
                         </div>
                         <div class="mb-4">
-                            <input type="email" class="form-control py-3 shadow" id="email" placeholder="Email" aria-describedby="email">
+                            <input type="email" class="form-control py-3 shadow" name="email" placeholder="Email" aria-describedby="email" required>
                         </div>
                         <div class="mb-4">
-                          <textarea class="form-control py-3 shadow" name="message" id="message" cols="60" rows="5" placeholder="Message"></textarea>
+                          <textarea class="form-control py-3 shadow" name="message" name="message" cols="60" rows="5" placeholder="Message" required></textarea>
                         </div>
-                        <button type="submit" class="btn rounded-0 fw-bold w-100 text-white p-3" style="background-color: #77CEEC;">Submit</button>
+                        <input type="submit" class="btn rounded-0 fw-bold w-100 text-white p-3" style="background-color: #77CEEC;" value="Submit" />
                     </form>
 
                     <div class="follow" style="margin-top: 7rem;">
@@ -127,3 +143,7 @@
         @captchaScripts
     @endif
 @endpush
+
+
+
+@endif

@@ -5,6 +5,8 @@ use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\PropertyController;
 use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\Backend\AgentRequestController;
+use App\Http\Controllers\Backend\SettingsController;
+use App\Http\Controllers\Backend\ContactUsController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -37,3 +39,13 @@ Route::get('agent/getdetails', [AgentRequestController::class, 'getDetails'])->n
 Route::get('agent/edit/{id}', [AgentRequestController::class, 'edit'])->name('agent.edit');
 Route::post('agent/update', [AgentRequestController::class, 'update'])->name('agent.update');
 Route::get('agent/delete/{id}', [AgentRequestController::class, 'destroy'])->name('agent.destroy');
+
+Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
+Route::get('settings/getdetails', [SettingsController::class, 'getDetails'])->name('settings.getDetails');
+Route::get('settings/delete/{id}', [SettingsController::class, 'destroy'])->name('settings.destroy');
+
+Route::get('contact_us', [ContactUsController::class, 'index'])->name('contact_us.index');
+Route::get('contact_us/getdetails', [ContactUsController::class, 'getDetails'])->name('contact_us.getDetails');
+Route::get('contact_us/edit/{id}', [ContactUsController::class, 'edit'])->name('contact_us.edit');
+Route::post('contact_us/update', [ContactUsController::class, 'update'])->name('contact_us.update');
+Route::get('contact_us/delete/{id}', [ContactUsController::class, 'destroy'])->name('contact_us.destroy');

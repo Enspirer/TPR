@@ -221,10 +221,13 @@
                 <h4 data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">Fresh in the Market</h4>
 
                 <div class="row mt-4">
+
+                @if(count($latest) != 0)
+
                     @foreach($latest as $lat)
                         <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                             <div class="card p-4 shadow border-0">
-                                <img src="{{url('images', App\Models\FileManager::where('id', $lat->feature_image_id)->first()->file_name)}}" class="card-img-top" alt="...">
+                                <img src="{{url('image_assest',$lat->id)}}" class="card-img-top" alt="...">
                                 <div class="card-body mt-4">
                                     <h5 class="card-title">Jaffna, {{ $lat->country }}</h5>
                                     <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
@@ -234,6 +237,14 @@
                             </div>
                         </div>
                     @endforeach
+
+                @else
+
+                @endif
+
+
+
+                    
                 </div>
             </div>
 
