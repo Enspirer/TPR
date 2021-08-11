@@ -93,7 +93,7 @@
                 <div class="col-3">
                     <div class="clearfix">
                         <div class="float-start">
-                            <button class="btn border-dark border-1 rounded-0 px-3 py-2">Filters <img src="{{ asset('tpr_templete/images/filter.svg') }}" alt="" class="ms-5"></button>
+                            <button class="btn border-dark border-1 rounded-0 px-3 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Filters <img src="{{ asset('tpr_templete/images/filter.svg') }}" alt="" class="ms-5"></button>
                         </div>
                         <div class="float-end">
                             <div class="dropdown">
@@ -235,6 +235,298 @@
             </div>
         </div>
     </section>
+
+
+        <!-- Filter Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search Filters</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                            <div>
+                                <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search" placeholder="Search Property">
+                            </div>
+                        
+
+                        <div class="row mt-3">
+                            <div class="col-3">
+                                <div>
+                                    <label for="propertyType" class="form-label mb-0 required">Property Type</label>
+                                    <select class="form-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()">
+
+                                    @foreach($property_types as $type)
+                                        <option value="{{$type->id}}"> {{$type->property_type_name}} </option>
+                                    @endforeach
+                                    </select>
+                                </div>  
+                            </div>
+                            
+                            <div class="col-3">
+                                <div>
+                                    <label for="transaction_type" class="form-label mb-0 required">Transaction Type</label>
+                                    <select class="form-select" aria-label="transaction_type" name="transaction_type" id="transaction_type">
+                                        <option value="sale">For sale</option>
+                                        <option value="rent">For rent</option>
+
+                                    </select>
+                                </div> 
+                            </div>
+                            
+                            <div class="col-3">
+                                <div>
+                                    <label for="min_price" class="form-label mb-0 required">Min Price</label>
+                                    <select class="form-select" aria-label="min_price" name="min_price" id="min_price">
+                                        <option value="0">0</option>
+                                        <option value="25000">25,000</option>
+                                        <option value="50000">50,000</option>
+                                        <option value="75000">75,000</option>
+                                        <option value="100000">100,000</option>
+                                        <option value="125000">125,000</option>
+                                        <option value="150000">150,000</option>
+                                        <option value="175000">175,000</option>
+                                        <option value="200000">200,000</option>
+                                        <option value="225000">225,000</option>
+                                        <option value="250000">250,000</option>
+                                        <option value="275000">275,000</option>
+                                        <option value="300000">300,000</option>
+                                        <option value="325000">325,000</option>
+                                        <option value="350000">350,000</option>
+                                        <option value="375000">375,000</option>
+                                        <option value="400000">400,000</option>
+                                        <option value="425000">425,000</option>
+                                        <option value="450000">450,000</option>
+                                        <option value="475000">475,000</option>
+                                        <option value="500000">500,000</option>
+                                        <option value="550000">550,000</option>
+                                        <option value="600000">600,000</option>
+                                        <option value="650000">650,000</option>
+                                        <option value="700000">700,000</option>
+                                        <option value="750000">750,000</option>
+                                        <option value="800000">800,000</option>
+                                        <option value="850000">850,000</option>
+                                        <option value="900000">900,000</option>
+                                        <option value="950000">950,000</option>
+                                        <option value="1000000">1,000,000</option>
+                                        <option value="1100000">1,100,000</option>
+                                        <option value="1200000">1,200,000</option>
+                                        <option value="1300000">1,300,000</option>
+                                        <option value="1400000">1,400,000</option>
+                                        <option value="1500000">1,500,000</option>
+                                        <option value="1600000">1,600,000</option>
+                                        <option value="1700000">1,700,000</option>
+                                        <option value="1800000">1,800,000</option>
+                                        <option value="1900000">1,900,000</option>
+                                        <option value="2000000">2,000,000</option>
+                                        <option value="2500000">2,500,000</option>
+                                        <option value="3000000">3,000,000</option>
+                                        <option value="3500000">3,500,000</option>
+                                        <option value="4000000">4,000,000</option>
+                                        <option value="4500000">4,500,000</option>
+                                        <option value="5000000">5,000,000</option>
+                                        <option value="5500000">5,500,000</option>
+                                        <option value="6000000">6,000,000</option>
+                                        <option value="6500000">6,500,000</option>
+                                        <option value="7000000">7,000,000</option>
+                                        <option value="7500000">7,500,000</option>
+                                        <option value="10000000">10,000,000</option>
+                                        <option value="15000000">15,000,000</option>
+                                        <option value="20000000">20,000,000</option>
+                                    </select>
+                                </div> 
+                            </div>
+
+                            <div class="col-3">
+                                <div>
+                                    <label for="max_price" class="form-label mb-0 required">Max Price</label>
+                                    <select class="form-select" aria-label="max_price" name="max_price" id="max_price">
+                                        <option value="0">Unlimited</option>
+                                        <option value="25000">25,000</option>
+                                        <option value="50000">50,000</option>
+                                        <option value="75000">75,000</option>
+                                        <option value="100000">100,000</option>
+                                        <option value="125000">125,000</option>
+                                        <option value="150000">150,000</option>
+                                        <option value="175000">175,000</option>
+                                        <option value="200000">200,000</option>
+                                        <option value="225000">225,000</option>
+                                        <option value="250000">250,000</option>
+                                        <option value="275000">275,000</option>
+                                        <option value="300000">300,000</option>
+                                        <option value="325000">325,000</option>
+                                        <option value="350000">350,000</option>
+                                        <option value="375000">375,000</option>
+                                        <option value="400000">400,000</option>
+                                        <option value="425000">425,000</option>
+                                        <option value="450000">450,000</option>
+                                        <option value="475000">475,000</option>
+                                        <option value="500000">500,000</option>
+                                        <option value="550000">550,000</option>
+                                        <option value="600000">600,000</option>
+                                        <option value="650000">650,000</option>
+                                        <option value="700000">700,000</option>
+                                        <option value="750000">750,000</option>
+                                        <option value="800000">800,000</option>
+                                        <option value="850000">850,000</option>
+                                        <option value="900000">900,000</option>
+                                        <option value="950000">950,000</option>
+                                        <option value="1000000">1,000,000</option>
+                                        <option value="1100000">1,100,000</option>
+                                        <option value="1200000">1,200,000</option>
+                                        <option value="1300000">1,300,000</option>
+                                        <option value="1400000">1,400,000</option>
+                                        <option value="1500000">1,500,000</option>
+                                        <option value="1600000">1,600,000</option>
+                                        <option value="1700000">1,700,000</option>
+                                        <option value="1800000">1,800,000</option>
+                                        <option value="1900000">1,900,000</option>
+                                        <option value="2000000">2,000,000</option>
+                                        <option value="2500000">2,500,000</option>
+                                        <option value="3000000">3,000,000</option>
+                                        <option value="3500000">3,500,000</option>
+                                        <option value="4000000">4,000,000</option>
+                                        <option value="4500000">4,500,000</option>
+                                        <option value="5000000">5,000,000</option>
+                                        <option value="5500000">5,500,000</option>
+                                        <option value="6000000">6,000,000</option>
+                                        <option value="6500000">6,500,000</option>
+                                        <option value="7000000">7,000,000</option>
+                                        <option value="7500000">7,500,000</option>
+                                        <option value="10000000">10,000,000</option>
+                                        <option value="15000000">15,000,000</option>
+                                        <option value="20000000">20,000,000</option>
+                                    </select>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-3">
+                                <div>
+                                    <label for="category" class="form-label mb-0 required">Category</label>
+                                    <select class="form-select" aria-label="category" name="category" id="category">
+                                        <option value="sale">Residential</option>
+                                        <option value="rent">Commercial</option>
+                                    </select>
+                                </div> 
+                            </div>
+
+                            <div class="col-3">
+                                <div>
+                                    <label for="beds" class="form-label mb-0 required">Beds</label>
+                                    <select class="form-select" aria-label="beds" name="beds" id="beds">
+                                        <option value="0-0">Any</option>
+                                        <option value="1-1">1</option>
+                                        <option value="1-0">1+</option>
+                                        <option value="2-2">2</option>
+                                        <option value="2-0">2+</option>
+                                        <option value="3-3">3</option>
+                                        <option value="3-0">3+</option>
+                                        <option value="4-4">4</option>
+                                        <option value="4-0">4+</option>
+                                        <option value="5-5">5</option>
+                                        <option value="5-0">5+</option>
+                                    </select>
+                                </div>  
+                            </div>
+                            
+                            <div class="col-3">
+                                <div>
+                                    <label for="baths" class="form-label mb-0 required">Baths</label>
+                                    <select class="form-select" aria-label="baths" name="baths" id="baths">
+                                        <option value="0-0">Any</option>
+                                        <option value="1-1">1</option>
+                                        <option value="1-0">1+</option>
+                                        <option value="2-2">2</option>
+                                        <option value="2-0">2+</option>
+                                        <option value="3-3">3</option>
+                                        <option value="3-0">3+</option>
+                                        <option value="4-4">4</option>
+                                        <option value="4-0">4+</option>
+                                        <option value="5-5">5</option>
+                                        <option value="5-0">5+</option>
+                                    </select>
+                                </div>  
+                            </div>
+                            
+                            <div class="col-3">
+                                <div>
+                                    <label for="land_size" class="form-label mb-0 required">Land Size</label>
+                                    <select class="form-select" aria-label="land_size" name="land_size" id="land_size">
+                                        <option value=" ">Any</option>
+                                        <option value="1-0">1+ acres</option>
+                                        <option value="2-0">2+ acres</option>
+                                        <option value="5-0">5+ acres</option>
+                                        <option value="10-0">10+ acres</option>
+                                        <option value="50-0">50+ acres</option>
+                                        <option value="100-0">100+ acres</option>
+                                        <option value="200-0">200+ acres</option>
+                                        <option value="300-0">300+ acres</option>
+                                        <option value="400-0">400+ acres</option>
+                                        <option value="500-0">500+ acres</option>
+                                        <option value="1000-0">1000+ acres</option>
+                                    </select>
+                                </div> 
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 align-items-center">
+                            <div class="col-3">
+                                <div>
+                                    <label for="building_type" class="form-label mb-0 required">Building Type</label>
+                                    <select class="form-select" aria-label="building_type" name="building_type" id="building_type">
+                                        <option value=" ">Any</option>
+                                        <option value="1">House</option>
+                                        <option value="16">Row / Townhouse</option>
+                                        <option value="17">Apartment</option>
+                                        <option value="2">Duplex</option>
+                                        <option value="3">Triplex</option>
+                                        <option value="19">Fourplex</option>
+                                        <option value="20">Garden Home</option>
+                                        <option value="6">Mobile Home</option>
+                                        <option value="27">Manufactured Home/Mobile</option>
+                                        <option value="12">Special Purpose</option>
+                                        <option value="5">Residential Commercial Mix</option>
+                                        <option value="29">Manufactured Home</option>
+                                        <option value="28">Commercial Apartment</option>
+                                        <option value="25">Two Apartment House</option>
+                                        <option value="30">Park Model Mobile Home</option>
+                                    </select>
+                                </div>  
+                            </div>
+
+                            <div class="col-3">
+                                <div>
+                                    <label for="listed_since" class="form-label mb-0 required">Listed Since</label>
+                                    <input type="date" name="listed_since" class="form-control" aria-label="listed_since">
+                                </div> 
+                            </div>
+                            
+                            <div class="col-3">
+                                <div class="form-check" style="margin-top: 1.5rem;">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Open Houses Only
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <form method="post" action="{{route('frontend.search_result_function')}}">
+                    {{csrf_field()}}
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn rounded-pill me-2 p-0 ps-3" style="border: 1px solid #CCCCCC; color: #23A1C0">Reset <i class="fas fa-undo ms-3"></i></button>
+                            <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
 
     <!--get app-->

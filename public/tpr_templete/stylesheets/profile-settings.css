@@ -101,7 +101,7 @@
     filter: grayscale(100%);
 }
 
-.advertisement .fa, .fas {
+.advertisement .fa, .advertisement .fas {
     color: #4195E1;
     background-color: white!important;
     padding: 0 0.75rem;

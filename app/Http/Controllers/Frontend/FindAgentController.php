@@ -41,17 +41,12 @@ class FindAgentController extends Controller
     {  
         // dd($request);
 
-        return redirect()->route('frontend.find-agent',[
+        return redirect()->route('frontend.find-agent', [
             $request->area,
             $request->agent_type,
             $request->agent_name
         ]);
 
-
-
     }
-
-
-
 
 }

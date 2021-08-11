@@ -107,9 +107,37 @@ class HomeController extends Controller
     }
 
 
-    public function get_search_result(Request $request)
+    public function get_search_result()
     {
-        dd($request);
+        
+        $key_name = request('search_keyword');
+        $category_type = request('category');
+        $max_price = 'max_price';
+        $min_price = 'min_price';
+        $transaction_type = 'transaction_type';
+        $property_type = 'property_type';
+        $beds = 'beds';
+        $baths = 'baths';
+        $land_size = 'land_size';
+        $listed_since = 'listed_since';
+        $building_type = 'building_type';
+        $open_house = 'open_house';
+
+
+        return redirect()->route('frontend.search_function', [
+            request('search_keyword'),
+            $max_price,
+            $min_price,
+            request('category'),
+            $transaction_type,
+            $property_type,
+            $beds,
+            $baths,
+            $land_size,
+            $listed_since,
+            $building_type,
+            $open_house
+        ]);
     }
 
 
@@ -128,14 +156,37 @@ class HomeController extends Controller
     }
 
 
-    public function search_function($key_name,$max_price,$min_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_hours)
+    public function search_function($key_name,$max_price,$min_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house)
     {
 
+        $property_types = PropertyType::where('status','=','1')->get();
+
         $properties = Properties::query();
+
+        // $search = request('name');
+        // $category_type = request('category');
+        // $max_price = request('max_price');
+        // $min_price = request('min_price');
+        // $transaction_type = request('transaction_type)';
+        // $property_type = request('property_type');
+        // $beds = request('beds');
+        // $baths = request('baths');
+        // $land_size = request('land_size');
+        // $listed_since = request('listed_since');
+        // $building_type = request('building_type');
+        // $open_house = request('open_house');
+
+        // dd($category_type);
+
+        
 
         if($key_name != 'key_name'){
             $properties->where('name', $key_name);
         }
+
+        // if($search != null){
+        //     $properties->where('name', $search);
+        // }
 
         if($max_price != 'max_price'){
             $properties->where('name', $max_price);
@@ -177,14 +228,25 @@ class HomeController extends Controller
             $properties->where('building_type', $building_type);
         }
 
-        if($open_hours != 'open_hours'){
-            $properties->where('open_hours', $open_hours);
+        if($open_house != 'open_house'){
+            $properties->where('open_hours', $open_house);
         }
+
+        // dd($category_type, $key_name, $max_price,
+        // $min_price,
+        // $transaction_type,
+        // $property_type,
+        // $beds,
+        // $baths,
+        // $land_size,
+        // $listed_since,
+        // $building_type,
+        // $open_house);
 
 
 
         $filteredProperty = $properties->get();
 
-        return view('frontend.residential', ['filteredProperty' => $filteredProperty]);
+        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types]);
     }
 }

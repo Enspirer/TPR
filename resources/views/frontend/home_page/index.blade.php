@@ -34,6 +34,7 @@
                     <form method="post" action="{{route('frontend.search_result_function')}}">
                         <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
                              {{csrf_field()}}
+                                <input type="hidden" name="category" value="residential">
                                <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search">
                                <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
                                <button type="submit" class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
@@ -42,11 +43,15 @@
                 </div>
 
                 <div class="tab-pane fade" id="pills-commercial" role="tabpanel" aria-labelledby="pills-commercial-tab">
-                    <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                        <input type="text" class="form-control p-3 rounded-0" aria-label="search">
-                        <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
-                        <button class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
-                    </div>
+                    <form method="post" action="{{route('frontend.search_result_function')}}">
+                        <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                        {{csrf_field()}}
+                            <input type="hidden" name="category" value="commercial">
+                            <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search">
+                            <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
+                            <button type="submit" class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
