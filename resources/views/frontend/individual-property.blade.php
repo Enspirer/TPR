@@ -286,8 +286,6 @@
                     @endif
                         
                         <hr class="mt-5" style="border: 1px solid #707070;">
-                        <h6 class="fw-bold mt-4 mb-3" style="margin-left: 3rem;">Sample Text</h6>
-                        <h6 class="fw-bold" style="margin-left: 3rem;">Sample Text</h6>
                     </div>
 
                     

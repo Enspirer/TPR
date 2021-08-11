@@ -46,3 +46,15 @@ Breadcrumbs::for('admin.agent.edit', function ($trail) {
     $trail->push('Approval', route('admin.agent.edit',1));
 });
 
+Breadcrumbs::for('admin.contact_us.index', function ($trail) {
+    $trail->push('Contact Us', route('admin.contact_us.index'));
+});
+
+Breadcrumbs::for('admin.contact_us.edit', function ($trail) {
+    $trail->push('Edit Contact Us', route('admin.contact_us.edit',1));
+});
+
+Breadcrumbs::for('admin.settings.index', function ($trail) {
+    $trail->push('Settings', route('admin.settings.index'));
+});
+

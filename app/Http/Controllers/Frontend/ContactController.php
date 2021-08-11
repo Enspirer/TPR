@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\Contact\SendContactRequest;
 use App\Mail\Frontend\Contact\SendContact;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
+use DB;
+use App\Models\ContactUs;
 
 /**
  * Class ContactController.
@@ -19,6 +22,30 @@ class ContactController extends Controller
     {
         return view('frontend.contact');
     }
+
+    public function store(Request $request)
+    {        
+        // dd($request);     
+   
+        $contactus = new ContactUs;
+
+        $contactus->name=$request->name;
+        $contactus->phone=$request->phone;
+        $contactus->email=$request->email;
+        $contactus->message=$request->message;
+        $contactus->status='Pending'; 
+
+        $contactus->save();
+       
+        session()->flash('message','Thanks!');
+
+        return back();    
+    }
+
+
+
+
+
 
     /**
      * @param SendContactRequest $request

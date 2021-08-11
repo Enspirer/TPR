@@ -29,7 +29,7 @@
 
     <section id="profile-picture">
         <div class="container position-relative" style="margin-top: 7rem;">
-            <img src="{{ url('images/no_image_available.png') }}" alt="" class="profile-picture">
+            <img src="{{ url('images/no_image_available.png') }}" alt="" style="border-style: solid;border-width: 2px; border-color:black;" class="profile-picture">
         </div>
     </section>
 
@@ -37,7 +37,7 @@
 
     <section id="profile-picture">
         <div class="container position-relative" style="margin-top: 7rem;">
-            <img src="{{ url('files/agent_request',$agent_details->photo) }}" alt="" class="profile-picture">
+            <img src="{{ url('files/agent_request',$agent_details->photo) }}" alt="" style="border-style: solid;border-width: 2px; border-color:black;" class="profile-picture">
         </div>
     </section>
     

@@ -40,14 +40,19 @@
                     </li>
                         
                 </ul>
-            </li>
-
-            
+            </li>            
 
             <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/agent'))}}" href="{{ route('admin.agent.index') }}">
                     <i class="nav-icon fas fa-user-tie"></i>
                     Agent Request
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">
+                    <i class="nav-icon fas fa-comments"></i>
+                    Contact Us
                 </a>
             </li>
 
@@ -57,6 +62,15 @@
                 <li class="nav-title">
                     @lang('menus.backend.sidebar.system')
                 </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link {{active_class(Route::is('admin/settings'))}}" href="{{ route('admin.settings.index') }}">
+                        <i class="nav-icon fas fa-cog"></i>
+                        Settings
+                    </a>
+                </li>
+
 
                 <li class="nav-item nav-dropdown {{
                     active_class(Route::is('admin/auth*'), 'open')
