@@ -15,7 +15,7 @@ class FindAgentController extends Controller
      */
     public function index($area, $agent_type, $agent_name)
     {
-        $agents = AgentRequest::where('status','Approval');
+        $agents = AgentRequest::where('status','Approved');
 
         if($area != 'area'){
 
@@ -44,7 +44,7 @@ class FindAgentController extends Controller
         return redirect()->route('frontend.find-agent',[
             $request->area,
             $request->agent_type,
-            $request->name
+            $request->agent_name
         ]);
 
 

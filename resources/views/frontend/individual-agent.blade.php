@@ -10,18 +10,40 @@
 
 
     <!-- banner -->
-    <section id="index-banner">
-        <div class="container-fluid banner" style="background-image: url('{{url('files/agent_request/',$agent_details->cover_photo)}}');">
+
+    @if($agent_details->cover_photo == null)
+        <section id="index-banner">
+            <div class="container-fluid banner" style="background-image: url('{{ url('images/no_image_available.png') }}');">
+            </div>
+        </section>
+    @else
+        <section id="index-banner">
+            <div class="container-fluid banner" style="background-image: url('{{url('files/agent_request/',$agent_details->cover_photo)}}');">
+            </div>
+        </section>
+    @endif
+
+    <!-- profile picture -->
+
+    @if($agent_details->photo == null)
+
+    <section id="profile-picture">
+        <div class="container position-relative" style="margin-top: 7rem;">
+            <img src="{{ url('images/no_image_available.png') }}" alt="" class="profile-picture">
         </div>
     </section>
 
+    @else
 
-    <!-- profile picture -->
     <section id="profile-picture">
         <div class="container position-relative" style="margin-top: 7rem;">
             <img src="{{ url('files/agent_request',$agent_details->photo) }}" alt="" class="profile-picture">
         </div>
     </section>
+    
+    @endif
+   
+    
 
 
 
