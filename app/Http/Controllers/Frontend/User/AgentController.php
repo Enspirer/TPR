@@ -241,6 +241,8 @@ class AgentController extends Controller
     public function createProperty()
     {
         $property_type = PropertyType::where('status','=','1')->get();
+        $properties = Properties::where('user_id',  $id)->get();
+
 
         return view('frontend.user.create-property',[
             'property_type' => $property_type
