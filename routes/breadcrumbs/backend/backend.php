@@ -20,7 +20,7 @@ Breadcrumbs::for('admin.country.edit', function ($trail) {
 });
 
 Breadcrumbs::for('admin.property.index', function ($trail) {
-    $trail->push('Property List', route('admin.property.index'));
+    $trail->push('Property Request (Country Manager Approved)', route('admin.property.index'));
 });
 
 Breadcrumbs::for('admin.property.edit', function ($trail) {
@@ -40,7 +40,7 @@ Breadcrumbs::for('admin.property_type.edit', function ($trail) {
 });
 
 Breadcrumbs::for('admin.agent.index', function ($trail) {
-    $trail->push('Agent Request', route('admin.agent.index'));
+    $trail->push('Agent Request (Country Manager Approved)', route('admin.agent.index'));
 });
 Breadcrumbs::for('admin.agent.edit', function ($trail) {
     $trail->push('Approval', route('admin.agent.edit',1));

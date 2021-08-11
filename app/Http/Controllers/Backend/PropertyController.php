@@ -20,7 +20,7 @@ class PropertyController extends Controller
     {
         if($request->ajax())
         {
-            $data = Properties::all();
+            $data = Properties::where('country_manager_approval','=','Approved');
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){
@@ -31,10 +31,10 @@ class PropertyController extends Controller
                     })
                     
                     ->editColumn('admin_approval', function($data){
-                        if($data->admin_approval == 'Approval'){
-                            $status = '<span class="badge badge-success">Approval</span>';
-                        }elseif($data->admin_approval == 'Decline'){
-                            $status = '<span class="badge badge-danger">Decline</span>';
+                        if($data->admin_approval == 'Approved'){
+                            $status = '<span class="badge badge-success">Approved</span>';
+                        }elseif($data->admin_approval == 'Rejected'){
+                            $status = '<span class="badge badge-danger">Rejected</span>';
                         }else{
                             $status = '<span class="badge badge-warning">Pending</span>';
                         }   

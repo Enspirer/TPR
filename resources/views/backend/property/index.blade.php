@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Property List'))
+@section('title', __('Property Request'))
 
 @section('content')
 
@@ -10,7 +10,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Property List&nbsp;</strong>
+                    <strong>Property Request &nbsp;(Country Manager Approved)</strong>
 
                     <!-- <a href="{{route('admin.country.create')}}" class="btn btn-primary pull-right ml-4">Create New</a> -->
                    
@@ -25,7 +25,6 @@
                                 <th scope="col">Country</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Admin Approval</th>
-                                <th scope="col">Country Manager Approval</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -82,7 +81,6 @@
                     {data: 'country', name: 'country'},
                     {data: 'price', name: 'price'},
                     {data: 'admin_approval', name: 'admin_approval'},
-                    {data: 'country_manager_approval', name: 'country_manager_approval'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });

@@ -151,8 +151,8 @@
                             <div class="form-group">
                                 <label>Admin Approval</label>
                                 <select class="form-control" name="admin_approval" required>
-                                    <option value="Approval" {{ $property->admin_approval == 'Approval' ? "selected" : "" }}>Approval</option>   
-                                    <option value="Decline" {{ $property->admin_approval == 'Decline' ? "selected" : "" }}>Decline</option> 
+                                    <option value="Approved" {{ $property->admin_approval == 'Approved' ? "selected" : "" }}>Approve</option>   
+                                    <option value="Rejected" {{ $property->admin_approval == 'Rejected' ? "selected" : "" }}>Reject</option> 
                                     <option value="Pending" {{ $property->admin_approval == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>

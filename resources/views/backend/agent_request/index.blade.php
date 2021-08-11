@@ -10,7 +10,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Agent Request&nbsp;</strong>
+                    <strong>Agent Request &nbsp;(Country Manager Approved)</strong>
 
                     <!-- <a href="{{route('admin.country.create')}}" class="btn btn-primary pull-right ml-4">Create New</a> -->
                    

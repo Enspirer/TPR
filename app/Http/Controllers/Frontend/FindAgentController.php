@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\AgentRequest;
 
@@ -36,5 +36,22 @@ class FindAgentController extends Controller
 
         return view('frontend.find-agent', ['agents' => $agents]);
     }
+
+    public function store(Request $request)
+    {  
+        // dd($request);
+
+        return redirect()->route('frontend.find-agent',[
+            $request->area,
+            $request->agent_type,
+            $request->name
+        ]);
+
+
+
+    }
+
+
+
 
 }

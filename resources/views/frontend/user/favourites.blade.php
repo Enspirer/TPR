@@ -36,7 +36,7 @@
 
                         @if(count($favourite) == 0)
 
-                        <h4 style="margin:200px 0 0 200px">No Any Favourite Properties</h4>
+                        <h4 style="margin:200px 0 0 200px; color:#808080;">No Any Favourite Properties</h4>
 
                         @else
                             @foreach($property as $key=> $prop)

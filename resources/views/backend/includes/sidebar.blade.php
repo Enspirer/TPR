@@ -30,7 +30,7 @@
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/property'))}}" href="{{ route('admin.property.index') }}">
-                            Property List
+                            Property Request
                         </a>
                     </li>
                     <li class="nav-item">

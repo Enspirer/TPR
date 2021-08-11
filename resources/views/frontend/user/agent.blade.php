@@ -27,7 +27,7 @@
                 <div class="row justify-content-between mt-4">
 
                     <div class="container-fluid jumbotron text-center" style="background-color: #c6e4ee; border-radius: 15px 50px;">
-                    <h1 style="margin-top:60px;" class="display-5">Succesfully Created!</h1><br>
+                    <h1 style="margin-top:60px;" class="display-5">Created Succesfully!</h1><br>
                         <!-- <p class="lead"><h3>Your request is sent. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p> -->
                         <hr><br>    
                         <p class="lead">
@@ -123,8 +123,8 @@
                                             <label class="form-label mb-0 mt-4 required">Agent Type</label>
                                             <select class="form-select agent_type" name="agent_type" required>
                                                 <option selected disabled value="">Choose...</option>
-                                                <option value="company">Company</option>
-                                                <option value="individual">Individual</option>
+                                                <option value="Company">Company</option>
+                                                <option value="Individual">Individual</option>
                                             </select>
                                         </div>  
                                     </div>                                    

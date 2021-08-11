@@ -18,28 +18,27 @@
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laudantium impedit nobis ea praesentium. Laudantium?</h3>
                     </div>
                     <div class="col-5">
-                        <form>
+                        <form action="{{route('frontend.find-agent.store')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                             <div class="mb-4">
                                 <select class="form-select p-3" aria-label="Default select example" name="area">
-                                    <option selected>Area</option>
-                                    <option value="1">Colombo</option>
-                                    <option value="2">Jaffna</option>
-                                    <option value="3">Kandy</option>
+                                    <option selected disabled value="">Area</option>
+                                    <option value="Colombo">Colombo</option>
+                                    <option value="Jaffna">Jaffna</option>
+                                    <option value="Kandy">Kandy</option>
                                   </select>
                             </div>
                             <div class="mb-4">
                                 <select class="form-select p-3" aria-label="Default select example" name="agent_type">
-                                    <option selected>Agent Type</option>
-                                    <option value="1">lorem</option>
-                                    <option value="2">lorem</option>
-                                    <option value="3">lorem</option>
+                                    <option selected disabled value="">Agent Type</option>
+                                    <option value="Company">Company</option>
+                                    <option value="Individual">Individual</option>
                                   </select>
                             </div>
                             <div class="mb-4">
                             <input class="form-control p-3" name="name" id="name" placeholder="Agent Name"></input>
                             </div>
-                            <button type="submit" class="btn rounded-0 fw-bold fs-5 p-2" style="background-color: #77CEEC; width:100%; color:white;">Search</button>
+                                <input type="submit" class="btn rounded-0 fw-bold fs-5 p-2" style="background-color: #77CEEC; width:100%; color:white;" value="Search" />
                         </form>
                     </div>
                 </div>
@@ -53,64 +52,70 @@
         <div class="container" style="margin-top: 6rem;">
             <h3 class="fw-bolder">Directory of Real Estate Agents / Brokers / Realtors in Sri Lanka</h3>
 
-            @foreach($agents as $agent)
-                @if($agent->status == 'Approval')
-                    <div class="row shadow py-5 px-4" style="margin-top: 5rem;">
-                        <div class="col-4">
-                            <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-8">
-                            <div class="row">
-                                <div class="clearfix">
-                                    <div class="float-start">
-                                        <h5 class="fw-bolder">{{ $agent->company_name }}</h5>
-                                    </div>
-                                    <div class="float-end">
-                                        <i class="bi bi-star-fill me-3 stars"></i>
-                                        <i class="bi bi-star-fill me-3 stars"></i>
-                                        <i class="bi bi-star-fill me-3 stars"></i>
-                                        <i class="bi bi-star-fill me-3 stars"></i>
-                                        <i class="bi bi-star-fill me-3 stars"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6>Area(s) covered: Island Wide.</h6>
-                            <div class="row mt-3">
-                                <div class="col-2 p-1">
-                                    <button class="btn w-100 text-white" style="background-color: #77CEEC; border-radius: 0.7rem;">Sales</button>
-                                </div>
-                                <div class="col-2 p-1">
-                                    <button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem;">Rentals</button>
-                                </div>
-                                <div class="col-2 p-1">
-                                    <button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
-                                </div>
-                                <div class="col-2 p-1">
-                                    <button class="btn w-100 text-white" style="background-color: #7DCAC4; border-radius: 0.7rem;">PropertyLand</button>
-                                </div>
-                            </div>
-                            <p class="mt-3" style="text-align: justify;">{{ $agent->description_message }}</p>
+            @if(count(array($agents)) == 0)
+                <h2 align="center" style="margin-top:130px; color:#808080;">Agents Are Not Found</h2>
+            @else
 
-                            <div class="row">
-                                <div class="clearfix">
-                                    <div class="float-end">
-                                        <a href="{{ route('frontend.individual-agent', $agent->id) }}"><button class="btn border-1 border-dark rounded-0 px-5 py-2">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                @foreach($agents as $agent)
+                    @if($agent->status == 'Approval')
+                        <div class="row shadow py-5 px-4" style="margin-top: 5rem;">
+                            <div class="col-4">
+                                <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="clearfix">
+                                        <div class="float-start">
+                                            <h5 class="fw-bolder">{{ $agent->company_name }}</h5>
+                                        </div>
+                                        <div class="float-end">
+                                            <i class="bi bi-star-fill me-3 stars"></i>
+                                            <i class="bi bi-star-fill me-3 stars"></i>
+                                            <i class="bi bi-star-fill me-3 stars"></i>
+                                            <i class="bi bi-star-fill me-3 stars"></i>
+                                            <i class="bi bi-star-fill me-3 stars"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h6>Area(s) covered: Island Wide.</h6>
+                                <div class="row mt-3">
+                                    <div class="col-2 p-1">
+                                        <button class="btn w-100 text-white" style="background-color: #77CEEC; border-radius: 0.7rem;">Sales</button>
+                                    </div>
+                                    <div class="col-2 p-1">
+                                        <button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem;">Rentals</button>
+                                    </div>
+                                    <div class="col-2 p-1">
+                                        <button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
+                                    </div>
+                                    <div class="col-2 p-1">
+                                        <button class="btn w-100 text-white" style="background-color: #7DCAC4; border-radius: 0.7rem;">PropertyLand</button>
+                                    </div>
+                                </div>
+                                <p class="mt-3" style="text-align: justify;">{{ $agent->description_message }}</p>
+
+                                <div class="row">
+                                    <div class="clearfix">
+                                        <div class="float-end">
+                                            <a href="{{ route('frontend.individual-agent', $agent->id) }}"><button class="btn border-1 border-dark rounded-0 px-5 py-2">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col-4">
+                                        <button class="btn w-100 agent-contact"><i class="fas fa-mobile-alt me-2"></i>{{ $agent->telephone }}</button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="btn w-100 agent-contact"><i class="fas fa-envelope me-2"></i>{{ $agent->email }}</button>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="row mt-2">
-                                <div class="col-4">
-                                    <button class="btn w-100 agent-contact"><i class="fas fa-mobile-alt me-2"></i>{{ $agent->telephone }}</button>
-                                </div>
-                                <div class="col-4">
-                                    <button class="btn w-100 agent-contact"><i class="fas fa-envelope me-2"></i>{{ $agent->email }}</button>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                @endif
-            @endforeach
+                    @endif
+                @endforeach
+
+            @endif    
 
         </div>
     </section>

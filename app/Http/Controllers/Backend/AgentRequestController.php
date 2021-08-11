@@ -20,7 +20,7 @@ class AgentRequestController extends Controller
     {
         if($request->ajax())
         {
-            $data = AgentRequest::all();
+            $data = AgentRequest::where('country_manager_approval','=','Approved')->get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){
@@ -31,10 +31,10 @@ class AgentRequestController extends Controller
                     })
                     
                     ->editColumn('status', function($data){
-                        if($data->status == 'Approval'){
-                            $status = '<span class="badge badge-success">Approval</span>';
-                        }elseif($data->status == 'Decline'){
-                            $status = '<span class="badge badge-danger">Decline</span>';
+                        if($data->status == 'Approved'){
+                            $status = '<span class="badge badge-success">Approved</span>';
+                        }elseif($data->status == 'Rejected'){
+                            $status = '<span class="badge badge-danger">Rejected</span>';
                         }else{
                             $status = '<span class="badge badge-warning">Pending</span>';
                         }   
