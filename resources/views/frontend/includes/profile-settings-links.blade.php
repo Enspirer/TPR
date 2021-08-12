@@ -94,7 +94,7 @@
 
         
 
-        <h5 class="px-3 mt-4 pb-2 mb-0">My Settings</h5>
+        <!-- <h5 class="px-3 mt-4 pb-2 mb-0">My Settings</h5>
 
         <a class="nav-link border-0 bg-white ps-5 w-100" id="nav-search-tab" href="{{ route('frontend.user.properties') }}" type="button" role="tab" aria-controls="nav-search" aria-selected="true">Search Criteria</a>
 
@@ -103,7 +103,7 @@
 
         <h4 class="px-3 mt-4 pb-2 mb-0">Notification Settings</h4>
 
-        <a class="nav-link border-0 bg-white ps-5 w-100 pb-3 {{ Request::segment(1) == 'preferences' ? 'active' : null }}" id="nav-preferences-tab" href="{{ route('frontend.user.preferences') }}" type="button" role="tab" aria-controls="nav-preferences" aria-selected="true">Preferences</a>
+        <a class="nav-link border-0 bg-white ps-5 w-100 pb-3 {{ Request::segment(1) == 'preferences' ? 'active' : null }}" id="nav-preferences-tab" href="{{ route('frontend.user.preferences') }}" type="button" role="tab" aria-controls="nav-preferences" aria-selected="true">Preferences</a> -->
 
     </div>
 </div>

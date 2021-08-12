@@ -165,7 +165,7 @@
                                     <div class="col-7">
                                         <h6 class="text-secondary">Listed on {{ $property->created_at->toDateString() }}</h6>
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-6">
                                         <div class="row">
                                             <div class="col-6">
                                                 <p><i class="bi bi-telephone me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
@@ -227,12 +227,6 @@
                             <div class="col-12 text-center">
                                 <button class="btn border-dark border-1 rounded-0 py-2 fw-bold fs-5" style="padding: 0 4.7rem;"><i class="bi bi-envelope"></i> Create email alert</button>
                             </div>
-                            <div class="col-12 text-center mt-4">
-                                <button class="btn border-dark border-1 rounded-0 py-2 fw-bold fs-5" style="padding: 0 5rem;"><i class="bi bi-heart me-1"></i> Save this search</button>
-                            </div>
-                            <hr class="mt-5" style="border: 1px solid #686767;">
-                            <h5 class="fw-bold mt-4 mb-3" style="margin-left: 10rem;">Sample Text</h5>
-                            <h5 class="fw-bold" style="margin-left: 10rem;">Sample Text</h5>
                         </div>
 
                         <div class="row shadow mt-5">
