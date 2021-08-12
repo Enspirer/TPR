@@ -45,6 +45,7 @@ class HomeController extends Controller
 
                    $property = Properties::where('lat', 'like', '%' .  substr($cordinate->lat, 0, 7) . '%')
                        ->where('long', 'like', '%' .  substr($cordinate->long, 0, 7) . '%')
+                       ->where('admin_approval','Approved')
                        ->first();
                    array_push($out,$property);
                }
@@ -57,7 +58,7 @@ class HomeController extends Controller
 
     public function index($country_id,Request $request)
     {
-        $promu = Properties::all();
+        $promu = Properties::where('admin_approval','Approved')->get();
 
         $latest = Properties::latest()->take(3)->get();
 
