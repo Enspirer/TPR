@@ -68,7 +68,7 @@
 
             <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Agent Approval</a>
 
-            <button class="dropdown-btn border-bottom w-100 pb-3" style="color:#0d6efd; margin: 5px 0 0 -7px;">
+            <button class="dropdown-btn border-bottom w-100 pb-3 advertisement" style="color:#0d6efd; margin: 5px 0 0 -7px;">
                 Advertisement Management
                 <i class="fas fa-caret-down"></i>
             </button>

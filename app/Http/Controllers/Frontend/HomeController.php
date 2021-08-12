@@ -110,25 +110,162 @@ class HomeController extends Controller
     public function get_search_result()
     {
         
-        $key_name = request('search_keyword');
-        $category_type = request('category');
-        $max_price = 'max_price';
-        $min_price = 'min_price';
-        $transaction_type = 'transaction_type';
-        $property_type = 'property_type';
-        $beds = 'beds';
-        $baths = 'baths';
-        $land_size = 'land_size';
-        $listed_since = 'listed_since';
-        $building_type = 'building_type';
-        $open_house = 'open_house';
+
+        if(request('search_keyword') != null) {
+            $key_name = request('search_keyword');
+        }
+        else {
+            $key_name = 'key_name';
+        }
+
+
+        if(request('category_type') != null) {
+            $category_type = request('category_type');
+        }
+        else {
+            $category_type = 'category_type';
+        }
+
+
+        if(request('max_price') != 0) {
+            $max_price = request('max_price');
+        }
+        else {
+            $max_price = 'max_price';
+        }
+
+
+        if(request('min_price') != 0) {
+            $min_price = request('min_price');
+        }
+        else {
+            $min_price = 'min_price';
+        }
+
+
+        if(request('transaction_type') != null) {
+            $transaction_type = request('transaction_type');
+        }
+        else {
+            $transaction_type = 'transaction_type';
+        }
+
+
+        if(request('propertyType') != null) {
+            $property_type = request('propertyType');
+        }
+        else {
+            $property_type = 'property_type';
+        }
+
+
+        if(request('beds') != null) {
+            $beds = request('beds');
+        }
+        else {
+            $beds = 'beds';
+        }
+
+
+        if(request('baths') != null) {
+            $baths = request('baths');
+        }
+        else {
+            $baths = 'baths';
+        }
+
+        if(request('land_size') != null) {
+            $land_size = request('land_size');
+        }
+        else {
+            $land_size = 'land_size';
+        }
+
+        if(request('listed_since') != null) {
+            $listed_since = request('listed_since');
+        }
+        else {
+            $listed_since = 'listed_since';
+        }
+
+        if(request('building_type') != null) {
+            $building_type = request('building_type');
+        }
+        else {
+            $building_type = 'building_type';
+        }
+
+        if(request('open_house') != null) {
+            $open_house = request('open_house');
+        }
+        else {
+            $open_house = 'open_house';
+        }
+
+        if(request('zoning_type') != null) {
+            $zoning_type = request('zoning_type');
+        }
+        else {
+            $zoning_type = 'zoning_type';
+        }
+
+        if(request('number_of_units') != null) {
+            $units = request('number_of_units');
+        }
+        else {
+            $units = 'units';
+        }
+
+
+        if(request('building_size') != null) {
+            $building_size = request('building_size');
+        }
+        else {
+            $building_size = 'building_size';
+        }
+
+
+        if(request('farm_type') != null) {
+            $farm_type = request('farm_type');
+        }
+        else {
+            $farm_type = 'farm_type';
+        }
+
+
+        if(request('parking_type') != null) {
+            $parking_type = request('parking_type');
+        }
+        else {
+            $parking_type = 'parking_type';
+        }
+
+
+
+        // dd($key_name,
+        //     $max_price,
+        //     $min_price,
+        //     $category_type,
+        //     $transaction_type,
+        //     $property_type,
+        //     $beds,
+        //     $baths,
+        //     $land_size,
+        //     $listed_since,
+        //     $building_type,
+        //     $open_house,
+        //     $zoning_type,
+        //     $units,
+        //     $building_size,
+        //     $farm_type,
+        //     $parking_type);
 
 
         return redirect()->route('frontend.search_function', [
-            request('search_keyword'),
+            $key_name,
             $max_price,
             $min_price,
-            request('category'),
+            $category_type,
             $transaction_type,
             $property_type,
             $beds,
@@ -136,7 +273,12 @@ class HomeController extends Controller
             $land_size,
             $listed_since,
             $building_type,
-            $open_house
+            $open_house,
+            $zoning_type,
+            $units,
+            $building_size,
+            $farm_type,
+            $parking_type
         ]);
     }
 
@@ -156,37 +298,18 @@ class HomeController extends Controller
     }
 
 
-    public function search_function($key_name,$max_price,$min_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house)
+    public function search_function($key_name,$max_price,$min_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type)
     {
 
         $property_types = PropertyType::where('status','=','1')->get();
 
         $properties = Properties::query();
 
-        // $search = request('name');
-        // $category_type = request('category');
-        // $max_price = request('max_price');
-        // $min_price = request('min_price');
-        // $transaction_type = request('transaction_type)';
-        // $property_type = request('property_type');
-        // $beds = request('beds');
-        // $baths = request('baths');
-        // $land_size = request('land_size');
-        // $listed_since = request('listed_since');
-        // $building_type = request('building_type');
-        // $open_house = request('open_house');
-
-        // dd($category_type);
-
-        
+       
 
         if($key_name != 'key_name'){
-            $properties->where('name', $key_name);
+            $properties->where('name', 'like', '%' .  $key_name . '%');
         }
-
-        // if($search != null){
-        //     $properties->where('name', $search);
-        // }
 
         if($max_price != 'max_price'){
             $properties->where('name', $max_price);
@@ -209,11 +332,21 @@ class HomeController extends Controller
         }
 
         if($beds != 'beds'){
-            $properties->where('beds', $beds);
+            if($beds == 'greater-than-5') {
+                $properties->where('beds', '>', 5);
+            }
+            else {
+                $properties->where('beds', $beds);
+            }
         }
 
         if($baths != 'baths'){
-            $properties->where('baths', $baths);
+            if($baths == 'greater-than-5') {
+                $properties->where('baths', '>', 5);
+            }
+            else {
+                $properties->where('baths', $baths);
+            }
         }
 
         if($land_size != 'land_size'){
@@ -232,20 +365,48 @@ class HomeController extends Controller
             $properties->where('open_hours', $open_house);
         }
 
-        // dd($category_type, $key_name, $max_price,
-        // $min_price,
-        // $transaction_type,
-        // $property_type,
-        // $beds,
-        // $baths,
-        // $land_size,
-        // $listed_since,
-        // $building_type,
-        // $open_house);
+        if($zoning_type != 'zoning_type'){
+            $properties->where('zoning_type', $zoning_type);
+        }
 
+        if($units != 'units'){
+            $properties->where('number_of_units', $units);
+        }
+
+        if($building_size != 'building_size'){
+            $properties->where('building_size', $building_size);
+        }
+
+        if($farm_type != 'farm_type'){
+            $properties->where('farm_type', $farm_type);
+        }
+
+        if($parking_type != 'parking_type'){
+            $properties->where('parking_type', $parking_type);
+        }
+
+        // dd($key_name,
+        //     $max_price,
+        //     $min_price,
+        //     $category_type,
+        //     $transaction_type,
+        //     $property_type,
+        //     $beds,
+        //     $baths,
+        //     $land_size,
+        //     $listed_since,
+        //     $building_type,
+        //     $open_house,
+        //     $zoning_type,
+        //     $units,
+        //     $building_size,
+        //     $farm_type,
+        //     $parking_type);
 
 
         $filteredProperty = $properties->get();
+
+        // dd($filteredProperty);
 
         return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types]);
     }

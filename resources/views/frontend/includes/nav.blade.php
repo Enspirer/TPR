@@ -68,11 +68,11 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
                 <ul class="navbar-nav">
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400">
-                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.residential' )}}">Residential</a>
+                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.search_function', ['key_name', 'max_price', 'min_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type'] )}}">Residential</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">
-                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.commercial' )}}">Commercial</a>
+                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.search_function', ['key_name', 'max_price', 'min_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type'] )}}">Commercial</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="600">

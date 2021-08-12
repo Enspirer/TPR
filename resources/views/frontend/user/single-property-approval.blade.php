@@ -6,7 +6,7 @@
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/profile-settings.css') }}">
-    <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/individual-property.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/individual-property.css') }}"> -->
 @endpush
 
     <div class="container user-settings" style="margin-top:8rem;">
@@ -32,11 +32,11 @@
                                                     
                                                     @if($index == 0)
                                                         <div class="carousel-item active">
-                                                            <img src="{{url('images', App\Models\FileManager::where('id', $image)->first()->file_name)}}" class="d-block w-100" alt="...">
+                                                            <img src="{{url('image_assest', $image)}}" class="d-block w-100" alt="..." style="height: 500px; object-fit:cover;">
                                                         </div>
                                                     @else
                                                         <div class="carousel-item">
-                                                            <img src="{{url('images', App\Models\FileManager::where('id', $image)->first()->file_name)}}" class="d-block w-100" alt="...">
+                                                            <img src="{{url('image_assest', $image)}}" class="d-block w-100" alt="..." style="height: 500px; object-fit:cover;">
                                                         </div>
                                                     @endif
 
@@ -140,9 +140,9 @@
                                                         </div>
 
                                                     <div class="card-body">
-                                                        <h5 class="card-title text-center">{{ App\Models\AgentRequest::where('id', $single_approval->user_id)->first()->name }}</h5>
-                                                        <p class="card-text mb-0">Email : {{ App\Models\AgentRequest::where('id', $single_approval->user_id)->first()->email }}</p>
-                                                        <p class="card-text mb-0">Phone : {{ App\Models\AgentRequest::where('id', $single_approval->user_id)->first()->telephone }}</p>
+                                                        <h5 class="card-title text-center">{{ App\Models\AgentRequest::where('user_id', $single_approval->user_id)->first()->name }}</h5>
+                                                        <p class="card-text mb-0">Email : {{ App\Models\AgentRequest::where('user_id', $single_approval->user_id)->first()->email }}</p>
+                                                        <p class="card-text mb-0">Phone : {{ App\Models\AgentRequest::where('user_id', $single_approval->user_id)->first()->telephone }}</p>
                                                     </div>
                                                 </div>
                                             </div>
