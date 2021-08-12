@@ -1,4 +1,3 @@
-
 <label class="form-label">{{$file_caption}}</label>
     <div type="text" class="box-{{$file_input_name}}" style="border-color: grey; color: grey; padding: 35px; text-align: center; border-style: dashed; border-width: 1px;" data-bs-toggle="modal" data-bs-target="#file_manager_{{$file_input_name}}">
         <div id="upload_content_{{$file_input_name}}">
@@ -6,29 +5,16 @@
         </div>
     </div>
 
-    <div id="{{ $id }}" class="d-none">
+    <div id="{{ $id }}" class="">
             
-        @if($multiple == false)
-            @if($data == null)
-
-            @else
-                @foreach($data as $d)
-                    <!-- <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p> -->
-                    <input type="text" value="{{ $d }}" name='old_feature_image_id'>
-                @endforeach
-            @endif
-
-        @elseif($multiple == true)
-            @if($data == null)
-
-            @else
-                @foreach($data as $d)
-                    <!-- <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p> -->
-                    <input type="text" value="{{ $d }}" name='image_ids[]'>
-                @endforeach
-            @endif
-        @endif
-
+        @if($data == null)
+        
+        @else
+            @foreach($data as $d)
+                <!-- <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p> -->
+                <input type="text" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="feature_image_id">
+            @endforeach
+        @endif   
     </div>
 
     <div class="{{ $upload }} mt-3 row">
@@ -39,8 +25,8 @@
                 <div class="col-3 text-end">
                     <img src="{{ url('images', App\Models\FileManager::where('id', $d) -> first() -> file_name) }}" style="height: 150px;" class="w-100"></img>
                     <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i>
-                    <!-- <input type="hidden" value="{{ $d }}" name="old_feature_image_id"> -->
-                </div>  
+                    <input type="hidden" value="{{ $d }}" name="image_ids[]">
+                </div>    
             @endforeach
         @endif
     </div>
@@ -116,25 +102,20 @@
     function delete_image{{$file_input_name}}(element_id) {
         $('#'+element_id).remove();
     }
-
     $("#select_img_{{$file_input_name}}").click(function(){
         distroy_table{{$file_input_name}}();
         load_tables{{$file_input_name}}();
         $('#file_manager_{{$file_input_name}}').modal('show');
         console.log('aaa');
-
     });
-
     $('#myModal_{{$file_input_name}}').on('hidden.bs.modal', function (e) {
         console.log('assssseeeaa');
     });
-
     @if($multiple)
     function select_item{{$file_input_name}}(id,url) {
         $("#img_list{{$file_input_name}}").append('' +
             '<div class="col-md-3" id="'+ id +'">' +
             '<a class="" onclick="delete_image('+ id +')" style="background-color: #e91e63;padding: 2px;padding-left: 5px;padding-right: 16px;color: white;border-radius: 0px 19px 0px 0px;padding-left: 20px;">X</a>' +
-
             '<div class="card">' +
             '<div class="" style="height: 200px;background-image: url(\''+ url +'\');background-repeat: no-repeat;background-size: cover;"></div>' +
             ' </div>' +
@@ -150,16 +131,10 @@
         $('#image_preview_{{$file_input_name}}').attr('src',url);
     }
     @endif
-
-
-
     function distroy_table{{$file_input_name}}() {
         var table = $('#villadatatable_{{$file_input_name}}').DataTable();
         table.destroy();
     }
-
-
-
     function load_tables{{$file_input_name}}() {
         var table = $('#villadatatable_{{$file_input_name}}').DataTable({
             processing: true,
@@ -183,57 +158,32 @@
             }
         });
     }
-
     $(function () {
         load_tables{{$file_input_name}}();
     });
-
-
     function autoajust{{$file_input_name}}() {
         var table = $('#villadatatable_{{$file_input_name}}').DataTable();
         $('#villadatatable_{{$file_input_name}}').css( 'display', 'block' );
         table.columns.adjust().draw();
     }
-
   
-
-
     $('#pills-library-tab-{{$file_input_name}}').on('click', function() {
         var table = $('#villadatatable_{{$file_input_name}}').DataTable();
         table.ajax.reload(); 
     })
-
     $('.box-{{$file_input_name}}').on('click', function() {
         var table = $('#villadatatable_{{$file_input_name}}').DataTable();
         table.ajax.reload(); 
     })
-
-
     $( document ).ready(function() {
-        $('.upload-single .close-image').off('click').on('click', function() {
+        $('.close-image').off('click').on('click', function() {
             let id = $(this).parent().index();
-            // $('#{{ $id }}').find("p:nth-child("+(id + 1)+")").remove();
-            $(this).parents('.upload-single').siblings('#id-single').find('input').attr('value', null);
-            $(this).parent().remove();
-        });
-
-        $('.upload-multiple .close-image').off('click').on('click', function() {
-            let id = $(this).parent().index();
-            // $('#{{ $id }}').find("p:nth-child("+(id + 1)+")").remove();
-            // console.log('parent' + id);
-            $(this).parents('.upload-multiple').siblings('#id-multiple').find("input:nth-child("+(id + 1)+")").attr('value', null).attr('name', '').remove();
-
-            // console.log($(this).parents('.upload-multiple').siblings('#id-multiple').find('input'));
-            // $(this).parents('.upload-multiple').siblings('#id-multiple').find("input:nth-child("+(id + 1)+")").css('display', 'none');
-            // $(this).parents('.upload-multiple').siblings('#id-multiple').find("input:nth-child("+(id + 1)+")").attr('name', '');
+            $('#{{ $id }}').find("p:nth-child("+(id + 1)+")").remove();
             $(this).parent().remove();
         })
     });
-
-
     function dropBox{{$file_input_name}}() {
         var type = "<?php echo $multiple; ?>";
-
         if(type == 1) {
             $('.append').off('click').on('click', function(){
                 let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
@@ -242,14 +192,13 @@
                 // $('#{{ $id }}').append(`<p>${id}</p>`);
                 $('#{{ $id }}').append(`<input type="hidden" name="image_ids[]" value="${id}"></input>`);
             });
-
-            // $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
-            //     $('.close-image').off('click').on('click', function() {
-            //         let id = $(this).parent().index();
-            //         $('#{{ $id }}').find("p:nth-child("+(id + 1)+")").remove();
-            //         $(this).parent().remove();
-            //     })
-            // })
+            $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
+                $('.close-image').off('click').on('click', function() {
+                    let id = $(this).parent().index();
+                    $('#{{ $id }}').find("p:nth-child("+(id + 1)+")").remove();
+                    $(this).parent().remove();
+                })
+            })
         }
         else {
             $('.append').off('click').on('click', function(){
@@ -259,18 +208,16 @@
                 // $('#{{ $id }}').html(`<p>${id}</p>`);
                 $('#{{ $id }}').html(`<input type="hidden" value="${id}" name="feature_image_id">`);
             });   
-
-            // $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
-            //     $('.close-image').on('click', function() {
-            //         let id = $(this).parent().index();
-            //         console.log($(this).parents('.{{ $upload }}').siblings('#{{ $id }}'));
-            //         $(this).siblings('#feature_image_id').empty();
-            //         $(this).parent().remove();
-            //         console.log('fdsf');
-            //     })
-            // })
+            $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
+                $('.close-image').on('click', function() {
+                    let id = $(this).parent().index();
+                    $(this).parents('.{{ $upload }}').siblings('#{{ $id }}').empty();
+                    $(this).siblings('#feature_image_id').empty();
+                    $(this).parent().remove();
+                    // console.log($('#feature_image_id').val());
+                })
+            })
         }
     }
-
 </script>
 @endpush

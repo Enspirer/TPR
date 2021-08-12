@@ -170,7 +170,11 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="transaction-type" class="form-label mb-0 mt-4 required">Transaction Type</label>
-                                            <input type="text" class="form-control" name="transaction_type" id="transaction-type" aria-describedby="transaction-type">
+                                            <select class="form-select" aria-label="transaction_type" name="transaction_type" id="transaction_type">
+                                                <option value="">Select</option>
+                                                <option value="sale">For sale</option>
+                                                <option value="rent">For rent</option>
+                                            </select>
                                         </div>
                                     </div>
 
