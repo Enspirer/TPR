@@ -71,7 +71,7 @@
                                     <div class="row align-items-center justify-content-between mb-4 border py-3">
                                         <div class="col-6">
                                             
-                                                <img src="{{url('images', App\Models\FileManager::where('id', $property->feature_image_id)->first()->file_name)}}" class="card-img-top" alt="...">
+                                                <img src="{{url('image_assest', $property->feature_image_id)}}" class="w-100" alt="..." style="height: 250px; object-fit:cover;">
                                         </div>
                                         <div class="col-5">
                                             <h5 class="card-title">Jaffna, Sri Lanka</h5>
@@ -101,7 +101,7 @@
                                 @elseif($property->admin_approval == 'Pending' && $property->country_manager_approval == 'Pending')
                                     <div class="row align-items-center justify-content-between mb-4 border py-3" style="background: #f0f0f0;">
                                         <div class="col-6 pen-dis">
-                                                <img src="{{url('images', App\Models\FileManager::where('id', $property->feature_image_id)->first()->file_name)}}" class="card-img-top" alt="...">
+                                                <img src="{{url('image_assest', $property->feature_image_id)}}" class="w-100" alt="..." style="height: 250px; object-fit:cover;">
                                         </div>
                                         <div class="col-5">
                                             <div class="clearfix">
@@ -137,7 +137,7 @@
                                 @else
                                     <div class="row align-items-center justify-content-between mb-4 border py-3" style="background: #f0f0f0;">
                                         <div class="col-6 pen-dis">
-                                            <img src="{{url('images', App\Models\FileManager::where('id', $property->feature_image_id)->first()->file_name)}}" class="card-img-top" alt="...">
+                                            <img src="{{url('image_assest', $property->feature_image_id)}}" class="w-100" alt="..." style="height: 250px; object-fit:cover;">
                                         </div>
                                         <div class="col-5">
                                             <div class="clearfix">

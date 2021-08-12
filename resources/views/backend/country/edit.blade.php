@@ -101,6 +101,7 @@
                                 <option value="3">Sierra Leone</option>
                                 <option value="3">Singapore</option>
                                 <option value="3">Somalia</option>
+                                <option value="3">Sri Lanka</option>
                                 <option value="3">Sudan</option>
                                 <option value="3">Suriname</option>
                                 <option value="3">Tanzania</option>
