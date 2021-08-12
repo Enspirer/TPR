@@ -485,7 +485,7 @@
                                                         <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${obj[i]['price']}</p>
 
                                                         <div class="text-end">
-                                                            <a href="/individual-property/${obj[i]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
+                                                            <a href="{{url('/')}}/individual-property/${obj[i]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
                                                         </div>
                                                     </div>
                                                 </div>`;
@@ -504,7 +504,7 @@
                             template += `
                                 <div class="row border align-items-center p-1">
                                     <div class="col-6">
-                                        <a href="/individual-property/${obj[i]['id']}"><img src="/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
+                                        <a href="{{url('/')}}/individual-property/${obj[i]['id']}"><img src="{{url('/')}}/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
                                     </div>
                                     <div class="col-6">
                                         <div class="row justify-content-between align-items-center">
