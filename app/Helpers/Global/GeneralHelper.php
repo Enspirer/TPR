@@ -97,7 +97,7 @@ if (! function_exists('is_agent')) {
      */
     function is_agent($user_id)
     {
-        $countryManager = AgentRequest::where('status','Approval')
+        $countryManager = AgentRequest::where('status','Approved')
             ->first();
         if($countryManager)
         {
