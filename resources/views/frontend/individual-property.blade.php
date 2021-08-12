@@ -262,7 +262,7 @@
                 <div class="col-4 px-5">
                     <div class="row justify-content-center">
                         <div class="col-12 text-center">
-                            <button class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid #707070;"><i class="bi bi-envelope"></i> Create email alert</button>
+                            <a href="mailto:{{ $agent->email }}"><button class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid #707070;"><i class="bi bi-envelope"></i> Create email alert</button></a>
                         </div>
 
 
@@ -337,9 +337,9 @@
                         </div>
 
                         <div class="row mt-5 justify-content-between">
-                            <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 47%;"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="me-2">Share</button>
+                            <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 100%;"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="me-2">Share</button>
 
-                            <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 47%;"><i class="bi bi-heart me-1"></i> Save</button>
+                            <!-- <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 47%;"><i class="bi bi-heart me-1"></i> Save</button> -->
                         </div>
                     </div>
                 </div>
