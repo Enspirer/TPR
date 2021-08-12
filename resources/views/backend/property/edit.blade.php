@@ -126,7 +126,7 @@
                                         <div class="col-10">
                                             <div class="card">
                                                 <div class="text-center mt-2">
-                                                    <img src="{{ url('files/agent_request', App\Models\AgentRequest::where('id', $property->user_id)->first()->photo) }}" class="rounded-circle card-img-top border border-2" alt="..." style="height: 8rem; width: 40%">
+                                                    <img src="{{ url('files/agent_request', App\Models\AgentRequest::where('user_id', $property->user_id)->first()->photo) }}" class="rounded-circle card-img-top border border-2" alt="..." style="height: 8rem; width: 40%">
                                                 </div>
 
                                                 <div class="card-body">
