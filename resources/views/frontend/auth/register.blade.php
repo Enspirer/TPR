@@ -6,18 +6,37 @@
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/signup.css') }}">
+
 @endpush
+
 
     <section id="sign-up">
         <div class="container-fluid banner">
             <div class="container" style="padding-top: 10rem;">
-                <h2 class="fw-bolder text-center">Sign Up</h2>
 
+                 @include('includes.partials.messages')
+
+                 <!-- <div class="form-group">
+                    <div class="row m-0">
+                    
+                    @if(session()->has('error'))
+                        <div class="alert alert-danger">
+                            {{ session()->get('error') }}
+                        </div>
+                    @endif
+                                            
+                    </div>
+                </div> -->
+
+                <h2 class="fw-bolder text-center">Sign Up</h2>
                 <div class="row justify-content-center mt-5">
-                    <div class="col-6">
-                        <form class="needs-validation" novalidate>
+                    <div class="col-6">                       
+                        
+                        <form action="{{ url('register') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        {{ csrf_field() }}
+                            
                             <div class="input-group has-validation mb-5">
-                              <input type="text" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputFirstName" placeholder="First Name" aria-describedby="firstName" required>
+                              <input type="text" name="first_name" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputFirstName" placeholder="First Name" aria-describedby="firstName" required>
                               <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-person fs-5"></i></span>
                               <div class="invalid-feedback">
                                 This is a mandatory field and must be entered to continue.
@@ -25,7 +44,7 @@
                             </div>
 
                             <div class="input-group has-validation mb-5">
-                                <input type="text" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputLastName" placeholder="Last Name" aria-describedby="emailHelp" required>
+                                <input type="text" name="last_name" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputLastName" placeholder="Last Name" aria-describedby="emailHelp" required>
                                 <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-person-check fs-5"></i></span>
                                 <div class="invalid-feedback">
                                   This is a mandatory field and must be entered to continue.
@@ -33,15 +52,15 @@
                               </div>
 
                               <div class="input-group has-validation mb-5">
-                                <input type="email" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputEmail" placeholder="Email" aria-describedby="emailHelp" required>
+                                <input type="email" name="email" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputEmail" placeholder="Email" aria-describedby="emailHelp" required>
                                 <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-envelope fs-5"></i></span>
                                 <div class="invalid-feedback">
                                   This is a mandatory field and must be entered to continue.
                                 </div>
                               </div>
-
+                              
                               <div class="input-group has-validation mb-5">
-                                <input type="password" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputPassword" placeholder="Password" aria-describedby="password" required>
+                                <input type="password" name="password" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputPassword" placeholder="Password" aria-describedby="password" required>
                                 <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-lock fs-5"></i></span>
                                 <div class="invalid-feedback">
                                   This is a mandatory field and must be entered to continue.
@@ -49,7 +68,7 @@
                               </div>
 
                             <div class="input-group has-validation mb-5">
-                              <input type="password" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputConfirmPassword" placeholder="Confirm Password" required>
+                              <input type="password" name="password_confirmation" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputConfirmPassword" placeholder="Confirm Password" required>
                               <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-lock fs-5"></i></span>
                               <div class="invalid-feedback">
                                 This is a mandatory field and must be entered to continue.
@@ -74,36 +93,19 @@
                                 <div class="clearfix">
                                     <div class="float-end">
                                         <div class="mb-3 form-check mt-3">
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                             <label class="form-check-label" for="exampleCheck1" style="font-size: 0.9rem;">I agree to the Terms of Use/Privacy Policy</label>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <p>Enter code below</p>
-
-                            <div class="row">
-                                <div class="col-7">
-                                    <div class="row align-items-center">
-                                        <div class="col-10 shadow-sm ps-4">
-                                            <div class="mb-3 form-check mt-3">
-                                                <input type="checkbox" class="form-check-input" id="exampleCheck2" style="font-size: 1.3rem; border-radius: 0!important; margin-top: 0;">
-                                                <label class="form-check-label" for="exampleCheck3" style="font-size: 1rem; color: #747272;">I'm not a Robot</label>
-                                                <img src="{{ asset('tpr_templete/images/recaptcha_icon.svg') }}" alt="" class="float-end mb-2" height="45px">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                        
-                            </div>
-
-                            
+                            </div>   
+                            <br>                   
+    
                             <button type="submit" class="btn btn-primary w-100 mt-4 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Sign Up</button>
                         </form>
 
 
-                        <p class="text-end mt-3">Already have an account? <a href="login.html" class="text-decoration-none" style="color: #77CEEC;">Sign In</a></p>
+                        <p class="text-end mt-3">Already have an account? <a href="{{route('frontend.auth.login')}}" class="text-decoration-none" style="color: #77CEEC;">Sign In</a></p>
                     </div>
                 </div>
             </div>
@@ -134,3 +136,4 @@
         @captchaScripts
     @endif
 @endpush
+

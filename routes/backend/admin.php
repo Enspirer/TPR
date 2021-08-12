@@ -42,6 +42,8 @@ Route::get('agent/delete/{id}', [AgentRequestController::class, 'destroy'])->nam
 
 Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
 Route::get('settings/getdetails', [SettingsController::class, 'getDetails'])->name('settings.getDetails');
+Route::get('settings/edit/{id}', [SettingsController::class, 'edit'])->name('settings.edit');
+Route::post('settings/update', [SettingsController::class, 'update'])->name('settings.update');
 Route::get('settings/delete/{id}', [SettingsController::class, 'destroy'])->name('settings.destroy');
 
 Route::get('contact_us', [ContactUsController::class, 'index'])->name('contact_us.index');

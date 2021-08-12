@@ -58,3 +58,7 @@ Breadcrumbs::for('admin.settings.index', function ($trail) {
     $trail->push('Settings', route('admin.settings.index'));
 });
 
+Breadcrumbs::for('admin.settings.edit', function ($trail) {
+    $trail->push('Edit Settings', route('admin.settings.edit',1));
+});
+
