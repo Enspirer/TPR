@@ -98,6 +98,7 @@ if (! function_exists('is_agent')) {
     function is_agent($user_id)
     {
         $countryManager = AgentRequest::where('status','Approved')
+            ->where('user_id',$user_id)
             ->first();
         if($countryManager)
         {
