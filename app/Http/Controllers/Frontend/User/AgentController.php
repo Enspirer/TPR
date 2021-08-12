@@ -351,7 +351,7 @@ class AgentController extends Controller
     {        
         // dd($request);
 
-        $out_json = $request->property_images;
+        $out_json = $request->image_ids;
 
         $addprop = new Properties;
 
@@ -364,7 +364,7 @@ class AgentController extends Controller
         $addprop->meta_description=$request->meta_description;        
         $addprop->slug=$request->slug;        
         $addprop->transaction_type=$request->transaction_type;
-        $addprop->feature_image_id=$request->featured_image;
+        $addprop->feature_image_id=$request->feature_image_id;
         $addprop->image_ids=json_encode($out_json);
         $addprop->admin_approval='Pending';
         $addprop->country_manager_approval='Pending';

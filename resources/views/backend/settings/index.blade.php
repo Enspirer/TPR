@@ -21,9 +21,10 @@
                         <thead>
                             <tr>
                                 <th scope="col">#ID</th>
-                                <th scope="col">Name</th>
+                                <!-- <th scope="col">Name</th> -->
+                                <th scope="col">Type</th>
+                                <th scope="col">Static Value</th>
                                 <th scope="col">Key</th>
-                                <th scope="col">Caption</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -76,10 +77,10 @@
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
-                    {data: 'name', name: 'name'},
+                    // {data: 'name', name: 'name'},
+                    {data: 'type', name: 'type'},
+                    {data: 'static_value', name: 'static_value'},
                     {data: 'key', name: 'key'},
-                    {data: 'caption', name: 'caption'},
-                    // {data: 'telephone', name: 'telephone'},
                     // {data: 'status', name: 'status'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]

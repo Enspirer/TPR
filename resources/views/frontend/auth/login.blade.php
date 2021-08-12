@@ -85,7 +85,7 @@
                         </form>
 
 
-                        <p class="text-end mt-3">Don't have an account? <a href="signup.html" class="text-decoration-none" style="color: #77CEEC;">Sign Up</a></p>
+                        <p class="text-end mt-3">Don't have an account? <a href="{{route('frontend.auth.register')}}" class="text-decoration-none" style="color: #77CEEC;">Sign Up</a></p>
 
 
                         <div class="follow" style="margin-top: 6rem;">
