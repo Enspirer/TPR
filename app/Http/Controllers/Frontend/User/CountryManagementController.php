@@ -97,6 +97,19 @@ class CountryManagementController extends Controller
         ]);
     }    
 
+    public function singlePropertyApproved() {
+
+        $action = request('action');
+
+        $property = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
+            [
+                'country_manager_approval' => $action
+            ]
+        );
+
+        return redirect('/country-management/property-approval');
+    }    
+
     public function individualHelp() {
         return view('frontend.user.individual-help');
     }
