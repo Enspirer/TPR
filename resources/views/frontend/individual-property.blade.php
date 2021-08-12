@@ -272,7 +272,7 @@
                         {{csrf_field()}}
                             <div class="col-12 text-center mt-4">
                                 <input type="hidden" name="prop_hidden_id" value="{{ $property_details->id }}" />
-                                <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="bi bi-heart me-1"></i> Save this search</button>
+                                <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="bi bi-heart me-1"></i> Save this Property</button>
                             </div>
                         </form>    
                     @else
