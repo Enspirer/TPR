@@ -476,7 +476,7 @@
                                 if(info[i][1] == markers[i].getPosition().lng() && info[i][2] == markers[i].getPosition().lat()) {
                                     details = `  <div class="row align-items-center p-1" style="width: 500px;">
                                                     <div class="col-6">
-                                                        <img src="/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
+                                                        <img src="{{url('/')}}/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
                                                     </div>
                                                     <div class="col-6">
                                                         <h5 class="fw-bold mb-2">${obj[i]['name']}</h5>
