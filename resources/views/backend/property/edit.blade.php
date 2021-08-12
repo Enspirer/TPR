@@ -130,9 +130,9 @@
                                                 </div>
 
                                                 <div class="card-body">
-                                                    <h5 class="card-title text-center">{{ App\Models\AgentRequest::where('id', $property->user_id)->first()->name }}</h5>
-                                                    <p class="card-text mb-0">Email : {{ App\Models\AgentRequest::where('id', $property->user_id)->first()->email }}</p>
-                                                    <p class="card-text mb-0">Phone : {{ App\Models\AgentRequest::where('id', $property->user_id)->first()->telephone }}</p>
+                                                    <h5 class="card-title text-center">{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->name }}</h5>
+                                                    <p class="card-text mb-0">Email : {{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
+                                                    <p class="card-text mb-0">Phone : {{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
                                                 </div>
                                             </div>
                                         </div>
