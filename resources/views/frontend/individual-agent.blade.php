@@ -42,45 +42,54 @@
     </section>
     
     @endif
-   
-    
-
-
 
     <!-- about -->
     <section id="about">
-        <div class="container" style="margin-top: 15rem;">
-            <h3 class="fw-bolder text-center">{{ $agent_details->company_name }}</h3>
-
-            <p class="mt-4" style="text-align: justify;">{!! $agent_details->description_message !!}</p>
-
-            <!-- <p class="mt-4" style="text-align: justify;">Established in June 1980 by Rimza Zaveer, MENAVID (Pvt) Ltd was set up with the aim of offering superior and unparalleled real estate options via high-class properties to purchase, own, rent out, sell, lease and manage for both residential and commercial purposes. Our commercial projects in clude up-market business premises/buildings for office spaces, embassies and overseas/local companies in the BOI, NGOs, and expatriates on projects funded by international organisations.</p>
-
-            <p style="text-align: justify;">With over 3 decades of experience in the industry and continuous success in fulfilling the ever-changing needs of our clients, MENAVID (Pvt) Ltd has grown from strength-to-strength over the years. Our values are rooted in our foundations, allowing us to provide consistently professional, friendly, and unparalleled services when helping you develop concepts designs, market strategies, building solutions and frameworks as per your individual requirements.</p>
-
-            <p style="text-align: justify;">We offer peace of mind with our extensive knowledge of the city and suburbs, as well as diverse neighborhoods to walk our customers through their options thoroughly. This ensures hassle-free arrangements and the highest quality every step of the way, no matter whether you are after a house, apartment or any other form of building space.</p> -->
-
-
+        <div class="container">
             <div class="row">
-                <div class="clearfix">
-                    <div class="col-7 float-end">
-                        <div class="row mt-3">
-                            <div class="col-3">
-                                <a href="tel:{{ $agent_details->telephone }}" class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_phone_icon.svg') }}" alt="" class="img-fluid me-2"> Call</a>
-                            </div>
-                            <div class="col-3">
-                                <a href="mailto:{{ $agent_details->email }}" class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_email_icon.svg') }}" alt="" class="img-fluid me-2"> Email</a>
-                            </div>
-                            <div class="col-3">
-                                <button class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_heart_icon.svg') }}" alt="" class="img-fluid me-2"> Save</button>
-                            </div>
-                            <div class="col-3">
-                                <button class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="img-fluid me-2"> Share</button>
+                <div class="col-2"> 
+                </div> 
+                <div class="col-10"> 
+                    <div class="row">  
+                        <div class="col-10"> 
+                            <h3 class="fw-bolder mt-3">{{ $agent_details->company_name }}</h3>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn rounded-0 text-light px-4 py-2 mt-3" style="background-color: #008080; margin: 8rem 34rem 0 0;">{{ $agent_details->agent_type }}</button>
+                        </div>
+                    </div>
+
+                    <p class="mt-4" style="text-align: justify; ">{!! $agent_details->description_message !!}</p>
+
+                    <!-- <p class="mt-4" style="text-align: justify;">Established in June 1980 by Rimza Zaveer, MENAVID (Pvt) Ltd was set up with the aim of offering superior and unparalleled real estate options via high-class properties to purchase, own, rent out, sell, lease and manage for both residential and commercial purposes. Our commercial projects in clude up-market business premises/buildings for office spaces, embassies and overseas/local companies in the BOI, NGOs, and expatriates on projects funded by international organisations.</p>
+
+                    <p style="text-align: justify;">With over 3 decades of experience in the industry and continuous success in fulfilling the ever-changing needs of our clients, MENAVID (Pvt) Ltd has grown from strength-to-strength over the years. Our values are rooted in our foundations, allowing us to provide consistently professional, friendly, and unparalleled services when helping you develop concepts designs, market strategies, building solutions and frameworks as per your individual requirements.</p>
+
+                    <p style="text-align: justify;">We offer peace of mind with our extensive knowledge of the city and suburbs, as well as diverse neighborhoods to walk our customers through their options thoroughly. This ensures hassle-free arrangements and the highest quality every step of the way, no matter whether you are after a house, apartment or any other form of building space.</p> -->
+
+                    <br>
+                    <div class="row">
+                        <div class="clearfix">
+                            <div class="col-7 float-end" >
+                                <div class="row mt-3">
+                                    <div class="col-3">
+                                        <a href="tel:{{ $agent_details->telephone }}" class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_phone_icon.svg') }}" alt="" class="img-fluid me-2"> Call</a>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="mailto:{{ $agent_details->email }}" class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_email_icon.svg') }}" alt="" class="img-fluid me-2"> Email</a>
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_heart_icon.svg') }}" alt="" class="img-fluid me-2"> Save</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="img-fluid me-2"> Share</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>        
         </div>
     </section>
 
@@ -88,7 +97,7 @@
 
     <!-- agent tabs -->
     <section id="agent-tabs">
-        <div class="container" style="margin-top: 7rem;">
+        <div class="container" style="margin-top: 6rem;">
             <h4 class="fw-bold">All ads from {{ $agent_details->company_name }}</h4>
 
             @if(count(array($all_properties)) == 0)
@@ -297,27 +306,30 @@
 
                 </div>
 
+                
+
                 <div class="row">
                     <div class="clearfix">
                         <div class="float-start">
-                            <p style="color: #EFCAD8;">Showing page <span style="font-weight: 1000; color: #E88EAF;">1</span> of 7</p>
+                            <!-- <p style="color: #EFCAD8;">Showing page <span style="font-weight: 1000; color: #E88EAF;">1</span> of 7</p> -->
                         </div>
                         <div class="float-end">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
-                                <li class="page-item">
+                                <!-- <li class="page-item">
                                     <a class="page-link" href="#" aria-label="Previous">
                                     <span aria-hidden="true"><i class="bi bi-chevron-left" style="color: #E88EAF;"></i></span>
                                     </a>
-                                </li>
-                                <li class="page-item active shadow-sm me-2"><a class="page-link" href="">1</a></li>
+                                </li> -->
+                                <!-- <li class="page-item active shadow-sm me-2"><a class="page-link" href="">1</a></li>
                                 <li class="page-item shadow-sm me-2"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item shadow-sm me-2"><a class="page-link" href="">3</a></li>
-                                <li class="page-item shadow-sm me-2">
+                                <li class="page-item shadow-sm me-2"><a class="page-link" href="">3</a></li> -->
+                                {{ $all_properties->render() }}
+                                <!-- <li class="page-item shadow-sm me-2">
                                     <a class="page-link" href="" aria-label="Next">
                                     <span aria-hidden="true"><i class="bi bi-chevron-right" style="color: #E88EAF;"></i></span>
                                     </a>
-                                </li>
+                                </li> -->
                                 </ul>
                             </nav>
                         </div>
