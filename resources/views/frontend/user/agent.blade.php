@@ -54,10 +54,23 @@
                 </div>
             </div>
 
+                
+
             <div class="col-8">
                 <div class="row justify-content-between">
-                    <div class="col-8 p-0">
+                    <div class="col-12 p-0">
                         <h4 class="fs-4 fw-bolder user-settings-head">Agent Request Form</h4>
+
+                        <div class="form-group">
+                            <div class="row">
+                            @if(session()->has('error'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif                                                    
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -234,7 +247,7 @@
 
                                 <div class="row">
                                     <div class="col-12">
-                                        <label class="form-label mb-0 mt-4 required">Description Message</label>
+                                        <label class="form-label mb-0 mt-4 required">Description Message (Minimum length of the characters in Description should be 600)</label>
                                         <textarea class="form-control" rows="4" name="description_msg" placeholder="Description Message" required></textarea>
                                     </div>
                                 </div>

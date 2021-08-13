@@ -8,6 +8,7 @@ use App\Models\Properties;
 use App\Models\FileManager;
 use App\Models\Auth\User;
 use App\Models\AgentRequest; 
+// use Illuminate\Support\Facades\DB;
 
 /**
  * Class ContactController.
@@ -22,7 +23,7 @@ class IndividualAgentController extends Controller
         $agent_details = AgentRequest::where('id',$id)->first();
         // dd($agent_details);
 
-        $all_properties = Properties::where('user_id',$agent_details->user_id)->get();
+        $all_properties = Properties::where('user_id',$agent_details->user_id)->paginate(4);
         // dd($all_properties);
 
         $com_properties = Properties::where('user_id',$agent_details->user_id)->where('main_category','=','Commercial')->get();
