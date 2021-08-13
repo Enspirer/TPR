@@ -276,7 +276,7 @@
                         <h6 class="fw-bold mb-0 text-center mt-3">Call agent : {{ $agent->telephone }}</h6>
 
                         <div class="col-12 text-center mt-3">
-                            <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="mailto:{{ $agent->email }}" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                            <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#emailModal" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
                         </div>
 
                         <div class="row mt-5 justify-content-between">
@@ -453,6 +453,27 @@
             </div>
         </div>
     </section>
+
+
+
+    <!-- email modal -->
+    <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection
 
