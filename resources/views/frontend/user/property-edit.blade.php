@@ -97,9 +97,9 @@
                                     <div class="col-12">
                                         <label for="map" class="form-label mb-2 mt-4 required">Location</label>
                                         <div id="map" style="width: 100%; height: 400px;"></div>
-                                        <input type="hidden" name="lat" id="lat" class="mt-3" value="{{ $property->lat }}">
-                                        <input type="hidden" name="lng" id="lng" class="mt-3 d-none" value="{{ $property->long }}">
-                                        <input type="hidden" name="country" id="country" class="mt-3 d-none">
+                                        <input type="text" name="lat" id="lat" class="mt-3" value="{{ $property->lat }}">
+                                        <input type="text" name="lng" id="lng" class="mt-3" value="{{ $property->long }}">
+                                        <input type="text" name="country" id="country" class="mt-3" value="{{ $property->country }}">
                                         
                                         <div class="row mt-3">
                                             <div class="col-6">
@@ -204,29 +204,34 @@
 <script>
 
         var marker = false;
+
+        let lat = $('#lat').val();
+        let lng = $('#lng').val();
+
+
+        // console.log(lat, lng)
                 
 
         function initMap() {
 
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 5,
-                center: { lat: -28.024, lng: 140.887 },
+                center: { lat: parseFloat(lat), lng: parseFloat(lng) },
             });
 
             const geocoder = new google.maps.Geocoder();
             const infowindow = new google.maps.InfoWindow();
 
-            google.maps.event.addListener(map, 'click', function(event) {                
+
+            google.maps.event.addDomListener(map, 'click', function(event) {                
                 
                 var clickedLocation = event.latLng;
-                
-
                 
 
                 if(marker === false){
                     //Create the marker.
                     marker = new google.maps.Marker({
-                        position: clickedLocation,
+                        position: { lat: parseFloat(lat), lng: parseFloat(lng) },
                         map: map,
                         draggable: true 
                     });
@@ -235,6 +240,7 @@
                     
                         geocodeLatLng(geocoder, map, infowindow);
                     });
+                    
                 } else{
 
                     marker.setPosition(clickedLocation);

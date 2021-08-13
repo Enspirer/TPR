@@ -3,14 +3,12 @@
   display: block;
   border: none;
   background: none;
-  /* width: 100%; */
-  /* text-align: left; */
   cursor: pointer;
   outline: none;
 }
 .dropdown-container {
   display: none;
-  padding-left: 70px;
+  padding-left: 30px;
 }
 </style>
 
@@ -26,7 +24,10 @@
 
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'account-dashboard' ? 'active' : null }}" id="nav-accountDashboard-tab" href="{{ route('frontend.user.account-dashboard') }}" type="button" role="tab" aria-controls="nav-accountDashboard" aria-selected="false">Account Dashboard</a>
 
-        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'favourites' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.favourites') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Favourite List</a>
+        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'favourites' ? 'active' : null }}" id="nav-favourite-tab" href="" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Favourite List</a>
+        
+        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'my-bookings' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.my-bookings') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">My Bookings</a>
+
 
         @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
             <a class="nav-link bg-white border-0 border-bottom w-100 px-5 pb-3 " id="nav-agent-tab" href="{{ route('frontend.user.agent') }}" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 text-light w-100 " style="background-color: #ff9900">Agent</button> </a>
@@ -68,10 +69,10 @@
 
             <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Agent Approval</a>
 
-            <button class="dropdown-btn border-bottom w-100 pb-3 advertisement" style="color:#0d6efd; margin: 5px 0 0 -7px;">
+            <a class="nav-link bg-white border-0 dropdown-btn border-bottom ps-5 w-100 pb-3 advertisement" style="color:#0d6efd;">
                 Advertisement Management
                 <i class="fas fa-caret-down"></i>
-            </button>
+            </a>
             <div class="dropdown-container">
 
                 <a class="nav-link bg-white border-0 ps-5 w-100 pb-3 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Home Page Advertisement</a>
@@ -80,19 +81,10 @@
             </div>
 
 
-                    
-
-
 
         @else
 
         @endif
-
-        <!-- <a class="nav-link bg-white border-0 border-bottom w-100 pb-3 text-center sidebar-ad d-none {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Sidebar Advertisement</a> -->
-
-
-
-        
 
         <!-- <h5 class="px-3 mt-4 pb-2 mb-0">My Settings</h5>
 

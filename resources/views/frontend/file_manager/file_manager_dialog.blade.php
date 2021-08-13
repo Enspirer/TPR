@@ -12,7 +12,11 @@
         @else
             @foreach($data as $d)
                 <!-- <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p> -->
-                <input type="text" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="{{$file_input_name}}">
+                @if($multiple == false)
+                    <input type="text" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="{{$file_input_name}}">
+                @else
+                    <input type="text" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="{{$file_input_name}}[]">
+                @endif
             @endforeach
         @endif   
     </div>
@@ -189,7 +193,7 @@
         $('.upload-single .close-image').off('click').on('click', function() {
             let id = $(this).parent().index();
             // $('#{{ $id }}').find("p:nth-child("+(id + 1)+")").remove();
-            $(this).parents('.upload-single').siblings('#id-single').find('input').attr('value', null);
+            $(this).parents('.upload-single').siblings('#id-single').find('input').remove();
             $(this).parent().remove();
         });
 
@@ -197,7 +201,7 @@
             let id = $(this).parent().index();
             // $('#{{ $id }}').find("p:nth-child("+(id + 1)+")").remove();
             // console.log('parent' + id);
-            $(this).parents('.upload-multiple').siblings('#id-multiple').find("input:nth-child("+(id + 1)+")").attr('value', null).attr('name', '').remove();
+            $(this).parents('.upload-multiple').siblings('#id-multiple').find("input:nth-child("+(id + 1)+")").remove();
 
             // console.log($(this).parents('.upload-multiple').siblings('#id-multiple').find('input'));
             // $(this).parents('.upload-multiple').siblings('#id-multiple').find("input:nth-child("+(id + 1)+")").css('display', 'none');

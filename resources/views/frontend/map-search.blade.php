@@ -129,7 +129,7 @@
                 }
                 myArray = JSON.stringify(Object.assign({}, newArray));
 
-                $.post("{{url('api/country_request')}}",
+                $.post("{{url('/')}}/api/country_request",
                     {
                         coordinate_data: myArray
                     },
@@ -155,7 +155,7 @@
                                 if(info[i][1] == markers[i].getPosition().lng() && info[i][2] == markers[i].getPosition().lat()) {
                                     details = `  <div class="row align-items-center p-1" style="width: 500px;">
                                                     <div class="col-6">
-                                                        <img src="/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
+                                                        <img src="{{url('/')}}/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
                                                     </div>
                                                     <div class="col-6">
                                                         <h5 class="fw-bold mb-2">${obj[i]['name']}</h5>
@@ -183,7 +183,7 @@
                             template += `
                                 <div class="row border align-items-center p-1">
                                     <div class="col-6">
-                                        <a href="/individual-property/${obj[i]['id']}"><img src="/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
+                                        <a href="{{url('/')}}/individual-property/${obj[i]['id']}"><img src="/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
                                     </div>
                                     <div class="col-6">
                                         <div class="row justify-content-between align-items-center">

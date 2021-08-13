@@ -450,7 +450,7 @@
                 }
                 myArray = JSON.stringify(Object.assign({}, newArray));
 
-                $.post("{{url('api/country_request')}}",
+                $.post("{{url('/')}}/api/country_request",
                     {
                         coordinate_data: myArray
                     },

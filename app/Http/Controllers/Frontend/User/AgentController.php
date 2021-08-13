@@ -261,83 +261,80 @@ class AgentController extends Controller
         ]);
     }
 
-    // public function updateProperty() {
+    public function updateProperty(Request $request) {
 
-    //     $name = request('name');
-    //     $propertyType = request('propertyType');
-    //     $lat = request('lat');
-    //     $lng = request('lng');
-    //     $price = request('price');
-    //     $category = request('category');
+        // dd($request);
+
+        $out_json = $request->property_images;
+
+
+        $name = $request->name;
+        $propertyType = request('propertyType');
+        $lat = request('lat');
+        $lng = request('lng');
+        $country = request('country');
+        $price = request('price');
+        $category = request('category');
+        $feature_image_id = request('featured_image');
+        $images = json_encode($out_json);
+        $meta_description = request('meta_description');
+        $slug = request('slug');
+        $transaction_type = request('transaction_type');
+
         
-    //     if(request('feature_image_id') == null) {
-    //         $feature_image_id = request('old_feature_image_id');
-    //     }
-    //     else {
-    //         $feature_image_id = request('feature_image_id');
-    //     }
-        
-    //     $images = request('image_ids');
-    //     $meta_description = request('meta_description');
-    //     $slug = request('slug');
-    //     $transaction_type = request('transaction_type');
+        // dd($request);
+        // if(request('land_size')){
+        //     $land_size = request('land_size');
+        // }
+        // }else{}
+        // if($request->zoning_type){
+        //     $addprop->zoning_type=$request->zoning_type;
+        // }else{}
+        // if($request->number_of_units){
+        //     $addprop->number_of_units=$request->number_of_units;
+        // }else{}
+        // if($request->building_size){
+        //     $addprop->building_size=$request->building_size;
+        // }else{}
+        // if($request->farm_type){
+        //     $addprop->farm_type=$request->farm_type;
+        // }else{}
+        // if($request->building_type){
+        //     $addprop->building_type=$request->building_type;
+        // }else{}
+        // if($request->open_house_only){
+        //     $addprop->open_house_only=$request->open_house_only;
+        // }else{}
+        // if($request->parking_type){
+        //     $addprop->parking_type=$request->parking_type;
+        // }else{}
+        // if($request->beds){
+        //     $addprop->beds=$request->beds;        
+        // }else{}
+        // if($request->baths){
+        //     $addprop->baths=$request->baths;       
+        // }else{}
 
-    //     // dd($feature_image_id, $images);
-        
-    //     if(request('land_size')){
-    //         $land_size = request('land_size');
-    //     }
-    //     }else{}
-    //     if($request->zoning_type){
-    //         $addprop->zoning_type=$request->zoning_type;
-    //     }else{}
-    //     if($request->number_of_units){
-    //         $addprop->number_of_units=$request->number_of_units;
-    //     }else{}
-    //     if($request->building_size){
-    //         $addprop->building_size=$request->building_size;
-    //     }else{}
-    //     if($request->farm_type){
-    //         $addprop->farm_type=$request->farm_type;
-    //     }else{}
-    //     if($request->building_type){
-    //         $addprop->building_type=$request->building_type;
-    //     }else{}
-    //     if($request->open_house_only){
-    //         $addprop->open_house_only=$request->open_house_only;
-    //     }else{}
-    //     if($request->parking_type){
-    //         $addprop->parking_type=$request->parking_type;
-    //     }else{}
-    //     if($request->beds){
-    //         $addprop->beds=$request->beds;        
-    //     }else{}
-    //     if($request->baths){
-    //         $addprop->baths=$request->baths;       
-    //     }else{}
-
-    //     dd($feature_image_id);
-
-    //     $property = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
-    //         [
-    //             'name' => $name,
-    //             'property_type' => $propertyType,
-    //             'lat' => $lat,
-    //             'long' => $lng,
-    //             'price' => $price,
-    //             'main_category' => $category,
-    //             'feature_image_id' => $feature_image_id,
-    //             'image_ids' => $images,
-    //             'meta_description' => $meta_description,
-    //             'slug' => $slug,
-    //             'transaction_type' => $transaction_type
-    //         ]
-    //     );
+        $property = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
+            [
+                'name' => $name,
+                'property_type' => $propertyType,
+                'lat' => $lat,
+                'long' => $lng,
+                'price' => $price,
+                'main_category' => $category,
+                'feature_image_id' => $feature_image_id,
+                'image_ids' => $images,
+                'meta_description' => $meta_description,
+                'slug' => $slug,
+                'transaction_type' => $transaction_type
+            ]
+        );
 
         
 
-    //     return redirect('/properties');
-    // }
+        return redirect('/properties');
+    }
 
     public function deleteProperty($id) {
 

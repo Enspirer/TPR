@@ -34,7 +34,7 @@ Route::post('find-agent/store', [FindAgentController::class, 'store'])->name('fi
 Route::get('individual-agent/{id}', [IndividualAgentController::class, 'index'])->name('individual-agent');
 // Route::get('individual-agent', [IndividualAgentController::class, 'index'])->name('individual-agent');
 Route::get('map-search', [MapSearchController::class, 'index'])->name('map-search');
-Route::get('residential', [ResidentialController::class, 'index'])->name('residential');
+// Route::get('residential', [ResidentialController::class, 'index'])->name('residential');
 
 Route::get('individual-property/{id}', [IndividualPropertyController::class, 'index'])->name('individual-property');
 Route::post('prop_favourite',[IndividualPropertyController::class,'propertyFavourite'])->name('propertyFavourite');
@@ -86,6 +86,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('account-dashboard', [DashboardController::class, 'accountDashboard'])->name('account-dashboard');
 
         Route::get('favourites', [DashboardController::class, 'favourites'])->name('favourites');
+
+        Route::get('my-bookings', [DashboardController::class, 'myBookings'])->name('my-bookings');
 
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
