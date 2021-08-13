@@ -23,7 +23,7 @@ class MapSearchController extends Controller
 
     public function index()
     {
-        $promu = Properties::all();
+        $promu = Properties::where('admin_approval','Approved')->get();
 
         return view('frontend.map-search',[
             'promo' => $promu

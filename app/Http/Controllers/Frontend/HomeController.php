@@ -308,7 +308,7 @@ class HomeController extends Controller
 
         $property_types = PropertyType::where('status','=','1')->get();
 
-        $properties = Properties::query();
+        $properties = Properties::where('admin_approval', 'Approved');
 
        
 
