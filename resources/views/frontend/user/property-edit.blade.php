@@ -121,8 +121,8 @@
                                         <div>
                                             <label for="category" class="form-label mb-0 mt-4 required">Category</label>
                                             <select class="form-select" aria-label="category" id="category" name="category">
-                                                <option value="commercial">Commercial</option>
-                                                <option value="residential">Residential</option>
+                                                <option value="Commercial">Commercial</option>
+                                                <option value="Residential">Residential</option>
                                             </select>
                                         </div>  
                                     </div>

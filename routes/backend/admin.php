@@ -7,6 +7,8 @@ use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\Backend\AgentRequestController;
 use App\Http\Controllers\Backend\SettingsController;
 use App\Http\Controllers\Backend\ContactUsController;
+use App\Http\Controllers\Backend\FileManagerController;
+
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -51,3 +53,7 @@ Route::get('contact_us/getdetails', [ContactUsController::class, 'getDetails'])-
 Route::get('contact_us/edit/{id}', [ContactUsController::class, 'edit'])->name('contact_us.edit');
 Route::post('contact_us/update', [ContactUsController::class, 'update'])->name('contact_us.update');
 Route::get('contact_us/delete/{id}', [ContactUsController::class, 'destroy'])->name('contact_us.destroy');
+
+Route::get('file_manager', [FileManagerController::class, 'index'])->name('file_manager.index');
+Route::get('file_manager/getdetails', [FileManagerController::class, 'getDetails'])->name('file_manager.getDetails');
+Route::get('file_manager/delete/{id}', [FileManagerController::class, 'destroy'])->name('file_manager.destroy');
