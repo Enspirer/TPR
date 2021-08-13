@@ -46,7 +46,10 @@
                             <div class="col-12">
                                 <div class="px-2" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
                                     <div class="row align-items-center justify-content-between mb-4 border py-3">
+
                                         <div class="col-4">
+
+                                            <br>
                                             <img src="{{url('image_assest',\App\Models\Properties::where('id',$booking->property_id)->first()->feature_image_id)}}" class="card-img-top" alt="...">
                                         </div>
                                         <div class="col-5">
@@ -54,12 +57,15 @@
                                             <p class="card-text mt-3 mb-1">Country: {{\App\Models\Properties::where('id',$booking->property_id)->first()->country}}</p>
                                             <p class="card-text">Category: {{\App\Models\Properties::where('id',$booking->property_id)->first()->main_category}}</p>
                                             <p class="mt-1 text-info">${{number_format(\App\Models\Properties::where('id',$booking->property_id)->first()->price,2)}}</p>
-
+                                            <div style="background: #b1ecff;color: #000000;padding: 10px;border-radius: 10px;">
+                                                {{$booking->created_at}}
+                                            </div>
+                                            <br>
                                             <div class="row justify-content-between">
                                                 <div class="col-12">
                                                     <div class="row justify-content-end">
                                                         <div class="col-4">
-                                                            <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Open</button>
+                                                            <button  data-toggle="modal" data-target="#exampleModal{{$booking->id}}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Open</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -79,6 +85,37 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal{{$booking->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">View Message</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                       <h4>Contact Method: {{$booking->method_of_contact}}</h4>
+                                       <p>Email: {{$booking->email}}><br>
+                                        Im a {{$booking->im_resident}}
+
+
+                                        <div class="card">
+                                            <div class="card-body">
+                                                {{$booking->message}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
