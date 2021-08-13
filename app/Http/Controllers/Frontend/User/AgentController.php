@@ -11,6 +11,7 @@ use App\Models\PropertyType;
 use App\Models\Properties;
 use App\Models\Auth\User;
 use Auth;
+use App\Models\Booking;
 
 /**
  * Class DashboardController.
@@ -434,5 +435,20 @@ class AgentController extends Controller
     public function companyProperty()
     {
         return view('frontend.user.company-property');
+    }
+
+    public function agentBookings()
+    {
+        $agent = AgentRequest::where('user_id', auth()->user()->id)->first();
+
+        // dd($agent->id);
+
+        $bookings = Booking::where('agent_id', $agent->id)->get();
+
+        // dd($bookings);
+
+        return view('frontend.user.agent-bookings',[
+            'bookings' => $bookings
+        ]);
     }
 }

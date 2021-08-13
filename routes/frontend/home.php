@@ -91,9 +91,14 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
+
         Route::post('agent/store', [AgentController::class, 'store'])->name('agent.store');
+
         Route::get('agent/edit', [AgentController::class, 'agent_edit'])->name('agent.edit');
+
         Route::post('agent/update', [AgentController::class, 'update_agent'])->name('agent.update_agent');
+
+        Route::get('agent-bookings', [AgentController::class, 'agentBookings'])->name('agent-bookings');
 
 
         Route::get('properties', [AgentController::class, 'properties'])->name('properties');

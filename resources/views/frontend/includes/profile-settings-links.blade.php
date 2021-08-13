@@ -50,9 +50,13 @@
 
             <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'booking' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.booking') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Booking Box</a>
 
+            <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'agent-bookings' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.agent-bookings') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Agent Bookings</a>
+
             @if(is_company(auth()->user()->id))
                 <a class="nav-link bg-white border-0 border-bottom ps-5 w-100 pb-3 {{ Request::segment(1) == 'company' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.company') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Company</a>
             @else
+
+            
 
             @endif
         @endif
