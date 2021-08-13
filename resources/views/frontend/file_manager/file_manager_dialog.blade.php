@@ -12,7 +12,7 @@
         @else
             @foreach($data as $d)
                 <!-- <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p> -->
-                <input type="text" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="feature_image_id">
+                <input type="text" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="{{$file_input_name}}">
             @endforeach
         @endif   
     </div>
@@ -25,7 +25,7 @@
                 <div class="col-3 text-end">
                     <img src="{{ url('images', App\Models\FileManager::where('id', $d) -> first() -> file_name) }}" style="height: 150px;" class="w-100"></img>
                     <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i>
-                    <input type="hidden" value="{{ $d }}" name="image_ids[]">
+                    <!-- <input type="hidden" value="{{ $d }}" name="image_ids[]"> -->
                 </div>    
             @endforeach
         @endif
@@ -175,27 +175,54 @@
         var table = $('#villadatatable_{{$file_input_name}}').DataTable();
         table.ajax.reload(); 
     })
+
+
+    // $( document ).ready(function() {
+    //     $('.close-image').off('click').on('click', function() {
+    //         let id = $(this).parent().index();
+    //         $('#{{ $id }}').find("input:nth-child("+(id + 1)+")").remove();
+    //         $(this).parent().remove();
+    //     })
+    // });
+
     $( document ).ready(function() {
-        $('.close-image').off('click').on('click', function() {
+        $('.upload-single .close-image').off('click').on('click', function() {
             let id = $(this).parent().index();
-            $('#{{ $id }}').find("p:nth-child("+(id + 1)+")").remove();
+            // $('#{{ $id }}').find("p:nth-child("+(id + 1)+")").remove();
+            $(this).parents('.upload-single').siblings('#id-single').find('input').attr('value', null);
+            $(this).parent().remove();
+        });
+
+        $('.upload-multiple .close-image').on('click', function() {
+            let id = $(this).parent().index();
+            // $('#{{ $id }}').find("p:nth-child("+(id + 1)+")").remove();
+            // console.log('parent' + id);
+            $(this).parents('.upload-multiple').siblings('#id-multiple').find("input:nth-child("+(id + 1)+")").attr('value', null).attr('name', '').remove();
+
+            // console.log($(this).parents('.upload-multiple').siblings('#id-multiple').find('input'));
+            // $(this).parents('.upload-multiple').siblings('#id-multiple').find("input:nth-child("+(id + 1)+")").css('display', 'none');
+            // $(this).parents('.upload-multiple').siblings('#id-multiple').find("input:nth-child("+(id + 1)+")").attr('name', '');
             $(this).parent().remove();
         })
     });
+
+
+
+
     function dropBox{{$file_input_name}}() {
         var type = "<?php echo $multiple; ?>";
+        var file_input_name = "<?php echo $file_input_name; ?>";
         if(type == 1) {
             $('.append').off('click').on('click', function(){
                 let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
                 let id = $(this).parents("tr").find('.sorting_1').text();
                 $('.{{ $upload }}').append(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img><i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i></div>`);
-                // $('#{{ $id }}').append(`<p>${id}</p>`);
-                $('#{{ $id }}').append(`<input type="hidden" name="image_ids[]" value="${id}"></input>`);
+                $('#{{ $id }}').append(`<input type="text" name="${file_input_name}[]" value="${id}"></input>`);
             });
             $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
-                $('.close-image').off('click').on('click', function() {
+                $('.{{ $upload }} .close-image').off('click').on('click', function() {
                     let id = $(this).parent().index();
-                    $('#{{ $id }}').find("p:nth-child("+(id + 1)+")").remove();
+                    $(this).parents('.upload-multiple').siblings('#id-multiple').find("input:nth-child("+(id + 1)+")").remove();
                     $(this).parent().remove();
                 })
             })
@@ -205,16 +232,13 @@
                 let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
                 let id = $(this).parents("tr").find('.sorting_1').text();
                 $('.{{ $upload }}').html(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img> <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i></div>`);
-                // $('#{{ $id }}').html(`<p>${id}</p>`);
-                $('#{{ $id }}').html(`<input type="hidden" value="${id}" name="feature_image_id">`);
+                $('#{{ $id }}').html(`<input type="text" value="${id}" name="${file_input_name}">`);
             });   
             $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
-                $('.close-image').on('click', function() {
+                $('.{{ $upload }} .close-image').on('click', function() {
                     let id = $(this).parent().index();
-                    $(this).parents('.{{ $upload }}').siblings('#{{ $id }}').empty();
-                    $(this).siblings('#feature_image_id').empty();
+                    $(this).parents('.upload-single').siblings('#id-single').find('input').remove();;
                     $(this).parent().remove();
-                    // console.log($('#feature_image_id').val());
                 })
             })
         }
