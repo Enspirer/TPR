@@ -36,7 +36,13 @@
 
                         @if(count($favourite) == 0)
 
-                        <h4 style="margin:200px 0 0 200px; color:#808080;">No Any Favourite Properties</h4>
+                                @include('frontend.includes.not_found',[
+                           'not_found_title' => 'Favorite item not found',
+                           'not_found_description' => 'Favorite item not found.please add Favorite ',
+                           'not_found_button_caption' => 'Explorer Property',
+                           'not_found_link' => 'hellow rod'
+
+                            ])
 
                         @else
                             @foreach($property as $key=> $prop)

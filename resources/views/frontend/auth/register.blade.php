@@ -16,18 +16,6 @@
 
                  @include('includes.partials.messages')
 
-                 <!-- <div class="form-group">
-                    <div class="row m-0">
-                    
-                    @if(session()->has('error'))
-                        <div class="alert alert-danger">
-                            {{ session()->get('error') }}
-                        </div>
-                    @endif
-                                            
-                    </div>
-                </div> -->
-
                 <h2 class="fw-bolder text-center">Sign Up</h2>
                 <div class="row justify-content-center mt-5">
                     <div class="col-6">                       
@@ -55,7 +43,7 @@
                                 <input type="email" name="email" class="form-control form-control-lg sign-up-box shadow-sm" id="exampleInputEmail" placeholder="Email" aria-describedby="emailHelp" required>
                                 <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-envelope fs-5"></i></span>
                                 <div class="invalid-feedback">
-                                  This is a mandatory field and must be entered to continue.
+                                  This is a mandatory field and enter email address correctly to continue.
                                 </div>
                               </div>
                               
@@ -95,6 +83,10 @@
                                         <div class="mb-3 form-check mt-3">
                                             <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                             <label class="form-check-label" for="exampleCheck1" style="font-size: 0.9rem;">I agree to the Terms of Use/Privacy Policy</label>
+                                            <!-- <label style="font-size: 0.9rem;">I agree to the Terms of Use/Privacy Policy</label>
+                                            <div class="invalid-feedback">
+                                                Acceptance of terms and conditions is required.
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

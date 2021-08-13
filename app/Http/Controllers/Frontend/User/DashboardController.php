@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\AgentRequest;
@@ -107,7 +108,7 @@ class DashboardController extends Controller
 
     public function favourites()
     {
-        $favourite = Favorite::get();
+        $favourite = Favorite::where('user_id',auth()->user()->id)->get();
         // dd($favourite);
 
         $final_out = [];
@@ -139,6 +140,10 @@ class DashboardController extends Controller
 
     public function myBookings()
     {
-        return view('frontend.user.my-bookings');
+        $bookings = Booking::where('user_id',auth()->user()->id)->get();
+
+        return view('frontend.user.my-bookings',[
+            'bookings' => $bookings
+        ]);
     }
 }

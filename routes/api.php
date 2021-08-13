@@ -22,5 +22,3 @@ Route::post('country_request', [HomeController::class, 'map_index'])->name('map_
 
 Route::get('get_property_type_details/{id}', [HomeController::class, 'property_type'])->name('property_type');
 
-Route::post('favourite', [HomeController::class, 'pro_'])->name('map_index');
-

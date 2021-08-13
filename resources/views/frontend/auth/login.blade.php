@@ -45,6 +45,9 @@
     <section id="sign-in">
         <div class="container-fluid banner">
             <div class="container" style="margin-top: 10rem;">
+
+            @include('includes.partials.messages')
+
                 <h2 class="fw-bolder text-center">Sign In</h2>
 
                 <div class="row justify-content-center mt-5">
@@ -55,7 +58,7 @@
                                 <input type="email" name="email" class="form-control form-control-lg sign-in-box shadow-sm" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required>
                                 <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-envelope fs-5"></i></span>
                                 <div class="invalid-feedback">
-                                    This is a mandatory field and must be entered to continue.
+                                    This is a mandatory field and enter email address correctly to continue.
                                 </div>
                             </div>
 

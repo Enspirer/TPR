@@ -89,438 +89,241 @@
     <!-- agent tabs -->
     <section id="agent-tabs">
         <div class="container" style="margin-top: 7rem;">
-            <h4 class="fw-bold">All ads from MENAVID Private Limited</h4>
+            <h4 class="fw-bold">All ads from {{ $agent_details->company_name }}</h4>
 
+            @if(count(array($all_properties)) == 0)
+                <h2 align="center" style="margin-top:130px; color:#808080;">Properties Are Not Found</h2>
+            @else
 
-            <ul class="nav mb-3 mt-5" id="pills-tab" role="tablist">
-                <li class="nav-item me-3 all" role="presentation" style="border: 2px solid #4A4A4A;">
-                  <a class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" style="color: #4A4A4A;">ALL</a>
-                </li>
-                <li class="nav-item me-3 sales" role="presentation" style="border: 2px solid #77CEEC;">
-                  <a class="nav-link" id="pills-sales-tab" data-bs-toggle="pill" data-bs-target="#pills-sales" type="button" role="tab" aria-controls="pills-sales" aria-selected="false" style="color: #77CEEC;">SALES</a>
-                </li>
-                <li class="nav-item me-3 rentals" role="presentation" style="border: 2px solid #4195E1;">
-                  <a class="nav-link" id="pills-rentals-tab" data-bs-toggle="pill" data-bs-target="#pills-rentals" type="button" role="tab" aria-controls="pills-rentals" aria-selected="false" style="color: #4195E1;">RENTALS</a>
-                </li>
-                <li class="nav-item me-3 commercial" role="presentation" style="border: 2px solid #83BE43;">
-                    <a class="nav-link" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="false" style="color: #83BE43;">COMMERCIAL</a>
-                  </li>
-                  <li class="nav-item me-3 property-land" role="presentation" style="border: 2px solid #7CCABD;">
-                    <a class="nav-link" id="pills-propertyLand-tab" data-bs-toggle="pill" data-bs-target="#pills-propertyLand" type="button" role="tab" aria-controls="pills-propertyLand" aria-selected="false" style="color: #7CCABD;">PROPERTY LAND</a>
-                  </li>
-            </ul>
+                <ul class="nav mb-3 mt-5" id="pills-tab" role="tablist">
+                    <li class="nav-item me-3 all" role="presentation" style="border: 2px solid #4A4A4A;">
+                    <a class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" style="color: #4A4A4A;">ALL</a>
+                    </li>
+                    <li class="nav-item me-3 commercial" role="presentation" style="border: 2px solid #83BE43;">
+                        <a class="nav-link" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="false" style="color: #83BE43;">COMMERCIAL</a>
+                    </li>
+                    <li class="nav-item me-3 residential" role="presentation" style="border: 2px solid #4195E1;">
+                    <a class="nav-link" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="false" style="color: #4195E1;">RESIDENTIAL</a>
+                    </li>
+                </ul>
 
-            <div class="tab-content mt-5" id="pills-tabContent">
-                
-                <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
-
-                    <div class="row border py-4 px-3 mb-4">
-                        <div class="col-4">
-                            <img src="{{ asset('tpr_templete/images/menavid_rentals_1.svg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-8">
-                            <div class="ps-2">
-                                <div class="row">
-                                    <h5 class="fw-bolder">COLOMBO CITY CENTRE - Large - Two - Bedroom - Apartment For RENT.</h5>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-2 p-2">
-                                        <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Rentals</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <p class="ns fw-bolder tab-price">Rs.22.41M <small class="fw-normal">upwards</small></p>
-                                    </div>
-                                </div>
-                                            
-                                        
-                                <p class="mt-4 mb-0" style="text-align: justify;">COLOMBO CITY CENTRE - Large Two-Bedroom Apartment For Immediate RENT.</p>
-
-                                <div class="row mt-3 justify-content-between">
-                                    <div class="col-8">
-                                        <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <a href="#"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row border py-4 px-3 mb-4">
-                        <div class="col-4">
-                            <img src="{{ asset('tpr_templete/images/menavid_rentals_2.svg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-8">
-                            <div class="ps-2">
-                                <div class="row">
-                                    <h5 class="fw-bolder">Shangri-la / Emperor / CCC / ONTHREE20 Apartments For RENT.</h5>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-2 p-2">
-                                        <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Rentals</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <p class="ns fw-bolder tab-price">Rs.22.41M <small class="fw-normal">upwards</small></p>
-                                    </div>
-                                </div>
-                                            
-                                        
-                                <p class="mt-4 mb-0" style="text-align: justify;">COLOMBO CITY CENTRE - Large Two-Bedroom Apartment For Immediate RENT.</p>
-
-                                <div class="row mt-3 justify-content-between">
-                                    <div class="col-8">
-                                        <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <a href="menavid.html"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row border py-4 px-3 mb-4">
-                        <div class="col-4">
-                            <img src="{{ asset('tpr_templete/images/menavid_rentals_3.svg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-8">
-                            <div class="ps-2">
-                                <div class="row">
-                                    <h5 class="fw-bolder">7th SENSE THREE Bedroom Apartment For Immediate Rent.</h5>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-2 p-2">
-                                        <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Rentals</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <p class="ns fw-bolder tab-price">Rs.22.41M <small class="fw-normal">upwards</small></p>
-                                    </div>
-                                </div>
-                                            
-                                        
-                                <p class="mt-4 mb-0" style="text-align: justify;">COLOMBO CITY CENTRE - Large Two-Bedroom Apartment For Immediate RENT.</p>
-
-                                <div class="row mt-3 justify-content-between">
-                                    <div class="col-8">
-                                        <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <a href="menavid.html"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row border py-4 px-3 mb-4">
-                        <div class="col-4">
-                            <img src="{{ asset('tpr_templete/images/menavid_rentals_4.svg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-8">
-                            <div class="ps-2">
-                                <div class="row">
-                                    <h5 class="fw-bolder">EMPEROR TWO &THREE Bedroom for rent.</h5>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-2 p-2">
-                                        <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Rentals</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <p class="ns fw-bolder tab-price">Rs.22.41M <small class="fw-normal">upwards</small></p>
-                                    </div>
-                                </div>
-                                            
-                                        
-                                <p class="mt-4 mb-0" style="text-align: justify;">COLOMBO CITY CENTRE - Large Two-Bedroom Apartment For Immediate RENT.</p>
-
-                                <div class="row mt-3 justify-content-between">
-                                    <div class="col-8">
-                                        <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <a href="menavid.html"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="tab-pane fade" id="pills-sales" role="tabpanel" aria-labelledby="pills-sales-tab">
-
-                    <div class="row border py-4 px-3 mb-4">
-                        <div class="col-4">
-                            <img src="{{ asset('tpr_templete/images/menavid_rentals_1.svg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-8">
-                            <div class="ps-2">
-                                <div class="row">
-                                    <h5 class="fw-bolder">COLOMBO CITY CENTRE - Large - Two - Bedroom - Apartment For RENT.</h5>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-2 p-2">
-                                        <button class="btn text-white w-100" style="background-color: #77CEEC; border-radius: 0.7rem;">Sales</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <p class="ns fw-bolder tab-price">Rs.22.41M <small class="fw-normal">upwards</small></p>
-                                    </div>
-                                </div>
-                                            
-                                        
-                                <p class="mt-4 mb-0" style="text-align: justify;">COLOMBO CITY CENTRE - Large Two-Bedroom Apartment For Immediate RENT.</p>
-
-                                <div class="row mt-3 justify-content-between">
-                                    <div class="col-8">
-                                        <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <a href="#"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="tab-content mt-5" id="pills-tabContent">
                     
-                <div class="tab-pane fade" id="pills-rentals" role="tabpanel" aria-labelledby="pills-rentals-tab">
+                    <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
 
-                    <div class="row border py-4 px-3 mb-4">
-                        <div class="col-4">
-                            <img src="{{ asset('tpr_templete/images/menavid_rentals_1.svg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-8">
-                            <div class="ps-2">
-                                <div class="row">
-                                    <h5 class="fw-bolder">COLOMBO CITY CENTRE - Large - Two - Bedroom - Apartment For RENT.</h5>
+                        @foreach($all_properties as $key=> $prop)
+                            @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
+                            <div class="row border py-4 px-3 mb-4">
+                                <div class="col-4">
+                                    <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:210px" width="100%" alt="" class="img-fluid">
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-2 p-2">
-                                        <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Rentals</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <p class="ns fw-bolder tab-price">Rs.22.41M <small class="fw-normal">upwards</small></p>
-                                    </div>
-                                </div>
-                                            
-                                        
-                                <p class="mt-4 mb-0" style="text-align: justify;">COLOMBO CITY CENTRE - Large Two-Bedroom Apartment For Immediate RENT.</p>
+                                <div class="col-8">
+                                    <div class="ps-2">
+                                        <div class="row">
+                                            <h5 class="fw-bolder">{{$prop->name}}</h5>
+                                        </div>
+                                        <div class="row mt-3">
 
-                                <div class="row mt-3 justify-content-between">
-                                    <div class="col-8">
-                                        <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <a href="menavid.html"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                                        @if($prop->main_category == 'Commercial')
+                                            <div class="col-2 p-2">
+                                                <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
+                                            </div>
+                                        @else
+                                            <div class="col-2 p-2">
+                                                <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
+                                            </div>
+                                        @endif
+
+                                            <div class="col-6">
+                                                <p class="ns fw-bolder tab-price">Rs. {{number_format((float)$prop->price, 2)}} </p>
+                                            </div>
+                                        </div>
+                                                    
+                                                
+                                        <p class="mt-4 mb-0" style="text-align: justify;"><b>{{$prop->name}}</b> - |
+
+                                        @if($prop->baths == null) @else Baths : {{ $prop->baths }} | @endif
+                                        @if($prop->beds == null) @else Beds : {{ $prop->beds }} | @endif
+                                        @if($prop->parking_type == null) @else Parking Type : {{ $prop->parking_type }} | @endif
+                                        @if($prop->building_type == null) @else Building Type : {{ $prop->building_type }} | @endif
+                                        @if($prop->farm_type == null) @else Farm Type : {{ $prop->farm_type }} | @endif
+                                        @if($prop->open_house_only == null) @else Open House Only : {{ $prop->open_house_only }} | @endif
+                                        @if($prop->number_of_units == null) @else Number of Units : {{ $prop->number_of_units }} | @endif
+                                        @if($prop->land_size == null) @else Land Size : {{ $prop->land_size }} | @endif
+                                        @if($prop->zoning_type == null) @else Zoning Type : {{ $prop->zoning_type }} | @endif
+                                        @if($prop->building_size == null) @else Building Size : {{ $prop->building_size }} | @endif                         
+                                    
+                                        </p>
+
+                                        <div class="row mt-3 justify-content-between">
+                                            <div class="col-8">
+                                                <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <a href="{{ route('frontend.individual-property', $prop->id) }}"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            @endforeach 
+                        @endforeach                        
+
                     </div>
 
-                    <div class="row border py-4 px-3 mb-4">
-                        <div class="col-4">
-                            <img src="{{ asset('tpr_templete/images/menavid_rentals_2.svg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-8">
-                            <div class="ps-2">
-                                <div class="row">
-                                    <h5 class="fw-bolder">Shangri-la / Emperor / CCC / ONTHREE20 Apartments For RENT.</h5>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-2 p-2">
-                                        <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Rentals</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <p class="ns fw-bolder tab-price">Rs.22.41M <small class="fw-normal">upwards</small></p>
-                                    </div>
-                                </div>
-                                            
-                                        
-                                <p class="mt-4 mb-0" style="text-align: justify;">COLOMBO CITY CENTRE - Large Two-Bedroom Apartment For Immediate RENT.</p>
+                    <div class="tab-pane fade" id="pills-commercial" role="tabpanel" aria-labelledby="pills-commercial-tab">
 
-                                <div class="row mt-3 justify-content-between">
-                                    <div class="col-8">
-                                        <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <a href="#"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                        @foreach($com_properties as $key=> $prop)
+                            @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
+                            <div class="row border py-4 px-3 mb-4">
+                                <div class="col-4">
+                                    <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:210px" width="100%" alt="" class="img-fluid">
+                                </div>
+                                <div class="col-8">
+                                    <div class="ps-2">
+                                        <div class="row">
+                                            <h5 class="fw-bolder">{{$prop->name}}</h5>
+                                        </div>
+                                        <div class="row mt-3">
+
+                                        @if($prop->main_category == 'Commercial')
+                                            <div class="col-2 p-2">
+                                                <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
+                                            </div>
+                                        @else
+                                            <div class="col-2 p-2">
+                                                <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
+                                            </div>
+                                        @endif
+
+                                            <div class="col-6">
+                                                <p class="ns fw-bolder tab-price">Rs. {{number_format((float)$prop->price, 2)}} </p>
+                                            </div>
+                                        </div>
+                                                    
+                                                
+                                        <p class="mt-4 mb-0" style="text-align: justify;"><b>{{$prop->name}}</b> - |
+
+                                        @if($prop->baths == null) @else Baths : {{ $prop->baths }} | @endif
+                                        @if($prop->beds == null) @else Beds : {{ $prop->beds }} | @endif
+                                        @if($prop->parking_type == null) @else Parking Type : {{ $prop->parking_type }} | @endif
+                                        @if($prop->building_type == null) @else Building Type : {{ $prop->building_type }} | @endif
+                                        @if($prop->farm_type == null) @else Farm Type : {{ $prop->farm_type }} | @endif
+                                        @if($prop->open_house_only == null) @else Open House Only : {{ $prop->open_house_only }} | @endif
+                                        @if($prop->number_of_units == null) @else Number of Units : {{ $prop->number_of_units }} | @endif
+                                        @if($prop->land_size == null) @else Land Size : {{ $prop->land_size }} | @endif
+                                        @if($prop->zoning_type == null) @else Zoning Type : {{ $prop->zoning_type }} | @endif
+                                        @if($prop->building_size == null) @else Building Size : {{ $prop->building_size }} | @endif                         
+                                    
+                                        </p>
+
+                                        <div class="row mt-3 justify-content-between">
+                                            <div class="col-8">
+                                                <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <a href="{{ route('frontend.individual-property', $prop->id) }}"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                            @endforeach 
+                        @endforeach
 
-                    <div class="row border py-4 px-3 mb-4">
-                        <div class="col-4">
-                            <img src="{{ asset('tpr_templete/images/menavid_rentals_3.svg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-8">
-                            <div class="ps-2">
-                                <div class="row">
-                                    <h5 class="fw-bolder">7th SENSE THREE Bedroom Apartment For Immediate Rent.</h5>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-2 p-2">
-                                        <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Rentals</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <p class="ns fw-bolder tab-price">Rs.22.41M <small class="fw-normal">upwards</small></p>
-                                    </div>
-                                </div>
-                                            
-                                        
-                                <p class="mt-4 mb-0" style="text-align: justify;">COLOMBO CITY CENTRE - Large Two-Bedroom Apartment For Immediate RENT.</p>
+                    </div> 
 
-                                <div class="row mt-3 justify-content-between">
-                                    <div class="col-8">
-                                        <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <a href="#"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                    <div class="tab-pane fade" id="pills-residential" role="tabpanel" aria-labelledby="pills-residential-tab">
+
+                        @foreach($res_properties as $key=> $prop)
+                            @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
+                            <div class="row border py-4 px-3 mb-4">
+                                <div class="col-4">
+                                    <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:210px" width="100%" alt="" class="img-fluid">
+                                </div>
+                                <div class="col-8">
+                                    <div class="ps-2">
+                                        <div class="row">
+                                            <h5 class="fw-bolder">{{$prop->name}}</h5>
+                                        </div>
+                                        <div class="row mt-3">
+
+                                        @if($prop->main_category == 'Commercial')
+                                            <div class="col-2 p-2">
+                                                <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
+                                            </div>
+                                        @else
+                                            <div class="col-2 p-2">
+                                                <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
+                                            </div>
+                                        @endif
+
+                                            <div class="col-6">
+                                                <p class="ns fw-bolder tab-price">Rs. {{number_format((float)$prop->price, 2)}} </p>
+                                            </div>
+                                        </div>
+                                                    
+                                                
+                                        <p class="mt-4 mb-0" style="text-align: justify;"><b>{{$prop->name}}</b> - |
+
+                                        @if($prop->baths == null) @else Baths : {{ $prop->baths }} | @endif
+                                        @if($prop->beds == null) @else Beds : {{ $prop->beds }} | @endif
+                                        @if($prop->parking_type == null) @else Parking Type : {{ $prop->parking_type }} | @endif
+                                        @if($prop->building_type == null) @else Building Type : {{ $prop->building_type }} | @endif
+                                        @if($prop->farm_type == null) @else Farm Type : {{ $prop->farm_type }} | @endif
+                                        @if($prop->open_house_only == null) @else Open House Only : {{ $prop->open_house_only }} | @endif
+                                        @if($prop->number_of_units == null) @else Number of Units : {{ $prop->number_of_units }} | @endif
+                                        @if($prop->land_size == null) @else Land Size : {{ $prop->land_size }} | @endif
+                                        @if($prop->zoning_type == null) @else Zoning Type : {{ $prop->zoning_type }} | @endif
+                                        @if($prop->building_size == null) @else Building Size : {{ $prop->building_size }} | @endif                         
+                                    
+                                        </p>
+
+                                        <div class="row mt-3 justify-content-between">
+                                            <div class="col-8">
+                                                <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <a href="{{ route('frontend.individual-property', $prop->id) }}"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                            @endforeach 
+                        @endforeach
 
-                    <div class="row border py-4 px-3 mb-4">
-                        <div class="col-4">
-                            <img src="{{ asset('tpr_templete/images/menavid_rentals_4.svg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-8">
-                            <div class="ps-2">
-                                <div class="row">
-                                    <h5 class="fw-bolder">EMPEROR TWO &THREE Bedroom for rent.</h5>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-2 p-2">
-                                        <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Rentals</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <p class="ns fw-bolder tab-price">Rs.22.41M <small class="fw-normal">upwards</small></p>
-                                    </div>
-                                </div>
-                                            
-                                        
-                                <p class="mt-4 mb-0" style="text-align: justify;">COLOMBO CITY CENTRE - Large Two-Bedroom Apartment For Immediate RENT.</p>
-
-                                <div class="row mt-3 justify-content-between">
-                                    <div class="col-8">
-                                        <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <a href="#"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 </div>
 
-                <div class="tab-pane fade" id="pills-commercial" role="tabpanel" aria-labelledby="pills-commercial-tab">
-
-                    <div class="row border py-4 px-3 mb-4">
-                        <div class="col-4">
-                            <img src="{{ asset('tpr_templete/images/menavid_rentals_2.svg') }}" alt="" class="img-fluid">
+                <div class="row">
+                    <div class="clearfix">
+                        <div class="float-start">
+                            <p style="color: #EFCAD8;">Showing page <span style="font-weight: 1000; color: #E88EAF;">1</span> of 7</p>
                         </div>
-                        <div class="col-8">
-                            <div class="ps-2">
-                                <div class="row">
-                                    <h5 class="fw-bolder">COLOMBO CITY CENTRE - Large - Two - Bedroom - Apartment For RENT.</h5>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-2 p-2">
-                                        <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <p class="ns fw-bolder tab-price">Rs.22.41M <small class="fw-normal">upwards</small></p>
-                                    </div>
-                                </div>
-                                            
-                                        
-                                <p class="mt-4 mb-0" style="text-align: justify;">COLOMBO CITY CENTRE - Large Two-Bedroom Apartment For Immediate RENT.</p>
-
-                                <div class="row mt-3 justify-content-between">
-                                    <div class="col-8">
-                                        <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <a href="#"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="float-end">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="bi bi-chevron-left" style="color: #E88EAF;"></i></span>
+                                    </a>
+                                </li>
+                                <li class="page-item active shadow-sm me-2"><a class="page-link" href="">1</a></li>
+                                <li class="page-item shadow-sm me-2"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item shadow-sm me-2"><a class="page-link" href="">3</a></li>
+                                <li class="page-item shadow-sm me-2">
+                                    <a class="page-link" href="" aria-label="Next">
+                                    <span aria-hidden="true"><i class="bi bi-chevron-right" style="color: #E88EAF;"></i></span>
+                                    </a>
+                                </li>
+                                </ul>
+                            </nav>
                         </div>
-                    </div>
-
-                </div>
-
-                <div class="tab-pane fade" id="pills-propertyLand" role="tabpanel" aria-labelledby="pills-propertyLand-tab">
-
-                    <div class="row border py-4 px-3 mb-4">
-                        <div class="col-4">
-                            <img src="{{ asset('tpr_templete/images/menavid_rentals_4.svg') }}" alt="" class="img-fluid">
-                        </div>
-                        <div class="col-8">
-                            <div class="ps-2">
-                                <div class="row">
-                                    <h5 class="fw-bolder">COLOMBO CITY CENTRE - Large - Two - Bedroom - Apartment For RENT.</h5>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-3 p-2">
-                                        <button class="btn text-white w-100" style="background-color: #7DCAC4; border-radius: 0.7rem;">Property Land</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <p class="ns fw-bolder tab-price">Rs.22.41M <small class="fw-normal">upwards</small></p>
-                                    </div>
-                                </div>
-                                            
-                                        
-                                <p class="mt-4 mb-0" style="text-align: justify;">COLOMBO CITY CENTRE - Large Two-Bedroom Apartment For Immediate RENT.</p>
-
-                                <div class="row mt-3 justify-content-between">
-                                    <div class="col-8">
-                                        <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <a href="#"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="clearfix">
-                    <div class="float-start">
-                        <p style="color: #EFCAD8;">Showing page <span style="font-weight: 1000; color: #E88EAF;">1</span> of 7</p>
-                    </div>
-                    <div class="float-end">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                              <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                  <span aria-hidden="true"><i class="bi bi-chevron-left" style="color: #E88EAF;"></i></span>
-                                </a>
-                              </li>
-                              <li class="page-item active shadow-sm me-2"><a class="page-link" href="">1</a></li>
-                              <li class="page-item shadow-sm me-2"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item shadow-sm me-2"><a class="page-link" href="">3</a></li>
-                              <li class="page-item shadow-sm me-2">
-                                <a class="page-link" href="" aria-label="Next">
-                                  <span aria-hidden="true"><i class="bi bi-chevron-right" style="color: #E88EAF;"></i></span>
-                                </a>
-                              </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
-            </div>
+            @endif
         </div>
     </section>
 

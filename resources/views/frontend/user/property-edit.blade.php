@@ -84,7 +84,7 @@
                                             <select class="form-select" aria-label="agentType" name="propertyType" id="propertyType" onChange="renderFields()">
 
                                             @foreach($property_type as $type)
-                                                <option value="{{$type->id}}"> {{$type->property_type_name}} </option>
+                                                <option value="{{$type->id}}" {{ $property->property_type == $type->id ? "selected" : "" }}> {{$type->property_type_name}} </option>
                                             @endforeach
 
                                               
@@ -121,8 +121,8 @@
                                         <div>
                                             <label for="category" class="form-label mb-0 mt-4 required">Category</label>
                                             <select class="form-select" aria-label="category" id="category" name="category">
-                                                <option value="commercial">Commercial</option>
-                                                <option value="residential">Residential</option>
+                                                <option value="Commercial" {{ $property->main_category == 'Commercial' ? "selected" : "" }}>Commercial</option>
+                                                <option value="Residential" {{ $property->main_category == 'Residential' ? "selected" : "" }}>Residential</option>
                                             </select>
                                         </div>  
                                     </div>
