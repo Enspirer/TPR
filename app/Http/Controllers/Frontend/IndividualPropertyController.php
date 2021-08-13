@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Models\Properties;
 use App\Models\FileManager;
@@ -104,6 +105,26 @@ class IndividualPropertyController extends Controller
         $data->delete();   
 
         return back();
+    }
+
+
+    public function contact_agent(Request $request)
+    {
+        $booking = new Booking;
+        $booking->first_name = $request->first_name;
+        $booking->last_name = $request->last_name;
+        $booking->method_of_contact = $request->contact_method;
+        $booking->email = $request->email;
+        $booking->phone_number = $request->phone_number;
+        $booking->message = $request->message;
+        $booking->im_resident = $request->im_resident;
+        $booking->tpr_respond_check = 'Pending';
+        $booking->user_id = auth()->user()->id;
+        $booking->property_id = $request->property_id;
+        $booking->agent_id = $request->agent_id;
+        $booking->save();
+        return back();
+
     }
 
 

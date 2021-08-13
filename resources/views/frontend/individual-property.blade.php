@@ -457,20 +457,128 @@
 
 
     <!-- email modal -->
-    <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade bd-example-modal-lg" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 910px;max-width: 1040px;">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                <form action="{{route('frontend.invidual_property')}}" method="post">
+                    {{csrf_field()}}
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Contact Agent</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4>To:</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="" style="background-image: url('{{ url('files/agent_request',$agent->photo) }}');height: 100px;background-repeat: no-repeat;background-position: center;background-size: cover;margin-bottom: 20px;">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label><b>Name:</b></label> {{$agent->name}} <br>
+                                        <label><b>Phone Number:</b></label> {{$agent->telephone}} <br>
+                                        <label><b>Address:</b></label> {{$agent->address}} <br>
+                                        <label><b>Country:</b></label> {{$agent->country}} <br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Frist Name  <span style="color: red">*</span></label>
+                                    <input type="text" class="form-control" name="first_name">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Last Name  <span style="color: red">*</span></label>
+                                    <input type="text" class="form-control" name="last_name">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Im a <span style="color: red">*</span></label>
+                                    <select class="form-control" name="im_resident">
+                                        <option value="First Time Buyer">First Time Buyer</option>
+                                        <option value="No Preference">No Preference</option>
+                                        <option value="Repeat Buyer">Repeat Buyer</option>
+                                        <option value="Seller">Seller</option>
+                                        <option value="Residential Investor">Residential Investor</option>
+                                        <option value="Commercial Investor">Commercial Investor</option>
+                                        <option value="Commercial buyer or leaser">Commercial buyer or leaser</option>
+                                        <option value="Land for development">Land for development</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <input type="hidden" name="agent_id" value="{{$agent->id}}">
+                        <input type="hidden" name="property_id" value="{{$property_details->id}}">
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Preferred method of contact  <span style="color: red">*</span></label>
+                                    <select class="form-control" name="contact_method">
+                                        <option value="Email">Email</option>
+                                        <option value="Phone">Phone</option>
+                                        <option value="Text">Text</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Email  <span style="color: red">*</span></label>
+                                    <input type="text" class="form-control" name="email">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Phone Number  <span style="color: red">*</span></label>
+                                    <input type="number" class="form-control" name="phone_number">
+                                </div>
+                            </div>
+                        </div><br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Message  <span style="color: red">*</span></label>
+                                    <textarea type="text" rows="3" class="form-control" name="message"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>

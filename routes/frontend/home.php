@@ -51,6 +51,7 @@ Route::post('file_manager-store',[FileManagerController::class,'store'])->name('
 
 Route::post('search_result',[HomeController::class,'get_search_result'])->name('search_result_function');
 
+Route::post('agent', [IndividualPropertyController::class, 'contact_agent'])->name('invidual_property');
 
 
 Route::get('search_result_filter/{key_name}/{max_price}/{min_price}/{category_type}/{transaction_type}/{property_type}/{listed_since}/{building_type}/{beds}/{baths}/{land_size}/{open_house}/{zoning_type}/{units}/{building_size}/{farm_type}/{parking_type}',[HomeController::class,'search_function'])->name('search_function');
@@ -67,6 +68,11 @@ Route::get('search_result_filter/{key_name}/{max_price}/{min_price}/{category_ty
 Route::group(['middleware' => ['auth', 'password_expires']], function () {
     Route::group(['namespace' => 'User', 'as' => 'user.'], function () {
         // User Dashboard Specific
+
+
+
+
+
 
         Route::get('property_detail',[FileManagerController::class,'get_files'])->name('getFileDetails');
 
