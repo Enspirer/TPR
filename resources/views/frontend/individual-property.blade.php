@@ -280,7 +280,7 @@
                         </div>
 
                         <div class="row mt-5 justify-content-between">
-                            <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 100%;"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="me-2">Share</button>
+                            <a data-toggle="modal" data-target="#shareModal" class="btn rounded-0" style="border: 1.5px solid #707070; width: 100%;"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="me-2" >Share</a>
 
                             <!-- <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 47%;"><i class="bi bi-heart me-1"></i> Save</button> -->
                         </div>
@@ -455,6 +455,42 @@
     </section>
 
 
+    <!-- Share Modal -->
+        <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shareModalLabel">Share</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </button>
+            </div>
+            <div class="modal-body">
+            
+            <div class="row mt-4 mb-4 justify-content-between">
+                <div class="col-3">
+                    <a href="#" class="p-4 fs-3" style="color: #79CEEB; border: 2px solid #79CEEB;"><i class="bi bi-facebook"></i></a>
+                </div>
+                <div class="col-3">
+                    <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
+                </div>
+                <div class="col-3">
+                    <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-whatsapp"></i></a>
+                </div>
+                <div class="col-3">
+                    <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-google"></i></a>
+                </div>
+            </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+            </div>
+        </div>
+        </div>
+
+
 
     <!-- email modal -->
     <div class="modal fade bd-example-modal-lg" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
@@ -571,6 +607,49 @@
                         </div>
                         <br>
 
+                        <div class="fakeLabel"><b>Information to help the TROPICAL® respond</b>:</div>
+                        <br>
+                        
+
+                        <div class="row">
+                            <div class="form-group mb-3">
+                                <input type="checkbox" id="Check" onclick="myFunction()">
+                                <label for="Check">I wish to book a showing. Date and time combinations.</label> 
+
+                                <div class="row" style="margin-left:6px;">
+                                    <div class="col-4">
+                                        <input type="date" id="date" class="form-control col-sm-4 mt-2" style="display:none" placeholder="Any Date" />
+                                    </div>
+                                    <div class="col-4">
+                                        <select class="form-control mt-2" id="time" style="display:none"> 
+                                            <option value="Any Time">Any Time</option>   
+                                            <option value="Morning">Morning</option>  
+                                            <option value="Afternoon">Afternoon</option>  
+                                            <option value="Evening">Evening</option>                                                                    
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group mb-3">
+                                <input type="checkbox" id="myCheck" onclick="myFunction()">
+                                <label for="myCheck">I am currently working with a TROPICAL®.</label> 
+                                <div class="row" style="margin-left:6px;">
+                                    <div class="col-6">
+                                        <input type="text" id="text" class="form-control mt-2" style="display:none;" placeholder="First and Last Name of My TROPICAL®" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <input type="checkbox" id="tick1">
+                                <label for="tick1">I have been pre-approved for a mortgage.</label> 
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="tick2">
+                                <label for="tick2">I wish to give my location, if available.</label> 
+                            </div>
+                        </div>    
+
 
                     </div>
                     <div class="modal-footer">
@@ -591,6 +670,33 @@
     @if(config('access.captcha.contact'))
         @captchaScripts
     @endif
+
+    <script>
+        function myFunction() {
+            var checkBox1 = document.getElementById("Check");
+            var date = document.getElementById("date");
+            var time = document.getElementById("time");
+            if (checkBox1.checked == true){
+                date.style.display = "block";
+            } else {
+                date.style.display = "none";
+            }
+            if (checkBox1.checked == true){
+                time.style.display = "block";
+            } else {
+                time.style.display = "none";
+            }
+
+            var checkBox = document.getElementById("myCheck");
+            var text = document.getElementById("text");
+            if (checkBox.checked == true){
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+
+        }
+    </script>    
 
 
 <script>
