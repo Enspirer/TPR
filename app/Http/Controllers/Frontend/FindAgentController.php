@@ -18,7 +18,6 @@ class FindAgentController extends Controller
     public function index($area, $agent_type, $agent_name)
     {
 
-        Cookie::queue("score_tag", json_encode(Session::get($country_id)));
 
         $agents = AgentRequest::where('status','Approved');
 
