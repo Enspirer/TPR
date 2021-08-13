@@ -260,30 +260,71 @@
                 </div>
 
                 <div class="col-4 px-5">
+
+                    <div class="row justify-content-center shadow py-4" style="margin-top: 3rem;">
+                        <div align="center">
+                            <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none">
+                                <img src="{{ url('files/agent_request',$agent->photo) }}" class="mb-4" style="border-radius: 50%; width: 150px" height="150px">
+                            </a>
+                        </div>
+
+                        <!-- <h6 class="fw-bold mb-0">Hamptons - New Homes</h6> -->
+
+                        <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none; color:black"><h6 align="center" class="justify-content-center fw-bold mb-2">{{ $agent->name }}</h6></a>
+                        <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none; color:black"><p align="center">View agent property</p></a>
+
+                        <h6 class="fw-bold mb-0 text-center mt-3">Call agent : {{ $agent->telephone }}</h6>
+
+                        <div class="col-12 text-center mt-3">
+                            <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="mailto:{{ $agent->email }}" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                        </div>
+
+                        <div class="row mt-5 justify-content-between">
+                            <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 100%;"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="me-2">Share</button>
+
+                            <!-- <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 47%;"><i class="bi bi-heart me-1"></i> Save</button> -->
+                        </div>
+                    </div><br><br>
+
+
+
+
                     <div class="row justify-content-center">
                         <div class="col-12 text-center">
                             <a href="mailto:{{ $agent->email }}"><button class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid #707070;"><i class="bi bi-envelope"></i> Create email alert</button></a>
                         </div>
 
 
-                    @if($favourite  == null)   
+                        @auth
+                            @if($favourite  == null)
 
-                        <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
-                        {{csrf_field()}}
+                                <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
+                                    {{csrf_field()}}
+                                    <div class="col-12 text-center mt-4">
+                                        <input type="hidden" name="prop_hidden_id" value="{{ $property_details->id }}" />
+                                        <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="bi bi-heart me-1"></i> Save this Property</button>
+                                    </div>
+                                </form>
+                            @else
+                                <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
+                                    {{csrf_field()}}
+                                    <div class="col-12 text-center mt-4">
+                                        <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
+                                        <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid; background-color:#ff4da5; color:white; "><i class="bi bi-heart me-1"></i> Unsave this Property</button>
+                                    </div>
+                                </form>
+                            @endif
+
+                        @else
+
                             <div class="col-12 text-center mt-4">
-                                <input type="hidden" name="prop_hidden_id" value="{{ $property_details->id }}" />
-                                <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="bi bi-heart me-1"></i> Save this Property</button>
+                                <a href="{{route('frontend.auth.login')}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="bi bi-heart me-1"></i> Save this Property</a>
                             </div>
-                        </form>    
-                    @else
-                        <form action="{{route('frontend.propertyFavouriteDelete',$favourite->id)}}" method="post" enctype="multipart/form-data">
-                        {{csrf_field()}}
-                            <div class="col-12 text-center mt-4">
-                                <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
-                                <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid; background-color:#ff4da5; color:white; "><i class="bi bi-heart me-1"></i> Unsave this Property</button>
-                            </div>
-                        </form>                    
-                    @endif
+
+                        @endauth
+
+
+
                         
                         <hr class="mt-5" style="border: 1px solid #707070;">
                     </div>
@@ -318,30 +359,7 @@
                     @endif
 
 
-                    <div class="row justify-content-center shadow py-4" style="margin-top: 3rem;">
-                        <div align="center">
-                        <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none">
-                            <img src="{{ url('files/agent_request',$agent->photo) }}" class="mb-4" style="border-radius: 50%; width: 150px" height="150px"> 
-                        </a>
-                        </div>
 
-                        <!-- <h6 class="fw-bold mb-0">Hamptons - New Homes</h6> -->
-                        
-                        <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none; color:black"><h6 align="center" class="justify-content-center fw-bold mb-2">{{ $agent->name }}</h6></a>
-                        <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none; color:black"><p align="center">View agent property</p></a>
-
-                        <h6 class="fw-bold mb-0 text-center mt-3">Call agent : {{ $agent->telephone }}</h6>
-
-                        <div class="col-12 text-center mt-3">
-                            <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="mailto:{{ $agent->email }}" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
-                        </div>
-
-                        <div class="row mt-5 justify-content-between">
-                            <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 100%;"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="me-2">Share</button>
-
-                            <!-- <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 47%;"><i class="bi bi-heart me-1"></i> Save</button> -->
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

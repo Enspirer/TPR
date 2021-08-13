@@ -56,7 +56,17 @@ class IndividualPropertyController extends Controller
         $random = Properties::inRandomOrder()->limit(4)->get();
         // dd($random);
 
-        $favourite = Favorite::where('property_id',$id)->first();
+
+        if(auth()->user())
+        {
+            $favourite = Favorite::where('property_id',$id)
+                ->where('user_id',auth()->user()->id)
+                ->first();
+        }else{
+            $favourite = null;
+        }
+
+
         // dd($favourite);
 
         return view('frontend.individual-property',[
