@@ -135,4 +135,10 @@ class DashboardController extends Controller
             'feature_image' => $feature_image
         ]);
     }
+
+
+    public function myBookings()
+    {
+        return view('frontend.user.my-bookings');
+    }
 }
