@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\PropertyType;
 use App\Models\FileManager;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cookie;
+use Session;
 
 /**
  * Class HomeController.
@@ -58,6 +60,8 @@ class HomeController extends Controller
 
     public function index($country_id,Request $request)
     {
+        Cookie::queue("score_tag", json_encode(Session::get($country_id)));
+
         $promu = Properties::where('admin_approval','Approved')->get();
 
         $latest = Properties::latest()->take(3)->get();
