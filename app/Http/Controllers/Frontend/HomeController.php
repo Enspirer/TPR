@@ -8,6 +8,7 @@ use App\Models\Properties;
 use Illuminate\Http\Request;
 use App\Models\PropertyType;
 use App\Models\FileManager;
+use App\Models\GlobalAdvertisement;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Session;
@@ -24,10 +25,14 @@ class HomeController extends Controller
     {
         $country = Country::where('status',1)->get();
 
+        $global_advertisement = GlobalAdvertisement::where('status','=','1',)->orderBy('order', 'ASC')->get();
+        // dd($global_advaertisement);
+
 
 
         return view('frontend.landing',[
-            'countries_data' => $country
+            'countries_data' => $country,
+            'global_advertisement' => $global_advertisement
         ]);
     }
 

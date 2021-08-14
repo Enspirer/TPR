@@ -57,6 +57,13 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/global_advertisement'))}}" href="{{ route('admin.global_advertisement.index') }}">
+                    <i class="nav-icon fas fa-globe"></i>
+                    Global Advertisement
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">
                     <i class="nav-icon fas fa-comments"></i>
                     Contact Us

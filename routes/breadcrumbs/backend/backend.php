@@ -58,6 +58,14 @@ Breadcrumbs::for('admin.file_manager.index', function ($trail) {
     $trail->push('File Manager', route('admin.file_manager.index'));
 });
 
+Breadcrumbs::for('admin.global_advertisement.index', function ($trail) {
+    $trail->push('Global Advertisement', route('admin.global_advertisement.index'));
+});
+
+Breadcrumbs::for('admin.global_advertisement.edit', function ($trail) {
+    $trail->push('Edit Global Advertisement', route('admin.global_advertisement.edit',1));
+});
+
 Breadcrumbs::for('admin.settings.index', function ($trail) {
     $trail->push('Settings', route('admin.settings.index'));
 });

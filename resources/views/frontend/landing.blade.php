@@ -16,7 +16,59 @@
     <link rel="stylesheet" href="{{url('tpr_templete/stylesheets/landing.css')}}"></link>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
     <title>Tropical - Landing</title>
+
+    <style>
+      /* html, */
+      /* body {
+        position: relative;
+        height: 100%;
+      } */
+
+      /* body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      } */
+
+      .swiper-container {
+        width: 80%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+
 </head>
 <body>
 
@@ -136,7 +188,7 @@
             </li>
         </ul>
 
-        <div class="tab-content mt-5" id="pills-tabContent">
+        <!-- <div class="tab-content mt-5" id="pills-tabContent">
 
             <div class="tab-pane fade show active" id="tabs-all" role="tabpanel" aria-labelledby="tabs-all-tab">
                 <div class="row">
@@ -210,10 +262,68 @@
 
             </div>
 
-        </div>
+        </div> -->
 
     </div>
 </sections>
+
+
+<br><br><br><br>
+<!-- <div class="container"> -->
+    <div class="swiper-container mySwiper">
+        <div class="swiper-wrapper">
+            @foreach($global_advertisement as $key => $advertisement)
+            
+            <div class="swiper-slide">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 p-1">
+                            <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank" >
+                            <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
+                            </a> 
+                        </div>
+                        <div class="col-6 p-1">
+                            <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank">
+                            <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
+                            </a> 
+                        </div>                  
+                    </div>
+                    <div class="row">
+                        <div class="col-4 p-1">
+                            <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank" >
+                            <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
+                            </a> 
+                        </div>
+                        <div class="col-4 p-1">
+                            <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank">
+                            <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
+                            </a> 
+                        </div>  
+                        <div class="col-4 p-1">
+                            <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank">
+                            <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
+                            </a> 
+                        </div>                   
+                    </div>
+                </div>
+                
+                <!-- <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank" class="w-100">
+                    <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
+                </a>  -->
+            </div>
+
+            
+               
+                
+            @endforeach
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- <div class="swiper-pagination"></div> -->
+
+    </div>
+<!-- </div> -->
 
 
 
@@ -427,6 +537,25 @@ type="text/javascript"></script> -->
         "mouseWheelZoomEnabled": true
     });
 </script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
 
 
 

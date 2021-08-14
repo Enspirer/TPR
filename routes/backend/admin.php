@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\AgentRequestController;
 use App\Http\Controllers\Backend\SettingsController;
 use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\FileManagerController;
+use App\Http\Controllers\Backend\GlobalAdvertisementController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -57,3 +58,10 @@ Route::get('contact_us/delete/{id}', [ContactUsController::class, 'destroy'])->n
 Route::get('file_manager', [FileManagerController::class, 'index'])->name('file_manager.index');
 Route::get('file_manager/getdetails', [FileManagerController::class, 'getDetails'])->name('file_manager.getDetails');
 Route::get('file_manager/delete/{id}', [FileManagerController::class, 'destroy'])->name('file_manager.destroy');
+
+Route::get('global_advertisement', [GlobalAdvertisementController::class, 'index'])->name('global_advertisement.index');
+Route::post('global_advertisement/store', [GlobalAdvertisementController::class, 'store'])->name('global_advertisement.store');
+Route::get('global_advertisement/getdetails', [GlobalAdvertisementController::class, 'getDetails'])->name('global_advertisement.getDetails');
+Route::get('global_advertisement/edit/{id}', [GlobalAdvertisementController::class, 'edit'])->name('global_advertisement.edit');
+Route::post('global_advertisement/update', [GlobalAdvertisementController::class, 'update'])->name('global_advertisement.update');
+Route::get('global_advertisement/delete/{id}', [GlobalAdvertisementController::class, 'destroy'])->name('global_advertisement.destroy');

@@ -264,7 +264,7 @@
                     <div class="row justify-content-center shadow py-4" style="margin-top: 3rem;">
                         <div align="center">
                             <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none">
-                                <img src="{{ url('files/agent_request',$agent->photo) }}" class="mb-4" style="border-radius: 50%; width: 150px" height="150px">
+                                <img src="{{ url('files/agent_request',$agent->photo) }}" class="mb-4" style="border-radius: 50%; object-fit:cover; width: 150px" height="150px">
                             </a>
                         </div>
 
@@ -468,16 +468,16 @@
             
             <div class="row mt-4 mb-4 justify-content-between">
                 <div class="col-3">
-                    <a href="#" class="p-4 fs-3" style="color: #79CEEB; border: 2px solid #79CEEB;"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('individual-property') }}&quote=Check%20is%20property%20:{{ url('individual-property',$property_details->id) }}" class="p-4 fs-3" style="color: #79CEEB; border: 2px solid #79CEEB;"><i class="bi bi-facebook"></i></a>
                 </div>
                 <div class="col-3">
                     <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
                 </div>
                 <div class="col-3">
-                    <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-whatsapp"></i></a>
+                    <a href="whatsapp://send?text=Check%20this%20is%20property%20:{{ url('individual-property',$property_details->id) }}" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-whatsapp"></i></a>
                 </div>
                 <div class="col-3">
-                    <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-google"></i></a>
+                    <a href="sms:?body=Check%20this%20property%20:%20{{ url('individual-property',$property_details->id) }}" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="fas fa-sms"></i></a>
                 </div>
             </div>
 
@@ -503,16 +503,17 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-md-8">
                                 <h4>To:</h4>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="" style="background-image: url('{{ url('files/agent_request',$agent->photo) }}');height: 100px;background-repeat: no-repeat;background-position: center;background-size: cover;margin-bottom: 20px;">
-
+                                    <div class="col-4">
+                                    <!-- background-repeat: no-repeat;background-position: center;background-size: cover;margin-bottom: 20px; -->                                    
+                                        <div class="" >
+                                        <img src="{{ url('files/agent_request',$agent->photo) }}" alt="" style="object-fit: cover; height:170px" width="100%" class="profile-picture">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-8 align-middle">
                                         <label><b>Name:</b></label> {{$agent->name}} <br>
                                         <label><b>Phone Number:</b></label> {{$agent->telephone}} <br>
                                         <label><b>Address:</b></label> {{$agent->address}} <br>
@@ -539,21 +540,22 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Frist Name  <span style="color: red">*</span></label>
-                                    <input type="text" class="form-control" name="first_name">
+                                    <label>First Name  <span style="color: red">*</span></label>
+                                    <input type="text" class="form-control" name="first_name" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Last Name  <span style="color: red">*</span></label>
-                                    <input type="text" class="form-control" name="last_name">
+                                    <input type="text" class="form-control" name="last_name" required>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Im a <span style="color: red">*</span></label>
-                                    <select class="form-control" name="im_resident">
+                                    <select class="form-control" name="im_resident" required>
+                                        <option selected disabled value="">Choose...</option>
                                         <option value="First Time Buyer">First Time Buyer</option>
                                         <option value="No Preference">No Preference</option>
                                         <option value="Repeat Buyer">Repeat Buyer</option>
@@ -575,7 +577,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Preferred method of contact  <span style="color: red">*</span></label>
-                                    <select class="form-control" name="contact_method">
+                                    <select class="form-control" name="contact_method" required>
+                                        <option selected disabled value="">Choose...</option>
                                         <option value="Email">Email</option>
                                         <option value="Phone">Phone</option>
                                         <option value="Text">Text</option>
@@ -585,13 +588,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Email  <span style="color: red">*</span></label>
-                                    <input type="text" class="form-control" name="email">
+                                    <input type="email" class="form-control" name="email" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Phone Number  <span style="color: red">*</span></label>
-                                    <input type="number" class="form-control" name="phone_number">
+                                    <input type="number" class="form-control" name="phone_number" required>
                                 </div>
                             </div>
                         </div><br>
@@ -600,14 +603,14 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Message  <span style="color: red">*</span></label>
-                                    <textarea type="text" rows="3" class="form-control" name="message"></textarea>
+                                    <textarea type="text" rows="3" class="form-control" name="message" required></textarea>
                                 </div>
                             </div>
 
                         </div>
                         <br>
 
-                        <div class="fakeLabel"><b>Information to help the TROPICAL® respond</b>:</div>
+                        <!-- <div class="fakeLabel"><b>Information to help the TROPICAL® respond</b>:</div>
                         <br>
                         
 
@@ -648,7 +651,7 @@
                                 <input type="checkbox" id="tick2">
                                 <label for="tick2">I wish to give my location, if available.</label> 
                             </div>
-                        </div>    
+                        </div>     -->
 
 
                     </div>
