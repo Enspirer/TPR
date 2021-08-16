@@ -471,7 +471,7 @@
                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('individual-property') }}&quote=Check%20is%20property%20:{{ url('individual-property',$property_details->id) }}" class="p-4 fs-3" style="color: #79CEEB; border: 2px solid #79CEEB;"><i class="bi bi-facebook"></i></a>
                 </div>
                 <div class="col-3">
-                    <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
+                    <a href="http://twitter.com/home?status=Check%20this%20property%20{{ url('individual-property',$property_details->id) }}" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
                 </div>
                 <div class="col-3">
                     <a href="whatsapp://send?text=Check%20this%20is%20property%20:{{ url('individual-property',$property_details->id) }}" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-whatsapp"></i></a>

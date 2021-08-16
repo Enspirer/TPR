@@ -26,9 +26,7 @@ class HomeController extends Controller
         $country = Country::where('status',1)->get();
 
         $global_advertisement = GlobalAdvertisement::where('status','=','1',)->orderBy('order', 'ASC')->get();
-        // dd($global_advaertisement);
-
-
+        // dd($global_advertisement);
 
         return view('frontend.landing',[
             'countries_data' => $country,
