@@ -242,49 +242,6 @@
                                 </div>
                             @endforeach
 
-                        
-                        <!-- <div class="property mb-5 p-3 shadow">
-                            <div class="row">
-                                <div class="col-6">
-                                    <a href=""><img src="{{ asset('tpr_templete/images/residential_1.svg') }}" alt="" class="img-fluid"></a>
-                                </div>
-                                <div class="col-6 ps-4">
-                                    <div class="row justify-content-between">
-                                        <div class="col-9">
-                                            <h5 class="property-price mb-0">$ 480, 000</h5>
-                                            <h5 class="property-location">Colombo, Sri Lanka</h5>
-                                        </div>
-                                        <div class="col-3 small-heart">
-                                            <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
-                                            <i class="bi bi-heart-fill" style="font-size: 1.5rem; display: none;"></i>
-                                        </div>
-                                    </div>
-                                    
-                                    <p class="fw-bold mt-2 mb-0 property-spec text-body">2 bed semi-detached house</p>
-                                    <p class="text-secondary mt-1">Lancaster, claited Kingdom</p>
-                                    <div class="project-list">
-                                        <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.4 miles from petta</p>
-                                        <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.7 miles from petta</p>
-                                    </div>
-                                    <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> 7 <i class="fas fa-bed ms-4 me-2"></i>2</p>
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-8">
-                                    <h6 class="text-secondary">Listed on 26th Jun 2021</h6>
-                                </div>
-                                <div class="col-4">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p><i class="bi bi-telephone me-1"></i> 020 8014 123</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p><i class="bi bi-envelope me-1"></i> Contact</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
 
                     <div class="col-4">
@@ -294,23 +251,17 @@
                             </div>
                         </div>
 
-                        <div class="row shadow mt-5">
-                            <div class="col-12">
-                                <img src="{{ asset('tpr_templete/images/rp_3.svg') }}" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente sint facilis dignissimos optio maiores eius nisi repellat aliquam amet quod voluptate delectus pariatur minima soluta maxime consequuntur, accusamus totam exercitationem?</p>
-                            </div>
-                        </div>
 
-                        <div class="row shadow mt-5">
-                            <div class="col-12">
-                                <img src="{{ asset('tpr_templete/images/rp_1.svg') }}" alt="" class="img-fluid">
+                        @foreach($side_ads as $side_ad)
+                            <div class="row shadow mt-5">
+                                <div class="col-12">
+                                    <a href="{{ $side_ad->link }}"><img src="{{url('files/sidebar_ad', $side_ad->image)}}" alt="" class="img-fluid"></a>
+                                </div>
+                                <div class="col-12 mt-3" style="text-align: justify;">
+                                    <p class="ns" style="height:140px; overflow:hidden !important; text-overflow: ellipsis;">{{ $side_ad->description }}</p>
+                                </div>
                             </div>
-                            <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente sint facilis dignissimos optio maiores eius nisi repellat aliquam amet quod voluptate delectus pariatur minima soluta maxime consequuntur, accusamus totam exercitationem?</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

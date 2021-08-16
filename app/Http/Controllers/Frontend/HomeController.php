@@ -13,6 +13,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Session;
 use App\Models\Favorite; 
+use App\Models\SidebarAd; 
 
 /**
  * Class HomeController.
@@ -316,10 +317,7 @@ class HomeController extends Controller
 
         $properties = Properties::where('admin_approval', 'Approved');
 
-        
-
-        
-
+        $side_ads = SidebarAd::where('country_management_approval', 'Approved')->get();
        
 
         if($key_name != 'key_name'){
@@ -423,7 +421,7 @@ class HomeController extends Controller
 
         // dd($favorite, $filteredProperty);
 
-        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types]);
+        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads]);
     }
 
 

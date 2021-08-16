@@ -335,10 +335,10 @@
                     <a href="{{ $ad1->link }}" style="text-decoration: none">
                         <div class="row shadow mt-5">
                             <div class="col-12">
-                                <img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover; width:285px;" height="160px" alt="">
+                                <img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover;" class="img-fluid" alt="">
                             </div>
                             <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns">{{ $ad1->description }}</p>
+                                <p class="ns" style="height:140px; overflow:hidden !important; text-overflow: ellipsis;">{{ $ad1->description }}</p>
                             </div>        
                         </div>
                     </a>
@@ -349,10 +349,10 @@
                     <a href="{{ $ad2->link }}" style="text-decoration: none">
                         <div class="row shadow mt-5">
                             <div class="col-12">
-                                <img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover; width:285px;" height="160px" alt="">                           
+                                <img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover;" class="img-fluid" alt="">                           
                             </div>
                             <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns">{{ $ad2->description }}</p>
+                                <p class="ns" style="height:140px; overflow:hidden !important; text-overflow: ellipsis;">{{ $ad2->description }}</p>
                             </div>
                         </div>
                     </a>
