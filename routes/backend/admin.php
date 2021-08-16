@@ -60,8 +60,14 @@ Route::get('file_manager/getdetails', [FileManagerController::class, 'getDetails
 Route::get('file_manager/delete/{id}', [FileManagerController::class, 'destroy'])->name('file_manager.destroy');
 
 Route::get('global_advertisement', [GlobalAdvertisementController::class, 'index'])->name('global_advertisement.index');
+Route::get('global_advertisement/create', [GlobalAdvertisementController::class, 'create'])->name('global_advertisement.create');
 Route::post('global_advertisement/store', [GlobalAdvertisementController::class, 'store'])->name('global_advertisement.store');
 Route::get('global_advertisement/getdetails', [GlobalAdvertisementController::class, 'getDetails'])->name('global_advertisement.getDetails');
 Route::get('global_advertisement/edit/{id}', [GlobalAdvertisementController::class, 'edit'])->name('global_advertisement.edit');
 Route::post('global_advertisement/update', [GlobalAdvertisementController::class, 'update'])->name('global_advertisement.update');
-Route::get('global_advertisement/delete/{id}', [GlobalAdvertisementController::class, 'destroy'])->name('global_advertisement.destroy');
+Route::get('global_advertisement/destroy/{id}', [GlobalAdvertisementController::class, 'destroy'])->name('global_advertisement.destroy');
+Route::get('global_advertisement/clear1/{id}', [GlobalAdvertisementController::class, 'clear1'])->name('global_advertisement.clear1');
+Route::get('global_advertisement/clear2/{id}', [GlobalAdvertisementController::class, 'clear2'])->name('global_advertisement.clear2');
+Route::get('global_advertisement/clear3/{id}', [GlobalAdvertisementController::class, 'clear3'])->name('global_advertisement.clear3');
+Route::get('global_advertisement/clear4/{id}', [GlobalAdvertisementController::class, 'clear4'])->name('global_advertisement.clear4');
+Route::get('global_advertisement/clear5/{id}', [GlobalAdvertisementController::class, 'clear5'])->name('global_advertisement.clear5');

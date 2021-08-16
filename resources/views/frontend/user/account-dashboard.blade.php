@@ -43,7 +43,7 @@
                                 <div class="col-4">
                                     <div class="card">
                                         <div src="..." class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">05</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ $booking }}</p>
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title text-center" style="color: #0d6efd;">Booking Property</h4>
@@ -54,10 +54,10 @@
                                 <div class="col-4">
                                     <div class="card">
                                         <div src="..." class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">37</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ $all_favouite }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <h4 class="card-title text-center" style="color: #0d6efd;">Favourites</h4>
+                                            <h4 class="card-title text-center" style="color: #0d6efd;">Favourite Count</h4>
                                         </div>
                                     </div>
                                 </div>

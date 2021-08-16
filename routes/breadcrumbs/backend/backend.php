@@ -62,6 +62,10 @@ Breadcrumbs::for('admin.global_advertisement.index', function ($trail) {
     $trail->push('Global Advertisement', route('admin.global_advertisement.index'));
 });
 
+Breadcrumbs::for('admin.global_advertisement.create', function ($trail) {
+    $trail->push('Global Advertisement', route('admin.global_advertisement.create'));
+});
+
 Breadcrumbs::for('admin.global_advertisement.edit', function ($trail) {
     $trail->push('Edit Global Advertisement', route('admin.global_advertisement.edit',1));
 });
