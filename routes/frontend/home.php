@@ -57,6 +57,8 @@ Route::post('agent', [IndividualPropertyController::class, 'contact_agent'])->na
 Route::get('search_result_filter/{key_name}/{max_price}/{min_price}/{category_type}/{transaction_type}/{property_type}/{listed_since}/{building_type}/{beds}/{baths}/{land_size}/{open_house}/{zoning_type}/{units}/{building_size}/{farm_type}/{parking_type}',[HomeController::class,'search_function'])->name('search_function');
 
 
+Route::post('favourite/property', [HomeController::class, 'favouriteHeart'])->name('favourite_heart');
+
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');
 //Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 

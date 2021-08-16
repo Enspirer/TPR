@@ -29,7 +29,7 @@
 .property-location {
     color: #83BE43;
 }
-.small-heart, .bi-square-fill {
+.bi-square-fill {
     color: #E88DAF;
     cursor: pointer;
 }

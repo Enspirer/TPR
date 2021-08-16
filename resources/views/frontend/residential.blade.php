@@ -169,55 +169,80 @@
 
                 <div class="row mt-4">
                     <div class="col-8">
-                        @foreach($filteredProperty as $property)
-                            <div class="property mb-5 p-3 shadow">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <a href=""><img src="{{ route('frontend.image_assets', $property->feature_image_id) }}" alt="" class="img-fluid"></a>
-                                    </div>
-                                    <div class="col-6 ps-4">
-                                        <div class="row justify-content-between">
-                                            <div class="col-9">
-                                                <h5 class="property-price mb-0">{{ $property->name }}</h5>
-                                                <h5 class="property-location">$ {{ $property->price }}</h5>
-                                            </div>
-                                            <div class="col-3 small-heart">
-                                                <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
-                                                <i class="bi bi-heart-fill" style="font-size: 1.5rem; display: none;"></i>
-                                            </div>
+                        
+                            @foreach($filteredProperty as $property)
+                                <div class="property mb-5 p-3 shadow">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{ route('frontend.image_assets', $property->feature_image_id) }}" alt="" class="img-fluid"></a>
                                         </div>
+                                        <div class="col-6 ps-4">
+                                            <div class="row justify-content-between">
+                                                <div class="col-9">
+                                                    <h5 class="property-price mb-0">{{ $property->name }}</h5>
+                                                    <h5 class="property-location">$ {{ $property->price }}</h5>
+                                                </div>
                                         
-                                        <p class="fw-bold mt-2 mb-0 property-spec text-body">2 bed semi-detached house</p>
-                                        <p class="text-secondary mt-1">{{ $property->country }}</p>
-                                        <div class="project-list">
-                                            <p class="text-secondary"><i class="bi bi-square-fill me-2"></i>Transaction Type : {{ $property->transaction_type }}</p>
-                                            <p class="text-secondary"><i class="bi bi-square-fill me-2"></i>Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
-                                        </div>
+                                                @auth
+                                                    @if(is_favorite($property->id, auth()->user()->id))
+                                                    <div class="col-3 small-heart">
+                                                        <form action="{{ route('frontend.favourite_heart') }}" method="POST">
+                                                            {{csrf_field()}}
+                                                                <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
+                                                                <input type="hidden" class="favourite" name='favourite' value="favourite">
+                                                                <button class="bi bi-heart-fill border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF"></button>
+                                                        </form>
+                                                    </div>
+                                                    @else
+                                                    <div class="col-3 small-heart">
+                                                        <form action="{{ route('frontend.favourite_heart') }}" method="POST">
+                                                            {{csrf_field()}}
+                                                                <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
+                                                                <input type="hidden" class="favourite" name='favourite' value="non-favourite">
+                                                                <button class="bi bi-heart border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF"></button>
+                                                        </form>
+                                                    </div>
+                                                    @endif
+                                                @else
+                                                    <div class="col-3 small-heart">
+                                                        <a href="{{ route('frontend.auth.login') }}" class="bi bi-heart border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF"></a>
+                                                    </div>
+                                                @endauth
+                                            </div>
+                                            
+                                            <p class="fw-bold mt-2 mb-0 property-spec text-body">2 bed semi-detached house</p>
+                                            <p class="text-secondary mt-1">{{ $property->country }}</p>
+                                            <div class="project-list">
+                                                <p class="text-secondary"><i class="bi bi-square-fill me-2"></i>Transaction Type : {{ $property->transaction_type }}</p>
+                                                <p class="text-secondary"><i class="bi bi-square-fill me-2"></i>Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
+                                            </div>
 
-                                        @if($property->baths != null && $property->beds != null)
-                                            <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> {{ $property->baths }} <i class="fas fa-bed ms-4 me-2"></i>{{ $property->beds }}</p>
-                                        @else
-                                            <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i>Not available<i class="fas fa-bed ms-4 me-2"></i>Not available</p>
-                                        @endif
+                                            @if($property->baths != null && $property->beds != null)
+                                                <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> {{ $property->baths }} <i class="fas fa-bed ms-4 me-2"></i>{{ $property->beds }}</p>
+                                            @else
+                                                <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i>Not available<i class="fas fa-bed ms-4 me-2"></i>Not available</p>
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row mt-4">
-                                    <div class="col-6">
-                                        <h6 class="text-secondary">Listed on {{ $property->created_at->toDateString() }}</h6>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p><i class="bi bi-telephone me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
-                                            </div>
-                                            <div class="col-6" >
-                                                <p style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="bi bi-envelope me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
+                                    <div class="row mt-4">
+                                        <div class="col-6">
+                                            <h6 class="text-secondary">Listed on {{ $property->created_at->toDateString() }}</h6>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p><i class="bi bi-telephone me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
+                                                </div>
+                                                <div class="col-6" >
+                                                    <p id="ppp" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="bi bi-envelope me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+
+                        
                         <!-- <div class="property mb-5 p-3 shadow">
                             <div class="row">
                                 <div class="col-6">
@@ -1077,10 +1102,19 @@ type="text/javascript"></script>
 
 <script>
     $('.small-heart').on('click', function(){
-        $(".small-heart bi-heart").hide();
-        $(".small-heart bi-heart-fill").show();
-        
-        $("i", this).toggle();
+
+        let status = $(this).find('.favourite').val();
+
+        if(status == 'non-favourite') {
+            $(this).find('button').removeClass('bi-heart');
+            $(this).find('button').addClass('bi-heart-fill');
+            $(this).find('.favourite').val('favourite');
+        }
+        else {
+            $(this).find('button').removeClass('bi-heart-fill');
+            $(this).find('button').addClass('bi-heart');
+            $(this).find('.favourite').val('non-favourite');
+        }
     });
 </script>
 
