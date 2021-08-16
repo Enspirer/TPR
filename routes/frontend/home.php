@@ -100,6 +100,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('agent-bookings', [AgentController::class, 'agentBookings'])->name('agent-bookings');
 
+        Route::post('agent-bookings/respond', [AgentController::class, 'agentBookingsRespond'])->name('agent-bookings-respond');
+
 
         Route::get('properties', [AgentController::class, 'properties'])->name('properties');
 

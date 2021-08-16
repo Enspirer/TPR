@@ -65,7 +65,7 @@
                                                 <div class="col-12">
                                                     <div class="row justify-content-end">
                                                         <div class="col-4">
-                                                            <button  data-toggle="modal" data-target="#exampleModal{{$booking->id}}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Open</button>
+                                                            <button  data-bs-toggle="modal" data-bs-target="#exampleModal{{$booking->id}}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Open</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -98,14 +98,14 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">View Message</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                        <h4>Contact Method: {{$booking->method_of_contact}}</h4>
-                                       <p>Email: {{$booking->email}}><br>
-                                        Im a {{$booking->im_resident}}
+
+                                       <p class="mb-1">Email: {{$booking->email}}</p>
+                                    
+                                        <p>Im a {{$booking->im_resident}}</p>
 
 
                                         <div class="card">
@@ -115,7 +115,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>

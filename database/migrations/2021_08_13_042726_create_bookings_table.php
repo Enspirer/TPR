@@ -26,6 +26,7 @@ class CreateBookingsTable extends Migration
             $table->text('user_id');
             $table->text('property_id');
             $table->text('agent_id');
+            $table->text('status');
             $table->timestamps();
         });
     }

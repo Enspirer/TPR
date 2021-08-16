@@ -31,7 +31,7 @@
                         <div class="row px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
                             <div class="col-12">
                                 <div class="row justify-content-center">
-                                    <div class="col-5">
+                                    <div class="col-5 text-center">
                                         <img src="{{ url('files/agent_request',$single_agent_request->photo) }}" class="img-fluid border border-2" style="object-fit:cover; width:180px;" height="130px" alt="...">
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
 
                                 <div class="row mt-4 pe-0">
                                     <div class="col-6">
-                                        <table class="table table-hover table-borderless">
+                                        <table class="table table-hover table-borderless mb-0">
                                             <tbody>
                                                 <tr>
                                                     <td style="font-weight: 600;">Agent Type</td>
@@ -75,16 +75,12 @@
                                                     <td style="font-weight: 600;">Request</td>
                                                     <td>{{ $single_agent_request->request }}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td style="font-weight: 600;">Description</td>
-                                                    <td>{!! $single_agent_request->description_message !!}</td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                     
                                     <div class="col-6 pe-0">
-                                        <table class="table table-hover table-borderless">
+                                        <table class="table table-hover table-borderless mb-0">
                                             <tbody>
                                                 <tr>
                                                     <td style="font-weight: 600;">Tax Number</td>
@@ -141,6 +137,14 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <p class="ns" style="font-weight: 600; padding: .5rem .5rem; color: #212529">Description</p>
+                                        </div>
+                                        <div class="col-10">
+                                            <p class="ns" style="padding: .5rem .5rem; color: #212529; text-align: justify;">{!! $single_agent_request->description_message !!}</p>
+                                        </div>          
+                                    </div>
                                 </div>
                             </div>
 
@@ -187,7 +191,7 @@
     })
 </script>
 
-<script>
+<!-- <script>
     function initMap() {
   const myLatLng = { lat: 6.932821354043672, lng: 79.84476998314739 };
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -204,7 +208,7 @@
 
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArF7tuecnSc3AvTh5V_mabinQqE6TuiYM&callback=initMap"
-type="text/javascript"></script>
+type="text/javascript"></script> -->
 
 @endpush
 

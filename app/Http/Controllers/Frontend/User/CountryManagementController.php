@@ -81,7 +81,7 @@ class CountryManagementController extends Controller
         
         AgentRequest::whereId($request->hidden_id)->update($update->toArray());
 
-        return back(); 
+        return redirect('/country-management/agent-approval');
     }
 
 

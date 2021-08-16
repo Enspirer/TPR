@@ -459,4 +459,15 @@ class AgentController extends Controller
             'bookings' => $bookings
         ]);
     }
+
+    public function agentBookingsRespond()
+    {
+        $booking = DB::table('bookings') ->where('id', '=', request('hid_id'))->update(
+            [
+                'status' => 'Responded'
+            ]
+        );
+
+        return back();
+    }
 }

@@ -50,19 +50,21 @@
                                             <img src="{{url('image_assest',\App\Models\Properties::where('id',$booking->property_id)->first()->feature_image_id)}}" class="card-img-top" alt="...">
                                         </div>
                                         <div class="col-6">
-                                            @foreach($bookings as $booking)
-                                                <h6 class="card-title mt-4">Customer Name : <span class="text-primary">{{ $booking->first_name }} {{ $booking->last_name }}</span></h6>
-                                            @endforeach
+                                            <h6 class="card-title mt-4">Customer Name : <span class="text-primary">{{ $booking->first_name }} {{ $booking->last_name }}</span></h6>
+
                                             <h5 class="card-title">{{\App\Models\Properties::where('id',$booking->property_id)->first()->name}}</h5>
+
                                             <p class="card-text mb-1">Country: {{\App\Models\Properties::where('id',$booking->property_id)->first()->country}}</p>
+
                                             <p class="card-text mb-1">Category: {{\App\Models\Properties::where('id',$booking->property_id)->first()->main_category}}</p>
+
                                             <p class="mt-1 text-info mb-0">${{number_format(\App\Models\Properties::where('id',$booking->property_id)->first()->price,2)}}</p>
 
                                             <div class="row justify-content-between">
                                                 <div class="col-12">
                                                     <div class="row justify-content-end">
                                                         <div class="col-4">
-                                                            <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">Open</button>
+                                                            <button class="btn px-3 rounded-0 text-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal{{$booking->id}}" style="background-color: #4195E1">Open</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -85,6 +87,42 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+                        <!-- Modal -->
+                        <form action="{{ route('frontend.user.agent-bookings-respond') }}" method="post">
+                        {{ csrf_field() }}
+                            <div class="modal fade" id="exampleModal{{$booking->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">View Message</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                        <h4>Contact Method: {{$booking->method_of_contact}}</h4>
+
+                                        <p class="mb-1">Email: {{$booking->email}}</p>
+                                        
+                                            <p>Im a {{$booking->im_resident}}</p>
+
+
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    {{$booking->message}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input type="hidden" value="{{ $booking->id }}" name="hid_id">
+                                            <button type="submit" class="btn btn-success">Received</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
 
                     @endforeach
                 @endif

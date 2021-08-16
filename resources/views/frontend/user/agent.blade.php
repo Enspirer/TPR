@@ -116,32 +116,34 @@
                                     </div>
                                 </div>
 
+
                                 <div class="row">
-                                    <div class="col-6 company_name">
+                                    <div class="col-6">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">Agent Type</label>
+                                            <select class="form-select agent_type" name="agent_type" required>
+                                                <option value="individual" selected>Individual</option>
+                                                <option value="company">Company</option>
+                                            </select>
+                                        </div>  
+                                    </div>   
+                                    <div class="col-6 company_name d-none">
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">Company Name</label>
                                             <input type="text" class="form-control" name="company_name" required>
                                         </div> 
-                                    </div>
-                                    <div class="col-6 company_reg_no">
+                                    </div>                                  
+                                </div>  
+
+                                <div class="row">
+                                    <div class="col-6 company_reg_no d-none">
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">Company Registration Number</label>
                                             <input type="text" class="form-control" name="company_reg_no" required>
                                         </div>  
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div>
-                                            <label class="form-label mb-0 mt-4 required">Agent Type</label>
-                                            <select class="form-select agent_type" name="agent_type" required>
-                                                <option selected disabled value="">Choose...</option>
-                                                <option value="Company">Company</option>
-                                                <option value="Individual">Individual</option>
-                                            </select>
-                                        </div>  
-                                    </div>                                    
-                                </div>     
+                                   
 
                                 <h4 class="mt-5 mb-1">More About Agent</h4>
                                 <h6 style="color: #5e6871">Tell us more about the agent</h6>
@@ -302,12 +304,12 @@
 
     $('.agent_type').change(function() {
         if ($(this).val() == 'individual') {
-            $('.company_name').css('display' , "none");
-            $('.company_reg_no').css('display' , "none");
+            $('.company_name').addClass('d-none');
+            $('.company_reg_no').addClass('d-none');
         }
         else {
-            $('.company_name').css('display' , "block");
-            $('.company_reg_no').css('display' , "block");
+            $('.company_name').removeClass('d-none');
+            $('.company_reg_no').removeClass('d-none');
         }
     });
 

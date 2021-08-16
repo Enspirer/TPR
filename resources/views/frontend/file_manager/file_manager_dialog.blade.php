@@ -13,9 +13,9 @@
             @foreach($data as $d)
                 <!-- <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p> -->
                 @if($multiple == false)
-                    <input type="text" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="{{$file_input_name}}">
+                    <input type="hidden" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="{{$file_input_name}}">
                 @else
-                    <input type="text" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="{{$file_input_name}}[]">
+                    <input type="hidden" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="{{$file_input_name}}[]">
                 @endif
             @endforeach
         @endif   
@@ -221,7 +221,7 @@
                 let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
                 let id = $(this).parents("tr").find('.sorting_1').text();
                 $('.{{ $upload }}').append(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img><i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i></div>`);
-                $('#{{ $id }}').append(`<input type="text" name="${file_input_name}[]" value="${id}"></input>`);
+                $('#{{ $id }}').append(`<input type="hidden" name="${file_input_name}[]" value="${id}"></input>`);
             });
             $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
                 $('.{{ $upload }} .close-image').off('click').on('click', function() {
@@ -236,7 +236,7 @@
                 let image = $(this).parents("tr").find('td:nth-child(2)').children().attr('src');
                 let id = $(this).parents("tr").find('.sorting_1').text();
                 $('.{{ $upload }}').html(`<div class="col-3 text-end"><img src="${image}" style="height: 150px;" class="w-100"></img> <i class="bi bi-x close-image" style="position: relative; top: -9.5rem; color: white; font-size: 25px; cursor: pointer;"></i></div>`);
-                $('#{{ $id }}').html(`<input type="text" value="${id}" name="${file_input_name}">`);
+                $('#{{ $id }}').html(`<input type="hidden" value="${id}" name="${file_input_name}">`);
             });   
             $('#file_manager_{{$file_input_name}}').on('hide.bs.modal', function (e) {
                 $('.{{ $upload }} .close-image').on('click', function() {

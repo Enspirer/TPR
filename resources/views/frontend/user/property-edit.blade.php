@@ -97,9 +97,9 @@
                                     <div class="col-12">
                                         <label for="map" class="form-label mb-2 mt-4 required">Location</label>
                                         <div id="map" style="width: 100%; height: 400px;"></div>
-                                        <input type="text" name="lat" id="lat" class="mt-3" value="{{ $property->lat }}">
-                                        <input type="text" name="lng" id="lng" class="mt-3" value="{{ $property->long }}">
-                                        <input type="text" name="country" id="country" class="mt-3" value="{{ $property->country }}">
+                                        <input type="hidden" name="lat" id="lat" class="mt-3" value="{{ $property->lat }}">
+                                        <input type="hidden" name="lng" id="lng" class="mt-3" value="{{ $property->long }}">
+                                        <input type="hidden" name="country" id="country" class="mt-3" value="{{ $property->country }}">
                                         
                                         <div class="row mt-3">
                                             <div class="col-6">
