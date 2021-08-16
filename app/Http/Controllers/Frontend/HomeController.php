@@ -12,6 +12,7 @@ use App\Models\GlobalAdvertisement;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Session;
+use App\Models\Favorite; 
 
 /**
  * Class HomeController.
@@ -313,6 +314,10 @@ class HomeController extends Controller
 
         $properties = Properties::where('admin_approval', 'Approved');
 
+        
+
+        
+
        
 
         if($key_name != 'key_name'){
@@ -414,8 +419,42 @@ class HomeController extends Controller
 
         $filteredProperty = $properties->get();
 
-        // dd($filteredProperty);
+        // dd($favorite, $filteredProperty);
 
         return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types]);
+    }
+
+
+    public function favouriteHeart(Request $request) {
+
+
+        $property_id = $request->hid_id;
+        $status = $request->favourite;
+        $user_id = auth()->user()->id;
+
+
+        if($status == 'favourite') {
+
+            $property = Properties::where('id', $property_id)->first();
+
+            $favourite = new Favorite;
+
+            $favourite->property_id=$property_id; 
+
+            $favourite->user_id=$user_id;
+
+            $favourite->save();
+
+            return back();
+        }
+
+        if($status == 'non-favourite') {
+            $favorite = Favorite::where('user_id', $user_id)
+            ->where('property_id', $property_id)
+            ->delete();
+
+            return back();
+        }
+
     }
 }

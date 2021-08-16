@@ -536,6 +536,7 @@
                         // console.log(obj);
 
                         $(".properties").html(template);
+                        heart_toggle();
 
                         // var infoWindow = new google.maps.InfoWindow({
                         //     content:'<h1>dfdf</h1>'
@@ -557,6 +558,16 @@
                 { lat: {{$prom->lat}}, lng: {{$prom->long}} },
             @endforeach
         ];
+
+        function heart_toggle() {
+            $('.small-heart').on('click', function(){
+                $(".small-heart bi-heart").hide();
+                $(".small-heart bi-heart-fill").show();
+                
+                $("i", this).toggle();
+            });
+        }
+    
     </script>
     @endpush
 
@@ -565,6 +576,15 @@
 
 @push('after-scripts')
 <!-- <script src="{{ asset('tpr_templete/scripts/map.js') }}"></script> -->
+
+<!-- <script>
+    $('.small-heart').on('click', function(){
+        $(".small-heart bi-heart").hide();
+        $(".small-heart bi-heart-fill").show();
+        
+        $("i", this).toggle();
+    });
+</script> -->
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
 type="text/javascript"></script>
