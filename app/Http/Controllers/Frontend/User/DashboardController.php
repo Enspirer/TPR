@@ -120,29 +120,28 @@ class DashboardController extends Controller
         $favourite = Favorite::where('user_id',auth()->user()->id)->get();
         // dd($favourite);
 
-        $final_out = [];
-        foreach($favourite as $fav){
-            array_push($final_out,$fav->property_id);
-        }
+        // $final_out = [];
+        // foreach($favourite as $fav){
+        //     array_push($final_out,$fav->property_id);
+        // }
         // dd($final_out);
 
-        $property = Properties::whereIn('id',$final_out)->get();
+        $property = Properties::all();
         // dd($property);
 
-        $final_out2 = [];
-        foreach($property as $prop){
-            array_push($final_out2,$prop->feature_image_id);
-        }
+        // $final_out2 = [];
+        // foreach($property as $prop){
+        //     array_push($final_out2,$prop->feature_image_id);
+        // }
         // dd($final_out2);
 
-        $feature_image = FileManager::whereIn('id',$final_out2)->get();
+        // $feature_image = FileManager::whereIn('id',$final_out2)->get();
 
         // dd($feature_image);
 
         return view('frontend.user.favourites',[
             'favourite' => $favourite,
-            'property' => $property,
-            'feature_image' => $feature_image
+            'property' => $property
         ]);
     }
 

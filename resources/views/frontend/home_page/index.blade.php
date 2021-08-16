@@ -4,9 +4,6 @@
 
 @section('content')
 
-    <!-- navbar -->
-
-
     <!-- banner -->
     <section id="index-banner">
         <div class="container-fluid banner">
@@ -17,9 +14,6 @@
     <!--search-->
     <section id="index-search">
         <div class="container-md search">
-            <!-- <button class="btn text-white rounded-0 py-3 px-5 fs-5 me-1" style="background-color : #83BC3E" data-aos="fade-up" data-aos-duration="500"><img src="images/sale_icon.svg" class="me-3" height="25rem" alt="">Residential</button>
-            <button class="btn text-white rounded-0 py-3 px-5 fs-5" style="background-color : #75CFED" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"><img src="images/commercial_icon.svg" class="me-3" height="25rem" alt="">Commercial</button> -->
-
             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                 <li class="nav-item text-white rounded-0 fs-5 me-1" role="presentation">
                     <button class="nav-link text-white active" style="background-color : #83BC3E" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500"><img src="{{ asset('tpr_templete/images/sale_icon.svg') }}" class="me-3" height="25rem" alt="">Residential</button>
@@ -33,11 +27,11 @@
                 <div class="tab-pane fade show active" id="pills-residential" role="tabpanel" aria-labelledby="pills-residential-tab">
                     <form method="post" action="{{route('frontend.search_result_function')}}">
                         <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                             {{csrf_field()}}
-                                <input type="hidden" name="category_type" value="residential">
-                               <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search">
+                            {{csrf_field()}}
+                            <input type="hidden" name="category_type" value="residential">
+                            <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search">
                                <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
-                               <button type="submit" class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+                            <button type="submit" class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
                         </div>
                     </form>
                 </div>
@@ -54,12 +48,6 @@
                     </form>
                 </div>
             </div>
-
-            <!-- <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                <input type="text" class="form-control p-3 rounded-0" aria-label="search">
-                <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
-                <button class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
-            </div> -->
         </div>
     </section>
 
@@ -181,27 +169,29 @@
                         </div>
                     </div>
                     <div class="properties">
-                        <!-- <div class="row border align-items-center p-1">
-                            <div class="col-6">
-                                <img src="{{url('tpr_templete/images/ps_1.svg')}}" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-6">
-                                <div class="row justify-content-between">
-                                    <div class="col-3 small-num">
-                                        <p class="mb-0" style="font-size: 0.7rem;">3051</p>
-                                    </div>
-                                    <div class="col-3 small-heart">
-                                        <i class="bi bi-heart" style="font-size: 0.9rem;"></i>
-                                        <i class="bi bi-heart-fill" style="font-size: 0.9rem; display: none;"></i>
-                                    </div>
+                        @foreach($promo as $property)
+                            <div class="row border align-items-center p-1">
+                                <div class="col-6">
+                                    <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{url('image_assest', $property->feature_image_id)}}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
                                 </div>
-
-                                <p class="fw-bold mb-0">$450, 000</p>
-                                <p class="mb-0" style="font-size: 0.8rem;">541, Rosewood Place</p>
-                                <p class="mb-0"  style="font-size: 0.8rem;">Colombo, Sri Lanka</p>
-                                <p class="mb-0"  style="font-size: 0.8rem;"><span class="beds">3</span> <i class="fas fa-bed me-4"></i><span class="bath">3</span> <i class="fas fa-bath"></i></p>
+                                <div class="col-6">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-9">
+                                            <p class="mb-0 small-num" style="font-size: 0.7rem;"></p>
+                                        </div>
+                                        <div class="col-3 small-heart">
+                                            <i class="bi bi-heart" style="font-size: 0.9rem;"></i>
+                                            <i class="bi bi-heart-fill" style="font-size: 0.9rem; display: none;"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="fw-bold mb-0">{{ $property->name }}</p>
+                                    <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${{ $property->transaction_type }}</p>
+                                    <p class="mb-0" style="font-size: 0.8rem;">Country: {{ $property->country }}</p>
+                                    <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : {{ $property->price }}</p>
+                                </div>
                             </div>
-                        </div> -->
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-9">
@@ -222,29 +212,24 @@
 
                 <div class="row mt-4">
 
-                @if(count($latest) != 0)
-
-                    @foreach($latest as $lat)
-                        <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                            <div class="card p-4 shadow border-0">
-                                <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->id)}}" class="card-img-top" alt="..."></a>
-                                <div class="card-body mt-4">
-                                    <h5 class="card-title">Jaffna, {{ $lat->country }}</h5>
-                                    <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                    <p class="card-text">Lancaster, {{ $lat->country }}</p>
-                                    <p class="mt-1 text-info">$ {{ $lat->price }}</p>
+                    @if(count($latest) != 0)
+                        @foreach($latest as $lat)
+                            <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                                <div class="card p-4 shadow border-0">
+                                    <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top" alt="..."></a>
+                                    <div class="card-body mt-4">
+                                        <h5 class="card-title">Jaffna, {{ $lat->country }}</h5>
+                                        <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
+                                        <p class="card-text">Lancaster, {{ $lat->country }}</p>
+                                        <p class="mt-1 text-info">$ {{ $lat->price }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
 
-                @else
-
-                @endif
-
-
-
-                    
+                    @endif
+                
                 </div>
             </div>
 
@@ -373,36 +358,6 @@
     </section>
 
 
-    <!--footer-->
-    <!-- <section id="footer">
-        <div class="container" style="margin-top:6rem;">
-            <div class="row">
-                <div class="col-3" data-aos="fade-up" data-aos-duration="500">
-                    <img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="img-fluid" alt="">
-                </div>
-                <div class="col-3 ps-5" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-                    <h5 class="fw-bolder mt-2">TITLES</h5>
-                    <p class="mt-4">About Us</p>
-                    <p>Contact Us</p>
-                    <p>Mobile Apps</p>
-                </div>
-                <div class="col-3 ps-5" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                    <h5 class="fw-bolder mt-2">MORE</h5>
-                    <p class="mt-4">Privacy Policy</p>
-                    <p>Terms of Use</p>
-                    <p>FAQ</p>
-                    <p>Sitemap</p>
-                </div>
-                <div class="col-3 ps-5" data-aos="fade-up" data-aos-duration="500" data-aos-delay="600">
-                    <h5 class="fw-bolder mt-2">TOPICS</h5>
-                    <p class="mt-4">Tips for buyers</p>
-                    <p>Tips for sellers</p>
-                    <p>Commercial Resources</p>
-                    <p>Property for Sale</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     @push('before-scripts')
     <script>
@@ -411,12 +366,9 @@
                 zoom: 3,
                 center: { lat: -28.024, lng: 140.887 },
             });
-            // Create an array of alphabetical characters used to label the markers.
+
             const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            // Add some markers to the map.
-            // Note: The code uses the JavaScript Array.prototype.map() method to
-            // create an array of markers based on a given "locations" array.
-            // The map() method here has nothing to do with the Google Maps API.
+
             const markers = locations.map((location, i) => {
                     return new google.maps.Marker({
                         position: location,
@@ -425,16 +377,13 @@
 
         });
 
-            // Add a marker clusterer to manage the markers.
             var markerCluster = new MarkerClusterer(map, markers, {
                 imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
             });
 
             google.maps.event.addListener(markerCluster, 'click', function(c) {
-                // console.log('Number of managed markers in cluster: ' + c.getSize());
-                var markers = c.getMarkers();
 
-                // console.log('Number of managed markers in cluster: ' + c.getSize());
+                var markers = c.getMarkers();
                 var newArray = [];
 
                 for (marker in markers) {
@@ -442,12 +391,8 @@
                     cars['lat']= markers[marker].getPosition().lat();
                     cars['long']= markers[marker].getPosition().lng();
                     newArray.push(JSON.stringify(Object.assign({}, cars)));
-
-
-//                    console.log(markers[marker].getLabel());
-//                    console.log('lat : ' + markers[marker].getPosition().lat());
-//                    console.log('lng : ' + markers[marker].getPosition().lng());
                 }
+
                 myArray = JSON.stringify(Object.assign({}, newArray));
 
                 $.post("{{url('/')}}/api/country_request",
@@ -498,8 +443,6 @@
                         
 
                         
-                        
-
                         for(let i = 0; i < obj.length; i++) {
 
                             let date = obj[i]['created_at'].split(' ')[0];
@@ -527,32 +470,18 @@
                                     </div>
                                 </div>
                             `
-                            // info[i] = [obj[i]['long'], obj[i]['lat']];
-
-                            
-
                         };
 
-                        // console.log(obj);
 
                         $(".properties").html(template);
                         heart_toggle();
-
-                        // var infoWindow = new google.maps.InfoWindow({
-                        //     content:'<h1>dfdf</h1>'
-                        // });
-
-                        // for (marker in markers) {
-                        //     const cars = [];
-                        //     cars['lat']= markers[marker].getPosition().lat();
-                        //     cars['long']= markers[marker].getPosition().lng();
-                        // }
 
                 });
             });
 
 
         }
+
         const locations = [
             @foreach($promo as $prom)
                 { lat: {{$prom->lat}}, lng: {{$prom->long}} },
@@ -574,20 +503,10 @@
 
 @endsection
 
+
+
 @push('after-scripts')
-<!-- <script src="{{ asset('tpr_templete/scripts/map.js') }}"></script> -->
 
-<!-- <script>
-    $('.small-heart').on('click', function(){
-        $(".small-heart bi-heart").hide();
-        $(".small-heart bi-heart-fill").show();
-        
-        $("i", this).toggle();
-    });
-</script> -->
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
-type="text/javascript"></script>
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap" type="text/javascript"></script>
 
 @endpush

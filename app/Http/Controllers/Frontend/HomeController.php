@@ -13,6 +13,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Session;
 use App\Models\Favorite; 
+use App\Models\SidebarAd; 
 
 /**
  * Class HomeController.
@@ -272,8 +273,8 @@ class HomeController extends Controller
 
         return redirect()->route('frontend.search_function', [
             $key_name,
-            $max_price,
             $min_price,
+            $max_price,
             $category_type,
             $transaction_type,
             $property_type,
@@ -307,30 +308,33 @@ class HomeController extends Controller
     }
 
 
-    public function search_function($key_name,$max_price,$min_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type)
+    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type)
     {
 
         $property_types = PropertyType::where('status','=','1')->get();
 
         $properties = Properties::where('admin_approval', 'Approved');
 
-        
-
-        
-
+        $side_ads = SidebarAd::where('country_management_approval', 'Approved')->get();
        
 
         if($key_name != 'key_name'){
             $properties->where('name', 'like', '%' .  $key_name . '%');
         }
 
-        if($max_price != 'max_price'){
-            $properties->where('name', $max_price);
+        if($max_price != 'max_price' && $min_price != 'min_price'){
+            $properties->where('price', '<=', $max_price)->where('price', '>=', $min_price);
+        }
+        elseif($max_price != 'max_price' && $min_price == 'min_price'){
+            $properties->where('price', '<=', $max_price);
+        }
+        elseif($max_price == 'max_price' && $min_price != 'min_price'){
+            $properties->where('price', '>=', $min_price);
         }
 
-        if($min_price != 'min_price'){
-            $properties->where('name', $min_price);
-        }
+        // if($min_price != 'min_price'){
+        //     $properties->where('name', $min_price);
+        // }
 
         if($category_type != 'category_type'){
             $properties->where('main_category', $category_type);
@@ -367,7 +371,7 @@ class HomeController extends Controller
         }
 
         if($listed_since != 'listed_since'){
-            $properties->where('created_at', $listed_since);
+            $properties->where('created_at', '>', $listed_since);
         }
 
         if($building_type != 'building_type'){
@@ -421,7 +425,7 @@ class HomeController extends Controller
 
         // dd($favorite, $filteredProperty);
 
-        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types]);
+        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads]);
     }
 
 

@@ -35,27 +35,29 @@
                             </div>
                         </div>
                         <div class="properties">
-                            <!-- <div class="row border align-items-center p-1">
-                                <div class="col-6">
-                                    <img src="{{ asset('tpr_templete/images/ps_1.svg') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-6">
-                                    <div class="row justify-content-between">
-                                        <div class="col-3 small-num">
-                                            <p class="mb-0" style="font-size: 0.7rem;">3051</p>
-                                        </div>
-                                        <div class="col-3 small-heart">
-                                            <i class="bi bi-heart" style="font-size: 0.9rem;"></i>
-                                            <i class="bi bi-heart-fill" style="font-size: 0.9rem; display: none;"></i>
-                                        </div>
+                            @foreach($filteredProperty as $property)
+                                <div class="row border align-items-center p-1">
+                                    <div class="col-6">
+                                        <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{url('image_assest', $property->feature_image_id)}}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
                                     </div>
-                                    
-                                    <p class="fw-bold mb-0">$450, 000</p>
-                                    <p class="mb-0" style="font-size: 0.8rem;">541, Rosewood Place</p>
-                                    <p class="mb-0"  style="font-size: 0.8rem;">Colombo, Sri Lanka</p>
-                                    <p class="mb-0"  style="font-size: 0.8rem;">3 <i class="fas fa-bed me-4"></i> 5 <i class="fas fa-bath"></i></p>
+                                    <div class="col-6">
+                                        <div class="row justify-content-between align-items-center">
+                                            <div class="col-9">
+                                                <p class="mb-0 small-num" style="font-size: 0.7rem;"></p>
+                                            </div>
+                                            <div class="col-3 small-heart">
+                                                <i class="bi bi-heart" style="font-size: 0.9rem;"></i>
+                                                <i class="bi bi-heart-fill" style="font-size: 0.9rem; display: none;"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <p class="fw-bold mb-0">{{ $property->name }}</p>
+                                        <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${{ $property->transaction_type }}</p>
+                                        <p class="mb-0" style="font-size: 0.8rem;">Country: {{ $property->country }}</p>
+                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : {{ $property->price }}</p>
+                                    </div>
                                 </div>
-                            </div> -->
+                            @endforeach
                         </div>
                     </div>
                 @else
@@ -242,49 +244,6 @@
                                 </div>
                             @endforeach
 
-                        
-                        <!-- <div class="property mb-5 p-3 shadow">
-                            <div class="row">
-                                <div class="col-6">
-                                    <a href=""><img src="{{ asset('tpr_templete/images/residential_1.svg') }}" alt="" class="img-fluid"></a>
-                                </div>
-                                <div class="col-6 ps-4">
-                                    <div class="row justify-content-between">
-                                        <div class="col-9">
-                                            <h5 class="property-price mb-0">$ 480, 000</h5>
-                                            <h5 class="property-location">Colombo, Sri Lanka</h5>
-                                        </div>
-                                        <div class="col-3 small-heart">
-                                            <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
-                                            <i class="bi bi-heart-fill" style="font-size: 1.5rem; display: none;"></i>
-                                        </div>
-                                    </div>
-                                    
-                                    <p class="fw-bold mt-2 mb-0 property-spec text-body">2 bed semi-detached house</p>
-                                    <p class="text-secondary mt-1">Lancaster, claited Kingdom</p>
-                                    <div class="project-list">
-                                        <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.4 miles from petta</p>
-                                        <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.7 miles from petta</p>
-                                    </div>
-                                    <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> 7 <i class="fas fa-bed ms-4 me-2"></i>2</p>
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-8">
-                                    <h6 class="text-secondary">Listed on 26th Jun 2021</h6>
-                                </div>
-                                <div class="col-4">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p><i class="bi bi-telephone me-1"></i> 020 8014 123</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p><i class="bi bi-envelope me-1"></i> Contact</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
 
                     <div class="col-4">
@@ -294,23 +253,17 @@
                             </div>
                         </div>
 
-                        <div class="row shadow mt-5">
-                            <div class="col-12">
-                                <img src="{{ asset('tpr_templete/images/rp_3.svg') }}" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente sint facilis dignissimos optio maiores eius nisi repellat aliquam amet quod voluptate delectus pariatur minima soluta maxime consequuntur, accusamus totam exercitationem?</p>
-                            </div>
-                        </div>
 
-                        <div class="row shadow mt-5">
-                            <div class="col-12">
-                                <img src="{{ asset('tpr_templete/images/rp_1.svg') }}" alt="" class="img-fluid">
+                        @foreach($side_ads as $side_ad)
+                            <div class="row shadow mt-5">
+                                <div class="col-12">
+                                    <a href="{{ $side_ad->link }}"><img src="{{url('files/sidebar_ad', $side_ad->image)}}" alt="" class="img-fluid"></a>
+                                </div>
+                                <div class="col-12 mt-3" style="text-align: justify;">
+                                    <p class="ns" style="height:140px; overflow:hidden !important; text-overflow: ellipsis;">{{ $side_ad->description }}</p>
+                                </div>
                             </div>
-                            <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente sint facilis dignissimos optio maiores eius nisi repellat aliquam amet quod voluptate delectus pariatur minima soluta maxime consequuntur, accusamus totam exercitationem?</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -574,7 +527,6 @@
                         position: location,
                         label: labels[i % labels.length]
                     });
-
         });
 
             // Add a marker clusterer to manage the markers.
@@ -582,9 +534,12 @@
                 imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
             });
 
+
             google.maps.event.addListener(markerCluster, 'click', function(c) {
                 // console.log('Number of managed markers in cluster: ' + c.getSize());
                 var markers = c.getMarkers();
+
+                
 
                 // console.log('Number of managed markers in cluster: ' + c.getSize());
                 var newArray = [];
@@ -596,9 +551,7 @@
                     newArray.push(JSON.stringify(Object.assign({}, cars)));
 
 
-//                    console.log(markers[marker].getLabel());
-//                    console.log('lat : ' + markers[marker].getPosition().lat());
-//                    console.log('lng : ' + markers[marker].getPosition().lng());
+
                 }
                 myArray = JSON.stringify(Object.assign({}, newArray));
 
