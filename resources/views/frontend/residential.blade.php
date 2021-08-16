@@ -87,14 +87,49 @@
     <!--residential search-->
     <section id="residential-search">
         <div class="container-md" style="margin-top:5rem">
-            <button class="btn text-white rounded-0 py-3 px-5 fs-5 me-1" style="background-color : #83BC3E"><img src="{{ asset('tpr_templete/images/sale_icon.svg') }}" class="me-3" height="25rem" alt="">Residential</button>
-            <button class="btn text-white rounded-0 py-3 px-5 fs-5" style="background-color : #75CFED"><img src="{{ asset('tpr_templete/images/commercial_icon.svg') }}" class="me-3" height="25rem" alt="">Commercial</button>
+            <!-- <button class="btn text-white rounded-0 py-3 px-5 fs-5 me-1" style="background-color : #83BC3E" data-aos="fade-up" data-aos-duration="500"><img src="images/sale_icon.svg" class="me-3" height="25rem" alt="">Residential</button>
+            <button class="btn text-white rounded-0 py-3 px-5 fs-5" style="background-color : #75CFED" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"><img src="images/commercial_icon.svg" class="me-3" height="25rem" alt="">Commercial</button> -->
 
-            <div class="input-group shadow-lg">
-                <input type="text" class="form-control p-3 rounded-0" aria-label="search">
-                <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
-                <button class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                <li class="nav-item text-white rounded-0 fs-5 me-1" role="presentation">
+                    <button class="nav-link text-white active" style="background-color : #83BC3E" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500"><img src="{{ asset('tpr_templete/images/sale_icon.svg') }}" class="me-3" height="25rem" alt="">Residential</button>
+                </li>
+                <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                    <button class="nav-link text-white" style="background-color : #75CFED" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"><img src="{{ asset('tpr_templete/images/commercial_icon.svg') }}" class="me-3" height="25rem" alt="">Commercial</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-residential" role="tabpanel" aria-labelledby="pills-residential-tab">
+                    <form method="post" action="{{route('frontend.search_result_function')}}">
+                        <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                             {{csrf_field()}}
+                                <input type="hidden" name="category_type" value="residential">
+                               <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search">
+                               <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
+                               <button type="submit" class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="tab-pane fade" id="pills-commercial" role="tabpanel" aria-labelledby="pills-commercial-tab">
+                    <form method="post" action="{{route('frontend.search_result_function')}}">
+                        <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                        {{csrf_field()}}
+                            <input type="hidden" name="category_type" value="commercial">
+                            <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search">
+                            <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
+                            <button type="submit" class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+                        </div>
+                    </form>
+                </div>
             </div>
+
+            <!-- <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                <input type="text" class="form-control p-3 rounded-0" aria-label="search">
+                <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
+                <button class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+            </div> -->
         </div>
     </section>
 
@@ -144,7 +179,7 @@
                                         <div class="row justify-content-between">
                                             <div class="col-9">
                                                 <h5 class="property-price mb-0">{{ $property->name }}</h5>
-                                                <h5 class="property-location">{{ $property->price }}</h5>
+                                                <h5 class="property-location">$ {{ $property->price }}</h5>
                                             </div>
                                             <div class="col-3 small-heart">
                                                 <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
@@ -153,16 +188,21 @@
                                         </div>
                                         
                                         <p class="fw-bold mt-2 mb-0 property-spec text-body">2 bed semi-detached house</p>
-                                        <p class="text-secondary mt-1">Colombo, {{ $property->country }}</p>
+                                        <p class="text-secondary mt-1">{{ $property->country }}</p>
                                         <div class="project-list">
-                                            <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.4 miles from petta</p>
-                                            <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.7 miles from petta</p>
+                                            <p class="text-secondary"><i class="bi bi-square-fill me-2"></i>Transaction Type : {{ $property->transaction_type }}</p>
+                                            <p class="text-secondary"><i class="bi bi-square-fill me-2"></i>Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
                                         </div>
-                                        <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> {{ $property->baths }} <i class="fas fa-bed ms-4 me-2"></i>{{ $property->beds }}</p>
+
+                                        @if($property->baths != null && $property->beds != null)
+                                            <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> {{ $property->baths }} <i class="fas fa-bed ms-4 me-2"></i>{{ $property->beds }}</p>
+                                        @else
+                                            <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i>Not available<i class="fas fa-bed ms-4 me-2"></i>Not available</p>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="row mt-4">
-                                    <div class="col-7">
+                                    <div class="col-6">
                                         <h6 class="text-secondary">Listed on {{ $property->created_at->toDateString() }}</h6>
                                     </div>
                                     <div class="col-6">
@@ -170,8 +210,8 @@
                                             <div class="col-6">
                                                 <p><i class="bi bi-telephone me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
                                             </div>
-                                            <div class="col-6">
-                                                <p><i class="bi bi-envelope me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
+                                            <div class="col-6" >
+                                                <p style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="bi bi-envelope me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
                                             </div>
                                         </div>
                                     </div>
