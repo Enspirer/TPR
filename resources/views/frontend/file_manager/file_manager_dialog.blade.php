@@ -13,7 +13,7 @@
             @foreach($data as $d)
                 <!-- <p>{{ App\Models\FileManager::where('id', $d) -> first() -> id }}</p> -->
                 @if($multiple == false)
-                    <input type="hidden" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="{{$file_input_name}}">
+                    <input type="hidden" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="{{$file_input_name}}" required>
                 @else
                     <input type="hidden" value="{{ App\Models\FileManager::where('id', $d) -> first() -> id }}" name="{{$file_input_name}}[]">
                 @endif

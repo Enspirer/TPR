@@ -493,177 +493,308 @@
 
 
     <!-- email modal -->
-    <div class="modal fade bd-example-modal-lg" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width: 910px;max-width: 1040px;">
-            <div class="modal-content">
-                <form action="{{route('frontend.invidual_property')}}" method="post">
-                    {{csrf_field()}}
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Contact Agent</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row mb-3">
-                            <div class="col-md-8">
-                                <h4>To:</h4>
-                                <div class="row">
-                                    <div class="col-4">
-                                    <!-- background-repeat: no-repeat;background-position: center;background-size: cover;margin-bottom: 20px; -->                                    
-                                        <div class="" >
-                                        <img src="{{ url('files/agent_request',$agent->photo) }}" alt="" style="object-fit: cover; height:170px" width="100%" class="profile-picture">
+    @auth
+        <div class="modal fade bd-example-modal-lg" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 910px;max-width: 1040px;">
+                <div class="modal-content">
+                    <form action="{{route('frontend.invidual_property')}}" method="post">
+                        {{csrf_field()}}
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Contact Agent</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-md-8">
+                                    <h4>To:</h4>
+                                    <div class="row">
+                                        <div class="col-4">
+                                        <!-- background-repeat: no-repeat;background-position: center;background-size: cover;margin-bottom: 20px; -->                                    
+                                            <div class="" >
+                                            <img src="{{ url('files/agent_request',$agent->photo) }}" alt="" style="object-fit: cover; height:170px" width="100%" class="profile-picture">
+                                            </div>
+                                        </div>
+                                        <div class="col-8 align-middle">
+                                            <label><b>Name:</b></label> {{$agent->name}} <br>
+                                            <label><b>Phone Number:</b></label> {{$agent->telephone}} <br>
+                                            <label><b>Address:</b></label> {{$agent->address}} <br>
+                                            <label><b>Country:</b></label> {{$agent->country}} <br>
                                         </div>
                                     </div>
-                                    <div class="col-8 align-middle">
-                                        <label><b>Name:</b></label> {{$agent->name}} <br>
-                                        <label><b>Phone Number:</b></label> {{$agent->telephone}} <br>
-                                        <label><b>Address:</b></label> {{$agent->address}} <br>
-                                        <label><b>Country:</b></label> {{$agent->country}} <br>
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>First Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="first_name" required>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-
-
-                            </div>
-                            <div class="col-md-6">
-
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>First Name  <span style="color: red">*</span></label>
-                                    <input type="text" class="form-control" name="first_name" required>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Last Name  <span style="color: red">*</span></label>
-                                    <input type="text" class="form-control" name="last_name" required>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Im a <span style="color: red">*</span></label>
-                                    <select class="form-control" name="im_resident" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option value="First Time Buyer">First Time Buyer</option>
-                                        <option value="No Preference">No Preference</option>
-                                        <option value="Repeat Buyer">Repeat Buyer</option>
-                                        <option value="Seller">Seller</option>
-                                        <option value="Residential Investor">Residential Investor</option>
-                                        <option value="Commercial Investor">Commercial Investor</option>
-                                        <option value="Commercial buyer or leaser">Commercial buyer or leaser</option>
-                                        <option value="Land for development">Land for development</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-
-                        <input type="hidden" name="agent_id" value="{{$agent->id}}">
-                        <input type="hidden" name="property_id" value="{{$property_details->id}}">
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Preferred method of contact  <span style="color: red">*</span></label>
-                                    <select class="form-control" name="contact_method" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option value="Email">Email</option>
-                                        <option value="Phone">Phone</option>
-                                        <option value="Text">Text</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Email  <span style="color: red">*</span></label>
-                                    <input type="email" class="form-control" name="email" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Phone Number  <span style="color: red">*</span></label>
-                                    <input type="number" class="form-control" name="phone_number" required>
-                                </div>
-                            </div>
-                        </div><br>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Message  <span style="color: red">*</span></label>
-                                    <textarea type="text" rows="3" class="form-control" name="message" required></textarea>
-                                </div>
-                            </div>
-
-                        </div>
-                        <br>
-
-                        <!-- <div class="fakeLabel"><b>Information to help the TROPICAL® respond</b>:</div>
-                        <br>
-                        
-
-                        <div class="row">
-                            <div class="form-group mb-3">
-                                <input type="checkbox" id="Check" onclick="myFunction()">
-                                <label for="Check">I wish to book a showing. Date and time combinations.</label> 
-
-                                <div class="row" style="margin-left:6px;">
-                                    <div class="col-4">
-                                        <input type="date" id="date" class="form-control col-sm-4 mt-2" style="display:none" placeholder="Any Date" />
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Last Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="last_name" required>
                                     </div>
-                                    <div class="col-4">
-                                        <select class="form-control mt-2" id="time" style="display:none"> 
-                                            <option value="Any Time">Any Time</option>   
-                                            <option value="Morning">Morning</option>  
-                                            <option value="Afternoon">Afternoon</option>  
-                                            <option value="Evening">Evening</option>                                                                    
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Im a <span style="color: red">*</span></label>
+                                        <select class="form-control" name="im_resident" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="First Time Buyer">First Time Buyer</option>
+                                            <option value="No Preference">No Preference</option>
+                                            <option value="Repeat Buyer">Repeat Buyer</option>
+                                            <option value="Seller">Seller</option>
+                                            <option value="Residential Investor">Residential Investor</option>
+                                            <option value="Commercial Investor">Commercial Investor</option>
+                                            <option value="Commercial buyer or leaser">Commercial buyer or leaser</option>
+                                            <option value="Land for development">Land for development</option>
                                         </select>
                                     </div>
                                 </div>
-                                
                             </div>
-                            <div class="form-group mb-3">
-                                <input type="checkbox" id="myCheck" onclick="myFunction()">
-                                <label for="myCheck">I am currently working with a TROPICAL®.</label> 
-                                <div class="row" style="margin-left:6px;">
-                                    <div class="col-6">
-                                        <input type="text" id="text" class="form-control mt-2" style="display:none;" placeholder="First and Last Name of My TROPICAL®" />
+                            <br>
+
+                            <input type="hidden" name="agent_id" value="{{$agent->id}}">
+                            <input type="hidden" name="property_id" value="{{$property_details->id}}">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Preferred method of contact  <span style="color: red">*</span></label>
+                                        <select class="form-control" name="contact_method" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="Email">Email</option>
+                                            <option value="Phone">Phone</option>
+                                            <option value="Text">Text</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Email  <span style="color: red">*</span></label>
+                                        <input type="email" class="form-control" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Phone Number  <span style="color: red">*</span></label>
+                                        <input type="number" class="form-control" name="phone_number" required>
+                                    </div>
+                                </div>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Message  <span style="color: red">*</span></label>
+                                        <textarea type="text" rows="3" class="form-control" name="message" required></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br>
+
+                            <!-- <div class="fakeLabel"><b>Information to help the TROPICAL® respond</b>:</div>
+                            <br>
+                            
+
+                            <div class="row">
+                                <div class="form-group mb-3">
+                                    <input type="checkbox" id="Check" onclick="myFunction()">
+                                    <label for="Check">I wish to book a showing. Date and time combinations.</label> 
+
+                                    <div class="row" style="margin-left:6px;">
+                                        <div class="col-4">
+                                            <input type="date" id="date" class="form-control col-sm-4 mt-2" style="display:none" placeholder="Any Date" />
+                                        </div>
+                                        <div class="col-4">
+                                            <select class="form-control mt-2" id="time" style="display:none"> 
+                                                <option value="Any Time">Any Time</option>   
+                                                <option value="Morning">Morning</option>  
+                                                <option value="Afternoon">Afternoon</option>  
+                                                <option value="Evening">Evening</option>                                                                    
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="checkbox" id="myCheck" onclick="myFunction()">
+                                    <label for="myCheck">I am currently working with a TROPICAL®.</label> 
+                                    <div class="row" style="margin-left:6px;">
+                                        <div class="col-6">
+                                            <input type="text" id="text" class="form-control mt-2" style="display:none;" placeholder="First and Last Name of My TROPICAL®" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="checkbox" id="tick1">
+                                    <label for="tick1">I have been pre-approved for a mortgage.</label> 
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="tick2">
+                                    <label for="tick2">I wish to give my location, if available.</label> 
+                                </div>
+                            </div>     -->
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    @else
+    <div class="modal fade bd-example-modal-lg" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 910px;max-width: 1040px;">
+                <div class="modal-content">
+                    <form action="{{route('frontend.invidual_property')}}" method="post">
+                        {{csrf_field()}}
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Contact Agent</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-md-8">
+                                    <h4>To:</h4>
+                                    <div class="row">
+                                        <div class="col-4">
+                                        <!-- background-repeat: no-repeat;background-position: center;background-size: cover;margin-bottom: 20px; -->                                    
+                                            <div class="" >
+                                            <img src="{{ url('files/agent_request',$agent->photo) }}" alt="" style="object-fit: cover; height:170px" width="100%" class="profile-picture">
+                                            </div>
+                                        </div>
+                                        <div class="col-8 align-middle">
+                                            <label><b>Name:</b></label> {{$agent->name}} <br>
+                                            <label><b>Phone Number:</b></label> {{$agent->telephone}} <br>
+                                            <label><b>Address:</b></label> {{$agent->address}} <br>
+                                            <label><b>Country:</b></label> {{$agent->country}} <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>First Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="first_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Last Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="last_name" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Im a <span style="color: red">*</span></label>
+                                        <select class="form-control" name="im_resident" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="First Time Buyer">First Time Buyer</option>
+                                            <option value="No Preference">No Preference</option>
+                                            <option value="Repeat Buyer">Repeat Buyer</option>
+                                            <option value="Seller">Seller</option>
+                                            <option value="Residential Investor">Residential Investor</option>
+                                            <option value="Commercial Investor">Commercial Investor</option>
+                                            <option value="Commercial buyer or leaser">Commercial buyer or leaser</option>
+                                            <option value="Land for development">Land for development</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group mb-3">
-                                <input type="checkbox" id="tick1">
-                                <label for="tick1">I have been pre-approved for a mortgage.</label> 
+                            <br>
+
+                            <input type="hidden" name="agent_id" value="{{$agent->id}}">
+                            <input type="hidden" name="property_id" value="{{$property_details->id}}">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Preferred method of contact  <span style="color: red">*</span></label>
+                                        <select class="form-control" name="contact_method" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="Email">Email</option>
+                                            <option value="Phone">Phone</option>
+                                            <option value="Text">Text</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Email  <span style="color: red">*</span></label>
+                                        <input type="email" class="form-control" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Phone Number  <span style="color: red">*</span></label>
+                                        <input type="number" class="form-control" name="phone_number" required>
+                                    </div>
+                                </div>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Message  <span style="color: red">*</span></label>
+                                        <textarea type="text" rows="3" class="form-control" name="message" required></textarea>
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="form-group">
-                                <input type="checkbox" id="tick2">
-                                <label for="tick2">I wish to give my location, if available.</label> 
-                            </div>
-                        </div>     -->
+                            <br>
+                        </div>
 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <a href="{{ route('frontend.auth.login') }}" class="btn btn-primary">Send</a>
+                        </div>
+                    </form>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Send</button>
-                    </div>
-                </form>
-
+                </div>
             </div>
         </div>
-    </div>
+    @endauth
 
 @endsection
 

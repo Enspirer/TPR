@@ -35,27 +35,29 @@
                             </div>
                         </div>
                         <div class="properties">
-                            <!-- <div class="row border align-items-center p-1">
-                                <div class="col-6">
-                                    <img src="{{ asset('tpr_templete/images/ps_1.svg') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-6">
-                                    <div class="row justify-content-between">
-                                        <div class="col-3 small-num">
-                                            <p class="mb-0" style="font-size: 0.7rem;">3051</p>
-                                        </div>
-                                        <div class="col-3 small-heart">
-                                            <i class="bi bi-heart" style="font-size: 0.9rem;"></i>
-                                            <i class="bi bi-heart-fill" style="font-size: 0.9rem; display: none;"></i>
-                                        </div>
+                            @foreach($filteredProperty as $property)
+                                <div class="row border align-items-center p-1">
+                                    <div class="col-6">
+                                        <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{url('image_assest', $property->feature_image_id)}}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
                                     </div>
-                                    
-                                    <p class="fw-bold mb-0">$450, 000</p>
-                                    <p class="mb-0" style="font-size: 0.8rem;">541, Rosewood Place</p>
-                                    <p class="mb-0"  style="font-size: 0.8rem;">Colombo, Sri Lanka</p>
-                                    <p class="mb-0"  style="font-size: 0.8rem;">3 <i class="fas fa-bed me-4"></i> 5 <i class="fas fa-bath"></i></p>
+                                    <div class="col-6">
+                                        <div class="row justify-content-between align-items-center">
+                                            <div class="col-9">
+                                                <p class="mb-0 small-num" style="font-size: 0.7rem;"></p>
+                                            </div>
+                                            <div class="col-3 small-heart">
+                                                <i class="bi bi-heart" style="font-size: 0.9rem;"></i>
+                                                <i class="bi bi-heart-fill" style="font-size: 0.9rem; display: none;"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <p class="fw-bold mb-0">{{ $property->name }}</p>
+                                        <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${{ $property->transaction_type }}</p>
+                                        <p class="mb-0" style="font-size: 0.8rem;">Country: {{ $property->country }}</p>
+                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : {{ $property->price }}</p>
+                                    </div>
                                 </div>
-                            </div> -->
+                            @endforeach
                         </div>
                     </div>
                 @else
@@ -525,7 +527,6 @@
                         position: location,
                         label: labels[i % labels.length]
                     });
-
         });
 
             // Add a marker clusterer to manage the markers.
@@ -533,9 +534,12 @@
                 imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
             });
 
+
             google.maps.event.addListener(markerCluster, 'click', function(c) {
                 // console.log('Number of managed markers in cluster: ' + c.getSize());
                 var markers = c.getMarkers();
+
+                
 
                 // console.log('Number of managed markers in cluster: ' + c.getSize());
                 var newArray = [];
@@ -547,9 +551,7 @@
                     newArray.push(JSON.stringify(Object.assign({}, cars)));
 
 
-//                    console.log(markers[marker].getLabel());
-//                    console.log('lat : ' + markers[marker].getPosition().lat());
-//                    console.log('lng : ' + markers[marker].getPosition().lng());
+
                 }
                 myArray = JSON.stringify(Object.assign({}, newArray));
 

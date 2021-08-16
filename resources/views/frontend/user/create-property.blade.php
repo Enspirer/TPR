@@ -74,20 +74,19 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="name" class="form-label mb-0 required">Name</label>
+                                            <label for="name" class="form-label mb-0">Name</label>
                                             <input type="text" class="form-control" name="name" id="name" aria-describedby="name" required>
                                         </div> 
                                     </div>
                                     <div class="col-6">
                                         <div>
                                             <label for="propertyType" class="form-label mb-0 required">Property Type</label>
-                                            <select class="form-select" aria-label="agentType" name="propertyType" id="propertyType" onChange="renderFields()">
+                                            <select class="form-select" aria-label="agentType" name="propertyType" id="propertyType" onChange="renderFields()"  required>
 
                                             @foreach($property_type as $type)
                                                 <option value="{{$type->id}}"> {{$type->property_type_name}} </option>
                                             @endforeach
 
-                                              
                                             </select>
                                         </div>  
                                     </div>
@@ -97,9 +96,9 @@
                                     <div class="col-12">
                                         <label for="map" class="form-label mb-2 mt-4 required">Location</label>
                                         <div id="map" style="width: 100%; height: 400px;"></div>
-                                        <input type="hidden" name="lat" id="lat" class="mt-3">
-                                        <input type="hidden" name="lng" id="lng" class="mt-3 d-none">
-                                        <input type="hidden" name="country" id="country" class="mt-3 d-none">
+                                        <input type="hidden" name="lat" id="lat" class="mt-3"  required>
+                                        <input type="hidden" name="lng" id="lng" class="mt-3 d-none"  required>
+                                        <input type="hidden" name="country" id="country" class="mt-3 d-none"  required>
                                         
                                         <div class="row mt-3">
                                             <div class="col-6">
@@ -113,15 +112,16 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="price" class="form-label mb-0 mt-4 required">Price</label>
-                                            <input type="text" class="form-control" name="price" id="price" aria-describedby="price">
+                                            <label for="price" class="form-label mb-0 mt-4">Price</label>
+                                            <input type="text" class="form-control" name="price" id="price" aria-describedby="price" required>
                                         </div>  
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label for="category" class="form-label mb-0 mt-4 required">Category</label>
-                                            <select class="form-select" aria-label="category" id="category" name="category">
-                                                <option selected value="Commercial">Commercial</option>
+                                            <label for="category" class="form-label mb-0 mt-4">Category</label>
+                                            <select class="form-select" aria-label="category" id="category" name="category" required>
+                                                <option value="">Select</option>
+                                                <option value="Commercial">Commercial</option>
                                                 <option value="Residential">Residential</option>
                                             </select>
                                         </div>  
@@ -154,14 +154,14 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="meta-description" class="form-label mb-0 mt-4 required">Meta Description</label>
-                                            <input type="text" class="form-control" name="meta_description" id="meta-description" aria-describedby="meta-description">
+                                            <label for="meta-description" class="form-label mb-0 mt-4">Meta Description</label>
+                                            <input type="text" class="form-control" name="meta_description" id="meta-description" aria-describedby="meta-description" required>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label for="slug" class="form-label mb-0 mt-4 required">Slug</label>
-                                            <input type="text" class="form-control" name="slug" id="slug" aria-describedby="slug">
+                                            <label for="slug" class="form-label mb-0 mt-4">Slug</label>
+                                            <input type="text" class="form-control" name="slug" id="slug" aria-describedby="slug" required>
                                         </div>
                                     </div>
                                 </div>
@@ -169,8 +169,8 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="transaction-type" class="form-label mb-0 mt-4 required">Transaction Type</label>
-                                            <select class="form-select" aria-label="transaction_type" name="transaction_type" id="transaction_type">
+                                            <label for="transaction-type" class="form-label mb-0 mt-4">Transaction Type</label>
+                                            <select class="form-select" aria-label="transaction_type" name="transaction_type" id="transaction_type" required>
                                                 <option value="">Select</option>
                                                 <option value="sale">For sale</option>
                                                 <option value="rent">For rent</option>
@@ -372,14 +372,14 @@
                     if(name == 'beds' || name == 'baths' || name == 'building_type' || name == 'parking_type' || name == 'zoning_type' || name == 'farm_type') {
                         if(name == 'beds' || name == 'baths') {
                             first = `<div>
-                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                <input type="number" class="form-control" name="${name}" id="${name}" aria-describedby="${name}" min="1" max="100">
+                                <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                <input type="number" class="form-control" name="${name}" id="${name}" aria-describedby="${name}" min="1" max="100" required>
                             </div>`
                         }
                         else if (name == 'building_type') {
                                         first = `<div>
-                                                    <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                    <select class="form-select" aria-label="${name}" id="${name}">
+                                                    <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                                    <select class="form-select" aria-label="${name}" id="${name}" required>
                                                         <option value="any" selected>Any</option>
                                                         <option value="house">House</option>
                                                         <option value="row/townhouse">Row / Townhouse</option>
@@ -401,8 +401,8 @@
                         }
                         else if (name == 'parking_type') {
                                     first = `<div>
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}" required>
                                                     <option value="boat-house">Boat House</option>
                                                     <option value="concrete">Concrete</option>
                                                     <option value="heated-garage">Heated Garage</option>
@@ -422,8 +422,8 @@
                         }
                         else if (name == 'zoning_type') {
                                     first = `<div>
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}" required>
                                                     <option value="commercial-retail">Commercial Retail</option>
                                                     <option value="commercial-office">Commercial Office</option>
                                                     <option value="commercial-mixed">Commercial Mixed</option>
@@ -443,8 +443,8 @@
                         }
                         else if (name == 'farm_type') {
                                     first = `<div>
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}" required>
                                                     <option value="animal">Animal</option>
                                                     <option value="cash-crop">Cash Crop</option>
                                                     <option value="hobby-farm">Hobby Farm</option>
@@ -462,8 +462,8 @@
                     }
                         else {
                             first = `<div>
-                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
+                                <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}" required>
                             </div>`
                         }
                 }
@@ -472,14 +472,14 @@
                     if(name == 'beds' || name == 'baths' || name == 'building_type' || name == 'parking_type' || name == 'zoning_type' || name == 'farm_type') {
                         if(name == 'beds' || name == 'baths') {
                             template += `<div class="col-6">
-                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                <input type="number" class="form-control" name="${name}" id="${name}" aria-describedby="${name}" min="1" max="100">
+                                <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                <input type="number" class="form-control" name="${name}" id="${name}" aria-describedby="${name}" min="1" max="100" required>
                             </div>`
                         }
                         else if (name == 'building_type') {
                                     template += `<div class="col-6">
-                                                    <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                    <select class="form-select" aria-label="${name}" id="${name}">
+                                                    <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                                    <select class="form-select" aria-label="${name}" id="${name}" required>
                                                         <option value="any" selected>Any</option>
                                                         <option value="house">House</option>
                                                         <option value="row/townhouse">Row / Townhouse</option>
@@ -501,8 +501,8 @@
                         }
                         else if (name == 'parking_type') {
                                     template += `<div class="col-6">
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}" required>
                                                     <option value="boat-house">Boat House</option>
                                                     <option value="concrete">Concrete</option>
                                                     <option value="heated-garage">Heated Garage</option>
@@ -522,8 +522,8 @@
                         }
                         else if (name == 'zoning_type') {
                                     template += `<div class="col-6">
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}" required>
                                                     <option value="commercial-retail">Commercial Retail</option>
                                                     <option value="commercial-office">Commercial Office</option>
                                                     <option value="commercial-mixed">Commercial Mixed</option>
@@ -543,8 +543,8 @@
                         }
                         else if (name == 'farm_type') {
                                     template += `<div class="col-6">
-                                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}">
+                                                <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                                <select class="form-select" aria-label="${name}" id="${name}" required>
                                                     <option value="animal">Animal</option>
                                                     <option value="cash-crop">Cash Crop</option>
                                                     <option value="hobby-farm">Hobby Farm</option>
@@ -563,8 +563,8 @@
                     else {
                         template += `<div class="col-6">
                             <div>
-                                <label for="${name}" class="form-label mb-0 mt-4 required">${fields[i]}</label>
-                                <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}">
+                                <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
+                                <input type="text" class="form-control" name="${name}" id="${name}" aria-describedby="${name}" required>
                             </div>
                         </div>`
                     }
