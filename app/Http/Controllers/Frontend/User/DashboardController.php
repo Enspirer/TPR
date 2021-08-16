@@ -11,6 +11,8 @@ use App\Models\Auth\User;
 use App\Models\Properties;
 use App\Models\FileManager;
 use App\Models\Favorite; 
+use App\Models\Country;
+use App\Models\Feedback;
 /**
  * Class DashboardController.
  */
@@ -41,14 +43,13 @@ class DashboardController extends Controller
     public function accountDashboard(Request $request)
     {
         $all_favouite = Favorite::get()->count();        
-        // $booking = Booking::get()->where('status','=','Approved')->count();
+        $supports = Feedback::get()->where('status','=','Pending')->count();
         $booking = Booking::get()->count();
-        // dd($booking);
-        // $all_property = Properties::get()->count();
 
         return view('frontend.user.account-dashboard',[
             'all_favouite' => $all_favouite,
-            'booking' => $booking
+            'booking' => $booking,
+            'supports' => $supports
         ]);
     }
 
@@ -154,4 +155,41 @@ class DashboardController extends Controller
             'bookings' => $bookings
         ]);
     }
+
+    public function feedback()
+    {
+        $countries = Country::get();
+
+        $user_id = auth()->user()->id;
+        $user_details = User::where('id',$user_id)->first();
+
+        return view('frontend.user.feedback',[
+            'countries' => $countries,
+            'user_details' => $user_details
+        ]);
+    }
+
+    public function feedbackStore(request $request)
+    {
+        // dd($request);
+
+        $addfeedback = new Feedback;
+
+        $addfeedback->name = $request->name;
+        $addfeedback->country = $request->country;
+        $addfeedback->title = $request->title;
+        $addfeedback->message = $request->message;
+        $addfeedback->status = 'Pending';
+        $addfeedback->user_id = auth()->user()->id;
+
+        $addfeedback->save();
+
+        session()->flash('message','Thanks!');
+
+        return back(); 
+        
+    }
+
+
+
 }

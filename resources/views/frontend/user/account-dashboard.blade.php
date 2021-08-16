@@ -32,10 +32,10 @@
                                 <div class="col-4">
                                     <div class="card">
                                         <div src="..." class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">25</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d",$supports) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <h4 class="card-title text-center" style="color: #0d6efd;">Search Result</h4>
+                                            <h4 class="card-title text-center" style="color: #0d6efd;">Help and Support</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                 <div class="col-4">
                                     <div class="card">
                                         <div src="..." class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ $booking }}</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d",$booking) }}</p>
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title text-center" style="color: #0d6efd;">Booking Property</h4>
@@ -54,7 +54,7 @@
                                 <div class="col-4">
                                     <div class="card">
                                         <div src="..." class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ $all_favouite }}</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d",$all_favouite) }}</p>
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title text-center" style="color: #0d6efd;">Favourite Count</h4>

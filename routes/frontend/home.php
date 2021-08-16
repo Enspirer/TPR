@@ -91,6 +91,9 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('my-bookings', [DashboardController::class, 'myBookings'])->name('my-bookings');
 
+        Route::get('feedback', [DashboardController::class, 'feedback'])->name('feedback');
+        Route::post('feedback/store', [DashboardController::class, 'feedbackStore'])->name('feedback.store');
+
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
 
@@ -139,7 +142,11 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::post('country-management/single-property-approval/update', [CountryManagementController::class, 'singlePropertyApproved'])->name('single-property-approved');
 
-        Route::get('country-management/supports', [CountryManagementController::class, 'supports'])->name('supports');
+        Route::get('country-management/supports', [CountryManagementController::class, 'supports'])->name('supports');        
+        Route::get('country-management/supports/edit/{id}', [CountryManagementController::class, 'supportsEdit'])->name('supports.edit');
+        Route::post('country-management/supports/update', [CountryManagementController::class, 'supportsUpdate'])->name('supports.update');
+        Route::get('country-management/supports/delete/{id}', [CountryManagementController::class, 'supportsDelete'])->name('supports.delete');
+        // Route::get('country-management/individual-help', [CountryManagementController::class, 'individualHelp'])->name('individual-help');
 
 
         Route::get('country-management/agent-approval', [CountryManagementController::class, 'agentApproval'])->name('agent-approval');
@@ -150,7 +157,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::post('country-management/single-agent-approval/update', [CountryManagementController::class, 'singleAgentApprovalUpdate'])->name('singleAgentApprovalUpdate');
 
-        Route::get('country-management/individual-help', [CountryManagementController::class, 'individualHelp'])->name('individual-help');
+        
 
         Route::get('country-management/sidebar-ad', [CountryManagementController::class, 'sidebarAD'])->name('sidebar_ad');
         Route::post('sidebar-ad/store', [CountryManagementController::class, 'sidebarAD_store'])->name('sidebar_ad.sidebarAD_store');
