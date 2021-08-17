@@ -364,6 +364,8 @@
         // dropdown box changing field
         const renderFields = async () => {
             let value = $('#propertyType').val();
+
+
             let url = '{{url('/')}}/api/get_property_type_details/' + value;
             const res = await fetch(url);
             const data = await res.json();
@@ -391,8 +393,8 @@
                         else if (name == 'building_type') {
                                         first = `<div>
                                                     <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
-                                                    <select class="form-select" aria-label="${name}" id="${name}" required>
-                                                        <option value="any" selected>Any</option>
+                                                    <select class="form-select" aria-label="${name}" id="${name}" name="${name}" required>
+                                                        <option value="">Select</option>
                                                         <option value="house">House</option>
                                                         <option value="row/townhouse">Row / Townhouse</option>
                                                         <option value="apartment">Apartment</option>
@@ -414,7 +416,8 @@
                         else if (name == 'parking_type') {
                                     first = `<div>
                                                 <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}" required>
+                                                <select class="form-select" aria-label="${name}" id="${name}" name="${name}" required>
+                                                    <option value="">Select</option>
                                                     <option value="boat-house">Boat House</option>
                                                     <option value="concrete">Concrete</option>
                                                     <option value="heated-garage">Heated Garage</option>
@@ -435,7 +438,8 @@
                         else if (name == 'zoning_type') {
                                     first = `<div>
                                                 <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}" required>
+                                                <select class="form-select" aria-label="${name}" id="${name}" name="${name}" required>
+                                                    <option value="">Select</option>
                                                     <option value="commercial-retail">Commercial Retail</option>
                                                     <option value="commercial-office">Commercial Office</option>
                                                     <option value="commercial-mixed">Commercial Mixed</option>
@@ -456,7 +460,8 @@
                         else if (name == 'farm_type') {
                                     first = `<div>
                                                 <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}" required>
+                                                <select class="form-select" aria-label="${name}" id="${name}" name="${name}" required>
+                                                    <option value="">Select</option>
                                                     <option value="animal">Animal</option>
                                                     <option value="cash-crop">Cash Crop</option>
                                                     <option value="hobby-farm">Hobby Farm</option>
@@ -491,8 +496,8 @@
                         else if (name == 'building_type') {
                                     template += `<div class="col-6">
                                                     <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
-                                                    <select class="form-select" aria-label="${name}" id="${name}" required>
-                                                        <option value="any" selected>Any</option>
+                                                    <select class="form-select" aria-label="${name}" id="${name}" name="${name}" required>
+                                                        <option value="">Select</option>
                                                         <option value="house">House</option>
                                                         <option value="row/townhouse">Row / Townhouse</option>
                                                         <option value="apartment">Apartment</option>
@@ -514,7 +519,8 @@
                         else if (name == 'parking_type') {
                                     template += `<div class="col-6">
                                                 <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}" required>
+                                                <select class="form-select" aria-label="${name}" id="${name}" name="${name}" required>
+                                                    <option value="">Select</option>
                                                     <option value="boat-house">Boat House</option>
                                                     <option value="concrete">Concrete</option>
                                                     <option value="heated-garage">Heated Garage</option>
@@ -535,7 +541,8 @@
                         else if (name == 'zoning_type') {
                                     template += `<div class="col-6">
                                                 <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}" required>
+                                                <select class="form-select" aria-label="${name}" id="${name}" name="${name}" required>
+                                                    <option value="">Select</option>
                                                     <option value="commercial-retail">Commercial Retail</option>
                                                     <option value="commercial-office">Commercial Office</option>
                                                     <option value="commercial-mixed">Commercial Mixed</option>
@@ -556,7 +563,8 @@
                         else if (name == 'farm_type') {
                                     template += `<div class="col-6">
                                                 <label for="${name}" class="form-label mb-0 mt-4">${fields[i]}</label>
-                                                <select class="form-select" aria-label="${name}" id="${name}" required>
+                                                <select class="form-select" aria-label="${name}" id="${name}" name="${name}" required>
+                                                    <option value="">Select</option>
                                                     <option value="animal">Animal</option>
                                                     <option value="cash-crop">Cash Crop</option>
                                                     <option value="hobby-farm">Hobby Farm</option>
@@ -588,7 +596,11 @@
 
         
 
-        window.addEventListener('DOMContentLoaded', () => renderFields());
+        // window.addEventListener('DOMContentLoaded', () => renderFields());
+
+        $('#propertyType').change(function() {
+            renderFields();
+        });
 
 
         $( "#name" ).change(function() {
