@@ -89,6 +89,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('favourites', [DashboardController::class, 'favourites'])->name('favourites');
 
+        Route::get('favourites/delete/{id}', [DashboardController::class, 'favouritesDelete'])->name('favourites-delete');
+
         Route::get('my-bookings', [DashboardController::class, 'myBookings'])->name('my-bookings');
 
         Route::get('feedback', [DashboardController::class, 'feedback'])->name('feedback');

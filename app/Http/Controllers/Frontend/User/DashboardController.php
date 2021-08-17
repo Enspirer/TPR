@@ -146,6 +146,14 @@ class DashboardController extends Controller
     }
 
 
+    public function favouritesDelete($id) {
+
+        $favourite = Favorite::where('property_id', $id)->delete();
+
+        return back();
+    }
+
+
     public function myBookings()
     {
         $bookings = Booking::where('user_id',auth()->user()->id)->get();
