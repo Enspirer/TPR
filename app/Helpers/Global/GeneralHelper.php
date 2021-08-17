@@ -1,6 +1,7 @@
 <?php
 use App\Medels\AgentRequest;
 use App\Models\Country;
+use App\Models\Favorite; 
 use Illuminate\Http\Request;
 
 if (! function_exists('app_name')) {
