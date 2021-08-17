@@ -119,8 +119,8 @@
                                             <label class="form-label mb-0 mt-4 required">Agent Type</label>
                                             <select class="form-select agent_type" name="agent_type" required>
 
-                                                <option value="individual" {{ $agent_edit->agent_type == 'individual' ? "selected" : "" }}>Individual</option>
-                                                <option value="company" {{ $agent_edit->agent_type == 'company' ? "selected" : "" }}>Company</option>
+                                                <option value="individual" {{ $agent_edit->agent_type == 'individual' ? "selected" : "" }}>individual</option>
+                                                <option value="company" {{ $agent_edit->agent_type == 'company' ? "selected" : "" }}>company</option>
                                                 
 
                                             </select>

@@ -372,14 +372,7 @@
             const fields = (data[0]['activated_fields']);
             let template = '';
             let first = '';
-            // fields.forEach ((field) => {
-            //     template += `<div class="col-6">
-            //                     <div>
-            //                         <label for="${field}" class="form-label mb-0 mt-4 required">${field}</label>
-            //                         <input type="text" class="form-control" id="${field}" aria-describedby="${field}">
-            //                     </div>
-            //                 </div>`
-            // });
+
             for(let i = 0; i < fields.length; i++) {
                 if(i == 0) {
                     let name = fields[i].split(' ').join('_').toLowerCase();
