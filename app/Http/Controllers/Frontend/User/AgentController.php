@@ -272,8 +272,6 @@ class AgentController extends Controller
 
     public function updateProperty(Request $request) {
 
-        // dd($request);
-
         $out_json = $request->property_images;
 
 
@@ -290,40 +288,49 @@ class AgentController extends Controller
         $slug = request('slug');
         $transaction_type = request('transaction_type');
         $city = request('city');
+        $land_size = $request->land_size;
+        $zoning_type = $request->zoning_type;
+        $number_of_units = $request->number_of_units;
+        $building_size = $request->building_size;
+        $farm_type = $request->farm_type;
+        $building_type = $request->building_type;
+        $open_house_only = $request->open_house_only;
+        $parking_type = $request->parking_type;
+        $beds = $request->beds;
+        $baths = $request->baths;
 
-        
-        // dd($request);
-        // if(request('land_size')){
-        //     $land_size = request('land_size');
+        // if($request->land_size != null){
+        //     $land_size = $request->land_size;
         // }
-        // }else{}
-        // if($request->zoning_type){
-        //     $addprop->zoning_type=$request->zoning_type;
-        // }else{}
-        // if($request->number_of_units){
-        //     $addprop->number_of_units=$request->number_of_units;
-        // }else{}
-        // if($request->building_size){
-        //     $addprop->building_size=$request->building_size;
-        // }else{}
-        // if($request->farm_type){
-        //     $addprop->farm_type=$request->farm_type;
-        // }else{}
-        // if($request->building_type){
-        //     $addprop->building_type=$request->building_type;
-        // }else{}
-        // if($request->open_house_only){
-        //     $addprop->open_house_only=$request->open_house_only;
-        // }else{}
-        // if($request->parking_type){
-        //     $addprop->parking_type=$request->parking_type;
-        // }else{}
-        // if($request->beds){
-        //     $addprop->beds=$request->beds;        
-        // }else{}
-        // if($request->baths){
-        //     $addprop->baths=$request->baths;       
-        // }else{}
+        // if($request->zoning_type != null){
+        //     $zoning_type = $request->zoning_type;
+        // }
+        // if($request->number_of_units != null){
+        //     $number_of_units = $request->number_of_units;
+        // }
+        // if($request->building_size != null){
+        //     $building_size = $request->building_size;
+        // }
+        // if($request->farm_type != null){
+        //     $farm_type = $request->farm_type;
+        // }
+        // if($request->building_type != null){
+        //     $building_type = $request->building_type;
+        // }
+        // if($request->open_house_only != null){
+        //     $open_house_only = $request->open_house_only;
+        // }
+        // if($request->parking_type != null){
+        //     $parking_type = $request->parking_type;
+        // }
+        // if($request->beds != null){
+        //     $beds = $request->beds;
+        // }
+        // if($request->baths != null){
+        //     $baths = $request->baths;
+        // }
+
+        // dd($request);
 
         $property = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
             [
@@ -338,6 +345,16 @@ class AgentController extends Controller
                 'meta_description' => $meta_description,
                 'slug' => $slug,
                 'transaction_type' => $transaction_type,
+                'land_size' => $land_size,
+                'zoning_type' => $zoning_type,
+                'number_of_units' => $number_of_units,
+                'building_size' => $building_size,
+                'farm_type' => $farm_type,
+                'building_type' => $building_type,
+                'open_house_only' => $open_house_only,
+                'parking_type' => $parking_type,
+                'beds' => $beds,
+                'baths' => $baths,
                 'city' => $city
             ]
         );
