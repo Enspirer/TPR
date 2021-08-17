@@ -110,12 +110,19 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <div>
+                                            
                                             <label for="price" class="form-label mb-0 mt-4">Price</label>
-                                            <input type="text" class="form-control" name="price" id="price" aria-describedby="price" required>
+                                            <input type="text" class="form-control" name="price" id="price" aria-describedby="price" required placeholder="$">
+                                            <div id="passwordHelpBlock" class="form-text text-info fw-bolder">
+                                                Please enter property price in US currency
+                                            </div>
                                         </div>  
                                     </div>
+                                </div>
+
+                                <div class="row">
                                     <div class="col-6">
                                         <div>
                                             <label for="category" class="form-label mb-0 mt-4">Category</label>
@@ -125,6 +132,12 @@
                                                 <option value="Residential">Residential</option>
                                             </select>
                                         </div>  
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <label for="city" class="form-label mb-0 mt-4">City</label>
+                                            <input type="text" class="form-control" name="city" id="city" aria-describedby="city" required>
+                                        </div>
                                     </div>
                                 </div>
                             
@@ -146,16 +159,6 @@
                                     <div class="col-12">
                                         <div>
                                             @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Images','file_input_name' => 'property_images','multiple' => true, 'data' => null, 'id' => 'id-multiple', 'upload' => 'upload-multiple', 'title' => 'Upload Images' ])
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div>
-                                            <label for="city" class="form-label mb-0 mt-4">City</label>
-                                            <input type="text" class="form-control" name="city" id="city" aria-describedby="city" required>
                                         </div>
                                     </div>
                                 </div>
