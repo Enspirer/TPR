@@ -107,7 +107,6 @@
 
             var infowindow = new google.maps.InfoWindow();
 
-            console.log(property[0]['lat']);
             for(let i = 0; i < markers.length; i++) {
                 for(let j = 0; j < property.length; j++) {
                     let lat = markers[i].getPosition().lat();    
