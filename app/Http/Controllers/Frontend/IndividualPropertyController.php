@@ -34,8 +34,7 @@ class IndividualPropertyController extends Controller
         $feature_image = FileManager::where('id',$property_details->feature_image_id)->get();
         // dd($feature_image);
 
-        $ad1 = SidebarAd::where('other', '=', 'ad1')->where('status', '=', '1')->first();
-        $ad2 = SidebarAd::where('other', '=', 'ad2')->where('status', '=', '1')->first();
+        $side_ads = SidebarAd::where('country_management_approval', 'Approved')->get();
 
          $final_out = [];
 
@@ -77,8 +76,7 @@ class IndividualPropertyController extends Controller
             'agent' => $agent,  
             'random' => $random,          
             'final_out' => $final_out,
-            'ad1' => $ad1,
-            'ad2' => $ad2,
+            'side_ads' => $side_ads,
             'favourite' => $favourite
         ]);
     }
