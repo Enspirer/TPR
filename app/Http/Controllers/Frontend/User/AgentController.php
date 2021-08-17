@@ -374,7 +374,7 @@ class AgentController extends Controller
 
     public function createPropertyStore(Request $request)
     {        
-        dd($request);
+        // dd($request);
 
         $out_json = $request->property_images;
 

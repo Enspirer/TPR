@@ -31,8 +31,8 @@ class CountryManagementController extends Controller
         $user_id = auth()->user()->id;
 
         $country_manager = Country::where('country_manager',$user_id)->first();
-;
-        $properties = Properties::where('country', $country_manager->country_name)->get();
+
+        $properties = Properties::where('country', $country_manager->country_name)->orderBy('id','DESC')->get();
 
 
         return view('frontend.user.property-approval', ['properties' => $properties]);

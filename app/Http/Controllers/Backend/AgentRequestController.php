@@ -33,8 +33,8 @@ class AgentRequestController extends Controller
                     ->editColumn('status', function($data){
                         if($data->status == 'Approved'){
                             $status = '<span class="badge badge-success">Approved</span>';
-                        }elseif($data->status == 'Rejected'){
-                            $status = '<span class="badge badge-danger">Rejected</span>';
+                        }elseif($data->status == 'Disapproved'){
+                            $status = '<span class="badge badge-danger">Disapproved</span>';
                         }else{
                             $status = '<span class="badge badge-warning">Pending</span>';
                         }   
