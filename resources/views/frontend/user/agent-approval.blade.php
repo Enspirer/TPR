@@ -54,11 +54,11 @@
                                 <td>{{ $agent->country_manager_approval }}</td>
                                 <td>
                                     <div class="row">
-                                        <div class="col-5">
+                                        <div class="col-4">
                                             <a href="{{ route('frontend.user.single-agent-approval',$agent->id) }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
                                         </div>
-                                        <div class="col-5">
-                                            <a href="{{ route('frontend.user.agentApprovalDelete',$agent->id) }}"><button class="btn text-light table-btn" style="background-color: #FF2C4B; margin-left: -25px;">Delete</button></a>
+                                        <div class="col-4">
+                                            <a href="{{ route('frontend.user.agentApprovalDelete',$agent->id) }}"><button class="btn text-light table-btn" style="background-color: #FF2C4B;">Delete</button></a>
                                         </div>
                                     </div>
                                 </td>
