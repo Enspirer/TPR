@@ -33,8 +33,8 @@ class PropertyController extends Controller
                     ->editColumn('admin_approval', function($data){
                         if($data->admin_approval == 'Approved'){
                             $status = '<span class="badge badge-success">Approved</span>';
-                        }elseif($data->admin_approval == 'Rejected'){
-                            $status = '<span class="badge badge-danger">Rejected</span>';
+                        }elseif($data->admin_approval == 'Disapproved'){
+                            $status = '<span class="badge badge-danger">Disapproved</span>';
                         }else{
                             $status = '<span class="badge badge-warning">Pending</span>';
                         }   

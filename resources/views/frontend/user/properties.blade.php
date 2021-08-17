@@ -134,6 +134,42 @@
                                         </div>
                                     </div>
 
+                                    @elseif($property->admin_approval == 'Disapproved' || $property->country_manager_approval == 'Disapproved')
+                                    <div class="row align-items-center justify-content-between mb-4 border py-3" style="background: #f0f0f0;">
+                                        <div class="col-6 pen-dis">
+                                                <img src="{{url('image_assest', $property->feature_image_id)}}" class="w-100" alt="..." style="height: 250px; object-fit:cover;">
+                                        </div>
+                                        <div class="col-5">
+                                            <div class="clearfix">
+                                                <div class="float-start pen-dis">
+                                                    <h5 class="card-title">{{ $property->country }}</h5>
+                                                </div>
+                                                <div class="float-end">
+                                                    <button class="position-relative bg-danger border-0 rounded px-2 py-1 text-light" style="top: -1.5rem; cursor: default;">Dispproved</button>
+                                                </div>
+                                            </div>
+                                            <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p>
+                                            <p class="card-text pen-dis">Property Type : {{App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
+                                            <p class="mt-1 text-info pen-dis">$ {{ $property['price'] }}</p>
+
+                                            <div class="row pen-dis">
+                                                <div class="col-9">
+                                                    <div class="row justify-content-center">
+                                                        <!-- <div class="col-4">
+                                                            <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
+                                                        </div> -->
+                                                        <!-- <div class="col-4">
+                                                            <a href="{{ route('frontend.user.property-edit', $property->id) }}" class="btn px-3 rounded-0 text-light py-1" type="button" style="background-color: #4195E1">Edit</a>
+                                                        </div> -->
+                                                        <div class="col-4 ps-1">
+                                                            <a href="{{ route('frontend.user.property-delete', $property->id) }}" class="btn px-4 rounded-0 text-light py-1 delete" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>    
+
                                 @else
                                     <div class="row align-items-center justify-content-between mb-4 border py-3" style="background: #f0f0f0;">
                                         <div class="col-6 pen-dis">
@@ -145,7 +181,7 @@
                                                     <h5 class="card-title">{{ $property->country }}</h5>
                                                 </div>
                                                 <div class="float-end">
-                                                    <button class="position-relative bg-danger border-0 rounded px-2 py-1 text-light" style="top: -1.5rem; cursor: default;">Dispproved</button>
+                                                    <button class="position-relative bg-warning border-0 rounded px-2 py-1 text-light" style="top: -1.5rem; cursor: default;">Pending</button>
                                                 </div>
                                             </div>
                                             <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p>

@@ -236,7 +236,7 @@
                                 <label>Status</label>
                                 <select class="form-control" name="status" required>
                                     <option value="Approved" {{ $agent_request->status == 'Approved' ? "selected" : "" }}>Approve</option>   
-                                    <option value="Rejected" {{ $agent_request->status == 'Rejected' ? "selected" : "" }}>Reject</option> 
+                                    <option value="Disapproved" {{ $agent_request->status == 'Disapproved' ? "selected" : "" }}>Disapprove</option> 
                                     <option value="Pending" {{ $agent_request->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>
