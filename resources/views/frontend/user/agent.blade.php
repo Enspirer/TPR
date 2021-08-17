@@ -129,7 +129,7 @@
                                     </div>   
                                     <div class="col-6 company_name d-none">
                                         <div>
-                                            <label class="form-label mb-0 mt-4">Company Name</label>
+                                            <label class="form-label mb-0 mt-4 required">Company Name</label>
                                             <input type="text" class="form-control" name="company_name">
                                         </div> 
                                     </div>                                  
@@ -138,7 +138,7 @@
                                 <div class="row">
                                     <div class="col-6 company_reg_no d-none">
                                         <div>
-                                            <label class="form-label mb-0 mt-4">Company Registration Number</label>
+                                            <label class="form-label mb-0 mt-4 required">Company Registration Number</label>
                                             <input type="text" class="form-control" name="company_reg_no">
                                         </div>  
                                     </div>

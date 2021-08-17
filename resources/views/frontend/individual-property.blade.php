@@ -364,36 +364,18 @@
                     </div>
 
                     
-                    @if($ad1 == null)                    
-                    @else
-                    <a href="{{ $ad1->link }}" style="text-decoration: none">
-                        <div class="row shadow mt-5">
-                            <div class="col-12">
-                                <img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover;" class="img-fluid" alt="">
+                    @if(count($side_ads) > 0)
+                        @foreach($side_ads as $side_ad)
+                            <div class="row shadow mt-5">
+                                <div class="col-12">
+                                    <a href="{{ $side_ad->link }}"><img src="{{url('files/sidebar_ad', $side_ad->image)}}" alt="" class="img-fluid"></a>
+                                </div>
+                                <div class="col-12 mt-3" style="text-align: justify;">
+                                    <p class="ns" style="height:140px; overflow:hidden !important; text-overflow: ellipsis;">{{ $side_ad->description }}</p>
+                                </div>
                             </div>
-                            <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns" style="height:140px; overflow:hidden !important; text-overflow: ellipsis;">{{ $ad1->description }}</p>
-                            </div>        
-                        </div>
-                    </a>
+                        @endforeach
                     @endif
-
-                    @if($ad2 == null)
-                    @else
-                    <a href="{{ $ad2->link }}" style="text-decoration: none">
-                        <div class="row shadow mt-5">
-                            <div class="col-12">
-                                <img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover;" class="img-fluid" alt="">                           
-                            </div>
-                            <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns" style="height:140px; overflow:hidden !important; text-overflow: ellipsis;">{{ $ad2->description }}</p>
-                            </div>
-                        </div>
-                    </a>
-                    @endif
-
-
-
                 </div>
             </div>
         </div>
