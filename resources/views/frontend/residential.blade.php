@@ -43,11 +43,7 @@
                                     <div class="col-6">
                                         <div class="row justify-content-between align-items-center">
                                             <div class="col-9">
-                                                <p class="mb-0 small-num" style="font-size: 0.7rem;"></p>
-                                            </div>
-                                            <div class="col-3 small-heart">
-                                                <i class="bi bi-heart" style="font-size: 0.9rem;"></i>
-                                                <i class="bi bi-heart-fill" style="font-size: 0.9rem; display: none;"></i>
+                                                <p class="mb-0 small-num" style="font-size: 0.7rem;">{{ $property->created_at->toDateString() }}</p>
                                             </div>
                                         </div>
                                         
@@ -620,10 +616,6 @@
                                         <div class="row justify-content-between align-items-center">
                                             <div class="col-9">
                                                 <p class="mb-0 small-num" style="font-size: 0.7rem;">${date}</p>
-                                            </div>
-                                            <div class="col-3 small-heart">
-                                                <i class="bi bi-heart" style="font-size: 0.9rem;"></i>
-                                                <i class="bi bi-heart-fill" style="font-size: 0.9rem; display: none;"></i>
                                             </div>
                                         </div>
                                         
