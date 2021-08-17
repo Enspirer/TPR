@@ -216,7 +216,7 @@
                         @foreach($latest as $lat)
                             <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                                 <div class="card p-4 shadow border-0">
-                                    <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top" alt="..."></a>
+                                    <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top" alt="..." style="object-fit:cover"></a>
                                     <div class="card-body mt-4">
                                         <h5 class="card-title">Jaffna, {{ $lat->country }}</h5>
                                         <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
@@ -240,7 +240,7 @@
                 <div class="row mt-4">
                     <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                         <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_rs_1.svg')}}" class="card-img-top" alt="...">
+                            <img src="{{url('tpr_templete/images/fp_rs_1.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
                             <div class="card-body mt-4">
                                 <h5 class="card-title">Jaffna, Sri Lanka</h5>
                                 <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
@@ -251,7 +251,7 @@
                     </div>
                     <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
                         <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_rs_2.svg')}}" class="card-img-top" alt="...">
+                            <img src="{{url('tpr_templete/images/fp_rs_2.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
                             <div class="card-body mt-4">
                                 <h5 class="card-title">Colombo, Sri Lanka</h5>
                                 <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
@@ -262,7 +262,7 @@
                     </div>
                     <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="600">
                         <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_rs_2.svg')}}" class="card-img-top" alt="...">
+                            <img src="{{url('tpr_templete/images/fp_rs_2.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
                             <div class="card-body mt-4">
                                 <h5 class="card-title">Galle, Sri Lanka</h5>
                                 <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
@@ -281,7 +281,7 @@
                 <div class="row mt-4">
                     <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                         <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_io_1.svg')}}" class="card-img-top" alt="...">
+                            <img src="{{url('tpr_templete/images/fp_io_1.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
                             <div class="card-body mt-4">
                                 <h5 class="card-title">Jaffna, Sri Lanka</h5>
                                 <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
@@ -292,7 +292,7 @@
                     </div>
                     <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
                         <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_io_2.svg')}}" class="card-img-top" alt="...">
+                            <img src="{{url('tpr_templete/images/fp_io_2.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
                             <div class="card-body mt-4">
                                 <h5 class="card-title">Colombo, Sri Lanka</h5>
                                 <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
@@ -303,7 +303,7 @@
                     </div>
                     <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="600">
                         <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_io_3.svg')}}" class="card-img-top" alt="...">
+                            <img src="{{url('tpr_templete/images/fp_io_3.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
                             <div class="card-body mt-4">
                                 <h5 class="card-title">Galle, Sri Lanka</h5>
                                 <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
