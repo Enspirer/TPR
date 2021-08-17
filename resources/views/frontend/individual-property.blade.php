@@ -138,43 +138,43 @@
 
                                 @if($property_details->baths == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Baths : {{ $property_details->baths }}</li>
+                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Baths : {{ $property_details->baths }}</li>
                                 @endif 
                                 @if($property_details->beds == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Beds : {{ $property_details->beds }}</li>
+                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Beds : {{ $property_details->beds }}</li>
                                 @endif                                 
                                 @if($property_details->parking_type == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Parking Type : {{ $property_details->parking_type }}</li>
+                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Parking Type : {{ $property_details->parking_type }}</li>
                                 @endif 
                                 @if($property_details->building_type == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Building Type : {{ $property_details->building_type }}</li>
+                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Type : {{ $property_details->building_type }}</li>
                                 @endif 
                                 @if($property_details->farm_type == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Farm Type : {{ $property_details->farm_type }}</li>
+                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Farm Type : {{ $property_details->farm_type }}</li>
                                 @endif 
                                 @if($property_details->open_house_only == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Open House Only : {{ $property_details->open_house_only }}</li>
+                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Open House Only : {{ $property_details->open_house_only }}</li>
                                 @endif 
                                 @if($property_details->number_of_units == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Number of Units : {{ $property_details->number_of_units }}</li>
+                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Number of Units : {{ $property_details->number_of_units }}</li>
                                 @endif 
                                 @if($property_details->land_size == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Land Size : {{ $property_details->land_size }}</li>
+                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Land Size : {{ $property_details->land_size }}</li>
                                 @endif 
                                 @if($property_details->zoning_type == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Zoning Type : {{ $property_details->zoning_type }}</li>
+                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Zoning Type : {{ $property_details->zoning_type }}</li>
                                 @endif 
                                 @if($property_details->building_size == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Building Size : {{ $property_details->building_size }}</li>
+                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Size : {{ $property_details->building_size }}</li>
                                 @endif 
 
 
