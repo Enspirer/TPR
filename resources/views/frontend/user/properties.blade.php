@@ -74,16 +74,16 @@
                                                 <img src="{{url('image_assest', $property->feature_image_id)}}" class="w-100" alt="..." style="height: 250px; object-fit:cover;">
                                         </div>
                                         <div class="col-5">
-                                            <h5 class="card-title">Jaffna, Sri Lanka</h5>
-                                            <p class="card-text mt-3 mb-1">{{ $property['beds'] }} Bed Semidetached honse</p>
-                                            <p class="card-text">{{ $property['long'] }} & {{ $property['lat'] }}</p>
-                                            <p class="mt-1 text-info">{{ $property['price'] }}</p>
+                                            <h5 class="card-title">{{ $property->country }}</h5>
+                                            <p class="card-text mt-3 mb-1">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            <p class="card-text">Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
+                                            <p class="mt-1 text-info">$ {{ $property['price'] }}</p>
 
                                             <div class="row">
                                                 <div class="col-9">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <button class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
+                                                            <a href="{{ route('frontend.individual-property', $property->id) }}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</a>
                                                         </div>
                                                         <div class="col-4">
                                                             <a href="{{ route('frontend.user.property-edit', $property->id) }}" class="btn px-3 rounded-0 text-light py-1" type="button" style="background-color: #4195E1">Edit</a>
@@ -106,15 +106,15 @@
                                         <div class="col-5">
                                             <div class="clearfix">
                                                 <div class="float-start pen-dis">
-                                                    <h5 class="card-title">Jaffna, Sri Lanka</h5>
+                                                    <h5 class="card-title">{{ $property->country }}</h5>
                                                 </div>
                                                 <div class="float-end">
                                                     <button class="position-relative bg-warning border-0 rounded px-2 py-1 text-light" style="top: -1.5rem;">Pending</button>
                                                 </div>
                                             </div>
                                             <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p>
-                                            <p class="card-text pen-dis">{{ $property['long'] }} & {{ $property['lat'] }}</p>
-                                            <p class="mt-1 text-info pen-dis">{{ $property['price'] }}</p>
+                                            <p class="card-text pen-dis">Property Type : {{App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
+                                            <p class="mt-1 text-info pen-dis">$ {{ $property['price'] }}</p>
 
                                             <div class="row pen-dis">
                                                 <div class="col-9">
@@ -142,15 +142,15 @@
                                         <div class="col-5">
                                             <div class="clearfix">
                                                 <div class="float-start pen-dis">
-                                                    <h5 class="card-title">Jaffna, Sri Lanka</h5>
+                                                    <h5 class="card-title">{{ $property->country }}</h5>
                                                 </div>
                                                 <div class="float-end">
                                                     <button class="position-relative bg-danger border-0 rounded px-2 py-1 text-light" style="top: -1.5rem;">Dispproved</button>
                                                 </div>
                                             </div>
-                                            <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p>
-                                            <p class="card-text pen-dis">{{ $property['long'] }} & {{ $property['lat'] }}</p>
-                                            <p class="mt-1 text-info pen-dis">{{ $property['price'] }}</p>
+                                            <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            <p class="card-text pen-dis">Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
+                                            <p class="mt-1 text-info pen-dis">$ {{ $property['price'] }}</p>
 
                                             <div class="row pen-dis">
                                                 <div class="col-9">
@@ -171,7 +171,6 @@
                                     </div>
                                 @endif
                             @endforeach
-
                         </div>
                     </div>
                 </div>

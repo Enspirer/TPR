@@ -129,8 +129,8 @@
                                     </div>   
                                     <div class="col-6 company_name d-none">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Company Name</label>
-                                            <input type="text" class="form-control" name="company_name" required>
+                                            <label class="form-label mb-0 mt-4">Company Name</label>
+                                            <input type="text" class="form-control" name="company_name">
                                         </div> 
                                     </div>                                  
                                 </div>  
@@ -138,8 +138,8 @@
                                 <div class="row">
                                     <div class="col-6 company_reg_no d-none">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Company Registration Number</label>
-                                            <input type="text" class="form-control" name="company_reg_no" required>
+                                            <label class="form-label mb-0 mt-4">Company Registration Number</label>
+                                            <input type="text" class="form-control" name="company_reg_no">
                                         </div>  
                                     </div>
                                 </div>
@@ -168,8 +168,8 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Tax Number - Nullable</label>
-                                            <input type="text" class="form-control" name="tax" required>
+                                            <label class="form-label mb-0 mt-4">Tax Number</label>
+                                            <input type="text" class="form-control" name="tax">
                                         </div>
                                     </div>
                                 </div>
@@ -306,10 +306,14 @@
         if ($(this).val() == 'individual') {
             $('.company_name').addClass('d-none');
             $('.company_reg_no').addClass('d-none');
+            $('.company_name').find('input').removeAttr('required');
+            $('.company_reg_no').find('input').removeAttr('required');
         }
         else {
             $('.company_name').removeClass('d-none');
             $('.company_reg_no').removeClass('d-none');
+            $('.company_name').find('input').prop('required', true);
+            $('.company_reg_no').find('input').prop('required', true);
         }
     });
 

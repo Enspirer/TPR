@@ -10,6 +10,7 @@ use App\Models\AgentRequest;
 use App\Models\Country;
 use App\Models\Properties;
 use App\Models\Auth\User;
+use App\Models\Feedback;
 use Auth;
 
 /**
@@ -37,8 +38,65 @@ class CountryManagementController extends Controller
         return view('frontend.user.property-approval', ['properties' => $properties]);
     }
 
-    public function supports() {
-        return view('frontend.user.supports');
+    public function supports() 
+    {
+
+        $feedback = Feedback::orderBy('id', 'DESC')->get();
+        // dd($feedback);
+
+        $final_out = [];
+        foreach($feedback as $feed){
+            array_push($final_out,$feed->country);
+        }
+        // dd($final_out);
+
+        $countries = Country::whereIn('id',$final_out)->get();
+        // dd($countries);
+
+        // $user_id = auth()->user()->id;
+        // $user_details = User::where('id',$user_id)->first();
+
+        return view('frontend.user.supports',[
+            'feedback' => $feedback,
+            'countries' => $countries
+        ]);
+    }
+
+    public function supportsEdit($id)
+    {
+        $supports = Feedback::where('id',$id)->first();        
+        // dd($supports);              
+
+        $user_details = AgentRequest::where('user_id',$supports->user_id)->first();
+        // dd($user_details);
+
+        return view('frontend.user.supports-edit',[
+            'supports' => $supports,
+            'user_details' => $user_details        
+        ]);  
+    }
+
+    public function supportsUpdate(Request $request)
+    {        
+        // dd($request);
+       
+        $update = new Feedback;
+
+        $update->status=$request->action;       
+        
+        Feedback::whereId($request->hid_id)->update($update->toArray());
+
+        return redirect()->route('frontend.user.supports'); 
+    }
+
+
+    public function supportsDelete($id)
+    {        
+        // dd($id);
+        $data = Feedback::findOrFail($id);
+        $data->delete();   
+
+        return back();
     }
 
     public function agentApproval() {
@@ -110,9 +168,7 @@ class CountryManagementController extends Controller
         return redirect('/country-management/property-approval');
     }    
 
-    public function individualHelp() {
-        return view('frontend.user.individual-help');
-    }
+    
 
     public function sidebarAD() {
 

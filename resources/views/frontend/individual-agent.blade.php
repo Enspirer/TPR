@@ -55,7 +55,7 @@
                             <h3 class="fw-bolder mt-3">{{ $agent_details->company_name }}</h3>
                         </div>
                         <div class="col-2">
-                            <button class="btn rounded-0 text-light px-4 py-2 mt-3" style="background-color: #008080; margin: 8rem 34rem 0 0;">{{ $agent_details->agent_type }}</button>
+                            <button class="btn rounded-0 text-light px-4 py-2 mt-3" style="background-color: #008080; margin: 8rem 34rem 0 0; cursor: default;">{{ $agent_details->agent_type }}</button>
                         </div>
                     </div>
 
@@ -72,17 +72,17 @@
                         <div class="clearfix">
                             <div class="col-7 float-end" >
                                 <div class="row mt-3">
-                                    <div class="col-3">
+                                    <div class="col-4">
                                         <a href="tel:{{ $agent_details->telephone }}" class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_phone_icon.svg') }}" alt="" class="img-fluid me-2"> Call</a>
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-4">
                                         <a href="mailto:{{ $agent_details->email }}" class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_email_icon.svg') }}" alt="" class="img-fluid me-2"> Email</a>
                                     </div>
-                                    <div class="col-3">
+                                    <!-- <div class="col-3">
                                         <button class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_heart_icon.svg') }}" alt="" class="img-fluid me-2"> Save</button>
-                                    </div>
-                                    <div class="col-3">
-                                        <button class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="img-fluid me-2"> Share</button>
+                                    </div> -->
+                                    <div class="col-4">
+                                        <a data-toggle="modal" data-target="#shareModal"><button class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="img-fluid me-2"> Share</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -357,6 +357,43 @@
             </div>
         </div>
     </section>
+
+
+
+<!-- Share Modal -->
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shareModalLabel">Share</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </button>
+            </div>
+            <div class="modal-body">
+            
+            <div class="row mt-4 mb-4 justify-content-between">
+                <div class="col-3">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('individual-agent') }}&quote=Check%20this%20agent%20:{{ url('individual-agent',$agent_details->id) }}" class="p-4 fs-3" style="color: #79CEEB; border: 2px solid #79CEEB;"><i class="bi bi-facebook"></i></a>
+                </div>
+                <div class="col-3">
+                    <a href="http://twitter.com/home?status=Check%20this%20agent%20{{ url('individual-agent',$agent_details->id) }}" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
+                </div>
+                <div class="col-3">
+                    <a href="whatsapp://send?text=Check%20this%20agent%20:{{ url('individual-agent',$agent_details->id) }}" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-whatsapp"></i></a>
+                </div>
+                <div class="col-3">
+                    <a href="sms:?body=Check%20this%20agent%20:%20{{ url('individual-agent',$agent_details->id) }}" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="fas fa-sms"></i></a>
+                </div>
+            </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+            </div>
+        </div>
+        </div>    
 
 @endsection
 

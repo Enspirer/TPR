@@ -29,6 +29,8 @@
 
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'my-bookings' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.my-bookings') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">My Bookings</a>
 
+        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.feedback') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Feedback</a>
+
 
         @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
             <a class="nav-link bg-white border-0 border-bottom w-100 px-5 pb-3 " id="nav-agent-tab" href="{{ route('frontend.user.agent') }}" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 text-light w-100 " style="background-color: #ff9900">Agent</button> </a>

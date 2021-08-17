@@ -47,7 +47,7 @@
                                 <div class="px-2" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
                                     <div class="row align-items-center justify-content-between mb-4 border py-3">
                                         <div class="col-5">
-                                            <img src="{{url('image_assest',\App\Models\Properties::where('id',$booking->property_id)->first()->feature_image_id)}}" class="card-img-top" alt="...">
+                                            <a href="{{ route('frontend.individual-property', $booking->property_id) }}"><img src="{{url('image_assest',\App\Models\Properties::where('id',$booking->property_id)->first()->feature_image_id)}}" class="card-img-top" alt="..."></a>
                                         </div>
                                         <div class="col-6">
                                             <h6 class="card-title mt-4">Customer Name : <span class="text-primary">{{ $booking->first_name }} {{ $booking->last_name }}</span></h6>

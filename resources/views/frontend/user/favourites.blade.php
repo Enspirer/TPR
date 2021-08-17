@@ -45,39 +45,59 @@
                             ])
 
                         @else
-                            @foreach($property as $key=> $prop)
-                                @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $data)
+                            @foreach($property as $prop)
+                                @if(is_favorite($prop->id, auth()->user()->id))
+                                    <div class="row align-items-center justify-content-between mb-4 border py-3">
+                                        <div class="col-6">
+                                            <a href="{{ route('frontend.individual-property', $prop->id) }}"><img src="{{url('image_assest', $prop->feature_image_id)}}" style="width:350px; object-fit:cover;" height="210px" class="card-img-top" alt="..."></a>
+                                        </div>
+                                        <div class="col-5">
+                                            <h5 class="card-title">Jaffna, {{ $prop->country }}</h5>
 
-                                <div class="row align-items-center justify-content-between mb-4 border py-3">
-                                    <div class="col-6">
-                                        <img src="{{ url('images',$data->file_name) }}" style="width:350px; object-fit:cover;" height="210px" class="card-img-top" alt="...">
-                                    </div>
-                                    <div class="col-5">
-                                        <h5 class="card-title">Jaffna, {{ $prop->country }}</h5>
+                                            @if($prop->beds == null)
+                                            @else
+                                                <p class="card-text mt-3 mb-1">
+                                                    {{ $prop->beds }} Bed Semidetached house
+                                                </p>
+                                            @endif
 
-                                        @if($prop->beds == null)
-                                        @else
-                                            <p class="card-text mt-3 mb-1">
-                                                {{ $prop->beds }} Bed Semidetached house
-                                            </p>
-                                        @endif
+                                            <p class="card-text">Lancaster, claited Kingdom</p>
+                                            <p class="mt-1 text-info">$ {{ $prop->price }}</p>
 
-                                        <p class="card-text">Lancaster, claited Kingdom</p>
-                                        <p class="mt-1 text-info">$ {{ $prop->price }}</p>
-
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
-                                            </div>
-                                            <div class="col-4">
-                                                <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a href="{{ route('frontend.individual-property', $prop->id) }}" class="btn px-4 rounded-0 text-light py-1" style="background-color: #4195E1">View</a>
+                                                </div>
+                                                <div class="col-4">
+                                                    <input type="hidden" name="hid_id" value="{{ $prop->id }}">
+                                                    <a href="{{ route('frontend.user.favourites-delete', $prop->id) }}" class="btn px-4 rounded-0 text-light py-1 delete" data-bs-toggle="modal" data-bs-target="#deleteFavorite" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                @endforeach
+                                @endif
                             @endforeach                        
                         @endif
+
+
+
+                        <div class="modal fade" id="deleteFavorite" tabindex="-1" aria-labelledby="deleteFavoriteLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete Property</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete this property?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <a href="" class="btn btn-primary">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                             
 
@@ -129,3 +149,14 @@
         </div>
     </div>
 @endsection
+
+
+
+@push('after-scripts')
+    <script>
+        $('.delete').on('click', function() {
+            let link = $(this).attr('href');
+            $('.modal-footer a').attr('href', link);
+        })
+    </script>
+@endpush

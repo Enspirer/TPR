@@ -11,6 +11,8 @@ use App\Models\Auth\User;
 use App\Models\Properties;
 use App\Models\FileManager;
 use App\Models\Favorite; 
+use App\Models\Country;
+use App\Models\Feedback;
 /**
  * Class DashboardController.
  */
@@ -40,8 +42,15 @@ class DashboardController extends Controller
 
     public function accountDashboard(Request $request)
     {
+        $all_favouite = Favorite::get()->count();        
+        $supports = Feedback::get()->where('status','=','Pending')->count();
+        $booking = Booking::get()->count();
 
-        return view('frontend.user.account-dashboard');
+        return view('frontend.user.account-dashboard',[
+            'all_favouite' => $all_favouite,
+            'booking' => $booking,
+            'supports' => $supports
+        ]);
     }
 
     public function store(Request $request) {
@@ -111,30 +120,37 @@ class DashboardController extends Controller
         $favourite = Favorite::where('user_id',auth()->user()->id)->get();
         // dd($favourite);
 
-        $final_out = [];
-        foreach($favourite as $fav){
-            array_push($final_out,$fav->property_id);
-        }
+        // $final_out = [];
+        // foreach($favourite as $fav){
+        //     array_push($final_out,$fav->property_id);
+        // }
         // dd($final_out);
 
-        $property = Properties::whereIn('id',$final_out)->get();
+        $property = Properties::all();
         // dd($property);
 
-        $final_out2 = [];
-        foreach($property as $prop){
-            array_push($final_out2,$prop->feature_image_id);
-        }
+        // $final_out2 = [];
+        // foreach($property as $prop){
+        //     array_push($final_out2,$prop->feature_image_id);
+        // }
         // dd($final_out2);
 
-        $feature_image = FileManager::whereIn('id',$final_out2)->get();
+        // $feature_image = FileManager::whereIn('id',$final_out2)->get();
 
         // dd($feature_image);
 
         return view('frontend.user.favourites',[
             'favourite' => $favourite,
-            'property' => $property,
-            'feature_image' => $feature_image
+            'property' => $property
         ]);
+    }
+
+
+    public function favouritesDelete($id) {
+
+        $favourite = Favorite::where('property_id', $id)->delete();
+
+        return back();
     }
 
 
@@ -146,4 +162,41 @@ class DashboardController extends Controller
             'bookings' => $bookings
         ]);
     }
+
+    public function feedback()
+    {
+        $countries = Country::get();
+
+        $user_id = auth()->user()->id;
+        $user_details = User::where('id',$user_id)->first();
+
+        return view('frontend.user.feedback',[
+            'countries' => $countries,
+            'user_details' => $user_details
+        ]);
+    }
+
+    public function feedbackStore(request $request)
+    {
+        // dd($request);
+
+        $addfeedback = new Feedback;
+
+        $addfeedback->name = $request->name;
+        $addfeedback->country = $request->country;
+        $addfeedback->title = $request->title;
+        $addfeedback->message = $request->message;
+        $addfeedback->status = 'Pending';
+        $addfeedback->user_id = auth()->user()->id;
+
+        $addfeedback->save();
+
+        session()->flash('message','Thanks!');
+
+        return back(); 
+        
+    }
+
+
+
 }

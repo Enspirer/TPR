@@ -35,27 +35,29 @@
                             </div>
                         </div>
                         <div class="properties">
-                            <!-- <div class="row border align-items-center p-1">
-                                <div class="col-6">
-                                    <img src="{{ asset('tpr_templete/images/ps_1.svg') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-6">
-                                    <div class="row justify-content-between">
-                                        <div class="col-3 small-num">
-                                            <p class="mb-0" style="font-size: 0.7rem;">3051</p>
-                                        </div>
-                                        <div class="col-3 small-heart">
-                                            <i class="bi bi-heart" style="font-size: 0.9rem;"></i>
-                                            <i class="bi bi-heart-fill" style="font-size: 0.9rem; display: none;"></i>
-                                        </div>
+                            @foreach($filteredProperty as $property)
+                                <div class="row border align-items-center p-1">
+                                    <div class="col-6">
+                                        <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{url('image_assest', $property->feature_image_id)}}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
                                     </div>
-                                    
-                                    <p class="fw-bold mb-0">$450, 000</p>
-                                    <p class="mb-0" style="font-size: 0.8rem;">541, Rosewood Place</p>
-                                    <p class="mb-0"  style="font-size: 0.8rem;">Colombo, Sri Lanka</p>
-                                    <p class="mb-0"  style="font-size: 0.8rem;">3 <i class="fas fa-bed me-4"></i> 5 <i class="fas fa-bath"></i></p>
+                                    <div class="col-6">
+                                        <div class="row justify-content-between align-items-center">
+                                            <div class="col-9">
+                                                <p class="mb-0 small-num" style="font-size: 0.7rem;"></p>
+                                            </div>
+                                            <div class="col-3 small-heart">
+                                                <i class="bi bi-heart" style="font-size: 0.9rem;"></i>
+                                                <i class="bi bi-heart-fill" style="font-size: 0.9rem; display: none;"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <p class="fw-bold mb-0">{{ $property->name }}</p>
+                                        <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${{ $property->transaction_type }}</p>
+                                        <p class="mb-0" style="font-size: 0.8rem;">Country: {{ $property->country }}</p>
+                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : {{ $property->price }}</p>
+                                    </div>
                                 </div>
-                            </div> -->
+                            @endforeach
                         </div>
                     </div>
                 @else
@@ -87,14 +89,49 @@
     <!--residential search-->
     <section id="residential-search">
         <div class="container-md" style="margin-top:5rem">
-            <button class="btn text-white rounded-0 py-3 px-5 fs-5 me-1" style="background-color : #83BC3E"><img src="{{ asset('tpr_templete/images/sale_icon.svg') }}" class="me-3" height="25rem" alt="">Residential</button>
-            <button class="btn text-white rounded-0 py-3 px-5 fs-5" style="background-color : #75CFED"><img src="{{ asset('tpr_templete/images/commercial_icon.svg') }}" class="me-3" height="25rem" alt="">Commercial</button>
+            <!-- <button class="btn text-white rounded-0 py-3 px-5 fs-5 me-1" style="background-color : #83BC3E" data-aos="fade-up" data-aos-duration="500"><img src="images/sale_icon.svg" class="me-3" height="25rem" alt="">Residential</button>
+            <button class="btn text-white rounded-0 py-3 px-5 fs-5" style="background-color : #75CFED" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"><img src="images/commercial_icon.svg" class="me-3" height="25rem" alt="">Commercial</button> -->
 
-            <div class="input-group shadow-lg">
-                <input type="text" class="form-control p-3 rounded-0" aria-label="search">
-                <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
-                <button class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                <li class="nav-item text-white rounded-0 fs-5 me-1" role="presentation">
+                    <button class="nav-link text-white active" style="background-color : #83BC3E" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500"><img src="{{ asset('tpr_templete/images/sale_icon.svg') }}" class="me-3" height="25rem" alt="">Residential</button>
+                </li>
+                <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                    <button class="nav-link text-white" style="background-color : #75CFED" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"><img src="{{ asset('tpr_templete/images/commercial_icon.svg') }}" class="me-3" height="25rem" alt="">Commercial</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-residential" role="tabpanel" aria-labelledby="pills-residential-tab">
+                    <form method="post" action="{{route('frontend.search_result_function')}}">
+                        <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                             {{csrf_field()}}
+                                <input type="hidden" name="category_type" value="residential">
+                               <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search">
+                               <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
+                               <button type="submit" class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="tab-pane fade" id="pills-commercial" role="tabpanel" aria-labelledby="pills-commercial-tab">
+                    <form method="post" action="{{route('frontend.search_result_function')}}">
+                        <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                        {{csrf_field()}}
+                            <input type="hidden" name="category_type" value="commercial">
+                            <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search">
+                            <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
+                            <button type="submit" class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+                        </div>
+                    </form>
+                </div>
             </div>
+
+            <!-- <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                <input type="text" class="form-control p-3 rounded-0" aria-label="search">
+                <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
+                <button class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+            </div> -->
         </div>
     </section>
 
@@ -134,92 +171,79 @@
 
                 <div class="row mt-4">
                     <div class="col-8">
-                        @foreach($filteredProperty as $property)
-                            <div class="property mb-5 p-3 shadow">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <a href=""><img src="{{ route('frontend.image_assets', $property->feature_image_id) }}" alt="" class="img-fluid"></a>
-                                    </div>
-                                    <div class="col-6 ps-4">
-                                        <div class="row justify-content-between">
-                                            <div class="col-9">
-                                                <h5 class="property-price mb-0">{{ $property->name }}</h5>
-                                                <h5 class="property-location">{{ $property->price }}</h5>
-                                            </div>
-                                            <div class="col-3 small-heart">
-                                                <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
-                                                <i class="bi bi-heart-fill" style="font-size: 1.5rem; display: none;"></i>
-                                            </div>
-                                        </div>
-                                        
-                                        <p class="fw-bold mt-2 mb-0 property-spec text-body">2 bed semi-detached house</p>
-                                        <p class="text-secondary mt-1">Colombo, {{ $property->country }}</p>
-                                        <div class="project-list">
-                                            <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.4 miles from petta</p>
-                                            <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.7 miles from petta</p>
-                                        </div>
-                                        <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> {{ $property->baths }} <i class="fas fa-bed ms-4 me-2"></i>{{ $property->beds }}</p>
-                                    </div>
-                                </div>
-                                <div class="row mt-4">
-                                    <div class="col-7">
-                                        <h6 class="text-secondary">Listed on {{ $property->created_at->toDateString() }}</h6>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p><i class="bi bi-telephone me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p><i class="bi bi-envelope me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        <!-- <div class="property mb-5 p-3 shadow">
-                            <div class="row">
-                                <div class="col-6">
-                                    <a href=""><img src="{{ asset('tpr_templete/images/residential_1.svg') }}" alt="" class="img-fluid"></a>
-                                </div>
-                                <div class="col-6 ps-4">
-                                    <div class="row justify-content-between">
-                                        <div class="col-9">
-                                            <h5 class="property-price mb-0">$ 480, 000</h5>
-                                            <h5 class="property-location">Colombo, Sri Lanka</h5>
-                                        </div>
-                                        <div class="col-3 small-heart">
-                                            <i class="bi bi-heart" style="font-size: 1.5rem;"></i>
-                                            <i class="bi bi-heart-fill" style="font-size: 1.5rem; display: none;"></i>
-                                        </div>
-                                    </div>
-                                    
-                                    <p class="fw-bold mt-2 mb-0 property-spec text-body">2 bed semi-detached house</p>
-                                    <p class="text-secondary mt-1">Lancaster, claited Kingdom</p>
-                                    <div class="project-list">
-                                        <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.4 miles from petta</p>
-                                        <p class="text-secondary"><i class="bi bi-square-fill me-2"></i> 0.7 miles from petta</p>
-                                    </div>
-                                    <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> 7 <i class="fas fa-bed ms-4 me-2"></i>2</p>
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-8">
-                                    <h6 class="text-secondary">Listed on 26th Jun 2021</h6>
-                                </div>
-                                <div class="col-4">
+                        
+                            @foreach($filteredProperty as $property)
+                                <div class="property mb-5 p-3 shadow">
                                     <div class="row">
                                         <div class="col-6">
-                                            <p><i class="bi bi-telephone me-1"></i> 020 8014 123</p>
+                                            <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{ route('frontend.image_assets', $property->feature_image_id) }}" alt="" class="img-fluid"></a>
+                                        </div>
+                                        <div class="col-6 ps-4">
+                                            <div class="row justify-content-between">
+                                                <div class="col-9">
+                                                    <h5 class="property-price mb-0">{{ $property->name }}</h5>
+                                                    <h5 class="property-location">$ {{ $property->price }}</h5>
+                                                </div>
+                                        
+                                                @auth
+                                                    @if(is_favorite($property->id, auth()->user()->id))
+                                                    <div class="col-3 small-heart">
+                                                        <form action="{{ route('frontend.favourite_heart') }}" method="POST">
+                                                            {{csrf_field()}}
+                                                                <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
+                                                                <input type="hidden" class="favourite" name='favourite' value="favourite">
+                                                                <button class="bi bi-heart-fill border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF"></button>
+                                                        </form>
+                                                    </div>
+                                                    @else
+                                                    <div class="col-3 small-heart">
+                                                        <form action="{{ route('frontend.favourite_heart') }}" method="POST">
+                                                            {{csrf_field()}}
+                                                                <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
+                                                                <input type="hidden" class="favourite" name='favourite' value="non-favourite">
+                                                                <button class="bi bi-heart border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF"></button>
+                                                        </form>
+                                                    </div>
+                                                    @endif
+                                                @else
+                                                    <div class="col-3 small-heart">
+                                                        <a href="{{ route('frontend.auth.login') }}" class="bi bi-heart border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF"></a>
+                                                    </div>
+                                                @endauth
+                                            </div>
+                                            
+                                            <p class="fw-bold mt-2 mb-0 property-spec text-body">2 bed semi-detached house</p>
+                                            <p class="text-secondary mt-1">{{ $property->country }}</p>
+                                            <div class="project-list">
+                                                <p class="text-secondary"><i class="bi bi-square-fill me-2"></i>Transaction Type : {{ $property->transaction_type }}</p>
+                                                <p class="text-secondary"><i class="bi bi-square-fill me-2"></i>Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
+                                            </div>
+
+                                            @if($property->baths != null && $property->beds != null)
+                                                <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i> {{ $property->baths }} <i class="fas fa-bed ms-4 me-2"></i>{{ $property->beds }}</p>
+                                            @else
+                                                <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i>Not available<i class="fas fa-bed ms-4 me-2"></i>Not available</p>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-6">
+                                            <h6 class="text-secondary">Listed on {{ $property->created_at->toDateString() }}</h6>
                                         </div>
                                         <div class="col-6">
-                                            <p><i class="bi bi-envelope me-1"></i> Contact</p>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p><i class="bi bi-telephone me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
+                                                </div>
+                                                <div class="col-6" >
+                                                    <p id="ppp" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="bi bi-envelope me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div> -->
+                            @endforeach
+
                     </div>
 
                     <div class="col-4">
@@ -229,23 +253,17 @@
                             </div>
                         </div>
 
-                        <div class="row shadow mt-5">
-                            <div class="col-12">
-                                <img src="{{ asset('tpr_templete/images/rp_3.svg') }}" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente sint facilis dignissimos optio maiores eius nisi repellat aliquam amet quod voluptate delectus pariatur minima soluta maxime consequuntur, accusamus totam exercitationem?</p>
-                            </div>
-                        </div>
 
-                        <div class="row shadow mt-5">
-                            <div class="col-12">
-                                <img src="{{ asset('tpr_templete/images/rp_1.svg') }}" alt="" class="img-fluid">
+                        @foreach($side_ads as $side_ad)
+                            <div class="row shadow mt-5">
+                                <div class="col-12">
+                                    <a href="{{ $side_ad->link }}"><img src="{{url('files/sidebar_ad', $side_ad->image)}}" alt="" class="img-fluid"></a>
+                                </div>
+                                <div class="col-12 mt-3" style="text-align: justify;">
+                                    <p class="ns" style="height:140px; overflow:hidden !important; text-overflow: ellipsis;">{{ $side_ad->description }}</p>
+                                </div>
                             </div>
-                            <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente sint facilis dignissimos optio maiores eius nisi repellat aliquam amet quod voluptate delectus pariatur minima soluta maxime consequuntur, accusamus totam exercitationem?</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -509,7 +527,6 @@
                         position: location,
                         label: labels[i % labels.length]
                     });
-
         });
 
             // Add a marker clusterer to manage the markers.
@@ -517,9 +534,12 @@
                 imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
             });
 
+
             google.maps.event.addListener(markerCluster, 'click', function(c) {
                 // console.log('Number of managed markers in cluster: ' + c.getSize());
                 var markers = c.getMarkers();
+
+                
 
                 // console.log('Number of managed markers in cluster: ' + c.getSize());
                 var newArray = [];
@@ -531,9 +551,7 @@
                     newArray.push(JSON.stringify(Object.assign({}, cars)));
 
 
-//                    console.log(markers[marker].getLabel());
-//                    console.log('lat : ' + markers[marker].getPosition().lat());
-//                    console.log('lng : ' + markers[marker].getPosition().lng());
+
                 }
                 myArray = JSON.stringify(Object.assign({}, newArray));
 
@@ -1037,10 +1055,19 @@ type="text/javascript"></script>
 
 <script>
     $('.small-heart').on('click', function(){
-        $(".small-heart bi-heart").hide();
-        $(".small-heart bi-heart-fill").show();
-        
-        $("i", this).toggle();
+
+        let status = $(this).find('.favourite').val();
+
+        if(status == 'non-favourite') {
+            $(this).find('button').removeClass('bi-heart');
+            $(this).find('button').addClass('bi-heart-fill');
+            $(this).find('.favourite').val('favourite');
+        }
+        else {
+            $(this).find('button').removeClass('bi-heart-fill');
+            $(this).find('button').addClass('bi-heart');
+            $(this).find('.favourite').val('non-favourite');
+        }
     });
 </script>
 

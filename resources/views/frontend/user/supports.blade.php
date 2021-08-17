@@ -43,29 +43,39 @@
                             </tr>
                         </thead>
                         <tbody class="align-middle table-data">
+
+                        @foreach($feedback as $key=> $feed)
                             <tr class="align-items-center">
-                                <td>Zajjith Vedha</td>
-                                <td><i class="bi bi-circle-fill text-warning me-2" style="font-size: 0.5rem; vertical-align: middle;"></i>Pending</td>
-                                <td>2021-08-02</td>
+                                <td>{{ $feed->name }}</td>
+                                    @if($feed->status == 'Solved')
+                                    <td><i class="bi bi-circle-fill text-success me-2" style="font-size: 0.5rem; vertical-align: middle;"></i>{{ $feed->status }}</td>
+                                    @elseif($feed->status == 'Not Solved')
+                                    <td><i class="bi bi-circle-fill text-danger me-2" style="font-size: 0.5rem; vertical-align: middle;"></i>{{ $feed->status }}</td>
+                                    @else
+                                    <td><i class="bi bi-circle-fill text-warning me-2" style="font-size: 0.5rem; vertical-align: middle;"></i>{{ $feed->status }}</td>
+                                    @endif
+                                
+                                <td>{{ $feed->created_at->toDateString() }}</td>
                                 <td>
                                     <div class="row">
-                                        <div class="col-5">
-                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
+                                        <div class="col-3">
+                                            <a href="{{ route('frontend.user.supports.edit',$feed->id) }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
-                                            <button class="btn text-light table-btn" style="background-color: #FF2C4B">Delete</button>
+                                            <a href="{{ route('frontend.user.supports.delete',$feed->id) }}"><button class="btn text-light table-btn" style="background-color: #FF2C4B">Delete</button></a>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                        @endforeach    
+                            <!-- <tr>
                                 <td>Glenn Maxwell</td>
                                 <td><i class="bi bi-circle-fill text-success me-2" style="font-size: 0.5rem; vertical-align: middle;"></i>Solved</td>
                                 <td>2021-08-01</td>
                                 <td>
                                     <div class="row">
                                         <div class="col-5">
-                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
+                                            <a href=""><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
                                             <button class="btn text-light table-btn" style="background-color: #FF2C4B">Delete</button>
@@ -80,14 +90,16 @@
                                 <td>
                                     <div class="row">
                                         <div class="col-5">
-                                            <a href="{{ route('frontend.user.individual-help') }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
+                                            <a href=""><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
                                         </div>
                                         <div class="col-5">
                                             <button class="btn text-light table-btn" style="background-color: #FF2C4B">Delete</button>
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> -->
+
+
                         </tbody>
                     </table>
                 </div>

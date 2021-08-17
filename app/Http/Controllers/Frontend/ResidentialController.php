@@ -15,7 +15,12 @@ class ResidentialController extends Controller
      */
     public function index()
     {
+        $user_id = auth()->user()->id;
+
         $promu = Properties::where('main_category', 'residential')->get();
+        $favorite = Favorite::where('user_id', $user_id)->get();
+
+        dd($favorite);
 
         return view('frontend.residential',[
             'promo' => $promu

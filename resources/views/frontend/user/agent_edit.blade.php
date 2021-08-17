@@ -107,8 +107,8 @@
                                     </div>                                    
                                     <div class="col-6">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Company Name</label>
-                                            <input type="text" class="form-control" value="{{ $agent_edit->company_name }}" name="company_name" required>
+                                            <label class="form-label mb-0 mt-4 required">Email</label>
+                                            <input type="email" class="form-control" value="{{ $agent_edit->email }}" name="email" required>
                                         </div>  
                                     </div>
                                 </div>
@@ -116,26 +116,27 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Company Registration Number</label>
-                                            <input type="text" class="form-control" value="{{ $agent_edit->company_registration_number }}" name="company_reg_no" required>
+                                            <label class="form-label mb-0 mt-4 required">Agent Type</label>
+                                            <select class="form-select" name="agent_type" required>
+
+                                                <option value="Company" {{ $agent_edit->agent_type == 'company' ? "selected" : "" }}>company</option>
+                                                <option value="Individual" {{ $agent_edit->agent_type == 'individual' ? "selected" : "" }}>individual</option>
+
+                                            </select>
                                         </div>  
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Email</label>
-                                            <input type="email" class="form-control" value="{{ $agent_edit->email }}" name="email" required>
+                                            <label class="form-label mb-0 mt-4 required">Company Name</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->company_name }}" name="company_name" required>
                                         </div>  
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Agent Type</label>
-                                            <select class="form-select" name="agent_type" required>
-                 
-                                                <option value="Company" {{ $agent_edit->agent_type == 'Company' ? "selected" : "" }}>Company</option>
-                                                <option value="Individual" {{ $agent_edit->agent_type == 'Individual' ? "selected" : "" }}>Individual</option>
-                                            </select>
+                                            <label class="form-label mb-0 mt-4 required">Company Registration Number</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->company_registration_number }}" name="company_reg_no" required>
                                         </div>  
                                     </div>                                    
                                 </div>

@@ -148,7 +148,7 @@
                                 </div>
                             </div>
 
-                            <div class="mt-5 text-center">
+                            <div class="mt-2 text-center">
                             <!-- <form action="" method="post" enctype="multipart/form-data">
                                 {{csrf_field()}}
 
@@ -161,7 +161,7 @@
                             <form action="{{route('frontend.user.singleAgentApprovalUpdate')}}" method="POST">
                             {{csrf_field()}}
 
-                                <div class="mt-5 text-center">
+                                <div class="mt-2 text-center">
                                     <input type="hidden" class="form-control action_value" value="" name="action">
                                     <input type="hidden" class="form-control" value="{{ $single_agent_request->id }}" name="hidden_id">
                                     <button type="submit" class="btn rounded-pill text-light px-4 py-2 me-2 approve" style="background-color: #4195E1;">Approve</button>

@@ -133,65 +133,87 @@
                     <div class="features">
                         <h4 class="fw-bold" style="margin-top: 6rem;">Features and description</h4>
                         <div class="row mt-4 collapse" id="collapseExample" aria-expanded="false">
-                            <div class="col-6">
-                                <ul>
+                            <div class="col-12">
+                                <ul style="list-style:none; padding:0">
 
+                                <div class="row">
+                                
                                 @if($property_details->baths == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Baths : {{ $property_details->baths }}</li>
+                                    <div class="col-6">
+                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Baths : {{ $property_details->baths }}</li>
+                                    </div>
                                 @endif 
+
                                 @if($property_details->beds == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Beds : {{ $property_details->beds }}</li>
-                                @endif                                 
+                                    <div class="col-6">
+                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Beds : {{ $property_details->beds }}</li>
+                                    </div>
+                                @endif  
+                                                               
                                 @if($property_details->parking_type == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Parking Type : {{ $property_details->parking_type }}</li>
+                                    <div class="col-6">
+                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Parking Type : {{ $property_details->parking_type }}</li>
+                                    </div>
                                 @endif 
+
                                 @if($property_details->building_type == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Building Type : {{ $property_details->building_type }}</li>
+                                    <div class="col-6">
+                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Type : {{ $property_details->building_type }}</li>
+                                    </div>
                                 @endif 
+
                                 @if($property_details->farm_type == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Farm Type : {{ $property_details->farm_type }}</li>
+                                    <div class="col-6">
+                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Farm Type : {{ $property_details->farm_type }}</li>
+                                    </div>
                                 @endif 
+
                                 @if($property_details->open_house_only == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Open House Only : {{ $property_details->open_house_only }}</li>
+                                    <div class="col-6">
+                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Open House Only : {{ $property_details->open_house_only }}</li>
+                                    </div>
                                 @endif 
+
                                 @if($property_details->number_of_units == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Number of Units : {{ $property_details->number_of_units }}</li>
+                                    <div class="col-6">
+                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Number of Units : {{ $property_details->number_of_units }}</li>
+                                    </div>
                                 @endif 
+
                                 @if($property_details->land_size == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Land Size : {{ $property_details->land_size }}</li>
+                                    <div class="col-6">
+                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Land Size : {{ $property_details->land_size }}</li>
+                                    </div>
                                 @endif 
+
                                 @if($property_details->zoning_type == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Zoning Type : {{ $property_details->zoning_type }}</li>
+                                    <div class="col-6">
+                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Zoning Type : {{ $property_details->zoning_type }}</li>
+                                    </div>                                
                                 @endif 
+
                                 @if($property_details->building_size == null)
                                 @else
-                                    <li class="mb-3" style="font-size: 0.9rem;">Building Size : {{ $property_details->building_size }}</li>
+                                    <div class="col-6">
+                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Size : {{ $property_details->building_size }}</li>
+                                    </div>
                                 @endif 
 
+                                </div>
+
 
                                 </ul>
                             </div>
-                            <div class="col-6">
-                                <ul>
-                                    <!-- <li class="mb-3" style="font-size: 0.9rem;">11Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">22Electric panel heating Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">33Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">44Electric panel heating Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">55Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">66Electric panel heating Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">77Electric panel heating</li>
-                                    <li class="mb-3" style="font-size: 0.9rem;">88Electric panel heating Electric panel heating</li> -->
-                                </ul>
-                            </div>
+                            
                         </div>
 
                         <hr class="mt-3">
@@ -264,7 +286,12 @@
                     <div class="row justify-content-center shadow py-4" style="margin-top: 3rem;">
                         <div align="center">
                             <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none">
-                                <img src="{{ url('files/agent_request',$agent->photo) }}" class="mb-4" style="border-radius: 50%; object-fit:cover; width: 150px" height="150px">
+                            @if($agent->photo == null)
+                            <img src="{{ url('images/no_image_available.png') }}" class="mb-4" style="border-radius: 50%; object-fit:cover; width: 150px" height="150px">
+                            @else
+                            <img src="{{ url('files/agent_request',$agent->photo) }}" class="mb-4" style="border-radius: 50%; object-fit:cover; width: 150px" height="150px">
+                            @endif
+                                
                             </a>
                         </div>
 
@@ -335,10 +362,10 @@
                     <a href="{{ $ad1->link }}" style="text-decoration: none">
                         <div class="row shadow mt-5">
                             <div class="col-12">
-                                <img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover; width:285px;" height="160px" alt="">
+                                <img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover;" class="img-fluid" alt="">
                             </div>
                             <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns">{{ $ad1->description }}</p>
+                                <p class="ns" style="height:140px; overflow:hidden !important; text-overflow: ellipsis;">{{ $ad1->description }}</p>
                             </div>        
                         </div>
                     </a>
@@ -349,10 +376,10 @@
                     <a href="{{ $ad2->link }}" style="text-decoration: none">
                         <div class="row shadow mt-5">
                             <div class="col-12">
-                                <img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover; width:285px;" height="160px" alt="">                           
+                                <img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover;" class="img-fluid" alt="">                           
                             </div>
                             <div class="col-12 mt-3" style="text-align: justify;">
-                                <p class="ns">{{ $ad2->description }}</p>
+                                <p class="ns" style="height:140px; overflow:hidden !important; text-overflow: ellipsis;">{{ $ad2->description }}</p>
                             </div>
                         </div>
                     </a>
@@ -471,7 +498,7 @@
                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('individual-property') }}&quote=Check%20is%20property%20:{{ url('individual-property',$property_details->id) }}" class="p-4 fs-3" style="color: #79CEEB; border: 2px solid #79CEEB;"><i class="bi bi-facebook"></i></a>
                 </div>
                 <div class="col-3">
-                    <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
+                    <a href="http://twitter.com/home?status=Check%20this%20property%20{{ url('individual-property',$property_details->id) }}" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
                 </div>
                 <div class="col-3">
                     <a href="whatsapp://send?text=Check%20this%20is%20property%20:{{ url('individual-property',$property_details->id) }}" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-whatsapp"></i></a>
@@ -493,177 +520,308 @@
 
 
     <!-- email modal -->
-    <div class="modal fade bd-example-modal-lg" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width: 910px;max-width: 1040px;">
-            <div class="modal-content">
-                <form action="{{route('frontend.invidual_property')}}" method="post">
-                    {{csrf_field()}}
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Contact Agent</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row mb-3">
-                            <div class="col-md-8">
-                                <h4>To:</h4>
-                                <div class="row">
-                                    <div class="col-4">
-                                    <!-- background-repeat: no-repeat;background-position: center;background-size: cover;margin-bottom: 20px; -->                                    
-                                        <div class="" >
-                                        <img src="{{ url('files/agent_request',$agent->photo) }}" alt="" style="object-fit: cover; height:170px" width="100%" class="profile-picture">
+    @auth
+        <div class="modal fade bd-example-modal-lg" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 910px;max-width: 1040px;">
+                <div class="modal-content">
+                    <form action="{{route('frontend.invidual_property')}}" method="post">
+                        {{csrf_field()}}
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Contact Agent</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-md-8">
+                                    <h4>To:</h4>
+                                    <div class="row">
+                                        <div class="col-4">
+                                        <!-- background-repeat: no-repeat;background-position: center;background-size: cover;margin-bottom: 20px; -->                                    
+                                            <div class="" >
+                                            <img src="{{ url('files/agent_request',$agent->photo) }}" alt="" style="object-fit: cover; height:170px" width="100%" class="profile-picture">
+                                            </div>
+                                        </div>
+                                        <div class="col-8 align-middle">
+                                            <label><b>Name:</b></label> {{$agent->name}} <br>
+                                            <label><b>Phone Number:</b></label> {{$agent->telephone}} <br>
+                                            <label><b>Address:</b></label> {{$agent->address}} <br>
+                                            <label><b>Country:</b></label> {{$agent->country}} <br>
                                         </div>
                                     </div>
-                                    <div class="col-8 align-middle">
-                                        <label><b>Name:</b></label> {{$agent->name}} <br>
-                                        <label><b>Phone Number:</b></label> {{$agent->telephone}} <br>
-                                        <label><b>Address:</b></label> {{$agent->address}} <br>
-                                        <label><b>Country:</b></label> {{$agent->country}} <br>
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>First Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="first_name" required>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-
-
-                            </div>
-                            <div class="col-md-6">
-
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>First Name  <span style="color: red">*</span></label>
-                                    <input type="text" class="form-control" name="first_name" required>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Last Name  <span style="color: red">*</span></label>
-                                    <input type="text" class="form-control" name="last_name" required>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Im a <span style="color: red">*</span></label>
-                                    <select class="form-control" name="im_resident" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option value="First Time Buyer">First Time Buyer</option>
-                                        <option value="No Preference">No Preference</option>
-                                        <option value="Repeat Buyer">Repeat Buyer</option>
-                                        <option value="Seller">Seller</option>
-                                        <option value="Residential Investor">Residential Investor</option>
-                                        <option value="Commercial Investor">Commercial Investor</option>
-                                        <option value="Commercial buyer or leaser">Commercial buyer or leaser</option>
-                                        <option value="Land for development">Land for development</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-
-                        <input type="hidden" name="agent_id" value="{{$agent->id}}">
-                        <input type="hidden" name="property_id" value="{{$property_details->id}}">
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Preferred method of contact  <span style="color: red">*</span></label>
-                                    <select class="form-control" name="contact_method" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option value="Email">Email</option>
-                                        <option value="Phone">Phone</option>
-                                        <option value="Text">Text</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Email  <span style="color: red">*</span></label>
-                                    <input type="email" class="form-control" name="email" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Phone Number  <span style="color: red">*</span></label>
-                                    <input type="number" class="form-control" name="phone_number" required>
-                                </div>
-                            </div>
-                        </div><br>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Message  <span style="color: red">*</span></label>
-                                    <textarea type="text" rows="3" class="form-control" name="message" required></textarea>
-                                </div>
-                            </div>
-
-                        </div>
-                        <br>
-
-                        <!-- <div class="fakeLabel"><b>Information to help the TROPICAL® respond</b>:</div>
-                        <br>
-                        
-
-                        <div class="row">
-                            <div class="form-group mb-3">
-                                <input type="checkbox" id="Check" onclick="myFunction()">
-                                <label for="Check">I wish to book a showing. Date and time combinations.</label> 
-
-                                <div class="row" style="margin-left:6px;">
-                                    <div class="col-4">
-                                        <input type="date" id="date" class="form-control col-sm-4 mt-2" style="display:none" placeholder="Any Date" />
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Last Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="last_name" required>
                                     </div>
-                                    <div class="col-4">
-                                        <select class="form-control mt-2" id="time" style="display:none"> 
-                                            <option value="Any Time">Any Time</option>   
-                                            <option value="Morning">Morning</option>  
-                                            <option value="Afternoon">Afternoon</option>  
-                                            <option value="Evening">Evening</option>                                                                    
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Im a <span style="color: red">*</span></label>
+                                        <select class="form-control" name="im_resident" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="First Time Buyer">First Time Buyer</option>
+                                            <option value="No Preference">No Preference</option>
+                                            <option value="Repeat Buyer">Repeat Buyer</option>
+                                            <option value="Seller">Seller</option>
+                                            <option value="Residential Investor">Residential Investor</option>
+                                            <option value="Commercial Investor">Commercial Investor</option>
+                                            <option value="Commercial buyer or leaser">Commercial buyer or leaser</option>
+                                            <option value="Land for development">Land for development</option>
                                         </select>
                                     </div>
                                 </div>
-                                
                             </div>
-                            <div class="form-group mb-3">
-                                <input type="checkbox" id="myCheck" onclick="myFunction()">
-                                <label for="myCheck">I am currently working with a TROPICAL®.</label> 
-                                <div class="row" style="margin-left:6px;">
-                                    <div class="col-6">
-                                        <input type="text" id="text" class="form-control mt-2" style="display:none;" placeholder="First and Last Name of My TROPICAL®" />
+                            <br>
+
+                            <input type="hidden" name="agent_id" value="{{$agent->id}}">
+                            <input type="hidden" name="property_id" value="{{$property_details->id}}">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Preferred method of contact  <span style="color: red">*</span></label>
+                                        <select class="form-control" name="contact_method" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="Email">Email</option>
+                                            <option value="Phone">Phone</option>
+                                            <option value="Text">Text</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Email  <span style="color: red">*</span></label>
+                                        <input type="email" class="form-control" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Phone Number  <span style="color: red">*</span></label>
+                                        <input type="number" class="form-control" name="phone_number" required>
+                                    </div>
+                                </div>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Message  <span style="color: red">*</span></label>
+                                        <textarea type="text" rows="3" class="form-control" name="message" required></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br>
+
+                            <!-- <div class="fakeLabel"><b>Information to help the TROPICAL® respond</b>:</div>
+                            <br>
+                            
+
+                            <div class="row">
+                                <div class="form-group mb-3">
+                                    <input type="checkbox" id="Check" onclick="myFunction()">
+                                    <label for="Check">I wish to book a showing. Date and time combinations.</label> 
+
+                                    <div class="row" style="margin-left:6px;">
+                                        <div class="col-4">
+                                            <input type="date" id="date" class="form-control col-sm-4 mt-2" style="display:none" placeholder="Any Date" />
+                                        </div>
+                                        <div class="col-4">
+                                            <select class="form-control mt-2" id="time" style="display:none"> 
+                                                <option value="Any Time">Any Time</option>   
+                                                <option value="Morning">Morning</option>  
+                                                <option value="Afternoon">Afternoon</option>  
+                                                <option value="Evening">Evening</option>                                                                    
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="checkbox" id="myCheck" onclick="myFunction()">
+                                    <label for="myCheck">I am currently working with a TROPICAL®.</label> 
+                                    <div class="row" style="margin-left:6px;">
+                                        <div class="col-6">
+                                            <input type="text" id="text" class="form-control mt-2" style="display:none;" placeholder="First and Last Name of My TROPICAL®" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="checkbox" id="tick1">
+                                    <label for="tick1">I have been pre-approved for a mortgage.</label> 
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="tick2">
+                                    <label for="tick2">I wish to give my location, if available.</label> 
+                                </div>
+                            </div>     -->
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    @else
+    <div class="modal fade bd-example-modal-lg" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 910px;max-width: 1040px;">
+                <div class="modal-content">
+                    <form action="{{route('frontend.invidual_property')}}" method="post">
+                        {{csrf_field()}}
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Contact Agent</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-md-8">
+                                    <h4>To:</h4>
+                                    <div class="row">
+                                        <div class="col-4">
+                                        <!-- background-repeat: no-repeat;background-position: center;background-size: cover;margin-bottom: 20px; -->                                    
+                                            <div class="" >
+                                            <img src="{{ url('files/agent_request',$agent->photo) }}" alt="" style="object-fit: cover; height:170px" width="100%" class="profile-picture">
+                                            </div>
+                                        </div>
+                                        <div class="col-8 align-middle">
+                                            <label><b>Name:</b></label> {{$agent->name}} <br>
+                                            <label><b>Phone Number:</b></label> {{$agent->telephone}} <br>
+                                            <label><b>Address:</b></label> {{$agent->address}} <br>
+                                            <label><b>Country:</b></label> {{$agent->country}} <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>First Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="first_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Last Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="last_name" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Im a <span style="color: red">*</span></label>
+                                        <select class="form-control" name="im_resident" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="First Time Buyer">First Time Buyer</option>
+                                            <option value="No Preference">No Preference</option>
+                                            <option value="Repeat Buyer">Repeat Buyer</option>
+                                            <option value="Seller">Seller</option>
+                                            <option value="Residential Investor">Residential Investor</option>
+                                            <option value="Commercial Investor">Commercial Investor</option>
+                                            <option value="Commercial buyer or leaser">Commercial buyer or leaser</option>
+                                            <option value="Land for development">Land for development</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group mb-3">
-                                <input type="checkbox" id="tick1">
-                                <label for="tick1">I have been pre-approved for a mortgage.</label> 
+                            <br>
+
+                            <input type="hidden" name="agent_id" value="{{$agent->id}}">
+                            <input type="hidden" name="property_id" value="{{$property_details->id}}">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Preferred method of contact  <span style="color: red">*</span></label>
+                                        <select class="form-control" name="contact_method" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="Email">Email</option>
+                                            <option value="Phone">Phone</option>
+                                            <option value="Text">Text</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Email  <span style="color: red">*</span></label>
+                                        <input type="email" class="form-control" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Phone Number  <span style="color: red">*</span></label>
+                                        <input type="number" class="form-control" name="phone_number" required>
+                                    </div>
+                                </div>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Message  <span style="color: red">*</span></label>
+                                        <textarea type="text" rows="3" class="form-control" name="message" required></textarea>
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="form-group">
-                                <input type="checkbox" id="tick2">
-                                <label for="tick2">I wish to give my location, if available.</label> 
-                            </div>
-                        </div>     -->
+                            <br>
+                        </div>
 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <a href="{{ route('frontend.auth.login') }}" class="btn btn-primary">Send</a>
+                        </div>
+                    </form>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Send</button>
-                    </div>
-                </form>
-
+                </div>
             </div>
         </div>
-    </div>
+    @endauth
 
 @endsection
 

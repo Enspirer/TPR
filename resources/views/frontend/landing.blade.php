@@ -21,21 +21,7 @@
     <title>Tropical - Landing</title>
 
     <style>
-      /* html, */
-      /* body {
-        position: relative;
-        height: 100%;
-      } */
-
-      /* body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-      } */
-
+  
       .swiper-container {
         width: 80%;
         height: 100%;
@@ -278,31 +264,61 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6 p-1">
+                        @if($advertisement->image !== null)
                             <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank" >
                             <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
                             </a> 
+                        @else
+                        <div style="border-style: dashed;border-width: 1px; height:100%;">
+                            <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
+                        </div>  
+                        @endif
                         </div>
                         <div class="col-6 p-1">
-                            <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank">
-                            <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
+                        @if($advertisement->large_right_image !== null)
+                            <a href="{{ $advertisement->large_right_link }}" style="text-decoration:none" target="_blank">
+                            <img src="{{url('files/global_advertisement/',$advertisement->large_right_image)}}" alt="...">
                             </a> 
+                        @else
+                        <div style="border-style: dashed;border-width: 1px; height:100%;">
+                            <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
+                        </div> 
+                        @endif
                         </div>                  
                     </div>
                     <div class="row">
                         <div class="col-4 p-1">
-                            <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank" >
-                            <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
-                            </a> 
+                        @if($advertisement->small_left_image !== null)
+                            <a href="{{ $advertisement->small_left_link }}" style="text-decoration:none" target="_blank" >
+                            <img src="{{url('files/global_advertisement/',$advertisement->small_left_image)}}" alt="...">
+                            </a>
+                        @else
+                        <div style="border-style: dashed;border-width: 1px; height:100%;">
+                            <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
+                        </div>  
+                        @endif 
                         </div>
                         <div class="col-4 p-1">
-                            <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank">
-                            <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
+                        @if($advertisement->small_middle_image !== null)
+                            <a href="{{ $advertisement->small_middle_link }}" style="text-decoration:none" target="_blank">
+                            <img src="{{url('files/global_advertisement/',$advertisement->small_middle_image)}}" alt="...">
                             </a> 
+                        @else
+                        <div style="border-style: dashed;border-width: 1px; height:100%;">
+                            <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
+                        </div>  
+                        @endif 
                         </div>  
                         <div class="col-4 p-1">
-                            <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank">
-                            <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
+                        @if($advertisement->small_right_image !== null)
+                            <a href="{{ $advertisement->small_right_link }}" style="text-decoration:none" target="_blank">
+                            <img src="{{url('files/global_advertisement/',$advertisement->small_right_image)}}" alt="...">
                             </a> 
+                        @else
+                        <div style="border-style: dashed;border-width: 1px; height:100%;">
+                            <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
+                        </div>  
+                        @endif 
                         </div>                   
                     </div>
                 </div>

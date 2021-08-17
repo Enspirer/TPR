@@ -48,14 +48,12 @@
                                     <div class="row align-items-center justify-content-between mb-4 border py-3">
 
                                         <div class="col-4">
-
-                                            <br>
-                                            <img src="{{url('image_assest',\App\Models\Properties::where('id',$booking->property_id)->first()->feature_image_id)}}" class="card-img-top" alt="...">
+                                            <a href="{{ route('frontend.individual-property', $booking->property_id) }}"><img src="{{url('image_assest',\App\Models\Properties::where('id',$booking->property_id)->first()->feature_image_id)}}" class="card-img-top" alt="..."></a>
                                         </div>
                                         <div class="col-5">
                                             <h5 class="card-title">{{\App\Models\Properties::where('id',$booking->property_id)->first()->name}}</h5>
-                                            <p class="card-text mt-3 mb-1">Country: {{\App\Models\Properties::where('id',$booking->property_id)->first()->country}}</p>
-                                            <p class="card-text">Category: {{\App\Models\Properties::where('id',$booking->property_id)->first()->main_category}}</p>
+                                            <p class="card-text mt-1 mb-1">Country: {{\App\Models\Properties::where('id',$booking->property_id)->first()->country}}</p>
+                                            <p class="card-text mb-1">Category: {{\App\Models\Properties::where('id',$booking->property_id)->first()->main_category}}</p>
                                             <p class="mt-1 text-info">${{number_format(\App\Models\Properties::where('id',$booking->property_id)->first()->price,2)}}</p>
                                             <div style="background: #b1ecff;color: #000000;padding: 10px;border-radius: 10px;">
                                                 {{$booking->created_at}}

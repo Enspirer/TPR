@@ -54,8 +54,10 @@ Route::post('search_result',[HomeController::class,'get_search_result'])->name('
 Route::post('agent', [IndividualPropertyController::class, 'contact_agent'])->name('invidual_property');
 
 
-Route::get('search_result_filter/{key_name}/{max_price}/{min_price}/{category_type}/{transaction_type}/{property_type}/{listed_since}/{building_type}/{beds}/{baths}/{land_size}/{open_house}/{zoning_type}/{units}/{building_size}/{farm_type}/{parking_type}',[HomeController::class,'search_function'])->name('search_function');
+Route::get('search_result_filter/{key_name}/{min_price}/{max_price}/{category_type}/{transaction_type}/{property_type}/{listed_since}/{building_type}/{beds}/{baths}/{land_size}/{open_house}/{zoning_type}/{units}/{building_size}/{farm_type}/{parking_type}',[HomeController::class,'search_function'])->name('search_function');
 
+
+Route::post('favourite/property', [HomeController::class, 'favouriteHeart'])->name('favourite_heart');
 
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');
 //Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
@@ -87,7 +89,12 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('favourites', [DashboardController::class, 'favourites'])->name('favourites');
 
+        Route::get('favourites/delete/{id}', [DashboardController::class, 'favouritesDelete'])->name('favourites-delete');
+
         Route::get('my-bookings', [DashboardController::class, 'myBookings'])->name('my-bookings');
+
+        Route::get('feedback', [DashboardController::class, 'feedback'])->name('feedback');
+        Route::post('feedback/store', [DashboardController::class, 'feedbackStore'])->name('feedback.store');
 
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
@@ -137,7 +144,11 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::post('country-management/single-property-approval/update', [CountryManagementController::class, 'singlePropertyApproved'])->name('single-property-approved');
 
-        Route::get('country-management/supports', [CountryManagementController::class, 'supports'])->name('supports');
+        Route::get('country-management/supports', [CountryManagementController::class, 'supports'])->name('supports');        
+        Route::get('country-management/supports/edit/{id}', [CountryManagementController::class, 'supportsEdit'])->name('supports.edit');
+        Route::post('country-management/supports/update', [CountryManagementController::class, 'supportsUpdate'])->name('supports.update');
+        Route::get('country-management/supports/delete/{id}', [CountryManagementController::class, 'supportsDelete'])->name('supports.delete');
+        // Route::get('country-management/individual-help', [CountryManagementController::class, 'individualHelp'])->name('individual-help');
 
 
         Route::get('country-management/agent-approval', [CountryManagementController::class, 'agentApproval'])->name('agent-approval');
@@ -148,7 +159,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::post('country-management/single-agent-approval/update', [CountryManagementController::class, 'singleAgentApprovalUpdate'])->name('singleAgentApprovalUpdate');
 
-        Route::get('country-management/individual-help', [CountryManagementController::class, 'individualHelp'])->name('individual-help');
+        
 
         Route::get('country-management/sidebar-ad', [CountryManagementController::class, 'sidebarAD'])->name('sidebar_ad');
         Route::post('sidebar-ad/store', [CountryManagementController::class, 'sidebarAD_store'])->name('sidebar_ad.sidebarAD_store');
