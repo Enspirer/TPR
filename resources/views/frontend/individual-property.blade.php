@@ -264,7 +264,12 @@
                     <div class="row justify-content-center shadow py-4" style="margin-top: 3rem;">
                         <div align="center">
                             <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none">
-                                <img src="{{ url('files/agent_request',$agent->photo) }}" class="mb-4" style="border-radius: 50%; object-fit:cover; width: 150px" height="150px">
+                            @if($agent->photo == null)
+                            <img src="{{ url('images/no_image_available.png') }}" class="mb-4" style="border-radius: 50%; object-fit:cover; width: 150px" height="150px">
+                            @else
+                            <img src="{{ url('files/agent_request',$agent->photo) }}" class="mb-4" style="border-radius: 50%; object-fit:cover; width: 150px" height="150px">
+                            @endif
+                                
                             </a>
                         </div>
 
