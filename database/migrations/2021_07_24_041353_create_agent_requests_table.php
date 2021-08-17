@@ -17,8 +17,8 @@ class CreateAgentRequestsTable extends Migration
             $table->bigIncrements('id');
             $table->text('name');
             $table->text('country');
-            $table->text('company_name');
-            $table->text('company_registration_number');
+            $table->text('company_name')->nullable();
+            $table->text('company_registration_number')->nullable();
             $table->text('address');
             $table->text('telephone');
             $table->text('email');

@@ -39,17 +39,19 @@
                                 <th scope="col">User Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Date</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="align-middle table-data">
 
-                        @foreach($agent_request as $key => $agent)
+                        @foreach($agent_request as $agent)
 
                             <tr class="align-items-center">
                                 <td>{{ $agent->name }}</td>
                                 <td>{{ $agent->email }}</td>
                                 <td>{{ $agent->created_at->toDateString() }}</td>
+                                <td>{{ $agent->country_manager_approval }}</td>
                                 <td>
                                     <div class="row">
                                         <div class="col-5">
