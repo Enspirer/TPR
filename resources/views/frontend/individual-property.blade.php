@@ -17,6 +17,13 @@
         </div>
     </section>
 
+    <!-- title-->
+    <section>
+        <div class="container" style="margin-top: 3rem;">
+            <h3>{{ $property_details->name }}</h3>
+        </div>
+    </section>
+
 
     <!-- content -->
     <section id="content">
@@ -28,21 +35,21 @@
                     @if(json_decode($property_details->image_ids) == null)
 
                         <div align="center">
-                            <img src="{{ url('images/no_image_available.png') }}" style="object-fit: cover;" width="100%" height="300" alt="...">
+                            <img src="{{ url('images/no_image_available.png') }}" style="object-fit: cover;" width="100%" height="300px" alt="...">
                         </div>
 
                     @else
                         <div class="carousel">
                             <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
+                                <div class="carousel-inner" style="height:400px;">
 
                                 @foreach($final_out as $key => $image)
                                     @if($key == 0)
-                                    <div class="carousel-item active">
+                                    <div class="carousel-item active" style="object-fit:cover" width="100%">
                                         <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
                                     </div>
                                     @else  
-                                    <div class="carousel-item">
+                                    <div class="carousel-item" style="object-fit:cover" width="100%">
                                         <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
                                     </div>
                                     @endif    
@@ -65,7 +72,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <h5 class="mb-1" style="color: #79CEEC;">$ {{ $property_details->price }}</h5>
-                                <h5 style="color: #83BE43">Colombo, {{ $property_details->country }}</h5>
+                                <h5 style="color: #83BE43">{{ $property_details->city }}, {{ $property_details->country }}</h5>
 
                                 @if($property_details->beds == null)
                                 @else
@@ -79,7 +86,7 @@
                                 </p> -->
                             </div>
                             <div class="col-6 text-end">
-                                <button class="btn rounded-0 text-light px-4 py-2 mt-2" style="background-color: #EB8EB0;">Floor Plans</button>
+                                <button class="btn rounded-0 text-light px-4 py-2 mt-2 disabled" style="background-color: #EB8EB0;">Floor Plans</button>
                                 
                                 <p class="text-secondary mt-5">
                                     @if($property_details->baths == null)
@@ -226,7 +233,7 @@
                         </div>
                     </div>
 
-                    <div class="more-information">
+                    <!-- <div class="more-information">
                         <h4 class="fw-bold" style="margin-top: 3rem;">More Information</h4>
                         <div class="1strow">
                             <div class="row mt-4 justify-content-between">
@@ -278,7 +285,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="col-4 px-5">

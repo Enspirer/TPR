@@ -154,6 +154,15 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
+                                            <label for="city" class="form-label mb-0 mt-4">City</label>
+                                            <input type="text" class="form-control" name="city" id="city" aria-describedby="city" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
                                             <label for="meta-description" class="form-label mb-0 mt-4">Meta Description</label>
                                             <input type="text" class="form-control" name="meta_description" id="meta-description" aria-describedby="meta-description" required>
                                         </div>

@@ -289,6 +289,7 @@ class AgentController extends Controller
         $meta_description = request('meta_description');
         $slug = request('slug');
         $transaction_type = request('transaction_type');
+        $city = request('city');
 
         
         // dd($request);
@@ -336,7 +337,8 @@ class AgentController extends Controller
                 'image_ids' => $images,
                 'meta_description' => $meta_description,
                 'slug' => $slug,
-                'transaction_type' => $transaction_type
+                'transaction_type' => $transaction_type,
+                'city' => $city
             ]
         );
 
@@ -375,6 +377,7 @@ class AgentController extends Controller
         $addprop->admin_approval='Pending';
         $addprop->country_manager_approval='Pending';
         $addprop->user_id = auth()->user()->id;
+        $addprop->city=$request->city;
 
         $addprop->country = $request->country;      
         

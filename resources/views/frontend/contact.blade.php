@@ -80,7 +80,7 @@
                                     <input type="text" class="form-control py-3 shadow" name="name" placeholder="Name" aria-describedby="name" required>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control py-3 shadow" name="phone" placeholder="Phone" aria-describedby="phone" required>
+                                    <input type="number" class="form-control py-3 shadow" name="phone" placeholder="Phone" aria-describedby="phone" required>
                                 </div>
                             </div>
                         </div>
