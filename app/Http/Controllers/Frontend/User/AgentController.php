@@ -242,7 +242,7 @@ class AgentController extends Controller
     public function properties()
     {
         $id = Auth::user()->id;
-        $properties = Properties::where('user_id',  $id)->get();
+        $properties = Properties::where('user_id',  $id)->orderBy('id','DESC')->get();
 
         return view('frontend.user.properties', ['properties' => $properties]);
     }
@@ -357,7 +357,7 @@ class AgentController extends Controller
 
     public function createPropertyStore(Request $request)
     {        
-        // dd($request);
+        dd($request);
 
         $out_json = $request->property_images;
 
@@ -418,8 +418,6 @@ class AgentController extends Controller
         // dd($request);
 
         session()->flash('message','Thanks!');
-    
-        
 
         return back();                      
 
