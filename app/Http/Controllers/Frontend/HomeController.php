@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         $country = Country::where('status',1)->get();
 
-        $global_advertisement = GlobalAdvertisement::where('status','=','1',)->orderBy('order', 'ASC')->get();
+        $global_advertisement = GlobalAdvertisement::where('status','=','1')->orderBy('order', 'ASC')->get();
         // dd($global_advaertisement);
 
 
@@ -65,7 +65,7 @@ class HomeController extends Controller
 
     public function index($country_id,Request $request)
     {
-        Cookie::queue("score_tag", json_encode(Session::get($country_id)));
+        Cookie::queue("country_code", $country_id,1000);
 
         $promu = Properties::where('admin_approval','Approved')->get();
 

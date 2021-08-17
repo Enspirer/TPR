@@ -1,6 +1,7 @@
 <?php
 use App\Medels\AgentRequest;
 use App\Models\Country;
+use Illuminate\Http\Request;
 
 if (! function_exists('app_name')) {
     /**
@@ -103,6 +104,29 @@ if (! function_exists('is_agent')) {
         if($countryManager)
         {
             return $countryManager;
+        }else{
+            return null;
+        }
+    }
+}
+
+
+
+if (! function_exists('get_country_cookie')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function get_country_cookie($request)
+    {
+        $value = $request->cookie('country_code');
+
+        $country_details = Country::where('country_id',$value)->first();
+
+        if($country_details)
+        {
+            return $country_details;
         }else{
             return null;
         }

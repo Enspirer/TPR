@@ -15,8 +15,9 @@ class FindAgentController extends Controller
     /**
      * @return \Illuminate\View\View
      */
-    public function index($area, $agent_type, $agent_name)
+    public function index($area, $agent_type, $agent_name,Request $request)
     {
+
 
 
         $agents = AgentRequest::where('status','Approved');
