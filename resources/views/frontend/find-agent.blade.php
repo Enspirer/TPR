@@ -68,29 +68,38 @@
                                         <div class="float-start">
                                             <h5 class="fw-bolder">{{ $agent->company_name }}</h5>
                                         </div>
-                                        <div class="float-end">
+                                        <!-- <div class="float-end">
                                             <i class="bi bi-star-fill me-3 stars"></i>
                                             <i class="bi bi-star-fill me-3 stars"></i>
                                             <i class="bi bi-star-fill me-3 stars"></i>
                                             <i class="bi bi-star-fill me-3 stars"></i>
                                             <i class="bi bi-star-fill me-3 stars"></i>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <h6>Area(s) covered: Island Wide.</h6>
                                 <div class="row mt-3">
-                                    <div class="col-2 p-1">
+                                    <!-- <div class="col-2 p-1">
                                         <button class="btn w-100 text-white" style="background-color: #77CEEC; border-radius: 0.7rem;">Sales</button>
-                                    </div>
+                                    </div> -->
+
+                                @if($final_out2 = 'Residential')
                                     <div class="col-2 p-1">
-                                        <button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem;">Rentals</button>
+                                        <button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
                                     </div>
+                                @else  
+                                @endif 
+                                @if($final_out2 = 'Commercial')
                                     <div class="col-2 p-1">
                                         <button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
                                     </div>
-                                    <div class="col-2 p-1">
+                                @else    
+                                @endif    
+                                    
+                                    
+                                    <!-- <div class="col-2 p-1">
                                         <button class="btn w-100 text-white" style="background-color: #7DCAC4; border-radius: 0.7rem;">PropertyLand</button>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <p class="mt-3" style="text-align: justify;">{{ $agent->description_message }}</p>
 
@@ -104,10 +113,10 @@
 
                                 <div class="row mt-2">
                                     <div class="col-4">
-                                        <button class="btn w-100 agent-contact"><i class="fas fa-mobile-alt me-2"></i>{{ $agent->telephone }}</button>
+                                        <a href="tel:{{ $agent->telephone }}" class="btn w-100 agent-contact"><i class="fas fa-mobile-alt me-2"></i>{{ $agent->telephone }}</a>
                                     </div>
                                     <div class="col-4">
-                                        <button class="btn w-100 agent-contact" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="fas fa-envelope me-2"></i>{{ $agent->email }}</button>
+                                        <a href="mailto:{{ $agent->email }}" class="btn w-100 agent-contact" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="fas fa-envelope me-2"></i>{{ $agent->email }}</a>
                                     </div>
                                 </div>
                             </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AgentRequest;
 use Cookie;
 use Session;
+use App\Models\Properties;
 
 /**
  * Class ContactController.
@@ -37,9 +38,32 @@ class FindAgentController extends Controller
 
         $age = $agents->get();
 
+        
+
+        $final_out = [];
+        foreach($age as $ag){
+            array_push($final_out,$ag->user_id);
+        }
+        // dd($final_out);
+
+        // dd($agents);
+
+        $prop = Properties::where('user_id',$final_out)->get();
+        // dd($prop);
+
+        $final_out2 = [];
+        foreach($prop as $pro){
+            array_push($final_out2,$pro->main_category);
+        }
+
+        // dd($final_out2);
+
         // $area_agents = AgentRequest::where('area', $area);
 
-        return view('frontend.find-agent', ['agents' => $age]);
+        return view('frontend.find-agent', [
+            'agents' => $age,
+            'final_out2' => $final_out2
+        ]);
     }
 
     public function store(Request $request)

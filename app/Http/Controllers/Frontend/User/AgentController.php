@@ -206,8 +206,8 @@ class AgentController extends Controller
         $edit_agent->address=$request->address;
         $edit_agent->telephone=$request->telephone;
         $edit_agent->description_message=$request->description_msg;
-        $edit_agent->status='Pending';
-        $edit_agent->country_manager_approval = 'Pending';
+        // $edit_agent->status='Pending';
+        // $edit_agent->country_manager_approval = 'Pending';
         $edit_agent->user_id = auth()->user()->id;
 
         $edit_agent->cover_photo=$image_url4; 

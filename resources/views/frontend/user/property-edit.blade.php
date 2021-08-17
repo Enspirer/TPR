@@ -128,8 +128,8 @@
                                         <div>
                                             <label for="category" class="form-label mb-0 mt-4 required">Category</label>
                                             <select class="form-select" aria-label="category" id="category" name="category">
-                                                <option value="commercial" {{ $property->main_category == 'Commercial' ? "selected" : "" }}>Commercial</option>
-                                                <option value="residential" {{ $property->main_category == 'Residential' ? "selected" : "" }}>Residential</option>
+                                                <option value="Commercial" {{ $property->main_category == 'Commercial' ? "selected" : "" }}>Commercial</option>
+                                                <option value="Residential" {{ $property->main_category == 'Residential' ? "selected" : "" }}>Residential</option>
                                             </select>
                                         </div>  
                                     </div>
