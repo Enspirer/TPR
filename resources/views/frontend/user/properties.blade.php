@@ -109,7 +109,7 @@
                                                     <h5 class="card-title">{{ $property->country }}</h5>
                                                 </div>
                                                 <div class="float-end">
-                                                    <button class="position-relative bg-warning border-0 rounded px-2 py-1 text-light" style="top: -1.5rem;">Pending</button>
+                                                    <button class="position-relative bg-warning border-0 rounded px-2 py-1 text-light" style="top: -1.5rem; cursor: default;">Pending</button>
                                                 </div>
                                             </div>
                                             <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p>
@@ -145,7 +145,7 @@
                                                     <h5 class="card-title">{{ $property->country }}</h5>
                                                 </div>
                                                 <div class="float-end">
-                                                    <button class="position-relative bg-danger border-0 rounded px-2 py-1 text-light" style="top: -1.5rem;">Dispproved</button>
+                                                    <button class="position-relative bg-danger border-0 rounded px-2 py-1 text-light" style="top: -1.5rem; cursor: default;">Dispproved</button>
                                                 </div>
                                             </div>
                                             <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p>

@@ -82,7 +82,7 @@
                                         <div>
                                             <label for="propertyType" class="form-label mb-0 required">Property Type</label>
                                             <select class="form-select" aria-label="agentType" name="propertyType" id="propertyType" onChange="renderFields()"  required>
-
+                                                <option selected disabled value="">Choose...</option>
                                             @foreach($property_type as $type)
                                                 <option value="{{$type->id}}"> {{$type->property_type_name}} </option>
                                             @endforeach
@@ -120,7 +120,7 @@
                                         <div>
                                             <label for="category" class="form-label mb-0 mt-4">Category</label>
                                             <select class="form-select" aria-label="category" id="category" name="category" required>
-                                                <option value="">Select</option>
+                                                <option selected disabled value="">Choose...</option>
                                                 <option value="Commercial">Commercial</option>
                                                 <option value="Residential">Residential</option>
                                             </select>
@@ -180,7 +180,7 @@
                                         <div>
                                             <label for="transaction-type" class="form-label mb-0 mt-4">Transaction Type</label>
                                             <select class="form-select" aria-label="transaction_type" name="transaction_type" id="transaction_type" required>
-                                                <option value="">Select</option>
+                                                <option selected disabled value="">Choose...</option>
                                                 <option value="sale">For sale</option>
                                                 <option value="rent">For rent</option>
                                             </select>
