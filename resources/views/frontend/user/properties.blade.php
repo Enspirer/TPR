@@ -65,9 +65,9 @@
                             </div> -->
 
 
-            @if(count($properties) == 0)
-                <h2 align="center" style="margin-top:130px; color:#808080;">Properties Are Not Found</h2>
-            @else
+                        @if(count($properties) == 0)
+                            <h2 align="center" style="margin-top:130px; color:#808080;">Properties Are Not Found</h2>
+                        @else
 
 
                             @foreach($properties as $property)
@@ -212,11 +212,12 @@
                                     </div>
                                 @endif
                             @endforeach
+                        @endif    
                         </div>
                     </div>
                 </div>
             </div>
-            @endif
+            
         </div>
 
         
