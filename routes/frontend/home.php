@@ -161,7 +161,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         
         Route::get('country-management/ad-category', [CountryManagementController::class, 'adCategory'])->name('ad_category');
-        Route::post('ad-category/store', [CountryManagementController::class, 'adCategory_store'])->name('ad_category.adCategory_store');
+        Route::post('ad-category/store', [CountryManagementController::class, 'adCategory_store'])->name('adCategory_store');
+        Route::post('ad-category/update', [CountryManagementController::class, 'adCategory_update'])->name('adCategory_update');
         Route::get('ad-category/delete/{id}', [CountryManagementController::class, 'adCategory_delete'])->name('adCategory_delete');
 
 

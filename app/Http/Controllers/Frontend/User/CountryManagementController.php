@@ -215,6 +215,22 @@ class CountryManagementController extends Controller
         return back();
     }
 
+    public function adCategory_update(Request $request)
+    {        
+        // dd($id);
+
+        // dd($request);
+        
+        $update = new AdCategory;
+
+        $update->name=$request->name;        
+        $update->country=$request->country;
+        
+        AdCategory::whereId($request->hidden_id)->update($update->toArray());
+
+        return back(); 
+    }
+
     public function adCategory_delete($id)
     {        
 
