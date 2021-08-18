@@ -49,12 +49,14 @@ class FindAgentController extends Controller
             $final_out2 = null;
         }
         else{
+            
             $prop = Properties::where('user_id',$final_out)->get();
 
             $final_out2 = [];
             foreach($prop as $pro){
                 array_push($final_out2,$pro->main_category);
             }
+
         }
         // dd($final_out);
 

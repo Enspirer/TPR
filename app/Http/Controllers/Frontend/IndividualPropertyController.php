@@ -122,6 +122,9 @@ class IndividualPropertyController extends Controller
         $booking->agent_id = $request->agent_id;
         $booking->status = 'Pending';
         $booking->save();
+
+        session()->flash('message','Thanks!');
+        
         return back();
 
     }

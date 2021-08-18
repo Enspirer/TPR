@@ -35,9 +35,7 @@
                     @include('frontend.includes.not_found',[
                     'not_found_title' => 'My Booking item Not Found',
                     'not_found_description' => 'My booking item not found.please book agent for get the property',
-                    'not_found_button_caption' => 'Explorer Property',
-                    'not_found_link' => 'hellow rod'
-
+                    'not_found_button_caption' => 'Explorer Property'
                      ])
 
                 @else
