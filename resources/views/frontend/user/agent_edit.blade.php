@@ -86,8 +86,12 @@
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 required">Country</label>
-                                            <input type="text" class="form-control" value="{{ $agent_edit->country }}" name="country" required>
-                                        </div>  
+                                            <select class="form-control" name="country" required>
+                                                @foreach($countries as $country)
+                                                    <option value="{{$country->country_name}}" {{ $agent_edit->country == $country->country_name ? "selected" : "" }}>{{$country->country_name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="col-6">
                                         <div>
@@ -119,8 +123,8 @@
                                             <label class="form-label mb-0 mt-4 required">Agent Type</label>
                                             <select class="form-select agent_type" name="agent_type" required>
 
-                                                <option value="individual" {{ $agent_edit->agent_type == 'individual' ? "selected" : "" }}>individual</option>
-                                                <option value="company" {{ $agent_edit->agent_type == 'company' ? "selected" : "" }}>company</option>
+                                                <option value="Individual" {{ $agent_edit->agent_type == 'Individual' ? "selected" : "" }}>Individual</option>
+                                                <option value="Company" {{ $agent_edit->agent_type == 'Company' ? "selected" : "" }}>Company</option>
                                                 
 
                                             </select>
@@ -286,7 +290,7 @@
 
                             <div class="mt-5 text-center">
                                 <input type="hidden" class="form-control" value="{{$agent_edit->id}}" name="hidden_id">
-                                <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
 
                             </form>
@@ -319,7 +323,7 @@
     
 
     $(document).ready(function() {
-        if ($('.agent_type').val() == 'individual') {
+        if ($('.agent_type').val() == 'Individual') {
             $('.company_name').addClass('d-none');
             $('.company_reg_no').addClass('d-none');
             $('.company_name').find('input').removeAttr('required');
@@ -334,7 +338,7 @@
     });
 
     $('.agent_type').change(function() {
-        if ($(this).val() == 'individual') {
+        if ($(this).val() == 'Individual') {
             $('.company_name').addClass('d-none');
             $('.company_reg_no').addClass('d-none');
             $('.company_name').find('input').removeAttr('required');

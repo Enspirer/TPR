@@ -86,7 +86,8 @@
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 required">Country</label>
-                                            <select class="form-control" name="country">
+                                            <select class="form-control" name="country" required>
+                                                <option selected disabled>Select...</option>
                                                 @foreach($countries as $country)
                                                     <option value="{{$country->country_name}}">{{$country->country_name}}</option>
                                                 @endforeach
@@ -122,8 +123,9 @@
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">Agent Type</label>
                                             <select class="form-select agent_type" name="agent_type" required>
-                                                <option value="individual" selected>Individual</option>
-                                                <option value="company">Company</option>
+                                                <option selected disabled>Select...</option>
+                                                <option value="Individual">Individual</option>
+                                                <option value="Company">Company</option>
                                             </select>
                                         </div>  
                                     </div>   
@@ -169,7 +171,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 mt-4">Tax Number</label>
-                                            <input type="text" class="form-control" name="tax">
+                                            <input type="text" class="form-control" name="tax" required>
                                         </div>
                                     </div>
                                 </div>
@@ -182,7 +184,7 @@
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">NIC/ Passport/ License</label>
                                             <select class="form-select" name="validate" id="validate" required>
-                                                <option selected disabled value="">Choose...</option>
+                                                <option selected disabled>Select...</option>
                                                 <option value="NIC">NIC</option>
                                                 <option value="Passport">Passport</option>
                                                 <option value="License">License</option>
@@ -293,17 +295,8 @@
     });
     
 
-    // function validateForm() {
-    //     let x = document.forms["myForm"]["nic"].value;
-    //     if (x == "") {
-    //         alert("NIC Number must be filled out");
-    //         return false;
-    //     }
-    // }
-
-
     $('.agent_type').change(function() {
-        if ($(this).val() == 'individual') {
+        if ($(this).val() == 'Individual') {
             $('.company_name').addClass('d-none');
             $('.company_reg_no').addClass('d-none');
             $('.company_name').find('input').removeAttr('required');
@@ -318,17 +311,6 @@
     });
 
 </script>
-
-<!-- <script>
-    $(document).ready(function(){
-        $("form").submit(function(){
-        alert("Submitted");
-        });
-    });
-</script> -->
-
-
-
 
 
 @endif

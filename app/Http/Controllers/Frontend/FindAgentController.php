@@ -38,25 +38,33 @@ class FindAgentController extends Controller
 
         $age = $agents->get();
 
-        
+        // dd($age);                
 
         $final_out = [];
         foreach($age as $ag){
             array_push($final_out,$ag->user_id);
+        }   
+        
+        if(count($final_out) == 0 ){
+            $final_out2 = null;
+        }
+        else{
+            $prop = Properties::where('user_id',$final_out)->get();
+
+            $final_out2 = [];
+            foreach($prop as $pro){
+                array_push($final_out2,$pro->main_category);
+            }
         }
         // dd($final_out);
 
-        // dd($agents);
+        // $prop = Properties::where('user_id',$final_out)->get();
 
-        $prop = Properties::where('user_id',$final_out)->get();
-        // dd($prop);
+        // $final_out2 = [];
+        // foreach($prop as $pro){
+        //     array_push($final_out2,$pro->main_category);
+        // }
 
-        $final_out2 = [];
-        foreach($prop as $pro){
-            array_push($final_out2,$pro->main_category);
-        }
-
-        // dd($final_out2);
 
         // $area_agents = AgentRequest::where('area', $area);
 

@@ -85,13 +85,13 @@
 
                                 @if($final_out2 = 'Residential')
                                     <div class="col-2 p-1">
-                                        <button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
+                                        <button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem; cursor:default">Residential</button>
                                     </div>
                                 @else  
                                 @endif 
                                 @if($final_out2 = 'Commercial')
                                     <div class="col-2 p-1">
-                                        <button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
+                                        <button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem; cursor:default">Commercial</button>
                                     </div>
                                 @else    
                                 @endif    
