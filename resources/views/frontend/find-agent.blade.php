@@ -21,12 +21,8 @@
                         <form action="{{route('frontend.find-agent.store')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                             <div class="mb-4">
-                                <select class="form-select p-3" aria-label="Default select example" name="area" required>
-                                    <option selected disabled value="">Area</option>
-                                    <option value="Colombo">Colombo</option>
-                                    <option value="Jaffna">Jaffna</option>
-                                    <option value="Kandy">Kandy</option>
-                                  </select>
+                                <select class="form-select p-3 areas" aria-label="Default select example" name="area" required>
+                                </select>
                             </div>
                             <div class="mb-4">
                                 <select class="form-select p-3" aria-label="Default select example" name="agent_type" required>
@@ -169,15 +165,46 @@
 <script>
     const renderFields = async () => {
             
-        let url = 'https://countriesnow.space/api/v0.1/countries/cities';
+        let country_id = <?php echo json_encode(get_country_cookie(request())->country_id); ?>;
 
-        const res = await fetch(url);
-        const data = await res.json();
+        let countries = <?php echo json_encode($countries); ?>;
 
-        console.log(data);
-        const fields = (data[0]['activated_fields']);
+        let name;
+        let countryName;
+        let template;
+
+        for(let i = 0; i < countries.length; i++) {
+            if(countries[i]['country_id'] == country_id) {
+                name = countries[i]['slug'];
+            }
         }
+
+        if(name.includes('-')){
+            countryName = name.replace("-", " ");
+        } else {
+            countryName = name;
+        }
+
+
+        $.ajax({
+            "type": "POST",
+            "url": "https://countriesnow.space/api/v0.1/countries/cities",
+            "data": {
+                "country": countryName
+            }
+        }).done(function (d) {
+
+            for(let i = 0; i < d['data'].length; i++) {
+                template+= `
+                    <option value="${d['data'][i]}">${d['data'][i]}</option>
+                `
+            }
+
+            $(".areas").html(template);
+        });
+    }
 
         window.addEventListener('DOMContentLoaded', () => renderFields());
 </script>
+
 @endpush

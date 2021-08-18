@@ -7,6 +7,7 @@ use App\Models\AgentRequest;
 use Cookie;
 use Session;
 use App\Models\Properties;
+use App\Models\Country;
 
 /**
  * Class ContactController.
@@ -22,6 +23,8 @@ class FindAgentController extends Controller
 
 
         $agents = AgentRequest::where('status','Approved');
+
+        $countries = Country::all();
 
         if($area != 'area'){
 
@@ -72,7 +75,8 @@ class FindAgentController extends Controller
 
         return view('frontend.find-agent', [
             'agents' => $age,
-            'final_out2' => $final_out2
+            'final_out2' => $final_out2,
+            'countries' => $countries
         ]);
     }
 
