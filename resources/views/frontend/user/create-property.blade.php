@@ -67,7 +67,7 @@
                     <div class="col-12 border">
                         <div class="px-2 py-3" id="nav-properties" role="tabpanel" aria-labelledby="nav-properties-tab">
                             <h4>About Property</h4>
-                    
+
                             <form action="{{route('frontend.user.create-property.createPropertyStore')}}" method="post" enctype="multipart/form-data" >
                                 {{csrf_field()}}
 
@@ -96,9 +96,15 @@
                                     <div class="col-12">
                                         <label for="map" class="form-label mb-2 mt-4 required">Location</label>
                                         <div id="map" style="width: 100%; height: 400px;"></div>
-                                        <input type="hidden" name="lat" id="lat" class="mt-3"  required>
-                                        <input type="hidden" name="lng" id="lng" class="mt-3 d-none"  required>
-                                        <input type="hidden" name="country" id="country" class="mt-3 d-none"  required>
+                                        <input type="hidden" name="lat" id="lat" class="mt-3" required>
+                                        <input type="hidden" name="lng" id="lng" class="mt-3" required>
+                                        <input type="hidden" name="country" id="country" class="mt-3" required>
+
+                                        @error('lat')
+                                            <div class="alert alert-danger">
+                                                <span>{{ $message }}</span>
+                                            </div>
+                                        @enderror
                                         
                                         <div class="row mt-3">
                                             <div class="col-6">
@@ -112,7 +118,6 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div>
-                                            
                                             <label for="price" class="form-label mb-0 mt-4">Price</label>
                                             <input type="text" class="form-control" name="price" id="price" aria-describedby="price" required placeholder="$">
                                             <div id="passwordHelpBlock" class="form-text text-info fw-bolder">
@@ -151,6 +156,13 @@
                                         <div>
                                             @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Property Featured Image','file_input_name' => 'featured_image','multiple' => false, 'data' => null, 'id' => 'id-single', 'upload' => 'upload-single', 'title' => 'Upload Image'])
                                         </div>
+
+                                        @error('featured_image')
+                                            <div class="alert alert-danger">
+                                                <span>{{ $message }}</span>
+                                            </div>
+                                        @enderror
+                                        
                                     </div>
                                 </div>
 

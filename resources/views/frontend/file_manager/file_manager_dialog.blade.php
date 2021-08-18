@@ -5,7 +5,7 @@
         </div>
     </div>
 
-    <div id="{{ $id }}" class="">
+    <div id="{{ $id }}">
             
         @if($data == null)
         

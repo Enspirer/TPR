@@ -31,7 +31,6 @@ class AgentController extends Controller
 
     public function store(Request $request)
     {        
-        // dd($request);
 
         if(strlen($request->get('description_msg')) < 600){
             return back()->with('error', 'Minimum length of the characters in Description Message should be 600');
@@ -373,8 +372,19 @@ class AgentController extends Controller
 
 
     public function createPropertyStore(Request $request)
-    {        
-        // dd($request);
+    {       
+
+        $request->validate([
+            'lat' => 'required',
+            'featured_image' => 'required'
+        ],
+        [
+            'lat.required' => 'Property location must need to point in the map',
+            'featured_image.required' => 'Property featured image must need to add to create a property'
+        ]
+    );
+
+    dd($request);
 
         $out_json = $request->property_images;
 
@@ -429,6 +439,9 @@ class AgentController extends Controller
         if($request->baths){
             $addprop->baths=$request->baths;       
         }else{}
+
+
+
 
         $addprop->save();
 
