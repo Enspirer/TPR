@@ -39,9 +39,7 @@
                                 @include('frontend.includes.not_found',[
                            'not_found_title' => 'Favorite item not found',
                            'not_found_description' => 'Favorite item not found.please add Favorite ',
-                           'not_found_button_caption' => 'Explorer Property',
-                           'not_found_link' => 'hellow rod'
-
+                           'not_found_button_caption' => 'Explorer Property'
                             ])
 
                         @else

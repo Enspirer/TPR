@@ -62,15 +62,21 @@
 
                 @foreach($agents as $agent)
                     @if($agent->status == 'Approved')
-                        <div class="row shadow py-5 px-4" style="margin-top: 5rem;">
+                        <div class="row shadow py-5 px-4 align-items-center" style="margin-top: 5rem;">
                             <div class="col-4">
-                                <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid">
+                                <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid" style="object-fit:cover;">
                             </div>
                             <div class="col-8">
                                 <div class="row">
                                     <div class="clearfix">
                                         <div class="float-start">
-                                            <h5 class="fw-bolder">{{ $agent->company_name }}</h5>
+                                            <h5 class="fw-bolder">
+                                            @if($agent->company_name == null)
+                                                {{ $agent->name }}
+                                            @else
+                                                {{ $agent->company_name }}
+                                            @endif
+                                            </h5>
                                         </div>
                                         <!-- <div class="float-end">
                                             <i class="bi bi-star-fill me-3 stars"></i>
@@ -105,7 +111,7 @@
                                         <button class="btn w-100 text-white" style="background-color: #7DCAC4; border-radius: 0.7rem;">PropertyLand</button>
                                     </div> -->
                                 </div>
-                                <p class="mt-3" style="text-align: justify;">{{ $agent->description_message }}</p>
+                                <p class="mt-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 15; -webkit-box-orient: vertical;">{{ $agent->description_message }}</p>
 
                                 <div class="row">
                                     <div class="clearfix">

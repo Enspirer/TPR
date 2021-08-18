@@ -37,7 +37,7 @@
 
     <section id="profile-picture">
         <div class="container position-relative" style="margin-top: 7rem;">
-            <img src="{{ url('files/agent_request',$agent_details->photo) }}" alt="" style="border-style: solid;border-width: 2px; border-color:black;" class="profile-picture">
+            <img src="{{ url('files/agent_request',$agent_details->photo) }}" alt="" style="border-style: solid;border-width: 2px; border-color:black; object-fit:cover; width:160px;" class="profile-picture">
         </div>
     </section>
     
@@ -52,7 +52,13 @@
                 <div class="col-10"> 
                     <div class="row">  
                         <div class="col-10"> 
-                            <h3 class="fw-bolder mt-3">{{ $agent_details->company_name }}</h3>
+                            <h3 class="fw-bolder mt-3">
+                                @if($agent_details->company_name == null)
+                                    {{ $agent_details->name }}
+                                @else
+                                    {{ $agent_details->company_name }}
+                                @endif
+                            </h3>
                         </div>
                         <div class="col-2">
                             <button class="btn rounded-0 text-light px-4 py-2 mt-3" style="background-color: #008080; margin: 8rem 34rem 0 0; cursor: default;">{{ $agent_details->agent_type }}</button>
@@ -98,9 +104,9 @@
     <!-- agent tabs -->
     <section id="agent-tabs">
         <div class="container" style="margin-top: 6rem;">
-            <h4 class="fw-bold">All ads from {{ $agent_details->company_name }}</h4>
+            <h4 class="fw-bold">All ads from {{ $agent_details->name }}</h4>
 
-            @if(count(array($all_properties)) == 0)
+            @if(count($all_properties) == 0)
                 <h2 align="center" style="margin-top:130px; color:#808080;">Properties Are Not Found</h2>
             @else
 

@@ -53,7 +53,7 @@ class IndividualPropertyController extends Controller
             // dd($final_out);
         }
         
-        $random = Properties::inRandomOrder()->limit(4)->get();
+        $random = Properties::where('admin_approval', 'Approved')->inRandomOrder()->limit(4)->get();
         // dd($random);
 
 
@@ -122,6 +122,9 @@ class IndividualPropertyController extends Controller
         $booking->agent_id = $request->agent_id;
         $booking->status = 'Pending';
         $booking->save();
+
+        session()->flash('message','Thanks!');
+        
         return back();
 
     }
