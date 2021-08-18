@@ -290,9 +290,9 @@
 
 
 
+                <!---------------------------------------- agent information  ----------------------------------------- -->
 
 
-                <!-- agent information   -->
 
                     @if($agent_edit)
                     <div class="tab-pane fade" id="pills-lorem" role="tabpanel" aria-labelledby="pills-lorem-tab">
@@ -304,8 +304,12 @@
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 required">Country</label>
-                                            <input type="text" class="form-control" value="{{ $agent_edit->country }}" name="country" required>
-                                        </div>  
+                                            <select class="form-control" name="country" required>
+                                                @foreach($countries as $country)
+                                                    <option value="{{$country->country_name}}" {{ $agent_edit->country == $country->country_name ? "selected" : "" }}>{{$country->country_name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="col-6">
                                         <div>
@@ -325,8 +329,8 @@
                                     </div>
                                     <div class="col-6">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Company Name</label>
-                                            <input type="text" class="form-control" value="{{ $agent_edit->company_name }}" name="company_name" required>
+                                            <label class="form-label mb-0 mt-4 required">Email</label>
+                                            <input type="email" class="form-control" value="{{ $agent_edit->email }}" name="email" required>
                                         </div>  
                                     </div>
                                 </div>
@@ -334,24 +338,29 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Company Registration Number</label>
-                                            <input type="text" class="form-control" value="{{ $agent_edit->company_registration_number }}" name="company_reg_no" required>
+                                            <label class="form-label mb-0 mt-4 required">Agent Type</label>
+                                            <select class="form-select agent_type" name="agent_type" required>
+
+                                                <option value="Individual" {{ $agent_edit->agent_type == 'Individual' ? "selected" : "" }}>Individual</option>
+                                                <option value="Company" {{ $agent_edit->agent_type == 'Company' ? "selected" : "" }}>Company</option>
+                                                
+
+                                            </select>
                                         </div>  
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6 company_name">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Email</label>
-                                            <input type="email" class="form-control" value="{{ $agent_edit->email }}" name="email" required>
+                                            <label class="form-label mb-0 mt-4 required">Company Name</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->company_name }}" name="company_name" required>
                                         </div>  
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6">
-                                        <label class="form-label mb-0 mt-4 required">Agent Type</label>
-                                        <select class="form-select" name="agent_type" required>                 
-                                            <option value="Company" {{ $agent_edit->agent_type == 'Company' ? "selected" : "" }}>Company</option>
-                                            <option value="Individual" {{ $agent_edit->agent_type == 'Individual' ? "selected" : "" }}>Individual</option>
-                                        </select>
+                                    <div class="col-6 company_reg_no">
+                                        <div>
+                                            <label class="form-label mb-0 mt-4 required">Company Registration Number</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->company_registration_number }}" name="company_reg_no" required>
+                                        </div>  
                                     </div>                                    
                                 </div>
                                  
@@ -499,7 +508,7 @@
 
                             <div class="mt-5 text-center">
                                 <input type="hidden" class="form-control" value="{{$agent_edit->id}}" name="hidden_id">
-                                <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
 
                         </form>      
@@ -531,6 +540,36 @@
             }       
             validate();
         });
+
+        $(document).ready(function() {
+        if ($('.agent_type').val() == 'Individual') {
+            $('.company_name').addClass('d-none');
+            $('.company_reg_no').addClass('d-none');
+            $('.company_name').find('input').removeAttr('required');
+            $('.company_reg_no').find('input').removeAttr('required');
+        }
+        else {
+            $('.company_name').removeClass('d-none');
+            $('.company_reg_no').removeClass('d-none');
+            $('.company_name').find('input').prop('required', true);
+            $('.company_reg_no').find('input').prop('required', true);
+        }
+    });
+
+    $('.agent_type').change(function() {
+        if ($(this).val() == 'Individual') {
+            $('.company_name').addClass('d-none');
+            $('.company_reg_no').addClass('d-none');
+            $('.company_name').find('input').removeAttr('required');
+            $('.company_reg_no').find('input').removeAttr('required');
+        }
+        else {
+            $('.company_name').removeClass('d-none');
+            $('.company_reg_no').removeClass('d-none');
+            $('.company_name').find('input').prop('required', true);
+            $('.company_reg_no').find('input').prop('required', true);
+        }
+    });
 
 
         $('document').ready(function() {

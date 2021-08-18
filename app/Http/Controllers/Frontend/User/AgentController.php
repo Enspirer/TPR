@@ -23,9 +23,9 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $country = Country::all();
+        $countries = Country::all();
         return view('frontend.user.agent',[
-            'countries' => $country
+            'countries' => $countries
         ]);
     }
 
@@ -124,11 +124,14 @@ class AgentController extends Controller
         $agent_edit = AgentRequest::where('user_id',$user_id)->first();
         $user_edit = User::where('id',$user_id)->first();
 
+        $countries = Country::all();
+
         // dd($agent_edit);
         
         return view('frontend.user.agent_edit',[
             'agent_edit' => $agent_edit,
-            'user_edit' => $user_edit
+            'user_edit' => $user_edit,
+            'countries' => $countries
         ]);
     }
 

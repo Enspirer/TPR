@@ -27,12 +27,14 @@ class DashboardController extends Controller
 
         $agent_edit = AgentRequest::where('user_id',$user_id)->first();
         $user_edit = User::where('id',$user_id)->first();
+        $countries = Country::all();
 
         // agent edit function in agentController
         
         return view('frontend.user.dashboard',[
             'agent_edit' => $agent_edit,
-            'user_edit' => $user_edit
+            'user_edit' => $user_edit,
+            'countries' => $countries
         ]);
     }    
 
