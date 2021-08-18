@@ -419,6 +419,8 @@
                 var markers = c.getMarkers();
                 var newArray = [];
 
+                let country_id = <?php echo json_encode(get_country_cookie(request())->country_id); ?>;
+
                 for (marker in markers) {
                     const cars = [];
                     cars['lat']= markers[marker].getPosition().lat();
@@ -431,7 +433,7 @@
                 $.post("{{url('/')}}/api/country_request",
                     {
                         coordinate_data: myArray,
-                        country_id : 'LK'
+                        country_id : country_id
                     },
                     function(data, status){
 
