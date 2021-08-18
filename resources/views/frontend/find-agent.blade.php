@@ -163,4 +163,21 @@
     @if(config('access.captcha.contact'))
         @captchaScripts
     @endif
+
+
+
+<script>
+    const renderFields = async () => {
+            
+        let url = 'https://countriesnow.space/api/v0.1/countries/cities';
+
+        const res = await fetch(url);
+        const data = await res.json();
+
+        console.log(data);
+        const fields = (data[0]['activated_fields']);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => renderFields());
+</script>
 @endpush
