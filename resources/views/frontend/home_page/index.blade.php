@@ -59,12 +59,12 @@
 
             <ul class="nav mb-3 justify-content-center" id="projects-tab" role="tablist">
                 <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
-                    <a class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">All</a>
+                    <a class="nav-link active tabs" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">All</a>
                 </li>
 
                 @foreach($ad_category as $key => $ad_cat)
                     <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-                        <a class="nav-link" id="new-development-tab" data-bs-toggle="tab" data-bs-target="#tab-new-development" type="button" role="tab" aria-controls="tabs-leisure" aria-selected="false">{{ $ad_cat->name }}</a>
+                        <a class="nav-link tabs" id="{{ $ad_cat->name }}-tab" data-bs-toggle="tab" data-bs-target="#tab-{{ $ad_cat->name }}" type="button" role="tab" aria-controls="tabs-leisure" aria-selected="false">{{ $ad_cat->name }}</a>
                     </li>
                 @endforeach
 
@@ -79,10 +79,10 @@
 
             </ul>
 
-            <div class="tab-content mt-5 py-4 px-5" id="tabs-tabContent" style="background-color : #ECECEC">
+            <div class="tab-content mt-5 py-4" id="tabs-tabContent" style="background-color : #ECECEC">
 
                 <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-4" data-aos="flip-right" data-aos-duration="500">
                             <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
                         </div>
@@ -92,24 +92,88 @@
                         <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
                             <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
                         </div>
+                    </div> -->
+
+                    <div class="swiper-container mySwiper">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide row">
+
+                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                    <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
+                                </div>
+
+                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                    <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
+                                </div>
+                                
+                                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
+                                    <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
+                                </div>
+
+                            </div>
+
+                            <div class="swiper-slide row">
+
+                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                    <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
+                                </div>
+
+                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                    <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
+                                </div>
+                                
+                                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
+                                    <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="tab-new-development" role="tabpanel" aria-labelledby="new-development-tab">
-                    <div class="row">
-                        <div class="col-4">
-                            <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
-                        </div>
-                    </div>
-                </div>
+                @foreach($ad_category as $key => $ad_cat)
+                    <div class="tab-pane fade" id="tab-{{ $ad_cat->name }}" role="tabpanel" aria-labelledby="{{ $ad_cat->name }}-tab">
+                        <div class="swiper-container mySwiper">
+                            <div class="swiper-wrapper">
 
-                <div class="tab-pane fade" id="tab-investment" role="tabpanel" aria-labelledby="investment-tab">
-                    <div class="row">
-                        <div class="col-4">
-                            <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
+                                <div class="swiper-slide row">
+
+                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                        <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
+                                    </div>
+
+                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                        <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
+                                    </div>
+                                    
+                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
+                                        <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
+                                    </div>
+
+                                </div>
+
+                                <div class="swiper-slide row">
+
+                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                        <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
+                                    </div>
+
+                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                        <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -554,5 +618,22 @@
 @push('after-scripts')
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap" type="text/javascript"></script>
+
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    observer: true,
+	observeParents: true
+  });
+</script>
 
 @endpush
