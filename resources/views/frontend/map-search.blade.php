@@ -103,40 +103,40 @@
             });
 
 
-            let property = <?php echo json_encode($promo); ?>;
+            // let property = <?php echo json_encode($promo); ?>;
 
-            var infowindow = new google.maps.InfoWindow();
+            // var infowindow = new google.maps.InfoWindow();
 
-            for(let i = 0; i < markers.length; i++) {
-                for(let j = 0; j < property.length; j++) {
-                    let lat = markers[i].getPosition().lat();    
-                    let lng = markers[i].getPosition().lng();    
+            // for(let i = 0; i < markers.length; i++) {
+            //     for(let j = 0; j < property.length; j++) {
+            //         let lat = markers[i].getPosition().lat();    
+            //         let lng = markers[i].getPosition().lng();    
                     
-                    if(lat == property[j]['lat'] && lng == property[j]['long']) {
-                        let details = `<div class="row align-items-center p-1" style="width: 500px;">
-                                        <div class="col-6">
-                                            <img src="{{url('/')}}/image_assest/${property[j]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
-                                        </div>
-                                        <div class="col-6">
-                                            <h5 class="fw-bold mb-2">${property[j]['name']}</h5>
-                                            <p class="mb-1" style="font-size: 0.8rem;">Transaction Type: ${property[j]['transaction_type']}</p>
-                                            <p class="mb-1" style="font-size: 0.8rem;">Country: ${property[j]['country']}</p>
-                                            <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${property[j]['price']}</p>
+            //         if(lat == property[j]['lat'] && lng == property[j]['long']) {
+            //             let details = `<div class="row align-items-center p-1" style="width: 500px;">
+            //                             <div class="col-6">
+            //                                 <img src="{{url('/')}}/image_assest/${property[j]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
+            //                             </div>
+            //                             <div class="col-6">
+            //                                 <h5 class="fw-bold mb-2">${property[j]['name']}</h5>
+            //                                 <p class="mb-1" style="font-size: 0.8rem;">Transaction Type: ${property[j]['transaction_type']}</p>
+            //                                 <p class="mb-1" style="font-size: 0.8rem;">Country: ${property[j]['country']}</p>
+            //                                 <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${property[j]['price']}</p>
 
-                                            <div class="text-end">
-                                                <a href="{{url('/')}}/individual-property/${property[j]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
-                                            </div>
-                                        </div>
-                                    </div>`;
+            //                                 <div class="text-end">
+            //                                     <a href="{{url('/')}}/individual-property/${property[j]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
+            //                                 </div>
+            //                             </div>
+            //                         </div>`;
 
-                        markers[i].addListener('click', function() {
-                            infowindow.setContent(details);           
-                            infowindow.open(map, markers[i]);
-                        });
-                    }
+            //             markers[i].addListener('click', function() {
+            //                 infowindow.setContent(details);           
+            //                 infowindow.open(map, markers[i]);
+            //             });
+            //         }
                 
-                };
-            };
+            //     };
+            // };
 
 
 

@@ -59,12 +59,12 @@
 
             <ul class="nav mb-3 justify-content-center" id="projects-tab" role="tablist">
                 <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
-                    <a class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">All</a>
+                    <a class="nav-link active tabs" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">All</a>
                 </li>
 
                 @foreach($ad_category as $key => $ad_cat)
                     <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-                        <a class="nav-link" id="new-development-tab" data-bs-toggle="tab" data-bs-target="#tab-new-development" type="button" role="tab" aria-controls="tabs-leisure" aria-selected="false">{{ $ad_cat->name }}</a>
+                        <a class="nav-link tabs" id="{{ $ad_cat->name }}-tab" data-bs-toggle="tab" data-bs-target="#tab-{{ $ad_cat->name }}" type="button" role="tab" aria-controls="tabs-leisure" aria-selected="false">{{ $ad_cat->name }}</a>
                     </li>
                 @endforeach
 
@@ -79,7 +79,7 @@
 
             </ul>
 
-            <div class="tab-content mt-5 py-4 px-5" id="tabs-tabContent" style="background-color : #ECECEC">
+            <div class="tab-content mt-5 py-4" id="tabs-tabContent" style="background-color : #ECECEC">
 
                 <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
                     <!-- <div class="row">
@@ -97,7 +97,7 @@
                     <div class="swiper-container mySwiper">
                         <div class="swiper-wrapper">
 
-                            <div class="swiper-slide row px-5">
+                            <div class="swiper-slide row">
 
                                 <div class="col-4" data-aos="flip-right" data-aos-duration="500">
                                     <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
@@ -113,51 +113,7 @@
 
                             </div>
 
-                            <div class="swiper-slide row px-5">
-
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                    <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
-                                </div>
-
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                    <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
-                                </div>
-                                
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                                    <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                </div>
-
-                    
-
-                <div class="tab-pane fade" id="tab-new-development" role="tabpanel" aria-labelledby="new-development-tab">
-                    <div class="swiper-container mySwiper">
-                        <div class="swiper-wrapper">
-
-                            <div class="swiper-slide row px-5">
-
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                    <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
-                                </div>
-
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                    <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
-                                </div>
-                                
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                                    <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
-                                </div>
-
-                            </div>
-
-                            <div class="swiper-slide row px-5">
+                            <div class="swiper-slide row">
 
                                 <div class="col-4" data-aos="flip-right" data-aos-duration="500">
                                     <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
@@ -179,31 +135,45 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="tab-investment" role="tabpanel" aria-labelledby="investment-tab">
-                    <div class="swiper-container mySwiper">
-                        <div class="swiper-wrapper">
+                @foreach($ad_category as $key => $ad_cat)
+                    <div class="tab-pane fade" id="tab-{{ $ad_cat->name }}" role="tabpanel" aria-labelledby="{{ $ad_cat->name }}-tab">
+                        <div class="swiper-container mySwiper">
+                            <div class="swiper-wrapper">
 
-                            <div class="swiper-slide row px-5">
+                                <div class="swiper-slide row">
 
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                    <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
+                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                        <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
+                                    </div>
+
+                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                        <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
+                                    </div>
+                                    
+                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
+                                        <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
+                                    </div>
+
                                 </div>
 
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                    <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
-                                </div>
-                                
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                                    <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
-                                </div>
+                                <div class="swiper-slide row">
 
+                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                        <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
+                                    </div>
+
+                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
+                                        <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -478,43 +448,43 @@
 
         });
 
-            let property = <?php echo json_encode($promo); ?>;
+            // let property = <?php echo json_encode($promo); ?>;
 
             
 
-            var infowindow = new google.maps.InfoWindow();
+            // var infowindow = new google.maps.InfoWindow();
 
-            for(let i = 0; i < markers.length; i++) {
-                for(let j = 0; j < property.length; j++) {
-                    let lat = markers[i].getPosition().lat();    
-                    let lng = markers[i].getPosition().lng();   
+            // for(let i = 0; i < markers.length; i++) {
+            //     for(let j = 0; j < property.length; j++) {
+            //         let lat = markers[i].getPosition().lat();    
+            //         let lng = markers[i].getPosition().lng();   
 
                     
-                    if(lat == property[j]['lat'] && lng == property[j]['long']) {
-                        let details = `<div class="row align-items-center p-1" style="width: 500px;">
-                                        <div class="col-6">
-                                            <img src="{{url('/')}}/image_assest/${property[j]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
-                                        </div>
-                                        <div class="col-6">
-                                            <h5 class="fw-bold mb-2">${property[j]['name']}</h5>
-                                            <p class="mb-1" style="font-size: 0.8rem;">Transaction Type: ${property[j]['transaction_type']}</p>
-                                            <p class="mb-1" style="font-size: 0.8rem;">Country: ${property[j]['country']}</p>
-                                            <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${property[j]['price']}</p>
+            //         if(lat == property[j]['lat'] && lng == property[j]['long']) {
+            //             let details = `<div class="row align-items-center p-1" style="width: 500px;">
+            //                             <div class="col-6">
+            //                                 <img src="{{url('/')}}/image_assest/${property[j]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
+            //                             </div>
+            //                             <div class="col-6">
+            //                                 <h5 class="fw-bold mb-2">${property[j]['name']}</h5>
+            //                                 <p class="mb-1" style="font-size: 0.8rem;">Transaction Type: ${property[j]['transaction_type']}</p>
+            //                                 <p class="mb-1" style="font-size: 0.8rem;">Country: ${property[j]['country']}</p>
+            //                                 <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${property[j]['price']}</p>
 
-                                            <div class="text-end">
-                                                <a href="{{url('/')}}/individual-property/${property[j]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
-                                            </div>
-                                        </div>
-                                    </div>`;
+            //                                 <div class="text-end">
+            //                                     <a href="{{url('/')}}/individual-property/${property[j]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
+            //                                 </div>
+            //                             </div>
+            //                         </div>`;
 
-                        markers[i].addListener('click', function() {
-                            infowindow.setContent(details);           
-                            infowindow.open(map, markers[i]);
-                        });
-                    }
+            //             markers[i].addListener('click', function() {
+            //                 infowindow.setContent(details);           
+            //                 infowindow.open(map, markers[i]);
+            //             });
+            //         }
                 
-                };
-            };
+            //     };
+            // };
 
 
 
@@ -649,7 +619,8 @@
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap" type="text/javascript"></script>
 
-    <!-- Swiper JS -->
+
+<!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <!-- Initialize Swiper -->
@@ -659,19 +630,10 @@
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+
+    observer: true,
+	observeParents: true
   });
-
-  let tabInputs = document.querySelectorAll('.tabInput');
-
-tabInputs.forEach(function(input) {
-
-  input.addEventListener('change', function() {
-    let id = input.value;
-    let thisSwiper = document.getElementById('swiper' + id);
-    thisSwiper.swiper.update();
-  });
-
-
 </script>
 
 @endpush
