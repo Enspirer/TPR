@@ -11,7 +11,7 @@
     <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
             <div class="col-4">
-                <div class="row"> table-btn
+                <div class="row">
                     <div class="col-12">
                         @include('frontend.includes.profile-settings-links')
                     </div>
