@@ -178,7 +178,7 @@
                                             <div class="row justify-content-between">
                                                 <div class="col-9">
                                                     <h5 class="property-price mb-0">{{ $property->name }}</h5>
-                                                    <h5 class="property-location">$ {{ $property->price }}</h5>
+                                                    <h5 class="property-location">{{ get_currency(request() ,$property->price)}}</h5>
                                                 </div>
                                         
                                                 @auth

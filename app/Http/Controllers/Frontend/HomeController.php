@@ -67,6 +67,8 @@ class HomeController extends Controller
 
     public function index($country_id,Request $request)
     {
+
+
         Cookie::queue("country_code", $country_id,1000);
 
         $promu = Properties::where('admin_approval','Approved')->get();
@@ -403,6 +405,7 @@ class HomeController extends Controller
         // dd($properties->get());
 
         $filteredProperty = $properties->get();
+
 
         // dd($filteredProperty);
         return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads]);
