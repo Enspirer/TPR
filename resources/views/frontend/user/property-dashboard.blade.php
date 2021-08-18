@@ -32,11 +32,10 @@
                                 <div class="col-4">
                                     <div class="card">
                                         <div src="..." class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">18</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $approvedProperties) }}</p>
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title text-center" style="color: #0d6efd;">Approved Properties</h4>
-                                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, ea. Architecto nihil hic quasi consequatur iure distinctio consectetur et atque?</p>
                                         </div>
                                     </div>
                                 </div>
@@ -44,11 +43,10 @@
                                 <div class="col-4">
                                     <div class="card">
                                         <div src="..." class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">05</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $disapprovedProperties) }}</p>
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title text-center" style="color: #0d6efd;">Disapproved Properties</h4>
-                                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, ea. Architecto nihil hic quasi consequatur iure distinctio consectetur et atque?</p>
                                         </div>
                                     </div>
                                 </div>
@@ -56,11 +54,10 @@
                                 <div class="col-4">
                                     <div class="card">
                                         <div src="..." class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">11</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $supports) }}</p>
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title text-center" style="color: #0d6efd;">Supports</h4>
-                                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, ea. Architecto nihil hic quasi consequatur iure distinctio consectetur et atque?</p>
                                         </div>
                                     </div>
                                 </div>
