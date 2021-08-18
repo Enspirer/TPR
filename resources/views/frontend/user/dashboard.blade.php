@@ -112,7 +112,7 @@
                                                     <option >Select</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
-                                                    </select>
+                                                </select>
                                             </div>
                                             <div class="col-6">
                                                 <label for="displayName" class="form-label mb-0 mt-4 required">Marital Status</label>
@@ -572,7 +572,7 @@
     });
 
 
-        $('document').ready(function() {
+        $(document).ready(function() {
             let value = <?php echo json_encode ($user_edit->user_type ) ?>
 
             $('#userType option').each(function(i){
@@ -582,7 +582,7 @@
             });
         });
 
-        $('document').ready(function() {
+        $(document).ready(function() {
             let value = <?php echo json_encode ($user_edit->dob ) ?>
 
             $('#dob option').each(function(i){
@@ -592,7 +592,7 @@
             });
         });
 
-        $('document').ready(function() {
+        $(document).ready(function() {
             let value = <?php echo json_encode ($user_edit->gender ) ?>
 
             $('#gender option').each(function(i){
@@ -602,7 +602,7 @@
             });
         });
 
-        $('document').ready(function() {
+        $(document).ready(function() {
             let value = <?php echo json_encode ($user_edit->marital_status ) ?>
 
             $('#marital option').each(function(i){
@@ -612,7 +612,7 @@
             });
         });
 
-         $('document').ready(function() {
+         $(document).ready(function() {
             let value = <?php echo json_encode ($user_edit->country ) ?>
 
             $('#country option').each(function(i){
