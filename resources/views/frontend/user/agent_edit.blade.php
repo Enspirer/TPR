@@ -173,7 +173,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Tax Number</label>
+                                            <label class="form-label mb-0 mt-4">Tax Number</label>
                                             <input type="text" class="form-control" value="{{ $agent_edit->tax_number }}" name="tax">
                                         </div>
                                     </div>
@@ -210,7 +210,7 @@
                                         </div>
                                         <div id="divFrmLicense" class="form-group form-validate-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">License</label>
-                                            <input type="text" class="form-control" id="license" value="{{ $agent_edit->license }} name="license" placeholder="License Number" > 
+                                            <input type="text" class="form-control" id="license" value="{{ $agent_edit->license }} "name="passport" placeholder="License Number" > 
                                         </div>
                                     </div>
                                     
