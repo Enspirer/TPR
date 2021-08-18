@@ -61,12 +61,22 @@
                 <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
                     <a class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">All</a>
                 </li>
-                <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+
+                @foreach($ad_category as $key => $ad_cat)
+                    <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                        <a class="nav-link" id="new-development-tab" data-bs-toggle="tab" data-bs-target="#tab-new-development" type="button" role="tab" aria-controls="tabs-leisure" aria-selected="false">{{ $ad_cat->name }}</a>
+                    </li>
+                @endforeach
+
+
+                <!-- <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
                     <a class="nav-link" id="new-development-tab" data-bs-toggle="tab" data-bs-target="#tab-new-development" type="button" role="tab" aria-controls="tabs-leisure" aria-selected="false">New Development</a>
                 </li>
                 <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="450">
                     <a class="nav-link" id="investment-tab" data-bs-toggle="tab" data-bs-target="#tab-investment" type="button" role="tab" aria-controls="pills-apartments" aria-selected="false">Investment Properties</a>
-                </li>
+                </li> -->
+
+
             </ul>
 
             <div class="tab-content mt-5 py-4 px-5" id="tabs-tabContent" style="background-color : #ECECEC">

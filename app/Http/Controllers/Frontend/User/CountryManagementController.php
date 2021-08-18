@@ -11,6 +11,7 @@ use App\Models\Country;
 use App\Models\Properties;
 use App\Models\Auth\User;
 use App\Models\Feedback;
+use App\Models\AdCategory;
 use Auth;
 
 /**
@@ -178,7 +179,53 @@ class CountryManagementController extends Controller
         );
 
         return redirect('/country-management/property-approval');
-    }    
+    }   
+    
+    
+// ******************************************  Advertisements  *************************************************
+
+
+    public function adCategory() {
+
+        $country = Country::where('country_manager',auth()->user()->id)->first();
+        // dd($country);
+
+        $ad_category = AdCategory::get();
+        // dd($ad_category);
+    
+        return view('frontend.user.ad_category',[
+            'country' => $country,
+            'ad_category' => $ad_category
+        ]);
+    }  
+
+    public function adCategory_store(Request $request)
+    {        
+        // dd($request);
+
+        $add = new AdCategory;
+
+        $add->name=$request->name;
+        $add->country=$request->country;
+        $add->country_manager_approval='Pending';  
+        $add->admin_approval='Pending'; 
+        
+        $add->save();
+
+        return back();
+    }
+
+    public function adCategory_delete($id)
+    {        
+
+        // dd($id);
+        $data = AdCategory::findOrFail($id);
+        $data->delete();   
+
+        return back();
+    }
+
+
 
     
 

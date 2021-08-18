@@ -160,6 +160,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('country-management/single-agent-approval/update', [CountryManagementController::class, 'singleAgentApprovalUpdate'])->name('singleAgentApprovalUpdate');
 
         
+        Route::get('country-management/ad-category', [CountryManagementController::class, 'adCategory'])->name('ad_category');
+        Route::post('ad-category/store', [CountryManagementController::class, 'adCategory_store'])->name('ad_category.adCategory_store');
+        Route::get('ad-category/delete/{id}', [CountryManagementController::class, 'adCategory_delete'])->name('adCategory_delete');
+
 
         Route::get('country-management/sidebar-ad', [CountryManagementController::class, 'sidebarAD'])->name('sidebar_ad');
         Route::post('sidebar-ad/store', [CountryManagementController::class, 'sidebarAD_store'])->name('sidebar_ad.sidebarAD_store');

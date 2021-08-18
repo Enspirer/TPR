@@ -81,7 +81,8 @@
                 <i class="fas fa-caret-down"></i>
             </a>
             <div class="dropdown-container">
-
+                
+                <a class="nav-link bg-white border-0 ps-5 w-100 pb-3 {{ Request::segment(2) == 'ad-category' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.ad_category') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Home Page Ad Category</a>
                 <a class="nav-link bg-white border-0 ps-5 w-100 pb-3 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Home Page Advertisement</a>
                 <a class="nav-link bg-white border-0 border-bottom ps-5 w-100 pb-3 {{ Request::segment(2) == 'sidebar-ad' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.sidebar_ad') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Sidebar Advertisement</a>
 

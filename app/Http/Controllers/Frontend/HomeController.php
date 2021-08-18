@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Cookie;
 use Session;
 use App\Models\Favorite; 
 use App\Models\SidebarAd; 
+use App\Models\AdCategory;
 
 /**
  * Class HomeController.
@@ -68,6 +69,8 @@ class HomeController extends Controller
     public function index($country_id,Request $request)
     {
 
+        $ad_category = AdCategory::where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->get();
+        // dd($ad_category);
 
         Cookie::queue("country_code", $country_id,1000);
 
@@ -82,7 +85,8 @@ class HomeController extends Controller
         return view('frontend.home_page.index',[
             'country_id' => $country_id,
             'promo' => $promu,
-            'latest' => $latest
+            'latest' => $latest,
+            'ad_category' => $ad_category
         ]);
     }
 
