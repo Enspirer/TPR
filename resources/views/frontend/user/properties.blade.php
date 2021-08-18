@@ -65,6 +65,11 @@
                             </div> -->
 
 
+            @if(count($properties) == 0)
+                <h2 align="center" style="margin-top:130px; color:#808080;">Properties Are Not Found</h2>
+            @else
+
+
                             @foreach($properties as $property)
 
                                 @if($property->admin_approval == 'Approved' && $property->country_manager_approval == 'Approved')
@@ -211,6 +216,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
 
         
