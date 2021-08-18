@@ -392,51 +392,49 @@
                 <div class="swiper-container mySwiper">
                     <div class="swiper-wrapper">
 
-                        <div class="swiper-slide">
-                            <div class="row px-5">
+                        <div class="swiper-slide row px-5">
+                            <!-- <div class="row px-5"> -->
 
-                            @foreach($random as $key=> $ran)
-                                @foreach(App\Models\FileManager::where('id',$ran->feature_image_id)->get() as $feature_image)
-                                    <div class="col-3">
-                                        <div class="card p-2 shadow border-0">
-                                            <a href="{{ url('individual-property',$ran->id) }}" class="text-decoration-none">
-                                                <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:200px" width="100%" class="card-img-top" alt="...">
-                                            </a>
-                                            <div class="card-body">
-                                                <p class="text-danger fw-bold mb-0">$ {{$ran->price}}</p>
-                                                <h6 class="card-title">Colombo, Sri Lanka</h6>
+                            @foreach($random as $ran)
+                                <div class="col-3">
+                                    <div class="card p-2 shadow border-0">
+                                        <a href="{{ url('individual-property',$ran->id) }}" class="text-decoration-none">
+                                            <img src="{{url('image_assest',$ran->feature_image_id)}}" style="object-fit: cover; height:200px" width="100%" class="card-img-top" alt="...">
+                                        </a>
+                                        <div class="card-body">
+                                            <p class="text-danger fw-bold mb-0">$ {{$ran->price}}</p>
+                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
 
-                                                <p class="text-secondary">
-                                                    @if($ran->baths == null)
-                                                    @else
-                                                    <i class="fas fa-bath me-2"></i>{{ $ran->baths }} bath
-                                                    @endif
-
-                                                    @if($ran->beds == null)
-                                                    @else
-                                                    <i class="fas fa-bed ms-4 me-2"></i>{{ $ran->beds }} bed
-                                                    @endif
-                                                </p>
-
-                                                <!-- <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p> -->
-                                                
-                                                @if($ran->beds == null)
+                                            <p class="text-secondary">
+                                                @if($ran->baths == null)
                                                 @else
-                                                    <p class="card-text mt-3 mb-0 text-body fw-bold">
-                                                        {{ $ran->beds }} bed semi-detached house
-                                                    </p>
+                                                <i class="fas fa-bath me-2"></i>{{ $ran->baths }} bath
                                                 @endif
 
-                                                <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                                <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
-                                            </div>
+                                                @if($ran->beds == null)
+                                                @else
+                                                <i class="fas fa-bed ms-4 me-2"></i>{{ $ran->beds }} bed
+                                                @endif
+                                            </p>
+
+                                            <!-- <p class="text-secondary"><i class="fas fa-bath me-2"></i>2<i class="fas fa-bed ms-4 me-2"></i>5</p> -->
+                                            
+                                            @if($ran->beds == null)
+                                            @else
+                                                <p class="card-text mt-3 mb-0 text-body fw-bold">
+                                                    {{ $ran->beds }} bed semi-detached house
+                                                </p>
+                                            @endif
+
+                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
                                         </div>
-                                        <br>
                                     </div>
-                                @endforeach
+                                    <br>
+                                </div>
                             @endforeach
                                 
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </div>
 
