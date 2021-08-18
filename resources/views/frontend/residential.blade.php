@@ -50,7 +50,7 @@
                                         <p class="fw-bold mb-0">{{ $property->name }}</p>
                                         <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${{ $property->transaction_type }}</p>
                                         <p class="mb-0" style="font-size: 0.8rem;">Country: {{ $property->country }}</p>
-                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : {{ $property->price }}</p>
+                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : {{ current_price(get_country_cookie(request())->country_id, $property->price) }}</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -577,6 +577,8 @@
                 // console.log('Number of managed markers in cluster: ' + c.getSize());
                 var newArray = [];
 
+                let country_id = <?php echo json_encode(get_country_cookie(request())->country_id); ?>;
+
                 for (marker in markers) {
                     const cars = [];
                     cars['lat']= markers[marker].getPosition().lat();
@@ -590,7 +592,8 @@
 
                 $.post("{{url('/')}}/api/country_request",
                     {
-                        coordinate_data: myArray
+                        coordinate_data: myArray,
+                        country_id : country_id
                     },
                     function(data, status){
 
@@ -621,9 +624,9 @@
                                                         <h5 class="fw-bold mb-2">${obj[i]['name']}</h5>
                                                         <p class="mb-1" style="font-size: 0.8rem;">Transaction Type: ${obj[i]['transaction_type']}</p>
                                                         <p class="mb-1" style="font-size: 0.8rem;">Country: ${obj[i]['country']}</p>
-                                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${obj[i]['price']}</p>
+                                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${obj[i]['price_currency']}</p>
 
-                                                        <div class="text-end">
+                                                        <div class="text-end mt-2">
                                                             <a href="{{url('/')}}/individual-property/${obj[i]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
                                                         </div>
                                                     </div>
@@ -658,7 +661,7 @@
                                         <p class="fw-bold mb-0">${obj[i]['name']}</p>
                                         <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${obj[i]['transaction_type']}</p>
                                         <p class="mb-0" style="font-size: 0.8rem;">Country: ${obj[i]['country']}</p>
-                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${obj[i]['price']}</p>
+                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${obj[i]['price_currency']}</p>
                                     </div>
                                 </div>
                             `

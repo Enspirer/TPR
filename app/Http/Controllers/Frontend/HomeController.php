@@ -45,8 +45,7 @@ class HomeController extends Controller
     {
         if ($request->coordinate_data){
             $coordinate_data = json_decode($request->coordinate_data);
-
-
+            $country_id = $request->country_id;
             $out = [];
             foreach ($coordinate_data as $coodinate)
             {
@@ -57,10 +56,16 @@ class HomeController extends Controller
                        ->where('long', 'like', '%' .  substr($cordinate->long, 0, 7) . '%')
                        ->where('admin_approval','Approved')
                        ->first();
+
+                   $property->price_currency = current_price($country_id,$property->price);
+
+                   $property->price_current =
                    array_push($out,$property);
                }
             }
           return json_encode($out);
+
+
         }
 
         return json_encode($request->coordinate_data);
