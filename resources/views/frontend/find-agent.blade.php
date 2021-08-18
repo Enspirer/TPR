@@ -52,8 +52,12 @@
         <div class="container" style="margin-top: 6rem;">
             <h3 class="fw-bolder">Directory of Real Estate Agents / Brokers / Realtors in Sri Lanka</h3>
 
-            @if(count(array($agents)) == 0)
-                <h2 align="center" style="margin-top:130px; color:#808080;">Agents Are Not Found</h2>
+            @if(count($agents) <= 0)
+                <section id="residential-properties">
+                    <div class="container text-center" style="margin-top: 7rem">
+                        <p class="display-3 text-secondary">AGENTS NOT FOUND!</p>
+                    </div>
+                </section>
             @else
 
                 @foreach($agents as $agent)

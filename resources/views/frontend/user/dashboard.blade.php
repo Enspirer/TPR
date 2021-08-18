@@ -85,7 +85,7 @@
                                             <div class="col-6">
                                                 <label for="userType" class="form-label mb-0 required">I am a</label>
                                                 <select class="form-select" aria-label="userType" id="userType" name="user_type" value="{{ $user_edit->user_type }}" required>
-                                                    <option>No Preference</option>
+                                                    <option value="">No Preference</option>
                                                     <option value="first-time-buyer">First time buyer</option>
                                                     <option value="repeat-buyer">Repeat buyer</option>
                                                     <option value="seller">Seller</option>
@@ -109,7 +109,7 @@
                                             <div class="col-6">
                                                 <label for="gender" class="form-label mb-0 mt-4 required">Gender</label>
                                                 <select class="form-select" aria-label="gender" id="gender" name="gender" value="{{ $user_edit->gender }}" required>
-                                                    <option >Select</option>
+                                                    <option value="">Select</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
                                                 </select>
@@ -117,7 +117,7 @@
                                             <div class="col-6">
                                                 <label for="displayName" class="form-label mb-0 mt-4 required">Marital Status</label>
                                                 <select class="form-select" aria-label="Default select example" id="marital" name="marital" value="{{ $user_edit->marital_status }}" required>
-                                                    <option>Select</option>
+                                                    <option value="">Select</option>
                                                     <option value="single">Single</option>
                                                     <option value="common-law">Common Law</option>
                                                     <option value="married">Married</option>
@@ -150,7 +150,7 @@
                                             <div class="col-6">
                                                 <label for="country" class="form-label mb-0 mt-4 required">Country</label>
                                                 <select class="form-select" aria-label="country" id="country" name="country" required>
-                                                    <option>Select</option>
+                                                    <option value="">Select</option>
                                                     <option value="Angola">Angola</option>
                                                     <option value="Anguilla">Anguilla</option>
                                                     <option value="Antigua and Barbuda">Antigua and Barbuda</option>

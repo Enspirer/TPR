@@ -274,6 +274,17 @@ class AgentController extends Controller
 
     public function updateProperty(Request $request) {
 
+
+        $request->validate([
+            'lat' => 'required',
+            'featured_image' => 'required'
+        ],
+        [
+            'lat.required' => 'Property location must need to point in the map',
+            'featured_image.required' => 'Property featured image must need to add to create a property'
+        ]
+    );
+
         $out_json = $request->property_images;
 
 
@@ -332,7 +343,7 @@ class AgentController extends Controller
         //     $baths = $request->baths;
         // }
 
-        // dd($request);
+        dd($request);
 
         $property = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
             [
@@ -386,8 +397,6 @@ class AgentController extends Controller
             'featured_image.required' => 'Property featured image must need to add to create a property'
         ]
     );
-
-    dd($request);
 
         $out_json = $request->property_images;
 
