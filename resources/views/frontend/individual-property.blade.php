@@ -87,7 +87,7 @@
                     <div class="details mt-5">
                         <div class="row">
                             <div class="col-6">
-                                <h5 class="mb-1" style="color: #79CEEC;">$ {{ $property_details->price }}</h5>
+                                <h5 class="mb-1" style="color: #79CEEC;">{{ get_currency(request(),$property_details->price ) }}</h5>
                                 <h5 style="color: #83BE43">{{ $property_details->city }}, {{ $property_details->country }}</h5>
 
                                 @if($property_details->beds == null)
@@ -418,7 +418,7 @@
                                             <img src="{{url('image_assest',$ran->feature_image_id)}}" style="object-fit: cover; height:200px" width="100%" class="card-img-top" alt="...">
                                         </a>
                                         <div class="card-body">
-                                            <p class="text-danger fw-bold mb-0">$ {{$ran->price}}</p>
+                                            <p class="text-danger fw-bold mb-0">{{get_currency(request(),$ran->price)}}</p>
                                             <h6 class="card-title">Colombo, Sri Lanka</h6>
 
                                             <p class="text-secondary">
