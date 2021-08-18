@@ -56,7 +56,7 @@ class HomeController extends Controller
                        ->where('admin_approval','Approved')
                        ->first();
 
-                   $property->price_currency = get_currency($request,$property->price);
+                   $property->price_currency = current_price($country_id,$property->price);
 
                    $property->price_current =
                    array_push($out,$property);
