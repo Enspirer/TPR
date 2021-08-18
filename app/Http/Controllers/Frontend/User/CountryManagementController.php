@@ -23,7 +23,18 @@ class CountryManagementController extends Controller
      */
     public function index()
     {
-        return view('frontend.user.property-dashboard');
+        $approvedProperties = Properties::get()->where('admin_approval' , 'Approved')->count();
+
+        $disapprovedProperties = Properties::get()->where('admin_approval' , 'Disapproved')->count();
+
+        $supports = Feedback::get()->where('status', 'Pending')->count();
+
+
+        return view('frontend.user.property-dashboard', [
+            'approvedProperties' => $approvedProperties,
+            'disapprovedProperties' => $disapprovedProperties,
+            'supports' => $supports
+        ]);
     }
 
     public function propertyApproval() {
@@ -102,6 +113,7 @@ class CountryManagementController extends Controller
     public function agentApproval() {
 
         $user_id = auth()->user()->id;
+        
         $country_manager = Country::where('country_manager',$user_id)->first();
 
         $agent_request = AgentRequest::where('country',$country_manager->country_name)->get();
