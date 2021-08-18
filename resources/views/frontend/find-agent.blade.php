@@ -70,7 +70,13 @@
                                 <div class="row">
                                     <div class="clearfix">
                                         <div class="float-start">
-                                            <h5 class="fw-bolder">{{ $agent->company_name }}</h5>
+                                            <h5 class="fw-bolder">
+                                            @if($agent->company_name == null)
+                                                {{ $agent->name }}
+                                            @else
+                                                {{ $agent->company_name }}
+                                            @endif
+                                            </h5>
                                         </div>
                                         <!-- <div class="float-end">
                                             <i class="bi bi-star-fill me-3 stars"></i>
