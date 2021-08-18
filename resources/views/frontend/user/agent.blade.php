@@ -87,7 +87,7 @@
                                         <div>
                                             <label class="form-label mb-0 required">Country</label>
                                             <select class="form-control" name="country" required>
-                                                <option selected disabled>Select...</option>
+                                                <option value="" selected disabled>Select...</option>
                                                 @foreach($countries as $country)
                                                     <option value="{{$country->country_name}}">{{$country->country_name}}</option>
                                                 @endforeach
@@ -123,7 +123,7 @@
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">Agent Type</label>
                                             <select class="form-select agent_type" name="agent_type" required>
-                                                <option selected disabled>Select...</option>
+                                                <option value="" selected disabled>Select...</option>
                                                 <option value="Individual">Individual</option>
                                                 <option value="Company">Company</option>
                                             </select>
@@ -171,7 +171,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 mt-4">Tax Number</label>
-                                            <input type="text" class="form-control" name="tax" required>
+                                            <input type="text" class="form-control" name="tax">
                                         </div>
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">NIC/ Passport/ License</label>
                                             <select class="form-select" name="validate" id="validate" required>
-                                                <option selected disabled>Select...</option>
+                                                <option value="" selected disabled>Select...</option>
                                                 <option value="NIC">NIC</option>
                                                 <option value="Passport">Passport</option>
                                                 <option value="License">License</option>
@@ -199,15 +199,15 @@
                                     
                                         <div id="divFrmNIC" class="form-group form-validate-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">NIC</label>
-                                            <input type="text" class="form-control" name="nic" placeholder="NIC Number" > 
+                                            <input type="text" class="form-control" id="nic" name="nic" placeholder="NIC Number" > 
                                         </div>
                                         <div id="divFrmPassport" class="form-group form-validate-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">Passport</label>
-                                            <input type="text" class="form-control" name="passport" placeholder="Passport Number" > 
+                                            <input type="text" class="form-control" id="passport" name="passport" placeholder="Passport Number" > 
                                         </div>
                                         <div id="divFrmLicense" class="form-group form-validate-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">License</label>
-                                            <input type="text" class="form-control" name="license" placeholder="License Number" > 
+                                            <input type="text" class="form-control" id="license" name="license" placeholder="License Number" > 
                                         </div>
                                     </div>
                                     
@@ -215,15 +215,15 @@
 
                                         <div id="imgNIC" class="form-group form-image-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">NIC Photo</label>
-                                            <input type="file" class="form-control" name="nic_photo" >                                            
+                                            <input type="file" class="form-control" id="nic_photo" name="nic_photo" >                                            
                                         </div>
                                         <div id="imgPassport" class="form-group form-image-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">Passport Photo</label>
-                                            <input type="file" class="form-control" name="passport_photo" >                                            
+                                            <input type="file" class="form-control" id="passport_photo" name="passport_photo" >                                            
                                         </div>
                                         <div id="imgLicense" class="form-group form-image-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">License Photo</label>
-                                            <input type="file" class="form-control" name="license_photo" >                                            
+                                            <input type="file" class="form-control" id="license_photo" name="license_photo" >                                            
                                         </div>
 
                                     </div>
@@ -309,6 +309,24 @@
             $('.company_reg_no').find('input').prop('required', true);
         }
     });
+
+
+    $('#validate').change(function() {
+        if($(this).val() == 'NIC') {
+            $('#nic').prop('required', true);
+            $('#nic_photo').prop('required', true);
+        }
+
+        if($(this).val() == 'Passport') {
+            $('#passport').prop('required', true);
+            $('#passport_photo').prop('required', true);
+        }
+
+        if($(this).val() == 'License') {
+            $('#license').prop('required', true);
+            $('#license_photo').prop('required', true);
+        }
+    })
 
 </script>
 

@@ -391,8 +391,8 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label class="form-label mb-0 mt-4 required">Tax Number - Nullable</label>
-                                            <input type="text" class="form-control" value="{{ $agent_edit->tax_number }}" name="tax" required>
+                                            <label class="form-label mb-0 mt-4 required">Tax Number</label>
+                                            <input type="text" class="form-control" value="{{ $agent_edit->tax_number }}" name="tax">
                                         </div>
                                     </div>
                                 </div>
@@ -404,7 +404,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">NIC/ Passport/ License</label>
-                                            <select class="form-select" name="validate" id="validate" required>
+                                            <select class="form-select" name="validate" id="validate" value="{{ $agent_edit->validation_type }}" required>
     
                                                 <option value="NIC" {{ $agent_edit->validation_type == 'NIC' ? "selected" : "" }}>NIC</option>
                                                 <option value="Passport" {{ $agent_edit->validation_type == 'Passport' ? "selected" : "" }}>Passport</option>
@@ -418,25 +418,25 @@
 
                                     <div class="col-6">  
                                     
-                                        <div id="divFrmNIC" class="form-group form-validate-div" style="display:none">
+                                    <div id="divFrmNIC" class="form-group form-validate-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">NIC</label>
-                                            <input type="text" class="form-control" name="nic" value="{{ $agent_edit->nic }}" placeholder="NIC Number" > 
+                                            <input type="text" class="form-control" id="nic" name="nic" value="{{ $agent_edit->nic }}" placeholder="NIC Number" > 
                                         </div>
                                         <div id="divFrmPassport" class="form-group form-validate-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">Passport</label>
-                                            <input type="text" class="form-control" name="passport" value="{{ $agent_edit->passport }}" placeholder="Passport Number" > 
+                                            <input type="text" class="form-control" id="passport" value="{{ $agent_edit->passport }}" name="passport" placeholder="Passport Number" > 
                                         </div>
                                         <div id="divFrmLicense" class="form-group form-validate-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">License</label>
-                                            <input type="text" class="form-control" name="license" value="{{ $agent_edit->license }}" placeholder="License Number" > 
+                                            <input type="text" class="form-control" id="license" value="{{ $agent_edit->license }} name="license" placeholder="License Number" > 
                                         </div>
                                     </div>
                                     
                                     <div class="col-6">
 
-                                        <div id="imgNIC" class="form-group form-image-div" style="display:none">
+                                    <div id="imgNIC" class="form-group form-image-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">NIC Photo</label>
-                                            <input type="file" class="form-control" name="nic_photo" >   
+                                            <input type="file" class="form-control" id="nic_photo" name="nic_photo">   
                                             <br>
                                             @if($agent_edit->nic_photo == !null)
                                             <img src="{{url('files/agent_request',$agent_edit->nic_photo)}}" style="width: 40%;" alt="" >
@@ -444,7 +444,7 @@
                                         </div>
                                         <div id="imgPassport" class="form-group form-image-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">Passport Photo</label>
-                                            <input type="file" class="form-control" name="passport_photo" >   
+                                            <input type="file" class="form-control" id="passport_photo" name="passport_photo">   
                                             <br>
                                             @if($agent_edit->passport_photo == !null)
                                             <img src="{{url('files/agent_request',$agent_edit->passport_photo)}}" style="width: 40%;" alt="" >
@@ -452,7 +452,7 @@
                                         </div>
                                         <div id="imgLicense" class="form-group form-image-div" style="display:none">
                                             <label class="form-label mb-0 mt-4 required">License Photo</label>
-                                            <input type="file" class="form-control" name="license_photo" >  
+                                            <input type="file" class="form-control" id="license_photo" name="license_photo">  
                                             <br>
                                             @if($agent_edit->license_photo == !null)
                                             <img src="{{url('files/agent_request',$agent_edit->license_photo)}}" style="width: 40%;" alt="" >
@@ -620,7 +620,43 @@
                     $(this).attr('selected', 'selected');
                 }
             });
-        });        
+        });      
+
+
+
+        $(document).ready(function() {
+        if($('#validate').val() == 'NIC') {
+            $('#nic').prop('required', true);
+            // $('#nic_photo').prop('required', true);
+        }
+
+        if($('#validate').val() == 'Passport') {
+            $('#passport').prop('required', true);
+            // $('#passport_photo').prop('required', true);
+        }
+
+        if($('#validate').val() == 'License') {
+            $('#license').prop('required', true);
+            // $('#license_photo').prop('required', true);
+        }
+    });
+
+    $('#validate').change(function() {
+        if($(this).val() == 'NIC') {
+            $('#nic').prop('required', true);
+            $('#nic_photo').prop('required', true);
+        }
+
+        if($(this).val() == 'Passport') {
+            $('#passport').prop('required', true);
+            $('#passport_photo').prop('required', true);
+        }
+
+        if($(this).val() == 'License') {
+            $('#license').prop('required', true);
+            $('#license_photo').prop('required', true);
+        }
+    })  
     
     </script>    
 
