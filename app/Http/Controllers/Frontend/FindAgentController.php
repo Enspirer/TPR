@@ -44,12 +44,13 @@ class FindAgentController extends Controller
         foreach($age as $ag){
             array_push($final_out,$ag->user_id);
         }   
+        // dd($final_out);
         
         if(count($final_out) == 0 ){
             $final_out2 = null;
         }
         else{
-            
+
             $prop = Properties::where('user_id',$final_out)->get();
 
             $final_out2 = [];
@@ -58,16 +59,9 @@ class FindAgentController extends Controller
             }
 
         }
-        // dd($final_out);
+        // dd($final_out2);
 
-        // $prop = Properties::where('user_id',$final_out)->get();
-
-        // $final_out2 = [];
-        // foreach($prop as $pro){
-        //     array_push($final_out2,$pro->main_category);
-        // }
-
-
+      
         // $area_agents = AgentRequest::where('area', $area);
 
         return view('frontend.find-agent', [

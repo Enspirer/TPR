@@ -93,18 +93,15 @@
                                         <button class="btn w-100 text-white" style="background-color: #77CEEC; border-radius: 0.7rem;">Sales</button>
                                     </div> -->
 
-                                @if($final_out2 = 'Residential')
+                                
                                     <div class="col-2 p-1">
-                                        <button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem; cursor:default">Residential</button>
+                                        <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type'] )}}"><button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button></a>
                                     </div>
-                                @else  
-                                @endif 
-                                @if($final_out2 = 'Commercial')
+                                
                                     <div class="col-2 p-1">
-                                        <button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem; cursor:default">Commercial</button>
+                                        <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type'] )}}"><button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button></a>
                                     </div>
-                                @else    
-                                @endif    
+                                  
                                     
                                     
                                     <!-- <div class="col-2 p-1">
