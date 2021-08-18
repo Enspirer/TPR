@@ -343,7 +343,7 @@ class AgentController extends Controller
         //     $baths = $request->baths;
         // }
 
-        dd($request);
+        // dd($request);
 
         $property = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
             [
