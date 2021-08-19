@@ -61,12 +61,12 @@
 
                                 @foreach($final_out as $key => $image)
                                     @if($key == 0)
-                                    <div class="carousel-item active" style="object-fit:cover" width="100%">
-                                        <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
+                                    <div class="carousel-item active" width="100%">
+                                        <img src="{{ url('images',$image) }}" class="d-block w-100" alt="..." style="object-fit:cover; height: 600px;">
                                     </div>
                                     @else  
-                                    <div class="carousel-item" style="object-fit:cover" width="100%">
-                                        <img src="{{ url('images',$image) }}" class="d-block w-100" alt="...">
+                                    <div class="carousel-item" width="100%">
+                                        <img src="{{ url('images',$image) }}" class="d-block w-100" alt="..." style="object-fit:cover;">
                                     </div>
                                     @endif    
                                 @endforeach
@@ -415,7 +415,7 @@
                                 <div class="col-3">
                                     <div class="card p-2 shadow border-0">
                                         <a href="{{ url('individual-property',$ran->id) }}" class="text-decoration-none">
-                                            <img src="{{url('image_assest',$ran->feature_image_id)}}" style="object-fit: cover; height:200px" width="100%" class="card-img-top" alt="...">
+                                            <img src="{{url('image_assest',$ran->feature_image_id)}}" style="object-fit:cover; height:210px" class="card-img-top w-100" alt="...">
                                         </a>
                                         <div class="card-body">
                                             <p class="text-danger fw-bold mb-0">{{get_currency(request(),$ran->price)}}</p>

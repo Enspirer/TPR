@@ -130,7 +130,7 @@
                             @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
                             <div class="row border py-4 px-3 mb-4">
                                 <div class="col-4">
-                                    <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:210px" width="100%" alt="" class="img-fluid">
+                                    <img src="{{ url('images',$feature_image->file_name) }}" class="img-fluid w-100" alt="..." style="object-fit:cover; height:210px;">
                                 </div>
                                 <div class="col-8">
                                     <div class="ps-2">
