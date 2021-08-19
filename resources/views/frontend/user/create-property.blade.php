@@ -81,7 +81,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label for="propertyType" class="form-label mb-0 required">Property Type</label>
-                                            <select class="form-select" aria-label="agentType" name="propertyType" id="propertyType" onChange="renderFields()"  required>
+                                            <select class="form-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()"  required>
                                                 <option selected disabled value="">Choose...</option>
                                             @foreach($property_type as $type)
                                                 <option value="{{$type->id}}"> {{$type->property_type_name}} </option>
