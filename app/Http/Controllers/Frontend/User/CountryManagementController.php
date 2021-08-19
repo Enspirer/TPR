@@ -190,7 +190,7 @@ class CountryManagementController extends Controller
         $country = Country::where('country_manager',auth()->user()->id)->first();
         // dd($country);
 
-        $ad_category = AdCategory::get();
+        $ad_category = AdCategory::orderBy('id', 'DESC')->get();
         // dd($ad_category);
     
         return view('frontend.user.ad_category',[
@@ -207,7 +207,7 @@ class CountryManagementController extends Controller
 
         $add->name=$request->name;
         $add->country=$request->country;
-        $add->country_manager_approval='Pending';  
+        $add->country_manager_approval='Approved';  
         $add->admin_approval='Pending'; 
         
         $add->save();

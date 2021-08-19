@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\SettingsController;
 use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\FileManagerController;
 use App\Http\Controllers\Backend\GlobalAdvertisementController;
+use App\Http\Controllers\Backend\AdCategoryController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -71,3 +72,10 @@ Route::get('global_advertisement/clear2/{id}', [GlobalAdvertisementController::c
 Route::get('global_advertisement/clear3/{id}', [GlobalAdvertisementController::class, 'clear3'])->name('global_advertisement.clear3');
 Route::get('global_advertisement/clear4/{id}', [GlobalAdvertisementController::class, 'clear4'])->name('global_advertisement.clear4');
 Route::get('global_advertisement/clear5/{id}', [GlobalAdvertisementController::class, 'clear5'])->name('global_advertisement.clear5');
+
+
+Route::get('ad_category', [AdCategoryController::class, 'index'])->name('ad_category.index');
+Route::get('ad_category/getdetails', [AdCategoryController::class, 'getDetails'])->name('ad_category.getDetails');
+Route::get('ad_category/edit/{id}', [AdCategoryController::class, 'edit'])->name('ad_category.edit');
+Route::post('ad_category/update', [AdCategoryController::class, 'update'])->name('ad_category.update');
+Route::get('ad_category/delete/{id}', [AdCategoryController::class, 'destroy'])->name('ad_category.destroy');

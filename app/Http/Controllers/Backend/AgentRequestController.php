@@ -66,10 +66,6 @@ class AgentRequestController extends Controller
 
         $upagent = new AgentRequest;
         
-        // $upagent->name=$request->name;
-        // $upagent->country=$request->country;
-        // $upagent->email=$request->email;
-        // $upagent->telephone=$request->telephone;
         $upagent->status=$request->status;
    
         AgentRequest::whereId($request->hidden_id)->update($upagent->toArray());
