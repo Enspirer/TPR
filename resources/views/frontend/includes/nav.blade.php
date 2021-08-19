@@ -9,7 +9,7 @@
 
                         @else
 
-                            <a href=""><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo img-fluid rounded" alt=""></a>
+                            <a href=""><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" data-bs-toggle="modal" data-bs-target="#countrySelection" class="logo img-fluid rounded" alt=""></a>
 
                         @endif
                     @else
@@ -24,8 +24,8 @@
 
                         @if(isset(get_country_cookie(request())->country_id))
                             @if(get_country_cookie(request())->country_id)
-                                <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid"></a>
-                            <p class="d-none">{{get_country_cookie(request())->country_id}}</p>
+                                <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid" data-bs-toggle="modal" data-bs-target="#countrySelection"></a>
+                                <p class="d-none">{{get_country_cookie(request())->country_id}}</p>
                             @else
 
                             @endif
@@ -111,6 +111,92 @@
         </nav>
     </div>
 </section>
+
+
+
+
+<!-- country selection model -->
+
+    <!-- Modal -->
+    <div class="modal fade nav-modal" id="countrySelection" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Select Country</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="height: 400px;">
+                    <div>
+                        @foreach($tpr_countries as $tpr_country)
+                            <a href="{{$tpr_country->country_id}}" class="text-decoration-none h6 text-dark">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        {{ $tpr_country->country_name }}
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <img src="https://www.countryflags.io/{{$tpr_country->country_id}}/flat/64.png" alt="" class="img-fluid" style="height: 40px;">
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+
+                        <!-- <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p>
+                        <p>sdfdsfsdfsf</p> -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
