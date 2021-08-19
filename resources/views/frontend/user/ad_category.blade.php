@@ -49,7 +49,7 @@
 
             @if(count($ad_category) <= 0)
                 <section id="residential-properties">
-                    <div class="container text-center" style="margin-top: 8rem">
+                    <div class="container text-center" style="margin-top: 10rem">
                         <p class="display-6 text-secondary">Categories Are Not Found!</p>
                     </div>
                 </section>
@@ -61,7 +61,6 @@
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Admin Approval</th>
-                                <th scope="col">Country Manager Approval</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -72,14 +71,12 @@
                             <tr class="align-items-center">
                                 <td> {{ $ad_cat->name }} </td>
                                 <td> {{ $ad_cat->admin_approval }} </td>
-                                <td> {{ $ad_cat->country_manager_approval }} </td>
                                 <td>
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <a href="" data-bs-toggle="modal" data-bs-target="#exampleModaledit{{$ad_cat->id}}" class="btn text-light table-btn edit" style="background-color: #4195E1">Edit</a>
-                                            <!-- <a href="" class="btn text-light table-btn btn-primary edit" data-bs-toggle="modal" data-bs-target="#exampleModaledit">Edit</a> -->
                                         </div>
-                                        <div class="col-4">                                            
+                                        <div class="col-3">                                            
                                             <a href="{{ route('frontend.user.adCategory_delete', $ad_cat->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModaldelete" class="btn text-light table-btn delete" style="background-color: #FF2C4B;">Delete</a>
                                         </div>
                                     </div>
@@ -114,14 +111,14 @@
                 <div class="modal-body">                
                                                                                     
                     <div class="form-group">
-                        <label>Category Name</label>
+                        <label>Category Name:</label>
                         <input type="text" class="form-control mt-3" name="name" required>
                     </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="hidden" class="form-control" name="country" value="{{ $country->id }}">
+                    <input type="hidden" class="form-control" name="country" value="{{ $country->country_name }}">
                     <input type="submit" class="btn btn-success" value="Add">
                 </div>
                
@@ -153,14 +150,14 @@
                         <div class="modal-body">
 
                             <div class="form-group">
-                                <label>Category Name</label>
-                                <input type="text" class="form-control mt-3" name="name" required>
+                                <label>Category Name:</label>
+                                <input type="text" class="form-control mt-3" name="name" value="{{$ad_cat->name}}" required>
                             </div>
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <input type="hidden" class="form-control" name="country" value="{{ $country->id }}">
+                            <input type="hidden" class="form-control" name="country" value="{{ $country->country_name }}">
                             <input type="hidden" class="form-control" name="hidden_id" value="{{$ad_cat->id}}">
                             <input type="submit" class="btn btn-success" value="Update">
                         </div>
@@ -193,13 +190,7 @@
             </div>
     
 
-    <!-- <script>
-        $('.edit').on('click', function() {
-            let link = $(this).attr('href');
-            $('.modal-footer a').attr('href', link);
-        })
-    </script> -->
-    
+       
     <script>
         $('.delete').on('click', function() {
             let link = $(this).attr('href');

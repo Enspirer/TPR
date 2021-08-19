@@ -29,7 +29,7 @@ class FileManagerController extends Controller
                         return $button;
                     })
                     ->addColumn('image', function($data){
-                        $img = '<img src="'.url('images/',$data->file_name).'" style="width: 70%">';
+                        $img = '<img src="'.url('images',$data->file_name).'" style="width: 70%">';
                      
                         return $img;
                     })

@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Frontend\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
-use App\Models\SidebarAd;
 use App\Models\AgentRequest;
 use App\Models\Country;
 use App\Models\Properties;
 use App\Models\Auth\User;
 use App\Models\Feedback;
 use App\Models\AdCategory;
+use App\Models\HomePageAdvertisement;
+use App\Models\SidebarAd;
 use Auth;
 
 /**
@@ -190,7 +191,7 @@ class CountryManagementController extends Controller
         $country = Country::where('country_manager',auth()->user()->id)->first();
         // dd($country);
 
-        $ad_category = AdCategory::get();
+        $ad_category = AdCategory::orderBy('id', 'DESC')->get();
         // dd($ad_category);
     
         return view('frontend.user.ad_category',[
@@ -207,7 +208,7 @@ class CountryManagementController extends Controller
 
         $add->name=$request->name;
         $add->country=$request->country;
-        $add->country_manager_approval='Pending';  
+        $add->country_manager_approval='Approved';  
         $add->admin_approval='Pending'; 
         
         $add->save();
@@ -236,6 +237,100 @@ class CountryManagementController extends Controller
 
         // dd($id);
         $data = AdCategory::findOrFail($id);
+        $data->delete();   
+
+        return back();
+    }
+
+    public function homepage_AD() {
+
+        $country = Country::where('country_manager',auth()->user()->id)->first();
+        // dd($country);
+
+        $ad_category = AdCategory::where('admin_approval','=','Approved')->get();
+        // dd($ad_category);
+
+        $homepage_ad = HomePageAdvertisement::orderBy('id', 'DESC')->get();
+        // dd($homepage_ad);
+    
+        return view('frontend.user.homepage_ad',[
+            'country' => $country,
+            'homepage_ad' => $homepage_ad,
+            'ad_category' => $ad_category
+        ]);
+    } 
+
+    public function homepage_AD_store(Request $request)
+    {        
+        // dd($request);
+
+        // $request->validate([
+        //     'image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=600,height=300'      
+        // ]);
+
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/homepage_advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{
+            $image_url = null;
+        } 
+
+        $add = new HomePageAdvertisement;
+
+        $add->name=$request->name;
+        $add->category=$request->category;
+        $add->link=$request->link;
+        $add->status=$request->status;
+        $add->order=$request->order;
+        $add->image=$image_url;
+        $add->country=$request->country;
+        $add->country_manager_approval='Approved';  
+        $add->admin_approval='Pending'; 
+        
+        $add->save();
+
+        return back();
+    }
+
+    public function homepage_AD_update(Request $request)
+    {      
+        // dd($request);
+
+        // $request->validate([
+        //     'image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=600,height=300'      
+        // ]);
+
+
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/homepage_advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{
+            $detail = HomePageAdvertisement::where('id',$request->hidden_id)->first();
+            $image_url = $detail->image;
+        } 
+        
+        $update = new HomePageAdvertisement;
+
+        $update->name=$request->name;
+        $update->category=$request->category;
+        $update->link=$request->link;
+        $update->status=$request->status;
+        $update->order=$request->order;
+        $update->image=$image_url;
+        $update->country=$request->country;
+        
+        HomePageAdvertisement::whereId($request->hidden_id)->update($update->toArray());
+
+        return back(); 
+    }
+
+    public function homepage_AD_delete($id)
+    {        
+        $data = HomePageAdvertisement::findOrFail($id);
         $data->delete();   
 
         return back();

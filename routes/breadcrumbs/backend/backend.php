@@ -74,6 +74,18 @@ Breadcrumbs::for('admin.global_advertisement.edit', function ($trail) {
     $trail->push('Edit Global Advertisement', route('admin.global_advertisement.edit',1));
 });
 
+Breadcrumbs::for('admin.ad_category.index', function ($trail) {
+    $trail->push('Ad Category', route('admin.ad_category.index'));
+});
+
+Breadcrumbs::for('admin.homepage_advertisement.index', function ($trail) {
+    $trail->push('Home Page Advertisement', route('admin.homepage_advertisement.index'));
+});
+
+Breadcrumbs::for('admin.homepage_advertisement.edit', function ($trail) {
+    $trail->push('Edit Home Page Advertisement', route('admin.homepage_advertisement.edit',1));
+});
+
 Breadcrumbs::for('admin.settings.index', function ($trail) {
     $trail->push('Settings', route('admin.settings.index'));
 });

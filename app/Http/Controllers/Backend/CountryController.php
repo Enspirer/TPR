@@ -38,11 +38,7 @@ class CountryController extends Controller
                         $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
                         return $button;
                     })
-                    // ->addColumn('image', function($data){
-                    //     $img = '<img src="'.url('files/awards/',$data->image).'" style="width: 100%">';
-                     
-                    //     return $img;
-                    // })
+                    
                     ->rawColumns(['action'])
                     ->make(true);
         }

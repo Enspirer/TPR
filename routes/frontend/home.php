@@ -165,6 +165,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('ad-category/update', [CountryManagementController::class, 'adCategory_update'])->name('adCategory_update');
         Route::get('ad-category/delete/{id}', [CountryManagementController::class, 'adCategory_delete'])->name('adCategory_delete');
 
+        Route::get('country-management/homepage-advertisement', [CountryManagementController::class, 'homepage_AD'])->name('homepage_AD');
+        Route::post('homepage-advertisement/store', [CountryManagementController::class, 'homepage_AD_store'])->name('homepage_AD_store');
+        Route::post('homepage-advertisement/update', [CountryManagementController::class, 'homepage_AD_update'])->name('homepage_AD_update');
+        Route::get('homepage-advertisement/delete/{id}', [CountryManagementController::class, 'homepage_AD_delete'])->name('homepage_AD_delete');
 
         Route::get('country-management/sidebar-ad', [CountryManagementController::class, 'sidebarAD'])->name('sidebar_ad');
         Route::post('sidebar-ad/store', [CountryManagementController::class, 'sidebarAD_store'])->name('sidebar_ad.sidebarAD_store');

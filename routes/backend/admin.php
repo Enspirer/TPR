@@ -9,6 +9,9 @@ use App\Http\Controllers\Backend\SettingsController;
 use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\FileManagerController;
 use App\Http\Controllers\Backend\GlobalAdvertisementController;
+use App\Http\Controllers\Backend\AdCategoryController;
+use App\Http\Controllers\Backend\HomePageAdvertisementController;
+
 
 
 // All route names are prefixed with 'admin.'.
@@ -73,3 +76,16 @@ Route::get('global_advertisement/clear2/{id}', [GlobalAdvertisementController::c
 Route::get('global_advertisement/clear3/{id}', [GlobalAdvertisementController::class, 'clear3'])->name('global_advertisement.clear3');
 Route::get('global_advertisement/clear4/{id}', [GlobalAdvertisementController::class, 'clear4'])->name('global_advertisement.clear4');
 Route::get('global_advertisement/clear5/{id}', [GlobalAdvertisementController::class, 'clear5'])->name('global_advertisement.clear5');
+
+
+Route::get('ad_category', [AdCategoryController::class, 'index'])->name('ad_category.index');
+Route::get('ad_category/getdetails', [AdCategoryController::class, 'getDetails'])->name('ad_category.getDetails');
+Route::get('ad_category/edit/{id}', [AdCategoryController::class, 'edit'])->name('ad_category.edit');
+Route::post('ad_category/update', [AdCategoryController::class, 'update'])->name('ad_category.update');
+Route::get('ad_category/delete/{id}', [AdCategoryController::class, 'destroy'])->name('ad_category.destroy');
+
+Route::get('homepage_advertisement', [HomePageAdvertisementController::class, 'index'])->name('homepage_advertisement.index');
+Route::get('homepage_advertisement/getdetails', [HomePageAdvertisementController::class, 'getDetails'])->name('homepage_advertisement.getDetails');
+Route::get('homepage_advertisement/edit/{id}', [HomePageAdvertisementController::class, 'edit'])->name('homepage_advertisement.edit');
+Route::post('homepage_advertisement/update', [HomePageAdvertisementController::class, 'update'])->name('homepage_advertisement.update');
+Route::get('homepage_advertisement/destroy/{id}', [HomePageAdvertisementController::class, 'destroy'])->name('homepage_advertisement.destroy');

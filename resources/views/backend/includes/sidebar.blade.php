@@ -56,12 +56,48 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link {{active_class(Route::is('admin/global_advertisement'))}}" href="{{ route('admin.global_advertisement.index') }}">
-                    <i class="nav-icon fas fa-globe"></i>
-                    Global Advertisement
+
+
+
+
+            <li class="nav-item nav-dropdown ">
+                <a class="nav-link nav-dropdown-toggle " href="#">
+                    <i class="nav-icon fas fa-ad"></i>
+                    Advertisements
                 </a>
-            </li>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/global_advertisement'))}}" href="{{ route('admin.global_advertisement.index') }}">
+                            Global Advertisement
+                        </a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/ad_category'))}}" href="{{ route('admin.ad_category.index') }}">
+                            Ad Category - Home Page
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/homepage_advertisement'))}}" href="{{ route('admin.homepage_advertisement.index') }}">
+                            Home Page Advertisemnet
+                        </a>
+                    </li>
+                        
+                </ul>
+            </li> 
+
+
+
+
+
+
+
+
+
+
+
+
+            
 
             <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">
