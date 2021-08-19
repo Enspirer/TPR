@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use DataTables;
 use DB;
 use App\Models\Country;
+use App\Models\Properties;
 use App\Models\Auth\User;
+use Auth;
 
 class CountryController extends Controller
 {
@@ -31,7 +33,8 @@ class CountryController extends Controller
             return DataTables::of($data)
                     ->addColumn('action', function($data){
                        
-                        $button = '<a href="'.route('admin.country.edit',$data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3" style="margin-right: 10px"><i class="fas fa-edit"></i> Edit </a>';
+                        $button = '<a href="'.route('admin.country.features',$data->id).'" name="feature" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3"><i class="fas fa-edit"></i> Features </a>';
+                        $button .= '<a href="'.route('admin.country.edit',$data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3 mr-3"><i class="fas fa-edit"></i> Edit </a>';
                         $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
                         return $button;
                     })
@@ -94,6 +97,59 @@ class CountryController extends Controller
         ]);  
     }
 
+    public function features($id)
+    {
+
+        $country = Country::where('id', $id)->first();
+
+        // $country_manager = Country::where('country_manager',$user_id)->first();
+
+        $properties = Properties::where('admin_approval', 'Approved')->where('country',$country->country_name)->get();
+
+        // dd($properties);
+
+        return view('backend.country.features',[
+            'properties' => $properties,
+            'country' => $country
+        ]);  
+    }
+
+    public function featuresUpdate(Request $request)
+    {
+       
+        $title1 = $request->featureTitle1;
+
+        $title2 = $request->featureTitle2;
+
+        $out_json1 = $request->properties1;
+
+        $out_json2 = $request->properties2;
+
+
+        $array1 = [
+            'title' => $title1,
+            'properties' => $out_json1
+
+        ];
+
+        $array2 = [
+            'title' => $title2,
+            'properties' => $out_json2
+        ];
+
+        $final = [$array1, $array2];
+
+
+        $featuredProperties = DB::table('countries') ->where('id', $request->hid_id)->update(
+            [
+                'features_manager' => json_encode($final)
+            ]
+        );
+
+        return back();
+    }
+
+    
     public function update(Request $request)
     {    
         // $request->validate([

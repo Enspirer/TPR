@@ -19,6 +19,10 @@ Breadcrumbs::for('admin.country.edit', function ($trail) {
     $trail->push('Edit', route('admin.country.edit',1));
 });
 
+Breadcrumbs::for('admin.country.features', function ($trail) {
+    $trail->push('Features', route('admin.country.features', 1));
+});
+
 Breadcrumbs::for('admin.property.index', function ($trail) {
     $trail->push('Property Request (Country Manager Approved)', route('admin.property.index'));
 });

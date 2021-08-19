@@ -289,10 +289,10 @@
                                 <div class="card p-4 shadow border-0">
                                     <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
                                     <div class="card-body mt-4">
-                                        <h5 class="card-title">Jaffna, {{ $lat->country }}</h5>
+                                        <h5 class="card-title">{{ $lat->name }}</h5>
                                         <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
                                         <p class="card-text">Lancaster, {{ $lat->country }}</p>
-                                        <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, $property->price) }}</p>
+                                        <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, $lat->price) }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -305,86 +305,58 @@
             </div>
 
 
-            <div style="margin-top: 6rem">
-                <h4 data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">Rental properties - recently Sold</h4>
-
-                <div class="row mt-4">
-                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                        <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_rs_1.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
-                            <div class="card-body mt-4">
-                                <h5 class="card-title">Jaffna, Sri Lanka</h5>
-                                <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                <p class="card-text">Lancaster, claited Kingdom</p>
-                                <p class="mt-1 text-info">$ 480,000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                        <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_rs_2.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
-                            <div class="card-body mt-4">
-                                <h5 class="card-title">Colombo, Sri Lanka</h5>
-                                <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                <p class="card-text">Lancaster, claited Kingdom</p>
-                                <p class="mt-1 text-info">$ 480,000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="600">
-                        <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_rs_2.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
-                            <div class="card-body mt-4">
-                                <h5 class="card-title">Galle, Sri Lanka</h5>
-                                <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                <p class="card-text">Lancaster, claited Kingdom</p>
-                                <p class="mt-1 text-info">$ 480,000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
-            <div style="margin-top: 6rem">
-                <h4 data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">Investment Opporunities</h4>
+            @if(json_decode($country->features_manager) != null)
+                @if(json_decode($country->features_manager)[0]->properties != null)
+                    
+                        <div style="margin-top: 6rem">
 
-                <div class="row mt-4">
-                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                        <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_io_1.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
-                            <div class="card-body mt-4">
-                                <h5 class="card-title">Jaffna, Sri Lanka</h5>
-                                <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                <p class="card-text">Lancaster, claited Kingdom</p>
-                                <p class="mt-1 text-info">$ 480,000</p>
+                            <h4 data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">{{ json_decode($country->features_manager)[0]->title }}</h4>
+
+                            <div class="row mt-4">
+                                @foreach(json_decode($country->features_manager)[0]->properties as $prop)
+                                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                                    <div class="card p-4 shadow border-0">
+                                        <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
+                                        <div class="card-body mt-4">
+                                            <h5 class="card-title">{{ App\Models\Properties::where('id', $prop)->first()->name }}</h5>
+                                            <p class="card-text mt-3 mb-1">Transaction Type: {{ App\Models\Properties::where('id', $prop)->first()->transaction_type }}</p>
+                                            <p class="card-text">Country: {{ App\Models\Properties::where('id', $prop)->first()->country }}</p>
+                                            <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, App\Models\Properties::where('id', $prop)->first()->price) }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
-                    </div>
-                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                        <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_io_2.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
-                            <div class="card-body mt-4">
-                                <h5 class="card-title">Colombo, Sri Lanka</h5>
-                                <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                <p class="card-text">Lancaster, claited Kingdom</p>
-                                <p class="mt-1 text-info">$ 480,000</p>
+                @endif
+
+
+
+                @if(json_decode($country->features_manager)[1]->properties != null)
+                    <div style="margin-top: 6rem">
+                        <h4 data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">{{ json_decode($country->features_manager)[1]->title }}</h4>
+
+                        
+                        <div class="row mt-4">
+                            @foreach(json_decode($country->features_manager)[1]->properties as $prop)
+                            <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                                <div class="card p-4 shadow border-0">
+                                    <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
+                                    <div class="card-body mt-4">
+                                        <h5 class="card-title">{{ App\Models\Properties::where('id', $prop)->first()->name }}</h5>
+                                        <p class="card-text mt-3 mb-1">Transaction Type: {{ App\Models\Properties::where('id', $prop)->first()->transaction_type }}</p>
+                                        <p class="card-text">Country: {{ App\Models\Properties::where('id', $prop)->first()->country }}</p>
+                                        <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, App\Models\Properties::where('id', $prop)->first()->price) }}</p>
+                                    </div>
+                                </div>
                             </div>
+                            @endforeach
                         </div>
                     </div>
-                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="600">
-                        <div class="card p-4 shadow border-0">
-                            <img src="{{url('tpr_templete/images/fp_io_3.svg')}}" class="card-img-top" alt="..." style="object-fit:cover">
-                            <div class="card-body mt-4">
-                                <h5 class="card-title">Galle, Sri Lanka</h5>
-                                <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                <p class="card-text">Lancaster, claited Kingdom</p>
-                                <p class="mt-1 text-info">$ 480,000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @endif
+            @endif
 
         </div>
     </section>

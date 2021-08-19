@@ -84,14 +84,17 @@ class HomeController extends Controller
         $latest = Properties::where('admin_approval','Approved')->latest()->take(3)->get();
 
 
-        $self = self::setCookie($country_id);
 
+        $country = Country::where('country_id', $country_id)->first();
+
+        $self = self::setCookie($country_id);
 
         return view('frontend.home_page.index',[
             'country_id' => $country_id,
             'promo' => $promu,
             'latest' => $latest,
-            'ad_category' => $ad_category
+            'ad_category' => $ad_category,
+            'country' => $country
         ]);
     }
 
