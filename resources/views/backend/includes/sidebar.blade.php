@@ -71,10 +71,15 @@
                         <a class="nav-link {{active_class(Route::is('admin/global_advertisement'))}}" href="{{ route('admin.global_advertisement.index') }}">
                             Global Advertisement
                         </a>
-                    </li>
+                    </li>                    
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/ad_category'))}}" href="{{ route('admin.ad_category.index') }}">
                             Ad Category - Home Page
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/homepage_advertisement'))}}" href="{{ route('admin.homepage_advertisement.index') }}">
+                            Home Page Advertisemnet
                         </a>
                     </li>
                         

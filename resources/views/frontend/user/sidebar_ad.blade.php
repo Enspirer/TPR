@@ -53,7 +53,7 @@
                                             @if($ad1 == null)
                                             <div class="card" style="border-style: dashed;border-width: 1px; border-color:black;">
                                                 <div class="card-body">
-                                                    <button type="button" class="btn btn-info px-5" data-toggle="modal" data-target="#exampleModal" style="padding:40px 0px 40px 0px; width:100%">
+                                                    <button type="button" class="btn btn-secondary px-5" data-toggle="modal" data-target="#exampleModal" style="padding:40px 0px 40px 0px; width:100%">
                                                     Advertisement 1
                                                     </button>
                                                 </div>
@@ -128,7 +128,7 @@
                                             @if($ad2 == null)
                                             <div class="card" style="border-style: dashed;border-width: 1px; border-color:black;">
                                                 <div class="card-body">
-                                                    <button type="button" class="btn btn-info px-5" data-toggle="modal" data-target="#exampleModal2" style="padding:40px 0px 40px 0px; width:100%">
+                                                    <button type="button" class="btn btn-secondary px-5" data-toggle="modal" data-target="#exampleModal2" style="padding:40px 0px 40px 0px; width:100%">
                                                     Advertisement 2
                                                     </button>
                                                 </div>
@@ -212,37 +212,34 @@
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content" style="font-size:15px;">
-
-            
+            <div class="modal-content" style="font-size:15px;">            
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Advertisement 1</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">                
                     <div class="form-group">
                         <label>Adaverisement Image:</label>
-                        <input type="file" class="form-control" name="image" required>
+                        <input type="file" class="form-control mt-1" name="image" required>
                     </div>
                                                                 
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Advertisement Title:</label>
-                        <input type="text" class="form-control" name="title" required>
+                        <input type="text" class="form-control mt-1" name="title" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Description: (Minimum length of the characters should be 250)</label>
-                        <textarea type="text" class="form-control" name="description" rows="4" required></textarea>
+                        <textarea type="text" class="form-control mt-1" name="description" rows="4" required></textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Link:</label>
-                        <input type="url" class="form-control" name="link" required>
+                        <input type="url" class="form-control mt-1" name="link" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Status:</label>
-                        <select class="form-control" name="status" required>
+                        <select class="form-control mt-1" name="status" required>
                             <option value="1">Enable</option>   
                             <option value="0">Disable</option>                                
                         </select>
@@ -271,31 +268,30 @@
                 
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel2">Advertisement 2</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">            
                     <div class="form-group">
                         <label>Adaverisement Image:</label>
-                        <input type="file" class="form-control" name="image" required>
+                        <input type="file" class="form-control mt-1" name="image" required>
                     </div>
                                                                 
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Advertisement Title:</label>
-                        <input type="text" class="form-control" name="title" required>
+                        <input type="text" class="form-control mt-1" name="title" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Description: (Minimum length of the characters should be 250)</label>
-                        <textarea type="text" class="form-control" name="description" rows="4" required></textarea>
+                        <textarea type="text" class="form-control mt-1" name="description" rows="4" required></textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Link:</label>
-                        <input type="url" class="form-control" name="link" required>
+                        <input type="url" class="form-control mt-1" name="link" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Status:</label>
-                        <select class="form-control" name="status" required>
+                        <select class="form-control mt-1" name="status" required>
                             <option value="1">Enable</option>   
                             <option value="0">Disable</option>                                
                         </select>
@@ -325,34 +321,33 @@
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabelEdit1">Edit Advertisement 1</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">                
                     <div class="form-group">
                         <label>Adaverisement Image:</label>
-                        <input type="file" class="form-control" name="image">
+                        <input type="file" class="form-control mt-1" name="image">
                         <br>
                         <img src="{{url('files/sidebar_ad',$ad1->image)}}" style="object-fit:cover; width:50%;" alt="">
 
                     </div>
                                                                 
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Advertisement Title:</label>
-                        <input type="text" class="form-control" name="title" value="{{ $ad1->title }}" required>
+                        <input type="text" class="form-control mt-1" name="title" value="{{ $ad1->title }}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Description: (Minimum length of the characters should be 250)</label>
-                        <textarea type="text" class="form-control" name="description" rows="4" required>{{ $ad1->description }}</textarea>
+                        <textarea type="text" class="form-control mt-1" name="description" rows="4" required>{{ $ad1->description }}</textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Link:</label>
-                        <input type="url" class="form-control" name="link" value="{{ $ad1->link }}" required>
+                        <input type="url" class="form-control mt-1" name="link" value="{{ $ad1->link }}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Status:</label>
-                        <select class="form-control" name="status" required>
+                        <select class="form-control mt-1" name="status" required>
                             <option value="1" {{ $ad1->status == '1' ? "selected" : "" }}>Enable</option>   
                             <option value="0" {{ $ad1->status == '0' ? "selected" : "" }}>Disable</option>                                
                         </select>
@@ -384,34 +379,33 @@
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabelEdit2">Edit Advertisement 2</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">                
                     <div class="form-group">
                         <label>Adaverisement Image:</label>
-                        <input type="file" class="form-control" name="image">
+                        <input type="file" class="form-control mt-1" name="image">
                         <br>
                         <img src="{{url('files/sidebar_ad',$ad2->image)}}" style="object-fit:cover; width:50%;" alt="">
 
                     </div>
                                                                 
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Advertisement Title:</label>
-                        <input type="text" class="form-control" name="title" value="{{ $ad2->title }}" required>
+                        <input type="text" class="form-control mt-1" name="title" value="{{ $ad2->title }}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Description: (Minimum length of the characters should be 250)</label>
-                        <textarea type="text" class="form-control" name="description" rows="4" required>{{ $ad2->description }}</textarea>
+                        <textarea type="text" class="form-control mt-1" name="description" rows="4" required>{{ $ad2->description }}</textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Link:</label>
-                        <input type="text" class="form-control" name="link" value="{{ $ad2->link }}" required>
+                        <input type="text" class="form-control mt-1" name="link" value="{{ $ad2->link }}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Status:</label>
-                        <select class="form-control" name="status" required>
+                        <select class="form-control mt-1" name="status" required>
                             <option value="1" {{ $ad2->status == '1' ? "selected" : "" }}>Enable</option>   
                             <option value="0" {{ $ad2->status == '0' ? "selected" : "" }}>Disable</option>                                
                         </select>
@@ -444,8 +438,7 @@
                 
                 <div class="modal-header">
                     <h3 class="modal-title" id="ModalDeleteLabel">Delete</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">
@@ -475,8 +468,7 @@
                 
                 <div class="modal-header">
                     <h3 class="modal-title" id="ModalDeleteLabel">Delete</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">

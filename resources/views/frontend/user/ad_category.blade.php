@@ -49,7 +49,7 @@
 
             @if(count($ad_category) <= 0)
                 <section id="residential-properties">
-                    <div class="container text-center" style="margin-top: 8rem">
+                    <div class="container text-center" style="margin-top: 10rem">
                         <p class="display-6 text-secondary">Categories Are Not Found!</p>
                     </div>
                 </section>
@@ -73,10 +73,10 @@
                                 <td> {{ $ad_cat->admin_approval }} </td>
                                 <td>
                                     <div class="row">
-                                        <div class="col-4">
-                                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModaledit{{$ad_cat->id}}" class="btn text-light table-btn edit" style="background-color: #4195E1">Edit Name</a>
+                                        <div class="col-3">
+                                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModaledit{{$ad_cat->id}}" class="btn text-light table-btn edit" style="background-color: #4195E1">Edit</a>
                                         </div>
-                                        <div class="col-4">                                            
+                                        <div class="col-3">                                            
                                             <a href="{{ route('frontend.user.adCategory_delete', $ad_cat->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModaldelete" class="btn text-light table-btn delete" style="background-color: #FF2C4B;">Delete</a>
                                         </div>
                                     </div>
@@ -111,7 +111,7 @@
                 <div class="modal-body">                
                                                                                     
                     <div class="form-group">
-                        <label>Category Name</label>
+                        <label>Category Name:</label>
                         <input type="text" class="form-control mt-3" name="name" required>
                     </div>
 
@@ -150,7 +150,7 @@
                         <div class="modal-body">
 
                             <div class="form-group">
-                                <label>Category Name</label>
+                                <label>Category Name:</label>
                                 <input type="text" class="form-control mt-3" name="name" value="{{$ad_cat->name}}" required>
                             </div>
 
