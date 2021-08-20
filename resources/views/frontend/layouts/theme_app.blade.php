@@ -64,16 +64,16 @@
                 </div>
                 <div class="col-3 ps-5">
                     <h5 class="fw-bolder mt-2">TITLES</h5>
-                    <p class="mt-4">About Us</p>
-                    <p>Contact Us</p>
-                    <p>Mobile Apps</p>
+                    <a href="{{ route('frontend.about-us') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list">About Us</a>
+                    <a href="{{ route('frontend.contact') }}" class="mb-3 d-block text-decoration-none no-result-list">Contact Us</a>
+                    <a href="{{ route('frontend.mobile-apps') }}" class="mb-3 d-block text-decoration-none no-result-list">Mobile Apps</a>
                 </div>
                 <div class="col-3 ps-5">
                     <h5 class="fw-bolder mt-2">MORE</h5>
-                    <p class="mt-4">Privacy Policy</p>
-                    <p>Terms of Use</p>
-                    <p>FAQ</p>
-                    <p>Sitemap</p>
+                    <a href="{{ route('frontend.privacy-policy') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list">Privacy Policy</a>
+                    <a href="{{ route('frontend.terms-of-use') }}" class="mb-3 d-block text-decoration-none no-result-list">Terms of Use</a>
+                    <a href="#" class="mb-3 d-block text-decoration-none no-result-list">FAQ</a>
+                    <a href="#" class="mb-3 d-block text-decoration-none no-result-list">Sitemap</a>
                 </div>
                 <div class="col-3 ps-5">
                     <h5 class="fw-bolder mt-2">TOPICS</h5>

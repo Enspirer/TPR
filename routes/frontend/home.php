@@ -8,6 +8,7 @@ use App\Http\Controllers\Frontend\MapSearchController;
 use App\Http\Controllers\Frontend\ResidentialController;
 use App\Http\Controllers\Frontend\IndividualPropertyController;
 use App\Http\Controllers\Frontend\CommercialController;
+use App\Http\Controllers\Frontend\FooterController;
 
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\ProfileController;
@@ -41,6 +42,11 @@ Route::post('prop_favourite',[IndividualPropertyController::class,'propertyFavou
 Route::post('prop_favourite/unsave/{id}',[IndividualPropertyController::class,'propertyFavouriteDelete'])->name('propertyFavouriteDelete');
 
 Route::get('commercial', [CommercialController::class, 'index'])->name('commercial');
+
+Route::get('about-us', [FooterController::class, 'aboutUs'])->name('about-us');
+Route::get('mobile-apps', [FooterController::class, 'mobileApps'])->name('mobile-apps');
+Route::get('privacy-policy', [FooterController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('terms-of-use', [FooterController::class, 'termsOfUse'])->name('terms-of-use');
 // Route::get('individual-property/{id}', [IndividualPropertyController::class, 'property_details'])->name('individual-property.property_details');
 
 
