@@ -82,22 +82,17 @@
                             Home Page Advertisemnet
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/sidebar_advertisement'))}}" href="{{ route('admin.sidebar_advertisement.index') }}">
+                            Sidebar Advertisemnet
+                        </a>
+                    </li>
                         
                 </ul>
             </li> 
 
-
-
-
-
-
-
-
-
-
-
-
             
+
 
             <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">

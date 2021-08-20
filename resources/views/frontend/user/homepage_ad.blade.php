@@ -65,8 +65,13 @@
                         <thead class="table-head">
                             <tr>
                                 <th scope="col">Image</th>
-                                <th scope="col">Name</th>                                
-                                <th scope="col">Category</th>
+                                <th scope="col">Name</th> 
+
+                                @if(count($ad_category) <= 0)
+                                @else
+                                    <th scope="col">Category</th>
+                                @endif                              
+                                
                                 <th scope="col">Status</th>
                                 <th scope="col">Order</th>
                                 <th scope="col">Admin Approval</th>
@@ -79,8 +84,13 @@
 
                             <tr class="align-items-center">                                
                                 <td width="22%"><img src="{{url('files/homepage_advertisement/',$home_ad->image)}}" style="width: 90%;" alt="" ></td>
-                                <td> {{ $home_ad->name }} </td>                        
+                                <td> {{ $home_ad->name }} </td>  
+                                           
+                                @if(count($ad_category) <= 0)
+                                @else
                                 <td> {{ App\Models\AdCategory::where('id',$home_ad->category)->where('admin_approval', '=', 'Approved')->first()->name }} </td>
+                                @endif 
+                                
                                 <td> {{ $home_ad->status }} </td>
                                 <td> {{ $home_ad->order }} </td>
                                 <td> {{ $home_ad->admin_approval }} </td>
