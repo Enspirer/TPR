@@ -461,7 +461,7 @@
             </div>
 
             <div class="row text-end mt-5">
-                <a href="#" class="text-decoration-none" style="color: #333232;">See all residential properties for sale in New homes <i class="bi bi-chevron-right"></i></a>
+                <a href="{{ route('frontend.map-search')}}" class="text-decoration-none" style="color: #333232;">See all residential properties for sale in New homes <i class="bi bi-chevron-right"></i></a>
             </div>
         </div>
     </section>

@@ -39,9 +39,14 @@ class HomePageAdvertisementController extends Controller
 
                     ->addColumn('category', function($data){
                         
+                        if($data->category == null){
+                            $details = 'null';
+                        }else{
                         $ad_category = AdCategory::where('id',$data->category)->where('admin_approval', '=', 'Approved')->first();
-                         
+                        
                         $details = $ad_category->name;
+
+                        }
                         return $details;
                         
                     })

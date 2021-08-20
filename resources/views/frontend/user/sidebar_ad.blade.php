@@ -81,6 +81,15 @@
                                                                 </td>
                                                             </tr>
                                                             <tr>            
+                                                                <td width="23%" cellpadding="0" cellspacing="0">  
+                                                                    <p align="left"><b>Admin Approval:</b> </p>  
+                                                                </td>
+                                                                <td  cellpadding="0" cellspacing="0">  
+                                                                    <p align="left">{{ $ad1->admin_approval }}</p> 
+                                                                    <hr>                
+                                                                </td>
+                                                            </tr>
+                                                            <tr>            
                                                                 <td width="23%" cellpadding="0" cellspacing="0">
                                                                     <p align="left"><b>Status:</b> </p>
                                                                 </td>
@@ -149,6 +158,15 @@
                                                                 </td>
                                                                 <td  cellpadding="0" cellspacing="0">  
                                                                     <p align="left">{{ $ad2->title }}</p> 
+                                                                    <hr>                
+                                                                </td>
+                                                            </tr>
+                                                            <tr>            
+                                                                <td width="23%" cellpadding="0" cellspacing="0">  
+                                                                    <p align="left"><b>Admin Approval:</b> </p>  
+                                                                </td>
+                                                                <td  cellpadding="0" cellspacing="0">  
+                                                                    <p align="left">{{ $ad2->admin_approval }}</p> 
                                                                     <hr>                
                                                                 </td>
                                                             </tr>

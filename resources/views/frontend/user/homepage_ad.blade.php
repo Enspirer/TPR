@@ -82,29 +82,59 @@
 
                         @foreach($homepage_ad as $key=> $home_ad)
 
-                            <tr class="align-items-center">                                
-                                <td width="22%"><img src="{{url('files/homepage_advertisement/',$home_ad->image)}}" style="width: 90%;" alt="" ></td>
-                                <td> {{ $home_ad->name }} </td>  
-                                           
-                                @if(count($ad_category) <= 0)
-                                @else
-                                <td> {{ App\Models\AdCategory::where('id',$home_ad->category)->where('admin_approval', '=', 'Approved')->first()->name }} </td>
-                                @endif 
-                                
-                                <td> {{ $home_ad->status }} </td>
-                                <td> {{ $home_ad->order }} </td>
-                                <td> {{ $home_ad->admin_approval }} </td>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModaledit{{$home_ad->id}}" class="btn text-light table-btn edit" style="background-color: #4195E1">Edit</a>
+                            @if($home_ad->category == null)
+                                <tr class="align-items-center" style="border-style:dotted; border: 1px solid red;">
+                                    <td width="22%"><img src="{{url('files/homepage_advertisement/',$home_ad->image)}}" style="width: 90%;" alt="" ></td>
+                                    <td> {{ $home_ad->name }} </td>  
+                                            
+                                    @if($home_ad->category == null)
+                                        <td style="color:red">Not Initialized</td>
+                                    @else
+                                    <td> {{ App\Models\AdCategory::where('id',$home_ad->category)->where('admin_approval', '=', 'Approved')->first()->name }} </td>
+                                    @endif 
+                                    
+                                    <td> {{ $home_ad->status }} </td>
+                                    <td> {{ $home_ad->order }} </td>
+                                    <td> {{ $home_ad->admin_approval }} </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModaledit{{$home_ad->id}}" class="btn text-light table-btn edit" style="background-color: #4195E1">Edit</a>
+                                            </div>
+                                            <div class="col-6">                                            
+                                                <a href="{{ route('frontend.user.homepage_AD_delete', $home_ad->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModaldelete" class="btn text-light table-btn delete" style="background-color: #FF2C4B;">Delete</a>
+                                            </div>
                                         </div>
-                                        <div class="col-6">                                            
-                                            <a href="{{ route('frontend.user.homepage_AD_delete', $home_ad->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModaldelete" class="btn text-light table-btn delete" style="background-color: #FF2C4B;">Delete</a>
+                                    </td>
+                                </tr>
+                            @else
+                                <tr class="align-items-center">
+                                    <td width="22%"><img src="{{url('files/homepage_advertisement/',$home_ad->image)}}" style="width: 90%;" alt="" ></td>
+                                    <td> {{ $home_ad->name }} </td>  
+                                            
+                                    @if($home_ad->category == null)
+                                        <td>null</td>
+                                    @else
+                                    <td> {{ App\Models\AdCategory::where('id',$home_ad->category)->where('admin_approval', '=', 'Approved')->first()->name }} </td>
+                                    @endif 
+                                    
+                                    <td> {{ $home_ad->status }} </td>
+                                    <td> {{ $home_ad->order }} </td>
+                                    <td> {{ $home_ad->admin_approval }} </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModaledit{{$home_ad->id}}" class="btn text-light table-btn edit" style="background-color: #4195E1">Edit</a>
+                                            </div>
+                                            <div class="col-6">                                            
+                                                <a href="{{ route('frontend.user.homepage_AD_delete', $home_ad->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModaldelete" class="btn text-light table-btn delete" style="background-color: #FF2C4B;">Delete</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            @endif
+
+                            
 
                         @endforeach 
                             

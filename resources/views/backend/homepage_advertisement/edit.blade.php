@@ -33,10 +33,16 @@
                                                             <td width="20%" style="font-weight: 600; font-size:16px;">Name: </td>
                                                             <td style="font-size:16px;">{{ $homepage_advertisement->name }}</td>
                                                         </tr>
+                                                        @if($homepage_advertisement->category == null)
+                                                            <td style="font-weight: 600; font-size:16px;">Category:</td>
+                                                            <td style="font-size:16px;">null</td>
+                                                        @else
                                                         <tr>
                                                             <td style="font-weight: 600; font-size:16px;">Category:</td>
                                                             <td style="font-size:16px;">{{ $ad_category->name }}</td>
                                                         </tr>
+                                                        @endif
+                                                        
                                                         <tr>
                                                             <td style="font-weight: 600; font-size:16px;">Link:</td>
                                                             <td style="font-size:16px;">{{ $homepage_advertisement->link }}</td>

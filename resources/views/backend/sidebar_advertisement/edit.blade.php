@@ -30,28 +30,28 @@
                                                 <table class="table table-hover table-borderless">
                                                     <tbody>
                                                         <tr>
-                                                            <td width="20%" style="font-weight: 600; font-size:16px;">Name: </td>
-                                                            <td style="font-size:16px;">{{ $homepage_advertisement->name }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="font-weight: 600; font-size:16px;">Category:</td>
-                                                            <td style="font-size:16px;">{{ $ad_category->name }}</td>
+                                                            <td width="20%" style="font-weight: 600; font-size:16px;">Title: </td>
+                                                            <td style="font-size:16px;">{{ $sidebar_advertisement->title }}</td>
                                                         </tr>
                                                         <tr>
                                                             <td style="font-weight: 600; font-size:16px;">Link:</td>
-                                                            <td style="font-size:16px;">{{ $homepage_advertisement->link }}</td>
+                                                            <td style="font-size:16px;">{{ $sidebar_advertisement->link }}</td>
                                                         </tr>
                                                         <tr>
                                                             <td style="font-weight: 600; font-size:16px;">Country:</td>
-                                                            <td style="font-size:16px;">{{ $homepage_advertisement->country }}</td>
+                                                            <td style="font-size:16px;">{{ $sidebar_advertisement->country }}</td>
                                                         </tr>
                                                         <tr>
                                                             <td style="font-weight: 600; font-size:16px;">Status:</td>
-                                                            <td style="font-size:16px;">{{ $homepage_advertisement->status }}</td>
+                                                            <td style="font-size:16px;">{{ $sidebar_advertisement->status }}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="font-weight: 600; font-size:16px;">Order:</td>
-                                                            <td style="font-size:16px;">{{ $homepage_advertisement->order }}</td>
+                                                            <td style="font-weight: 600; font-size:16px;">Ad Type:</td>
+                                                            <td style="font-size:16px;">{{ $sidebar_advertisement->other }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-weight: 600; font-size:16px;">Description:</td>
+                                                            <td style="font-size:16px;">{{ $sidebar_advertisement->description }}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -75,15 +75,15 @@
                             <div class="form-group">
                                 <label>Status</label>
                                 <select class="form-control" name="admin_approval" required>
-                                    <option value="Approved" {{ $homepage_advertisement->admin_approval == 'Approved' ? "selected" : "" }}>Approve</option>   
-                                    <option value="Disapproved" {{ $homepage_advertisement->admin_approval == 'Disapproved' ? "selected" : "" }}>Disapprove</option> 
-                                    <option value="Pending" {{ $homepage_advertisement->admin_approval == 'Pending' ? "selected" : "" }}>Pending</option>                               
+                                    <option value="Approved" {{ $sidebar_advertisement->admin_approval == 'Approved' ? "selected" : "" }}>Approve</option>   
+                                    <option value="Disapproved" {{ $sidebar_advertisement->admin_approval == 'Disapproved' ? "selected" : "" }}>Disapprove</option> 
+                                    <option value="Pending" {{ $sidebar_advertisement->admin_approval == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>
 
                             <div class="mt-5 text-center">
-                                <input type="hidden" name="hidden_id" value="{{ $homepage_advertisement->id }}"/>
-                                <a href="{{route('admin.homepage_advertisement.index')}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
+                                <input type="hidden" name="hidden_id" value="{{ $sidebar_advertisement->id }}"/>
+                                <a href="{{route('admin.sidebar_advertisement.index')}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
                                 <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
                             </div>
                         </div>

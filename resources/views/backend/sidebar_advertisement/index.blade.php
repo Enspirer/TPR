@@ -74,6 +74,7 @@
                 processing: true,
                 ajax: "{{route('admin.sidebar_advertisement.getDetails')}}",
                 serverSide: true,
+                order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'image', name: 'image'},

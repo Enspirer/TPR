@@ -375,6 +375,11 @@ class CountryManagementController extends Controller
     public function adCategory_delete($id)
     {        
 
+        // $ad_category = AdCategory::where('id',$id)->first();
+        // dd($ad_category);
+
+        $projects = HomePageAdvertisement::where('category',$id)->update(array('category' => null));
+
         // dd($id);
         $data = AdCategory::findOrFail($id);
         $data->delete();   
@@ -559,9 +564,7 @@ class CountryManagementController extends Controller
         $update->description=$request->description;
         $update->link=$request->link;
         $update->status=$request->status;        
-        $update->country=$request->country;
-        $update->admin_approval='Pending';  
-        $update->country_management_approval='Approved';  
+        $update->country=$request->country; 
 
         if($request->ad_position == 'ad1'){ 
             $update->other=$request->ad_position;

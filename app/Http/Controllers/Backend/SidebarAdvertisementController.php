@@ -55,14 +55,10 @@ class SidebarAdvertisementController extends Controller
 
     public function edit($id)
     {
-        $sidebar_advertisement = SidebarAd::where('id',$id)->first();
-
-        $ad_category = AdCategory::where('id',$homepage_advertisement->category)->first();
-        // dd($ad_category);              
+        $sidebar_advertisement = SidebarAd::where('id',$id)->first();         
         
         return view('backend.sidebar_advertisement.edit',[
-            'sidebar_advertisement' => $sidebar_advertisement  ,
-            'ad_category' => $ad_category       
+            'sidebar_advertisement' => $sidebar_advertisement     
         ]);  
     }
 
