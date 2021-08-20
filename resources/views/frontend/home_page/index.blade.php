@@ -258,8 +258,12 @@
                                     <p class="fw-bold mb-0">{{ $property->name }}</p>
                                     <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${{ $property->transaction_type }}</p>
                                     <p class="mb-0" style="font-size: 0.8rem;">Country: {{ $property->country }}</p>
-                                    <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(get_country_cookie(request())->country_id, $property->price) }}</p>
-
+                                    
+                                    @if(get_country_cookie(request()))
+                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(get_country_cookie(request())->country_id, $property->price) }}</p>
+                                    @else
+                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(1, $property->price) }}</p>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach
@@ -292,7 +296,13 @@
                                         <h5 class="card-title">{{ $lat->name }}</h5>
                                         <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
                                         <p class="card-text">Lancaster, {{ $lat->country }}</p>
-                                        <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, $lat->price) }}</p>
+
+                                        @if(get_country_cookie(request()))
+                                            <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, $lat->price) }}</p>
+                                        
+                                        @else
+                                        <p class="mt-1 text-info">{{ current_price(1, $lat->price) }}</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -323,7 +333,13 @@
                                             <h5 class="card-title">{{ App\Models\Properties::where('id', $prop)->first()->name }}</h5>
                                             <p class="card-text mt-3 mb-1">Transaction Type: {{ App\Models\Properties::where('id', $prop)->first()->transaction_type }}</p>
                                             <p class="card-text">Country: {{ App\Models\Properties::where('id', $prop)->first()->country }}</p>
-                                            <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, App\Models\Properties::where('id', $prop)->first()->price) }}</p>
+
+                                            @if(get_country_cookie(request()))
+                                                <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, App\Models\Properties::where('id', $prop)->first()->price) }}</p>
+
+                                            @else
+                                                <p class="mt-1 text-info">{{ current_price(1, App\Models\Properties::where('id', $prop)->first()->price) }}</p>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -348,7 +364,13 @@
                                         <h5 class="card-title">{{ App\Models\Properties::where('id', $prop)->first()->name }}</h5>
                                         <p class="card-text mt-3 mb-1">Transaction Type: {{ App\Models\Properties::where('id', $prop)->first()->transaction_type }}</p>
                                         <p class="card-text">Country: {{ App\Models\Properties::where('id', $prop)->first()->country }}</p>
-                                        <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, App\Models\Properties::where('id', $prop)->first()->price) }}</p>
+
+                                        @if(get_country_cookie(request()))
+                                            <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, App\Models\Properties::where('id', $prop)->first()->price) }}</p>
+
+                                        @else
+                                            <p class="mt-1 text-info">{{ current_price(1, App\Models\Properties::where('id', $prop)->first()->price) }}</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -470,7 +492,11 @@
                 var markers = c.getMarkers();
                 var newArray = [];
 
-                let country_id = <?php echo json_encode(get_country_cookie(request())->country_id); ?>;
+                @if(get_country_cookie(request()))
+                    let country_id = <?php echo json_encode(get_country_cookie(request())->country_id); ?>;
+                @else
+                    let country_id = 1;
+                @endif
 
                 for (marker in markers) {
                     const cars = [];

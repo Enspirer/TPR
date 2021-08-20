@@ -162,7 +162,11 @@
 <script>
     const renderFields = async () => {
             
-        let country_id = <?php echo json_encode(get_country_cookie(request())->country_id); ?>;
+        @if(get_country_cookie(request()))
+            let country_id = <?php echo json_encode(get_country_cookie(request())->country_id); ?>;
+        @else
+            let country_id = 1;
+        @endif
 
         let countries = <?php echo json_encode($countries); ?>;
 

@@ -3,18 +3,16 @@
         <div class="container">
             <div class="row logo-flag">
                 <div class="col-9">
-                    @if(isset(get_country_cookie(request())->country_id))
-                        @if(get_country_cookie(request())->country_id)
-                            <a href="{{route('frontend.home_page',get_country_cookie(request())->country_id)}}"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo img-fluid rounded" alt=""></a>
 
-                        @else
+                    @if(get_country_cookie(request()))
+                        <a href="{{route('frontend.home_page',get_country_cookie(request())->country_id)}}"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo img-fluid rounded" alt=""></a>
 
-                            <a href=""><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" data-bs-toggle="modal" data-bs-target="#countrySelection" class="logo img-fluid rounded" alt=""></a>
-
-                        @endif
                     @else
 
+                        <img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo img-fluid rounded" alt="" data-bs-toggle="modal" data-bs-target="#countrySelection" style="cursor:pointer;">
+
                     @endif
+
 
 
 
@@ -128,7 +126,7 @@
                 <div class="modal-body" style="height: 400px;">
                     <div>
                         @foreach($tpr_countries as $tpr_country)
-                            <a href="{{$tpr_country->country_id}}" class="text-decoration-none h6 text-dark">
+                            <a href="{{route('frontend.home_page', $tpr_country->country_id)}}" class="text-decoration-none h6 text-dark">
                                 <div class="row align-items-center">
                                     <div class="col-6">
                                         {{ $tpr_country->country_name }}
@@ -139,55 +137,6 @@
                                 </div>
                             </a>
                         @endforeach
-
-                        <!-- <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p>
-                        <p>sdfdsfsdfsf</p> -->
                     </div>
                 </div>
                 <div class="modal-footer">
