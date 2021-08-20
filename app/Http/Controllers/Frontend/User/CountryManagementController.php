@@ -14,6 +14,8 @@ use App\Models\AdCategory;
 use App\Models\HomePageAdvertisement;
 use App\Models\SidebarAd;
 use Auth;
+use DataTables;
+
 
 /**
  * Class PropertyManagementController.
@@ -41,6 +43,18 @@ class CountryManagementController extends Controller
 
     public function propertyApproval() {
 
+        // $user_id = auth()->user()->id;
+
+        // $country_manager = Country::where('country_manager',$user_id)->first();
+
+        // $properties = Properties::where('country', $country_manager->country_name)->orderBy('id','DESC')->get();
+
+        return view('frontend.user.property-approval');
+    }
+
+    public function getPropertyApproval(Request $request)
+    {
+
         $user_id = auth()->user()->id;
 
         $country_manager = Country::where('country_manager',$user_id)->first();
@@ -48,31 +62,90 @@ class CountryManagementController extends Controller
         $properties = Properties::where('country', $country_manager->country_name)->orderBy('id','DESC')->get();
 
 
-        return view('frontend.user.property-approval', ['properties' => $properties]);
+        if($request->ajax())
+        {
+            return DataTables::of($properties)
+                    ->addColumn('action', function($data){
+                       
+                       
+                        $button = '<a href="'.route('frontend.user.single-property-approval', $data->id).'" name="edit" id="'.$data->id.'" class="btn text-light table-btn me-4" style="background-color: #4195E1"> View </a>';
+                        $button .= '<input type="hidden" name="hid_id" value="'.$data->id.'">';
+                        $button .= '<button name="delete" id="'.$data->id.'" class="btn text-light table-btn disapprove" style="background-color: #FF2C4B;" data-bs-toggle="modal" data-bs-target="#exampleModal"> Disapprove</button>';
+
+                        return $button;
+                    })
+                    
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+        return back();
     }
+
+
+    public function getPropertyApprovalUpdate(Request $request) {
+
+        $property = DB::table('properties') ->where('id', $request->hid_id)->update(
+            [
+                'country_manager_approval' => 'Disapproved'
+            ]
+        );
+
+        return back();
+    }
+
 
     public function supports() 
     {
 
-        $feedback = Feedback::orderBy('id', 'DESC')->get();
-        // dd($feedback);
+        // $feedback = Feedback::orderBy('id', 'DESC')->get();
 
-        $final_out = [];
-        foreach($feedback as $feed){
-            array_push($final_out,$feed->country);
+
+        // $final_out = [];
+        // foreach($feedback as $feed){
+        //     array_push($final_out,$feed->country);
+        // }
+
+        // $countries = Country::whereIn('id',$final_out)->get();
+
+        return view('frontend.user.supports');
+    }
+
+    public function getSupports(Request $request) {
+
+        // $feedback = Feedback::orderBy('id', 'DESC')->get();
+
+        $user_id = auth()->user()->id;
+
+        $country = Country::where('country_manager',$user_id)->first();
+
+        $feedback = Feedback::where('country', $country->id)->orderBy('id', 'DESC')->get();
+
+
+
+        // $final_out = [];
+        // foreach($feedback as $feed){
+        //     array_push($final_out,$feed->country);
+        // }
+
+        // $countries = Country::whereIn('id',$final_out)->get();
+
+
+        if($request->ajax())
+        {
+            return DataTables::of($feedback)
+                    ->addColumn('action', function($data){
+                       
+                       
+                        $button = '<a href="'.route('frontend.user.supports.edit', $data->id).'" name="edit" id="'.$data->id.'" class="btn text-light table-btn me-4" style="background-color: #4195E1"> View </a>';
+                        $button .= '<a href="'.route('frontend.user.supports.delete', $data->id).'" name="delete" id="'.$data->id.'" class="btn text-light table-btn" style="background-color: #FF2C4B;" > Delete</a>';
+
+                        return $button;
+                    })
+                    
+                    ->rawColumns(['action'])
+                    ->make(true);
         }
-        // dd($final_out);
-
-        $countries = Country::whereIn('id',$final_out)->get();
-        // dd($countries);
-
-        // $user_id = auth()->user()->id;
-        // $user_details = User::where('id',$user_id)->first();
-
-        return view('frontend.user.supports',[
-            'feedback' => $feedback,
-            'countries' => $countries
-        ]);
+        return back();
     }
 
     public function supportsEdit($id)
@@ -114,16 +187,55 @@ class CountryManagementController extends Controller
 
     public function agentApproval() {
 
+        // $user_id = auth()->user()->id;
+        
+        // $country_manager = Country::where('country_manager',$user_id)->first();
+
+        // $agent_request = AgentRequest::where('country',$country_manager->country_name)->get();
+
+        return view('frontend.user.agent-approval');
+    }
+
+    public function getAgentApproval(Request $request) {
+
         $user_id = auth()->user()->id;
         
         $country_manager = Country::where('country_manager',$user_id)->first();
 
         $agent_request = AgentRequest::where('country',$country_manager->country_name)->get();
 
-        return view('frontend.user.agent-approval',[
-            'agent_request' => $agent_request
-        ]);
+
+        if($request->ajax())
+        {
+            return DataTables::of($agent_request)
+                    ->addColumn('action', function($data){
+                       
+                       
+                        $button = '<a href="'.route('frontend.user.single-agent-approval', $data->id).'" name="edit" id="'.$data->id.'" class="btn text-light table-btn me-4" style="background-color: #4195E1"> View </a>';
+                        $button .= '<input type="hidden" name="hid_id" value="'.$data->id.'">';
+                        $button .= '<button name="delete" id="'.$data->id.'" class="btn text-light table-btn disapprove" style="background-color: #FF2C4B;" data-bs-toggle="modal" data-bs-target="#exampleModal"> Disapprove</button>';
+
+                        return $button;
+                    })
+                    
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+        return back();
     }
+
+
+    public function getAgentApprovalUpdate(Request $request) {
+
+        $property = DB::table('agent_requests') ->where('id', $request->hid_id)->update(
+            [
+                'country_manager_approval' => 'Disapproved'
+            ]
+        );
+
+        return back();
+    }
+      
 
     public function agentApprovalDelete($id)
     {        
@@ -199,6 +311,34 @@ class CountryManagementController extends Controller
             'ad_category' => $ad_category
         ]);
     }  
+
+
+    public function getAdCategory(Request $request) {
+
+        $country = Country::where('country_manager',auth()->user()->id)->first();
+
+        $ad_category = AdCategory::where('country', $country->country_name)->orderBy('id', 'DESC')->get();
+
+
+        if($request->ajax())
+        {
+            return DataTables::of($ad_category)
+                    ->addColumn('action', function($data){
+                       
+                       
+                        $button = '<button data-bs-toggle="modal" data-bs-target="#exampleModaledit'.$data->id.'" name="edit" id="'.$data->id.'" class="btn text-light table-btn me-4" style="background-color: #4195E1"> Edit </button>';
+                        $button .= '<input type="hidden" name="hid_id" value="'.$data->id.'">';
+                        $button .= '<a href="'.route('frontend.user.adCategory_delete', $data->id).'" name="delete" id="'.$data->id.'" class="btn text-light table-btn disapprove" style="background-color: #FF2C4B;" data-bs-toggle="modal" data-bs-target="#exampleModaldelete"> Delete</a>';
+
+                        return $button;
+                    })
+                    
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+        return back();
+    }
+
 
     public function adCategory_store(Request $request)
     {        

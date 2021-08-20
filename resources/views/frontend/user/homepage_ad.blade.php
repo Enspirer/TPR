@@ -53,11 +53,11 @@
                 </div>
 
             @if(count($homepage_ad) <= 0)
-                <section id="residential-properties">
-                    <div class="container text-center" style="margin-top: 10rem">
-                        <p class="display-6 text-secondary">Advertisements Are Not Found!</p>
-                    </div>
-                </section>
+                @include('frontend.includes.not_found',[
+                    'not_found_title' => 'Advertisements not found',
+                    'not_found_description' => 'Please add advertisements',
+                    'not_found_button_caption' => null
+                ])
             @else
 
                 <div class="row mt-5">

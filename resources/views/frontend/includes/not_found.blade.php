@@ -5,7 +5,11 @@
             <h3>{{$not_found_title}}</h3>
             <p>{{$not_found_description}}</p>
 
-            <a href="{{ url('map-search') }}" class="btn btn-primary" style="background-color: #ff5d15;border-color: #ff5d15">{{$not_found_button_caption}}</a>
+            @if($not_found_button_caption != null)
+
+                <a href="{{ url('map-search') }}" class="btn btn-primary" style="background-color: #ff5d15;border-color: #ff5d15">{{$not_found_button_caption}}</a>
+
+            @endif
         </div>
     </div>
 </div>

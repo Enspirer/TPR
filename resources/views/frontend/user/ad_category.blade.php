@@ -6,7 +6,7 @@
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/profile-settings.css') }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 @endpush
@@ -27,14 +27,14 @@
                     <div class="col-12 p-0">
                         <div class="row align-items-center">
                             <div class="col-7">
-                                <h4 class="fs-4 fw-bolder user-settings-head mb-0">Home Page Advertisemnt Category</h4>
+                                <h4 class="fs-4 fw-bolder user-settings-head mb-0">Home Page Advertisement Category</h4>
                             </div>
                         </div>
                         <div class="row align-items-center">
                             <div class="col-8">
 
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 text-end">
                                
                             @if(count($ad_category) >= 6)
                                 <div class="btn btn-info w-10 disabled" data-toggle="modal" data-target="#exampleModal">Maximum 6 Categories</div>
@@ -48,15 +48,15 @@
                 </div>
 
             @if(count($ad_category) <= 0)
-                <section id="residential-properties">
-                    <div class="container text-center" style="margin-top: 10rem">
-                        <p class="display-6 text-secondary">Categories Are Not Found!</p>
-                    </div>
-                </section>
+                @include('frontend.includes.not_found',[
+                    'not_found_title' => 'Categories not found',
+                    'not_found_description' => 'Please add categories',
+                    'not_found_button_caption' => null
+                ])
             @else
 
                 <div class="row mt-5">
-                    <table class="table table-borderless table-responsive">
+                    <table class="table table-responsive" id="villadatatable" style="width:100%">
                         <thead class="table-head">
                             <tr>
                                 <th scope="col">Name</th>
@@ -65,26 +65,6 @@
                             </tr>
                         </thead>
                         <tbody class="align-middle table-data">
-
-                        @foreach($ad_category as $key=> $ad_cat)
-
-                            <tr class="align-items-center">
-                                <td> {{ $ad_cat->name }} </td>
-                                <td> {{ $ad_cat->admin_approval }} </td>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModaledit{{$ad_cat->id}}" class="btn text-light table-btn edit" style="background-color: #4195E1">Edit</a>
-                                        </div>
-                                        <div class="col-3">                                            
-                                            <a href="{{ route('frontend.user.adCategory_delete', $ad_cat->id) }}" data-bs-toggle="modal" data-bs-target="#exampleModaldelete" class="btn text-light table-btn delete" style="background-color: #FF2C4B;">Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-
-                        @endforeach 
-                            
                         </tbody>
                     </table>
                 </div>
@@ -188,16 +168,49 @@
                     </div>
                 </div>
             </div>
-    
-
-       
-    <script>
-        $('.delete').on('click', function() {
-            let link = $(this).attr('href');
-            $('.modal-footer a').attr('href', link);
-        })
-    </script>
 @endif
 
 @endsection
 
+
+
+@push('after-scripts')
+<script>
+    function loadTable() {
+        var table = $('#villadatatable').DataTable({
+            processing: true,
+            ajax: "{{route('frontend.user.get_ad_category')}}",
+            serverSide: true,
+            responsive: true,
+            autoWidth: true,
+            order: [[0, "desc"]],
+            columns: [
+                {data: 'name', name: 'name'},
+                {data: 'admin_approval', name: 'admin_approval'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ],
+            "fnDrawCallback": function( oSettings ) {
+                dispprove();
+            }
+        });
+    };
+
+
+    $(document).ready(function() {
+        loadTable();
+    });
+
+
+
+    function dispprove() {
+        $('.disapprove').on('click', function() {
+        let value = $(this).attr('href');
+
+        console.log(value);
+
+        $('.modal-footer a').attr('href', value);
+    })
+    }
+</script>
+
+@endpush

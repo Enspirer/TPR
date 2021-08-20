@@ -25,15 +25,15 @@
                             <div class="col-6">
                                 <h4 class="fs-4 fw-bolder user-settings-head mb-0">Agent Approval</h4>
                             </div>
-                            <div class="col-6 text-end justify-content-end">
+                            <!-- <div class="col-6 text-end justify-content-end">
                                 <input type="text" class="form-control w-75 ms-auto" placeholder="search" aria-label="search" aria-describedby="search">
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
 
                 <div class="row mt-3">
-                    <table class="table table-borderless table-responsive">
+                    <!-- <table class="table table-borderless table-responsive">
                         <thead class="table-head">
                             <tr>
                                 <th scope="col">User Name</th>
@@ -44,28 +44,21 @@
                             </tr>
                         </thead>
                         <tbody class="align-middle table-data">
+                        </tbody>
+                    </table> -->
 
-                        @foreach($agent_request as $agent)
-
-                            <tr class="align-items-center">
-                                <td>{{ $agent->name }}</td>
-                                <td>{{ $agent->email }}</td>
-                                <td>{{ $agent->created_at->toDateString() }}</td>
-                                <td>{{ $agent->country_manager_approval }}</td>
-                                <td>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <a href="{{ route('frontend.user.single-agent-approval',$agent->id) }}"><button class="btn text-light table-btn" style="background-color: #4195E1">View</button></a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="{{ route('frontend.user.agentApprovalDelete',$agent->id) }}"><button class="btn text-light table-btn" style="background-color: #FF2C4B;">Delete</button></a>
-                                        </div>
-                                    </div>
-                                </td>
+                    <table class="table table-responsive" id="villadatatable" style="width:100%">
+                        <thead class="table-head">
+                            <tr>
+                                <th scope="col">Property Name</th>
+                                <th scope="col">Property Type</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
                             </tr>
+                        </thead>
+                        <tbody class="align-middle table-data">
 
-                        @endforeach 
-                            
                         </tbody>
                     </table>
                 </div>
@@ -73,7 +66,72 @@
         </div>
     </div>
 
+
+    <form action="{{ route('frontend.user.get-agent-approval-update') }}" method="POST">
+    {{ csrf_field() }}
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Disapprove Property</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                            Do you want to disapprove this property?
+                    </div>
+                    <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <input type="hidden" name="hid_id" value="">
+                            <button type="submit" class="btn btn-danger">Disapprove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
     
 
 
 @endsection
+
+
+@push('after-scripts')
+<script>
+    function loadTable() {
+        var table = $('#villadatatable').DataTable({
+            processing: true,
+            ajax: "{{route('frontend.user.get-agent-approval')}}",
+            serverSide: true,
+            responsive: true,
+            autoWidth: true,
+            order: [[0, "desc"]],
+            columns: [
+                {data: 'name', name: 'name'},
+                {data: 'email', name: 'email'},
+                {data: 'created_at', name: 'created_at'},
+                {data: 'country_manager_approval', name: 'country_manager_approval'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ],
+            "fnDrawCallback": function( oSettings ) {
+                dispprove();
+            }
+        });
+    };
+
+
+    $(document).ready(function() {
+        loadTable();
+    });
+
+
+
+    function dispprove() {
+        $('.disapprove').on('click', function() {
+        let value = $(this).attr('id');
+
+        $('.modal-footer input').attr('value', value);
+    })
+    }
+</script>
+</script>
+
+@endpush
