@@ -85,10 +85,7 @@
                                                                     <p align="left"><b>Status:</b> </p>
                                                                 </td>
                                                                 <td  cellpadding="0" cellspacing="0">     
-                                                                    <p align="left">@if( $ad1->status == 1 ) Enabled 
-                                                                                    @else Disabled 
-                                                                                    @endif
-                                                                    </p>  
+                                                                    <p align="left"> {{ $ad1->status }} </p>  
                                                                     <hr>         
                                                                 </td>
                                                             </tr>
@@ -160,10 +157,7 @@
                                                                     <p align="left"><b>Status:</b> </p>
                                                                 </td>
                                                                 <td  cellpadding="0" cellspacing="0">     
-                                                                    <p align="left">@if( $ad2->status == 1 ) Enabled 
-                                                                                    @else Disabled 
-                                                                                    @endif
-                                                                    </p>  
+                                                                    <p align="left">{{ $ad2->status }} </p>  
                                                                     <hr>         
                                                                 </td>
                                                             </tr>
@@ -240,8 +234,8 @@
                     <div class="form-group mt-3">
                         <label>Status:</label>
                         <select class="form-control mt-1" name="status" required>
-                            <option value="1">Enable</option>   
-                            <option value="0">Disable</option>                                
+                            <option value="Enable">Enable</option>   
+                            <option value="Disable">Disable</option>                                
                         </select>
                     </div>
                 </div>
@@ -292,8 +286,8 @@
                     <div class="form-group mt-3">
                         <label>Status:</label>
                         <select class="form-control mt-1" name="status" required>
-                            <option value="1">Enable</option>   
-                            <option value="0">Disable</option>                                
+                            <option value="Enable">Enable</option>   
+                            <option value="Disable">Disable</option>                                
                         </select>
                     </div>
                 </div>
@@ -348,8 +342,8 @@
                     <div class="form-group mt-3">
                         <label>Status:</label>
                         <select class="form-control mt-1" name="status" required>
-                            <option value="1" {{ $ad1->status == '1' ? "selected" : "" }}>Enable</option>   
-                            <option value="0" {{ $ad1->status == '0' ? "selected" : "" }}>Disable</option>                                
+                            <option value="Enable" {{ $ad1->status == 'Enable' ? "selected" : "" }}>Enable</option>   
+                            <option value="Disable" {{ $ad1->status == 'Disable' ? "selected" : "" }}>Disable</option>                                
                         </select>
                     </div>
                 </div>
@@ -406,8 +400,8 @@
                     <div class="form-group mt-3">
                         <label>Status:</label>
                         <select class="form-control mt-1" name="status" required>
-                            <option value="1" {{ $ad2->status == '1' ? "selected" : "" }}>Enable</option>   
-                            <option value="0" {{ $ad2->status == '0' ? "selected" : "" }}>Disable</option>                                
+                            <option value="Enable" {{ $ad2->status == 'Enable' ? "selected" : "" }}>Enable</option>   
+                            <option value="Disable" {{ $ad2->status == 'Disable' ? "selected" : "" }}>Disable</option>                                
                         </select>
                     </div>
                 </div>

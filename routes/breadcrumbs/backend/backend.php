@@ -86,6 +86,14 @@ Breadcrumbs::for('admin.homepage_advertisement.edit', function ($trail) {
     $trail->push('Edit Home Page Advertisement', route('admin.homepage_advertisement.edit',1));
 });
 
+Breadcrumbs::for('admin.sidebar_advertisement.index', function ($trail) {
+    $trail->push('Sidebar Advertisement', route('admin.sidebar_advertisement.index'));
+});
+
+Breadcrumbs::for('admin.sidebar_advertisement.edit', function ($trail) {
+    $trail->push('Edit Sidebar Advertisement', route('admin.sidebar_advertisement.edit',1));
+});
+
 Breadcrumbs::for('admin.settings.index', function ($trail) {
     $trail->push('Settings', route('admin.settings.index'));
 });

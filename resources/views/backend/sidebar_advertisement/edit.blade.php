@@ -6,7 +6,7 @@
 
 
 
-<form action="{{route('admin.homepage_advertisement.update')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('admin.sidebar_advertisement.update')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-7 p-1">
@@ -18,7 +18,7 @@
                                     <div class="col-12">
                                         <div class="row justify-content-center">
                                             <div class="col-10">
-                                                <img src="{{url('files/homepage_advertisement',$homepage_advertisement->image)}}" class="img-fluid border border-2" alt="...">
+                                                <img src="{{url('files/sidebar_ad',$sidebar_advertisement->image)}}" class="img-fluid border border-2" alt="...">
                                             </div>
                                         </div>
                                     </div>

@@ -521,7 +521,8 @@ class CountryManagementController extends Controller
         $add->link=$request->link;
         $add->status=$request->status;
         $add->country=$request->country;
-        $add->country_management_approval='Pending';  
+        $add->admin_approval='Pending';  
+        $add->country_management_approval='Approved';
 
         if($request->ad_position == 'ad1'){ 
             $add->other=$request->ad_position;
@@ -559,7 +560,8 @@ class CountryManagementController extends Controller
         $update->link=$request->link;
         $update->status=$request->status;        
         $update->country=$request->country;
-        $update->country_management_approval='Pending';  
+        $update->admin_approval='Pending';  
+        $update->country_management_approval='Approved';  
 
         if($request->ad_position == 'ad1'){ 
             $update->other=$request->ad_position;

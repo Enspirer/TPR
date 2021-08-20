@@ -11,6 +11,8 @@ use App\Http\Controllers\Backend\FileManagerController;
 use App\Http\Controllers\Backend\GlobalAdvertisementController;
 use App\Http\Controllers\Backend\AdCategoryController;
 use App\Http\Controllers\Backend\HomePageAdvertisementController;
+use App\Http\Controllers\Backend\SidebarAdvertisementController;
+
 
 
 
@@ -89,3 +91,10 @@ Route::get('homepage_advertisement/getdetails', [HomePageAdvertisementController
 Route::get('homepage_advertisement/edit/{id}', [HomePageAdvertisementController::class, 'edit'])->name('homepage_advertisement.edit');
 Route::post('homepage_advertisement/update', [HomePageAdvertisementController::class, 'update'])->name('homepage_advertisement.update');
 Route::get('homepage_advertisement/destroy/{id}', [HomePageAdvertisementController::class, 'destroy'])->name('homepage_advertisement.destroy');
+
+
+Route::get('sidebar_advertisement', [SidebarAdvertisementController::class, 'index'])->name('sidebar_advertisement.index');
+Route::get('sidebar_advertisement/getdetails', [SidebarAdvertisementController::class, 'getDetails'])->name('sidebar_advertisement.getDetails');
+Route::get('sidebar_advertisement/edit/{id}', [SidebarAdvertisementController::class, 'edit'])->name('sidebar_advertisement.edit');
+Route::post('sidebar_advertisement/update', [SidebarAdvertisementController::class, 'update'])->name('sidebar_advertisement.update');
+Route::get('sidebar_advertisement/destroy/{id}', [SidebarAdvertisementController::class, 'destroy'])->name('sidebar_advertisement.destroy');
