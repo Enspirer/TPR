@@ -137,8 +137,8 @@
             </div>
         </div>
 
-        <div>
-            <button type="submit" class="btn btn-success pull-right">Create New</button><br>
+        <div class="text-center mt-3">
+            <button type="submit" class="btn btn-success pull-right px-5 py-2 fs-6">Update</button><br>
             <input type="hidden" class="form-control" name="hid_id" value="{{ $country->id }}" required>
         </div>
     
@@ -237,12 +237,11 @@
                                     <p class="fw-bold mb-0">${properties[i]['name']}</p>
                                     <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${properties[i]['transaction_type']}</p>
                                     <p class="mb-0" style="font-size: 0.8rem;">Country: ${properties[i]['country']}</p>
+                                </div>
 
-
-                                    <div class="row justify-content-end">
-                                            <div class="col-5 text-end">
-                                                <button type="button" name="delete" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
-                                            </div>
+                                <div class="row justify-content-end">
+                                    <div class="col-5 text-end">
+                                        <button type="button" name="delete" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -251,6 +250,7 @@
         }
 
         $('.properties1').append(template);
+        deleteProperty();
     }
 
 
@@ -277,13 +277,12 @@
                                     <p class="fw-bold mb-0">${properties[i]['name']}</p>
                                     <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${properties[i]['transaction_type']}</p>
                                     <p class="mb-0" style="font-size: 0.8rem;">Country: ${properties[i]['country']}</p>
+                                </div>
 
-                                    <div class="row justify-content-end">
-                                            <div class="col-5 text-end">
-                                                <button type="button" name="delete" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
-                                            </div>
+                                <div class="row justify-content-end">
+                                    <div class="col-5 text-end">
+                                        <button type="button" name="delete" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
                                     </div>
-
                                 </div>
                             </div>
                         `
@@ -291,14 +290,23 @@
         }
 
         $('.properties2').append(template);
+        deleteProperty();
     }
 
 
 
+    function deleteProperty() {
+        $('.delete').on('click', function() {
+            $(this).parents('.property-row').remove();
+        });
+    }
 
-    $('.delete').on('click', function() {
-        $(this).parents('.property-row').remove();
-    })
+    $(document).ready(function() {
+        $('.delete').on('click', function() {
+            $(this).parents('.property-row').remove();
+        });
+    });
+    
 </script>
 
 
