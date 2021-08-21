@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\GlobalAdvertisementController;
 use App\Http\Controllers\Backend\AdCategoryController;
 use App\Http\Controllers\Backend\HomePageAdvertisementController;
 use App\Http\Controllers\Backend\SidebarAdvertisementController;
+use App\Http\Controllers\Backend\PagesController;
 
 
 
@@ -98,3 +99,13 @@ Route::get('sidebar_advertisement/getdetails', [SidebarAdvertisementController::
 Route::get('sidebar_advertisement/edit/{id}', [SidebarAdvertisementController::class, 'edit'])->name('sidebar_advertisement.edit');
 Route::post('sidebar_advertisement/update', [SidebarAdvertisementController::class, 'update'])->name('sidebar_advertisement.update');
 Route::get('sidebar_advertisement/destroy/{id}', [SidebarAdvertisementController::class, 'destroy'])->name('sidebar_advertisement.destroy');
+
+
+Route::get('about_us', [PagesController::class, 'about_us'])->name('about_us');
+Route::post('about_us/update', [PagesController::class, 'about_us_update'])->name('about_us_update');
+
+Route::get('privacy_policy', [PagesController::class, 'privacy_policy'])->name('privacy_policy');
+Route::post('privacy_policy/update', [PagesController::class, 'privacy_policy_update'])->name('privacy_policy_update');
+
+Route::get('terms_of_use', [PagesController::class, 'terms_of_use'])->name('terms_of_use');
+Route::post('terms_of_use/update', [PagesController::class, 'terms_of_use_update'])->name('terms_of_use_update');

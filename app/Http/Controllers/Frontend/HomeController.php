@@ -77,7 +77,8 @@ class HomeController extends Controller
 
         $ad_category = AdCategory::where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->get();
 
-        $homepage_ad = HomePageAdvertisement::where('status','=','Enable')->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->orderBy('order','ASC')->get();
+        $homepage_ad = HomePageAdvertisement::where('status','=','Enable')->where('category','!=',null)->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->orderBy('order','ASC')->get();
+        // dd($homepage_ad);
 
         Cookie::queue("country_code", $country_id,1000);
 

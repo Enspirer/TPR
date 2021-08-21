@@ -89,9 +89,7 @@
                     </li>
                         
                 </ul>
-            </li> 
-
-            
+            </li>            
 
 
             <li class="nav-item">
@@ -100,6 +98,33 @@
                     Contact Us
                 </a>
             </li>
+
+
+            <li class="nav-item nav-dropdown ">
+                <a class="nav-link nav-dropdown-toggle " href="#">
+                    <i class="nav-icon fas fa-book-open"></i>
+                    Pages
+                </a>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/about_us'))}}" href="{{ route('admin.about_us') }}">
+                            About Us
+                        </a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/privacy_policy'))}}" href="{{ route('admin.privacy_policy') }}">
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/terms_of_use'))}}" href="{{ route('admin.terms_of_use') }}">
+                            Terms of Use
+                        </a>
+                    </li>
+                        
+                </ul>
+            </li> 
 
 
 

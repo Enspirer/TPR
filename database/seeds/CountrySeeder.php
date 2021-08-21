@@ -12,7 +12,7 @@ class CountrySeeder extends Seeder
     public function run()
     {
         DB::table('countries')->insert([
-           'country_name' => 'LK',
+           'country_name' => 'Sri Lanka',
            'slug' => 'sri-lanka',
            'currency' => 'LKR ',
            'user_id' => '1',

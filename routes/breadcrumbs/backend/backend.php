@@ -102,3 +102,17 @@ Breadcrumbs::for('admin.settings.edit', function ($trail) {
     $trail->push('Edit Settings', route('admin.settings.edit',1));
 });
 
+
+
+Breadcrumbs::for('admin.about_us', function ($trail) {
+    $trail->push('About Us', route('admin.about_us'));
+});
+Breadcrumbs::for('admin.privacy_policy', function ($trail) {
+    $trail->push('Privacy policy', route('admin.privacy_policy'));
+});
+Breadcrumbs::for('admin.terms_of_use', function ($trail) {
+    $trail->push('Terms of Use', route('admin.terms_of_use'));
+});
+
+
+

@@ -29,17 +29,13 @@ class SettingsController extends Controller
                         return $button;
                     })
 
-                    ->editColumn('status', function($data){
-                        if($data->static_value == '1'){
-                            $status = '<span class="badge badge-success">Enable</span>';
-                        }
-                        else{
-                            $status = '<span class="badge badge-danger">Disable</span>';
-                        }   
-                        return $status;
+                    ->addColumn('key', function($data){
+                        
+                        $key = '<span style="overflow: hidden; width:150px; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">'.$data->key.'</span>';
+                        return $key;
                     })
                                         
-                    ->rawColumns(['action','status'])
+                    ->rawColumns(['action','key'])
                     ->make(true);
         }
         return back();

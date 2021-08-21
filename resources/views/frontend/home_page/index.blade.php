@@ -58,94 +58,96 @@
 
     @if(get_country_cookie(request()))
 
-        <!--recent projects-->
-        <section id="index-recent-projects">
-            <div class="container text-center p-0">
-                <h3 class="fw-bolder" data-aos="fade-up" data-aos-duration="500">Recent Projects</h3>
+        @if(App\Models\HomePageAdvertisement::where('country',get_country_cookie(request())->country_name)->where('status','=','Enable')->where('category','!=',null)->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->first() == null)
 
-                <ul class="nav mb-3 justify-content-center" id="projects-tab" role="tablist">
-                    <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
-                        <a class="nav-link active tabs" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">All</a>
-                    </li>   
-                    
-                    @foreach($ad_category as $key => $ad_cat)
+        @else
+            <!--recent projects-->
+            <section id="index-recent-projects">
+                <div class="container text-center p-0">
+                    <h3 class="fw-bolder" data-aos="fade-up" data-aos-duration="500">Recent Projects</h3>
 
-                        @if(get_country_cookie(request())->country_name == $ad_cat->country)
-
-                            <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-                                <a class="nav-link tabs" id="tab-id{{ $ad_cat->id }}" data-bs-toggle="tab" data-bs-target="#tab{{ $ad_cat->id }}" type="button" role="tab" aria-controls="tab-{{ $ad_cat->id }}" aria-selected="false">{{ $ad_cat->name }}</a>
-                            </li>
-
-                        @else
-                            <h1>no</h1>
-                        @endif                       
-
-                    @endforeach
-
-                </ul>
-
-                <div class="tab-content mt-5 py-4" id="tabs-tabContent" style="background-color : #ECECEC">
-
-                    <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
+                    <ul class="nav mb-3 justify-content-center" id="projects-tab" role="tablist">
+                        <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
+                            <a class="nav-link active tabs" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">All</a>
+                        </li>   
                         
-                        <div class="swiper-container mySwiper">
-                            <div class="swiper-wrapper"> 
+                        @foreach($ad_category as $key => $ad_cat)
 
-                                    @foreach($homepage_ad as $key => $home_ad)
-                                    <!-- <div class="swiper-slide row"> -->
-
-                                        @if(get_country_cookie(request())->country_name == $home_ad->country)
-                                        
-                                        <div class="swiper-slide">
-                                            <a href="{{$home_ad->link}}" target="_blank">
-                                                <img src="{{url('files/homepage_advertisement',$home_ad->image)}}" class="img-fluid" alt="">
-                                            </a>
-                                        </div>  
-
-                                        @else
-                                            <h1>no</h1>
-                                        @endif
-
-                                    <!-- </div> -->
-                                    @endforeach
-
-                            </div>
-                            <div class="swiper-pagination"></div>
-                            <!-- <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div> -->
-                        </div>
-
-                    </div>
-
-                    @foreach($ad_category as $key => $ad_cat)
-                        <div class="tab-pane fade" id="tab{{ $ad_cat->id }}" role="tabpanel" aria-labelledby="tab-id{{ $ad_cat->id }}">
-                            <div class="swiper-container mySwiper2">
-                                <div class="swiper-wrapper"> 
-                                   
+                            @if(get_country_cookie(request())->country_name == $ad_cat->country)                            
                                 
-                                    @foreach(App\Models\HomePageAdvertisement::where('category',$ad_cat->id)->get() as $data)
+                                @if(App\Models\HomePageAdvertisement::where('category',$ad_cat->id)->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->where('status','=','Enable')->first() == null)
 
-                                        <div class="swiper-slide">
-                                            <a href="{{$data->link}}" target="_blank">
-                                                <img src="{{url('files/homepage_advertisement',$data->image)}}" class="img-fluid" alt="">
-                                            </a>
-                                        </div>  
+                                @else
+                                <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                                    <a class="nav-link tabs" id="tab-id{{ $ad_cat->id }}" data-bs-toggle="tab" data-bs-target="#tab{{ $ad_cat->id }}" type="button" role="tab" aria-controls="tab-{{ $ad_cat->id }}" aria-selected="false">{{ $ad_cat->name }}</a>
+                                </li>   
 
-                                    @endforeach    
-                                                                 
-                                    
+                                @endif                              
+                                
+                            @endif                       
+
+                        @endforeach
+
+                    </ul>
+
+                    <div class="tab-content mt-5 py-4" id="tabs-tabContent" style="background-color : #ECECEC">
+
+                        <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
+                            
+                            <div class="swiper-container mySwiper">
+                                <div class="swiper-wrapper"> 
+
+                                        @foreach($homepage_ad as $key => $home_ad)
+
+                                            @if(get_country_cookie(request())->country_name == $home_ad->country)
+                                            
+                                            <div class="swiper-slide">
+                                                <a href="{{$home_ad->link}}" target="_blank">
+                                                    <img src="{{url('files/homepage_advertisement',$home_ad->image)}}" class="img-fluid" alt="">
+                                                </a>
+                                            </div> 
+                                           
+                                            @endif
+
+                                        @endforeach
+
                                 </div>
                                 <div class="swiper-pagination"></div>
-                                
                                 <!-- <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div> -->
                             </div>
-                        </div>
-                    @endforeach
 
+                        </div>
+
+                        @foreach($ad_category as $key => $ad_cat)
+                            <div class="tab-pane fade" id="tab{{ $ad_cat->id }}" role="tabpanel" aria-labelledby="tab-id{{ $ad_cat->id }}">
+                                <div class="swiper-container mySwiper2">
+                                    <div class="swiper-wrapper">                                     
+                                    
+                                        @foreach(App\Models\HomePageAdvertisement::where('category',$ad_cat->id)->where('status','=','Enable')->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->orderBy('order','ASC')->get() as $data)
+
+                                            <div class="swiper-slide">
+                                                <a href="{{$data->link}}" target="_blank">
+                                                    <img src="{{url('files/homepage_advertisement',$data->image)}}" class="img-fluid" alt="">
+                                                </a>
+                                            </div>  
+
+                                        @endforeach                                                                        
+                                        
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                    
+                                    <!-- <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div> -->
+                                </div>
+                            </div>
+                        @endforeach
+
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+        @endif
 
     @else
 
