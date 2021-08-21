@@ -21,6 +21,7 @@
                                 <th scope="col">#ID</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Country</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Order</th>
@@ -79,6 +80,7 @@
                     {data: 'id', name: 'id'},
                     {data: 'image', name: 'image'},
                     {data: 'name', name: 'name'},
+                    {data: 'country', name: 'country'},
                     {data: 'category', name: 'category'},
                     {data: 'status', name: 'status'},
                     {data: 'order', name: 'order'},

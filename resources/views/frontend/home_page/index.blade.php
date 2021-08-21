@@ -4,6 +4,8 @@
 
 @section('content')
 
+
+
     <!-- banner -->
     <section id="index-banner">
         <div class="container-fluid banner">
@@ -52,131 +54,101 @@
     </section>
 
 
-    <!--recent projects-->
-    <section id="index-recent-projects">
-        <div class="container text-center p-0">
-            <h3 class="fw-bolder" data-aos="fade-up" data-aos-duration="500">Recent Projects</h3>
+    
 
-            <ul class="nav mb-3 justify-content-center" id="projects-tab" role="tablist">
-                <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
-                    <a class="nav-link active tabs" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">All</a>
-                </li>
+    @if(get_country_cookie(request()))
 
-                @foreach($ad_category as $key => $ad_cat)
-                    <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-                        <a class="nav-link tabs" id="{{ $ad_cat->name }}-tab" data-bs-toggle="tab" data-bs-target="#tab-{{ $ad_cat->name }}" type="button" role="tab" aria-controls="tabs-leisure" aria-selected="false">{{ $ad_cat->name }}</a>
-                    </li>
-                @endforeach
+        <!--recent projects-->
+        <section id="index-recent-projects">
+            <div class="container text-center p-0">
+                <h3 class="fw-bolder" data-aos="fade-up" data-aos-duration="500">Recent Projects</h3>
 
+                <ul class="nav mb-3 justify-content-center" id="projects-tab" role="tablist">
+                    <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
+                        <a class="nav-link active tabs" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">All</a>
+                    </li>   
+                    
+                    @foreach($ad_category as $key => $ad_cat)
 
-                <!-- <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-                    <a class="nav-link" id="new-development-tab" data-bs-toggle="tab" data-bs-target="#tab-new-development" type="button" role="tab" aria-controls="tabs-leisure" aria-selected="false">New Development</a>
-                </li>
-                <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="450">
-                    <a class="nav-link" id="investment-tab" data-bs-toggle="tab" data-bs-target="#tab-investment" type="button" role="tab" aria-controls="pills-apartments" aria-selected="false">Investment Properties</a>
-                </li> -->
+                        @if(get_country_cookie(request())->country_name == $ad_cat->country)
 
+                            <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                                <a class="nav-link tabs" id="tab-id{{ $ad_cat->id }}" data-bs-toggle="tab" data-bs-target="#tab{{ $ad_cat->id }}" type="button" role="tab" aria-controls="tab-{{ $ad_cat->id }}" aria-selected="false">{{ $ad_cat->name }}</a>
+                            </li>
 
-            </ul>
+                        @else
+                            <h1>no</h1>
+                        @endif                       
 
-            <div class="tab-content mt-5 py-4" id="tabs-tabContent" style="background-color : #ECECEC">
+                    @endforeach
 
-                <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
-                    <!-- <div class="row">
-                        <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                            <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                            <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                            <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
-                        </div>
-                    </div> -->
+                </ul>
 
-                    <div class="swiper-container mySwiper">
-                        <div class="swiper-wrapper">
+                <div class="tab-content mt-5 py-4" id="tabs-tabContent" style="background-color : #ECECEC">
 
-                            <div class="swiper-slide row">
-
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                    <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
-                                </div>
-
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                    <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
-                                </div>
-                                
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                                    <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
-                                </div>
-
-                            </div>
-
-                            <div class="swiper-slide row">
-
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                    <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
-                                </div>
-
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                    <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
-                                </div>
-                                
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                                    <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                </div>
-
-                @foreach($ad_category as $key => $ad_cat)
-                    <div class="tab-pane fade" id="tab-{{ $ad_cat->name }}" role="tabpanel" aria-labelledby="{{ $ad_cat->name }}-tab">
+                    <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
+                        
                         <div class="swiper-container mySwiper">
-                            <div class="swiper-wrapper">
+                            <div class="swiper-wrapper"> 
 
-                                <div class="swiper-slide row">
+                                    @foreach($homepage_ad as $key => $home_ad)
+                                    <!-- <div class="swiper-slide row"> -->
 
-                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                        <img src="{{url('tpr_templete/images/rp_1.svg')}}" class="img-fluid" alt="">
-                                    </div>
-
-                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                        <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
-                                    </div>
+                                    @if(get_country_cookie(request())->country_name == $home_ad->country)
                                     
-                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                                        <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
-                                    </div>
+                                    <div class="swiper-slide col-4" data-aos="flip-right" data-aos-duration="500">
+                                        <a href="{{$home_ad->link}}" target="_blank">
+                                            <img src="{{url('files/homepage_advertisement',$home_ad->image)}}" class="img-fluid" alt="">
+                                        </a>
+                                    </div>  
 
-                                </div>
+                                    @else
+                                        <h1>no</h1>
+                                    @endif
 
-                                <div class="swiper-slide row">
+                                    <!-- </div> -->
+                                    @endforeach
 
-                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                        <img src="{{url('tpr_templete/images/rp_3.svg')}}" class="img-fluid" alt="">
-                                    </div>
-
-                                    <div class="col-4" data-aos="flip-right" data-aos-duration="500">
-                                        <img src="{{url('tpr_templete/images/rp_2.svg')}}" class="img-fluid" alt="">
-                                    </div>
-                                </div>
                             </div>
-
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                            <!-- <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div> -->
                         </div>
-                    </div>
-                @endforeach
 
+                    </div>
+
+                    @foreach($ad_category as $key => $ad_cat)
+                        <div class="tab-pane fade" id="tab{{ $ad_cat->id }}" role="tabpanel" aria-labelledby="tab-{{ $ad_cat->id }}">
+                            <div class="swiper-container mySwiper2">
+                                <div class="swiper-wrapper"> 
+                                   
+                                    @foreach(App\Models\HomePageAdvertisement::where('category',$ad_cat->id)->get() as $data)
+
+                                        <div class="swiper-slide col-4" data-aos="flip-right" data-aos-duration="500">
+                                            <a href="{{$data->link}}" target="_blank">
+                                                <img src="{{url('files/homepage_advertisement',$data->image)}}" class="img-fluid" alt="">
+                                            </a>
+                                        </div>  
+
+                                    @endforeach                                    
+                                    
+                                </div>
+                                <div class="swiper-pagination2"></div>
+                                <!-- <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div> -->
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    @else
+
+    <h1 align="center">Select a Country</h1>
+
+    @endif
 
 
     <!--cards-->
@@ -619,20 +591,30 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap" type="text/javascript"></script>
 
 
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-<!-- Initialize Swiper -->
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        },
+    });
+    </script>
+
 <script>
-  var swiper = new Swiper(".mySwiper", {
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-
-    observer: true,
-	observeParents: true
-  });
-</script>
+    var swiper = new Swiper(".mySwiper2", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+        el: ".swiper-pagination2",
+        clickable: true,
+        },
+    });
+    </script>
 
 @endpush

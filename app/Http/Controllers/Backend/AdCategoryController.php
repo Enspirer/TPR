@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DataTables;
 use DB;
 use App\Models\AdCategory;
+use App\Models\HomePageAdvertisement;
 
 class AdCategoryController extends Controller
 {
@@ -72,6 +73,9 @@ class AdCategoryController extends Controller
 
     public function destroy($id)
     {        
+
+        $projects = HomePageAdvertisement::where('category',$id)->update(array('category' => null));
+
         $data = AdCategory::findOrFail($id);
         $data->delete();   
     }

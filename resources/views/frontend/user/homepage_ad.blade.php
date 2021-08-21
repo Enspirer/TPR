@@ -88,7 +88,7 @@
                                     <td> {{ $home_ad->name }} </td>  
                                             
                                     @if($home_ad->category == null)
-                                        <td style="color:red">Not Initialized</td>
+                                        <td style="color:red">Not Set</td>
                                     @else
                                     <td> {{ App\Models\AdCategory::where('id',$home_ad->category)->where('admin_approval', '=', 'Approved')->first()->name }} </td>
                                     @endif 

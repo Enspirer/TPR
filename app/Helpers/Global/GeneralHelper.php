@@ -3,6 +3,7 @@ use App\Medels\AgentRequest;
 use App\Models\Country;
 use App\Models\Favorite; 
 use Illuminate\Http\Request;
+use App\Models\Settings; 
 
 if (! function_exists('app_name')) {
     /**
@@ -194,6 +195,26 @@ if (! function_exists('current_price')) {
         }else{
             return 'USD '. number_format($price,2);
         }
+    }
+}
+
+
+if (! function_exists('get_settings')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function get_settings($settings_name,$user_id = null)
+    {
+       
+        $settings = Settings::where('name',$settings_name)->first();
+        if($settings == null){
+            return null;
+        }else{
+            return $settings->key;
+        }
+
     }
 }
 

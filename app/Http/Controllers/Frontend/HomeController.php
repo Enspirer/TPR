@@ -15,6 +15,7 @@ use Session;
 use App\Models\Favorite; 
 use App\Models\SidebarAd; 
 use App\Models\AdCategory;
+use App\Models\HomePageAdvertisement;
 
 /**
  * Class HomeController.
@@ -77,13 +78,14 @@ class HomeController extends Controller
         $ad_category = AdCategory::where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->get();
         // dd($ad_category);
 
+        $homepage_ad = HomePageAdvertisement::where('status','=','Enable')->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->orderBy('order','ASC')->get();
+        // dd($homepage_ad);
+
         Cookie::queue("country_code", $country_id,1000);
 
         $promu = Properties::where('admin_approval','Approved')->get();
 
         $latest = Properties::where('admin_approval','Approved')->latest()->take(3)->get();
-
-
 
         $country = Country::where('country_id', $country_id)->first();
 
@@ -94,11 +96,12 @@ class HomeController extends Controller
             'promo' => $promu,
             'latest' => $latest,
             'ad_category' => $ad_category,
+            'homepage_ad' => $homepage_ad,
             'country' => $country
         ]);
     }
 
-
+    
     public static function setCookie($param)
     {
         $response = new Response('Set Cookie');

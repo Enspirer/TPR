@@ -303,7 +303,7 @@ class CountryManagementController extends Controller
         $country = Country::where('country_manager',auth()->user()->id)->first();
         // dd($country);
 
-        $ad_category = AdCategory::orderBy('id', 'DESC')->get();
+        $ad_category = AdCategory::where('country', $country->country_name)->orderBy('id', 'DESC')->get();
         // dd($ad_category);
     
         return view('frontend.user.ad_category',[
@@ -392,10 +392,10 @@ class CountryManagementController extends Controller
         $country = Country::where('country_manager',auth()->user()->id)->first();
         // dd($country);
 
-        $ad_category = AdCategory::where('admin_approval','=','Approved')->get();
+        $ad_category = AdCategory::where('country', $country->country_name)->where('admin_approval','=','Approved')->get();
         // dd($ad_category);
 
-        $homepage_ad = HomePageAdvertisement::orderBy('id', 'DESC')->get();
+        $homepage_ad = HomePageAdvertisement::where('country', $country->country_name)->orderBy('id', 'DESC')->get();
         // dd($homepage_ad);
     
         return view('frontend.user.homepage_ad',[
@@ -485,14 +485,14 @@ class CountryManagementController extends Controller
 
     
 
-    public function sidebarAD() {
-
-        $ad1 = SidebarAd::where('other', '=', 'ad1')->first();
-        $ad2 = SidebarAd::where('other', '=', 'ad2')->first();
-        // dd($ad1);
+    public function sidebarAD() {        
 
         $country = Country::where('country_manager',auth()->user()->id)->first();
         // dd($country);
+
+        $ad1 = SidebarAd::where('country', $country->country_name)->where('other', '=', 'ad1')->first();
+        $ad2 = SidebarAd::where('country', $country->country_name)->where('other', '=', 'ad2')->first();
+        // dd($ad1);
 
         return view('frontend.user.sidebar_ad',[
             'ad1' => $ad1,
