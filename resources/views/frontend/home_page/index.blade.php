@@ -94,17 +94,17 @@
                                     @foreach($homepage_ad as $key => $home_ad)
                                     <!-- <div class="swiper-slide row"> -->
 
-                                    @if(get_country_cookie(request())->country_name == $home_ad->country)
-                                    
-                                    <div class="swiper-slide col-4" data-aos="flip-right" data-aos-duration="500">
-                                        <a href="{{$home_ad->link}}" target="_blank">
-                                            <img src="{{url('files/homepage_advertisement',$home_ad->image)}}" class="img-fluid" alt="">
-                                        </a>
-                                    </div>  
+                                        @if(get_country_cookie(request())->country_name == $home_ad->country)
+                                        
+                                        <div class="swiper-slide">
+                                            <a href="{{$home_ad->link}}" target="_blank">
+                                                <img src="{{url('files/homepage_advertisement',$home_ad->image)}}" class="img-fluid" alt="">
+                                            </a>
+                                        </div>  
 
-                                    @else
-                                        <h1>no</h1>
-                                    @endif
+                                        @else
+                                            <h1>no</h1>
+                                        @endif
 
                                     <!-- </div> -->
                                     @endforeach
@@ -118,22 +118,25 @@
                     </div>
 
                     @foreach($ad_category as $key => $ad_cat)
-                        <div class="tab-pane fade" id="tab{{ $ad_cat->id }}" role="tabpanel" aria-labelledby="tab-{{ $ad_cat->id }}">
+                        <div class="tab-pane fade" id="tab{{ $ad_cat->id }}" role="tabpanel" aria-labelledby="tab-id{{ $ad_cat->id }}">
                             <div class="swiper-container mySwiper2">
                                 <div class="swiper-wrapper"> 
                                    
+                                
                                     @foreach(App\Models\HomePageAdvertisement::where('category',$ad_cat->id)->get() as $data)
 
-                                        <div class="swiper-slide col-4" data-aos="flip-right" data-aos-duration="500">
+                                        <div class="swiper-slide">
                                             <a href="{{$data->link}}" target="_blank">
                                                 <img src="{{url('files/homepage_advertisement',$data->image)}}" class="img-fluid" alt="">
                                             </a>
                                         </div>  
 
-                                    @endforeach                                    
+                                    @endforeach    
+                                                                 
                                     
                                 </div>
-                                <div class="swiper-pagination2"></div>
+                                <div class="swiper-pagination"></div>
+                                
                                 <!-- <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div> -->
                             </div>
@@ -603,18 +606,21 @@
         el: ".swiper-pagination",
         clickable: true,
         },
+        observer: true,
+        observeParents: true,
     });
-    </script>
 
-<script>
-    var swiper = new Swiper(".mySwiper2", {
+    var swiper2 = new Swiper(".mySwiper2", {
         slidesPerView: 3,
         spaceBetween: 30,
         pagination: {
-        el: ".swiper-pagination2",
-        clickable: true,
+          el: ".swiper-pagination",
+          clickable: true,
         },
-    });
-    </script>
+        observer: true,
+        observeParents: true,
+      });
+</script>
+
 
 @endpush
