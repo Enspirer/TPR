@@ -38,8 +38,18 @@ class CountryController extends Controller
                         $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
                         return $button;
                     })
+
+                    ->addColumn('status', function($data){
+                        if($data->status == '1'){
+                            $status = '<span class="badge badge-success">Enable</span>';
+                        }
+                        else{
+                            $status = '<span class="badge badge-danger">Disable</span>';
+                        }   
+                        return $status;
+                    })
                     
-                    ->rawColumns(['action'])
+                    ->rawColumns(['action','status'])
                     ->make(true);
         }
         return back();
@@ -69,6 +79,7 @@ class CountryController extends Controller
         $addcountry->country_name=$request->country_name; 
         $addcountry->slug=$request->slug;        
         $addcountry->currency=$request->currency;
+        $addcountry->currency_rate=$request->currency_rate;
         $addcountry->country_id=$request->country_id;
         $addcountry->user_id = auth()->user()->id;
         $addcountry->country_manager=$request->country_manager;
@@ -157,6 +168,7 @@ class CountryController extends Controller
         $updatcountry->country_name=$request->country_name; 
         $updatcountry->slug=$request->slug;        
         $updatcountry->currency=$request->currency;
+        $updatcountry->currency_rate=$request->currency_rate;
         $updatcountry->country_id=$request->country_id;
         $updatcountry->user_id = auth()->user()->id;
         $updatcountry->country_manager=$request->country_manager;

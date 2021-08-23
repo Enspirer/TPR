@@ -51,12 +51,6 @@ Route::get('agent/edit/{id}', [AgentRequestController::class, 'edit'])->name('ag
 Route::post('agent/update', [AgentRequestController::class, 'update'])->name('agent.update');
 Route::get('agent/delete/{id}', [AgentRequestController::class, 'destroy'])->name('agent.destroy');
 
-Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
-Route::get('settings/getdetails', [SettingsController::class, 'getDetails'])->name('settings.getDetails');
-Route::get('settings/edit/{id}', [SettingsController::class, 'edit'])->name('settings.edit');
-Route::post('settings/update', [SettingsController::class, 'update'])->name('settings.update');
-Route::get('settings/delete/{id}', [SettingsController::class, 'destroy'])->name('settings.destroy');
-
 Route::get('contact_us', [ContactUsController::class, 'index'])->name('contact_us.index');
 Route::get('contact_us/getdetails', [ContactUsController::class, 'getDetails'])->name('contact_us.getDetails');
 Route::get('contact_us/edit/{id}', [ContactUsController::class, 'edit'])->name('contact_us.edit');
@@ -118,3 +112,14 @@ Route::post('tips_for_sellers/update', [PagesController::class, 'tips_for_seller
 
 Route::get('commercial_resources', [PagesController::class, 'commercial_resources'])->name('commercial_resources');
 Route::post('commercial_resources/update', [PagesController::class, 'commercial_resources_update'])->name('commercial_resources_update');
+
+
+
+Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
+Route::get('settings/getdetails', [SettingsController::class, 'getDetails'])->name('settings.getDetails');
+Route::get('settings/edit/{id}', [SettingsController::class, 'edit'])->name('settings.edit');
+Route::post('settings/update', [SettingsController::class, 'update'])->name('settings.update');
+Route::get('settings/delete/{id}', [SettingsController::class, 'destroy'])->name('settings.destroy');
+
+Route::get('landing_page', [SettingsController::class, 'landing_page'])->name('landing_page');
+Route::get('landing_page/update', [SettingsController::class, 'landing_page_update'])->name('landing_page_update');

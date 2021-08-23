@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DataTables;
 use DB;
 use App\Models\Settings;
+use App\Models\Country;
 
 class SettingsController extends Controller
 {
@@ -88,6 +89,16 @@ class SettingsController extends Controller
     {        
         $data = Settings::findOrFail($id);
         $data->delete();   
+    }
+
+
+
+    public function landing_page()
+    {
+        $country = Country::where('features_manager','=','null')->get();
+        dd($country);
+
+        return view('backend.settings.landing_page');
     }
 
 

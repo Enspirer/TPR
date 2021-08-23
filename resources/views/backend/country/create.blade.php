@@ -125,6 +125,10 @@
                             <input type="text" class="form-control" name="currency" required>
                         </div>
                         <div class="form-group">
+                            <label>Currency Rate</label>
+                            <input type="text" class="form-control" name="currency_rate" required>
+                        </div>
+                        <div class="form-group">
                             <label>Country ID</label>
                             <input type="text" class="form-control" name="country_id" required>
                         </div>

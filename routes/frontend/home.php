@@ -149,14 +149,14 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('country-managment-dashboard', [CountryManagementController::class, 'index'])->name('country-management');
 
+
+        Route::get('home-page-feature', [CountryManagementController::class, 'home_page_feature'])->name('home_page_feature');
+        Route::post('home-page-feature/update', [CountryManagementController::class, 'home_page_feature_Update'])->name('home_page_feature_Update');
+
         Route::get('country-management/property-approval', [CountryManagementController::class, 'propertyApproval'])->name('property-approval');
-
         Route::get('country-management/get-property-approval', [CountryManagementController::class, 'getPropertyApproval'])->name('get-property-approval');
-
         Route::post('country-management/get-property-approval/update', [CountryManagementController::class, 'getPropertyApprovalUpdate'])->name('get-property-approval-update');
-
         Route::get('country-management/single-property-approval/{id}', [CountryManagementController::class, 'singlePropertyApproval'])->name('single-property-approval');
-
         Route::post('country-management/single-property-approval/update', [CountryManagementController::class, 'singlePropertyApproved'])->name('single-property-approved');
 
         Route::get('country-management/supports', [CountryManagementController::class, 'supports'])->name('supports');        
@@ -168,28 +168,18 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
         Route::get('country-management/agent-approval', [CountryManagementController::class, 'agentApproval'])->name('agent-approval');
-
         Route::get('country-management/get-agent-approval', [CountryManagementController::class, 'getAgentApproval'])->name('get-agent-approval');
-
-        Route::post('country-management/get-agent-approval/update', [CountryManagementController::class, 'getAgentApprovalUpdate'])->name('get-agent-approval-update');
-        
+        Route::post('country-management/get-agent-approval/update', [CountryManagementController::class, 'getAgentApprovalUpdate'])->name('get-agent-approval-update');        
         Route::get('country-management/agent-approval-delete/{id}', [CountryManagementController::class, 'agentApprovalDelete'])->name('agentApprovalDelete');
-
         Route::get('country-management/single-agent-approval/{id}', [CountryManagementController::class, 'singleAgentApproval'])->name('single-agent-approval');
-
         Route::post('country-management/single-agent-approval/update', [CountryManagementController::class, 'singleAgentApprovalUpdate'])->name('singleAgentApprovalUpdate');
 
         
         Route::get('country-management/ad-category', [CountryManagementController::class, 'adCategory'])->name('ad_category');
-
         Route::get('country-management/get-ad-category', [CountryManagementController::class, 'getAdCategory'])->name('get_ad_category');
-
         Route::post('ad-category/store', [CountryManagementController::class, 'adCategory_store'])->name('adCategory_store');
-
         Route::post('ad-category/update', [CountryManagementController::class, 'adCategory_update'])->name('adCategory_update');
-
         Route::get('ad-category/delete/{id}', [CountryManagementController::class, 'adCategory_delete'])->name('adCategory_delete');
-
 
         Route::get('country-management/homepage-advertisement', [CountryManagementController::class, 'homepage_AD'])->name('homepage_AD');
         Route::post('homepage-advertisement/store', [CountryManagementController::class, 'homepage_AD_store'])->name('homepage_AD_store');

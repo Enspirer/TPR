@@ -42,6 +42,64 @@ class CountryManagementController extends Controller
         ]);
     }
 
+
+
+
+    public function home_page_feature()
+    {
+        $user_id = auth()->user()->id;
+
+        $country = Country::where('country_manager',$user_id)->first();
+        // dd($country);
+
+        $properties = Properties::where('admin_approval', 'Approved')->where('country',$country->country_name)->get();
+        // dd($properties);
+     
+        return view('frontend.user.home-page-feature',[
+            'properties' => $properties,
+            'country' => $country
+        ]);
+    }
+
+    public function home_page_feature_Update(Request $request)
+    {
+       
+        $title1 = $request->featureTitle1;
+        $title2 = $request->featureTitle2;
+
+        $out_json1 = $request->properties1;
+        $out_json2 = $request->properties2;
+
+        $array1 = [
+            'title' => $title1,
+            'properties' => $out_json1
+        ];
+
+        $array2 = [
+            'title' => $title2,
+            'properties' => $out_json2
+        ];
+
+        $final = [$array1, $array2];
+
+        $featuredProperties = DB::table('countries') ->where('id', $request->hid_id)->update(
+            [
+                'features_manager' => json_encode($final)
+            ]
+        );
+
+        return back();
+    }
+
+
+
+
+
+
+
+
+
+
     public function propertyApproval() {
 
         // $user_id = auth()->user()->id;

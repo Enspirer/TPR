@@ -149,12 +149,23 @@
                     @lang('menus.backend.sidebar.system')
                 </li>
 
-
-                <li class="nav-item">
-                    <a class="nav-link {{active_class(Route::is('admin/settings'))}}" href="{{ route('admin.settings.index') }}">
+                <li class="nav-item nav-dropdown ">
+                    <a class="nav-link nav-dropdown-toggle " href="#">
                         <i class="nav-icon fas fa-cog"></i>
                         Settings
                     </a>
+
+                    <ul class="nav-dropdown-items">
+                        <a class="nav-link {{active_class(Route::is('admin/settings'))}}" href="{{ route('admin.settings.index') }}">                        
+                            Settings
+                        </a>                    
+                        <li class="nav-item">
+                            <a class="nav-link {{active_class(Route::is('admin/privacy_policy'))}}" href="{{ route('admin.privacy_policy') }}">
+                                Landing Page
+                            </a>
+                        </li>
+                                                
+                    </ul>
                 </li>
 
 

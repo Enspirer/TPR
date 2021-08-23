@@ -125,6 +125,10 @@
                             <input type="text" class="form-control" name="currency" value="{{ $country->currency }}" required>
                         </div>
                         <div class="form-group">
+                            <label>Currency Rate</label>
+                            <input type="text" class="form-control" name="currency_rate" value="{{ $country->currency_rate }}" required>
+                        </div>
+                        <div class="form-group">
                             <label>Country ID</label>
                             <input type="text" class="form-control" name="country_id" value="{{ $country->country_id }}" required>
                         </div>
@@ -132,7 +136,7 @@
                             <label for="country_manager" class="form-label">Country Manager</label>
                             <select class="form-select w-100 p-1" aria-label="Default select example" name="country_manager" id="country_manager" required>
                                 @foreach($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->first_name }} {{ $user->last_name }}</option>
+                                    <option value="{{ $user->id }}" {{ $country->country_manager == $user->id ? "selected" : "" }}>{{ $user->first_name }} {{ $user->last_name }}</option>
                                 @endforeach
                             </select>
                         </div> 

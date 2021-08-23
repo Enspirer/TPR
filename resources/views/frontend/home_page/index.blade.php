@@ -303,7 +303,7 @@
 
                             <div class="row mt-4">
                                 @foreach(json_decode($country->features_manager)[0]->properties as $prop)
-                                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                                <div class="col-4 mb-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                                     <div class="card p-4 shadow border-0">
                                         <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
                                         <div class="card-body mt-4">
@@ -334,7 +334,7 @@
                         
                         <div class="row mt-4">
                             @foreach(json_decode($country->features_manager)[1]->properties as $prop)
-                            <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                            <div class="col-4 mb-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                                 <div class="card p-4 shadow border-0">
                                     <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
                                     <div class="card-body mt-4">

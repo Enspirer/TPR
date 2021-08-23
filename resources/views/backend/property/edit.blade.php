@@ -20,11 +20,11 @@
                                                 
                                                 @if($index == 0)
                                                     <div class="carousel-item active">
-                                                        <img src="{{url('images', App\Models\FileManager::where('id', $image)->first()->file_name)}}" class="d-block w-100" alt="...">
+                                                        <img src="{{url('images', App\Models\FileManager::where('id', $image)->first()->file_name)}}" class="d-block w-100" style="height:370px; object-fit:cover;" alt="...">
                                                     </div>
                                                 @else
                                                     <div class="carousel-item">
-                                                        <img src="{{url('images', App\Models\FileManager::where('id', $image)->first()->file_name)}}" class="d-block w-100" alt="...">
+                                                        <img src="{{url('images', App\Models\FileManager::where('id', $image)->first()->file_name)}}" class="d-block w-100" style="height:370px; object-fit:cover;" alt="...">
                                                     </div>
                                                 @endif
 
