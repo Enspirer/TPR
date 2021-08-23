@@ -69,16 +69,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
                 <ul class="navbar-nav">
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500">
-                        <a class="nav-link text-white fw-bold" href="#">TITLE</a>
+                        <a class="nav-link text-white fw-bold" href="#">Home</a>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
-                        <a class="nav-link text-white fw-bold" href="#">TITLE</a>
+                        <a class="nav-link text-white fw-bold" href="{{ route('frontend.about-us') }}">About Us</a>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
-                        <a class="nav-link text-white fw-bold" href="#">TITLE</a>
-                    </li>
-                    <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
-                        <a class="nav-link text-white fw-bold" href="#">TITLE</a>
+                        <a class="nav-link text-white fw-bold" href="{{ route('frontend.contact') }}">Contact Us</a>
                     </li>
                     @auth
                         <!-- <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
