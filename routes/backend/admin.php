@@ -122,4 +122,4 @@ Route::post('settings/update', [SettingsController::class, 'update'])->name('set
 Route::get('settings/delete/{id}', [SettingsController::class, 'destroy'])->name('settings.destroy');
 
 Route::get('landing_page', [SettingsController::class, 'landing_page'])->name('landing_page');
-Route::get('landing_page/update', [SettingsController::class, 'landing_page_update'])->name('landing_page_update');
+Route::post('landing_page/update', [SettingsController::class, 'landing_page_update'])->name('landing_page_update');

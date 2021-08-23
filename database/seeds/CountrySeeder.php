@@ -20,7 +20,8 @@ class CountrySeeder extends Seeder
            'country_manager' => '1',
            'features_flag' => '[]',
            'status' => 1,
-           'features_manager' => '[]',
+           'features_manager' => null,
+           'currency_rate' => '200',
         ]);
     }
 }

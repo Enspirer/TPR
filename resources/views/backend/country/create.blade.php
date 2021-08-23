@@ -147,7 +147,7 @@
                         </div>  
                         <div class="form-group">
                             <label>Features Manager</label>
-                            <input type="text" class="form-control" name="features_manager" required>
+                            <input type="text" class="form-control" name="features_manager">
                         </div>
                         <!-- <div class="form-group">
                             <label>Description</label>

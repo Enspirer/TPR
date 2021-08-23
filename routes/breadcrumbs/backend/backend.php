@@ -102,6 +102,10 @@ Breadcrumbs::for('admin.settings.edit', function ($trail) {
     $trail->push('Edit Settings', route('admin.settings.edit',1));
 });
 
+Breadcrumbs::for('admin.landing_page', function ($trail) {
+    $trail->push('Landing Page', route('admin.landing_page'));
+});
+
 
 
 Breadcrumbs::for('admin.about_us', function ($trail) {

@@ -83,6 +83,30 @@ class SettingSeeder extends Seeder
             ]
         );
 
+        DB::table('settings')
+        ->insert(
+            [ 
+            'name' => 'landing_page_psection_1', 
+            'key' => 'country_code1',
+            'user_id' => 1,
+            'caption' => 'Landing Page Psection 1',
+            'type' => 'text_area',
+            'static_value' => 0
+            ]
+        );
+
+        DB::table('settings')
+        ->insert(
+            [ 
+            'name' => 'landing_page_psection_2', 
+            'key' => 'country_code2',
+            'user_id' => 1,
+            'caption' => 'Landing Page Psection 2',
+            'type' => 'text_area',
+            'static_value' => 0
+            ]
+        );
+
 
 
         

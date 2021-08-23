@@ -226,101 +226,80 @@
 <!-- featured properties -->
 <section id="featured-properties">
     <div class="container" style="margin-top: 6rem; margin-bottom: 10rem;">
-        <h3 class="fw-bolder text-center">Featured Properties Around the world</h3>
+        
+        
+        <h3 class="fw-bolder text-center">
+            Featured Properties Around the world
+        </h3> 
+        
+                
+                @if($country_list1 != null)
+                @if(json_decode($country_list1->features_manager)[0]->properties != null)
+                    <div class="1strow mt-4">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h5 class="mb-0">{{$country_list1->country_name}}</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <img src="{{url('https://www.countryflags.io/'.$country_list1->country_id.'/flat/64.png')}}" alt="" style="height: 50px;">
+                            </div>
+                        </div>                        
 
-        <div class="1strow mt-4">
-            <div class="row align-items-center">
-                <div class="col-6">
-                    <h5 class="mb-0">Sri Lanka</h5>
-                </div>
-                <div class="col-6 text-end">
-                    <img src="{{url('tpr_templete/images/sri_lanka_flag.svg')}}" alt="" style="height: 30px;">
-                </div>
-            </div>
+                        <div class="row mt-4">
 
-            <div class="row mt-4">
-                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                    <div class="card p-4 shadow border-0">
-                        <img src="{{url('tpr_templete/images/fp_fm_1.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body mt-4">
-                            <h5 class="card-title">Jaffna, Sri Lanka</h5>
-                            <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                            <p class="card-text">Lancaster, claited Kingdom</p>
-                            <p class="mt-1 text-info">$ 480,000</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                    <div class="card p-4 shadow border-0">
-                        <img src="{{url('tpr_templete/images/fp_fm_2.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body mt-4">
-                            <h5 class="card-title">Colombo, Sri Lanka</h5>
-                            <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                            <p class="card-text">Lancaster, claited Kingdom</p>
-                            <p class="mt-1 text-info">$ 480,000</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="600">
-                    <div class="card p-4 shadow border-0">
-                        <img src="{{url('tpr_templete/images/fp_fm_3.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body mt-4">
-                            <h5 class="card-title">Galle, Sri Lanka</h5>
-                            <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                            <p class="card-text">Lancaster, claited Kingdom</p>
-                            <p class="mt-1 text-info">$ 480,000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            @foreach(json_decode($country_list1->features_manager)[0]->properties as $key=> $prop)   
+                                @if($key <= 2 )
+                                    <div class="col-4 mt-3" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                                        <div class="card p-4 shadow border-0">
+                                            <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top" alt="..."></a>
+                                            <div class="card-body mt-4">
+                                                <h5 class="card-title">{{ App\Models\Properties::where('id', $prop)->first()->city }}, {{ App\Models\Properties::where('id', $prop)->first()->country }}</h5>                                   
+                                                <p class="mt-1 text-info">$ {{ App\Models\Properties::where('id', $prop)->first()->price }}</p>
+                                            </div>
+                                        </div>
+                                    </div>                            
+                                @else
+                                @endif                                
+                            @endforeach
 
-        <div class="1strow" style="margin-top: 6rem;">
-            <div class="row align-items-center">
-                <div class="col-6">
-                    <h5 class="mb-0">Malaysia</h5>
-                </div>
-                <div class="col-6 text-end">
-                    <img src="{{url('tpr_templete/images/malaysia_flag.svg')}}" alt="" style="height: 30px;">
-                </div>
-            </div>
+                        </div>                        
+                    </div>
+                @endif  
+                @endif               
 
-            <div class="row mt-4">
-                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                    <div class="card p-4 shadow border-0">
-                        <img src="{{url('tpr_templete/images/malaysia_1.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body mt-4">
-                            <h5 class="card-title">Jaffna, Sri Lanka</h5>
-                            <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                            <p class="card-text">Lancaster, claited Kingdom</p>
-                            <p class="mt-1 text-info">$ 480,000</p>
-                        </div>
+                @if($country_list2 != null)
+                @if(json_decode($country_list2->features_manager)[0]->properties != null)
+                    <div class="1strow" style="margin-top: 6rem;">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h5 class="mb-0">{{$country_list2->country_name}}</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <img src="{{url('https://www.countryflags.io/'.$country_list2->country_id.'/flat/64.png')}}" alt="" style="height: 50px;">
+                            </div>
+                        </div>                        
+
+                        <div class="row mt-4">
+
+                            @foreach(json_decode($country_list2->features_manager)[0]->properties as $key=> $prop)
+                                @if($key <= 2 )
+                                <div class="col-4 mt-3" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                                    <div class="card p-4 shadow border-0">
+                                        <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top" alt="..."></a>
+                                        <div class="card-body mt-4">
+                                            <h5 class="card-title">{{ App\Models\Properties::where('id', $prop)->first()->city }}, {{ App\Models\Properties::where('id', $prop)->first()->country }}</h5>                                   
+                                            <p class="mt-1 text-info">$ {{ App\Models\Properties::where('id', $prop)->first()->price }}</p>
+                                        </div>
+                                    </div>
+                                </div> 
+                                @else
+                                @endif                             
+                            @endforeach
+
+                        </div>                        
                     </div>
-                </div>
-                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="400">
-                    <div class="card p-4 shadow border-0">
-                        <img src="{{url('tpr_templete/images/malaysia_2.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body mt-4">
-                            <h5 class="card-title">Colombo, Sri Lanka</h5>
-                            <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                            <p class="card-text">Lancaster, claited Kingdom</p>
-                            <p class="mt-1 text-info">$ 480,000</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="600">
-                    <div class="card p-4 shadow border-0">
-                        <img src="{{url('tpr_templete/images/malaysia_3.svg')}}" class="card-img-top" alt="...">
-                        <div class="card-body mt-4">
-                            <h5 class="card-title">Galle, Sri Lanka</h5>
-                            <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                            <p class="card-text">Lancaster, claited Kingdom</p>
-                            <p class="mt-1 text-info">$ 480,000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                @endif
+                @endif
 
 
 

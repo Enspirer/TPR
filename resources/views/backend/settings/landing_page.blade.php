@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Edit'))
+@section('title', __('Landing Page'))
 
 @section('content')
 
@@ -11,23 +11,41 @@
             {{csrf_field()}}
         
             <div class="card">
-                <div class="card-body">                    
+                <div class="card-body">   
                     
-                        <div class="form-group">
-                            <label>Drop down</label>
-                            <select class="form-control" name="{{ $settings->name }}"> 
-                                <option value="Enable" {{ $settings->static_value == 'Enable' ? "selected" : "" }}>Enable</option>   
-                                <option value="Disable" {{ $settings->static_value == 'Disable' ? "selected" : "" }}>Disable</option>                                                                    
-                            </select>
-                        </div>  
-                   
-                        
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Landing Page Country Section 1</label>
+
+                                <select class="form-control" name="psection1" required> 
+                                        <option disabled selected value="">Select..</option>
+                                    @foreach($country_list as $country)
+                                        <option value="{{ $country->id }}">{{ $country->country_name }}</option>
+                                    @endforeach                                                                 
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Landing Page Country Section 2</label>
+                                <select class="form-control" name="psection2" required>
+                                        <option disabled selected value="">Select..</option> 
+                                    @foreach($country_list as $country)
+                                        <option value="{{ $country->id }}">{{ $country->country_name }}</option>
+                                    @endforeach                                                                    
+                                </select>
+                            </div> 
+                        </div>
+                    </div>               
+                                                 
                 </div>
             </div>
 
             <!-- <input type="hidden" name="hidden_id" value=""/> -->
-            <button type="submit" class="btn rounded-pill text-light px-4 py-2 me-2 btn-success">Update</button><br><br><br>
-            
+            <div class="text-center mt-5">
+                <button type="submit" class="btn rounded-pill text-light px-4 py-2 me-2 btn-success">Update</button><br><br><br>
+            </div>
         </form>
     </div>         
 

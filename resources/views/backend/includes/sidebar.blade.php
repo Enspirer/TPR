@@ -160,7 +160,7 @@
                             Settings
                         </a>                    
                         <li class="nav-item">
-                            <a class="nav-link {{active_class(Route::is('admin/privacy_policy'))}}" href="{{ route('admin.privacy_policy') }}">
+                            <a class="nav-link {{active_class(Route::is('admin/landing_page'))}}" href="{{ route('admin.landing_page') }}">
                                 Landing Page
                             </a>
                         </li>

@@ -95,10 +95,30 @@ class SettingsController extends Controller
 
     public function landing_page()
     {
-        $country = Country::where('features_manager','=','null')->get();
-        dd($country);
+        $country_list = Country::where('features_manager','!=', null)->get();
+        // dd($country_list);
 
-        return view('backend.settings.landing_page');
+        return view('backend.settings.landing_page',[
+            'country_list' => $country_list
+        ]);
+    }
+
+    public function landing_page_update(Request $request)
+    {            
+        $update = new Settings;
+
+        if($request->psection1){
+            $update->key=$request->psection1;
+            Settings::where('name','=','landing_page_psection_1')->update($update->toArray());
+        }
+
+        if($request->psection1){
+            $update->key=$request->psection2;
+            Settings::where('name','=','landing_page_psection_2')->update($update->toArray());
+        }
+
+        return back()->withFlashSuccess('Updated Successfully');                
+
     }
 
 

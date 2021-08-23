@@ -23,7 +23,7 @@ class CreateCountriesTable extends Migration
             $table->text('country_manager');
             $table->text('features_flag')->nullable();
             $table->text('status');
-            $table->text('features_manager');
+            $table->text('features_manager')->nullable();
             $table->text('currency_rate')->nullable();
             $table->timestamps();
         });

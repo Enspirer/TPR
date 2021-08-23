@@ -33,10 +33,18 @@ class HomeController extends Controller
         // dd($global_advaertisement);
 
 
+        $lps1 = get_settings('landing_page_psection_1');
+        $lps2 = get_settings('landing_page_psection_2');
+        // dd($lps2);
 
+        $country_list1 = Country::where('features_manager','!=', null)->where('id',$lps1)->first();
+        $country_list2 = Country::where('features_manager','!=', null)->where('id',$lps2)->first();
+        
         return view('frontend.landing',[
             'countries_data' => $country,
-            'global_advertisement' => $global_advertisement
+            'global_advertisement' => $global_advertisement,
+            'country_list1' => $country_list1,
+            'country_list2' => $country_list2
         ]);
     }
 
@@ -86,7 +94,7 @@ class HomeController extends Controller
 
         $latest = Properties::where('admin_approval','Approved')->latest()->take(3)->get();
 
-        $country = Country::where('country_id', $country_id)->first();
+        $country = Country::where('country_id', $country_id)->where('status',1)->first();
 
         $self = self::setCookie($country_id);
 
