@@ -47,6 +47,11 @@ Route::get('about-us', [FooterController::class, 'aboutUs'])->name('about-us');
 Route::get('mobile-apps', [FooterController::class, 'mobileApps'])->name('mobile-apps');
 Route::get('privacy-policy', [FooterController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('terms-of-use', [FooterController::class, 'termsOfUse'])->name('terms-of-use');
+
+Route::get('tips-for-buyers', [FooterController::class, 'TipsforBuyers'])->name('tips-for-buyers');
+Route::get('tips-for-sellers', [FooterController::class, 'TipsforSellers'])->name('tips-for-sellers');
+Route::get('commercial-resources', [FooterController::class, 'CommercialResources'])->name('commercial-resources');
+
 // Route::get('individual-property/{id}', [IndividualPropertyController::class, 'property_details'])->name('individual-property.property_details');
 
 

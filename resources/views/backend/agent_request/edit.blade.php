@@ -40,29 +40,32 @@
                                                 <table class="table table-hover table-borderless">
                                                     <tbody>
                                                         <tr>
-                                                            <td style="font-weight: 600;">Agent Type</td>
+                                                            <td style="font-weight: 600;">Agent Type:</td>
                                                             <td>{{ $agent_request->agent_type }}</td>
                                                         </tr>
+                                                        @if($agent_request->agent_type == 'Individual')
+                                                        @else
+                                                            <tr>
+                                                                <td style="font-weight: 600;">Company Name:</td>
+                                                                <td>{{ $agent_request->company_name }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="font-weight: 600;">Company Reg Number:</td>
+                                                                <td>{{ $agent_request->company_registration_number }}</td>
+                                                            </tr>
+                                                        @endif                                                        
                                                         <tr>
-                                                            <td style="font-weight: 600;">Company Name</td>
-                                                            <td>{{ $agent_request->company_name }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="font-weight: 600;">Company Reg Number</td>
-                                                            <td>{{ $agent_request->company_registration_number }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="font-weight: 600;">Email</td>
+                                                            <td style="font-weight: 600;">Email:</td>
                                                             <td>{{ $agent_request->email }}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="font-weight: 600;">Request</td>
+                                                            <td style="font-weight: 600;">Request:</td>
                                                             <td>{{ $agent_request->request }}</td>
                                                         </tr>
-                                                        <tr>
+                                                        <!-- <tr>
                                                             <td style="font-weight: 600;">Description</td>
                                                             <td>{{ $agent_request->description_message }}</td>
-                                                        </tr>
+                                                        </tr> -->
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -71,47 +74,47 @@
                                                 <table class="table table-hover table-borderless">
                                                     <tbody>
                                                         <tr>
-                                                            <td style="font-weight: 600;">Tax Number</td>
+                                                            <td style="font-weight: 600;">Tax Number:</td>
                                                             <td>{{ $agent_request->tax_number }}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="font-weight: 600;">Validation</td>
-                                                            <td>{{ $agent_request->validation_type }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="font-weight: 600;">Telephone</td>
+                                                            <td style="font-weight: 600;">Telephone:</td>
                                                             <td>{{ $agent_request->telephone }}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td style="font-weight: 600;">Address</td>
+                                                            <td style="font-weight: 600;">Address:</td>
                                                             <td>{{ $agent_request->address }}</td>
                                                         </tr>
                                                         <tr>
+                                                            <td style="font-weight: 600;">Validation:</td>
+                                                            <td>{{ $agent_request->validation_type }}</td>
+                                                        </tr>
+                                                        <tr>
                                                             @if($agent_request->validation_type == 'NIC')
-                                                                <td style="font-weight: 600;">NIC Number</td>
+                                                                <td style="font-weight: 600;">NIC Number:</td>
                                                                 <td>{{ $agent_request->nic }}</td>
                                                             
                                                             @elseif($agent_request->validation_type == 'Passport')
-                                                                <td style="font-weight: 600;">Passport Number</td>
+                                                                <td style="font-weight: 600;">Passport Number:</td>
                                                                 <td>{{ $agent_request->passport }}</td>
 
                                                             @else                        
-                                                                <td style="font-weight: 600;">License Number</td>
+                                                                <td style="font-weight: 600;">License Number:</td>
                                                                 <td>{{ $agent_request->license }}</td>
                                                                 
                                                             @endif
                                                         </tr>
                                                         <tr>
                                                             @if($agent_request->validation_type == 'NIC')
-                                                                <td style="font-weight: 600;">NIC Photo</td>
+                                                                <td style="font-weight: 600;">NIC Photo:</td>
                                                                 <td><img src="{{url('files/agent_request/',$agent_request->nic_photo)}}" style="width: 40%;" alt="" ></td>
                                                             
                                                             @elseif($agent_request->validation_type == 'Passport')
-                                                                <td style="font-weight: 600;">Passport Number</td>
+                                                                <td style="font-weight: 600;">Passport Photo:</td>
                                                                 <td> <img src="{{url('files/agent_request/',$agent_request->passport_photo)}}" style="width: 40%;" alt="" ></td>
 
                                                             @else                        
-                                                                <td style="font-weight: 600;">License Number</td>
+                                                                <td style="font-weight: 600;">License Photo:</td>
                                                                 <td><img src="{{url('files/agent_request/',$agent_request->license_photo)}}" style="width: 40%;" alt="" ></td>
                                                                 
                                                             @endif
@@ -119,6 +122,14 @@
                                                     </tbody>
                                                 </table>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2 pe-0">
+                                                <p style="font-weight: 600; color: #212529">Description:</p>
+                                            </div>
+                                            <div class="col-10 pe-0">
+                                                <p style="color: #212529;">{!! $agent_request->description_message !!}</p>
+                                            </div>          
                                         </div>
                                     </div>
                                 </div>

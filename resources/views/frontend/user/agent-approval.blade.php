@@ -53,7 +53,8 @@
                                 <th scope="col">Property Name</th>
                                 <th scope="col">Property Type</th>
                                 <th scope="col">Date</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Admin Approval</th>
+                                <th scope="col">Country Manager Approval</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -108,6 +109,7 @@
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
                 {data: 'created_at', name: 'created_at'},
+                {data: 'status', name: 'status'},
                 {data: 'country_manager_approval', name: 'country_manager_approval'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],

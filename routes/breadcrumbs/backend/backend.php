@@ -113,6 +113,15 @@ Breadcrumbs::for('admin.privacy_policy', function ($trail) {
 Breadcrumbs::for('admin.terms_of_use', function ($trail) {
     $trail->push('Terms of Use', route('admin.terms_of_use'));
 });
+Breadcrumbs::for('admin.tips_for_buyers', function ($trail) {
+    $trail->push('Tips for buyers', route('admin.tips_for_buyers'));
+});
+Breadcrumbs::for('admin.tips_for_sellers', function ($trail) {
+    $trail->push('Tips for sellers', route('admin.tips_for_sellers'));
+});
+Breadcrumbs::for('admin.commercial_resources', function ($trail) {
+    $trail->push('Commercial Resources', route('admin.commercial_resources'));
+});
 
 
 

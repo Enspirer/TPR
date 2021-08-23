@@ -20,8 +20,7 @@
                         
                 </div>
             </div>
-
-            <input type="hidden" name="hidden_id" value=""/>            
+           
             <button type="submit" class="btn rounded-pill text-light px-4 py-2 me-2 btn-success">Update</button><br><br><br>
             
         </form>

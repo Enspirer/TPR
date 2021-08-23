@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use DataTables;
 use DB;
 use App\Models\Properties;
+use App\Models\PropertyType;
+use App\Models\AgentRequest;
 
 class PropertyController extends Controller
 {
@@ -51,6 +53,10 @@ class PropertyController extends Controller
     {
         $property = Properties::where('id',$id)->first();
 
+        $property_type = PropertyType::where('id', $property->property_type)->first();
+
+        $agent_details = AgentRequest::where('user_id', $property->user_id)->first(); 
+
         if($property->image_ids == NULL){
             $images = null;
         } else {
@@ -63,7 +69,9 @@ class PropertyController extends Controller
 
         return view('backend.property.edit', [
             'property' => $property,
-            'images' => $images        
+            'images' => $images ,
+            'property_type' => $property_type,
+            'agent_details' => $agent_details       
         ]);  
     }
 

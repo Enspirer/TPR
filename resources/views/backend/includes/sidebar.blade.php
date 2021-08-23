@@ -122,6 +122,22 @@
                             Terms of Use
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/tips_for_buyers'))}}" href="{{ route('admin.tips_for_buyers') }}">
+                            Tips for buyers
+                        </a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/tips_for_sellers'))}}" href="{{ route('admin.tips_for_sellers') }}">
+                            Tips for sellers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/commercial_resources'))}}" href="{{ route('admin.commercial_resources') }}">
+                            Commercial Resources
+                        </a>
+                    </li>
                         
                 </ul>
             </li> 

@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="text-end">
-                                            <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #4195E1;">{{ $property->property_type}}</h5>
+                                            <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #4195E1;">{{ $property_type->property_type_name}}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -97,26 +97,85 @@
                                 <div class="col-6">
                                     <table class="table table-hover table-borderless">
                                         <tbody>
-                                            <tr>
-                                                <td style="font-weight: 600;">Transaction Type</td>
-                                                <td>{{ $property->transaction_type}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="font-weight: 600;">Zoning Type</td>
-                                                <td>{{ $property->zoning_type}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="font-weight: 600;">Building Type</td>
-                                                <td>{{ $property->building_type}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="font-weight: 600;">Building Size</td>
-                                                <td>{{ $property->building_size}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="font-weight: 600;">Farm Type</td>
-                                                <td>{{ $property->farm_type}}</td>
-                                            </tr>
+                                                @if($property->transaction_type == null)
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Transaction Type</td>
+                                                        <td>{{ $property->transaction_type }}</td>
+                                                    </tr>
+                                                @endif
+
+                                                @if($property->zoning_type == null)
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Zoning Type</td>
+                                                        <td>{{ $property->zoning_type }}</td>
+                                                    </tr>
+                                                @endif
+
+                                                @if($property->building_type == null)
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Building Type</td>
+                                                        <td>{{ $property->building_type }}</td>
+                                                    </tr>
+                                                @endif
+
+                                                @if($property->building_size == null)
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Building Size</td>
+                                                        <td>{{ $property->building_size }}</td>
+                                                    </tr>
+                                                @endif
+
+                                                @if($property->farm_type == null)
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Farm Type</td>
+                                                        <td>{{ $property->farm_type }}</td>
+                                                    </tr>
+                                                @endif
+
+                                                @if($property->beds == null)
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Beds</td>
+                                                        <td>{{ $property->beds }}</td>
+                                                    </tr>
+                                                @endif
+
+                                                @if($property->baths == null)
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Baths</td>
+                                                        <td>{{ $property->baths }}</td>
+                                                    </tr>
+                                                @endif
+
+                                                @if($property->land_size == null)
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Land Size</td>
+                                                        <td>{{ $property->land_size }}</td>
+                                                    </tr>
+                                                @endif
+
+                                                @if($property->number_of_units == null)
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Number Of Units</td>
+                                                        <td>{{ $property->number_of_units }}</td>
+                                                    </tr>
+                                                @endif
+
+                                                @if($property->open_house_only == null)
+                                                @else
+                                                    <tr>
+                                                        <td style="font-weight: 600;">Open House Only</td>
+                                                        <td>{{ $property->open_house_only }}</td>
+                                                    </tr>
+                                                @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -126,7 +185,7 @@
                                         <div class="col-10">
                                             <div class="card">
                                                 <div class="text-center mt-2">
-                                                    <img src="{{ url('files/agent_request', App\Models\AgentRequest::where('user_id', $property->user_id)->first()->photo) }}" class="rounded-circle card-img-top border border-2" alt="..." style="height: 8rem; width: 40%">
+                                                    <img src="{{ url('files/agent_request',$agent_details->photo) }}" class="rounded-circle card-img-top border border-2" alt="..." style="height: 120px; width: 50%">
                                                 </div>
 
                                                 <div class="card-body">

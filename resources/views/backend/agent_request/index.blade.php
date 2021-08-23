@@ -25,7 +25,7 @@
                                 <th scope="col">Country</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Telephone</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Admin Approval</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>

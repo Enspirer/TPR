@@ -109,3 +109,12 @@ Route::post('privacy_policy/update', [PagesController::class, 'privacy_policy_up
 
 Route::get('terms_of_use', [PagesController::class, 'terms_of_use'])->name('terms_of_use');
 Route::post('terms_of_use/update', [PagesController::class, 'terms_of_use_update'])->name('terms_of_use_update');
+
+Route::get('tips_for_buyers', [PagesController::class, 'tips_for_buyers'])->name('tips_for_buyers');
+Route::post('tips_for_buyers/update', [PagesController::class, 'tips_for_buyers_update'])->name('tips_for_buyers_update');
+
+Route::get('tips_for_sellers', [PagesController::class, 'tips_for_sellers'])->name('tips_for_sellers');
+Route::post('tips_for_sellers/update', [PagesController::class, 'tips_for_sellers_update'])->name('tips_for_sellers_update');
+
+Route::get('commercial_resources', [PagesController::class, 'commercial_resources'])->name('commercial_resources');
+Route::post('commercial_resources/update', [PagesController::class, 'commercial_resources_update'])->name('commercial_resources_update');

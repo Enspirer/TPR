@@ -1,21 +1,21 @@
 @extends('backend.layouts.app')
 
-@section('title', __('About Us'))
+@section('title', __('Commercial Resources'))
 
 @section('content')
 
     
 <div class="row">
     <div class="col-12">
-        <form action="{{route('admin.about_us_update')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('admin.commercial_resources_update')}}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
         
             <div class="card">
                 <div class="card-body">
                     
                     <div class="form-group">
-                        <label>About Us</label>
-                        <textarea type="text" id="editor" class="form-control mt-2" name="about_us" rows="8" required> {{ $about_us->key }} </textarea>
+                        <label>Commercial Resources</label>
+                        <textarea type="text" id="editor" class="form-control mt-2" name="commercial_resources" rows="8" required> {{ $commercial_resources->key }} </textarea>
                     </div>                    
                         
                 </div>

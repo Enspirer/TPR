@@ -32,4 +32,21 @@ class FooterController extends Controller
     {
         return view('frontend.terms-of-use');
     }
+
+    public function TipsforBuyers()
+    {
+        return view('frontend.tips_for_buyers');
+    }
+
+    public function TipsforSellers()
+    {
+        return view('frontend.tips_for_sellers');
+    }
+
+    public function CommercialResources()
+    {
+        return view('frontend.commercial_resources');
+    }
+
+
 }

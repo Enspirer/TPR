@@ -59,14 +59,17 @@
                                                     <td style="font-weight: 600;">Agent Type</td>
                                                     <td>{{ $single_agent_request->agent_type }}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td style="font-weight: 600;">Company Name</td>
-                                                    <td>{{ $single_agent_request->company_name }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="font-weight: 600;">Company Reg Number</td>
-                                                    <td>{{ $single_agent_request->company_registration_number }}</td>
-                                                </tr>
+                                                    @if($single_agent_request->agent_type == 'Individual')
+                                                    @else
+                                                        <tr>
+                                                            <td style="font-weight: 600;">Company Name</td>
+                                                            <td>{{ $single_agent_request->company_name }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-weight: 600;">Company Reg Number</td>
+                                                            <td>{{ $single_agent_request->company_registration_number }}</td>
+                                                        </tr>
+                                                    @endif                                                
                                                 <tr>
                                                     <td style="font-weight: 600;">Email</td>
                                                     <td>{{ $single_agent_request->email }}</td>

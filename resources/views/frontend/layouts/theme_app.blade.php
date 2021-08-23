@@ -113,10 +113,10 @@
                 </div>
                 <div class="col-3 ps-5">
                     <h5 class="fw-bolder mt-2">TOPICS</h5>
-                    <p class="mt-4">Tips for buyers</p>
-                    <p>Tips for sellers</p>
-                    <p>Commercial Resources</p>
-                    <p>Property for Sale</p>
+                    <a href="{{ route('frontend.tips-for-buyers') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list">Tips for buyers</a>
+                    <a href="{{ route('frontend.tips-for-sellers') }}" class="mb-3 d-block text-decoration-none no-result-list">Tips for sellers</a>
+                    <a href="{{ route('frontend.commercial-resources') }}" class="mb-3 d-block text-decoration-none no-result-list">Commercial Resources</a>
+                    
                 </div>
             </div>
         </div>

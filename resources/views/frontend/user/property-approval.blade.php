@@ -37,9 +37,9 @@
                         <thead class="table-head">
                             <tr>
                                 <th scope="col">Property Name</th>
-                                <th scope="col">Property Type</th>
                                 <th scope="col">Date</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Admin Approval</th>
+                                <th scope="col">Country Manager Approval</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -91,8 +91,8 @@
             order: [[0, "desc"]],
             columns: [
                 {data: 'name', name: 'name'},
-                {data: 'property_type', name: 'property_type'},
                 {data: 'created_at', name: 'created_at'},
+                {data: 'admin_approval', name: 'admin_approval'},
                 {data: 'country_manager_approval', name: 'country_manager_approval'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],

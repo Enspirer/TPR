@@ -8,6 +8,7 @@ use DB;
 use App\Models\AgentRequest;
 use App\Models\Country;
 use App\Models\Properties;
+use App\Models\PropertyType;
 use App\Models\Auth\User;
 use App\Models\Feedback;
 use App\Models\AdCategory;
@@ -273,11 +274,17 @@ class CountryManagementController extends Controller
 
         $single_approval = Properties::where('id', $id)->first();
 
+        $property_type = PropertyType::where('id', $single_approval->property_type)->first();
+
+        $agent_details = AgentRequest::where('user_id', $single_approval->user_id)->first();        
+
         $images = json_decode($single_approval->image_ids);
 
         return view('frontend.user.single-property-approval', [
             'single_approval'=> $single_approval,
-            'images' => $images
+            'images' => $images,
+            'property_type' => $property_type,
+            'agent_details' => $agent_details
         ]);
     }    
 
