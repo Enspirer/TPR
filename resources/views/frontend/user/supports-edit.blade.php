@@ -43,7 +43,7 @@
                                     
 
                                     <div class="col-8">
-                                        <h6 class="mb-0">{{ $supports->name }}</h6>
+                                        <h6 class="mb-0">User Name : {{ $supports->name }}</h6>
                                     </div>
                                 </a>
                             </div>
@@ -54,8 +54,8 @@
 
                         <div class="row justify-content-center">
                             <div class="col-11 mb-2">
-                                <div class="row align-items-center justify-content-between border rounded">
-                                    <p class="mt-3"><b>{{ $supports->title }}</b></p>
+                                <div class="row align-items-center justify-content-between">
+                                    <p class="mt-3" style="font-size: 20px"><b>{{ $supports->title }}</b></p>
                                 </div>
                             </div>
                         </div>
