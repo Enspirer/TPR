@@ -224,10 +224,13 @@
 <section id="featured-properties">
     <div class="container" style="margin-top: 6rem; margin-bottom: 10rem;">
         
-        
+        @if(($country_list1 && $country_list2) == null)
+        @else
         <h3 class="fw-bolder text-center">
             Featured Properties Around the world
         </h3> 
+        @endif
+        
         
                 
                 @if($country_list1 != null)

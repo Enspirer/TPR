@@ -92,9 +92,10 @@ class HomeController extends Controller
 
         $promu = Properties::where('admin_approval','Approved')->get();
 
-        $latest = Properties::where('admin_approval','Approved')->latest()->take(3)->get();
-
         $country = Country::where('country_id', $country_id)->where('status',1)->first();
+
+        $latest = Properties::where('country',$country->country_name)->where('admin_approval','Approved')->latest()->take(3)->get();
+        
 
         $self = self::setCookie($country_id);
 

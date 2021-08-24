@@ -23,6 +23,14 @@ Breadcrumbs::for('admin.country.features', function ($trail) {
     $trail->push('Features', route('admin.country.features', 1));
 });
 
+Breadcrumbs::for('admin.fpur.index', function ($trail) {
+    $trail->push('Featured Property Update Request', route('admin.fpur.index'));
+});
+
+Breadcrumbs::for('admin.fpur.edit', function ($trail) {
+    $trail->push('Approval', route('admin.fpur.edit',1));
+});
+
 Breadcrumbs::for('admin.property.index', function ($trail) {
     $trail->push('Property Request (Country Manager Approved)', route('admin.property.index'));
 });

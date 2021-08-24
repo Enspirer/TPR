@@ -14,6 +14,7 @@ use App\Models\Feedback;
 use App\Models\AdCategory;
 use App\Models\HomePageAdvertisement;
 use App\Models\SidebarAd;
+use App\Models\FeaturePropertyUpdateRequest;
 use Auth;
 use DataTables;
 
@@ -49,21 +50,27 @@ class CountryManagementController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $country = Country::where('country_manager',$user_id)->first();
+        $country = Country::where('country_manager',$user_id)->where('status',1)->first();
         // dd($country);
+
+        $fpur = FeaturePropertyUpdateRequest::where('user_id',$user_id)->first();
 
         $properties = Properties::where('admin_approval', 'Approved')->where('country',$country->country_name)->get();
         // dd($properties);
      
         return view('frontend.user.home-page-feature',[
             'properties' => $properties,
-            'country' => $country
+            'country' => $country,
+            'fpur' => $fpur
         ]);
     }
 
     public function home_page_feature_Update(Request $request)
     {
-       
+        $user_id = auth()->user()->id;
+
+        $country = Country::where('country_manager',$user_id)->where('status',1)->first();
+
         $title1 = $request->featureTitle1;
         $title2 = $request->featureTitle2;
 
@@ -82,11 +89,42 @@ class CountryManagementController extends Controller
 
         $final = [$array1, $array2];
 
-        $featuredProperties = DB::table('countries') ->where('id', $request->hid_id)->update(
-            [
-                'features_manager' => json_encode($final)
-            ]
-        );
+        // $featuredProperties = DB::table('feature_property_update_requests') ->where('id', $request->hid_id)->update(
+        //     [
+        //         'key' => json_encode($final),
+        //         'admin_approval' => 'Pending',
+        //         'user_id' => $user_id,
+
+
+        //     ]
+        // );
+
+        $fpur = FeaturePropertyUpdateRequest::where('country', $country->country_name)->first();
+
+        if($fpur == null){
+            DB::table('feature_property_update_requests')->insert([
+                'key' => json_encode($final),
+                'admin_approval' => 'Pending',
+                'user_id' => $user_id,
+                'country' => $country->country_name
+            ]);
+        }
+        else{
+            $featuredProperties = DB::table('feature_property_update_requests') ->where('country', $country->country_name)->update(
+                    [
+                        'key' => json_encode($final),
+                        'admin_approval' => 'Pending',
+                        'user_id' => $user_id,
+                        'country' => $country->country_name       
+        
+                    ]
+                );
+
+        }
+
+
+
+        
 
         return back();
     }
