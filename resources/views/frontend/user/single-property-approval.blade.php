@@ -243,20 +243,24 @@
 
 <script>
     let lat = <?php echo json_encode($single_approval->lat); ?>;
-    let lng = <?php echo json_encode($single_approval->lng); ?>;
-    function initMap() {
-  const myLatLng = { lat: parseInt(lat), lng: parseInt(lng) };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
-    center: myLatLng,
-  });
-  new google.maps.Marker({
-    position: myLatLng,
-    map,
-    title: "Hello World!",
-  });
 
-}
+    let lng = <?php echo json_encode($single_approval->long); ?>;
+
+
+    function initMap() {
+        const myLatLng = { lat: parseInt(lat), lng: parseInt(lng) };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 9,
+            center: myLatLng,
+        });
+        
+        new google.maps.Marker({
+            position: myLatLng,
+            map,
+            title: "Hello World!",
+        });
+
+    }
 </script>
 
 <script>
