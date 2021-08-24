@@ -29,7 +29,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/fpur'))}}" href="{{ route('admin.fpur.index') }}">
-                            Feature Property Update Request
+                            Feature Update Request
                         </a>
                     </li>                        
                 </ul>

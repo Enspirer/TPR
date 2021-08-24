@@ -65,8 +65,12 @@
                             </div> -->
 
 
-                        @if(count($properties) == 0)
-                            <h2 align="center" style="margin-top:130px; color:#808080;">Properties Are Not Found</h2>
+                        @if(count($properties) <= 0)
+                            @include('frontend.includes.not_found',[
+                                'not_found_title' => 'Properties not found',
+                                'not_found_description' => 'Please add properties',
+                                'not_found_button_caption' => null
+                            ])
                         @else
 
 
@@ -79,8 +83,11 @@
                                                 <img src="{{url('image_assest', $property->feature_image_id)}}" class="w-100" alt="..." style="height: 250px; object-fit:cover;">
                                         </div>
                                         <div class="col-5">
-                                            <h5 class="card-title">{{ $property->country }}</h5>
-                                            <p class="card-text mt-3 mb-1">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            <h5 class="card-title">{{ $property->name }}</h5>
+                                                @if($property->beds == null)
+                                                @else
+                                                    <p class="card-text mt-3 mb-1">{{ $property['beds'] }} Bed Semidetached house</p>
+                                                @endif                                            
                                             <p class="card-text">Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
                                             <p class="mt-1 text-info">$ {{ $property['price'] }}</p>
 
