@@ -249,8 +249,11 @@
 
     function initMap() {
         const myLatLng = { lat: parseInt(lat), lng: parseInt(lng) };
+        
+
+        
         const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 9,
+            zoom: 5,
             center: myLatLng,
         });
         

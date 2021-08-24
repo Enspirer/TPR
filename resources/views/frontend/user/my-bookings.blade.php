@@ -52,7 +52,13 @@
                                             <h5 class="card-title">{{\App\Models\Properties::where('id',$booking->property_id)->first()->name}}</h5>
                                             <p class="card-text mt-1 mb-1">Country: {{\App\Models\Properties::where('id',$booking->property_id)->first()->country}}</p>
                                             <p class="card-text mb-1">Category: {{\App\Models\Properties::where('id',$booking->property_id)->first()->main_category}}</p>
-                                            <p class="mt-1 text-info">${{number_format(\App\Models\Properties::where('id',$booking->property_id)->first()->price,2)}}</p>
+                                            <!-- <p class="mt-1 text-info">${{number_format(\App\Models\Properties::where('id',$booking->property_id)->first()->price,2)}}</p> -->
+                                            @if(get_country_cookie(request()))
+                                                <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(get_country_cookie(request())->country_id, App\Models\Properties::where('id',$booking->property_id)->first()->price) }}</p>
+                                            @else
+                                                <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(1, App\Models\Properties::where('id',$booking->property_id)->first()->price,2) }}</p>
+                                            @endif
+
                                             <div style="background: #b1ecff;color: #000000;padding: 10px;border-radius: 10px;">
                                                 {{$booking->created_at}}
                                             </div>

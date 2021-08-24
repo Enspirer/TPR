@@ -312,19 +312,38 @@
 
 
     $('#validate').change(function() {
+
         if($(this).val() == 'NIC') {
             $('#nic').prop('required', true);
             $('#nic_photo').prop('required', true);
+
+            $('#passport').prop('required', false);
+            $('#passport_photo').prop('required', false);
+
+            $('#license').prop('required', false);
+            $('#license_photo').prop('required', false);
         }
 
         if($(this).val() == 'Passport') {
             $('#passport').prop('required', true);
             $('#passport_photo').prop('required', true);
+
+            $('#nic').prop('required', false);
+            $('#nic_photo').prop('required', false);
+
+            $('#license').prop('required', false);
+            $('#license_photo').prop('required', false);
         }
 
         if($(this).val() == 'License') {
             $('#license').prop('required', true);
             $('#license_photo').prop('required', true);
+
+            $('#nic').prop('required', false);
+            $('#nic_photo').prop('required', false);
+
+            $('#passport').prop('required', false);
+            $('#passport_photo').prop('required', false);
         }
     })
 

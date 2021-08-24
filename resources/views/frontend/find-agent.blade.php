@@ -46,7 +46,12 @@
     <!--directory-->
     <section id="directory">
         <div class="container" style="margin-top: 6rem;">
-            <h3 class="fw-bolder">Directory of Real Estate Agents / Brokers / Realtors in Sri Lanka</h3>
+
+        @if(get_country_cookie(request()))
+            <h3 class="fw-bolder">Directory of Real Estate Agents / Brokers / Realtors in {{ get_country_cookie(request())->country_name }}</h3>
+        @else
+
+        @endif
 
             @if(count($agents) <= 0)
                 <section id="residential-properties">
