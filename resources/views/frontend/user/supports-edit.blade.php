@@ -31,7 +31,7 @@
                         <div class="row px-2 py-3 align-items-center justify-content-between" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
                             <div class="col-4">
                                 <a class="row align-items-center mb-2 text-decoration-none text-dark">
-                                    @if($user_details->photo == null)
+                                    <!-- @if($user_details->photo == null)
                                     <div class="col-4">
                                         <img src="{{ url('images/no_image_available.png') }}" alt="" class="img-fluid rounded-circle" style="object-fit:cover; height:60px" width="100%">
                                     </div>
@@ -39,7 +39,7 @@
                                     <div class="col-4">
                                         <img src="{{ url('files/agent_request',$user_details->photo) }}" alt="" class="img-fluid rounded-circle" style="object-fit:cover; height:60px" width="100%">
                                     </div>
-                                    @endif
+                                    @endif -->
                                     
 
                                     <div class="col-8">
