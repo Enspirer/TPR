@@ -250,7 +250,7 @@ class CountryManagementController extends Controller
         $supports = Feedback::where('id',$id)->first();        
         // dd($supports);              
 
-        $user_details = AgentRequest::where('user_id',$supports->user_id)->first();
+        $user_details = User::where('user_id',$supports->user_id)->first();
         // dd($user_details);
 
         return view('frontend.user.supports-edit',[
