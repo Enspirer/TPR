@@ -15,6 +15,7 @@
             <h3 class="fw-bolder text-center">Interactive Property Search</h3>
 
             <div class="row mt-4">
+            @if(count($promo) > 0)
                 <div class="col-3">
                     <h5>Results: {{ count($promo) }} Listings</h5>
                     <div class="row align-items-center">
@@ -60,6 +61,24 @@
                         @endforeach
                     </div>
                 </div>
+                @else
+                    <div class="col-3">
+                        <div class="">
+                            <div class="no-result border py-2 px-3">
+                                <h4 class="text-center">No Results</h4>
+                                <p class="ns mb-1">Please refine your search criteria.</p>
+                                <p class="ns">Suggestions:</p>
+
+                                <ul>
+                                    <li class="no-result-list">Modify your search criteria</li>
+                                    <li class="no-result-list">Update your search location</li>
+                                    <li class="no-result-list">Broaden your map area</li>
+                                    <li class="no-result-list">Modify your keywords</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 <div class="col-9">
                     <div id="map" style="height: 600px; width: 100%;"></div>
                 </div>

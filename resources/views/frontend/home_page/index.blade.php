@@ -201,6 +201,7 @@
             <h3 class="fw-bolder text-center" data-aos="fade-up" data-aos-duration="500">Interactive Property Search</h3>
 
             <div class="row mt-4">
+            @if(count($promo) > 0)
                 <div class="col-3">
                     <h5 data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">Results: {{ count($promo) }} Listings</h5>
                     <div class="row align-items-center" data-aos="fade-right" data-aos-duration="500" data-aos-delay="400">
@@ -246,6 +247,24 @@
                         @endforeach
                     </div>
                 </div>
+                @else
+                    <div class="col-3">
+                        <div class="">
+                            <div class="no-result border py-2 px-3">
+                                <h4 class="text-center">No Results</h4>
+                                <p class="ns mb-1">Please refine your search criteria.</p>
+                                <p class="ns">Suggestions:</p>
+
+                                <ul>
+                                    <li class="no-result-list">Modify your search criteria</li>
+                                    <li class="no-result-list">Update your search location</li>
+                                    <li class="no-result-list">Broaden your map area</li>
+                                    <li class="no-result-list">Modify your keywords</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 <div class="col-9">
                     <div id="map" style="height: 600px; width: 100%;"></div>
                 </div>
@@ -257,15 +276,16 @@
     <!--featured projects-->
     <section id="index-featured-projects">
         <div class="container " style="margin-top:7rem">
-            <h3 class="text-center fw-bolder" data-aos="fade-up" data-aos-duration="500">Featured Properties</h3>
+            @if(count($latest) != 0)
+                @foreach($latest as $lat)
 
-            <div class="mt-5">
-                <h4 data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">Fresh in the Market</h4>
+                <h3 class="text-center fw-bolder" data-aos="fade-up" data-aos-duration="500">Featured Properties</h3>
 
-                <div class="row mt-4">
+                <div class="mt-5">
+                    <h4 data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">Fresh in the Market</h4>
 
-                    @if(count($latest) != 0)
-                        @foreach($latest as $lat)
+                    <div class="row mt-4">
+
                             <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                                 <div class="card p-4 shadow border-0">
                                     <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
