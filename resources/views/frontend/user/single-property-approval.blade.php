@@ -100,6 +100,9 @@
                                     
                                     <div class="col-6 pe-0">
                                         <div id="map" style="height: 300px; width: 100%;"></div>
+                                        <input type="hidden" name="lat" id="lat" class="mt-3" value="{{ $single_approval->lat }}">
+                                        <input type="hidden" name="lng" id="lng" class="mt-3" value="{{ $single_approval->long }}">
+                                        <input type="hidden" name="country" id="country" class="mt-3" value="{{ $single_approval->country }}">
                                     </div>
                                 </div>
 
@@ -194,17 +197,23 @@
                                     <div class="col-6 pe-0">
                                         <div class="row justify-content-center">
                                             <div class="col-10">
-                                                <div class="card">
-                                                    <div class="text-center mt-2">
+                                            @if($agent_details == null)
+                                                <div class="text-center mt-2" style="color:grey">
+                                                    <h3>Agent details not found</h3>
+                                                </div>
+                                            @else
+                                                <div class="card">                                                    
+                                                        <div class="text-center mt-2">
                                                             <img src="{{ url('files/agent_request',$agent_details->photo) }}" class="rounded-circle card-img-top border border-2" alt="..." style="height: 7rem; width: 40%">
                                                         </div>
 
                                                     <div class="card-body">
                                                         <h5 class="card-title text-center">{{ App\Models\AgentRequest::where('user_id', $single_approval->user_id)->first()->name }}</h5>
-                                                        <p class="card-text mb-0">Email : {{ App\Models\AgentRequest::where('user_id', $single_approval->user_id)->first()->email }}</p>
-                                                        <p class="card-text mb-0">Phone : {{ App\Models\AgentRequest::where('user_id', $single_approval->user_id)->first()->telephone }}</p>
+                                                        <p class="card-text mb-0 text-center">Email : {{ App\Models\AgentRequest::where('user_id', $single_approval->user_id)->first()->email }}</p>
+                                                        <p class="card-text mb-0 text-center">Phone : {{ App\Models\AgentRequest::where('user_id', $single_approval->user_id)->first()->telephone }}</p>
                                                     </div>
                                                 </div>
+                                            @endif
                                             </div>
                                         </div>
                                     </div>
@@ -233,8 +242,10 @@
 @push('after-scripts')
 
 <script>
+    let lat = <?php echo json_encode($single_approval->lat); ?>;
+    let lng = <?php echo json_encode($single_approval->lng); ?>;
     function initMap() {
-  const myLatLng = { lat: 6.932821354043672, lng: 79.84476998314739 };
+  const myLatLng = { lat: parseInt(lat), lng: parseInt(lng) };
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
     center: myLatLng,
