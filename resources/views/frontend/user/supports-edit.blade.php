@@ -53,7 +53,15 @@
                         </div>
 
                         <div class="row justify-content-center">
-                            <div class="col-11">
+                            <div class="col-11 mb-2">
+                                <div class="row align-items-center justify-content-between border rounded">
+                                    <p class="mt-3"><b>{{ $supports->title }}</b></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-11 mt-3">
                                 <div class="row align-items-center justify-content-between p-2 border rounded">
                                     <p>{{ $supports->message }}</p>
                                 </div>
