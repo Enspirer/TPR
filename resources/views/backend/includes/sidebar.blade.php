@@ -102,12 +102,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/homepage_advertisement'))}}" href="{{ route('admin.homepage_advertisement.index') }}">
-                            Home Page Advertisemnet
+                            Home Page Advertisement
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/sidebar_advertisement'))}}" href="{{ route('admin.sidebar_advertisement.index') }}">
-                            Sidebar Advertisemnet
+                            Sidebar Advertisement
                         </a>
                     </li>
                         
