@@ -123,13 +123,17 @@
                                         <div class="col-5">
                                             <div class="clearfix">
                                                 <div class="float-start pen-dis">
-                                                    <h5 class="card-title">{{ $property->country }}</h5>
+                                                    <h5 class="card-title">{{ $property->name }}</h5>
                                                 </div>
                                                 <div class="float-end">
                                                     <button class="position-relative bg-warning border-0 rounded px-2 py-1 text-light" style="top: -1.5rem; cursor: default;">Pending</button>
                                                 </div>
                                             </div>
-                                            <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p>
+                                            <!-- <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p> -->
+                                            @if($property->beds == null)
+                                            @else
+                                                <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            @endif  
                                             <p class="card-text pen-dis">Property Type : {{App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
                                             <p class="mt-1 text-info pen-dis">$ {{ $property['price'] }}</p>
 
@@ -159,13 +163,17 @@
                                         <div class="col-5">
                                             <div class="clearfix">
                                                 <div class="float-start pen-dis">
-                                                    <h5 class="card-title">{{ $property->country }}</h5>
+                                                    <h5 class="card-title">{{ $property->name }}</h5>
                                                 </div>
                                                 <div class="float-end">
                                                     <button class="position-relative bg-danger border-0 rounded px-2 py-1 text-light" style="top: -1.5rem; cursor: default;">Dispproved</button>
                                                 </div>
                                             </div>
-                                            <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p>
+                                            <!-- <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p> -->
+                                            @if($property->beds == null)
+                                            @else
+                                                <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            @endif 
                                             <p class="card-text pen-dis">Property Type : {{App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
                                             <p class="mt-1 text-info pen-dis">$ {{ $property['price'] }}</p>
 
@@ -195,13 +203,17 @@
                                         <div class="col-5">
                                             <div class="clearfix">
                                                 <div class="float-start pen-dis">
-                                                    <h5 class="card-title">{{ $property->country }}</h5>
+                                                    <h5 class="card-title">{{ $property->name }}</h5>
                                                 </div>
                                                 <div class="float-end">
                                                     <button class="position-relative bg-warning border-0 rounded px-2 py-1 text-light" style="top: -1.5rem; cursor: default;">Pending</button>
                                                 </div>
                                             </div>
-                                            <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            <!-- <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p> -->
+                                            @if($property->beds == null)
+                                            @else
+                                                <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            @endif 
                                             <p class="card-text pen-dis">Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
                                             <p class="mt-1 text-info pen-dis">$ {{ $property['price'] }}</p>
 
