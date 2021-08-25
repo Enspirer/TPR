@@ -66,7 +66,7 @@
                                         <tbody>
                                             <tr>
                                                 <td style="font-weight: 600;">Location</td>
-                                                <td>Colombo, {{ $property->country}}</td>
+                                                <td>{{ $property->city}}, {{ $property->country}}</td>
                                             </tr>
                                             <tr>
                                                 <td style="font-weight: 600;">Price</td>
