@@ -3,6 +3,8 @@
 @section('title', __('Create New'))
 
 @section('content')
+
+
     <form action="{{route('admin.country.store')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="row">
@@ -140,7 +142,18 @@
                                     <option value="{{ $user->id }}">{{ $user->first_name }} {{ $user->last_name }}</option>
                                 @endforeach
                             </select>
+                            
                         </div> 
+
+
+                            <!-- <select class="js-example-basic-single" name="state">
+                                <option value="AL">Alabama</option>
+                                <option value="WY">Wyoming</option>
+                                <option value="dg">dg</option>
+                                <option value="cgngnc">cgngnc</option>
+                            </select> -->
+
+
                         <div class="form-group">
                             <label>Features Flag</label>
                             <input type="text" class="form-control" name="features_flag" required>
@@ -173,6 +186,12 @@
     </form>
 
 
+<!-- <script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script> -->
+
 <script>
 
     $("#country_name").keyup(function(){
@@ -181,6 +200,8 @@
         var slug = trims.replace(/[^a-z0-9]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
         $("#slug").val(slug.toLowerCase()) 
     })
+
+    
 
 </script>
 

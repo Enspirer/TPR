@@ -215,7 +215,7 @@
 
                                 <div class="mt-5 text-center">
                                     <input type="hidden" class="form-control" value="{{ $property->id }}" name="hid_id">
-                                    <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;" >
+                                    <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;" >
                                 </div>
 
                             </form>
@@ -227,9 +227,61 @@
     </div>
 
 
+
+<!-- -----------------------------Model ----------------------------------------------->
+
+
+<div class="modal fade" id="overlay" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h4 class="modal-title" style="color:red">Warning!</h4>
+        <!-- <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button> -->
+        
+      </div>
+      <div class="modal-body">
+
+        <h5 class="mb-3">You can change the property details. But you should have to wait until admin approval.</h5>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Understood</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection
 
 @push('after-scripts')
+
+
+<script type="text/javascript">
+
+    $(window).on('load', function() {
+            $('#overlay').modal('show');
+        });
+    $("#close-btn").click(function () {
+        $('#overlay').modal('hide');
+    });
+
+</script> 
+
+
+
 
 <script>
 

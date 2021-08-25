@@ -109,7 +109,7 @@
                                         <button class="btn w-100 text-white" style="background-color: #7DCAC4; border-radius: 0.7rem;">PropertyLand</button>
                                     </div> -->
                                 </div>
-                                <p class="mt-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 15; -webkit-box-orient: vertical;">{{ $agent->description_message }}</p>
+                                <p class="mt-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{{ $agent->description_message }}</p>
 
                                 <div class="row">
                                     <div class="clearfix">

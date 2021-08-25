@@ -18,7 +18,7 @@
         <p class="lead"><h4>One of our member will get back in touch with you soon!<br><br> Have a great day!</h4></p>
         <hr><br>    
         <p class="lead">
-            <a class="btn btn-success btn-md mb-5" href="{{ url('individual-property',$property_details->id) }}" role="button">Go Back to Contact Us Page</a>
+            <a class="btn btn-success btn-md mb-5" href="{{ url('individual-property',$property_details->id) }}" role="button">Go Back to View Property</a>
         </p>
     </div>
   

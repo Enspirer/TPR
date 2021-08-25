@@ -312,39 +312,10 @@ class AgentController extends Controller
         $beds = $request->beds;
         $baths = $request->baths;
 
-        // if($request->land_size != null){
-        //     $land_size = $request->land_size;
-        // }
-        // if($request->zoning_type != null){
-        //     $zoning_type = $request->zoning_type;
-        // }
-        // if($request->number_of_units != null){
-        //     $number_of_units = $request->number_of_units;
-        // }
-        // if($request->building_size != null){
-        //     $building_size = $request->building_size;
-        // }
-        // if($request->farm_type != null){
-        //     $farm_type = $request->farm_type;
-        // }
-        // if($request->building_type != null){
-        //     $building_type = $request->building_type;
-        // }
-        // if($request->open_house_only != null){
-        //     $open_house_only = $request->open_house_only;
-        // }
-        // if($request->parking_type != null){
-        //     $parking_type = $request->parking_type;
-        // }
-        // if($request->beds != null){
-        //     $beds = $request->beds;
-        // }
-        // if($request->baths != null){
-        //     $baths = $request->baths;
-        // }
+        $admin_approval='Pending';
+        $country_manager_approval='Pending';
 
-        // dd($request);
-
+        
         $property = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
             [
                 'name' => $name,
@@ -368,7 +339,9 @@ class AgentController extends Controller
                 'parking_type' => $parking_type,
                 'beds' => $beds,
                 'baths' => $baths,
-                'city' => $city
+                'city' => $city,
+                'admin_approval' => $admin_approval,
+                'country_manager_approval' => $country_manager_approval
             ]
         );
 
@@ -452,12 +425,7 @@ class AgentController extends Controller
             $addprop->baths=$request->baths;       
         }else{}
 
-
-
-
         $addprop->save();
-
-        // dd($request);
 
         session()->flash('message','Thanks!');
 
