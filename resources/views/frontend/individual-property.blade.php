@@ -442,8 +442,8 @@
                                                 </p>
                                             @endif
 
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                            <!-- <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p> -->
                                         </div>
                                     </div>
                                     <br>
