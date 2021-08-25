@@ -65,7 +65,7 @@
                     @if($agent->status == 'Approved')
                         <div class="row shadow py-5 px-4 align-items-center" style="margin-top: 5rem;">
                             <div class="col-4">
-                                <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid" style="object-fit:cover;">
+                                <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid" width="100%" style="object-fit:cover; height:330px">
                             </div>
                             <div class="col-8">
                                 <div class="row">
@@ -109,7 +109,7 @@
                                         <button class="btn w-100 text-white" style="background-color: #7DCAC4; border-radius: 0.7rem;">PropertyLand</button>
                                     </div> -->
                                 </div>
-                                <p class="mt-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 15; -webkit-box-orient: vertical;">{{ $agent->description_message }}</p>
+                                <p class="mt-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{{ $agent->description_message }}</p>
 
                                 <div class="row">
                                     <div class="clearfix">

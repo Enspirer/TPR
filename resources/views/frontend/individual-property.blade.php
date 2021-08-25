@@ -18,7 +18,7 @@
         <p class="lead"><h4>One of our member will get back in touch with you soon!<br><br> Have a great day!</h4></p>
         <hr><br>    
         <p class="lead">
-            <a class="btn btn-success btn-md mb-5" href="{{ url('individual-property',$property_details->id) }}" role="button">Go Back to Contact Us Page</a>
+            <a class="btn btn-success btn-md mb-5" href="{{ url('individual-property',$property_details->id) }}" role="button">Go Back to View Property</a>
         </p>
     </div>
   
@@ -442,8 +442,8 @@
                                                 </p>
                                             @endif
 
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                            <!-- <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p> -->
                                         </div>
                                     </div>
                                     <br>

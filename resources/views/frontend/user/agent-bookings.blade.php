@@ -108,7 +108,8 @@
                                         </div>
                                         <div class="modal-body">
                                         <h4>Contact Method: {{$booking->method_of_contact}}</h4>
-
+                                        
+                                        <p class="mb-1">Phone Number: {{$booking->phone_number}}</p>
                                         <p class="mb-1">Email: {{$booking->email}}</p>
                                         
                                             <p>Im a {{$booking->im_resident}}</p>

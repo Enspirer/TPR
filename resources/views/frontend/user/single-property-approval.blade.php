@@ -76,7 +76,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td style="font-weight: 600;">Location</td>
-                                                    <td>Colombo, {{ $single_approval->country }}</td>
+                                                    <td>{{ $single_approval->city }}, {{ $single_approval->country }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Price</td>
