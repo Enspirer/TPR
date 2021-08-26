@@ -44,13 +44,14 @@ class DashboardController extends Controller
 
     public function accountDashboard(Request $request)
     {
-        $all_favouite = Favorite::get()->count();        
-        $supports = Feedback::get()->where('status','=','Pending')->count();
-        $booking = Booking::get()->count();
+        $user_id = auth()->user()->id;
+        $all_favourite = Favorite::where('user_id', $user_id)->get()->count();        
+        $supports = Feedback::where('user_id', $user_id)->get()->where('status','=','Pending')->count();
+        $bookings = Booking::where('user_id', $user_id)->get()->count();
 
         return view('frontend.user.account-dashboard',[
-            'all_favouite' => $all_favouite,
-            'booking' => $booking,
+            'all_favourite' => $all_favourite,
+            'bookings' => $bookings,
             'supports' => $supports
         ]);
     }

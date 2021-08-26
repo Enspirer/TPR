@@ -326,7 +326,11 @@
                         <h6 class="fw-bold mb-0 text-center mt-3">Call agent : {{ $agent->telephone }}</h6>
 
                         <div class="col-12 text-center mt-3">
-                            <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#emailModal" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                            @auth
+                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#emailModal" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                            @else
+                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="{{ route('frontend.auth.login') }}" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                            @endauth
                         </div>
 
                         <div class="row mt-5 justify-content-between">
@@ -413,7 +417,7 @@
 
                             @foreach($random as $ran)
                                 <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
+                                    <div class="card p-2 shadow border-0" style="height: 350px">
                                         <a href="{{ url('individual-property',$ran->id) }}" class="text-decoration-none">
                                             <img src="{{url('image_assest',$ran->feature_image_id)}}" style="object-fit:cover; height:210px" class="card-img-top w-100" alt="...">
                                         </a>
