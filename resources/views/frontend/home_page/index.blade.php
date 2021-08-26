@@ -277,7 +277,6 @@
     <section id="index-featured-projects">
         <div class="container " style="margin-top:7rem">
             @if(count($latest) != 0)
-                @foreach($latest as $lat)
 
                 <h3 class="text-center fw-bolder" data-aos="fade-up" data-aos-duration="500">Featured Properties</h3>
 
@@ -286,33 +285,33 @@
 
                     <div class="row mt-4">
 
-                            <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                                <div class="card p-4 shadow border-0">
-                                    <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
-                                    <div class="card-body mt-4">
-                                        <h5 class="card-title">{{ $lat->name }}</h5>
-                                        <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                        <p class="card-text">Lancaster, {{ $lat->country }}</p>
+                    @foreach($latest as $lat)
 
-                                        @if(get_country_cookie(request()))
-                                            <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, $lat->price) }}</p>
-                                        
-                                        @else
-                                        <p class="mt-1 text-info">{{ current_price(1, $lat->price) }}</p>
-                                        @endif
-                                    </div>
+                        <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                            <div class="card p-4 shadow border-0">
+                                <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
+                                <div class="card-body mt-4">
+                                    <h5 class="card-title">{{ $lat->name }}</h5>
+                                    <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
+                                    <p class="card-text">Lancaster, {{ $lat->country }}</p>
+
+                                    @if(get_country_cookie(request()))
+                                        <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, $lat->price) }}</p>
+                                    
+                                    @else
+                                    <p class="mt-1 text-info">{{ current_price(1, $lat->price) }}</p>
+                                    @endif
                                 </div>
                             </div>
-                        @endforeach
-                    @else
-
-                    @endif
-                
+                        </div>
+                    @endforeach
+                    </div>
                 </div>
-            </div>
+            @else
 
-
-
+            @endif
+                
+        
 
             @if(json_decode($country->features_manager) != null)
                 @if(json_decode($country->features_manager)[0]->properties != null)
