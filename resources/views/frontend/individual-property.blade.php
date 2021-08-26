@@ -329,7 +329,7 @@
                             @auth
                                 <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#emailModal" style="background-color: #FF69B4;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
                             @else
-                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="{{ route('frontend.auth.login') }}" style="background-color: #fd6c9e;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#loginModal" style="background-color: #FF69B4;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
                             @endauth
                         </div>                        
 
@@ -831,6 +831,81 @@
             </div>
         </div>
     @endauth
+
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation" novalidate>
+                        {{csrf_field()}}
+                        <div class="input-group has-validation mb-5">
+                            <input type="email" name="email" class="form-control form-control-lg sign-in-box shadow-sm" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required>
+                            <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-envelope fs-5"></i></span>
+                            <div class="invalid-feedback">
+                                This is a mandatory field and enter email address correctly to continue.
+                            </div>
+                        </div>
+
+                        <div class="input-group has-validation mb-5">
+                            <input type="password" name="password" class="form-control form-control-lg sign-in-box shadow-sm" id="exampleInputPassword1" placeholder="Password" required>
+                            <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-lock fs-5"></i></span>
+                            <div class="invalid-feedback">
+                                This is a mandatory field and must be entered to continue.
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="clearfix">
+                                <div class="float-start">
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1" style="font-size: 0.9rem;">Remember me</label>
+                                    </div>
+                                </div>
+                                <div class="float-end">
+                                    <a href="#" class="text-decoration-none" style="font-size: 0.9rem; color: #77CEEC;">Forgot Password</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Sign In</button>
+                    </form>
+
+
+                    <p class="text-end mt-3">Don't have an account? <a href="{{route('frontend.auth.register')}}" class="text-decoration-none" style="color: #77CEEC;">Sign Up</a></p>
+
+
+                    <div class="follow" style="margin-top: 3rem;">
+                        <h6 class="fw-bolder mb-5">With Social Media</h6>
+                        <div class="row mb-5">
+                            <div class="col-2 me-3">
+                                    <a href="#" class="fs-3" style="color: #79CEEB; border: 2px solid #79CEEB; padding: 24px 28px;"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                            <div class="col-2 me-3">
+                                    <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
+                            </div>
+                            <div class="col-2 me-3">
+                                    <a href="#" class="p-4 fs-3" style="color: #7DC8B1; border: 2px solid #7DC8B1"><i class="bi bi-google"></i></a>
+                            </div>
+                            <div class="col-2 me-3">
+                                    <a href="#" class="p-4 fs-3" style="color: #7FC481; border: 2px solid #7FC481;"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <div class="col-2">
+                                    <a href="#" class="fs-3" style="color: #83BE4A; border: 2px solid #83BE4A; padding: 24px 27px;"><i class="fab fa-apple"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 @endsection
 
