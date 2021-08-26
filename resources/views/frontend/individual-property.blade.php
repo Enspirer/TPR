@@ -327,16 +327,18 @@
 
                         <div class="col-12 text-center mt-3">
                             @auth
-                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#emailModal" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#emailModal" style="background-color: #FF69B4;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
                             @else
-                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="{{ route('frontend.auth.login') }}" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="{{ route('frontend.auth.login') }}" style="background-color: #fd6c9e;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
                             @endauth
+                        </div>                        
+
+                        <div class="col-12 text-center mt-3">                            
+                            <button class="btn rounded-0 py-2 fw-bold w-75 text-light" style="background-color:#008080;"><i class="fas fa-bookmark me-2"></i> Book a Viewing</button>                        
                         </div>
 
-                        <div class="row mt-5 justify-content-between">
-                            <a data-toggle="modal" data-target="#shareModal" class="btn rounded-0" style="border: 1.5px solid #707070; width: 100%;"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="me-2" >Share</a>
-
-                            <!-- <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 47%;"><i class="bi bi-heart me-1"></i> Save</button> -->
+                        <div class="col-12 text-center mt-3">
+                            <a data-toggle="modal" data-target="#shareModal" class="btn rounded-0 py-2 fw-bold w-75" style="border: 1.5px solid #707070;"><i class="far fa-share-square me-2"></i>Share</a>                            
                         </div>
                     </div><br><br>
 
@@ -364,7 +366,7 @@
                                     {{csrf_field()}}
                                     <div class="col-12 text-center mt-4">
                                         <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
-                                        <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid; background-color:#ff4da5; color:white; "><i class="bi bi-heart me-1"></i> Unsave this Property</button>
+                                        <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100 text-light" style="border: 1.5px solid; background-color:#F33A6A;"><i class="fas fa-heart me-1"></i> Unsave this Property</button>
                                     </div>
                                 </form>
                             @endif
