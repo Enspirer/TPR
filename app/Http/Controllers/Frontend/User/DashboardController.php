@@ -27,7 +27,7 @@ class DashboardController extends Controller
 
         $agent_edit = AgentRequest::where('user_id',$user_id)->first();
         $user_edit = User::where('id',$user_id)->first();
-        $countries = Country::all();
+        $countries = Country::where('status',1)->get();
 
         // agent edit function in agentController
         
@@ -129,7 +129,7 @@ class DashboardController extends Controller
         // }
         // dd($final_out);
 
-        $property = Properties::all();
+        $property = Properties::get();
         // dd($property);
 
         // $final_out2 = [];
@@ -168,7 +168,7 @@ class DashboardController extends Controller
 
     public function feedback()
     {
-        $countries = Country::get();
+        $countries = Country::where('status',1)->get();
 
         $user_id = auth()->user()->id;
         $user_details = User::where('id',$user_id)->first();

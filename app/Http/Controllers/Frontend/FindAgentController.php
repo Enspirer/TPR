@@ -24,7 +24,7 @@ class FindAgentController extends Controller
 
         $agents = AgentRequest::where('status','Approved');
 
-        $countries = Country::all();
+        $countries = Country::where('status',1)->get();
 
         if($area != 'area'){
 

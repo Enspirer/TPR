@@ -142,7 +142,7 @@ class CountryManagementController extends Controller
 
         // $user_id = auth()->user()->id;
 
-        // $country_manager = Country::where('country_manager',$user_id)->first();
+        // $country_manager = Country::where('country_manager',$user_id)->where('status',1)->first();
 
         // $properties = Properties::where('country', $country_manager->country_name)->orderBy('id','DESC')->get();
 
@@ -154,7 +154,7 @@ class CountryManagementController extends Controller
 
         $user_id = auth()->user()->id;
 
-        $country_manager = Country::where('country_manager',$user_id)->first();
+        $country_manager = Country::where('country_manager',$user_id)->where('status',1)->first();
 
         $properties = Properties::where('country', $country_manager->country_name)->orderBy('id','DESC')->get();
 
@@ -202,7 +202,7 @@ class CountryManagementController extends Controller
         //     array_push($final_out,$feed->country);
         // }
 
-        // $countries = Country::whereIn('id',$final_out)->get();
+        // $countries = Country::whereIn('id',$final_out)->where('status',1)->get();
 
         return view('frontend.user.supports');
     }
@@ -213,7 +213,7 @@ class CountryManagementController extends Controller
 
         $user_id = auth()->user()->id;
 
-        $country = Country::where('country_manager',$user_id)->first();
+        $country = Country::where('country_manager',$user_id)->where('status',1)->first();
 
         $feedback = Feedback::where('country', $country->id)->orderBy('id', 'DESC')->get();
 
@@ -224,7 +224,7 @@ class CountryManagementController extends Controller
         //     array_push($final_out,$feed->country);
         // }
 
-        // $countries = Country::whereIn('id',$final_out)->get();
+        // $countries = Country::whereIn('id',$final_out)->where('status',1)->get();
 
 
         if($request->ajax())
@@ -286,7 +286,7 @@ class CountryManagementController extends Controller
 
         // $user_id = auth()->user()->id;
         
-        // $country_manager = Country::where('country_manager',$user_id)->first();
+        // $country_manager = Country::where('country_manager',$user_id)->where('status',1)->first();
 
         // $agent_request = AgentRequest::where('country',$country_manager->country_name)->get();
 
@@ -297,7 +297,7 @@ class CountryManagementController extends Controller
 
         $user_id = auth()->user()->id;
         
-        $country_manager = Country::where('country_manager',$user_id)->first();
+        $country_manager = Country::where('country_manager',$user_id)->where('status',1)->first();
 
         $agent_request = AgentRequest::where('country',$country_manager->country_name)->get();
 
@@ -403,7 +403,7 @@ class CountryManagementController extends Controller
 
     public function adCategory() {
 
-        $country = Country::where('country_manager',auth()->user()->id)->first();
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
         // dd($country);
 
         $ad_category = AdCategory::where('country', $country->country_name)->orderBy('id', 'DESC')->get();
@@ -418,7 +418,7 @@ class CountryManagementController extends Controller
 
     public function getAdCategory(Request $request) {
 
-        $country = Country::where('country_manager',auth()->user()->id)->first();
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
 
         $ad_category = AdCategory::where('country', $country->country_name)->orderBy('id', 'DESC')->get();
 
@@ -492,7 +492,7 @@ class CountryManagementController extends Controller
 
     public function homepage_AD() {
 
-        $country = Country::where('country_manager',auth()->user()->id)->first();
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
         // dd($country);
 
         $ad_category = AdCategory::where('country', $country->country_name)->where('admin_approval','=','Approved')->get();
@@ -590,7 +590,7 @@ class CountryManagementController extends Controller
 
     public function sidebarAD() {        
 
-        $country = Country::where('country_manager',auth()->user()->id)->first();
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
         // dd($country);
 
         $ad1 = SidebarAd::where('country', $country->country_name)->where('other', '=', 'ad1')->first();

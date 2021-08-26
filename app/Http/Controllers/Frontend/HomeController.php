@@ -37,8 +37,8 @@ class HomeController extends Controller
         $lps2 = get_settings('landing_page_psection_2');
         // dd($lps2);
 
-        $country_list1 = Country::where('features_manager','!=', null)->where('id',$lps1)->first();
-        $country_list2 = Country::where('features_manager','!=', null)->where('id',$lps2)->first();
+        $country_list1 = Country::where('features_manager','!=', null)->where('id',$lps1)->where('status',1)->first();
+        $country_list2 = Country::where('features_manager','!=', null)->where('id',$lps2)->where('status',1)->first();
         
         return view('frontend.landing',[
             'countries_data' => $country,
