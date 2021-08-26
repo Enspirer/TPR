@@ -31,7 +31,7 @@ class FileManagerController extends Controller
 
     public function get_files()
     {
-        $files = Filemanager::all();
+        $files = Filemanager::get();
         return Datatables::of($files)
             ->addColumn('file', function($row){
                 return '<img src="'.url('images',$row->file_name).'" style="height: 40px;">';

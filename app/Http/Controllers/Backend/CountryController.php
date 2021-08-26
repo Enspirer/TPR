@@ -21,7 +21,7 @@ class CountryController extends Controller
 
     public function create()
     {
-        $users = User::all();
+        $users = User::get();
         return view('backend.country.create', ['users' => $users]);
     }
 
@@ -29,7 +29,7 @@ class CountryController extends Controller
     {
         if($request->ajax())
         {
-            $data = Country::all();
+            $data = Country::get();
             return DataTables::of($data)
                     ->addColumn('action', function($data){
                        
@@ -79,7 +79,7 @@ class CountryController extends Controller
     public function edit($id)
     {
         $country = Country::where('id',$id)->first();
-        $users = User::all();
+        $users = User::get();
         
         // dd($country);              
 

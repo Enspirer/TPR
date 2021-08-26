@@ -21,7 +21,7 @@ class ContactUsController extends Controller
     {
         if($request->ajax())
         {
-            $data = ContactUs::all();
+            $data = ContactUs::get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){
