@@ -143,17 +143,18 @@
                             </select>
                         </div>  -->
 
+                        
                         <div class="form-group">
                             <label for="country_manager" class="form-label">Country Manager</label>
                             <br>
                               
                             <datalist class="form-group w-100" name="country_manager" id="country_manager" required>
                                 @foreach($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->first_name }} {{ $user->last_name }}</option>
+                                    <option value="{{ $user->email }}">{{ $user->first_name }} {{ $user->last_name }}</option>
                                 @endforeach
                             </datalist>   
                             
-                            <input class="form-control w-100" value="{{ $country->country_manager }}" autoComplete="on" name="country_manager" list="country_manager"/> 
+                            <input class="form-control w-100" value="{{  App\Models\Auth\User::where('id', $country->country_manager)->first()->email }}" autoComplete="on" name="country_manager" list="country_manager"/> 
 
                         </div>
 

@@ -59,6 +59,9 @@ class CountryController extends Controller
     {        
         // dd($request);
 
+
+        $user = User::where('email',$request->country_manager)->first();
+
         $addcountry = new Country;
 
         $addcountry->country_name=$request->country_name; 
@@ -67,7 +70,9 @@ class CountryController extends Controller
         $addcountry->currency_rate=$request->currency_rate;
         $addcountry->country_id=$request->country_id;
         $addcountry->user_id = auth()->user()->id;
-        $addcountry->country_manager=$request->country_manager;
+
+        $addcountry->country_manager=$user->id;
+
         $addcountry->features_flag=$request->features_flag;
         $addcountry->status=$request->status;
         $addcountry->features_manager=$request->features_manager;
@@ -144,9 +149,8 @@ class CountryController extends Controller
     
     public function update(Request $request)
     {    
-        // $request->validate([
-        //     'order' => 'numeric'                
-        // ]); 
+
+        $user = User::where('email',$request->country_manager)->first();
 
         $updatcountry = new Country;
 
@@ -156,7 +160,9 @@ class CountryController extends Controller
         $updatcountry->currency_rate=$request->currency_rate;
         $updatcountry->country_id=$request->country_id;
         $updatcountry->user_id = auth()->user()->id;
-        $updatcountry->country_manager=$request->country_manager;
+
+        $updatcountry->country_manager=$user->id;
+
         $updatcountry->features_flag=$request->features_flag;
         $updatcountry->status=$request->status;
         $updatcountry->features_manager=$request->features_manager;

@@ -151,7 +151,7 @@
                               
                             <datalist class="form-group w-100" name="country_manager" id="country_manager" required>
                                 @foreach($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->first_name }} {{ $user->last_name }}</option>
+                                    <option value="{{ $user->email }}">{{ $user->first_name }} {{ $user->last_name }}</option>
                                 @endforeach
                             </datalist>   
                             
