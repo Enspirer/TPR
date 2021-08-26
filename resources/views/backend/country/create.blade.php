@@ -136,14 +136,36 @@
                             <input type="text" class="form-control" name="country_id" required>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="country_manager" class="form-label">Country Manager</label>
-                            <select class="form-select w-100 p-1 selectpicker" aria-label="Default select example" name="country_manager" id="country_manager" data-live-search="true" required>
+                            <select class="selectpicker form-select w-100" data-show-subtext="true" data-live-search="true" name="country_manager" id="country_manager" required>
                                 @foreach($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->first_name }} {{ $user->last_name }}</option>
                                 @endforeach
                             </select>                            
-                        </div> 
+                        </div>  -->
+
+                        <div class="form-group">
+                            <label for="country_manager" class="form-label">Country Manager</label>
+                            <br>
+                              
+                            <datalist class="form-group w-100" name="country_manager" id="country_manager" required>
+                                @foreach($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->first_name }} {{ $user->last_name }}</option>
+                                @endforeach
+                            </datalist>   
+                            
+                            <input class="form-control w-100" autoComplete="on" name="country_manager" list="country_manager"/> 
+
+                        </div>
+
+                        <!-- <div>
+                            <datalist id="suggestions">
+                                <option>First option</option>
+                                <option>Second Option</option>
+                            </datalist>
+                            <input  autoComplete="on" list="suggestions"/> 
+                        </div> -->
                         
 
                         <div class="form-group">
@@ -154,10 +176,7 @@
                             <label>Features Manager</label>
                             <input type="text" class="form-control" name="features_manager">
                         </div>
-                        <!-- <div class="form-group">
-                            <label>Description</label>
-                            <textarea type="text" class="form-control" name="description" rows="8" required></textarea>
-                        </div> -->
+                        
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status" required>
@@ -175,7 +194,13 @@
 
     </form>
 
+    
 
+    <!-- <script>
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+    </script> -->
 
 <script>
 
