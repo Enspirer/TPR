@@ -59,21 +59,6 @@ class CountryController extends Controller
     {        
         // dd($request);
 
-        // $request->validate([
-        //     'image'  => 'mimes:jpeg,png,jpg|max:25000',
-        //     'order' => 'numeric'            
-        // ]); 
-    
-        // if($request->file('image'))
-        // {            
-        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
-        //     $fullURLsPreviewFile = $request->image->move(public_path('files/awards'), $preview_fileName);
-        //     $image_url = $preview_fileName;
-        // }else{
-        //     $image_url = null;
-        // } 
-        // dd($image_url);
-
         $addcountry = new Country;
 
         $addcountry->country_name=$request->country_name; 

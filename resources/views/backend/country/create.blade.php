@@ -5,6 +5,7 @@
 @section('content')
 
 
+
     <form action="{{route('admin.country.store')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="row">
@@ -134,25 +135,16 @@
                             <label>Country ID</label>
                             <input type="text" class="form-control" name="country_id" required>
                         </div>
+
                         <div class="form-group">
                             <label for="country_manager" class="form-label">Country Manager</label>
-                            <!-- <input type="text" class="form-control" name="country_manager" required> -->
-                            <select class="form-select w-100 p-1" aria-label="Default select example" name="country_manager" id="country_manager" required>
+                            <select class="form-select w-100 p-1 selectpicker" aria-label="Default select example" name="country_manager" id="country_manager" data-live-search="true" required>
                                 @foreach($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->first_name }} {{ $user->last_name }}</option>
                                 @endforeach
-                            </select>
-                            
+                            </select>                            
                         </div> 
-
-
-                            <!-- <select class="js-example-basic-single" name="state">
-                                <option value="AL">Alabama</option>
-                                <option value="WY">Wyoming</option>
-                                <option value="dg">dg</option>
-                                <option value="cgngnc">cgngnc</option>
-                            </select> -->
-
+                        
 
                         <div class="form-group">
                             <label>Features Flag</label>
@@ -177,20 +169,13 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success pull-right">Create New</button><br>
-            </div><br>
+            </div><br>       
             
-            
-
         </div>
 
     </form>
 
 
-<!-- <script>
-    $(document).ready(function() {
-        $('.js-example-basic-single').select2();
-    });
-</script> -->
 
 <script>
 
@@ -199,12 +184,9 @@
         var trims = $.trim(str)
         var slug = trims.replace(/[^a-z0-9]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
         $("#slug").val(slug.toLowerCase()) 
-    })
-
-    
+    });    
 
 </script>
-
 
 
 <br><br>
