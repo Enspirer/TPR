@@ -108,6 +108,14 @@ class HomeController extends Controller
         ]);
     }
 
+
+    public function countryChange($id) {
+
+        Cookie::queue("country_code", $id ,1000);
+
+        return back();
+    }
+
     
     public static function setCookie($param)
     {

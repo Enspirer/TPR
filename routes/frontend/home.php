@@ -70,6 +70,9 @@ Route::get('search_result_filter/{key_name}/{min_price}/{max_price}/{category_ty
 
 Route::post('favourite/property', [HomeController::class, 'favouriteHeart'])->name('favourite_heart');
 
+
+Route::get('country-change/{id}', [HomeController::class, 'countryChange'])->name('country_change');
+
 //Route::get('contact', [ContactController::class, 'index'])->name('contact');
 //Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 

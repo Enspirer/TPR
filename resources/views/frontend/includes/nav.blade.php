@@ -126,7 +126,7 @@
                 <div class="modal-body" style="height: 400px;">
                     <div>
                         @foreach($tpr_countries as $tpr_country)
-                            <a href="{{route('frontend.home_page', $tpr_country->country_id)}}" class="text-decoration-none h6 text-dark">
+                            <a href="{{ route('frontend.country_change', $tpr_country->country_id) }}" class="text-decoration-none h6 text-dark">
                                 <div class="row align-items-center">
                                     <div class="col-6">
                                         {{ $tpr_country->country_name }}
