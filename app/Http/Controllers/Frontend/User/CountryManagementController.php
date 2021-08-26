@@ -120,22 +120,10 @@ class CountryManagementController extends Controller
                     ]
                 );
 
-        }
-
-
-
-        
+        }        
 
         return back();
     }
-
-
-
-
-
-
-
-
 
 
     public function propertyApproval() {
@@ -469,6 +457,8 @@ class CountryManagementController extends Controller
 
         $update->name=$request->name;        
         $update->country=$request->country;
+        $update->country_manager_approval='Approved';  
+        $update->admin_approval='Pending'; 
         
         AdCategory::whereId($request->hidden_id)->update($update->toArray());
 
@@ -570,6 +560,8 @@ class CountryManagementController extends Controller
         $update->order=$request->order;
         $update->image=$image_url;
         $update->country=$request->country;
+        $update->country_manager_approval='Approved';  
+        $update->admin_approval='Pending'; 
         
         HomePageAdvertisement::whereId($request->hidden_id)->update($update->toArray());
 
@@ -629,8 +621,8 @@ class CountryManagementController extends Controller
         $add->link=$request->link;
         $add->status=$request->status;
         $add->country=$request->country;
-        $add->admin_approval='Pending';  
         $add->country_management_approval='Approved';
+        $add->admin_approval='Pending';  
 
         if($request->ad_position == 'ad1'){ 
             $add->other=$request->ad_position;
@@ -667,7 +659,9 @@ class CountryManagementController extends Controller
         $update->description=$request->description;
         $update->link=$request->link;
         $update->status=$request->status;        
-        $update->country=$request->country; 
+        $update->country=$request->country;
+        $update->country_management_approval='Approved';
+        $update->admin_approval='Pending'; 
 
         if($request->ad_position == 'ad1'){ 
             $update->other=$request->ad_position;

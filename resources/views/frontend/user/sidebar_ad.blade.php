@@ -336,7 +336,13 @@
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
-                <div class="modal-body">                
+                <div class="modal-body">  
+                    
+                    <div style="border:1px solid red; text-align:center" class="mb-4 p-1">
+                        <h6 style="color:red" class="mb-2 mt-1">Warning!</h6><h6 class="mb-1" style="font-size:15px;"> You can change the details. But you should have to wait until admin approval.</h6>
+                    </div>
+
+
                     <div class="form-group">
                         <label>Adaverisement Image:</label>
                         <input type="file" class="form-control mt-1" name="image">
@@ -394,7 +400,12 @@
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
-                <div class="modal-body">                
+                <div class="modal-body">     
+                    
+                    <div style="border:1px solid red; text-align:center" class="mb-4 p-1">
+                        <h6 style="color:red" class="mb-2 mt-1">Warning!</h6><h6 class="mb-1" style="font-size:15px;"> You can change the details. But you should have to wait until admin approval.</h6>
+                    </div>
+
                     <div class="form-group">
                         <label>Adaverisement Image:</label>
                         <input type="file" class="form-control mt-1" name="image">

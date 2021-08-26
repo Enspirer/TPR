@@ -126,9 +126,13 @@
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabeledit">Edit Category</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                         </div>
                         <div class="modal-body">
 
+                        <div style="border:1px solid red; text-align:center" class="mb-4 p-1">
+                            <h6 style="color:red" class="mb-2 mt-1">Warning!</h6><h6 class="mb-1" style="font-size:15px;"> You can change the details. But you should have to wait until admin approval.</h6>
+                        </div>
                             <div class="form-group">
                                 <label>Category Name:</label>
                                 <input type="text" class="form-control mt-3" name="name" value="{{$ad_cat->name}}" required>
