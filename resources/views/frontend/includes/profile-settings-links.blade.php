@@ -67,7 +67,16 @@
 
 
         @if(is_country_manager(auth()->user()->id))
-            <h5 class="px-3 mt-4 pb-2 mb-0">Country Management</h5>
+
+            <div class="row align-items-center w-100 ms-3 mt-4 mb-2">
+                <div class="col-10 p-0">
+                    <h5 class="mb-0">Country Management</h5>
+                </div>
+                <div class="col-2 p-0">
+                    <img src="https://www.countryflags.io/{{ App\Models\Country::where('country_manager',auth()->user()->id)->first()->country_id }}/flat/64.png" alt="" class="img-fluid" style="height: 40px;" title="{{ App\Models\Country::where('country_manager',auth()->user()->id)->first()->country_name }}"></a>
+                </div>
+            </div>
+            
 
             <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'country-managment-dashboard' ? 'active' : null }}" href="{{ route('frontend.user.country-management') }}" type="button" role="tab" aria-controls="nav-properties" aria-selected="true">Dashboard</a>
 

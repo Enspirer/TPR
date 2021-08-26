@@ -22,7 +22,7 @@
 
                         @if(isset(get_country_cookie(request())->country_id))
                             @if(get_country_cookie(request())->country_id)
-                                <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid" data-bs-toggle="modal" data-bs-target="#countrySelection"></a>
+                                <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid" data-bs-toggle="modal" data-bs-target="#countrySelection" title="{{ App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->country_name }}"></a>
                                 <p class="d-none">{{get_country_cookie(request())->country_id}}</p>
                             @else
 
@@ -30,9 +30,6 @@
                         @else
 
                         @endif
-
-
-
 
                 </div>
             </div>
