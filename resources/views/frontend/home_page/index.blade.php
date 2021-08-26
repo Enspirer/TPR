@@ -103,7 +103,7 @@
                                             
                                             <div class="swiper-slide">
                                                 <a href="{{$home_ad->link}}" target="_blank">
-                                                    <img src="{{url('files/homepage_advertisement',$home_ad->image)}}" class="img-fluid" alt="">
+                                                    <img src="{{url('files/homepage_advertisement',$home_ad->image)}}" class="img-fluid" alt="" style="object-fit:cover; height: 210px;">
                                                 </a>
                                             </div> 
                                            
@@ -128,7 +128,7 @@
 
                                             <div class="swiper-slide">
                                                 <a href="{{$data->link}}" target="_blank">
-                                                    <img src="{{url('files/homepage_advertisement',$data->image)}}" class="img-fluid" alt="">
+                                                    <img src="{{url('files/homepage_advertisement',$data->image)}}" class="img-fluid" alt="" style="object-fit:cover; height: 210px;">
                                                 </a>
                                             </div>  
 
