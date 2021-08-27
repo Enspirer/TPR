@@ -110,7 +110,7 @@
                                     
                                         <p class="mb-1">Im a {{$booking->im_resident}}</p>
 
-                                        <p class="mb-1">Booking Date and Time (24 Hours): {{date('Y-m-d G:i:s', strtotime($booking->booking_time))}}</p>
+                                        <p class="mb-1">Booking Date and Time (24 Hours): {{date('Y-m-d G:i', strtotime($booking->booking_time))}}</p>
                                                                               
                                         
                                         @if($booking->book_a_viewing == 'No')
