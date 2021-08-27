@@ -110,9 +110,8 @@
                                     
                                         <p class="mb-1">Im a {{$booking->im_resident}}</p>
 
-                                        <!-- <p class="mb-1">Booking Date and Time (24 Hours): {{date('Y-m-d h:i:s', strtotime($booking->booking_time))}}</p> -->
-                                        <p class="mb-1 date"></p>
-                                        
+                                        <p class="mb-1">Booking Date and Time (24 Hours): {{date('Y-m-d G:i:s', strtotime($booking->booking_time))}}</p>
+                                                                              
                                         
                                         @if($booking->book_a_viewing == 'No')
                                         @else
@@ -150,33 +149,12 @@
 
 @push('after-scripts')
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/1.26.0/luxon.min.js"></script>
 
     <script>
         $('.delete').on('click', function() {
             let link = $(this).attr('href');
             $('.modal-footer a').attr('href', link);
         });      
-
-
-               
-
-        var something=<?php echo json_encode($booking->booking_time); ?>;
-        var dt = new Date(something.replace('T', ' '));
-
-        // var t = moment(something).format("MMMM Do YYYY, h:mm:ss a");
-        // $('.date').text("Booking Date and Time (24 Hours): "+dt);
         
-        // console.log(something);
-
-
-        const { DateTime } = luxon; 
-        
-        dt = DateTime
-        .fromFormat(something, "yyyy-MM-dd HH:mm:ss")
-        .toFormat('MM/dd/yyyy h:mm a');
-
-        $('.date').text("Booking Date and Time (24 Hours): "+dt);
-
     </script>
 @endpush
