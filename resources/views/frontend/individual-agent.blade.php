@@ -155,7 +155,7 @@
                                                     <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
                                     
                                                 @else
-                                                    <p class="mt-1 text-info">{{ current_price(1, $lat->price) }}</p>
+                                                    <p class="mt-1 text-info">{{ current_price(1, $prop->price) }}</p>
                                                 @endif
                                             </div>
                                         </div>
@@ -223,7 +223,7 @@
                                                     <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
                                     
                                                 @else
-                                                    <p class="mt-1 text-info">{{ current_price(1, $lat->price) }}</p>
+                                                    <p class="mt-1 text-info">{{ current_price(1, $prop->price) }}</p>
                                                 @endif
                                             </div>
                                         </div>
@@ -291,7 +291,7 @@
                                                     <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
                                     
                                                 @else
-                                                    <p class="mt-1 text-info">{{ current_price(1, $lat->price) }}</p>
+                                                    <p class="mt-1 text-info">{{ current_price(1, $prop->price) }}</p>
                                                 @endif
                                             </div>
                                         </div>
