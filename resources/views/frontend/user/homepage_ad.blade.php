@@ -66,12 +66,7 @@
                             <tr>
                                 <th scope="col">Image</th>
                                 <th scope="col">Name</th> 
-
-                                @if(count($ad_category) <= 0)
-                                @else
-                                    <th scope="col">Category</th>
-                                @endif                              
-                                
+                                <th scope="col">Category</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Order</th>
                                 <th scope="col">Admin Approval</th>
