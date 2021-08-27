@@ -109,11 +109,11 @@ class HomeController extends Controller
     }
 
 
-    public function countryChange($id) {
+    public function countryChange(Request $request,$id) {
 
-        Cookie::queue("country_code", $id ,1000);
-
-        return back();
+            Cookie::queue("country_code", $id ,1000);
+            return back();
+       
     }
 
     
