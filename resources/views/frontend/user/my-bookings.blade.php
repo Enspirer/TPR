@@ -110,6 +110,8 @@
                                     
                                         <p class="mb-1">Im a {{$booking->im_resident}}</p>
 
+                                        <p class="mb-1">Booking Time (24 Hours): {{$booking->booking_time}}</p>
+
                                         @if($booking->book_a_viewing == 'No')
                                         @else
                                             <p>Book a Viewing</p>
