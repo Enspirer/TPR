@@ -66,7 +66,7 @@
                                         <tbody>
                                             <tr>
                                                 <td style="font-weight: 600;">Location</td>
-                                                <td>Colombo, {{ $property->country}}</td>
+                                                <td>{{ $property->city}}, {{ $property->country}}</td>
                                             </tr>
                                             <tr>
                                                 <td style="font-weight: 600;">Price</td>
@@ -90,6 +90,9 @@
                                 
                                 <div class="col-6 pe-0">
                                     <div id="map" style="height: 300px; width: 100%;"></div>
+                                    <input type="hidden" name="lat" id="lat" class="mt-3" value="{{ $property->lat }}">
+                                    <input type="hidden" name="lng" id="lng" class="mt-3" value="{{ $property->long }}">
+                                    <input type="hidden" name="country" id="country" class="mt-3" value="{{ $property->country }}">
                                 </div>
                             </div>
 
@@ -234,19 +237,24 @@
 @push('after-scripts')
 
 <script>
-    function initMap() {
-  const myLatLng = { lat: 6.932821354043672, lng: 79.84476998314739 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
-    center: myLatLng,
-  });
-  new google.maps.Marker({
-    position: myLatLng,
-    map,
-    title: "Hello World!",
-  });
 
-//   console.log(myLatLng)
+    let lat = $('#lat').val();  
+    let lng = $('#lng').val();
+
+    function initMap() {
+
+        const myLatLng = { lat: parseFloat(lat), lng: parseFloat(lng) };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 6,
+            center: myLatLng,
+        });
+        new google.maps.Marker({
+            position: myLatLng,
+            map,
+            title: "Hello World!",
+        });
+
+        //   console.log(myLatLng)
 }
 </script>
 

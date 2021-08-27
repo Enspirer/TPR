@@ -76,7 +76,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td style="font-weight: 600;">Location</td>
-                                                    <td>Colombo, {{ $single_approval->country }}</td>
+                                                    <td>{{ $single_approval->city }}, {{ $single_approval->country }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: 600;">Price</td>
@@ -242,15 +242,17 @@
 @push('after-scripts')
 
 <script>
-    let lat = <?php echo json_encode($single_approval->lat); ?>;
-
-    let lng = <?php echo json_encode($single_approval->long); ?>;
+    let lat = $('#lat').val();
+    let lng = $('#lng').val();
 
 
     function initMap() {
-        const myLatLng = { lat: parseInt(lat), lng: parseInt(lng) };
+        const myLatLng = { lat: parseFloat(lat), lng: parseFloat(lng) };
+        
+
+        
         const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 9,
+            zoom: 6,
             center: myLatLng,
         });
         

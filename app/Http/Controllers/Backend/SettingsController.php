@@ -20,7 +20,7 @@ class SettingsController extends Controller
     {
         if($request->ajax())
         {
-            $data = Settings::all();
+            $data = Settings::get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){
@@ -95,7 +95,7 @@ class SettingsController extends Controller
 
     public function landing_page()
     {
-        $country_list = Country::where('features_manager','!=', null)->get();
+        $country_list = Country::where('features_manager','!=', null)->where('status',1)->get();
         // dd($country_list);
 
         return view('backend.settings.landing_page',[

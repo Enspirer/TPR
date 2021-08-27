@@ -25,7 +25,7 @@ class PropertyTypeController extends Controller
     {
         if($request->ajax())
         {
-            $data = PropertyType::all();
+            $data = PropertyType::get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){

@@ -4,13 +4,20 @@
             <span aria-hidden="true">&times;</span>
         </button> -->
 
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-            <!-- <span aria-hidden="true">&times;</span> -->
-        </button>
+        <div class="row">
+            <div class="col-11">
+                @foreach($errors->all() as $error)
+                    {!! $error !!}<br/>
+                @endforeach
+            </div>
+            <div class="col-1 text-end">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
 
-        @foreach($errors->all() as $error)
-            {!! $error !!}<br/>
-        @endforeach
+        
+
+        
     </div>
 @elseif(session()->get('flash_success'))
     <div class="alert alert-success" role="alert">

@@ -15,7 +15,7 @@ class CommercialController extends Controller
      */
     public function index()
     {
-        $promu = Properties::all();
+        $promu = Properties::get();
 
         return view('frontend.commercial',[
             'promo' => $promu

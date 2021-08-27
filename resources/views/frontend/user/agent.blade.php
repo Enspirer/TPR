@@ -86,7 +86,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 required">Country</label>
-                                            <select class="form-control" name="country" required>
+                                            <select class="form-control" name="country" id="country" required>
                                                 <option value="" selected disabled>Select...</option>
                                                 @foreach($countries as $country)
                                                     <option value="{{$country->country_name}}">{{$country->country_name}}</option>
@@ -106,7 +106,8 @@
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 mt-4 required">City</label>
-                                            <input type="text" class="form-control" name="city" required>
+                                            <select class="form-select cities" aria-label="Default select example" name="city" required>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -312,21 +313,83 @@
 
 
     $('#validate').change(function() {
+
         if($(this).val() == 'NIC') {
             $('#nic').prop('required', true);
             $('#nic_photo').prop('required', true);
+
+            $('#passport').prop('required', false);
+            $('#passport_photo').prop('required', false);
+
+            $('#license').prop('required', false);
+            $('#license_photo').prop('required', false);
         }
 
         if($(this).val() == 'Passport') {
             $('#passport').prop('required', true);
             $('#passport_photo').prop('required', true);
+
+            $('#nic').prop('required', false);
+            $('#nic_photo').prop('required', false);
+
+            $('#license').prop('required', false);
+            $('#license_photo').prop('required', false);
         }
 
         if($(this).val() == 'License') {
             $('#license').prop('required', true);
             $('#license_photo').prop('required', true);
+
+            $('#nic').prop('required', false);
+            $('#nic_photo').prop('required', false);
+
+            $('#passport').prop('required', false);
+            $('#passport_photo').prop('required', false);
         }
     })
+
+
+    $('#country').change(async function () {
+        let country_name = $('#country').val();
+
+        if(country_name != null) {
+            let countries = <?php echo json_encode($countries); ?>;
+
+            let name;
+            let countryName;
+            let template;
+
+            for(let i = 0; i < countries.length; i++) {
+                if(countries[i]['country_name'] == country_name) {
+                    name = countries[i]['slug'];
+                }
+            }
+
+            if(name.includes('-')){
+                countryName = name.replace("-", " ");
+            } else {
+                countryName = name;
+            }
+
+
+            $.ajax({
+                "type": "POST",
+                "url": "https://countriesnow.space/api/v0.1/countries/cities",
+                "data": {
+                    "country": countryName
+                }
+            }).done(function (d) {
+
+                for(let i = 0; i < d['data'].length; i++) {
+                    template+= `
+                        <option value="${d['data'][i]}">${d['data'][i]}</option>
+                    `
+                }
+
+                $(".cities").html(template);
+            });
+        }
+    });
 
 </script>
 

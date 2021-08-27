@@ -18,7 +18,7 @@
         <p class="lead"><h4>One of our member will get back in touch with you soon!<br><br> Have a great day!</h4></p>
         <hr><br>    
         <p class="lead">
-            <a class="btn btn-success btn-md mb-5" href="{{ url('individual-property',$property_details->id) }}" role="button">Go Back to Contact Us Page</a>
+            <a class="btn btn-success btn-md mb-5" href="{{ url('individual-property',$property_details->id) }}" role="button">Go Back to View Property</a>
         </p>
     </div>
   
@@ -326,13 +326,19 @@
                         <h6 class="fw-bold mb-0 text-center mt-3">Call agent : {{ $agent->telephone }}</h6>
 
                         <div class="col-12 text-center mt-3">
-                            <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#emailModal" style="background-color: #EB8EB0;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                            @auth
+                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#emailModal" style="background-color: #FF69B4;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                            @else
+                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#loginModal" style="background-color: #FF69B4;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                            @endauth
+                        </div>                        
+
+                        <div class="col-12 text-center mt-3">                            
+                            <button class="btn rounded-0 py-2 fw-bold w-75 text-light" style="background-color:#008080;"><i class="fas fa-bookmark me-2"></i> Book a Viewing</button>                        
                         </div>
 
-                        <div class="row mt-5 justify-content-between">
-                            <a data-toggle="modal" data-target="#shareModal" class="btn rounded-0" style="border: 1.5px solid #707070; width: 100%;"><img src="{{ asset('tpr_templete/images/individual_share_icon.svg') }}" alt="" class="me-2" >Share</a>
-
-                            <!-- <button class="btn rounded-0" style="border: 1.5px solid #707070; width: 47%;"><i class="bi bi-heart me-1"></i> Save</button> -->
+                        <div class="col-12 text-center mt-3">
+                            <a data-toggle="modal" data-target="#shareModal" class="btn rounded-0 py-2 fw-bold w-75" style="border: 1.5px solid #707070;"><i class="far fa-share-square me-2"></i>Share</a>                            
                         </div>
                     </div><br><br>
 
@@ -360,7 +366,7 @@
                                     {{csrf_field()}}
                                     <div class="col-12 text-center mt-4">
                                         <input type="hidden" name="prop_hidden_id" value="{{ $favourite->id }}" />
-                                        <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid; background-color:#ff4da5; color:white; "><i class="bi bi-heart me-1"></i> Unsave this Property</button>
+                                        <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100 text-light" style="border: 1.5px solid; background-color:#F33A6A;"><i class="fas fa-heart me-1"></i> Unsave this Property</button>
                                     </div>
                                 </form>
                             @endif
@@ -413,7 +419,7 @@
 
                             @foreach($random as $ran)
                                 <div class="col-3">
-                                    <div class="card p-2 shadow border-0">
+                                    <div class="card p-2 shadow border-0" style="height: 350px">
                                         <a href="{{ url('individual-property',$ran->id) }}" class="text-decoration-none">
                                             <img src="{{url('image_assest',$ran->feature_image_id)}}" style="object-fit:cover; height:210px" class="card-img-top w-100" alt="...">
                                         </a>
@@ -442,8 +448,8 @@
                                                 </p>
                                             @endif
 
-                                            <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
-                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p>
+                                            <!-- <p class="card-text mb-0 mt-1" style="font-size: 0.8rem;">Lancaster, claited Kingdom</p>
+                                            <p class="card-text" style="font-size: 0.8rem;">0.7 miles St Thomas</p> -->
                                         </div>
                                     </div>
                                     <br>
@@ -825,6 +831,81 @@
             </div>
         </div>
     @endauth
+
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation" novalidate>
+                        {{csrf_field()}}
+                        <div class="input-group has-validation mb-5">
+                            <input type="email" name="email" class="form-control form-control-lg sign-in-box shadow-sm" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required>
+                            <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-envelope fs-5"></i></span>
+                            <div class="invalid-feedback">
+                                This is a mandatory field and enter email address correctly to continue.
+                            </div>
+                        </div>
+
+                        <div class="input-group has-validation mb-5">
+                            <input type="password" name="password" class="form-control form-control-lg sign-in-box shadow-sm" id="exampleInputPassword1" placeholder="Password" required>
+                            <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-lock fs-5"></i></span>
+                            <div class="invalid-feedback">
+                                This is a mandatory field and must be entered to continue.
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="clearfix">
+                                <div class="float-start">
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1" style="font-size: 0.9rem;">Remember me</label>
+                                    </div>
+                                </div>
+                                <div class="float-end">
+                                    <a href="#" class="text-decoration-none" style="font-size: 0.9rem; color: #77CEEC;">Forgot Password</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Sign In</button>
+                    </form>
+
+
+                    <p class="text-end mt-3">Don't have an account? <a href="{{route('frontend.auth.register')}}" class="text-decoration-none" style="color: #77CEEC;">Sign Up</a></p>
+
+
+                    <div class="follow" style="margin-top: 3rem;">
+                        <h6 class="fw-bolder mb-5">With Social Media</h6>
+                        <div class="row mb-5">
+                            <div class="col-2 me-3">
+                                    <a href="#" class="fs-3" style="color: #79CEEB; border: 2px solid #79CEEB; padding: 24px 28px;"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                            <div class="col-2 me-3">
+                                    <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
+                            </div>
+                            <div class="col-2 me-3">
+                                    <a href="#" class="p-4 fs-3" style="color: #7DC8B1; border: 2px solid #7DC8B1"><i class="bi bi-google"></i></a>
+                            </div>
+                            <div class="col-2 me-3">
+                                    <a href="#" class="p-4 fs-3" style="color: #7FC481; border: 2px solid #7FC481;"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <div class="col-2">
+                                    <a href="#" class="fs-3" style="color: #83BE4A; border: 2px solid #83BE4A; padding: 24px 27px;"><i class="fab fa-apple"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 @endsection
 

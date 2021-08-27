@@ -177,7 +177,7 @@
                         </select>                           
                     </div>
                     <div class="form-group mt-3">
-                        <label>Image: ( dimensions = width: 600px * height: 300px )</label>
+                        <label>Image:</label>
                         <div class="input-group mt-1">
                             <input type="file" class="form-control" name="image" required>
                         </div>
@@ -232,6 +232,10 @@
                         </div>
                         <div class="modal-body">
 
+                        <div style="border:1px solid red; text-align:center" class="mb-4 p-1">
+                            <h6 style="color:red" class="mb-2 mt-1">Warning!</h6><h6 class="mb-1" style="font-size:15px;"> You can change the details. But you should have to wait until admin approval.</h6>
+                        </div>
+
 
                             <div class="form-group">
                                 <label>Name:</label>
@@ -247,7 +251,7 @@
                                 </select>                           
                             </div>
                             <div class="form-group mt-3">
-                                <label>Image: ( dimensions = width: 600px * height: 300px )</label>
+                                <label>Image:</label>
                                 <div class="input-group mt-1">
                                     <input type="file" class="form-control" name="image">
                                 </div>

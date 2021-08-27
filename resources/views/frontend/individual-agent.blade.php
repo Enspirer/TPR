@@ -150,7 +150,13 @@
                                         @endif
 
                                             <div class="col-6">
-                                                <p class="ns fw-bolder tab-price">Rs. {{number_format((float)$prop->price, 2)}} </p>
+                                                @if(get_country_cookie(request()))
+                                                    
+                                                    <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
+                                    
+                                                @else
+                                                    <p class="mt-1 text-info">{{ current_price(1, $lat->price) }}</p>
+                                                @endif
                                             </div>
                                         </div>
                                                     
@@ -212,7 +218,13 @@
                                         @endif
 
                                             <div class="col-6">
-                                                <p class="ns fw-bolder tab-price">Rs. {{number_format((float)$prop->price, 2)}} </p>
+                                                @if(get_country_cookie(request()))
+                                                    
+                                                    <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
+                                    
+                                                @else
+                                                    <p class="mt-1 text-info">{{ current_price(1, $lat->price) }}</p>
+                                                @endif
                                             </div>
                                         </div>
                                                     
@@ -274,7 +286,13 @@
                                         @endif
 
                                             <div class="col-6">
-                                                <p class="ns fw-bolder tab-price">Rs. {{number_format((float)$prop->price, 2)}} </p>
+                                                @if(get_country_cookie(request()))
+
+                                                    <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
+                                    
+                                                @else
+                                                    <p class="mt-1 text-info">{{ current_price(1, $lat->price) }}</p>
+                                                @endif
                                             </div>
                                         </div>
                                                     

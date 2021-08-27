@@ -13,7 +13,7 @@ use App\Http\Controllers\Backend\AdCategoryController;
 use App\Http\Controllers\Backend\HomePageAdvertisementController;
 use App\Http\Controllers\Backend\SidebarAdvertisementController;
 use App\Http\Controllers\Backend\PagesController;
-
+use App\Http\Controllers\Backend\FeaturePropertyUpdateRequestController;
 
 
 
@@ -30,6 +30,12 @@ Route::post('country/features/update', [CountryController::class, 'featuresUpdat
 Route::get('country/edit/{id}', [CountryController::class, 'edit'])->name('country.edit');
 Route::post('country/update', [CountryController::class, 'update'])->name('country.update');
 Route::get('country/delete/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
+
+Route::get('fpur', [FeaturePropertyUpdateRequestController::class, 'index'])->name('fpur.index');
+Route::get('fpur/getdetails', [FeaturePropertyUpdateRequestController::class, 'getDetails'])->name('fpur.getDetails');
+Route::get('fpur/edit/{id}', [FeaturePropertyUpdateRequestController::class, 'edit'])->name('fpur.edit');
+Route::post('fpur/update', [FeaturePropertyUpdateRequestController::class, 'update'])->name('fpur.update');
+
 
 Route::get('property', [PropertyController::class, 'index'])->name('property.index');
 Route::get('property/getdetails', [PropertyController::class, 'getDetails'])->name('property.getDetails');

@@ -25,7 +25,7 @@ class GlobalAdvertisementController extends Controller
     {
         if($request->ajax())
         {
-            $data = GlobalAdvertisement::all();
+            $data = GlobalAdvertisement::get();
     
             return DataTables::of($data)
             

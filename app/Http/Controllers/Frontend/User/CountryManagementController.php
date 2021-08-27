@@ -14,6 +14,7 @@ use App\Models\Feedback;
 use App\Models\AdCategory;
 use App\Models\HomePageAdvertisement;
 use App\Models\SidebarAd;
+use App\Models\FeaturePropertyUpdateRequest;
 use Auth;
 use DataTables;
 
@@ -49,21 +50,27 @@ class CountryManagementController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $country = Country::where('country_manager',$user_id)->first();
+        $country = Country::where('country_manager',$user_id)->where('status',1)->first();
         // dd($country);
+
+        $fpur = FeaturePropertyUpdateRequest::where('user_id',$user_id)->first();
 
         $properties = Properties::where('admin_approval', 'Approved')->where('country',$country->country_name)->get();
         // dd($properties);
      
         return view('frontend.user.home-page-feature',[
             'properties' => $properties,
-            'country' => $country
+            'country' => $country,
+            'fpur' => $fpur
         ]);
     }
 
     public function home_page_feature_Update(Request $request)
     {
-       
+        $user_id = auth()->user()->id;
+
+        $country = Country::where('country_manager',$user_id)->where('status',1)->first();
+
         $title1 = $request->featureTitle1;
         $title2 = $request->featureTitle2;
 
@@ -82,29 +89,48 @@ class CountryManagementController extends Controller
 
         $final = [$array1, $array2];
 
-        $featuredProperties = DB::table('countries') ->where('id', $request->hid_id)->update(
-            [
-                'features_manager' => json_encode($final)
-            ]
-        );
+        // $featuredProperties = DB::table('feature_property_update_requests') ->where('id', $request->hid_id)->update(
+        //     [
+        //         'key' => json_encode($final),
+        //         'admin_approval' => 'Pending',
+        //         'user_id' => $user_id,
+
+
+        //     ]
+        // );
+
+        $fpur = FeaturePropertyUpdateRequest::where('country', $country->country_name)->first();
+
+        if($fpur == null){
+            DB::table('feature_property_update_requests')->insert([
+                'key' => json_encode($final),
+                'admin_approval' => 'Pending',
+                'user_id' => $user_id,
+                'country' => $country->country_name
+            ]);
+        }
+        else{
+            $featuredProperties = DB::table('feature_property_update_requests') ->where('country', $country->country_name)->update(
+                    [
+                        'key' => json_encode($final),
+                        'admin_approval' => 'Pending',
+                        'user_id' => $user_id,
+                        'country' => $country->country_name       
+        
+                    ]
+                );
+
+        }        
 
         return back();
     }
-
-
-
-
-
-
-
-
 
 
     public function propertyApproval() {
 
         // $user_id = auth()->user()->id;
 
-        // $country_manager = Country::where('country_manager',$user_id)->first();
+        // $country_manager = Country::where('country_manager',$user_id)->where('status',1)->first();
 
         // $properties = Properties::where('country', $country_manager->country_name)->orderBy('id','DESC')->get();
 
@@ -116,7 +142,7 @@ class CountryManagementController extends Controller
 
         $user_id = auth()->user()->id;
 
-        $country_manager = Country::where('country_manager',$user_id)->first();
+        $country_manager = Country::where('country_manager',$user_id)->where('status',1)->first();
 
         $properties = Properties::where('country', $country_manager->country_name)->orderBy('id','DESC')->get();
 
@@ -164,7 +190,7 @@ class CountryManagementController extends Controller
         //     array_push($final_out,$feed->country);
         // }
 
-        // $countries = Country::whereIn('id',$final_out)->get();
+        // $countries = Country::whereIn('id',$final_out)->where('status',1)->get();
 
         return view('frontend.user.supports');
     }
@@ -175,7 +201,7 @@ class CountryManagementController extends Controller
 
         $user_id = auth()->user()->id;
 
-        $country = Country::where('country_manager',$user_id)->first();
+        $country = Country::where('country_manager',$user_id)->where('status',1)->first();
 
         $feedback = Feedback::where('country', $country->id)->orderBy('id', 'DESC')->get();
 
@@ -186,7 +212,7 @@ class CountryManagementController extends Controller
         //     array_push($final_out,$feed->country);
         // }
 
-        // $countries = Country::whereIn('id',$final_out)->get();
+        // $countries = Country::whereIn('id',$final_out)->where('status',1)->get();
 
 
         if($request->ajax())
@@ -212,7 +238,7 @@ class CountryManagementController extends Controller
         $supports = Feedback::where('id',$id)->first();        
         // dd($supports);              
 
-        $user_details = AgentRequest::where('user_id',$supports->user_id)->first();
+        $user_details = User::where('id',$supports->user_id)->first();
         // dd($user_details);
 
         return view('frontend.user.supports-edit',[
@@ -248,7 +274,7 @@ class CountryManagementController extends Controller
 
         // $user_id = auth()->user()->id;
         
-        // $country_manager = Country::where('country_manager',$user_id)->first();
+        // $country_manager = Country::where('country_manager',$user_id)->where('status',1)->first();
 
         // $agent_request = AgentRequest::where('country',$country_manager->country_name)->get();
 
@@ -259,7 +285,7 @@ class CountryManagementController extends Controller
 
         $user_id = auth()->user()->id;
         
-        $country_manager = Country::where('country_manager',$user_id)->first();
+        $country_manager = Country::where('country_manager',$user_id)->where('status',1)->first();
 
         $agent_request = AgentRequest::where('country',$country_manager->country_name)->get();
 
@@ -365,7 +391,7 @@ class CountryManagementController extends Controller
 
     public function adCategory() {
 
-        $country = Country::where('country_manager',auth()->user()->id)->first();
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
         // dd($country);
 
         $ad_category = AdCategory::where('country', $country->country_name)->orderBy('id', 'DESC')->get();
@@ -380,7 +406,7 @@ class CountryManagementController extends Controller
 
     public function getAdCategory(Request $request) {
 
-        $country = Country::where('country_manager',auth()->user()->id)->first();
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
 
         $ad_category = AdCategory::where('country', $country->country_name)->orderBy('id', 'DESC')->get();
 
@@ -431,6 +457,8 @@ class CountryManagementController extends Controller
 
         $update->name=$request->name;        
         $update->country=$request->country;
+        $update->country_manager_approval='Approved';  
+        $update->admin_approval='Pending'; 
         
         AdCategory::whereId($request->hidden_id)->update($update->toArray());
 
@@ -454,7 +482,7 @@ class CountryManagementController extends Controller
 
     public function homepage_AD() {
 
-        $country = Country::where('country_manager',auth()->user()->id)->first();
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
         // dd($country);
 
         $ad_category = AdCategory::where('country', $country->country_name)->where('admin_approval','=','Approved')->get();
@@ -532,6 +560,8 @@ class CountryManagementController extends Controller
         $update->order=$request->order;
         $update->image=$image_url;
         $update->country=$request->country;
+        $update->country_manager_approval='Approved';  
+        $update->admin_approval='Pending'; 
         
         HomePageAdvertisement::whereId($request->hidden_id)->update($update->toArray());
 
@@ -552,7 +582,7 @@ class CountryManagementController extends Controller
 
     public function sidebarAD() {        
 
-        $country = Country::where('country_manager',auth()->user()->id)->first();
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
         // dd($country);
 
         $ad1 = SidebarAd::where('country', $country->country_name)->where('other', '=', 'ad1')->first();
@@ -591,8 +621,8 @@ class CountryManagementController extends Controller
         $add->link=$request->link;
         $add->status=$request->status;
         $add->country=$request->country;
-        $add->admin_approval='Pending';  
         $add->country_management_approval='Approved';
+        $add->admin_approval='Pending';  
 
         if($request->ad_position == 'ad1'){ 
             $add->other=$request->ad_position;
@@ -629,7 +659,9 @@ class CountryManagementController extends Controller
         $update->description=$request->description;
         $update->link=$request->link;
         $update->status=$request->status;        
-        $update->country=$request->country; 
+        $update->country=$request->country;
+        $update->country_management_approval='Approved';
+        $update->admin_approval='Pending'; 
 
         if($request->ad_position == 'ad1'){ 
             $update->other=$request->ad_position;

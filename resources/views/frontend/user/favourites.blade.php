@@ -50,7 +50,8 @@
                                             <a href="{{ route('frontend.individual-property', $prop->id) }}"><img src="{{url('image_assest', $prop->feature_image_id)}}" style="width:350px; object-fit:cover;" height="210px" class="card-img-top" alt="..."></a>
                                         </div>
                                         <div class="col-5">
-                                            <h5 class="card-title">Jaffna, {{ $prop->country }}</h5>
+                                            <h5 class="card-title">{{ $prop->name }}</h5>
+                                            <h6 class="card-title mt-3">{{ $prop->city }}, {{ $prop->country }}</h6>
 
                                             @if($prop->beds == null)
                                             @else
@@ -59,7 +60,7 @@
                                                 </p>
                                             @endif
 
-                                            <p class="card-text">Lancaster, claited Kingdom</p>
+                                            <!-- <p class="card-text">Lancaster, claited Kingdom</p> -->
                                             <p class="mt-1 text-info">$ {{ $prop->price }}</p>
 
                                             <div class="row">
@@ -95,51 +96,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>                            
 
                             
-
-                            <!-- <div class="row align-items-center justify-content-between mb-4 border py-3">
-                                <div class="col-6">
-                                    <img src="{{url('tpr_templete/images/fp_fm_2.svg')}}" class="card-img-top" alt="...">
-                                </div>
-                                <div class="col-5">
-                                    <h5 class="card-title">Jaffna, Sri Lanka</h5>
-                                    <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                    <p class="card-text">Lancaster, claited Kingdom</p>
-                                    <p class="mt-1 text-info">$ 480,000</p>
-
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
-                                        </div>
-                                        <div class="col-4">
-                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row align-items-center justify-content-between mb-4 border py-3">
-                                <div class="col-6">
-                                    <img src="{{url('tpr_templete/images/fp_fm_3.svg')}}" class="card-img-top" alt="...">
-                                </div>
-                                <div class="col-5">
-                                    <h5 class="card-title">Jaffna, Sri Lanka</h5>
-                                    <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                    <p class="card-text">Lancaster, claited Kingdom</p>
-                                    <p class="mt-1 text-info">$ 480,000</p>
-
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #4195E1">View</button>
-                                        </div>
-                                        <div class="col-4">
-                                            <button class="btn px-4 rounded-0 text-light py-1" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>

@@ -224,10 +224,13 @@
 <section id="featured-properties">
     <div class="container" style="margin-top: 6rem; margin-bottom: 10rem;">
         
-        
+        @if(($country_list1 && $country_list2) == null)
+        @else
         <h3 class="fw-bolder text-center">
             Featured Properties Around the world
         </h3> 
+        @endif
+        
         
                 
                 @if($country_list1 != null)
@@ -248,7 +251,7 @@
                                 @if($key <= 2 )
                                     <div class="col-4 mt-3" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                                         <div class="card p-4 shadow border-0">
-                                            <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top" alt="..."></a>
+                                            <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top" alt="..." style="object-fit:cover; height: 210px;"></a>
                                             <div class="card-body mt-4">
                                                 <h5 class="card-title">{{ App\Models\Properties::where('id', $prop)->first()->city }}, {{ App\Models\Properties::where('id', $prop)->first()->country }}</h5>                                   
                                                 <p class="mt-1 text-info">$ {{ App\Models\Properties::where('id', $prop)->first()->price }}</p>
@@ -282,7 +285,7 @@
                                 @if($key <= 2 )
                                 <div class="col-4 mt-3" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                                     <div class="card p-4 shadow border-0">
-                                        <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top" alt="..."></a>
+                                        <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top" alt="..." style="object-fit:cover; height: 210px;"></a>
                                         <div class="card-body mt-4">
                                             <h5 class="card-title">{{ App\Models\Properties::where('id', $prop)->first()->city }}, {{ App\Models\Properties::where('id', $prop)->first()->country }}</h5>                                   
                                             <p class="mt-1 text-info">$ {{ App\Models\Properties::where('id', $prop)->first()->price }}</p>
@@ -345,10 +348,10 @@
                     <p class="text-white mb-0">Created by Enspirer &copy; All Rights Reserved.</p>
                 </div>
                 <div class="col-6 text-white text-end">
-                    <a href="#"><img src="images/fb.svg" alt="" class="img-fluid me-2"></a>
-                    <a href="#"><img src="images/twitter.svg" alt="" class="img-fluid me-2"></a>
-                    <a href="#"><img src="images/goolgle_plus.svg" alt="" class="img-fluid me-2"></a>
-                    <a href="#"><img src="images/instagram.svg" alt="" class="img-fluid me-2"></a>
+                    <a href="#"><img src="{{ asset('tpr_templete/images/fb.svg') }}" alt="" class="img-fluid me-2"></a>
+                    <a href="#"><img src="{{ asset('tpr_templete/images/twitter.svg') }}" alt="" class="img-fluid me-2"></a>
+                    <a href="#"><img src="{{ asset('tpr_templete/images/google_plus.svg') }}" alt="" class="img-fluid me-2"></a>
+                    <a href="#"><img src="{{ asset('tpr_templete/images/instagram.svg') }}" alt="" class="img-fluid me-2"></a>
                 </div>
             </div>
         </div>

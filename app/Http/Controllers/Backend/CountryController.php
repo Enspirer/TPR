@@ -21,7 +21,7 @@ class CountryController extends Controller
 
     public function create()
     {
-        $users = User::all();
+        $users = User::get();
         return view('backend.country.create', ['users' => $users]);
     }
 
@@ -29,7 +29,7 @@ class CountryController extends Controller
     {
         if($request->ajax())
         {
-            $data = Country::all();
+            $data = Country::get();
             return DataTables::of($data)
                     ->addColumn('action', function($data){
                        
@@ -59,20 +59,8 @@ class CountryController extends Controller
     {        
         // dd($request);
 
-        // $request->validate([
-        //     'image'  => 'mimes:jpeg,png,jpg|max:25000',
-        //     'order' => 'numeric'            
-        // ]); 
-    
-        // if($request->file('image'))
-        // {            
-        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
-        //     $fullURLsPreviewFile = $request->image->move(public_path('files/awards'), $preview_fileName);
-        //     $image_url = $preview_fileName;
-        // }else{
-        //     $image_url = null;
-        // } 
-        // dd($image_url);
+
+        $user = User::where('email',$request->country_manager)->first();
 
         $addcountry = new Country;
 
@@ -82,7 +70,9 @@ class CountryController extends Controller
         $addcountry->currency_rate=$request->currency_rate;
         $addcountry->country_id=$request->country_id;
         $addcountry->user_id = auth()->user()->id;
-        $addcountry->country_manager=$request->country_manager;
+
+        $addcountry->country_manager=$user->id;
+
         $addcountry->features_flag=$request->features_flag;
         $addcountry->status=$request->status;
         $addcountry->features_manager=$request->features_manager;
@@ -94,7 +84,7 @@ class CountryController extends Controller
     public function edit($id)
     {
         $country = Country::where('id',$id)->first();
-        $users = User::all();
+        $users = User::get();
         
         // dd($country);              
 
@@ -159,9 +149,8 @@ class CountryController extends Controller
     
     public function update(Request $request)
     {    
-        // $request->validate([
-        //     'order' => 'numeric'                
-        // ]); 
+
+        $user = User::where('email',$request->country_manager)->first();
 
         $updatcountry = new Country;
 
@@ -171,7 +160,9 @@ class CountryController extends Controller
         $updatcountry->currency_rate=$request->currency_rate;
         $updatcountry->country_id=$request->country_id;
         $updatcountry->user_id = auth()->user()->id;
-        $updatcountry->country_manager=$request->country_manager;
+
+        $updatcountry->country_manager=$user->id;
+
         $updatcountry->features_flag=$request->features_flag;
         $updatcountry->status=$request->status;
         $updatcountry->features_manager=$request->features_manager;

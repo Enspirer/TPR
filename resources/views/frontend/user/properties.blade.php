@@ -65,8 +65,12 @@
                             </div> -->
 
 
-                        @if(count($properties) == 0)
-                            <h2 align="center" style="margin-top:130px; color:#808080;">Properties Are Not Found</h2>
+                        @if(count($properties) <= 0)
+                            @include('frontend.includes.not_found',[
+                                'not_found_title' => 'Properties not found',
+                                'not_found_description' => 'Please add properties',
+                                'not_found_button_caption' => null
+                            ])
                         @else
 
 
@@ -79,10 +83,18 @@
                                                 <img src="{{url('image_assest', $property->feature_image_id)}}" class="w-100" alt="..." style="height: 250px; object-fit:cover;">
                                         </div>
                                         <div class="col-5">
-                                            <h5 class="card-title">{{ $property->country }}</h5>
-                                            <p class="card-text mt-3 mb-1">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            <h5 class="card-title">{{ $property->name }}</h5>
+                                                @if($property->beds == null)
+                                                @else
+                                                    <p class="card-text mt-3 mb-1">{{ $property['beds'] }} Bed Semidetached house</p>
+                                                @endif                                            
                                             <p class="card-text">Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
-                                            <p class="mt-1 text-info">$ {{ $property['price'] }}</p>
+                                            <!-- <p class="mt-1 text-info">$ {{ $property['price'] }}</p> -->
+                                            @if(get_country_cookie(request()))
+                                                <p class="mb-0 d-inline-block px-2 py-1 text-light mb-3" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(get_country_cookie(request())->country_id, $property->price) }}</p>
+                                            @else
+                                                <p class="mb-0 d-inline-block px-2 py-1 text-light mb-3" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(1, $property->price) }}</p>
+                                            @endif
 
                                             <div class="row">
                                                 <div class="col-9">
@@ -111,13 +123,17 @@
                                         <div class="col-5">
                                             <div class="clearfix">
                                                 <div class="float-start pen-dis">
-                                                    <h5 class="card-title">{{ $property->country }}</h5>
+                                                    <h5 class="card-title">{{ $property->name }}</h5>
                                                 </div>
                                                 <div class="float-end">
                                                     <button class="position-relative bg-warning border-0 rounded px-2 py-1 text-light" style="top: -1.5rem; cursor: default;">Pending</button>
                                                 </div>
                                             </div>
-                                            <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p>
+                                            <!-- <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p> -->
+                                            @if($property->beds == null)
+                                            @else
+                                                <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            @endif  
                                             <p class="card-text pen-dis">Property Type : {{App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
                                             <p class="mt-1 text-info pen-dis">$ {{ $property['price'] }}</p>
 
@@ -147,13 +163,17 @@
                                         <div class="col-5">
                                             <div class="clearfix">
                                                 <div class="float-start pen-dis">
-                                                    <h5 class="card-title">{{ $property->country }}</h5>
+                                                    <h5 class="card-title">{{ $property->name }}</h5>
                                                 </div>
                                                 <div class="float-end">
                                                     <button class="position-relative bg-danger border-0 rounded px-2 py-1 text-light" style="top: -1.5rem; cursor: default;">Dispproved</button>
                                                 </div>
                                             </div>
-                                            <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p>
+                                            <!-- <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached honse</p> -->
+                                            @if($property->beds == null)
+                                            @else
+                                                <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            @endif 
                                             <p class="card-text pen-dis">Property Type : {{App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
                                             <p class="mt-1 text-info pen-dis">$ {{ $property['price'] }}</p>
 
@@ -183,13 +203,17 @@
                                         <div class="col-5">
                                             <div class="clearfix">
                                                 <div class="float-start pen-dis">
-                                                    <h5 class="card-title">{{ $property->country }}</h5>
+                                                    <h5 class="card-title">{{ $property->name }}</h5>
                                                 </div>
                                                 <div class="float-end">
                                                     <button class="position-relative bg-warning border-0 rounded px-2 py-1 text-light" style="top: -1.5rem; cursor: default;">Pending</button>
                                                 </div>
                                             </div>
-                                            <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            <!-- <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p> -->
+                                            @if($property->beds == null)
+                                            @else
+                                                <p class="card-text mt-3 mb-1 pen-dis">{{ $property['beds'] }} Bed Semidetached house</p>
+                                            @endif 
                                             <p class="card-text pen-dis">Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
                                             <p class="mt-1 text-info pen-dis">$ {{ $property['price'] }}</p>
 

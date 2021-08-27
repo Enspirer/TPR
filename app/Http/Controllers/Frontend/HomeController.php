@@ -37,8 +37,8 @@ class HomeController extends Controller
         $lps2 = get_settings('landing_page_psection_2');
         // dd($lps2);
 
-        $country_list1 = Country::where('features_manager','!=', null)->where('id',$lps1)->first();
-        $country_list2 = Country::where('features_manager','!=', null)->where('id',$lps2)->first();
+        $country_list1 = Country::where('features_manager','!=', null)->where('id',$lps1)->where('status',1)->first();
+        $country_list2 = Country::where('features_manager','!=', null)->where('id',$lps2)->where('status',1)->first();
         
         return view('frontend.landing',[
             'countries_data' => $country,
@@ -92,9 +92,9 @@ class HomeController extends Controller
 
         $promu = Properties::where('admin_approval','Approved')->get();
 
-        $latest = Properties::where('admin_approval','Approved')->latest()->take(3)->get();
-
         $country = Country::where('country_id', $country_id)->where('status',1)->first();
+
+        $latest = Properties::where('country',$country->country_name)->where('admin_approval','Approved')->latest()->take(3)->get();
 
         $self = self::setCookie($country_id);
 
@@ -106,6 +106,14 @@ class HomeController extends Controller
             'homepage_ad' => $homepage_ad,
             'country' => $country
         ]);
+    }
+
+
+    public function countryChange($id) {
+
+        Cookie::queue("country_code", $id ,1000);
+
+        return back();
     }
 
     

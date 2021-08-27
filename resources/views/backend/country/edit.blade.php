@@ -132,14 +132,34 @@
                             <label>Country ID</label>
                             <input type="text" class="form-control" name="country_id" value="{{ $country->country_id }}" required>
                         </div>
-                        <div class="form-group">
+
+
+                        <!-- <div class="form-group">
                             <label for="country_manager" class="form-label">Country Manager</label>
                             <select class="form-select w-100 p-1" aria-label="Default select example" name="country_manager" id="country_manager" required>
                                 @foreach($users as $user)
                                     <option value="{{ $user->id }}" {{ $country->country_manager == $user->id ? "selected" : "" }}>{{ $user->first_name }} {{ $user->last_name }}</option>
                                 @endforeach
                             </select>
-                        </div> 
+                        </div>  -->
+
+                        
+                        <div class="form-group">
+                            <label for="country_manager" class="form-label">Country Manager</label>
+                            <br>
+                              
+                            <datalist class="form-group w-100" name="country_manager" id="country_manager" required>
+                                @foreach($users as $user)
+                                    <option value="{{ $user->email }}">{{ $user->first_name }} {{ $user->last_name }}</option>
+                                @endforeach
+                            </datalist>   
+                            
+                            <input class="form-control w-100" value="{{  App\Models\Auth\User::where('id', $country->country_manager)->first()->email }}" autoComplete="on" name="country_manager" list="country_manager"/> 
+
+                        </div>
+
+
+
                         <div class="form-group">
                             <label>Features Flag</label>
                             <input type="text" class="form-control" name="features_flag" value="{{ $country->features_flag }}" required>

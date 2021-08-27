@@ -22,7 +22,7 @@
 
                 <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-accountInformation-tab" data-bs-toggle="pill" data-bs-target="#pills-accountInformation" type="button" role="tab" aria-controls="pills-accountInformation" aria-selected="true">Accout Information</button>
+                        <button class="nav-link active" id="pills-accountInformation-tab" data-bs-toggle="pill" data-bs-target="#pills-accountInformation" type="button" role="tab" aria-controls="pills-accountInformation" aria-selected="true">Account Information</button>
                     </li>
                     @if($agent_edit)
                     <li class="nav-item" role="presentation">
@@ -304,7 +304,7 @@
                                     <div class="col-6">
                                         <div>
                                             <label class="form-label mb-0 required">Country</label>
-                                            <select class="form-control" name="country" required>
+                                            <select class="form-control" name="country" id="agent_country" required>
                                                 @foreach($countries as $country)
                                                     <option value="{{$country->country_name}}" {{ $agent_edit->country == $country->country_name ? "selected" : "" }}>{{$country->country_name}}</option>
                                                 @endforeach
@@ -324,7 +324,9 @@
                                     <div class="col-6">                                        
                                             <div>
                                                 <label class="form-label mb-0 mt-4 required">City</label>
-                                                <input type="text" class="form-control" value="{{ $agent_edit->city }}" name="city" required>
+                                                <select class="form-select cities" value="{{ $agent_edit->city }}" name="city" required>
+                                                </select>
+                                                <input type="hidden" class="form-control" value="{{ $agent_edit->city }}" id="city_value">
                                             </div>                                        
                                     </div>
                                     <div class="col-6">
@@ -656,7 +658,110 @@
             $('#license').prop('required', true);
             $('#license_photo').prop('required', true);
         }
-    })  
+    });
+
+
+
+
+
+    $('#agent_country').change(async function () {
+        let country_name = $('#agent_country').val();
+
+
+        if(country_name != null) {
+            let countries = <?php echo json_encode($countries); ?>;
+
+            let name;
+            let countryName;
+            let template;
+
+            for(let i = 0; i < countries.length; i++) {
+                if(countries[i]['country_name'] == country_name) {
+                    name = countries[i]['slug'];
+                }
+            }
+
+            if(name.includes('-')){
+                countryName = name.replace("-", " ");
+            } else {
+                countryName = name;
+            }
+
+
+            $.ajax({
+                "type": "POST",
+                "url": "https://countriesnow.space/api/v0.1/countries/cities",
+                "data": {
+                    "country": countryName
+                }
+            }).done(function (d) {
+
+                for(let i = 0; i < d['data'].length; i++) {
+                    template+= `
+                        <option value="${d['data'][i]}">${d['data'][i]}</option>
+                    `
+                }
+
+                $(".cities").html(template);
+            });
+        }
+    });
+
+
+
+    const cityAutoLoad = async () => {
+            
+        let country_name = $('#agent_country').val();
+        let city_name = $('#city_value').val();
+
+        if(country_name != null) {
+            let countries = <?php echo json_encode($countries); ?>;
+
+            let name;
+            let countryName;
+            let template;
+
+            for(let i = 0; i < countries.length; i++) {
+                if(countries[i]['country_name'] == country_name) {
+                    name = countries[i]['slug'];
+                }
+            }
+
+            if(name.includes('-')){
+                countryName = name.replace("-", " ");
+            } else {
+                countryName = name;
+            }
+
+
+            $.ajax({
+                "type": "POST",
+                "url": "https://countriesnow.space/api/v0.1/countries/cities",
+                "data": {
+                    "country": countryName
+                }
+            }).done(function (d) {
+
+                for(let i = 0; i < d['data'].length; i++) {
+                    if(d['data'][i] == city_name) {
+                        template+= `
+                            <option value="${d['data'][i]}" selected>${d['data'][i]}</option>
+                        `
+                    }
+                    else {
+                        template+= `
+                            <option value="${d['data'][i]}">${d['data'][i]}</option>
+                        `
+                    }
+                    
+                }
+
+                $(".cities").html(template);
+            });
+        }
+        }
+    
+            window.addEventListener('DOMContentLoaded', () => cityAutoLoad());
     
     </script>    
 

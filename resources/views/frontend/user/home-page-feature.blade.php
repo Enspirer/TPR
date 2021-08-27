@@ -21,16 +21,17 @@
             <div class="col-8">
 
                 <div class="row justify-content-between">
-                    <div class="col-8 p-0">
+                    <div class="col-12 p-0">
                         <h4 class="fs-4 fw-bolder user-settings-head">Home Page Feature</h4>
+                        @if($fpur == null)
+                        @else
+                            <h6 class="fw-bolder text-center"  style="margin:30px 0 30px 0;">Admin Approval:  {{ $fpur->admin_approval }}</h6>
+                        @endif
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12">
-                        
-                    
-
 
                     <form action="{{ route('frontend.user.home_page_feature_Update') }}" method="POST">
                         <div class="row">
@@ -58,28 +59,34 @@
                                             @if(json_decode($country->features_manager) != null)
                                                 @if(json_decode($country->features_manager)[0]->properties != null)
                                                     @foreach(json_decode($country->features_manager)[0]->properties as $prop)
-                                                        <div class="row border align-items-center p-1 mt-2 property-row">
-                                                            <div class="col-6">
-                                                                <img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
+                                                        @if(App\Models\Properties::where('id', $prop)->first() == null)
+                                                            <div class="row border mt-2">
+                                                                <h4 align="center" style="color:grey; margin: 30px 0 30px 0;">Property Not Found!</h4>
                                                             </div>
-                                                            <div class="col-6">
-                                                                <div class="row justify-content-between align-items-center">
-                                                                    <div class="col-9">
-                                                                        <input type="hidden" name="properties1[]" value="{{ $prop }}" required>
+                                                        @else
+                                                            <div class="row border align-items-center p-1 mt-2 property-row">
+                                                                <div class="col-6">
+                                                                    <img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" alt="" class="img-fluid" style="height: 100px!important; object-fit: cover!important; width: 100%";>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <div class="row justify-content-between align-items-center">
+                                                                        <div class="col-9">
+                                                                            <input type="hidden" name="properties1[]" value="{{ $prop }}" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <p class="mb-3"><b>{{ App\Models\Properties::where('id', $prop)->first()->name }}</b></p>
+                                                                    <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: {{ App\Models\Properties::where('id', $prop)->first()->transaction_type }}</p>
+                                                                    <p class="mb-0" style="font-size: 0.8rem;">Country: {{ App\Models\Properties::where('id', $prop)->first()->country }}</p>
+                                                                </div>
+
+                                                                <div class="row justify-content-end">
+                                                                    <div class="col-2 text-end">
+                                                                        <button type="button" name="delete" class="delete btn btn-danger btn-sm" title="Delete">Delete</button>
                                                                     </div>
                                                                 </div>
-                                                                
-                                                                <p class="mb-3"><b>{{ App\Models\Properties::where('id', $prop)->first()->name }}</b></p>
-                                                                <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: {{ App\Models\Properties::where('id', $prop)->first()->transaction_type }}</p>
-                                                                <p class="mb-0" style="font-size: 0.8rem;">Country: {{ App\Models\Properties::where('id', $prop)->first()->country }}</p>
                                                             </div>
-
-                                                            <div class="row justify-content-end">
-                                                                <div class="col-5 text-end">
-                                                                    <button type="button" name="delete" class="delete btn btn-danger btn-sm" title="Delete"><i class="fas fa-trash" style="background-color: transparent"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        @endif
                                                     @endforeach
                                                 @else
                                                     
@@ -112,28 +119,34 @@
                                             @if(json_decode($country->features_manager) != null)
                                                 @if(json_decode($country->features_manager)[1]->properties != null)
                                                     @foreach(json_decode($country->features_manager)[1]->properties as $prop)
-                                                        <div class="row border align-items-center p-1 mt-2 property-row">
-                                                            <div class="col-6">
-                                                                <img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
+                                                        @if(App\Models\Properties::where('id', $prop)->first() == null)
+                                                            <div class="row border mt-2">
+                                                                <h4 align="center" style="color:grey; margin: 30px 0 30px 0;">Property Not Found!</h4>
                                                             </div>
-                                                            <div class="col-6">
-                                                                <div class="row justify-content-between align-items-center">
-                                                                    <div class="col-9">
-                                                                        <input type="hidden" name="properties2[]" value="{{ $prop }}" required>
+                                                        @else
+                                                            <div class="row border align-items-center p-1 mt-2 property-row">
+                                                                <div class="col-6">
+                                                                    <img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" alt="" class="img-fluid" style="height: 100px!important; object-fit: cover!important; width: 100%";>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <div class="row justify-content-between align-items-center">
+                                                                        <div class="col-9">
+                                                                            <input type="hidden" name="properties2[]" value="{{ $prop }}" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <p class="mb-3"><b>{{ App\Models\Properties::where('id', $prop)->first()->name }}</b></p>
+                                                                    <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: {{ App\Models\Properties::where('id', $prop)->first()->transaction_type }}</p>
+                                                                    <p class="mb-0" style="font-size: 0.8rem;">Country: {{ App\Models\Properties::where('id', $prop)->first()->country }}</p>
+                                                                </div>
+
+                                                                <div class="row justify-content-end">
+                                                                    <div class="col-2 text-end">
+                                                                        <button type="button" name="delete" class="delete btn btn-danger btn-sm" title="Delete">Delete</button>
                                                                     </div>
                                                                 </div>
-                                                                
-                                                                <p class="mb-3"><b>{{ App\Models\Properties::where('id', $prop)->first()->name }}</b></p>
-                                                                <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: {{ App\Models\Properties::where('id', $prop)->first()->transaction_type }}</p>
-                                                                <p class="mb-0" style="font-size: 0.8rem;">Country: {{ App\Models\Properties::where('id', $prop)->first()->country }}</p>
                                                             </div>
-
-                                                            <div class="row justify-content-end">
-                                                                <div class="col-5 text-end">
-                                                                    <button type="button" name="delete" class="delete btn btn-danger btn-sm" title="Delete"><i class="fas fa-trash" style="background-color: transparent"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        @endif    
                                                     @endforeach
                                                 @else
                                                     
@@ -144,7 +157,7 @@
                                 </div>
                             </div>
 
-                            <div class="text-center mt-3">
+                            <div class="text-center mt-5">
                                 <button type="submit" class="btn btn-success pull-right px-5 py-2 fs-6">Update</button><br>
                                 <input type="hidden" class="form-control" name="hid_id" value="{{ $country->id }}" required>
                             </div>
@@ -240,7 +253,7 @@ function addProperty1() {
             template = `
                         <div class="row border align-items-center p-1 mt-2 property-row">
                             <div class="col-6">
-                                <img src="{{url('/')}}/image_assest/${properties[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
+                                <img src="{{url('/')}}/image_assest/${properties[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 100px!important; object-fit: cover!important; width: 100%";>
                             </div>
                             <div class="col-6">
                                 <div class="row justify-content-between align-items-center">
@@ -255,8 +268,8 @@ function addProperty1() {
                             </div>
 
                             <div class="row justify-content-end">
-                                <div class="col-5 text-end">
-                                    <button type="button" name="delete" class="delete btn btn-danger btn-sm" title="Delete"><i class="fas fa-trash" style="background-color: transparent"></i></button>
+                                <div class="col-2 text-end">
+                                    <button type="button" name="delete" class="delete btn btn-danger btn-sm" title="Delete">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -280,7 +293,7 @@ function addProperty2() {
             template = `
                         <div class="row border align-items-center p-1 mt-2 property-row">
                             <div class="col-6">
-                                <img src="{{url('/')}}/image_assest/${properties[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
+                                <img src="{{url('/')}}/image_assest/${properties[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 100px!important; object-fit: cover!important; width: 100%";>
                             </div>
                             <div class="col-6">
                                 <div class="row justify-content-between align-items-center">
@@ -295,8 +308,8 @@ function addProperty2() {
                             </div>
 
                             <div class="row justify-content-end">
-                                <div class="col-5 text-end">
-                                    <button type="button" name="delete" class="delete btn btn-danger btn-sm" title="Delete"><i class="fas fa-trash" style="background-color: transparent"></i></button>
+                                <div class="col-2 text-end">
+                                    <button type="button" name="delete" class="delete btn btn-danger btn-sm" title="Delete">Delete</button>
                                 </div>
                             </div>
                         </div>

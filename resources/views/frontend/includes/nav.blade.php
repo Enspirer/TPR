@@ -22,7 +22,7 @@
 
                         @if(isset(get_country_cookie(request())->country_id))
                             @if(get_country_cookie(request())->country_id)
-                                <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid" data-bs-toggle="modal" data-bs-target="#countrySelection"></a>
+                                <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid" data-bs-toggle="modal" data-bs-target="#countrySelection" title="{{ App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->country_name }}"></a>
                                 <p class="d-none">{{get_country_cookie(request())->country_id}}</p>
                             @else
 
@@ -30,9 +30,6 @@
                         @else
 
                         @endif
-
-
-
 
                 </div>
             </div>
@@ -126,7 +123,7 @@
                 <div class="modal-body" style="height: 400px;">
                     <div>
                         @foreach($tpr_countries as $tpr_country)
-                            <a href="{{route('frontend.home_page', $tpr_country->country_id)}}" class="text-decoration-none h6 text-dark">
+                            <a href="{{ route('frontend.country_change', $tpr_country->country_id) }}" class="text-decoration-none h6 text-dark">
                                 <div class="row align-items-center">
                                     <div class="col-6">
                                         {{ $tpr_country->country_name }}

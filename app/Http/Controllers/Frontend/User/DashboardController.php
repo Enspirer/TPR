@@ -27,7 +27,7 @@ class DashboardController extends Controller
 
         $agent_edit = AgentRequest::where('user_id',$user_id)->first();
         $user_edit = User::where('id',$user_id)->first();
-        $countries = Country::all();
+        $countries = Country::where('status',1)->get();
 
         // agent edit function in agentController
         
@@ -44,13 +44,14 @@ class DashboardController extends Controller
 
     public function accountDashboard(Request $request)
     {
-        $all_favouite = Favorite::get()->count();        
-        $supports = Feedback::get()->where('status','=','Pending')->count();
-        $booking = Booking::get()->count();
+        $user_id = auth()->user()->id;
+        $all_favourite = Favorite::where('user_id', $user_id)->get()->count();        
+        $supports = Feedback::where('user_id', $user_id)->get()->where('status','=','Pending')->count();
+        $bookings = Booking::where('user_id', $user_id)->get()->count();
 
         return view('frontend.user.account-dashboard',[
-            'all_favouite' => $all_favouite,
-            'booking' => $booking,
+            'all_favourite' => $all_favourite,
+            'bookings' => $bookings,
             'supports' => $supports
         ]);
     }
@@ -128,7 +129,7 @@ class DashboardController extends Controller
         // }
         // dd($final_out);
 
-        $property = Properties::all();
+        $property = Properties::get();
         // dd($property);
 
         // $final_out2 = [];
@@ -167,7 +168,7 @@ class DashboardController extends Controller
 
     public function feedback()
     {
-        $countries = Country::get();
+        $countries = Country::where('status',1)->get();
 
         $user_id = auth()->user()->id;
         $user_details = User::where('id',$user_id)->first();

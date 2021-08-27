@@ -21,7 +21,7 @@ class FileManagerController extends Controller
     {        
         if($request->ajax())
         {
-            $data = FileManager::all();
+            $data = FileManager::get();
             return DataTables::of($data)
                     ->addColumn('action', function($data){
                     

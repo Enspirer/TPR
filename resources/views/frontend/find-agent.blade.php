@@ -46,7 +46,12 @@
     <!--directory-->
     <section id="directory">
         <div class="container" style="margin-top: 6rem;">
-            <h3 class="fw-bolder">Directory of Real Estate Agents / Brokers / Realtors in Sri Lanka</h3>
+
+        @if(get_country_cookie(request()))
+            <h3 class="fw-bolder">Directory of Real Estate Agents / Brokers / Realtors in {{ get_country_cookie(request())->country_name }}</h3>
+        @else
+
+        @endif
 
             @if(count($agents) <= 0)
                 <section id="residential-properties">
@@ -60,19 +65,16 @@
                     @if($agent->status == 'Approved')
                         <div class="row shadow py-5 px-4 align-items-center" style="margin-top: 5rem;">
                             <div class="col-4">
-                                <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid" style="object-fit:cover;">
+                                <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid" width="100%" style="object-fit:cover; height:330px">
                             </div>
                             <div class="col-8">
                                 <div class="row">
                                     <div class="clearfix">
                                         <div class="float-start">
                                             <h5 class="fw-bolder">
-                                            @if($agent->company_name == null)
                                                 {{ $agent->name }}
-                                            @else
-                                                {{ $agent->company_name }}
-                                            @endif
                                             </h5>
+                                            <h6 class="mb-4">{{ $agent->city }}</h6>
                                         </div>
                                         <!-- <div class="float-end">
                                             <i class="bi bi-star-fill me-3 stars"></i>
@@ -104,7 +106,7 @@
                                         <button class="btn w-100 text-white" style="background-color: #7DCAC4; border-radius: 0.7rem;">PropertyLand</button>
                                     </div> -->
                                 </div>
-                                <p class="mt-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 15; -webkit-box-orient: vertical;">{{ $agent->description_message }}</p>
+                                <p class="mt-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{{ $agent->description_message }}</p>
 
                                 <div class="row">
                                     <div class="clearfix">

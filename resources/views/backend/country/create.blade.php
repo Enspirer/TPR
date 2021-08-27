@@ -3,6 +3,9 @@
 @section('title', __('Create New'))
 
 @section('content')
+
+
+
     <form action="{{route('admin.country.store')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="row">
@@ -132,15 +135,39 @@
                             <label>Country ID</label>
                             <input type="text" class="form-control" name="country_id" required>
                         </div>
-                        <div class="form-group">
+
+                        <!-- <div class="form-group">
                             <label for="country_manager" class="form-label">Country Manager</label>
-                            <!-- <input type="text" class="form-control" name="country_manager" required> -->
-                            <select class="form-select w-100 p-1" aria-label="Default select example" name="country_manager" id="country_manager" required>
+                            <select class="selectpicker form-select w-100" data-show-subtext="true" data-live-search="true" name="country_manager" id="country_manager" required>
                                 @foreach($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->first_name }} {{ $user->last_name }}</option>
                                 @endforeach
-                            </select>
-                        </div> 
+                            </select>                            
+                        </div>  -->
+
+                        <div class="form-group">
+                            <label for="country_manager" class="form-label">Country Manager</label>
+                            <br>
+                              
+                            <datalist class="form-group w-100" name="country_manager" id="country_manager" required>
+                                @foreach($users as $user)
+                                    <option value="{{ $user->email }}">{{ $user->first_name }} {{ $user->last_name }}</option>
+                                @endforeach
+                            </datalist>   
+                            
+                            <input class="form-control w-100" autoComplete="on" name="country_manager" list="country_manager"/> 
+
+                        </div>
+
+                        <!-- <div>
+                            <datalist id="suggestions">
+                                <option>First option</option>
+                                <option>Second Option</option>
+                            </datalist>
+                            <input  autoComplete="on" list="suggestions"/> 
+                        </div> -->
+                        
+
                         <div class="form-group">
                             <label>Features Flag</label>
                             <input type="text" class="form-control" name="features_flag" required>
@@ -149,10 +176,7 @@
                             <label>Features Manager</label>
                             <input type="text" class="form-control" name="features_manager">
                         </div>
-                        <!-- <div class="form-group">
-                            <label>Description</label>
-                            <textarea type="text" class="form-control" name="description" rows="8" required></textarea>
-                        </div> -->
+                        
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status" required>
@@ -164,14 +188,19 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success pull-right">Create New</button><br>
-            </div><br>
+            </div><br>       
             
-            
-
         </div>
 
     </form>
 
+    
+
+    <!-- <script>
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+    </script> -->
 
 <script>
 
@@ -180,10 +209,9 @@
         var trims = $.trim(str)
         var slug = trims.replace(/[^a-z0-9]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
         $("#slug").val(slug.toLowerCase()) 
-    })
+    });    
 
 </script>
-
 
 
 <br><br>
