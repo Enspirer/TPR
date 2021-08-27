@@ -615,8 +615,8 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Time  <span style="color: red">*</span></label>
-                                        <input type="time" class="form-control" name="time" required>
+                                        <label>Date and Time  <span style="color: red">*</span></label>
+                                        <input type="datetime-local" class="form-control" name="time" required>
                                     </div>
                                 </div>
 
@@ -797,8 +797,8 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Time  <span style="color: red">*</span></label>
-                                        <input type="time" class="form-control" name="time" required>
+                                        <label>Date and Time  <span style="color: red">*</span></label>
+                                        <input type="datetime-local" class="form-control" name="time" required>
                                     </div>
                                 </div>
 
@@ -944,8 +944,8 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Time  <span style="color: red">*</span></label>
-                                        <input type="time" class="form-control" name="time" required>
+                                        <label>Date and Time  <span style="color: red">*</span></label>
+                                        <input type="datetime-local" class="form-control" name="time" required>
                                     </div>
                                 </div>
 
@@ -1083,8 +1083,8 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Time  <span style="color: red">*</span></label>
-                                        <input type="time" class="form-control" name="time" required>
+                                        <label>Date and Time  <span style="color: red">*</span></label>
+                                        <input type="datetime-local" class="form-control" name="time" required>
                                     </div>
                                 </div>
 
