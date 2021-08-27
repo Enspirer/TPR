@@ -874,6 +874,8 @@
                             </div>
                         </div>
 
+                        <input type="hidden" name="individual" value="true">
+
                         <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Sign In</button>
                     </form>
 

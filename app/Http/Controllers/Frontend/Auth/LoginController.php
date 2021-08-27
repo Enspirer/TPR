@@ -32,6 +32,22 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
+        if (session('link')) {
+            $myPath     = session('link');
+            $loginPath  = url('/login');
+            $previous   = url()->previous();
+
+            if ($previous = $loginPath) {
+                session(['link' => $myPath]);
+            }
+            else{
+                session(['link' => $previous]);
+            }
+        }
+        else{
+            session(['link' => url()->previous()]);
+        }
+
         return view('frontend.auth.login');
     }
 
@@ -101,7 +117,14 @@ class LoginController extends Controller
             auth()->logoutOtherDevices($request->password);
         }
 
-        return redirect()->intended($this->redirectPath());
+        if($request->individual == 'true')
+        {
+            return back();
+        }else{
+            return redirect(session('link'));
+        }
+
+
     }
 
     /**
@@ -113,6 +136,7 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
+
         // Remove the socialite session variable if exists
         if (app('session')->has(config('access.socialite_session_name'))) {
             app('session')->forget(config('access.socialite_session_name'));
