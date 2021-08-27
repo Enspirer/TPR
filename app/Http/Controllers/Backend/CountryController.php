@@ -75,7 +75,7 @@ class CountryController extends Controller
 
         $addcountry->features_flag=$request->features_flag;
         $addcountry->status=$request->status;
-        $addcountry->features_manager=$request->features_manager;
+        // $addcountry->features_manager=$request->features_manager;
         $addcountry->save();
 
         return redirect()->route('admin.country.index')->withFlashSuccess('Added Successfully');  
@@ -93,6 +93,34 @@ class CountryController extends Controller
             'users' => $users
         ]);  
     }
+
+
+    public function update(Request $request)
+    {    
+
+        $user = User::where('email',$request->country_manager)->first();
+
+        $updatcountry = new Country;
+
+        $updatcountry->country_name=$request->country_name; 
+        $updatcountry->slug=$request->slug;        
+        $updatcountry->currency=$request->currency;
+        $updatcountry->currency_rate=$request->currency_rate;
+        $updatcountry->country_id=$request->country_id;
+        $updatcountry->user_id = auth()->user()->id;
+
+        $updatcountry->country_manager=$user->id;
+
+        $updatcountry->features_flag=$request->features_flag;
+        $updatcountry->status=$request->status;
+        // $updatcountry->features_manager=$request->features_manager;
+   
+        Country::whereId($request->hidden_id)->update($updatcountry->toArray());
+
+        return redirect()->route('admin.country.index')->withFlashSuccess('Updated Successfully');                      
+
+    }
+
 
     public function features($id)
     {
@@ -143,35 +171,11 @@ class CountryController extends Controller
             ]
         );
 
-        return back();
+        return back()->withFlashSuccess('Updated Successfully'); 
     }
 
     
-    public function update(Request $request)
-    {    
-
-        $user = User::where('email',$request->country_manager)->first();
-
-        $updatcountry = new Country;
-
-        $updatcountry->country_name=$request->country_name; 
-        $updatcountry->slug=$request->slug;        
-        $updatcountry->currency=$request->currency;
-        $updatcountry->currency_rate=$request->currency_rate;
-        $updatcountry->country_id=$request->country_id;
-        $updatcountry->user_id = auth()->user()->id;
-
-        $updatcountry->country_manager=$user->id;
-
-        $updatcountry->features_flag=$request->features_flag;
-        $updatcountry->status=$request->status;
-        $updatcountry->features_manager=$request->features_manager;
-   
-        Country::whereId($request->hidden_id)->update($updatcountry->toArray());
-
-        return redirect()->route('admin.country.index')->withFlashSuccess('Updated Successfully');                      
-
-    }
+    
 
     public function destroy($id)
     {        

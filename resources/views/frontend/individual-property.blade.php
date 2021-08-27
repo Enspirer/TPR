@@ -333,8 +333,16 @@
                             @endauth
                         </div>                        
 
-                        <div class="col-12 text-center mt-3">                            
-                            <button class="btn rounded-0 py-2 fw-bold w-75 text-light" style="background-color:#008080;"><i class="fas fa-bookmark me-2"></i> Book a Viewing</button>                        
+                        <div class="col-12 text-center mt-3">
+
+                            @auth     
+                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#bookaview" style="background-color: #008080;"><i class="fas fa-bookmark me-2"></i>Book a Viewing</a>                    
+                            @else
+                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#loginModal" style="background-color: #008080;"><i class="fas fa-bookmark me-2"></i>Book a Viewing</a>
+                            @endauth
+                           
+                           
+                            <!-- <button class="btn rounded-0 py-2 fw-bold w-75 text-light" style="background-color:#008080;"><i class="fas fa-bookmark me-2"></i> Book a Viewing</button>                         -->
                         </div>
 
                         <div class="col-12 text-center mt-3">
@@ -588,7 +596,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Im a <span style="color: red">*</span></label>
                                         <select class="form-control" name="im_resident" required>
@@ -604,11 +612,20 @@
                                         </select>
                                     </div>
                                 </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Time  <span style="color: red">*</span></label>
+                                        <input type="time" class="form-control" name="time" required>
+                                    </div>
+                                </div>
+
                             </div>
                             <br>
 
                             <input type="hidden" name="agent_id" value="{{$agent->id}}">
                             <input type="hidden" name="property_id" value="{{$property_details->id}}">
+                            <input type="hidden" class="form-control" name="book_a_viewing" value="No">
 
                             <div class="row">
                                 <div class="col-md-4">
@@ -761,7 +778,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Im a <span style="color: red">*</span></label>
                                         <select class="form-control" name="im_resident" required>
@@ -777,11 +794,21 @@
                                         </select>
                                     </div>
                                 </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Time  <span style="color: red">*</span></label>
+                                        <input type="time" class="form-control" name="time" required>
+                                    </div>
+                                </div>
+
+
                             </div>
                             <br>
 
                             <input type="hidden" name="agent_id" value="{{$agent->id}}">
                             <input type="hidden" name="property_id" value="{{$property_details->id}}">
+                            <input type="hidden" class="form-control" name="book_a_viewing" value="No">
 
                             <div class="row">
                                 <div class="col-md-4">
@@ -831,6 +858,315 @@
             </div>
         </div>
     @endauth
+
+
+
+
+
+
+
+<!-- book a viewing modal -->
+    @auth
+        <div class="modal fade bd-example-modal-lg" id="bookaview" tabindex="-1" aria-labelledby="bookaviewModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 910px;max-width: 1040px;">
+                <div class="modal-content">
+                    <form action="{{route('frontend.invidual_property')}}" method="post">
+                        {{csrf_field()}}
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Contact Agent</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-md-8">
+                                    <h4>To:</h4>
+                                    <div class="row">
+                                        <div class="col-4">
+                                        <!-- background-repeat: no-repeat;background-position: center;background-size: cover;margin-bottom: 20px; -->                                    
+                                            <div class="" >
+                                            <img src="{{ url('files/agent_request',$agent->photo) }}" alt="" style="object-fit: cover; height:170px" width="100%" class="profile-picture">
+                                            </div>
+                                        </div>
+                                        <div class="col-8 align-middle">
+                                            <label><b>Name:</b></label> {{$agent->name}} <br>
+                                            <label><b>Phone Number:</b></label> {{$agent->telephone}} <br>
+                                            <label><b>Address:</b></label> {{$agent->address}} <br>
+                                            <label><b>Country:</b></label> {{$agent->country}} <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>First Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="first_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Last Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="last_name" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Im a <span style="color: red">*</span></label>
+                                        <select class="form-control" name="im_resident" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="First Time Buyer">First Time Buyer</option>
+                                            <option value="No Preference">No Preference</option>
+                                            <option value="Repeat Buyer">Repeat Buyer</option>
+                                            <option value="Seller">Seller</option>
+                                            <option value="Residential Investor">Residential Investor</option>
+                                            <option value="Commercial Investor">Commercial Investor</option>
+                                            <option value="Commercial buyer or leaser">Commercial buyer or leaser</option>
+                                            <option value="Land for development">Land for development</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Time  <span style="color: red">*</span></label>
+                                        <input type="time" class="form-control" name="time" required>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br>
+
+                            <input type="hidden" name="agent_id" value="{{$agent->id}}">
+                            <input type="hidden" name="property_id" value="{{$property_details->id}}">
+                            <input type="hidden" class="form-control" name="book_a_viewing" value="Yes">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Preferred method of contact  <span style="color: red">*</span></label>
+                                        <select class="form-control" name="contact_method" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="Email">Email</option>
+                                            <option value="Phone">Phone</option>
+                                            <option value="Text">Text</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Email  <span style="color: red">*</span></label>
+                                        <input type="email" class="form-control" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Phone Number  <span style="color: red">*</span></label>
+                                        <input type="number" class="form-control" name="phone_number" required>
+                                    </div>
+                                </div>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Message  <span style="color: red">*</span></label>
+                                        <textarea type="text" rows="3" class="form-control" name="message" required></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    @else
+    <div class="modal fade bd-example-modal-lg" id="bookaview" tabindex="-1" aria-labelledby="bookaviewModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 910px;max-width: 1040px;">
+                <div class="modal-content">
+                    <form action="{{route('frontend.invidual_property')}}" method="post">
+                        {{csrf_field()}}
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Contact Agent</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-md-8">
+                                    <h4>To:</h4>
+                                    <div class="row">
+                                        <div class="col-4">
+                                        <!-- background-repeat: no-repeat;background-position: center;background-size: cover;margin-bottom: 20px; -->                                    
+                                            <div class="" >
+                                            <img src="{{ url('files/agent_request',$agent->photo) }}" alt="" style="object-fit: cover; height:170px" width="100%" class="profile-picture">
+                                            </div>
+                                        </div>
+                                        <div class="col-8 align-middle">
+                                            <label><b>Name:</b></label> {{$agent->name}} <br>
+                                            <label><b>Phone Number:</b></label> {{$agent->telephone}} <br>
+                                            <label><b>Address:</b></label> {{$agent->address}} <br>
+                                            <label><b>Country:</b></label> {{$agent->country}} <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>First Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="first_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Last Name  <span style="color: red">*</span></label>
+                                        <input type="text" class="form-control" name="last_name" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Im a <span style="color: red">*</span></label>
+                                        <select class="form-control" name="im_resident" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="First Time Buyer">First Time Buyer</option>
+                                            <option value="No Preference">No Preference</option>
+                                            <option value="Repeat Buyer">Repeat Buyer</option>
+                                            <option value="Seller">Seller</option>
+                                            <option value="Residential Investor">Residential Investor</option>
+                                            <option value="Commercial Investor">Commercial Investor</option>
+                                            <option value="Commercial buyer or leaser">Commercial buyer or leaser</option>
+                                            <option value="Land for development">Land for development</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Time  <span style="color: red">*</span></label>
+                                        <input type="time" class="form-control" name="time" required>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                            <br>
+
+                            <input type="hidden" name="agent_id" value="{{$agent->id}}">
+                            <input type="hidden" name="property_id" value="{{$property_details->id}}">
+                            <input type="hidden" class="form-control" name="book_a_viewing" value="Yes">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Preferred method of contact  <span style="color: red">*</span></label>
+                                        <select class="form-control" name="contact_method" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="Email">Email</option>
+                                            <option value="Phone">Phone</option>
+                                            <option value="Text">Text</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Email  <span style="color: red">*</span></label>
+                                        <input type="email" class="form-control" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Phone Number  <span style="color: red">*</span></label>
+                                        <input type="number" class="form-control" name="phone_number" required>
+                                    </div>
+                                </div>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Message  <span style="color: red">*</span></label>
+                                        <textarea type="text" rows="3" class="form-control" name="message" required></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <a href="{{ route('frontend.auth.login') }}" class="btn btn-primary">Send</a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    @endauth
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <!-- Login Modal -->

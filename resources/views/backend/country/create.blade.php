@@ -172,10 +172,10 @@
                             <label>Features Flag</label>
                             <input type="text" class="form-control" name="features_flag" required>
                         </div>  
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Features Manager</label>
                             <input type="text" class="form-control" name="features_manager">
-                        </div>
+                        </div> -->
                         
                         <div class="form-group">
                             <label>Status</label>

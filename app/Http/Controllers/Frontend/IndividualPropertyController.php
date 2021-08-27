@@ -120,6 +120,8 @@ class IndividualPropertyController extends Controller
         $booking->user_id = auth()->user()->id;
         $booking->property_id = $request->property_id;
         $booking->agent_id = $request->agent_id;
+        $booking->booking_time = $request->time;
+        $booking->book_a_viewing = $request->book_a_viewing;
         $booking->status = 'Pending';
         $booking->save();
 
