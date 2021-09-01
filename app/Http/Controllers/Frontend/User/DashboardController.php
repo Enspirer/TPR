@@ -159,7 +159,7 @@ class DashboardController extends Controller
 
     public function myBookings()
     {
-        $bookings = Booking::where('user_id',auth()->user()->id)->get();
+        $bookings = Booking::where('user_id',auth()->user()->id)->orderBy('id','DESC')->get();
 
         return view('frontend.user.my-bookings',[
             'bookings' => $bookings
