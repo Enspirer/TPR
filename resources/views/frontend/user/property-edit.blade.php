@@ -441,7 +441,7 @@
 
             let property = <?php echo json_encode ($property) ?>
 
-            let url = 'http://127.0.0.1:8000/api/get_property_type_details/' + type;
+            let url = "{{url('/')}}api/get_property_type_details/" + type;
             const res = await fetch(url);
             const data = await res.json();
             const fields = (data[0]['activated_fields']);
