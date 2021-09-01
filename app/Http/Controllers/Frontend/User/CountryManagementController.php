@@ -287,7 +287,7 @@ class CountryManagementController extends Controller
         
         $country_manager = Country::where('country_manager',$user_id)->where('status',1)->first();
 
-        $agent_request = AgentRequest::where('country',$country_manager->country_name)->get();
+        $agent_request = AgentRequest::where('country',$country_manager->country_name)->orderBy('id','DESC')->get();
 
 
         if($request->ajax())
