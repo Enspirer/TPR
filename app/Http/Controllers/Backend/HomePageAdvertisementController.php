@@ -40,7 +40,7 @@ class HomePageAdvertisementController extends Controller
                     ->addColumn('category', function($data){
                         
                         if($data->category == null){
-                            $details = 'null';
+                            $details = '<span class="badge badge-danger">Not Set</span>';
                         }else{
                         $ad_category = AdCategory::where('id',$data->category)->where('admin_approval', '=', 'Approved')->first();
                         

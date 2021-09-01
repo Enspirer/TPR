@@ -119,7 +119,7 @@
                                     <div class="col-12">
                                         <div>
                                             <label for="price" class="form-label mb-0 mt-4">Price</label>
-                                            <input type="text" class="form-control" name="price" id="price" aria-describedby="price" required placeholder="$">
+                                            <input type="number" class="form-control" name="price" id="price" aria-describedby="price" required placeholder="$">
                                             <div id="passwordHelpBlock" class="form-text text-info fw-bolder">
                                                 Please enter property price in US currency
                                             </div>
