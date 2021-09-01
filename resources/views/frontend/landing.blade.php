@@ -132,10 +132,8 @@
 
 
 <br><br><br><br>
-
-
-@if(count($global_advertisement) !== 0)
-    <div class="swiper-container mySwiper">
+<!-- <div class="container"> -->
+    <div class="container swiper mySwiper">
         <div class="swiper-wrapper">
             @foreach($global_advertisement as $key => $advertisement)
             
