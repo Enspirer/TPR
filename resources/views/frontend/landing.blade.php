@@ -236,7 +236,7 @@
         
         
                 
-                @if($country_list1 != null)
+            @if($country_list1 != null)
                 @if(json_decode($country_list1->features_manager)[0]->properties != null)
                     <div class="1strow mt-4">
                         <div class="row align-items-center">
@@ -268,9 +268,9 @@
                         </div>                        
                     </div>
                 @endif  
-                @endif               
+            @endif               
 
-                @if($country_list2 != null)
+            @if($country_list2 != null)
                 @if(json_decode($country_list2->features_manager)[0]->properties != null)
                     <div class="1strow" style="margin-top: 6rem;">
                         <div class="row align-items-center">
@@ -302,6 +302,9 @@
                         </div>                        
                     </div>
                 @endif
+            @endif
+
+
 
     </div>
 </section>
