@@ -462,7 +462,7 @@ class AgentController extends Controller
 
         // dd($agent->id);
 
-        $bookings = Booking::where('agent_id', $agent->id)->get();
+        $bookings = Booking::where('agent_id', $agent->id)->orderBy('id','DESC')->get();
 
         // dd($bookings);
 

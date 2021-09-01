@@ -112,8 +112,14 @@
                                         <p class="mb-1">Phone Number: {{$booking->phone_number}}</p>
                                         <p class="mb-1">Email: {{$booking->email}}</p>
                                         
-                                            <p>Im a {{$booking->im_resident}}</p>
+                                        <p class="mb-1">Im a {{$booking->im_resident}}</p>
 
+                                        <p class="mb-1">Booking Date and Time (24 Hours): {{date('Y-m-d G:i', strtotime($booking->booking_time))}}</p>
+
+                                        @if($booking->book_a_viewing == 'No')
+                                        @else
+                                            <p>Book a Viewing</p>
+                                        @endif
 
                                             <div class="card">
                                                 <div class="card-body">
