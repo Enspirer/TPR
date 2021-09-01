@@ -142,7 +142,7 @@
             <div class="swiper-slide">
                 <div class="container">
                     <div class="row">
-                        <div class="col-6 p-1">
+                        <div class="col-6 p-1  text-center">
                         @if($advertisement->image !== null)
                             <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank" >
                             <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
@@ -207,14 +207,13 @@
                 </a>  -->
             </div>
 
-            
-               
-                
             @endforeach
         </div>
 
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
+
+        
         <!-- <div class="swiper-pagination"></div> -->
 
     </div>
@@ -424,7 +423,7 @@ type="text/javascript"></script> -->
       var swiper = new Swiper(".mySwiper", {
         slidesPerView: 1,
         spaceBetween: 30,
-        loop: true,
+        // loop: true,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
