@@ -132,8 +132,10 @@
 
 
 <br><br><br><br>
-<!-- <div class="container"> -->
-    <div class="container swiper mySwiper">
+
+
+@if(count($global_advertisement) !== 0)
+    <div class="swiper-container mySwiper">
         <div class="swiper-wrapper">
             @foreach($global_advertisement as $key => $advertisement)
             
@@ -300,9 +302,6 @@
                         </div>                        
                     </div>
                 @endif
-                @endif
-
-
 
     </div>
 </section>
