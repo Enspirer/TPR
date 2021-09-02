@@ -94,7 +94,7 @@
 
                         <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
                             
-                            <div class="swiper-container mySwiper">
+                            <div class="swiper container mySwiper">
                                 <div class="swiper-wrapper"> 
 
                                         @foreach($homepage_ad as $key => $home_ad)
@@ -121,7 +121,7 @@
 
                         @foreach($ad_category as $key => $ad_cat)
                             <div class="tab-pane fade" id="tab{{ $ad_cat->id }}" role="tabpanel" aria-labelledby="tab-id{{ $ad_cat->id }}">
-                                <div class="swiper-container mySwiper2">
+                                <div class="swiper container mySwiper2">
                                     <div class="swiper-wrapper">                                     
                                     
                                         @foreach(App\Models\HomePageAdvertisement::where('category',$ad_cat->id)->where('status','=','Enable')->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->orderBy('order','ASC')->get() as $data)
