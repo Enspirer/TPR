@@ -433,7 +433,7 @@
                                         </a>
                                         <div class="card-body">
                                             <p class="text-danger fw-bold mb-0">{{get_currency(request(),$ran->price)}}</p>
-                                            <h6 class="card-title">Colombo, Sri Lanka</h6>
+                                            <h6 class="card-title">{{$ran->city}}, {{$ran->country}}</h6>
 
                                             <p class="text-secondary">
                                                 @if($ran->baths == null)
