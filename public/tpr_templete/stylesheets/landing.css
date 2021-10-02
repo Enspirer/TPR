@@ -87,3 +87,8 @@
   position: relative;
   bottom: 450px;
 }
+
+
+.hide-map-text {
+    display: none!important;
+}

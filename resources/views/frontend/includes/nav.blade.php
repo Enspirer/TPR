@@ -94,7 +94,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav align-items-center">
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400">
                         <a class="nav-link text-body fw-bold" href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type'] )}}">Residential</a>
                         <div class="line"></div>
@@ -107,9 +107,61 @@
                         <a class="nav-link text-body fw-bold" href="#">New Homes</a>
                         <div class="line"></div>
                     </li>
-                    <li class="nav-item contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800" style="padding-left : 3rem">
+                    <li class="nav-item nav2 contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">
                         <a class="nav-link text-body fw-bold" href="{{ route('frontend.contact') }}">Contact Us</a>
                         <div class="line"></div>
+                    </li>
+                    <li class="nav-item contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">
+                        <!-- @if(isset(get_country_cookie(request())->country_id))
+                            @if(get_country_cookie(request())->country_id)
+                                <p class="mb-0 nav-link text-body fw-bold" data-bs-toggle="modal" data-bs-target="#countrySelection" title="{{ App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->country_name }}" style="cursor: pointer;">{{ App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->country_name }}
+                                    
+                                    <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid">
+
+                                </p>
+
+                                <p class="d-none">{{get_country_cookie(request())->country_id}}</p>
+                            @else
+
+                            @endif
+                        @else
+
+                        @endif -->
+                        <div class="dropdown">
+                            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                @if(isset(get_country_cookie(request())->country_id))
+                                    @if(get_country_cookie(request())->country_id)
+
+                                        {{ App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->country_name }}
+                                            
+                                        <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid">
+
+                                        <p class="d-none">{{get_country_cookie(request())->country_id}}</p>
+                                    @else
+
+                                    @endif
+                                @else
+
+                                @endif
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                               
+                                @foreach($tpr_countries as $tpr_country)
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('frontend.country_change', $tpr_country->country_id) }}"><div class="row align-items-center">
+                                                <div class="col-6">
+                                                    {{ $tpr_country->country_name }}
+                                                </div>
+                                                <div class="col-6 text-end">
+                                                    <img src="https://www.countryflags.io/{{$tpr_country->country_id}}/flat/64.png" alt="" class="img-fluid" style="height: 40px;">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>

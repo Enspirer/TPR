@@ -17,12 +17,27 @@
     <section id="index-search">
         <div class="container-md search">
             <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                <!-- <li class="nav-item text-white rounded-0 fs-5 me-1" role="presentation">
+                    <button class="nav-link text-white active" style="background-color : #83BC3E" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
+                </li> -->
                 <li class="nav-item text-white rounded-0 fs-5 me-1" role="presentation">
-                    <button class="nav-link text-white active" style="background-color : #83BC3E" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500"><img src="{{ asset('tpr_templete/images/sale_icon.svg') }}" class="me-3" height="25rem" alt="">Residential</button>
+                    <button class="nav-link text-white active" style="background-color : #83BC3E" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500">Residential</button>
                 </li>
                 <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-                    <button class="nav-link text-white" style="background-color : #75CFED" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"><img src="{{ asset('tpr_templete/images/commercial_icon.svg') }}" class="me-3" height="25rem" alt="">Commercial</button>
+                    <button class="nav-link text-white" style="background-color : #75CFED" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Commercial</button>
                 </li>
+                <!-- <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                    <button class="nav-link text-white" style="background-color : #75CFED" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Coming Soon</button>
+                </li>
+                <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                    <button class="nav-link text-white" style="background-color : #75CFED" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Commercial</button>
+                </li>
+                <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                    <button class="nav-link text-white" style="background-color : #75CFED" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Commercial</button>
+                </li>
+                <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                    <button class="nav-link text-white" style="background-color : #75CFED" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Commercial</button>
+                </li> -->
             </ul>
 
             <div class="tab-content" id="pills-tabContent">

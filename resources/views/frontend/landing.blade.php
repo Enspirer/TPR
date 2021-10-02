@@ -134,7 +134,7 @@
                 <div class="map-large-ban"></div>
                 <div class="map-large-ban1"></div>
                 <h5 class="text-center text-white" style="width: 100%; height: 400px; position: absolute; top: 15px;">Select your preferred Tropical Region to view Properties</h5>
-                <div id="mapdiv" style="width: 100%; height: 400px; position: absolute; top: 55px;"></div>
+                <div id="mapdiv" style="width: 97.3%; height: 394px; position: absolute; top: 55px;"></div>
             </div>
         </div>
     </div>
@@ -556,8 +556,18 @@ type="text/javascript"></script> -->
       });
     </script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+<script>
+    $(document).ready(function() {
+        setTimeout(function(){
 
+            $('.amcharts-chart-div').find('a').addClass('hide-map-text');
+
+        }, 1000);
+        
+    });
+</script>
 
 </body>
 </html>

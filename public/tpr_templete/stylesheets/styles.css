@@ -33,19 +33,24 @@ p {
     /* height: 4rem; */
 }
 .flag {
-    position: fixed;
-    top: 4rem;
-    z-index: 10000;
+    /* position: fixed;
+    top: 4rem; */
+    /* z-index: 10000; */
     height: 30px;
-    left: 30%;
+    /* left: 30%; */
 }
 .globe {
     position: fixed;
-    top: 4rem;
+    top: 4.5rem;
     z-index: 10000;
     left: 29%;
     width: 140px;
 }
+
+#index-navbar .dropdown-toggle::after {
+    color: black!important;
+}
+
 .nav-hover {
     font-weight: 1000!important;
 }
@@ -54,7 +59,7 @@ p {
     /* border-right: 0.5px solid #C0C0C0; */
 }
 .nav2 {
-    padding: 0 2.3rem;
+    padding: 0 1rem;
     /* border-right: 0.5px solid #C0C0C0; */
 }
 .second-nav {
