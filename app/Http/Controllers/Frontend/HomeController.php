@@ -16,6 +16,7 @@ use App\Models\Favorite;
 use App\Models\SidebarAd; 
 use App\Models\AdCategory;
 use App\Models\HomePageAdvertisement;
+use App\Models\GlobalAdCategories;
 
 /**
  * Class HomeController.
@@ -28,6 +29,9 @@ class HomeController extends Controller
     public function landing()
     {
         $country = Country::where('status',1)->get();
+
+        $global_categories = GlobalAdCategories::where('status', 1)->orderBy('order', 'asc')->get();
+
 
         $global_advertisement = GlobalAdvertisement::where('status','=','1')->orderBy('order', 'ASC')->get();
         // dd($global_advaertisement);
@@ -44,7 +48,8 @@ class HomeController extends Controller
             'countries_data' => $country,
             'global_advertisement' => $global_advertisement,
             'country_list1' => $country_list1,
-            'country_list2' => $country_list2
+            'country_list2' => $country_list2,
+            'global_categories' => $global_categories
         ]);
     }
 

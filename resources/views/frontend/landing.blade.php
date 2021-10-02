@@ -60,7 +60,7 @@
 
 <!-- navbar -->
 <section id="index-navbar">
-    <nav class="navbar fixed-top first-nav navbar-expand-lg navbar-light" style="background-color: #2B3026">
+    <nav class="navbar fixed-top first-nav navbar-expand-lg navbar-light" style="background-color: #4195E1">
         <div class="container">
             <a href="#"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo img-fluid rounded" alt=""></a>
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,12 +109,19 @@
 
 
 <!-- map -->
-<section id="map-section">
+<section id="map-section" class="map-banner">
     <div class="container" style="margin-top: 7rem;">
         <div class="row justify-content-between">
-            <h4 class="text-center mb-4 fw-bolder" style="color: #75CFED;">Select your preferred Tropical Region to view Properties</h4>
-            <div class="col-3">
-                <div class="countries">
+            
+            
+            <div class="col-3 position-relative">
+                <div class="p-3" style="background: rgb(0,0,0, 0.6)">
+                    <h5 class="fw-bold text-white mb-0">Tropical Regions</h5>
+                </div>
+                <div class="map-ban"></div>
+                <div class="map-ban1"></div>
+                <div class="countries position-absolute" style="top: 75px; left: 30px;">
+                    
                     @foreach($countries_data as $countryq)
                         <h6>
                             <a href="country/{{$countryq->country_id}}">{{$countryq->country_name}} </a>
@@ -123,101 +130,199 @@
                 </div>
             </div>
 
-            <div class="col-9">
-                <div id="mapdiv" style="width: 100%; height: 450px;"></div>
+            <div class="col-9 position-relative">
+                <div class="map-large-ban"></div>
+                <div class="map-large-ban1"></div>
+                <h5 class="text-center text-white" style="width: 100%; height: 400px; position: absolute; top: 15px;">Select your preferred Tropical Region to view Properties</h5>
+                <div id="mapdiv" style="width: 100%; height: 400px; position: absolute; top: 55px;"></div>
             </div>
         </div>
     </div>
 </section>
 
 
-<br><br><br><br>
-
 
 @if(count($global_advertisement) !== 0)
-    <div class="swiper container mySwiper">
-        <div class="swiper-wrapper">
-            @foreach($global_advertisement as $key => $advertisement)
-            
-            <div class="swiper-slide">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6 p-1  text-center">
-                        @if($advertisement->image !== null)
-                            <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank" >
+
+    <ul class="nav mb-3 justify-content-center mt-5" id="projects-tab" role="tablist">
+        <li class="nav-item landing-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
+            <a class="nav-link active tabs" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">ALL</a>
+        </li> 
+
+        @foreach($global_categories as $key => $global_category)
+
+            <li class="nav-item landing-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                <a class="nav-link tabs text-uppercase" id="tab-id{{ $global_category->id }}" data-bs-toggle="tab" data-bs-target="#tab{{ $global_category->id }}" type="button" role="tab" aria-controls="tab-{{ $global_category->id }}" aria-selected="false">{{ $global_category->name }}</a>
+            </li>   
+                    
+        @endforeach
+        
+
+    </ul>
+
+    <div class="tab-content mt-2 py-4" id="tabs-tabContent">
+
+        <div class="tab-pane fade show active position-relative" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
+            <div class="swiper container mySwiper">
+                <div class="swiper-wrapper">
+                    @foreach($global_advertisement as $key => $advertisement)
+                    
+                    <div class="swiper-slide">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6 p-1  text-center">
+                                @if($advertisement->image !== null)
+                                    <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank" >
+                                    <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
+                                    </a> 
+                                @else
+                                <div style="border-style: dashed;border-width: 1px; height:100%;">
+                                    <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
+                                </div>  
+                                @endif
+                                </div>
+                                <div class="col-6 p-1">
+                                @if($advertisement->large_right_image !== null)
+                                    <a href="{{ $advertisement->large_right_link }}" style="text-decoration:none" target="_blank">
+                                    <img src="{{url('files/global_advertisement/',$advertisement->large_right_image)}}" alt="...">
+                                    </a> 
+                                @else
+                                <div style="border-style: dashed;border-width: 1px; height:100%;">
+                                    <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
+                                </div> 
+                                @endif
+                                </div>                  
+                            </div>
+                            <div class="row">
+                                <div class="col-4 p-1">
+                                @if($advertisement->small_left_image !== null)
+                                    <a href="{{ $advertisement->small_left_link }}" style="text-decoration:none" target="_blank" >
+                                    <img src="{{url('files/global_advertisement/',$advertisement->small_left_image)}}" alt="...">
+                                    </a>
+                                @else
+                                <div style="border-style: dashed;border-width: 1px; height:100%;">
+                                    <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
+                                </div>  
+                                @endif 
+                                </div>
+                                <div class="col-4 p-1">
+                                @if($advertisement->small_middle_image !== null)
+                                    <a href="{{ $advertisement->small_middle_link }}" style="text-decoration:none" target="_blank">
+                                    <img src="{{url('files/global_advertisement/',$advertisement->small_middle_image)}}" alt="...">
+                                    </a> 
+                                @else
+                                <div style="border-style: dashed;border-width: 1px; height:100%;">
+                                    <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
+                                </div>  
+                                @endif 
+                                </div>  
+                                <div class="col-4 p-1">
+                                @if($advertisement->small_right_image !== null)
+                                    <a href="{{ $advertisement->small_right_link }}" style="text-decoration:none" target="_blank">
+                                    <img src="{{url('files/global_advertisement/',$advertisement->small_right_image)}}" alt="...">
+                                    </a> 
+                                @else
+                                <div style="border-style: dashed;border-width: 1px; height:100%;">
+                                    <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
+                                </div>  
+                                @endif 
+                                </div>                   
+                            </div>
+                        </div>
+                        
+                        <!-- <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank" class="w-100">
                             <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
-                            </a> 
-                        @else
-                        <div style="border-style: dashed;border-width: 1px; height:100%;">
-                            <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
-                        </div>  
-                        @endif
-                        </div>
-                        <div class="col-6 p-1">
-                        @if($advertisement->large_right_image !== null)
-                            <a href="{{ $advertisement->large_right_link }}" style="text-decoration:none" target="_blank">
-                            <img src="{{url('files/global_advertisement/',$advertisement->large_right_image)}}" alt="...">
-                            </a> 
-                        @else
-                        <div style="border-style: dashed;border-width: 1px; height:100%;">
-                            <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
-                        </div> 
-                        @endif
-                        </div>                  
+                        </a>  -->
                     </div>
-                    <div class="row">
-                        <div class="col-4 p-1">
-                        @if($advertisement->small_left_image !== null)
-                            <a href="{{ $advertisement->small_left_link }}" style="text-decoration:none" target="_blank" >
-                            <img src="{{url('files/global_advertisement/',$advertisement->small_left_image)}}" alt="...">
-                            </a>
-                        @else
-                        <div style="border-style: dashed;border-width: 1px; height:100%;">
-                            <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
-                        </div>  
-                        @endif 
-                        </div>
-                        <div class="col-4 p-1">
-                        @if($advertisement->small_middle_image !== null)
-                            <a href="{{ $advertisement->small_middle_link }}" style="text-decoration:none" target="_blank">
-                            <img src="{{url('files/global_advertisement/',$advertisement->small_middle_image)}}" alt="...">
-                            </a> 
-                        @else
-                        <div style="border-style: dashed;border-width: 1px; height:100%;">
-                            <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
-                        </div>  
-                        @endif 
-                        </div>  
-                        <div class="col-4 p-1">
-                        @if($advertisement->small_right_image !== null)
-                            <a href="{{ $advertisement->small_right_link }}" style="text-decoration:none" target="_blank">
-                            <img src="{{url('files/global_advertisement/',$advertisement->small_right_image)}}" alt="...">
-                            </a> 
-                        @else
-                        <div style="border-style: dashed;border-width: 1px; height:100%;">
-                            <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
-                        </div>  
-                        @endif 
-                        </div>                   
-                    </div>
+
+                    @endforeach
                 </div>
                 
-                <!-- <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank" class="w-100">
-                    <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
-                </a>  -->
             </div>
-
-            @endforeach
+            <div class="swiper-pagination sp-1" style="bottom: -30px;"></div>
         </div>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-
+    
         
-        <!-- <div class="swiper-pagination"></div> -->
 
+        @foreach($global_categories as $key => $global_category)
+            <div class="tab-pane fade" id="tab{{ $global_category->id }}" role="tabpanel" aria-labelledby="tab-id{{ $global_category->id }}">
+                <div class="swiper container mySwiper2 position-relative">
+                    <div class="swiper-wrapper">                                     
+                    
+                        @foreach(App\Models\GlobalAdvertisement::where('global_category', $global_category->id)->where('status','=','1')->orderBy('order','ASC')->get() as $data)
+
+                            <div class="swiper-slide">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-6 p-1  text-center">
+                                        @if($advertisement->image !== null)
+                                            <a href="{{ $data->link }}" style="text-decoration:none" target="_blank" >
+                                            <img src="{{url('files/global_advertisement/', $data->image)}}" alt="...">
+                                            </a> 
+                                        @else
+                                        <div style="border-style: dashed;border-width: 1px; height:100%;">
+                                            <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
+                                        </div>  
+                                        @endif
+                                        </div>
+                                        <div class="col-6 p-1">
+                                        @if($advertisement->large_right_image !== null)
+                                            <a href="{{ $data->large_right_link }}" style="text-decoration:none" target="_blank">
+                                            <img src="{{url('files/global_advertisement/',$data->large_right_image)}}" alt="...">
+                                            </a> 
+                                        @else
+                                        <div style="border-style: dashed;border-width: 1px; height:100%;">
+                                            <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
+                                        </div> 
+                                        @endif
+                                        </div>                  
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4 p-1">
+                                        @if($advertisement->small_left_image !== null)
+                                            <a href="{{ $data->small_left_link }}" style="text-decoration:none" target="_blank" >
+                                            <img src="{{url('files/global_advertisement/',$data->small_left_image)}}" alt="...">
+                                            </a>
+                                        @else
+                                        <div style="border-style: dashed;border-width: 1px; height:100%;">
+                                            <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
+                                        </div>  
+                                        @endif 
+                                        </div>
+                                        <div class="col-4 p-1">
+                                        @if($advertisement->small_middle_image !== null)
+                                            <a href="{{ $data->small_middle_link }}" style="text-decoration:none" target="_blank">
+                                            <img src="{{url('files/global_advertisement/',$data->small_middle_image)}}" alt="...">
+                                            </a> 
+                                        @else
+                                        <div style="border-style: dashed;border-width: 1px; height:100%;">
+                                            <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
+                                        </div>  
+                                        @endif 
+                                        </div>  
+                                        <div class="col-4 p-1">
+                                        @if($advertisement->small_right_image !== null)
+                                            <a href="{{ $data->small_right_link }}" style="text-decoration:none" target="_blank">
+                                            <img src="{{url('files/global_advertisement/',$data->small_right_image)}}" alt="...">
+                                            </a> 
+                                        @else
+                                        <div style="border-style: dashed;border-width: 1px; height:100%;">
+                                            <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
+                                        </div>  
+                                        @endif 
+                                        </div>                   
+                                    </div>
+                                </div>
+                            </div>  
+
+                        @endforeach                                                                        
+                        
+                    </div>
+                </div>
+                <div class="swiper-pagination sp-2" style=""></div>
+            </div>
+        @endforeach
     </div>
-
 @endif    
 
 
@@ -225,7 +330,7 @@
 
 <!-- featured properties -->
 <section id="featured-properties">
-    <div class="container" style="margin-top: 6rem; margin-bottom: 10rem;">
+    <div class="container" style="margin-top: 6rem;">
         
         @if(($country_list1 && $country_list2) == null)
         @else
@@ -234,26 +339,24 @@
         </h3> 
         @endif
         
-        
-                
             @if($country_list1 != null)
                 @if(json_decode($country_list1->features_manager)[0]->properties != null)
                     <div class="1strow mt-4">
                         <div class="row align-items-center">
-                            <div class="col-6">
-                                <h5 class="mb-0">{{$country_list1->country_name}}</h5>
-                            </div>
-                            <div class="col-6 text-end">
+                            <div class="col-1 pe-0">
                                 <img src="{{url('https://www.countryflags.io/'.$country_list1->country_id.'/flat/64.png')}}" alt="" style="height: 50px;">
+                            </div>
+                            <div class="col-2 ps-0">
+                                <h5 class="mb-0">{{$country_list1->country_name}}</h5>
                             </div>
                         </div>                        
 
-                        <div class="row mt-4">
+                        <div class="row mt-3">
 
                             @foreach(json_decode($country_list1->features_manager)[0]->properties as $key=> $prop)   
                                 @if($key <= 2 )
                                     <div class="col-4 mt-3" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                                        <div class="card p-4 shadow border-0">
+                                        <div class="card p-4 border-0 custom-shadow">
                                             <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top" alt="..." style="object-fit:cover; height: 210px;"></a>
                                             <div class="card-body mt-4">
                                                 <h5 class="card-title">{{ App\Models\Properties::where('id', $prop)->first()->city }}, {{ App\Models\Properties::where('id', $prop)->first()->country }}</h5>                                   
@@ -274,20 +377,20 @@
                 @if(json_decode($country_list2->features_manager)[0]->properties != null)
                     <div class="1strow" style="margin-top: 6rem;">
                         <div class="row align-items-center">
-                            <div class="col-6">
-                                <h5 class="mb-0">{{$country_list2->country_name}}</h5>
-                            </div>
-                            <div class="col-6 text-end">
+                            <div class="col-1 pe-0">
                                 <img src="{{url('https://www.countryflags.io/'.$country_list2->country_id.'/flat/64.png')}}" alt="" style="height: 50px;">
+                            </div>
+                            <div class="col-2 ps-0">
+                                <h5 class="mb-0">{{$country_list2->country_name}}</h5>
                             </div>
                         </div>                        
 
-                        <div class="row mt-4">
+                        <div class="row mt-3">
 
                             @foreach(json_decode($country_list2->features_manager)[0]->properties as $key=> $prop)
                                 @if($key <= 2 )
                                 <div class="col-4 mt-3" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                                    <div class="card p-4 shadow border-0">
+                                    <div class="card p-4 border-0 custom-shadow">
                                         <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top" alt="..." style="object-fit:cover; height: 210px;"></a>
                                         <div class="card-body mt-4">
                                             <h5 class="card-title">{{ App\Models\Properties::where('id', $prop)->first()->city }}, {{ App\Models\Properties::where('id', $prop)->first()->country }}</h5>                                   
@@ -311,50 +414,51 @@
 
 
 <!--footer-->
-<section id="footer">
-        <div class="container" style="margin-top:6rem;">
-            <div class="row">
-                <div class="col-3">
-                    <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid" alt="">
-                </div>
-                <div class="col-3 ps-5">
-                    <h5 class="fw-bolder mt-2">TITLES</h5>
-                    <a href="{{ route('frontend.about-us') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list">About Us</a>
-                    <a href="{{ route('frontend.contact') }}" class="mb-3 d-block text-decoration-none no-result-list">Contact Us</a>
-                    <a href="{{ route('frontend.mobile-apps') }}" class="mb-3 d-block text-decoration-none no-result-list">Mobile Apps</a>
-                </div>
-                <div class="col-3 ps-5">
-                    <h5 class="fw-bolder mt-2">MORE</h5>
-                    <a href="{{ route('frontend.privacy-policy') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list">Privacy Policy</a>
-                    <a href="{{ route('frontend.terms-of-use') }}" class="mb-3 d-block text-decoration-none no-result-list">Terms of Use</a>
-                    <a href="#" class="mb-3 d-block text-decoration-none no-result-list">FAQ</a>
-                    <a href="#" class="mb-3 d-block text-decoration-none no-result-list">Sitemap</a>
-                </div>
-                <div class="col-3 ps-5">
-                    <h5 class="fw-bolder mt-2">TOPICS</h5>
-                    <a href="{{ route('frontend.tips-for-buyers') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list">Tips for buyers</a>
-                    <a href="{{ route('frontend.tips-for-sellers') }}" class="mb-3 d-block text-decoration-none no-result-list">Tips for sellers</a>
-                    <a href="{{ route('frontend.commercial-resources') }}" class="mb-3 d-block text-decoration-none no-result-list">Commercial Resources</a>
-                    
-                </div>
+<section class="container-fluid pt-5 pb-3 text-white" id="footer" style="background-color: #1B1B3A; margin-top:7rem;">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid" alt="" style="height: 4rem;">
+            </div>
+            <div class="col-3 ps-5">
+                <h5 class="fw-bolder mt-2">TITLES</h5>
+                <a href="{{ route('frontend.about-us') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list text-white">About Us</a>
+                <a href="{{ route('frontend.contact') }}" class="mb-3 d-block text-decoration-none no-result-list text-white">Contact Us</a>
+                <a href="{{ route('frontend.mobile-apps') }}" class="mb-3 d-block text-decoration-none no-result-list text-white">Mobile Apps</a>
+            </div>
+            <div class="col-3 ps-5">
+                <h5 class="fw-bolder mt-2">MORE</h5>
+                <a href="{{ route('frontend.privacy-policy') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list text-white">Privacy Policy</a>
+                <a href="{{ route('frontend.terms-of-use') }}" class="mb-3 d-block text-decoration-none no-result-list text-white">Terms of Use</a>
+                <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">FAQ</a>
+                <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">Sitemap</a>
+            </div>
+            <div class="col-3 ps-5">
+                <h5 class="fw-bolder mt-2">TOPICS</h5>
+                <a href="{{ route('frontend.tips-for-buyers') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list text-white">Tips for buyers</a>
+                <a href="{{ route('frontend.tips-for-sellers') }}" class="mb-3 d-block text-decoration-none no-result-list text-white">Tips for sellers</a>
+                <a href="{{ route('frontend.commercial-resources') }}" class="mb-3 d-block text-decoration-none no-result-list text-white">Commercial Resources</a>
+                <a href="#"><img src="{{ asset('tpr_templete/images/fb.svg') }}" alt="" class="img-fluid me-2" style="height:1.4rem;"></a>
+                <a href="#"><img src="{{ asset('tpr_templete/images/twitter.svg') }}" alt="" class="img-fluid me-2" style="height:1.4rem;"></a>
+                <a href="#"><img src="{{ asset('tpr_templete/images/google_plus.svg') }}" alt="" class="img-fluid me-2" style="height:1.4rem;"></a>
+                <a href="#"><img src="{{ asset('tpr_templete/images/instagram.svg') }}" alt="" class="img-fluid me-2" style="height:1.4rem;"></a>
+                
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
 <!--copyright-->
-<div id="copyright" style="margin-top:4rem;">
-    <div class="container-fluid bg-dark">
+<div id="copyright">
+    <div class="container-fluid" style="background-color: #E293AC;">
         <div class="container">
             <div class="row py-3 align-items-center">
                 <div class="col-6">
-                    <p class="text-white mb-0">Created by Enspirer &copy; All Rights Reserved.</p>
+                    <p class="text-white mb-0">All Rights Reserved</p>
                 </div>
-                <div class="col-6 text-white text-end">
-                    <a href="#"><img src="{{ asset('tpr_templete/images/fb.svg') }}" alt="" class="img-fluid me-2"></a>
-                    <a href="#"><img src="{{ asset('tpr_templete/images/twitter.svg') }}" alt="" class="img-fluid me-2"></a>
-                    <a href="#"><img src="{{ asset('tpr_templete/images/google_plus.svg') }}" alt="" class="img-fluid me-2"></a>
-                    <a href="#"><img src="{{ asset('tpr_templete/images/instagram.svg') }}" alt="" class="img-fluid me-2"></a>
+                <div class="col-6 text-end">
+                    <p class="text-white mb-0">Powered by <a href="https://www.enspirer.com" class="text-white text-decoration-none">Enspirer</a></p>
                 </div>
             </div>
         </div>
@@ -382,7 +486,7 @@ type="text/javascript"></script> -->
         theme: "dark",
         projection: "mercator",
         panEventsEnabled : true,
-        backgroundColor : "#FFFFFF",
+        backgroundColor : "#ff000000",
         backgroundAlpha : 1,
         zoomControl: {
             zoomControlEnabled : true,
@@ -406,7 +510,7 @@ type="text/javascript"></script> -->
         areasSettings : {
             autoZoom : true,
             selectedColor : "#B4B4B7",
-            color : "#B4B4B7",
+            color : "#FFFFFF",
             colorSolid : "#84ADE9",
             outlineColor : "#707070",
             rollOverColor : "#B4B4B7",
@@ -425,13 +529,30 @@ type="text/javascript"></script> -->
         spaceBetween: 30,
         // loop: true,
         pagination: {
-          el: ".swiper-pagination",
+          el: ".sp-1",
           clickable: true,
         },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+        // navigation: {
+        //   nextEl: ".swiper-button-next",
+        //   prevEl: ".swiper-button-prev",
+        // },
+      });
+    </script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper2", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        // loop: true,
+        pagination: {
+          el: ".sp-2",
+          clickable: true,
         },
+        // navigation: {
+        //   nextEl: ".swiper-button-next",
+        //   prevEl: ".swiper-button-prev",
+        // },
       });
     </script>
 

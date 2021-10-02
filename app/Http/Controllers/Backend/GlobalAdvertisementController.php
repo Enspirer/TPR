@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use DataTables;
 use App\Models\GlobalAdvertisement;
+use App\Models\GlobalAdCategories;
 
 
 class GlobalAdvertisementController extends Controller
@@ -18,7 +19,9 @@ class GlobalAdvertisementController extends Controller
 
     public function create()
     {
-        return view('backend.global_advertisement.create');
+        $categories = GlobalAdCategories::where('status', 1)->orderBy('updated_at', 'DESC')->get();
+
+        return view('backend.global_advertisement.create', ['categories' => $categories]);
     }
 
     public function getDetails(Request $request)
@@ -39,6 +42,19 @@ class GlobalAdvertisementController extends Controller
             //     $img = '<img src="'.url('files/global_advertisement',$data->image).'" style="width: 100%">';                     
             //     return $img;
             // })
+
+            ->editColumn('category', function($data){
+                $cat = GlobalAdCategories::where('id', $data->global_category)->first();
+
+                if($cat) {
+                    return $cat->name;
+                }
+                else {
+                    return 'Category not defined';
+                }
+                
+                
+            })
                     
             ->addColumn('status', function($data){
                 if($data->status == '1'){
@@ -50,7 +66,7 @@ class GlobalAdvertisementController extends Controller
                 return $status;
             })
                     
-            ->rawColumns(['action','status'])
+            ->rawColumns(['action', 'category', 'status'])
             ->make(true);
         }
         return back();
@@ -119,6 +135,7 @@ class GlobalAdvertisementController extends Controller
         $addAD->description=$request->description;
         $addAD->order=$request->order;
         $addAD->status=$request->status;
+        $addAD->global_category=$request->category;
 
         $addAD->link=$request->ll_link;
         $addAD->image=$image_url1;
@@ -144,11 +161,14 @@ class GlobalAdvertisementController extends Controller
     public function edit($id)
     {
         $global_advertisement = GlobalAdvertisement::where('id',$id)->first();
+
+        $categories = GlobalAdCategories::where('status', 1)->orderBy('updated_at', 'DESC')->get();
         
         // dd($property_type);              
         
         return view('backend.global_advertisement.edit',[
-            'global_advertisement' => $global_advertisement         
+            'global_advertisement' => $global_advertisement,
+            'categories' => $categories      
         ]);  
     }
 
@@ -217,6 +237,7 @@ class GlobalAdvertisementController extends Controller
         $upAD->description=$request->description;        
         $upAD->order=$request->order;
         $upAD->status=$request->status;
+        $upAD->global_category=$request->category;
 
         $upAD->link=$request->ll_link;
         $upAD->image=$image_url1;

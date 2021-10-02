@@ -17,10 +17,10 @@
 
 
                 </div>
-                <div class="col-2">
-                    <a href="#">
+                <div class="col-10">
+                    <a href="{{ route('frontend.landing') }}">
 
-                        @if(isset(get_country_cookie(request())->country_id))
+                        <!-- @if(isset(get_country_cookie(request())->country_id))
                             @if(get_country_cookie(request())->country_id)
                                 <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid" data-bs-toggle="modal" data-bs-target="#countrySelection" title="{{ App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->country_name }}"></a>
                                 <p class="d-none">{{get_country_cookie(request())->country_id}}</p>
@@ -29,7 +29,17 @@
                             @endif
                         @else
 
-                        @endif
+                        @endif -->
+                        <div class="globe row align-items-center">
+                            <div class="col-4 p-0">
+                                <i class="bi bi-arrow-left me-1" style="font-size: 0.7rem;"></i>
+                                <img src="{{ url('img/globe.png') }}" alt="" style="height: 1.3rem;">
+                            </div>
+                            <div class="col-8 p-0">
+                                <p class="mb-0" style="font-size: 0.8rem; color: #0071BC;">Tropical World</p>
+                            </div>
+                        </div>
+                        
 
                 </div>
             </div>

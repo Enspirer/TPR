@@ -34,6 +34,14 @@
                             <textarea class="form-control" rows="2" name="description"></textarea>
                         </div>
                         <div class="form-group">
+                            <select class="form-control" id="category" name="category" placeholder="Global Ad Category" required>
+                                <option value="" selected disabled hidden>Global Ad Category</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>Order</label>
                             <input type="number" class="form-control" name="order" required>
                         </div>

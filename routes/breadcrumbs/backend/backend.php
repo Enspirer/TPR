@@ -70,6 +70,22 @@ Breadcrumbs::for('admin.file_manager.index', function ($trail) {
     $trail->push('File Manager', route('admin.file_manager.index'));
 });
 
+
+Breadcrumbs::for('admin.global_ad_categories.index', function ($trail) {
+    $trail->push('Global Ad Categories', route('admin.global_ad_categories.index'));
+});
+
+Breadcrumbs::for('admin.global_ad_categories.create', function ($trail) {
+    $trail->push('Global Ad Categories / Create', route('admin.global_ad_categories.create'));
+});
+
+Breadcrumbs::for('admin.global_ad_categories.edit', function ($trail) {
+    $trail->push('Global Ad Categories / Edit', route('admin.global_ad_categories.edit',1));
+});
+
+
+
+
 Breadcrumbs::for('admin.global_advertisement.index', function ($trail) {
     $trail->push('Global Advertisement', route('admin.global_advertisement.index'));
 });

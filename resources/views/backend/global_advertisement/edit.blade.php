@@ -24,6 +24,15 @@
                             <textarea class="form-control" rows="2" name="description">{{ $global_advertisement->description }}</textarea>
                         </div>
                         <div class="form-group">
+                            <label>Global Ad Category</label>
+                            <select class="form-control" id="category" name="category" placeholder="Global Ad Category" required>
+                                <option value="" selected disabled hidden>Global Ad Category</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" {{ $category->id == App\Models\GlobalAdvertisement::where('id', $global_advertisement->id)->first()->global_category ? "selected" : "" }}>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>Order</label>
                             <input type="number" class="form-control" name="order" value="{{ $global_advertisement->order }}" required>
                         </div>

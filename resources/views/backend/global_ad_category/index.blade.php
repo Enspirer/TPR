@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Global Advertisement'))
+@section('title', __('Global Ad Categories'))
 
 @section('content')
     
@@ -10,9 +10,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Global Advertisement&nbsp;</strong>
+                    <strong>Global Ad Categories&nbsp;</strong>
 
-                    <a href="{{route('admin.global_advertisement.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{route('admin.global_ad_categories.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
 
                    
                 </div><!--card-header-->
@@ -23,9 +23,9 @@
                             <tr>
                                 <th scope="col">#ID</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Global Category</th>
-                                <th scope="col">Status</th>
                                 <th scope="col">Order</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Icon</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -73,29 +73,29 @@
         $(function () {
             var table = $('#villadatatable').DataTable({
                 processing: true,
-                ajax: "{{route('admin.global_advertisement.getDetails')}}",
+                ajax: "{{route('admin.global_ad_categories.getDetails')}}",
                 serverSide: true,
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
-                    {data: 'category', name: 'category'},
-                    {data: 'status', name: 'status'},
                     {data: 'order', name: 'order'},
+                    {data: 'status', name: 'status'},
+                    {data: 'icon', name: 'icon'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             }); 
 
-            var user_id;
+            var category_id;
 
             $(document).on('click', '.delete', function(){
-            user_id = $(this).attr('id');
+                category_id = $(this).attr('id');
             $('#confirmModal').modal('show');
             });
 
             $('#ok_button').click(function(){
             $.ajax({
-            url:"global_advertisement/destroy/"+user_id,
+            url:"global-ad-categories/delete/"+ category_id,
             
             success:function(data)
             {

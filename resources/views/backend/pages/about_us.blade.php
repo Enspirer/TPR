@@ -15,7 +15,7 @@
                     
                     <div class="form-group">
                         <label>About Us</label>
-                        <textarea type="text" id="editor" class="form-control mt-2" name="about_us" rows="8" required> {{ $about_us->key }} </textarea>
+                        <textarea type="text" id="editor" class="form-control mt-2" name="about_us" rows="8" required> {!! $about_us->key !!} </textarea>
                     </div>                    
                         
                 </div>

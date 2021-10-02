@@ -91,6 +91,12 @@
 
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/global_ad_categories'))}}" href="{{ route('admin.global_ad_categories.index') }}">
+                            Global Ad Categories
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/global_advertisement'))}}" href="{{ route('admin.global_advertisement.index') }}">
                             Global Advertisement
                         </a>

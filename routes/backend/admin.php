@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\HomePageAdvertisementController;
 use App\Http\Controllers\Backend\SidebarAdvertisementController;
 use App\Http\Controllers\Backend\PagesController;
 use App\Http\Controllers\Backend\FeaturePropertyUpdateRequestController;
+use App\Http\Controllers\Backend\GlobalAdCategoryController;
 
 
 
@@ -62,6 +63,22 @@ Route::get('contact_us/getdetails', [ContactUsController::class, 'getDetails'])-
 Route::get('contact_us/edit/{id}', [ContactUsController::class, 'edit'])->name('contact_us.edit');
 Route::post('contact_us/update', [ContactUsController::class, 'update'])->name('contact_us.update');
 Route::get('contact_us/delete/{id}', [ContactUsController::class, 'destroy'])->name('contact_us.destroy');
+
+
+
+
+Route::get('global-ad-categories', [GlobalAdCategoryController::class, 'index'])->name('global_ad_categories.index');
+Route::get('global-ad-categories/getdetails', [GlobalAdCategoryController::class, 'getDetails'])->name('global_ad_categories.getDetails');
+Route::get('global-ad-categories/create', [GlobalAdCategoryController::class, 'create'])->name('global_ad_categories.create');
+Route::post('global-ad-categories/create', [GlobalAdCategoryController::class, 'store'])->name('global_ad_categories.store');
+Route::get('global-ad-categories/edit/{id}', [GlobalAdCategoryController::class, 'edit'])->name('global_ad_categories.edit');
+Route::post('global-ad-categories/update', [GlobalAdCategoryController::class, 'update'])->name('global_ad_categories.update');
+Route::get('global-ad-categories/delete/{id}', [GlobalAdCategoryController::class, 'destroy'])->name('global_ad_categories.destroy');
+
+
+
+
+
 
 Route::get('file_manager', [FileManagerController::class, 'index'])->name('file_manager.index');
 Route::get('file_manager/getdetails', [FileManagerController::class, 'getDetails'])->name('file_manager.getDetails');
