@@ -47,10 +47,6 @@ p {
     width: 140px;
 }
 
-#index-navbar .dropdown-toggle::after {
-    color: black!important;
-}
-
 .nav-hover {
     font-weight: 1000!important;
 }
@@ -80,7 +76,7 @@ p {
 .nav2 .active {
     border-bottom: 1px solid black!important;
 }
-.dropdown-menu {
+.nav2 .dropdown-menu {
     min-width: 12rem!important;
 }
 
@@ -92,6 +88,9 @@ p {
 #index-navbar .dropdown-item:focus, .dropdown-item:hover {
     color: black!important;
     background-color: #e9ecef;
+}
+.second-nav .dropdown-toggle::after {
+    color: black!important;
 }
 
 
