@@ -43,73 +43,79 @@
 
     <!-- sign in form -->
     <section id="sign-in">
-        <div class="container-fluid banner">
-            <div class="container" style="margin-top: 10rem;">
+        <div class="container-fluid">
+            <div class="container" style="margin-top: 10rem; margin-bottom: 3rem">
 
             @include('includes.partials.messages')
 
-                <h2 class="fw-bolder text-center">Sign In</h2>
-
-                <div class="row justify-content-center mt-5">
+                <div class="row justify-content-center">
                     <div class="col-6">
-                        <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation" novalidate>
-                            {{csrf_field()}}
-                            <div class="input-group has-validation mb-5">
-                                <input type="email" name="email" class="form-control form-control-lg sign-in-box shadow-sm" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required>
-                                <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-envelope fs-5"></i></span>
-                                <div class="invalid-feedback">
-                                    This is a mandatory field and enter email address correctly to continue.
-                                </div>
-                            </div>
+                        <h5 class="fw-bold d-inline-block px-4 py-3 mb-0" style="background: rgba(65, 149, 225, .3); color: #77CEEC">Sign In</h5>
+                    </div>
+                </div>
 
-                            <div class="input-group has-validation mb-5">
-                                <input type="password" name="password" class="form-control form-control-lg sign-in-box shadow-sm" id="exampleInputPassword1" placeholder="Password" required>
-                                <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-lock fs-5"></i></span>
-                                <div class="invalid-feedback">
-                                    This is a mandatory field and must be entered to continue.
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <div class="text-center px-4 py-5" style="background: rgba(65, 149, 225, .3);">
+                            <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation" novalidate>
+                                {{csrf_field()}}
+                                <div class="input-group has-validation mb-5">
+                                    <input type="email" name="email" class="form-control form-control-lg sign-in-box shadow-sm p-3" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required>
+                                    <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-envelope fs-5"></i></span>
+                                    <div class="invalid-feedback">
+                                        This is a mandatory field and enter email address correctly to continue.
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mt-4">
-                                <div class="clearfix">
-                                    <div class="float-start">
-                                        <div class="mb-3 form-check">
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                            <label class="form-check-label" for="exampleCheck1" style="font-size: 0.9rem;">Remember me</label>
+                                <div class="input-group has-validation mb-3">
+                                    <input type="password" name="password" class="form-control form-control-lg sign-in-box shadow-sm p-3" id="exampleInputPassword1" placeholder="Password" required>
+                                    <span class="input-group-text shadow-sm" style="background-color: white; border: none; color: #C7C7C7;"><i class="bi bi-lock fs-5"></i></span>
+                                    <div class="invalid-feedback">
+                                        This is a mandatory field and must be entered to continue.
+                                    </div>
+                                </div>
+
+                                <div class="row mt-4">
+                                    <div class="clearfix">
+                                        <div class="float-start">
+                                            <div class="mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                <label class="form-check-label" for="exampleCheck1" style="font-size: 0.9rem; color: #747272;">Remember me</label>
+                                            </div>
+                                        </div>
+                                        <div class="float-end">
+                                            <a href="#" class="text-decoration-none" style="font-size: 0.9rem; color: #0A5C78">Forgot Password</a>
                                         </div>
                                     </div>
-                                    <div class="float-end">
-                                        <a href="#" class="text-decoration-none" style="font-size: 0.9rem; color: #77CEEC;">Forgot Password</a>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Sign In</button>
+                            </form>
+
+
+                            <p class="mt-3 text-start" style="color: #747272;">Don't have an account? <a href="{{route('frontend.auth.register')}}" class="text-decoration-none" style="color: #0A5C78;">Sign Up</a></p>
+
+
+                            <!-- <div class="follow" style="margin-top: 6rem;">
+                                <h6 class="fw-bolder mb-5">With Social Media</h6>
+                                <div class="row mt-5">
+                                    <div class="col-2 me-3">
+                                        <a href="#" class="fs-3" style="color: #79CEEB; border: 2px solid #79CEEB; padding: 24px 28px;"><i class="fab fa-facebook-f"></i></a>
+                                    </div>
+                                    <div class="col-2 me-3">
+                                        <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
+                                    </div>
+                                    <div class="col-2 me-3">
+                                        <a href="#" class="p-4 fs-3" style="color: #7DC8B1; border: 2px solid #7DC8B1"><i class="bi bi-google"></i></a>
+                                    </div>
+                                    <div class="col-2 me-3">
+                                        <a href="#" class="p-4 fs-3" style="color: #7FC481; border: 2px solid #7FC481;"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                    <div class="col-2">
+                                        <a href="#" class="fs-3" style="color: #83BE4A; border: 2px solid #83BE4A; padding: 24px 27px;"><i class="fab fa-apple"></i></a>
                                     </div>
                                 </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Sign In</button>
-                        </form>
-
-
-                        <p class="text-end mt-3">Don't have an account? <a href="{{route('frontend.auth.register')}}" class="text-decoration-none" style="color: #77CEEC;">Sign Up</a></p>
-
-
-                        <div class="follow" style="margin-top: 6rem;">
-                            <h6 class="fw-bolder mb-5">With Social Media</h6>
-                            <div class="row mt-5">
-                                <div class="col-2 me-3">
-                                    <a href="#" class="fs-3" style="color: #79CEEB; border: 2px solid #79CEEB; padding: 24px 28px;"><i class="fab fa-facebook-f"></i></a>
-                                </div>
-                                <div class="col-2 me-3">
-                                    <a href="#" class="p-4 fs-3" style="color: #7CCCD3; border: 2px solid #7CCCD3;"><i class="bi bi-twitter"></i></a>
-                                </div>
-                                <div class="col-2 me-3">
-                                    <a href="#" class="p-4 fs-3" style="color: #7DC8B1; border: 2px solid #7DC8B1"><i class="bi bi-google"></i></a>
-                                </div>
-                                <div class="col-2 me-3">
-                                    <a href="#" class="p-4 fs-3" style="color: #7FC481; border: 2px solid #7FC481;"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                                <div class="col-2">
-                                    <a href="#" class="fs-3" style="color: #83BE4A; border: 2px solid #83BE4A; padding: 24px 27px;"><i class="fab fa-apple"></i></a>
-                                </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -119,7 +125,7 @@
 
 
     <!--get app-->
-    <section id="get-app">
+    <!-- <section id="get-app">
         <div class="container-fluid p-0 get-app" style="margin-top: 4rem;">
             <div class="container">
                 <div class="row py-5 align-items-center justify-content-center">
@@ -133,7 +139,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 @endsection
 
 @push('after-scripts')

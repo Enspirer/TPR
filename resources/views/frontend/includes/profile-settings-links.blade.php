@@ -10,37 +10,48 @@
   display: none;
   padding-left: 30px;
 }
+
 </style>
 
 <div class="border">
 
-    <div class="nav flex-column profile-settings align-items-start justify-content-start" id="nav-tab" role="tablist">
+    <div class="nav flex-column profile-settings text-white" id="nav-tab" role="tablist" style="background: rgb(65, 149, 225, 0.7); border-color: #707070";>
 
-        <h5 class="px-3 mt-4 pb-2 mb-0">My Account</h5>
+        <h3 class="px-3 mt-4 pb-2 mb-2 text-center">My Account</h3>
 
-        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'dashboard' ? 'active' : null }}" id="nav-account-tab" href="{{ route('frontend.user.dashboard') }}" type="button" role="tab" aria-controls="nav-account" aria-selected="flase">Account Information</a>
+        <div class="row justify-content-center mb-1">
+            <div class="col-6 text-center">
 
-        <!-- <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'communications' ? 'active' : null }}" id="nav-communications-tab" href="{{ route('frontend.user.communications') }}" type="button" role="tab" aria-controls="nav-communications" aria-selected="false">Communications</a> -->
+                <img src="{{ auth()->user()->picture }}" alt="" class="img-fluid rounded-circle" style="height: 8rem; width: 8rem; object-fit: cover; border: 2px solid white;">
 
-        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'account-dashboard' ? 'active' : null }}" id="nav-accountDashboard-tab" href="{{ route('frontend.user.account-dashboard') }}" type="button" role="tab" aria-controls="nav-accountDashboard" aria-selected="false">Account Dashboard</a>
+                <p class="mt-2 text-white mb-0" style="font-size: 1rem;">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</p>
+
+            </div>
+        </div>
+
+        <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(1) == 'dashboard' ? 'active' : null }}" id="nav-account-tab" href="{{ route('frontend.user.dashboard') }}" type="button" role="tab" aria-controls="nav-account" aria-selected="false">Account Information</a>
+
+        <!-- <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(1) == 'communications' ? 'active' : null }}" id="nav-communications-tab" href="{{ route('frontend.user.communications') }}" type="button" role="tab" aria-controls="nav-communications" aria-selected="false">Communications</a> -->
+
+        <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(1) == 'account-dashboard' ? 'active' : null }}" id="nav-accountDashboard-tab" href="{{ route('frontend.user.account-dashboard') }}" type="button" role="tab" aria-controls="nav-accountDashboard" aria-selected="false">Account Dashboard</a>
 
 
-        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'favourites' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.favourites') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Favourite List</a>
+        <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(1) == 'favourites' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.favourites') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Favourite List</a>
 
-        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'my-bookings' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.my-bookings') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">My Bookings</a>
+        <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(1) == 'my-bookings' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.my-bookings') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">My Bookings</a>
 
-        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.feedback') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Feedback</a>
+        <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.feedback') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Feedback</a>
 
 
         @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
-            <a class="nav-link bg-white border-0 border-bottom w-100 px-5 pb-3 " id="nav-agent-tab" href="{{ route('frontend.user.agent') }}" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 text-light w-100 " style="background-color: #ff9900">Agent Request</button> </a>
+            <a class="nav-link border-0 border-bottom w-100 px-5 pb-3 mt-4" id="nav-agent-tab" href="{{ route('frontend.user.agent') }}" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 w-100 " style="background-color: #FFFFFF; color: #389ADB;">Become an Agent</button> </a>
         @else
-            <!-- <a class="nav-link bg-white border-0 border-bottom w-100 px-5 pb-3" id="nav-agent-tab" href="{{ route('frontend.user.agent.edit') }}" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 text-light w-100" style="background-color: #ff9900">Edit Agent Request</button> </a> -->
+            <!-- <a class="nav-link border-0 border-bottom w-100 px-5 pb-3" id="nav-agent-tab" href="{{ route('frontend.user.agent.edit') }}" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 text-light w-100" style="background-color: #ff9900">Edit Agent Request</button> </a> -->
         @endif
 
         
 
-        <!-- <a class="nav-link bg-white border-0 border-bottom w-100 px-5 pb-3" id="nav-agent-tab" href="{{ route('frontend.user.agent') }}" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 text-light w-100" style="background-color: #ff9900">Agent</button> </a> -->
+        <!-- <a class="nav-link border-0 border-bottom w-100 px-5 pb-3" id="nav-agent-tab" href="{{ route('frontend.user.agent') }}" type="button" role="tab" aria-controls="nav-agent" aria-selected="false"><button class="btn py-2 text-light w-100" style="background-color: #ff9900">Agent</button> </a> -->
 
 
 
@@ -49,15 +60,15 @@
 
 
 
-            <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'properties' ? 'active' : null }}" href="{{ route('frontend.user.properties') }}" type="button" role="tab" aria-controls="nav-properties" aria-selected="true">Properties</a>
+            <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(1) == 'properties' ? 'active' : null }}" href="{{ route('frontend.user.properties') }}" type="button" role="tab" aria-controls="nav-properties" aria-selected="true">Properties</a>
 
 
-            <!-- <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'booking' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.booking') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Booking Box</a> -->
+            <!-- <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(1) == 'booking' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.booking') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Booking Box</a> -->
 
-            <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'agent-bookings' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.agent-bookings') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Agent Bookings</a>
+            <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(1) == 'agent-bookings' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.agent-bookings') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Agent Bookings</a>
 
             <!-- @if(is_company(auth()->user()->id))
-                <a class="nav-link bg-white border-0 border-bottom ps-5 w-100 pb-3 {{ Request::segment(1) == 'company' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.company') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Company</a>
+                <a class="nav-link border-0 border-bottom ps-5 w-100 pb-3 {{ Request::segment(1) == 'company' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.company') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Company</a>
             @else -->           
 
             <!-- @endif -->
@@ -78,25 +89,25 @@
             </div>
             
 
-            <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'country-managment-dashboard' ? 'active' : null }}" href="{{ route('frontend.user.country-management') }}" type="button" role="tab" aria-controls="nav-properties" aria-selected="true">Dashboard</a>
+            <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(1) == 'country-managment-dashboard' ? 'active' : null }}" href="{{ route('frontend.user.country-management') }}" type="button" role="tab" aria-controls="nav-properties" aria-selected="true">Dashboard</a>
 
-            <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'home-page-feature' ? 'active' : null }}" href="{{ route('frontend.user.home_page_feature') }}" type="button" role="tab" aria-controls="nav-properties" aria-selected="true">Home Page Feature</a>
+            <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(1) == 'home-page-feature' ? 'active' : null }}" href="{{ route('frontend.user.home_page_feature') }}" type="button" role="tab" aria-controls="nav-properties" aria-selected="true">Home Page Feature</a>
 
-            <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'property-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.property-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Property Approval</a>
+            <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(2) == 'property-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.property-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Property Approval</a>
 
-            <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'supports' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.supports') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Help & Supports</a>
+            <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(2) == 'supports' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.supports') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Help & Supports</a>
 
-            <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Agent Approval</a>
+            <a class="nav-link border-0 ps-5 w-100 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Agent Approval</a>
 
-            <a class="nav-link bg-white border-0 dropdown-btn border-bottom ps-5 w-100 pb-3 advertisement" style="color:#0d6efd;">
+            <a class="nav-link border-0 dropdown-btn border-bottom ps-5 w-100 pb-3 advertisement" style="color:#0d6efd;">
                 Advertisement Management
                 <i class="fas fa-caret-down"></i>
             </a>
             <div class="dropdown-container">
                 
-                <a class="nav-link bg-white border-0 ps-5 w-100 pb-3 {{ Request::segment(2) == 'ad-category' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.ad_category') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Home Page Ad Category</a>
-                <a class="nav-link bg-white border-0 ps-5 w-100 pb-3 {{ Request::segment(2) == 'homepage-advertisement' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.homepage_AD') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Home Page Advertisement</a>
-                <a class="nav-link bg-white border-0 border-bottom ps-5 w-100 pb-3 {{ Request::segment(2) == 'sidebar-ad' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.sidebar_ad') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Sidebar Advertisement</a>
+                <a class="nav-link border-0 ps-5 w-100 pb-3 {{ Request::segment(2) == 'ad-category' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.ad_category') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Home Page Ad Category</a>
+                <a class="nav-link border-0 ps-5 w-100 pb-3 {{ Request::segment(2) == 'homepage-advertisement' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.homepage_AD') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Home Page Advertisement</a>
+                <a class="nav-link border-0 border-bottom ps-5 w-100 pb-3 {{ Request::segment(2) == 'sidebar-ad' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.sidebar_ad') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Sidebar Advertisement</a>
 
             </div>
 

@@ -43,7 +43,7 @@ p {
     position: fixed;
     top: 4.5rem;
     z-index: 10000;
-    left: 29%;
+    left: 30%;
     width: 140px;
 }
 
@@ -127,7 +127,7 @@ p {
 
 
 
-.project-item a {
+/* .project-item a {
     color: #212529;
     border: none;
 }
@@ -135,7 +135,7 @@ p {
     border-bottom: 1px solid black;
     font-weight: 600;
     color: #212529;
-}
+} */
 
 
 

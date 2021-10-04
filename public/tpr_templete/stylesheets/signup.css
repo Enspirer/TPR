@@ -1,12 +1,12 @@
 /* banner */
-.banner {
+/* .banner {
     background-image: url('../images/sign_up_banner.png');
     background-repeat: no-repeat;
     width: 100%;
     background-size: cover;
     background-position: center right;
     height: 600px;
-}
+} */
 .sign-up-box {
     font-size: 1rem!important;
     border: none;
@@ -31,9 +31,10 @@
 
 
 .terms {
-    height: 130px;
+    height: 100px;
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: white;
 }
 ::-webkit-scrollbar {
     width: 13px;

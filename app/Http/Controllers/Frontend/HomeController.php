@@ -97,6 +97,8 @@ class HomeController extends Controller
 
         $promu = Properties::where('admin_approval','Approved')->get();
 
+        $property_types = PropertyType::where('status','=','1')->get();
+
         $country = Country::where('country_id', $country_id)->where('status',1)->first();
 
         $latest = Properties::where('country',$country->country_name)->where('admin_approval','Approved')->latest()->take(3)->get();
@@ -109,7 +111,8 @@ class HomeController extends Controller
             'latest' => $latest,
             'ad_category' => $ad_category,
             'homepage_ad' => $homepage_ad,
-            'country' => $country
+            'country' => $country,
+            'property_types' => $property_types
         ]);
     }
 

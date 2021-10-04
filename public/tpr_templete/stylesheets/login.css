@@ -1,16 +1,17 @@
 /* banner */
-.banner {
+/* .banner {
     background-image: url('../images/sign_in_banner.png');
     background-repeat: no-repeat;
     width: 100%;
     background-size: cover;
     background-position: center right;
     height: 700px;
-}
+} */
 .sign-in-box {
     font-size: 1rem!important;
     border: none;
     border-radius: 0;
+    width: 75%;
 }
 
 .form-control::placeholder {

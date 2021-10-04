@@ -5,15 +5,17 @@
     width: 100%;
     background-size: cover;
     background-position: center center;
-    height: 1000px;
+    height: 625px;
 }
 
 
 
 /* search */
 .search {
-    position: relative;
-    top: -5.5rem;
+    position: absolute;
+    top: 28rem;
+    padding: 2.3rem 0rem;
+    z-index: 1;
 }
 .input-group .btn {
     z-index: 0;
@@ -22,21 +24,32 @@
     color: red!important;
 } */
 
+.modal .fa, .modal .fas {
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    background-color: #23A1C0;
+    padding: 0.75rem;
+    border-radius: 50px;
+}
+
+
 
 
 /* recent projects */
 .project-item a {
-    color: #212529;
-    border: none;
+    color: #9B9B9B!important;
 }
 .project-item a:hover {
-    border-bottom: 1px solid black;
-    font-weight: 600;
-    color: #212529;
+    color: black!important;
 }
 .project-item .active {
     border-bottom: 1px solid black!important;
+    color: black!important;
+    font-weight: 600;
 }
+
+
 
 
 
@@ -56,7 +69,7 @@
 
 /* property search */
 .properties {
-    height: 500px;
+    height: 504px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -85,13 +98,14 @@
 
 /* bottom banner */
 .bottom-banner {
-    background-image: url('../images/index_bottom_banner.svg');
+    background-image: url('../images/index_bottom_banner.png');
     background-repeat: no-repeat;
     width: 100%;
     background-size: cover;
     background-position: center center;
+    height: 630px;
 }
 .bottom-banner-stars {
     color: #E9B815;
-    font-size: 1.5rem;
+    font-size:1rem;
 }

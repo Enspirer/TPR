@@ -89,7 +89,7 @@
     
 
     <!--footer-->
-    <section class="container-fluid pt-5 pb-3 text-white" id="footer" style="background-color: #1B1B3A; margin-top:7rem;">
+    <section class="container-fluid pt-5 pb-3 text-white" id="footer" style="background-color: #1B1B3A;">
         <div class="container">
             <div class="row">
                 <div class="col-3">

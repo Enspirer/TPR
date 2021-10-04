@@ -564,7 +564,7 @@ type="text/javascript"></script> -->
 
             $('.amcharts-chart-div').find('a').addClass('hide-map-text');
 
-        }, 1000);
+        }, 2000);
         
     });
 </script>
