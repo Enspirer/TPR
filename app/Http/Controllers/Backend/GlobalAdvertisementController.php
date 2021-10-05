@@ -132,24 +132,28 @@ class GlobalAdvertisementController extends Controller
         $addAD = new GlobalAdvertisement;
         
         $addAD->name=$request->name;
-        $addAD->description=$request->description;
         $addAD->order=$request->order;
         $addAD->status=$request->status;
         $addAD->global_category=$request->category;
 
         $addAD->link=$request->ll_link;
+        $addAD->description=$request->ll_description;
         $addAD->image=$image_url1;
 
         $addAD->large_right_link=$request->lr_link;
+        $addAD->large_right_description=$request->lr_description;
         $addAD->large_right_image=$image_url2;
 
         $addAD->small_left_link=$request->sl_link;
+        $addAD->small_left_description=$request->sl_description;
         $addAD->small_left_image=$image_url3;
 
         $addAD->small_middle_link=$request->sm_link;
+        $addAD->small_middle_description=$request->sm_description;
         $addAD->small_middle_image=$image_url4;
 
         $addAD->small_right_link=$request->sr_link;
+        $addAD->small_right_description=$request->sr_description;
         $addAD->small_right_image=$image_url5;
 
         $addAD->save();
@@ -233,26 +237,30 @@ class GlobalAdvertisementController extends Controller
         
         $upAD = new GlobalAdvertisement;
 
-        $upAD->name=$request->name;
-        $upAD->description=$request->description;        
+        $upAD->name=$request->name;        
         $upAD->order=$request->order;
         $upAD->status=$request->status;
         $upAD->global_category=$request->category;
 
         $upAD->link=$request->ll_link;
+        $upAD->description=$request->ll_description;
         $upAD->image=$image_url1;
 
         $upAD->large_right_link=$request->lr_link;
+        $upAD->large_right_description=$request->lr_description;
         $upAD->large_right_image=$image_url2;
 
         $upAD->small_left_link=$request->sl_link;
+        $upAD->small_left_description=$request->sl_description;
         $upAD->small_left_image=$image_url3;
 
         $upAD->small_middle_link=$request->sm_link;
+        $upAD->small_middle_description=$request->sm_description;
         $upAD->small_middle_image=$image_url4;
 
         $upAD->small_right_link=$request->sr_link;
-        $upAD->small_right_image=$image_url5;
+        $upAD->small_right_description=$request->sr_description;
+        $upAD->small_right_image=$image_url5;        
 
         GlobalAdvertisement::whereId($request->hidden_id)->update($upAD->toArray());
    
@@ -270,6 +278,7 @@ class GlobalAdvertisementController extends Controller
     {      
         $detail = GlobalAdvertisement::where('id',$id)->first();
         $detail->image = null;
+        $detail->description = null;
         $detail->link = null;
 
         GlobalAdvertisement::whereId($id)->update($detail->toArray());
@@ -281,6 +290,7 @@ class GlobalAdvertisementController extends Controller
     {      
         $detail = GlobalAdvertisement::where('id',$id)->first();
         $detail->large_right_image = null;
+        $detail->large_right_description = null;
         $detail->large_right_link = null;
 
         GlobalAdvertisement::whereId($id)->update($detail->toArray());
@@ -291,6 +301,7 @@ class GlobalAdvertisementController extends Controller
     {      
         $detail = GlobalAdvertisement::where('id',$id)->first();
         $detail->small_left_image = null;
+        $detail->small_left_description = null;
         $detail->small_left_link = null;
 
         GlobalAdvertisement::whereId($id)->update($detail->toArray());
@@ -301,6 +312,7 @@ class GlobalAdvertisementController extends Controller
     {      
         $detail = GlobalAdvertisement::where('id',$id)->first();
         $detail->small_middle_image = null;
+        $detail->small_middle_description = null;
         $detail->small_middle_link = null;
 
         GlobalAdvertisement::whereId($id)->update($detail->toArray());
@@ -311,6 +323,7 @@ class GlobalAdvertisementController extends Controller
     {      
         $detail = GlobalAdvertisement::where('id',$id)->first();
         $detail->small_right_image = null;
+        $detail->small_right_description = null;
         $detail->small_right_link = null;
 
         GlobalAdvertisement::whereId($id)->update($detail->toArray());
