@@ -92,10 +92,10 @@
     <section id="index-search" class="container-fluid" style="margin-top: 7rem;">
         <div class="container-md ">
             <ul class="nav nav-pills ms-4" id="pills-tab" role="tablist">
-                <li class="nav-item text-white rounded-0 fs-5 me-1" role="presentation">
+                <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
                     <button class="nav-link text-white rounded-0 active px-5" style="background-color : #83BC3E" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
                 </li>
-                <li class="nav-item text-white rounded-0 fs-5 me-1" role="presentation">
+                <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
                     <button class="nav-link text-white rounded-0" style="background-color : #00C1FB" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500">Residential</button>
                 </li>
                 <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
