@@ -520,6 +520,7 @@ class CountryManagementController extends Controller
         $add->name=$request->name;
         $add->category=$request->category;
         $add->link=$request->link;
+        $add->description=$request->description;
         $add->status=$request->status;
         $add->order=$request->order;
         $add->image=$image_url;
@@ -557,6 +558,7 @@ class CountryManagementController extends Controller
         $update->category=$request->category;
         $update->link=$request->link;
         $update->status=$request->status;
+        $update->description=$request->description;
         $update->order=$request->order;
         $update->image=$image_url;
         $update->country=$request->country;

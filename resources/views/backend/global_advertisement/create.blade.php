@@ -30,10 +30,6 @@
                             <input type="text" class="form-control" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control" rows="2" name="description"></textarea>
-                        </div>
-                        <div class="form-group">
                             <select class="form-control" id="category" name="category" placeholder="Global Ad Category" required>
                                 <option value="" selected disabled hidden>Global Ad Category</option>
                                 @foreach($categories as $category)
@@ -77,6 +73,10 @@
                             <label>Link</label>
                             <input type="text" class="form-control" name="ll_link">
                         </div> 
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" name="ll_description"></textarea>
+                        </div>
                     </div>   
                 </div>
             </div> 
@@ -92,6 +92,10 @@
                             <label>Link</label>
                             <input type="text" class="form-control" name="lr_link">
                         </div> 
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" name="lr_description"></textarea>
+                        </div>
                     </div>   
                 </div>
             </div>
@@ -107,6 +111,10 @@
                             <label>Link</label>
                             <input type="text" class="form-control" name="sl_link">
                         </div> 
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" name="sl_description"></textarea>
+                        </div>
                     </div>   
                 </div>
             </div>
@@ -122,6 +130,10 @@
                             <label>Link</label>
                             <input type="text" class="form-control" name="sm_link">
                         </div> 
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" name="sm_description"></textarea>
+                        </div>
                     </div>   
                 </div>
             </div>
@@ -137,6 +149,10 @@
                             <label>Link</label>
                             <input type="text" class="form-control" name="sr_link">
                         </div> 
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" name="sr_description"></textarea>
+                        </div>
                     </div>   
                 </div>
             </div>

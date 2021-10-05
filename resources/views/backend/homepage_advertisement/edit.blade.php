@@ -59,6 +59,10 @@
                                                             <td style="font-weight: 600; font-size:16px;">Order:</td>
                                                             <td style="font-size:16px;">{{ $homepage_advertisement->order }}</td>
                                                         </tr>
+                                                        <tr>
+                                                            <td style="font-weight: 600; font-size:16px;">Description:</td>
+                                                            <td style="font-size:16px;">{{ $homepage_advertisement->description }}</td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>

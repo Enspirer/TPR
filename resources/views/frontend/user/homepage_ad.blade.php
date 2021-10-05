@@ -172,6 +172,12 @@
                         </select>                           
                     </div>
                     <div class="form-group mt-3">
+                        <label>Description:</label>
+                        <div class="input-group mt-1">
+                            <textarea class="form-control" name="description" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
                         <label>Image:</label>
                         <div class="input-group mt-1">
                             <input type="file" class="form-control" name="image" required>
@@ -244,6 +250,12 @@
                                         <option value="{{$ad_cat->id}}" {{ $home_ad->category == $ad_cat->id ? "selected" : "" }}>{{$ad_cat->name}}</option>
                                     @endforeach
                                 </select>                           
+                            </div>
+                            <div class="form-group mt-3">
+                                <label>Description:</label>
+                                <div class="input-group mt-1">
+                                    <textarea class="form-control" name="description" required>{{$home_ad->description}}</textarea>
+                                </div>
                             </div>
                             <div class="form-group mt-3">
                                 <label>Image:</label>

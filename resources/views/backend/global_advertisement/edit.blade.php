@@ -20,10 +20,6 @@
                             <input type="text" class="form-control" name="name" value="{{ $global_advertisement->name }}" required>
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control" rows="2" name="description">{{ $global_advertisement->description }}</textarea>
-                        </div>
-                        <div class="form-group">
                             <label>Global Ad Category</label>
                             <select class="form-control" id="category" name="category" placeholder="Global Ad Category" required>
                                 <option value="" selected disabled hidden>Global Ad Category</option>
@@ -71,6 +67,10 @@
                             <label>Link</label>
                             <input type="text" class="form-control" name="ll_link" value="{{ $global_advertisement->link }}">
                         </div> 
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" name="ll_description">{{ $global_advertisement->description }}</textarea>
+                        </div>
                         <br>
                         <div class="d-flex justify-content-end">
                         <a href="{{route('admin.global_advertisement.clear1',$global_advertisement->id)}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-danger">Clear</a>
@@ -92,6 +92,10 @@
                             <label>Link</label>
                             <input type="text" class="form-control" name="lr_link" value="{{ $global_advertisement->large_right_link }}">
                         </div> 
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" name="lr_description">{{ $global_advertisement->large_right_description }}</textarea>
+                        </div>
                         <br>
                         <div class="d-flex justify-content-end">
                         <a href="{{route('admin.global_advertisement.clear2',$global_advertisement->id)}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-danger">Clear</a>
@@ -113,6 +117,10 @@
                             <label>Link</label>
                             <input type="text" class="form-control" name="sl_link" value="{{ $global_advertisement->small_left_link }}">
                         </div> 
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" name="sl_description">{{ $global_advertisement->small_left_description }}</textarea>
+                        </div>
                         <br>
                         <div class="d-flex justify-content-end">
                         <a href="{{route('admin.global_advertisement.clear3',$global_advertisement->id)}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-danger">Clear</a>
@@ -133,6 +141,10 @@
                         <div class="form-group mb-3">
                             <label>Link</label>
                             <input type="text" class="form-control" name="sm_link" value="{{ $global_advertisement->small_middle_link }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" name="sm_description">{{ $global_advertisement->small_middle_description }}</textarea>
                         </div> 
                         <br>
                         <div class="d-flex justify-content-end">
@@ -155,6 +167,10 @@
                             <label>Link</label>
                             <input type="text" class="form-control" name="sr_link" value="{{ $global_advertisement->small_right_link }}" >
                         </div> 
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" name="sr_description">{{ $global_advertisement->small_right_description }}</textarea>
+                        </div>
                         <br>
                         <div class="d-flex justify-content-end">
                         <a href="{{route('admin.global_advertisement.clear5',$global_advertisement->id)}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-danger">Clear</a>
