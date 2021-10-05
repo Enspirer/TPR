@@ -67,7 +67,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav align-items-center">
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500">
                         <a class="nav-link text-white fw-bold" href="#">Home</a>
                     </li>
