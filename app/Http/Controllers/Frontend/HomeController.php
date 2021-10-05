@@ -375,7 +375,13 @@ class HomeController extends Controller
 
 
         if($category_type != 'category_type'){
-            $properties->where('main_category', $category_type);
+            if($category_type == 'all') {
+                $properties->get();
+            }
+            else {
+                $properties->where('main_category', $category_type);
+            }
+            
         }
 
         if($transaction_type != 'transaction_type'){
