@@ -40,7 +40,7 @@
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
                     <form method="post" action="{{route('frontend.search_result_function')}}">
-                        <div class="input-group shadow-lg">
+                        <div class="input-group">
                             {{csrf_field()}}
                             <input type="hidden" name="category_type" value="all">
                             <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
@@ -54,7 +54,7 @@
 
                 <div class="tab-pane fade show" id="pills-residential" role="tabpanel" aria-labelledby="pills-residential-tab">
                     <form method="post" action="{{route('frontend.search_result_function')}}">
-                        <div class="input-group shadow-lg">
+                        <div class="input-group">
                             {{csrf_field()}}
                             <input type="hidden" name="category_type" value="residential" class="category">
                             <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
@@ -68,7 +68,7 @@
 
                 <div class="tab-pane fade" id="pills-commercial" role="tabpanel" aria-labelledby="pills-commercial-tab">
                     <form method="post" action="{{route('frontend.search_result_function')}}">
-                        <div class="input-group shadow-lg">
+                        <div class="input-group">
                         {{csrf_field()}}
                             <input type="hidden" name="category_type" value="commercial" class="category">
                             <input type="text" name="search_keyword" class="form-control p-3" aria-label="search">
@@ -95,7 +95,7 @@
             <section id="index-recent-projects">
                 
                     <div class="container-fluid p-3 text-center text-white" style="background-color: #156073">
-                        <h3 class="fw-bolder" data-aos="fade-up" data-aos-duration="500">Property Market in Sri Lanka</h3>
+                        <h3 class="fw-bolder" data-aos="fade-up" data-aos-duration="500">Property Market in {{ get_country_cookie(request())->country_name }}</h3>
                     </div>
 
                 <div class="container text-center p-0 mt-3">
@@ -123,7 +123,7 @@
 
                     </ul>
 
-                    <div class="tab-content mt-5 py-4" id="tabs-tabContent" style="background-color : #ECECEC">
+                    <div class="tab-content mt-5 p-4" id="tabs-tabContent" style="background-color : #ECECEC">
 
                         <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
                             

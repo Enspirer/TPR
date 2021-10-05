@@ -92,3 +92,7 @@
 .hide-map-text {
     display: none!important;
 }
+
+.swiper-slide img {
+    cursor: pointer;
+}

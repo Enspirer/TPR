@@ -62,7 +62,7 @@
 <section id="index-navbar">
     <nav class="navbar fixed-top first-nav navbar-expand-lg navbar-light" style="background-color: #4195E1">
         <div class="container">
-            <a href="#"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo img-fluid rounded" alt=""></a>
+            <a href="#"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo-landing img-fluid rounded" alt=""></a>
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -170,11 +170,10 @@
                     <div class="swiper-slide">
                         <div class="container">
                             <div class="row">
-                                <div class="col-6 p-1  text-center">
+                                <div class="col-6 p-1 text-center">
                                 @if($advertisement->image !== null)
-                                    <a href="{{ $advertisement->link }}" style="text-decoration:none" target="_blank" >
-                                    <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="...">
-                                    </a> 
+                                    <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                    <input type="hidden" value="{{$advertisement->link}}" class="ad-link">
                                 @else
                                 <div style="border-style: dashed;border-width: 1px; height:100%;">
                                     <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
@@ -183,9 +182,8 @@
                                 </div>
                                 <div class="col-6 p-1">
                                 @if($advertisement->large_right_image !== null)
-                                    <a href="{{ $advertisement->large_right_link }}" style="text-decoration:none" target="_blank">
-                                    <img src="{{url('files/global_advertisement/',$advertisement->large_right_image)}}" alt="...">
-                                    </a> 
+                                    <img src="{{url('files/global_advertisement/',$advertisement->large_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                    <input type="hidden" value="{{$advertisement->large_right_link}}" class="ad-link">
                                 @else
                                 <div style="border-style: dashed;border-width: 1px; height:100%;">
                                     <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
@@ -196,9 +194,8 @@
                             <div class="row">
                                 <div class="col-4 p-1">
                                 @if($advertisement->small_left_image !== null)
-                                    <a href="{{ $advertisement->small_left_link }}" style="text-decoration:none" target="_blank" >
-                                    <img src="{{url('files/global_advertisement/',$advertisement->small_left_image)}}" alt="...">
-                                    </a>
+                                    <img src="{{url('files/global_advertisement/',$advertisement->small_left_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                    <input type="hidden" value="{{$advertisement->small_left_link}}" class="ad-link">
                                 @else
                                 <div style="border-style: dashed;border-width: 1px; height:100%;">
                                     <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -207,9 +204,8 @@
                                 </div>
                                 <div class="col-4 p-1">
                                 @if($advertisement->small_middle_image !== null)
-                                    <a href="{{ $advertisement->small_middle_link }}" style="text-decoration:none" target="_blank">
-                                    <img src="{{url('files/global_advertisement/',$advertisement->small_middle_image)}}" alt="...">
-                                    </a> 
+                                    <img src="{{url('files/global_advertisement/',$advertisement->small_middle_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                    <input type="hidden" value="{{$advertisement->small_middle_link}}" class="ad-link">
                                 @else
                                 <div style="border-style: dashed;border-width: 1px; height:100%;">
                                     <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -218,9 +214,8 @@
                                 </div>  
                                 <div class="col-4 p-1">
                                 @if($advertisement->small_right_image !== null)
-                                    <a href="{{ $advertisement->small_right_link }}" style="text-decoration:none" target="_blank">
-                                    <img src="{{url('files/global_advertisement/',$advertisement->small_right_image)}}" alt="...">
-                                    </a> 
+                                    <img src="{{url('files/global_advertisement/',$advertisement->small_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                    <input type="hidden" value="{{$advertisement->small_right_link}}" class="ad-link">
                                 @else
                                 <div style="border-style: dashed;border-width: 1px; height:100%;">
                                     <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -256,9 +251,8 @@
                                     <div class="row">
                                         <div class="col-6 p-1  text-center">
                                         @if($advertisement->image !== null)
-                                            <a href="{{ $data->link }}" style="text-decoration:none" target="_blank" >
-                                            <img src="{{url('files/global_advertisement/', $data->image)}}" alt="...">
-                                            </a> 
+                                            <img src="{{url('files/global_advertisement/', $data->image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                            <input type="hidden" value="{{$advertisement->link}}" class="ad-link">
                                         @else
                                         <div style="border-style: dashed;border-width: 1px; height:100%;">
                                             <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
@@ -267,9 +261,8 @@
                                         </div>
                                         <div class="col-6 p-1">
                                         @if($advertisement->large_right_image !== null)
-                                            <a href="{{ $data->large_right_link }}" style="text-decoration:none" target="_blank">
-                                            <img src="{{url('files/global_advertisement/',$data->large_right_image)}}" alt="...">
-                                            </a> 
+                                            <img src="{{url('files/global_advertisement/',$data->large_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                            <input type="hidden" value="{{$advertisement->large_right_link}}" class="ad-link">
                                         @else
                                         <div style="border-style: dashed;border-width: 1px; height:100%;">
                                             <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
@@ -280,9 +273,8 @@
                                     <div class="row">
                                         <div class="col-4 p-1">
                                         @if($advertisement->small_left_image !== null)
-                                            <a href="{{ $data->small_left_link }}" style="text-decoration:none" target="_blank" >
-                                            <img src="{{url('files/global_advertisement/',$data->small_left_image)}}" alt="...">
-                                            </a>
+                                            <img src="{{url('files/global_advertisement/',$data->small_left_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                            <input type="hidden" value="{{$advertisement->small_left_link}}" class="ad-link">
                                         @else
                                         <div style="border-style: dashed;border-width: 1px; height:100%;">
                                             <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -291,9 +283,8 @@
                                         </div>
                                         <div class="col-4 p-1">
                                         @if($advertisement->small_middle_image !== null)
-                                            <a href="{{ $data->small_middle_link }}" style="text-decoration:none" target="_blank">
-                                            <img src="{{url('files/global_advertisement/',$data->small_middle_image)}}" alt="...">
-                                            </a> 
+                                            <img src="{{url('files/global_advertisement/',$data->small_middle_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                            <input type="hidden" value="{{$advertisement->small_middle_link}}" class="ad-link">
                                         @else
                                         <div style="border-style: dashed;border-width: 1px; height:100%;">
                                             <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -302,9 +293,8 @@
                                         </div>  
                                         <div class="col-4 p-1">
                                         @if($advertisement->small_right_image !== null)
-                                            <a href="{{ $data->small_right_link }}" style="text-decoration:none" target="_blank">
-                                            <img src="{{url('files/global_advertisement/',$data->small_right_image)}}" alt="...">
-                                            </a> 
+                                            <img src="{{url('files/global_advertisement/',$data->small_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                            <input type="hidden" value="{{$advertisement->small_right_link}}" class="ad-link">
                                         @else
                                         <div style="border-style: dashed;border-width: 1px; height:100%;">
                                             <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -323,7 +313,32 @@
             </div>
         @endforeach
     </div>
-@endif    
+@endif   
+
+
+
+<!-- Ad Modal -->
+<div class="modal fade" id="ad-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-12">
+                <img src="" alt="" id="modal-ad-img" class="img-fluid w-100" style="object-fit: cover;">
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="" type="button" class="btn btn-primary" id="modal-ad-link">More Details</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -569,5 +584,26 @@ type="text/javascript"></script> -->
     });
 </script>
 
+
+<script>
+    $('.nav-item').on('mouseenter', function(){
+            $(this).children('.nav-link').addClass('nav-hover');
+        }).on('mouseleave', function() {
+            $(this).children('.nav-link').removeClass('nav-hover');
+        });
+</script>
+
+
+        <script>
+            $('.swiper-slide img').on('click', function() {
+                let img = $(this).attr('src');
+                let link = $(this).next().val();
+
+                $('#modal-ad-img').attr('src', img);
+                $('#modal-ad-link').attr('href', link);
+
+                
+            });
+        </script>
 </body>
 </html>

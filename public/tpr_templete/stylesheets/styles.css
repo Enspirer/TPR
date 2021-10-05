@@ -28,10 +28,18 @@ p {
 /* logo and navbar */
 .logo {
     position: fixed;
-    top: 1.2rem;
+    top: 1.8rem;
     z-index: 1;
-    /* height: 4rem; */
+    height: 4rem;
 }
+
+.logo-landing {
+    position: fixed;
+    top: 1rem;
+    z-index: 1;
+    height: 4rem;
+}
+
 .flag {
     /* position: fixed;
     top: 4rem; */
