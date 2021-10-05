@@ -89,7 +89,7 @@
 
     <!--residential search-->
     <!--search-->
-    <section id="index-search" class="container-fluid" style="margin-top: 7rem;">
+    <section id="index-search" class="container-fluid" style="margin-top: 5rem;">
         <div class="container-md ">
             <ul class="nav nav-pills ms-4" id="pills-tab" role="tablist">
                 <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
@@ -163,7 +163,7 @@
 
     @if(count($filteredProperty) > 0)
         <section id="residential-properties">
-            <div class="container" style="margin-top: 6rem">
+            <div class="container" style="margin-top: 4rem">
                 <h3 class="text-center fw-bolder">{{ ucfirst($category_type) }} Properties in {{ get_country_cookie(request())->country_name }}</h3>
 
 
