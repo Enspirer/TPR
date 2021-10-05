@@ -17,12 +17,19 @@
     padding: 2.3rem 0rem;
     z-index: 1;
 }
+.search .nav li {
+    border-top: 2px solid transparent!important;
+}
 .input-group .btn {
     z-index: 0;
 }
 /* .search .nav-pills .nav-link.active, .search .nav-pills .show>.nav-link {
     color: red!important;
 } */
+
+.search .nav .active {
+    border-top: 5px solid red!important;
+}
 
 .modal .fa, .modal .fas {
     font-weight: 900;

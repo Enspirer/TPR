@@ -88,51 +88,73 @@
 
 
     <!--residential search-->
-    <section id="residential-search">
-        <div class="container-md" style="margin-top:5rem">
-            <!-- <button class="btn text-white rounded-0 py-3 px-5 fs-5 me-1" style="background-color : #83BC3E" data-aos="fade-up" data-aos-duration="500"><img src="images/sale_icon.svg" class="me-3" height="25rem" alt="">Residential</button>
-            <button class="btn text-white rounded-0 py-3 px-5 fs-5" style="background-color : #75CFED" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"><img src="images/commercial_icon.svg" class="me-3" height="25rem" alt="">Commercial</button> -->
-
-            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+    <!--search-->
+    <section id="index-search" class="container-fluid" style="margin-top: 7rem;">
+        <div class="container-md ">
+            <ul class="nav nav-pills ms-4" id="pills-tab" role="tablist">
                 <li class="nav-item text-white rounded-0 fs-5 me-1" role="presentation">
-                    <button class="nav-link text-white active" style="background-color : #83BC3E" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500"><img src="{{ asset('tpr_templete/images/sale_icon.svg') }}" class="me-3" height="25rem" alt="">Residential</button>
+                    <button class="nav-link text-white rounded-0 active px-5" style="background-color : #83BC3E" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
+                </li>
+                <li class="nav-item text-white rounded-0 fs-5 me-1" role="presentation">
+                    <button class="nav-link text-white rounded-0" style="background-color : #00C1FB" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500">Residential</button>
                 </li>
                 <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-                    <button class="nav-link text-white" style="background-color : #75CFED" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"><img src="{{ asset('tpr_templete/images/commercial_icon.svg') }}" class="me-3" height="25rem" alt="">Commercial</button>
+                    <button class="nav-link text-white rounded-0" style="background-color : #83BC3E" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Commercial</button>
+                </li>
+                <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                    <button class="nav-link text-white rounded-0" style="background-color : #EB8EB0" id="pills-coming-tab" data-bs-toggle="pill" data-bs-target="#pills-coming" type="button" role="tab" aria-controls="pills-coming" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Coming Soon</button>
+                </li>
+                <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                    <button class="nav-link text-white rounded-0" style="background-color : #0EA7CE" id="pills-tp-tab" data-bs-toggle="pill" data-bs-target="#pills-tp" type="button" role="tab" aria-controls="pills-tp" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
+                </li>
+                <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                    <button class="nav-link text-white rounded-0" style="background-color : #4195E1" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
                 </li>
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-residential" role="tabpanel" aria-labelledby="pills-residential-tab">
+                <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
                     <form method="post" action="{{route('frontend.search_result_function')}}">
-                        <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                             {{csrf_field()}}
-                                <input type="hidden" name="category_type" value="residential">
-                               <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search">
+                        <div class="input-group">
+                            {{csrf_field()}}
+                            <input type="hidden" name="category_type" value="all">
+                            <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
                                <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
-                               <button type="submit" class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+                            <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
+
+                            <button type="button" class="btn rounded-pill ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem; border: 1px solid #ced4da;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="tab-pane fade show" id="pills-residential" role="tabpanel" aria-labelledby="pills-residential-tab">
+                    <form method="post" action="{{route('frontend.search_result_function')}}">
+                        <div class="input-group">
+                            {{csrf_field()}}
+                            <input type="hidden" name="category_type" value="residential" class="category">
+                            <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
+                               <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
+                            <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
+
+                            <button type="button" class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                         </div>
                     </form>
                 </div>
 
                 <div class="tab-pane fade" id="pills-commercial" role="tabpanel" aria-labelledby="pills-commercial-tab">
                     <form method="post" action="{{route('frontend.search_result_function')}}">
-                        <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                        <div class="input-group">
                         {{csrf_field()}}
-                            <input type="hidden" name="category_type" value="commercial">
-                            <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search">
+                            <input type="hidden" name="category_type" value="commercial" class="category">
+                            <input type="text" name="search_keyword" class="form-control p-3" aria-label="search">
                             <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
-                            <button type="submit" class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
+                            <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
+
+                            <button type="button" class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                         </div>
                     </form>
                 </div>
             </div>
-
-            <!-- <div class="input-group shadow-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                <input type="text" class="form-control p-3 rounded-0" aria-label="search">
-                <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button>
-                <button class="btn rounded-0 text-white" style="background-color : #EB8EB0"><i class="bi bi-search"></i> Search</button>
-            </div> -->
         </div>
     </section>
 
@@ -142,39 +164,14 @@
     @if(count($filteredProperty) > 0)
         <section id="residential-properties">
             <div class="container" style="margin-top: 6rem">
-                <h3 class="text-center fw-bolder">Topic</h3>
-
-                <div class="row justify-content-between">
-                    <div class="col-3">
-                        <h6>Property for Sale in Sri Lanka</h6>
-                        <p class="text-secondary">10000+ results</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="clearfix">
-                            <div class="float-start">
-                                <button class="btn border-dark border-1 rounded-0 px-3 py-2 filter-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Filters <img src="{{ asset('tpr_templete/images/filter.svg') }}" alt="" class="ms-5"></button>
-                            </div>
-                            <div class="float-end">
-                                <div class="dropdown">
-                                    <button class="btn dropdown-toggle border-1 border-dark rounded-0 px-3 py-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Most recent
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Recommended</a></li>
-                                    <li><a class="dropdown-item" href="#">Most Oldest</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="text-center fw-bolder">{{ ucfirst($category_type) }} Properties in {{ get_country_cookie(request())->country_name }}</h3>
 
 
-                <div class="row mt-4">
+                <div class="row mt-5">
                     <div class="col-8">
                         
                             @foreach($filteredProperty as $property)
-                                <div class="property mb-5 p-3 shadow">
+                                <div class="property mb-5 p-3 custom-shadow">
                                     <div class="row">
                                         <div class="col-6">
                                             <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{ route('frontend.image_assets', $property->feature_image_id) }}" alt="" class="img-fluid w-100" style="object-fit:cover; height:240px;"></a>
@@ -193,7 +190,7 @@
                                                             {{csrf_field()}}
                                                                 <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
                                                                 <input type="hidden" class="favourite" name='favourite' value="favourite">
-                                                                <button class="bi bi-heart-fill border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF"></button>
+                                                                <button class="bi bi-heart-fill border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF; background-color: transparent;"></button>
                                                         </form>
                                                     </div>
                                                     @else
@@ -202,7 +199,7 @@
                                                             {{csrf_field()}}
                                                                 <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
                                                                 <input type="hidden" class="favourite" name='favourite' value="non-favourite">
-                                                                <button class="bi bi-heart border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF"></button>
+                                                                <button class="bi bi-heart border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF; background-color: transparent;"></button>
                                                         </form>
                                                     </div>
                                                     @endif
@@ -229,15 +226,15 @@
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-6">
-                                            <h6 class="text-secondary">Listed on {{ $property->created_at->toDateString() }}</h6>
+                                            <h6 class="text-secondary mb-0">Listed on {{ $property->created_at->toDateString() }}</h6>
                                         </div>
                                         <div class="col-6">
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <p><i class="bi bi-telephone me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
+                                                    <p class="mb-0"><i class="bi bi-telephone me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
                                                 </div>
                                                 <div class="col-6" >
-                                                    <p id="ppp" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="bi bi-envelope me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
+                                                    <p class="mb-0" id="ppp" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="bi bi-envelope me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -248,15 +245,9 @@
                     </div>
 
                     <div class="col-4">
-                        <div class="row justify-content-center">
-                            <div class="col-12 text-center">
-                                <button class="btn border-dark border-1 rounded-0 py-2 fw-bold fs-5" style="padding: 0 4.7rem;"><i class="bi bi-envelope"></i> Create email alert</button>
-                            </div>
-                        </div>
-
                         @if(count($side_ads) > 0)
                             @foreach($side_ads as $side_ad)
-                                <div class="row shadow mt-5">
+                                <div class="row custom-shadow mt-5">
                                     <div class="col-12">
                                         <a href="{{ $side_ad->link }}"><img src="{{url('files/sidebar_ad', $side_ad->image)}}" alt="" class="img-fluid"></a>
                                     </div>

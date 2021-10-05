@@ -135,9 +135,8 @@
                                             @if(get_country_cookie(request())->country_name == $home_ad->country)
                                             
                                             <div class="swiper-slide">
-                                                <a href="{{$home_ad->link}}" target="_blank">
-                                                    <img src="{{url('files/homepage_advertisement',$home_ad->image)}}" class="img-fluid" alt="" style="object-fit:cover; height: 210px;">
-                                                </a>
+                                                <img src="{{url('files/homepage_advertisement',$home_ad->image)}}" class="img-fluid" alt="" style="object-fit:cover; height: 210px;" data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                                <input type="hidden" value="{{$home_ad->link}}" class="ad-link">
                                             </div> 
                                            
                                             @endif
@@ -160,9 +159,8 @@
                                         @foreach(App\Models\HomePageAdvertisement::where('category',$ad_cat->id)->where('status','=','Enable')->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->orderBy('order','ASC')->get() as $data)
 
                                             <div class="swiper-slide">
-                                                <a href="{{$data->link}}" target="_blank">
-                                                    <img src="{{url('files/homepage_advertisement',$data->image)}}" class="img-fluid" alt="" style="object-fit:cover; height: 210px;">
-                                                </a>
+                                                <img src="{{url('files/homepage_advertisement',$data->image)}}" class="img-fluid" alt="" style="object-fit:cover; height: 210px;" data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                                <input type="hidden" value="{{$data->link}}" class="ad-link">
                                             </div>  
 
                                         @endforeach                                                                        
@@ -187,6 +185,31 @@
     <h1 align="center">Select a Country</h1>
 
     @endif
+
+
+
+    <!-- Ad Modal -->
+<div class="modal fade" id="ad-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-12">
+                <img src="" alt="" id="modal-ad-img" class="img-fluid w-100" style="object-fit: cover;">
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="" type="button" class="btn btn-primary" id="modal-ad-link" target="_blank">More Details</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
     
@@ -683,8 +706,8 @@
     <script>
         function initMap() {
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 3,
-                center: { lat: -28.024, lng: 140.887 },
+                zoom: 7,
+                center: { lat: 7.8731, lng: 80.7718 },
             });
 
             const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -1281,5 +1304,18 @@
         $('#modal-id').val(value);
     });
 </script> -->
+
+
+<script>
+            $('.swiper-slide img').on('click', function() {
+                let img = $(this).attr('src');
+                let link = $(this).next().val();
+
+                $('#modal-ad-img').attr('src', img);
+                $('#modal-ad-link').attr('href', link);
+
+                
+            });
+        </script>
 
 @endpush

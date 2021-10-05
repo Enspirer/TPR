@@ -446,7 +446,7 @@ class HomeController extends Controller
 
 
         // dd($filteredProperty);
-        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads]);
+        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type]);
     }
 
 
