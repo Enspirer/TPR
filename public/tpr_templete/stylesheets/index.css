@@ -13,7 +13,7 @@
 /* search */
 .search {
     position: absolute;
-    top: 28rem;
+    top: 27.5rem;
     padding: 2.3rem 0rem;
     z-index: 1;
 }
@@ -26,6 +26,25 @@
 /* .search .nav-pills .nav-link.active, .search .nav-pills .show>.nav-link {
     color: red!important;
 } */
+
+#pills-residential .residential {
+    width: 35%!important;
+}
+
+#pills-residential select {
+    font-size: 0.9rem!important;
+    color: #999;
+}
+
+#pills-commercial .commercial {
+    width: 25%!important;
+}
+
+#pills-commercial select {
+    font-size: 0.9rem!important;
+    color: #999;
+}
+
 
 .search .nav .active {
     border-top: 5px solid red!important;
@@ -58,9 +77,14 @@
 
 .swiper {
     padding-bottom: 35px!important;
+    padding-top: 35px!important;
 }
 .swiper-pagination {
-    bottom: 0px!important;
+    bottom: 5px!important;
+}
+
+.swiper-slide img {
+    cursor: pointer;
 }
 
 

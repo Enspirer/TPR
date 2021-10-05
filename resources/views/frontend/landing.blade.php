@@ -180,6 +180,7 @@
                                 @if($advertisement->image !== null)
                                     <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
                                     <input type="hidden" value="{{$advertisement->link}}" class="ad-link">
+                                    <input type="hidden" value="{{$advertisement->description}}" class="ad-description">
                                 @else
                                 <div style="border-style: dashed;border-width: 1px; height:100%;">
                                     <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
@@ -190,6 +191,7 @@
                                 @if($advertisement->large_right_image !== null)
                                     <img src="{{url('files/global_advertisement/',$advertisement->large_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
                                     <input type="hidden" value="{{$advertisement->large_right_link}}" class="ad-link">
+                                    <input type="hidden" value="{{$advertisement->large_right_description}}" class="ad-description">
                                 @else
                                 <div style="border-style: dashed;border-width: 1px; height:100%;">
                                     <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
@@ -202,6 +204,7 @@
                                 @if($advertisement->small_left_image !== null)
                                     <img src="{{url('files/global_advertisement/',$advertisement->small_left_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
                                     <input type="hidden" value="{{$advertisement->small_left_link}}" class="ad-link">
+                                    <input type="hidden" value="{{$advertisement->small_left_description}}" class="ad-description">
                                 @else
                                 <div style="border-style: dashed;border-width: 1px; height:100%;">
                                     <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -212,6 +215,7 @@
                                 @if($advertisement->small_middle_image !== null)
                                     <img src="{{url('files/global_advertisement/',$advertisement->small_middle_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
                                     <input type="hidden" value="{{$advertisement->small_middle_link}}" class="ad-link">
+                                    <input type="hidden" value="{{$advertisement->small_middle_description}}" class="ad-description">
                                 @else
                                 <div style="border-style: dashed;border-width: 1px; height:100%;">
                                     <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -222,6 +226,7 @@
                                 @if($advertisement->small_right_image !== null)
                                     <img src="{{url('files/global_advertisement/',$advertisement->small_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
                                     <input type="hidden" value="{{$advertisement->small_right_link}}" class="ad-link">
+                                    <input type="hidden" value="{{$advertisement->small_right_description}}" class="ad-description">
                                 @else
                                 <div style="border-style: dashed;border-width: 1px; height:100%;">
                                     <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -259,6 +264,7 @@
                                         @if($advertisement->image !== null)
                                             <img src="{{url('files/global_advertisement/', $data->image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
                                             <input type="hidden" value="{{$advertisement->link}}" class="ad-link">
+                                            <input type="hidden" value="{{$advertisement->description}}" class="ad-description">
                                         @else
                                         <div style="border-style: dashed;border-width: 1px; height:100%;">
                                             <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
@@ -269,6 +275,7 @@
                                         @if($advertisement->large_right_image !== null)
                                             <img src="{{url('files/global_advertisement/',$data->large_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
                                             <input type="hidden" value="{{$advertisement->large_right_link}}" class="ad-link">
+                                            <input type="hidden" value="{{$advertisement->large_right_description}}" class="ad-description">
                                         @else
                                         <div style="border-style: dashed;border-width: 1px; height:100%;">
                                             <h6 style="margin-top:130px; color:#808080;">Advertisement Are Not Found</h6>
@@ -281,6 +288,7 @@
                                         @if($advertisement->small_left_image !== null)
                                             <img src="{{url('files/global_advertisement/',$data->small_left_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
                                             <input type="hidden" value="{{$advertisement->small_left_link}}" class="ad-link">
+                                            <input type="hidden" value="{{$advertisement->small_left_description}}" class="ad-description">
                                         @else
                                         <div style="border-style: dashed;border-width: 1px; height:100%;">
                                             <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -291,6 +299,7 @@
                                         @if($advertisement->small_middle_image !== null)
                                             <img src="{{url('files/global_advertisement/',$data->small_middle_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
                                             <input type="hidden" value="{{$advertisement->small_middle_link}}" class="ad-link">
+                                            <input type="hidden" value="{{$advertisement->small_middle_description}}" class="ad-description">
                                         @else
                                         <div style="border-style: dashed;border-width: 1px; height:100%;">
                                             <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -301,6 +310,7 @@
                                         @if($advertisement->small_right_image !== null)
                                             <img src="{{url('files/global_advertisement/',$data->small_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
                                             <input type="hidden" value="{{$advertisement->small_right_link}}" class="ad-link">
+                                            <input type="hidden" value="{{$advertisement->small_right_description}}" class="ad-description">
                                         @else
                                         <div style="border-style: dashed;border-width: 1px; height:100%;">
                                             <h6 style="margin-top:80px; color:#808080;">Advertisement Are Not Found</h6>
@@ -334,7 +344,9 @@
       <div class="modal-body">
         <div class="row">
             <div class="col-12">
-                <img src="" alt="" id="modal-ad-img" class="img-fluid w-100" style="object-fit: cover;">
+                <img src="" alt="" id="modal-ad-img" class="img-fluid w-100" style="object-fit: cover; height: 20rem">
+                <!-- <input name="description" id="modal-ad-description" class="form-control mt-3"></input> -->
+                <p class="mt-3" id="modal-ad-description" style="text-align: justify;"></p>
             </div>
         </div>
       </div>
@@ -604,9 +616,11 @@ type="text/javascript"></script> -->
             $('.swiper-slide img').on('click', function() {
                 let img = $(this).attr('src');
                 let link = $(this).next().val();
+                let description = $(this).siblings('.ad-description').val();
 
                 $('#modal-ad-img').attr('src', img);
                 $('#modal-ad-link').attr('href', link);
+                $('#modal-ad-description').text(description);
 
                 
             });
