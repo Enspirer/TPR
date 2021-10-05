@@ -135,6 +135,13 @@
                                                 <option selected disabled value="">Choose...</option>
                                                 <option value="Commercial">Commercial</option>
                                                 <option value="Residential">Residential</option>
+
+                                                @if(is_country_manager(auth()->user()->id))
+                                                <option value="TP_Developer">TP Developer</option>
+                                                <option value="Investments">Investments</option>
+                                                @endif
+
+
                                             </select>
                                         </div>  
                                     </div>
