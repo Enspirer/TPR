@@ -137,6 +137,12 @@
                                             <select class="form-select" aria-label="category" id="category" name="category">
                                                 <option value="Commercial" {{ $property->main_category == 'Commercial' ? "selected" : "" }}>Commercial</option>
                                                 <option value="Residential" {{ $property->main_category == 'Residential' ? "selected" : "" }}>Residential</option>
+                                            
+                                                @if(is_country_manager(auth()->user()->id))
+                                                <option value="TP_Developer" {{ $property->main_category == 'TP_Developer' ? "selected" : "" }}>TP Developer</option>
+                                                <option value="Investments" {{ $property->main_category == 'Investments' ? "selected" : "" }}>Investments</option>
+                                                @endif
+
                                             </select>
                                         </div>  
                                     </div>

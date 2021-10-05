@@ -9,19 +9,8 @@
 .user-settings .form-control {
     padding: 16px!important;
 } */
-
-.profile-settings a {
-    color: white;
-    font-size: 1.1rem;
-}
-
-.profile-settings a:hover {
-    color: black!important;
-}
-
 .profile-settings a.active {
-    background-color: #fd7b00;
-    color:white!important;
+    font-weight: 800!important;
 }
 
 #nav-communication label {
@@ -74,10 +63,10 @@
 
 
 .account-dashboard-cards {
-    /* border: 3px solid #94ca60; */
+    border: 3px solid #94ca60;
     display: inline-block;
-    /* border-radius: 80px; */
-    color: black;
+    border-radius: 80px;
+    color: #ff8000;
 }
 
 
@@ -120,10 +109,4 @@
 
 .ad-hide {
     display: block!important;
-}
-
-
-.user-settings-head {
-    color: #000000;
-    opacity: 0.5;
 }
