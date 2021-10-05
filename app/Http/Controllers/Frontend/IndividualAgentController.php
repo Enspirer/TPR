@@ -32,11 +32,19 @@ class IndividualAgentController extends Controller
         $res_properties = Properties::where('user_id',$agent_details->user_id)->where('main_category','=','Residential')->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->get();
         // dd($res_properties);
 
+        $tp_properties = Properties::where('user_id',$agent_details->user_id)->where('main_category','=','TP_Developer')->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->get();
+        // dd($tp_properties);
+
+        $invest_properties = Properties::where('user_id',$agent_details->user_id)->where('main_category','=','Investments')->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->get();
+        // dd($invest_properties);
+
         return view('frontend.individual-agent',[
            'agent_details' => $agent_details,
            'all_properties' => $all_properties,
            'com_properties' => $com_properties,
-           'res_properties' => $res_properties
+           'res_properties' => $res_properties,
+           'tp_properties' => $tp_properties,
+           'invest_properties' => $invest_properties
         ]);
     }
 
