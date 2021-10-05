@@ -123,7 +123,7 @@
 
                     </ul>
 
-                    <div class="tab-content mt-5 p-4" id="tabs-tabContent" style="background-color : #ECECEC">
+                    <div class="tab-content mt-5 p-4 pb-0" id="tabs-tabContent" style="background-color : #ECECEC">
 
                         <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
                             

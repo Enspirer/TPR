@@ -49,6 +49,13 @@
     font-weight: 600;
 }
 
+.swiper {
+    padding-bottom: 35px!important;
+}
+.swiper-pagination {
+    bottom: 0px!important;
+}
+
 
 
 

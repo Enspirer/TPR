@@ -151,9 +151,15 @@
 
         @foreach($global_categories as $key => $global_category)
 
-            <li class="nav-item landing-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-                <a class="nav-link tabs text-uppercase" id="tab-id{{ $global_category->id }}" data-bs-toggle="tab" data-bs-target="#tab{{ $global_category->id }}" type="button" role="tab" aria-controls="tab-{{ $global_category->id }}" aria-selected="false">{{ $global_category->name }}</a>
-            </li>   
+            @if(App\Models\GlobalAdvertisement::where('global_category',$global_category->id)->first() == null)
+
+            @else
+
+                <li class="nav-item landing-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                    <a class="nav-link tabs text-uppercase" id="tab-id{{ $global_category->id }}" data-bs-toggle="tab" data-bs-target="#tab{{ $global_category->id }}" type="button" role="tab" aria-controls="tab-{{ $global_category->id }}" aria-selected="false">{{ $global_category->name }}</a>
+                </li>   
+
+            @endif
                     
         @endforeach
         
@@ -319,7 +325,7 @@
 
 <!-- Ad Modal -->
 <div class="modal fade" id="ad-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
@@ -334,7 +340,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="" type="button" class="btn btn-primary" id="modal-ad-link">More Details</a>
+        <a href="" type="button" class="btn btn-primary" id="modal-ad-link" target="_blank">More Details</a>
       </div>
     </div>
   </div>
