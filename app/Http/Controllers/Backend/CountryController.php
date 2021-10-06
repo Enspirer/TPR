@@ -57,20 +57,37 @@ class CountryController extends Controller
 
     public function store(Request $request)
     {        
-        // dd($request);
+        dd($request);
+
+
+
+        $request->validate(
+            [
+                'lat' => 'required',
+                'phone_number' => 'required'
+            ],
+            [
+                'lat.required' => 'Country must need to point in the map',
+                'phone_number.required' => 'Add at least one phone number'
+            ]
+        );
 
 
         $user = User::where('email',$request->country_manager)->first();
 
         $addcountry = new Country;
 
-        $addcountry->country_name=$request->country_name; 
+        $addcountry->country_name=$request->country;
+        $addcountry->latitude=$request->lat;
+        $addcountry->longitude=$request->lng;
+
         $addcountry->slug=$request->slug;        
         $addcountry->currency=$request->currency;
         $addcountry->currency_rate=$request->currency_rate;
         $addcountry->country_id=$request->country_id;
         $addcountry->user_id = auth()->user()->id;
 
+        
         $addcountry->country_manager=$user->id;
 
         $addcountry->features_flag=$request->features_flag;
@@ -97,18 +114,32 @@ class CountryController extends Controller
 
     public function update(Request $request)
     {    
+        // dd($request);
+
+        $request->validate(
+            [
+                'lat' => 'required'
+            ],
+            [
+                'lat.required' => 'Country must need to point in the map'
+            ]
+        );
 
         $user = User::where('email',$request->country_manager)->first();
 
         $updatcountry = new Country;
 
-        $updatcountry->country_name=$request->country_name; 
+        $updatcountry->country_name=$request->country;
+        $updatcountry->latitude=$request->lat;
+        $updatcountry->longitude=$request->lng;
+
         $updatcountry->slug=$request->slug;        
         $updatcountry->currency=$request->currency;
         $updatcountry->currency_rate=$request->currency_rate;
         $updatcountry->country_id=$request->country_id;
         $updatcountry->user_id = auth()->user()->id;
 
+   
         $updatcountry->country_manager=$user->id;
 
         $updatcountry->features_flag=$request->features_flag;
