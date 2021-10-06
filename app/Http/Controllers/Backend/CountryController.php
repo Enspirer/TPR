@@ -57,21 +57,33 @@ class CountryController extends Controller
 
     public function store(Request $request)
     {        
-        dd($request);
-
-
+        // dd($request);
 
         $request->validate(
             [
                 'lat' => 'required',
-                'phone_number' => 'required'
+                'phone_numbers' => 'required'
             ],
             [
                 'lat.required' => 'Country must need to point in the map',
-                'phone_number.required' => 'Add at least one phone number'
+                'phone_numbers.required' => 'Add at least one phone number'
             ]
         );
 
+        $phone_numbers = $request->phone_numbers;
+        // dd($phone_numbers);
+
+        $final_array = [];
+                    
+        foreach($phone_numbers as $key => $number){
+
+            $item_group = [                            
+                'number' => $number
+            ];
+
+            array_push($final_array,$item_group);
+        }      
+        // dd($phone_numbers);     
 
         $user = User::where('email',$request->country_manager)->first();
 
@@ -85,14 +97,16 @@ class CountryController extends Controller
         $addcountry->currency=$request->currency;
         $addcountry->currency_rate=$request->currency_rate;
         $addcountry->country_id=$request->country_id;
-        $addcountry->user_id = auth()->user()->id;
-
-        
+        $addcountry->user_id = auth()->user()->id;        
         $addcountry->country_manager=$user->id;
-
         $addcountry->features_flag=$request->features_flag;
         $addcountry->status=$request->status;
-        // $addcountry->features_manager=$request->features_manager;
+
+        $addcountry->phone_numbers=json_encode($final_array);
+        $addcountry->opening_hours=$request->opening_hours;
+        $addcountry->address=$request->address;
+
+
         $addcountry->save();
 
         return redirect()->route('admin.country.index')->withFlashSuccess('Added Successfully');  
@@ -118,12 +132,29 @@ class CountryController extends Controller
 
         $request->validate(
             [
-                'lat' => 'required'
+                'lat' => 'required',
+                'phone_numbers' => 'required'
             ],
             [
-                'lat.required' => 'Country must need to point in the map'
+                'lat.required' => 'Country must need to point in the map',
+                'phone_numbers.required' => 'Add at least one phone number'
             ]
         );
+
+        $phone_numbers = $request->phone_numbers;
+        // dd($phone_numbers);
+
+        $final_array = [];
+                    
+        foreach($phone_numbers as $key => $number){
+
+            $item_group = [                            
+                'number' => $number
+            ];
+
+            array_push($final_array,$item_group);
+        }      
+        // dd($phone_numbers); 
 
         $user = User::where('email',$request->country_manager)->first();
 
@@ -144,7 +175,10 @@ class CountryController extends Controller
 
         $updatcountry->features_flag=$request->features_flag;
         $updatcountry->status=$request->status;
-        // $updatcountry->features_manager=$request->features_manager;
+
+        $updatcountry->phone_numbers=json_encode($final_array);
+        $updatcountry->opening_hours=$request->opening_hours;
+        $updatcountry->address=$request->address;
    
         Country::whereId($request->hidden_id)->update($updatcountry->toArray());
 
