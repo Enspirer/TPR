@@ -11,6 +11,7 @@ use DB;
 use App\Models\ContactUs;
 use Mail;
 use \App\Mail\ContactUsMail;
+use App\Models\Auth\User;
 
 /**
  * Class ContactController.
@@ -57,6 +58,30 @@ class ContactController extends Controller
     public function landingContact()
     {
         return view('frontend.landing_contact');
+    }
+
+
+    public function manager_contact_store(Request $request)
+    {        
+        // dd($request);     
+   
+       
+
+        $country_manager_email = User::where('id',$request->country_manager)->first();
+        dd($country_manager_email); 
+
+        $details = [
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'message' => $request->message
+        ];
+
+        \Mail::to([$country_manager_email->email,'nihsaan.enspirer@gmail.com'])->send(new ContactUsMail($details));
+       
+        session()->flash('message','Thanks!');
+
+        return back();    
     }
 
 }
