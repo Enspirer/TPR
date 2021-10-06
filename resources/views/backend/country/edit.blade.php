@@ -17,7 +17,7 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <label for="map" class="form-label mb-2 mt-4 required">Location</label>
+                                <label for="map" class="form-label mb-2 mt-3 required">Select a Country</label>
                                 <div id="map" style="width: 100%; height: 400px;"></div>
                                 <input type="hidden" name="lat" id="lat" class="mt-3" value="{{ $country->latitude }}">
                                 <input type="hidden" name="lng" id="lng" class="mt-3" value="{{ $country->longitude }}">
@@ -130,7 +130,7 @@
                                         @foreach(json_decode($country->phone_numbers) as $key => $count)
                                             <div class="input-group mb-3">
                                                 
-                                                <input type="text" name="phone_numbers[]" class="form-control m-input" value="{{ $count->number }}" autocomplete="off" required>
+                                                <input type="number" name="phone_numbers[]" class="form-control m-input" value="{{ $count->number }}" autocomplete="off" required>
                                                 
                                                 <div class="input-group-append">                
                                                     <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
@@ -169,7 +169,7 @@
             var html = '';
             html += '<div id="inputFormRow">';
             html += '<div class="input-group mb-3">';
-            html += '<input type="text" name="phone_numbers[]" class="form-control m-input" autocomplete="off" required>';
+            html += '<input type="number" name="phone_numbers[]" class="form-control m-input" autocomplete="off" required>';
             html += '<div class="input-group-append">';
             html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
             html += '</div>';
