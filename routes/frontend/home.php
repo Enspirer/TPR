@@ -28,9 +28,9 @@ Route::get('/', [HomeController::class, 'landing'])->name('landing');
 Route::get('country/{country_id}', [HomeController::class, 'index'])->name('home_page');
 
 Route::get('country/{country_id}/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('manager_contact/insert', [ContactController::class, 'manager_contact_store'])->name('manager_contact_store.store');
 
 Route::get('contact', [ContactController::class, 'landingContact'])->name('landing_contact');
-
 Route::post('contact/insert', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('find-agent/{area}/{agent_type}/{agent_name}', [FindAgentController::class, 'index'])->name('find-agent');
