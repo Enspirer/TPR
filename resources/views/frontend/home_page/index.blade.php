@@ -433,7 +433,7 @@
 
         function initMap() {
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 7,
+                zoom: 5,
                 center: { lat: parseInt(lat), lng: parseInt(lng) },
             });
 
