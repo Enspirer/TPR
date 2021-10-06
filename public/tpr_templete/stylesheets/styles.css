@@ -55,9 +55,9 @@ p {
     width: 140px;
 }
 
-.nav-hover {
+/* .nav-hover {
     font-weight: 1000!important;
-}
+} */
 .nav1 {
     padding: 0 1.5rem;
     /* border-right: 0.5px solid #C0C0C0; */
@@ -71,21 +71,25 @@ p {
     top: 3.5rem;
     z-index: 2;
 }
-.second-nav .line {
+.line {
     text-align: center;
     height: 2px;
     width: 0px;
-    background-color: green;
+    background-color: red;
     transition-property: all;
     transition-duration: 0.3s;
     margin: 0 auto;
     visibility: hidden;
 }
-.nav2 .active {
+/* .nav2 .active {
     border-bottom: 1px solid black!important;
-}
+} */
 .nav2 .dropdown-menu {
     min-width: 12rem!important;
+}
+
+.navbar .active {
+    border-bottom: 2px solid red;
 }
 
 

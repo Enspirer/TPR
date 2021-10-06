@@ -54,13 +54,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
                 <ul class="navbar-nav">
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500">
-                        <a class="nav-link text-white fw-bold" href="{{ route('frontend.map-search' )}}">Map Search</a>
+                        <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'map-search' ? 'active' : null }}" href="{{ route('frontend.map-search' )}}">Map Search</a>
+                        <div class="line"></div>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
-                        <a class="nav-link text-white fw-bold" href="{{ route('frontend.find-agent', ['area', 'agent_type', 'agent_name'] )}}">Find Agent</a>
+                        <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'find-agent' ? 'active' : null }}" href="{{ route('frontend.find-agent', ['area', 'agent_type', 'agent_name'] )}}">Find Agent</a>
+                        <div class="line"></div>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
                         <a class="nav-link text-white fw-bold" href="#">Market Trends</a>
+                        <div class="line"></div>
                     </li>
 
                     @auth
@@ -79,10 +82,12 @@
                         </li>
                     @else
                         <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
-                            <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.login')}}">Login <i class="bi bi-person-check"></i></a>
+                            <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'login' ? 'active' : null }}" href="{{route('frontend.auth.login')}}">Login <i class="bi bi-person-check"></i></a>
+                            <div class="line"></div>
                         </li>
                         <li class="nav-item join" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" style="padding-left : 2rem">
-                            <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
+                            <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'register' ? 'active' : null }}" href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
+                            <div class="line"></div>
                         </li>
                     @endauth
 
@@ -101,11 +106,11 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400">
-                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type'] )}}">Residential</a>
+                        <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'residential' ? 'active' : null }}" href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type'] )}}">Residential</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">
-                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type'] )}}">Commercial</a>
+                        <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'commercial' ? 'active' : null }}" href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type'] )}}">Commercial</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="600">
@@ -115,7 +120,7 @@
                     <li class="nav-item nav2 contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">
                     @if(isset(get_country_cookie(request())->country_id))
                         @if(isset(get_country_cookie(request())->country_id))
-                            <a class="nav-link text-body fw-bold" href="{{ route('frontend.contact', get_country_cookie(request())->country_id) }}">Contact Us</a>
+                            <a class="nav-link text-body fw-bold {{ Request::segment(3) == 'contact' ? 'active' : null }}" href="{{ route('frontend.contact', get_country_cookie(request())->country_id) }}">Contact Us</a>
                             <div class="line"></div>
                         @endif
                     @endif
@@ -235,14 +240,14 @@
 
 @push('after-scripts')
 <script>
-        $('.first-nav .nav-item').on('mouseenter', function(){
-            $(this).children('.nav-link').addClass('nav-hover');
-        }).on('mouseleave', function() {
-            $(this).children('.nav-link').removeClass('nav-hover');
-        });
+        // $('.first-nav .nav-item').on('mouseenter', function(){
+        //     $(this).children('.nav-link').addClass('nav-hover');
+        // }).on('mouseleave', function() {
+        //     $(this).children('.nav-link').removeClass('nav-hover');
+        // });
 
 
-        $('.second-nav .nav-item').on('mouseenter', function(){
+        $('.nav-item').on('mouseenter', function(){
             $(this).children('.line').css({'visibility' : 'visible', 'width' : '100%'});
         }).on('mouseleave', function() {
             $(this).children('.line').css({'visibility' : 'hidden', 'width' : '0'});

@@ -9,6 +9,9 @@
     visibility: hidden;
 }
 
+.active{
+    border-bottom: 2px solid red;
+}
 
 #featured-properties .card-title {
     color: #83BC3E;
