@@ -109,7 +109,6 @@
                         
                     </div>
                 </div>
-                <!-- <button type="submit" class="btn btn-success pull-right"></button><br> -->
             </div><br>  
             
             <div class="col-md-4">
@@ -133,7 +132,7 @@
                                     <div id="inputFormRow">
                                         <div class="input-group mb-3">
                                             
-                                            <input type="text" name="phone_number[]" class="form-control m-input" autocomplete="off" required>
+                                            <input type="text" name="phone_numbers[]" class="form-control m-input" autocomplete="off" required>
                                             
                                             <div class="input-group-append">                
                                                 <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
@@ -176,7 +175,7 @@
             var html = '';
             html += '<div id="inputFormRow">';
             html += '<div class="input-group mb-3">';
-            html += '<input type="text" name="phone_number[]" class="form-control m-input" autocomplete="off" required>';
+            html += '<input type="text" name="phone_numbers[]" class="form-control m-input" autocomplete="off" required>';
             html += '<div class="input-group-append">';
             html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
             html += '</div>';
