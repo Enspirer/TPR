@@ -7,15 +7,15 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
                 <ul class="navbar-nav align-items-center">
-                    <li class="nav-item nav1 mx-3" data-aos="fade-left" data-aos-duration="500">
+                    <li class="nav-item nav1 mx-2" data-aos="fade-left" data-aos-duration="500">
                         <a class="nav-link text-white fw-bold p-0" href="{{ route('frontend.landing') }}">Home</a>
                         <div class="line"></div>
                     </li>
-                    <li class="nav-item nav1 mx-3" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
+                    <li class="nav-item nav1 mx-2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
                         <a class="nav-link text-white fw-bold p-0" href="{{ route('frontend.about-us') }}">About Us</a>
                         <div class="line"></div>
                     </li>
-                    <li class="nav-item nav1 mx-3" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
+                    <li class="nav-item nav1 mx-2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
                         <a class="nav-link text-white fw-bold p-0" href="{{ route('frontend.landing_contact') }}">Contact Us</a>
                         <div class="line"></div>
                     </li>
