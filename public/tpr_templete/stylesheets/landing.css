@@ -117,9 +117,11 @@
 }
 .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
     font-size: 2rem!important;
+    opacity: 0.5;
 }
 .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
     font-size: 2rem!important;
+    opacity: 0.5;
 }
 
 .mySwiper2 {

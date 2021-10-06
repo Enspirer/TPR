@@ -58,7 +58,7 @@
 
                     </ul>
 
-                    <div class="tab-content mt-5 py-0" id="tabs-tabContent" style="background-color : #ECECEC">
+                    <div class="tab-content mt-5 py-0" id="tabs-tabContent">
 
                         <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
                             
@@ -434,7 +434,7 @@
         function initMap() {
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 7,
-                center: { lat: lat, lng: lng },
+                center: { lat: parseInt(lat), lng: parseInt(lng) },
             });
 
             const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
