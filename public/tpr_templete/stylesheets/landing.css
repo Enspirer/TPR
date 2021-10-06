@@ -9,7 +9,7 @@
     visibility: hidden;
 }
 
-.active{
+.landing_nav .active{
     border-bottom: 2px solid red;
 }
 
