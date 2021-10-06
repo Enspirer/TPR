@@ -103,7 +103,7 @@
 
     <!-- agent tabs -->
     <section id="agent-tabs">
-        <div class="container" style="margin-top: 6rem;">
+        <div class="container" style="margin-top: 6rem; margin-bottom:5rem;">
             <h4 class="fw-bold">All ads from {{ $agent_details->name }}</h4>
 
             @if(count($all_properties) == 0)
@@ -500,36 +500,6 @@
                     </div>
 
                 </div>
-
-                
-
-                <div class="row">
-                    <div class="clearfix">
-                        <div class="float-start">
-                            <!-- <p style="color: #EFCAD8;">Showing page <span style="font-weight: 1000; color: #E88EAF;">1</span> of 7</p> -->
-                        </div>
-                        <div class="float-end">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                <!-- <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true"><i class="bi bi-chevron-left" style="color: #E88EAF;"></i></span>
-                                    </a>
-                                </li> -->
-                                <!-- <li class="page-item active shadow-sm me-2"><a class="page-link" href="">1</a></li>
-                                <li class="page-item shadow-sm me-2"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item shadow-sm me-2"><a class="page-link" href="">3</a></li> -->
-                                {{ $all_properties->render() }}
-                                <!-- <li class="page-item shadow-sm me-2">
-                                    <a class="page-link" href="" aria-label="Next">
-                                    <span aria-hidden="true"><i class="bi bi-chevron-right" style="color: #E88EAF;"></i></span>
-                                    </a>
-                                </li> -->
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
             @endif
         </div>
     </section>
@@ -537,7 +507,7 @@
 
 
     <!--get app-->
-    <section id="index-get-app">
+    <!-- <section id="index-get-app">
         <div class="container-fluid p-0 get-app" style="margin-top: 10rem;">
             <div class="container">
                 <div class="row py-5 align-items-center justify-content-center">
@@ -551,7 +521,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
 

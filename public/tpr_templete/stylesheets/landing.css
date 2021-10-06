@@ -1,3 +1,15 @@
+.landing_nav .line {
+    text-align: center;
+    height: 2px;
+    width: 0px;
+    background-color: red;
+    transition-property: all;
+    transition-duration: 0.3s;
+    margin: 0 auto;
+    visibility: hidden;
+}
+
+
 #featured-properties .card-title {
     color: #83BC3E;
 }
@@ -95,4 +107,31 @@
 
 .swiper-slide img {
     cursor: pointer;
+}
+
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: 65px!important;
+}
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 65px!important;
+}
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+    font-size: 2rem!important;
+    opacity: 0.5;
+}
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+    font-size: 2rem!important;
+    opacity: 0.5;
+}
+
+.mySwiper2 {
+    padding-bottom: 35px!important;
+    padding-right: 28px!important;
+    padding-left: 28px!important;
+}
+.mySwiper2 .swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: 0px!important;
+}
+.mySwiper2 .swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 0px!important;
 }

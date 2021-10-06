@@ -108,7 +108,7 @@
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav2 contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">
-                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.contact') }}">Contact Us</a>
+                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.contact', get_country_cookie(request())->country_id) }}">Contact Us</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">

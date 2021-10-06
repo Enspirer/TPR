@@ -11,7 +11,7 @@
 
     <!--residential property search-->
     <section id="residential-property-search">
-        <div class="container pe-0" style="margin-top:5rem">
+        <div class="container pe-0" style="margin-top:5rem; margin-bottom:5rem;">
             <h3 class="fw-bolder text-center">Interactive Property Search</h3>
 
             <div class="row mt-4">
@@ -88,7 +88,7 @@
 
 
     <!--get app-->
-    <section id="get-app">
+    <!-- <section id="get-app">
         <div class="container-fluid p-0 get-app" style="margin-top: 10rem;">
             <div class="container">
                 <div class="row py-5 align-items-center justify-content-center">
@@ -102,7 +102,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
     @push('before-scripts')

@@ -45,7 +45,7 @@
 
     <!--directory-->
     <section id="directory">
-        <div class="container" style="margin-top: 6rem;">
+        <div class="container" style="margin-top: 6rem; margin-bottom: 5rem;">
 
         @if(get_country_cookie(request()))
             <h3 class="fw-bolder">Directory of Real Estate Agents / Brokers / Realtors in {{ get_country_cookie(request())->country_name }}</h3>
@@ -136,7 +136,7 @@
 
 
      <!--get app-->
-     <section id="index-get-app">
+     <!-- <section id="index-get-app">
         <div class="container-fluid p-0 get-app" style="margin-top: 10rem;">
             <div class="container">
                 <div class="row py-5 align-items-center justify-content-center">
@@ -150,7 +150,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 @endsection
 

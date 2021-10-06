@@ -1,11 +1,11 @@
-@extends('frontend.layouts.theme_app')
+@extends('frontend.layouts.landing_app')
 
 @section('title', app_name() . ' | ' . __('labels.frontend.contact.box_title'))
 
 @section('content')
     
 @push('after-styles')
-    <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/map-search.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/map-search.css') }}"> -->
 @endpush
 
 
@@ -42,7 +42,7 @@
 
 
     <!--get app-->
-    <section id="get-app">
+    <!-- <section id="get-app">
         <div class="container-fluid p-0 get-app" style="margin-top: 10rem;">
             <div class="container">
                 <div class="row py-5 align-items-center justify-content-center">
@@ -56,4 +56,4 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
