@@ -1,4 +1,4 @@
-@extends('frontend.layouts.theme_app')
+@extends('frontend.layouts.landing_app')
 
 @section('title', app_name() . ' | ' . __('labels.frontend.contact.box_title'))
 

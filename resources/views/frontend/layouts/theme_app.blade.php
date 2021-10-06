@@ -98,7 +98,7 @@
                 <div class="col-3 ps-5">
                     <h5 class="fw-bolder mt-2">TITLES</h5>
                     <a href="{{ route('frontend.about-us') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list text-white">About Us</a>
-                    <a href="{{ route('frontend.contact') }}" class="mb-3 d-block text-decoration-none no-result-list text-white">Contact Us</a>
+                    <a href="{{ route('frontend.contact', get_country_cookie(request())->country_id) }}" class="mb-3 d-block text-decoration-none no-result-list text-white">Contact Us</a>
                     <a href="{{ route('frontend.mobile-apps') }}" class="mb-3 d-block text-decoration-none no-result-list text-white">Mobile Apps</a>
                 </div>
                 <div class="col-3 ps-5">

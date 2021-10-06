@@ -53,4 +53,10 @@ class ContactController extends Controller
         return back();    
     }
 
+
+    public function landingContact()
+    {
+        return view('frontend.landing_contact');
+    }
+
 }

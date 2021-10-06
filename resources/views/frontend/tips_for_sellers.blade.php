@@ -1,4 +1,4 @@
-@extends('frontend.layouts.theme_app')
+@extends('frontend.layouts.landing_app')
 
 @section('title', app_name() . ' | ' . __('labels.frontend.contact.box_title'))
 
@@ -24,7 +24,7 @@
 
 
     <!--get app-->
-    <section id="get-app">
+    <!-- <section id="get-app">
         <div class="container-fluid p-0 get-app" style="margin-top: 10rem;">
             <div class="container">
                 <div class="row py-5 align-items-center justify-content-center">
@@ -38,5 +38,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
