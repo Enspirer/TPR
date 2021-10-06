@@ -63,12 +63,9 @@ class ContactController extends Controller
 
     public function manager_contact_store(Request $request)
     {        
-        // dd($request);     
-   
-       
+        // dd($request);
 
-        $country_manager_email = User::where('id',$request->country_manager)->first();
-        dd($country_manager_email); 
+        $country_manager_email = User::where('id',$request->country_manager)->first(); 
 
         $details = [
             'name' => $request->name,
