@@ -4,6 +4,7 @@
             <div class="row logo-flag">
                 <div class="col-9">
 
+                
                     @if(get_country_cookie(request()))
                         <a href="{{route('frontend.home_page',get_country_cookie(request())->country_id)}}"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo img-fluid rounded" alt=""></a>
 
@@ -12,6 +13,10 @@
                         <img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo img-fluid rounded" alt="" data-bs-toggle="modal" data-bs-target="#countrySelection" style="cursor:pointer;">
 
                     @endif
+
+                
+
+                
 
 
 
@@ -108,8 +113,12 @@
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav2 contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">
-                        <a class="nav-link text-body fw-bold" href="{{ route('frontend.contact', get_country_cookie(request())->country_id) }}">Contact Us</a>
-                        <div class="line"></div>
+                    @if(isset(get_country_cookie(request())->country_id))
+                        @if(isset(get_country_cookie(request())->country_id))
+                            <a class="nav-link text-body fw-bold" href="{{ route('frontend.contact', get_country_cookie(request())->country_id) }}">Contact Us</a>
+                            <div class="line"></div>
+                        @endif
+                    @endif
                     </li>
                     <li class="nav-item contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">
                         <!-- @if(isset(get_country_cookie(request())->country_id))
@@ -141,6 +150,7 @@
 
                                     @endif
                                 @else
+                                    <button class="btn">Select Country</button>
 
                                 @endif
                             </a>
@@ -149,15 +159,30 @@
                                
                                 @foreach($tpr_countries as $tpr_country)
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('frontend.country_change', $tpr_country->country_id) }}"><div class="row align-items-center">
-                                                <div class="col-6">
-                                                    {{ $tpr_country->country_name }}
+                                        @if(isset(get_country_cookie(request())->country_id))
+                                            <a class="dropdown-item" href="{{ route('frontend.country_change', $tpr_country->country_id) }}"><div class="row align-items-center">
+                                                    <div class="col-6">
+                                                        {{ $tpr_country->country_name }}
+                                                    </div>
+                                                    <div class="col-6 text-end">
+                                                        <img src="https://www.countryflags.io/{{$tpr_country->country_id}}/flat/64.png" alt="" class="img-fluid" style="height: 40px;">
+                                                    </div>
                                                 </div>
-                                                <div class="col-6 text-end">
-                                                    <img src="https://www.countryflags.io/{{$tpr_country->country_id}}/flat/64.png" alt="" class="img-fluid" style="height: 40px;">
+                                            </a>
+
+                                        @else
+
+                                            <a class="dropdown-item" href="{{ route('frontend.country_change', $tpr_country->country_id) }}"><div class="row align-items-center">
+                                                    <div class="col-6">
+                                                        {{ $tpr_country->country_name }}
+                                                    </div>
+                                                    <div class="col-6 text-end">
+                                                        <img src="https://www.countryflags.io/{{$tpr_country->country_id}}/flat/64.png" alt="" class="img-fluid" style="height: 40px;">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
+                                            </a>
+
+                                        @endif
                                     </li>
                                 @endforeach
                             </ul>

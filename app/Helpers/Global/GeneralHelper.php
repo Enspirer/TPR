@@ -143,6 +143,7 @@ if (! function_exists('get_country_cookie')) {
      */
     function get_country_cookie($request)
     {
+        
         $value = $request->cookie('country_code');
 
         $country_details = Country::where('country_id',$value)->first();
