@@ -118,8 +118,19 @@
                         <a class="nav-link" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="false" style="color: #83BE43;">COMMERCIAL</a>
                     </li>
                     <li class="nav-item me-3 residential" role="presentation" style="border: 2px solid #4195E1;">
-                    <a class="nav-link" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="false" style="color: #4195E1;">RESIDENTIAL</a>
+                        <a class="nav-link" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="false" style="color: #4195E1;">RESIDENTIAL</a>
                     </li>
+
+                    @if(is_country_manager($agent_details->user_id))
+                    <li class="nav-item me-3 tp_developer" role="presentation" style="border: 2px solid #F33A6A;">
+                        <a class="nav-link" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="false" style="color: #F33A6A;">TP DEVELOPER</a>
+                    </li>
+                    <li class="nav-item me-3 investments" role="presentation" style="border: 2px solid #FF8C00;">
+                        <a class="nav-link" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="false" style="color: #FF8C00;">INVESTMENTS</a>
+                    </li>
+                    @endif
+
+
                 </ul>
 
                 <div class="tab-content mt-5" id="pills-tabContent">
@@ -140,13 +151,21 @@
                                         <div class="row mt-3">
 
                                         @if($prop->main_category == 'Commercial')
-                                            <div class="col-2 p-2">
+                                            <div class="col-2 p-1">
                                                 <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
                                             </div>
-                                        @else
-                                            <div class="col-2 p-2">
+                                        @elseif($prop->main_category == 'Residential')
+                                            <div class="col-2 p-1">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
                                             </div>
+                                        @elseif($prop->main_category == 'TP_Developer')
+                                            <div class="col-2 p-1">
+                                                <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">TP Developer</button>
+                                            </div>  
+                                        @else
+                                            <div class="col-2 p-1">
+                                                <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Investments</button>
+                                            </div>  
                                         @endif
 
                                             <div class="col-6">
@@ -208,11 +227,11 @@
                                         <div class="row mt-3">
 
                                         @if($prop->main_category == 'Commercial')
-                                            <div class="col-2 p-2">
+                                            <div class="col-2 p-1">
                                                 <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
                                             </div>
                                         @else
-                                            <div class="col-2 p-2">
+                                            <div class="col-2 p-1">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
                                             </div>
                                         @endif
@@ -276,13 +295,165 @@
                                         <div class="row mt-3">
 
                                         @if($prop->main_category == 'Commercial')
-                                            <div class="col-2 p-2">
+                                            <div class="col-2 p-1">
                                                 <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
                                             </div>
                                         @else
-                                            <div class="col-2 p-2">
+                                            <div class="col-2 p-1">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
                                             </div>
+                                        @endif
+
+                                            <div class="col-6">
+                                                @if(get_country_cookie(request()))
+
+                                                    <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
+                                    
+                                                @else
+                                                    <p class="mt-1 text-info">{{ current_price(1, $prop->price) }}</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                                    
+                                                
+                                        <p class="mt-4 mb-0" style="text-align: justify;"><b>{{$prop->name}}</b> - |
+
+                                        @if($prop->baths == null) @else Baths : {{ $prop->baths }} | @endif
+                                        @if($prop->beds == null) @else Beds : {{ $prop->beds }} | @endif
+                                        @if($prop->parking_type == null) @else Parking Type : {{ $prop->parking_type }} | @endif
+                                        @if($prop->building_type == null) @else Building Type : {{ $prop->building_type }} | @endif
+                                        @if($prop->farm_type == null) @else Farm Type : {{ $prop->farm_type }} | @endif
+                                        @if($prop->open_house_only == null) @else Open House Only : {{ $prop->open_house_only }} | @endif
+                                        @if($prop->number_of_units == null) @else Number of Units : {{ $prop->number_of_units }} | @endif
+                                        @if($prop->land_size == null) @else Land Size : {{ $prop->land_size }} | @endif
+                                        @if($prop->zoning_type == null) @else Zoning Type : {{ $prop->zoning_type }} | @endif
+                                        @if($prop->building_size == null) @else Building Size : {{ $prop->building_size }} | @endif                         
+                                    
+                                        </p>
+
+                                        <div class="row mt-3 justify-content-between">
+                                            <div class="col-8">
+                                                <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <a href="{{ route('frontend.individual-property', $prop->id) }}"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach 
+                        @endforeach
+
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-tp_developer" role="tabpanel" aria-labelledby="pills-tp_developer-tab">
+
+                        @foreach($tp_properties as $key=> $prop)
+                            @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
+                            <div class="row border py-4 px-3 mb-4">
+                                <div class="col-4">
+                                    <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:210px" width="100%" alt="" class="img-fluid">
+                                </div>
+                                <div class="col-8">
+                                    <div class="ps-2">
+                                        <div class="row">
+                                            <h5 class="fw-bolder">{{$prop->name}}</h5>
+                                        </div>
+                                        <div class="row mt-3">
+
+                                        @if($prop->main_category == 'Commercial')
+                                            <div class="col-2 p-1">
+                                                <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
+                                            </div>
+                                        @elseif($prop->main_category == 'Residential')
+                                            <div class="col-2 p-1">
+                                                <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
+                                            </div>
+                                        @elseif($prop->main_category == 'TP_Developer')
+                                            <div class="col-2 p-1">
+                                                <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">TP Developer</button>
+                                            </div>  
+                                        @else
+                                            <div class="col-2 p-1">
+                                                <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Investments</button>
+                                            </div>  
+                                        @endif
+
+                                            <div class="col-6">
+                                                @if(get_country_cookie(request()))
+
+                                                    <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
+                                    
+                                                @else
+                                                    <p class="mt-1 text-info">{{ current_price(1, $prop->price) }}</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                                    
+                                                
+                                        <p class="mt-4 mb-0" style="text-align: justify;"><b>{{$prop->name}}</b> - |
+
+                                        @if($prop->baths == null) @else Baths : {{ $prop->baths }} | @endif
+                                        @if($prop->beds == null) @else Beds : {{ $prop->beds }} | @endif
+                                        @if($prop->parking_type == null) @else Parking Type : {{ $prop->parking_type }} | @endif
+                                        @if($prop->building_type == null) @else Building Type : {{ $prop->building_type }} | @endif
+                                        @if($prop->farm_type == null) @else Farm Type : {{ $prop->farm_type }} | @endif
+                                        @if($prop->open_house_only == null) @else Open House Only : {{ $prop->open_house_only }} | @endif
+                                        @if($prop->number_of_units == null) @else Number of Units : {{ $prop->number_of_units }} | @endif
+                                        @if($prop->land_size == null) @else Land Size : {{ $prop->land_size }} | @endif
+                                        @if($prop->zoning_type == null) @else Zoning Type : {{ $prop->zoning_type }} | @endif
+                                        @if($prop->building_size == null) @else Building Size : {{ $prop->building_size }} | @endif                         
+                                    
+                                        </p>
+
+                                        <div class="row mt-3 justify-content-between">
+                                            <div class="col-8">
+                                                <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <a href="{{ route('frontend.individual-property', $prop->id) }}"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach 
+                        @endforeach
+
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-investments" role="tabpanel" aria-labelledby="pills-investments-tab">
+
+                        @foreach($invest_properties as $key=> $prop)
+                            @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
+                            <div class="row border py-4 px-3 mb-4">
+                                <div class="col-4">
+                                    <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:210px" width="100%" alt="" class="img-fluid">
+                                </div>
+                                <div class="col-8">
+                                    <div class="ps-2">
+                                        <div class="row">
+                                            <h5 class="fw-bolder">{{$prop->name}}</h5>
+                                        </div>
+                                        <div class="row mt-3">
+
+                                        @if($prop->main_category == 'Commercial')
+                                            <div class="col-2 p-1">
+                                                <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
+                                            </div>
+                                        @elseif($prop->main_category == 'Residential')
+                                            <div class="col-2 p-1">
+                                                <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
+                                            </div>
+                                        @elseif($prop->main_category == 'TP_Developer')
+                                            <div class="col-2 p-1">
+                                                <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">TP Developer</button>
+                                            </div>  
+                                        @else
+                                            <div class="col-2 p-1">
+                                                <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Investments</button>
+                                            </div>  
                                         @endif
 
                                             <div class="col-6">

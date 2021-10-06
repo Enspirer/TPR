@@ -9,120 +9,42 @@
     <form action="{{route('admin.country.store')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
+                        
                         <div class="form-group">
-                            <label for="country_name" class="form-label">Country Name</label> <br>
-                            <select class="form-select w-100 p-1" aria-label="Default select example" id="country_name" name="country_name" required>
-                                <option selected>Select Country</option>
-                                <option value="Angola">Angola</option>
-                                <option value="Anguilla">Anguilla</option>
-                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                <option value="Aruba">Aruba</option>
-                                <option value="Bahamas">Bahamas</option>
-                                <option value="Barbados">Barbados</option>
-                                <option value="Belize">Belize</option>
-                                <option value="Benin">Benin</option>
-                                <option value="Bolivia">Bolivia</option>
-                                <option value="Brazil">Brazil</option>
-                                <option value="British Virgin Islands">British Virgin Islands</option>
-                                <option value="Brunei">Brunei</option>
-                                <option value="Burkina Faso">Burkina Faso</option>
-                                <option value="Burma">Burma</option>
-                                <option value="Burundi">Burundi</option>
-                                <option value="Cambodia">Cambodia</option>
-                                <option value="Cameroon">Cameroon</option>
-                                <option value="Cayman Islands">Cayman Islands</option>
-                                <option value="Central African Republic">Central African Republic</option>
-                                <option value="Chad">Chad</option>
-                                <option value="Colombia">Colombia</option>
-                                <option value="Comoros">Comoros</option>
-                                <option value="Congo">Congo</option>
-                                <option value="Costa Rica">Costa Rica</option>
-                                <option value="Cuba">Cuba</option>
-                                <option value="Democratic Republic of Congo">Democratic Republic of Congo</option>
-                                <option value="Djibouti">Djibouti</option>
-                                <option value="Dominica">Dominica</option>
-                                <option value="Dominican Republic">Dominican Republic</option>
-                                <option value="East Timor">East Timor</option>
-                                <option value="Ecuador">Ecuador</option>
-                                <option value="El Salvador">El Salvador</option>
-                                <option value="Equatorial Guinea">Equatorial Guinea</option>
-                                <option value="Eritrea">Eritrea</option>
-                                <option value="Ethiopia">Ethiopia</option>
-                                <option value="French Guiana">French Guiana</option>
-                                <option value="Gabon">Gabon</option>
-                                <option value="Galapagos Islands">Galapagos Islands</option>
-                                <option value="Gambia">Gambia</option>
-                                <option value="Grenada">Grenada</option>
-                                <option value="Guadeloupe">Guadeloupe</option>
-                                <option value="Guatemala">Guatemala</option>
-                                <option value="Guinea">Guinea</option>
-                                <option value="Guinea-Bissau">Guinea-Bissau</option>
-                                <option value="Guyana">Guyana</option>
-                                <option value="Haiti">Haiti</option>
-                                <option value="Honduras">Honduras</option>
-                                <option value="India">India</option>
-                                <option value="Indonesia">Indonesia</option>
-                                <option value="Ivory Coast">Ivory Coast</option>
-                                <option value="Jamaica">Jamaica</option>
-                                <option value="Kenya">Kenya</option>
-                                <option value="Laos">Laos</option>
-                                <option value="Liberia">Liberia</option>
-                                <option value="Madagascar">Madagascar</option>
-                                <option value="Malawi">Malawi</option>
-                                <option value="Malaysia">Malaysia</option>
-                                <option value="Mali">Mali</option>
-                                <option value="Martinique">Martinique</option>
-                                <option value="Mauritania">Mauritania</option>
-                                <option value="Mauritius">Mauritius</option>
-                                <option value="Mayotte">Mayotte</option>
-                                <option value="Mexico">Mexico</option>
-                                <option value="Montserrat">Montserrat</option>
-                                <option value="Mozambique">Mozambique</option>
-                                <option value="Netherlands Antilles">Netherlands Antilles</option>
-                                <option value="Nicaragua">Nicaragua</option>
-                                <option value="Niger">Niger</option>
-                                <option value="Nigeria">Nigeria</option>
-                                <option value="Panama">Panama</option>
-                                <option value="Paraguay">Paraguay</option>
-                                <option value="Peru">Peru</option>
-                                <option value="Philippines">Philippines</option>
-                                <option value="Puerto Rico">Puerto Rico</option>
-                                <option value="Reunion">Reunion</option>
-                                <option value="Rwanda">Rwanda</option>
-                                <option value="Saint Barthelemy">Saint Barthelemy</option>
-                                <option value="Saint Helena">Saint Helena</option>
-                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-                                <option value="Saint Lucia">Saint Lucia</option>
-                                <option value="Saint Martin">Saint Martin</option>
-                                <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
-                                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-                                <option value="Senegal">Senegal</option>
-                                <option value="Seychelles">Seychelles</option>
-                                <option value="Sierra Leone">Sierra Leone</option>
-                                <option value="Singapore">Singapore</option>
-                                <option value="Somalia">Somalia</option>
-                                <option value="Sri Lanka">Sri Lanka</option>
-                                <option value="Sudan">Sudan</option>
-                                <option value="Suriname">Suriname</option>
-                                <option value="Tanzania">Tanzania</option>
-                                <option value="Thailand">Thailand</option>
-                                <option value="Togo">Togo</option>
-                                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                                <option value="Turks and Cacaos Islands">Turks and Cacaos Islands</option>
-                                <option value="Uganda">Uganda</option>
-                                <option value="United States Virgin Islands">United States Virgin Islands</option>
-                                <option value="Venezuela">Venezuela</option>
-                                <option value="Vietnam">Vietnam</option>
-                                <option value="Zambia">Zambia</option>
-                            </select>
+                            <label>Country Name</label>
+                            <input type="text" id="country" class="form-control" name="country" readonly required>
                         </div>
-                        <div class="form-group">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="map" class="form-label mb-2 mt-3 required">Select a Country</label>
+                                <div id="map" style="width: 100%; height: 400px;"></div>
+                                <input type="hidden" name="lat" id="lat" class="mt-3" required>
+                                <input type="hidden" name="lng" id="lng" class="mt-3" required>
+                                <!-- <input type="hidden" name="country" id="country" class="mt-3" required> -->
+
+                                @error('lat')
+                                    <div class="alert alert-danger">
+                                        <span>{{ $message }}</span>
+                                    </div>
+                                @enderror
+                                        
+                                <div class="row mt-3">
+                                    <div class="col-6">
+                                        <input id="search" class="form-control" type="text" placeholder="Search" />
+                                    </div>
+                                </div>
+                                        
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-4">
                             <label>SLUG</label>
                             <input type="text" id="slug" class="form-control" name="slug" required>
                         </div>
+
                         <div class="form-group">
                             <label>Currency</label>
                             <input type="text" class="form-control" name="currency" required>
@@ -149,13 +71,13 @@
                             <label for="country_manager" class="form-label">Country Manager</label>
                             <br>
                               
-                            <datalist class="form-group w-100" name="country_manager" id="country_manager" required>
+                            <datalist class="form-group w-100" name="country_manager" id="country_manager" >
                                 @foreach($users as $user)
                                     <option value="{{ $user->email }}">{{ $user->first_name }} {{ $user->last_name }}</option>
                                 @endforeach
                             </datalist>   
                             
-                            <input class="form-control w-100" autoComplete="on" name="country_manager" list="country_manager"/> 
+                            <input class="form-control w-100" autoComplete="on" name="country_manager" list="country_manager" required/> 
 
                         </div>
 
@@ -187,8 +109,54 @@
                         
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success pull-right">Create New</button><br>
-            </div><br>       
+                <!-- <button type="submit" class="btn btn-success pull-right"></button><br> -->
+            </div><br>  
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" class="form-control" name="address" required>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Opening Hours</label>
+                                <input type="text" class="form-control" name="opening_hours" required>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Phone Numbers</label>
+
+                                    <div id="inputFormRow">
+                                        <div class="input-group mb-3">
+                                            
+                                            <input type="text" name="phone_number[]" class="form-control m-input" autocomplete="off" required>
+                                            
+                                            <div class="input-group-append">                
+                                                <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="newRow"></div>
+                                    <button id="addRow" type="button" class="btn btn-info">Add Row</button>
+
+                                                            
+                            </div> 
+
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 text-center">
+                    <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Create New</button>
+                </div>
+            </div>
+
+            
             
         </div>
 
@@ -202,9 +170,180 @@
         });
     </script> -->
 
+    <script type="text/javascript">
+        
+        $("#addRow").click(function () {
+            var html = '';
+            html += '<div id="inputFormRow">';
+            html += '<div class="input-group mb-3">';
+            html += '<input type="text" name="phone_number[]" class="form-control m-input" autocomplete="off" required>';
+            html += '<div class="input-group-append">';
+            html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
+            html += '</div>';
+            html += '</div>';
+
+            $('#newRow').append(html);
+        });
+
+    
+        $(document).on('click', '#removeRow', function () {
+            $(this).closest('#inputFormRow').remove();
+        });
+    </script>
+
+
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap&libraries=places&v=weekly&channel=2"
+    type="text/javascript"></script>
+
+    <script>
+
+        var marker = false;
+                
+
+        function initMap() {
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 5,
+                center: { lat: -28.024, lng: 140.887 },
+            });
+
+            const geocoder = new google.maps.Geocoder();
+            const infowindow = new google.maps.InfoWindow();
+
+            google.maps.event.addListener(map, 'click', function(event) {                
+                
+                var clickedLocation = event.latLng;
+                
+
+                
+
+                if(marker === false){
+                    //Create the marker.
+                    marker = new google.maps.Marker({
+                        position: clickedLocation,
+                        map: map,
+                        draggable: true 
+                    });
+   
+                    google.maps.event.addListener(marker, 'dragend', function(event){
+                    
+                        geocodeLatLng(geocoder, map, infowindow);
+                    });
+                } else{
+
+                    marker.setPosition(clickedLocation);
+                }
+
+                geocodeLatLng(geocoder, map, infowindow);
+            });
+
+
+            const input = document.getElementById("search");
+            const search = new google.maps.places.SearchBox(input);
+            // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            // Bias the SearchBox results towards current map's viewport.
+            // map.addListener("bounds_changed", () => {
+            //     input.setBounds(map.getBounds());
+            // });
+            let markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            search.addListener("places_changed", () => {
+                const places = input.getPlaces();
+
+                if (places.length == 0) {
+                return;
+                }
+                // Clear out the old markers.
+                markers.forEach((marker) => {
+                marker.setMap(null);
+                });
+                markers = [];
+                // For each place, get the icon, name and location.
+                const bounds = new google.maps.LatLngBounds();
+                places.forEach((place) => {
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+                const icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25),
+                };
+                // Create a marker for each place.
+                markers.push(
+                    new google.maps.Marker({
+                    map,
+                    icon,
+                    title: place.name,
+                    position: place.geometry.location,
+                    })
+                );
+
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+                });
+                map.fitBounds(bounds);
+            });
+            
+        }
+
+        
+
+        function markerLocation(){
+
+            var currentLocation = marker.getPosition();
+
+            document.getElementById('lat').value = currentLocation.lat(); //latitude
+            document.getElementById('lng').value = currentLocation.lng(); //longitude 
+        }
+
+
+        function geocodeLatLng(geocoder, map, infowindow) {
+            var clickedLocation = event.latLng;
+
+            var currentLocation = marker.getPosition();
+
+            geocoder
+                .geocode({ location: currentLocation })
+                .then((response) => {
+                if (response.results[0]) {
+                    // map.setZoom(5);
+                    let marker = new google.maps.Marker({
+                    position: clickedLocation,
+                    map: map,
+                    draggable: true,
+                    add : response.results[0].formatted_address
+                    });
+                    infowindow.setContent(response.results[0].formatted_address);
+                    infowindow.open(map, marker);
+
+                    var output = marker.add.split(/[,]+/).pop();
+                    $('#country').val(output);
+
+                    markerLocation();
+
+                } else {
+                    window.alert("No results found");
+                }
+                })
+                .catch((e) => window.alert("Geocoder failed due to: " + e));
+            }
+
+    </script>          
+
+
 <script>
 
-    $("#country_name").keyup(function(){
+    $("#country").keyup(function(){
         var str = $(this).val();
         var trims = $.trim(str)
         var slug = trims.replace(/[^a-z0-9]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
