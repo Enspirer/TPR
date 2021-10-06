@@ -311,6 +311,7 @@ class AgentController extends Controller
         $parking_type = $request->parking_type;
         $beds = $request->beds;
         $baths = $request->baths;
+        $country = $request->country;
 
         $admin_approval='Pending';
         $country_manager_approval='Pending';
@@ -338,6 +339,7 @@ class AgentController extends Controller
                 'open_house_only' => $open_house_only,
                 'parking_type' => $parking_type,
                 'beds' => $beds,
+                'country' => $country,
                 'baths' => $baths,
                 'city' => $city,
                 'admin_approval' => $admin_approval,
