@@ -96,7 +96,7 @@
                     <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid" alt="" style="height: 4rem;">
                 </div>
                 <div class="col-3 ps-5">
-                    <h5 class="fw-bolder mt-2">TITLES</h5>
+                    <h5 class="fw-bolder mt-2">PAGES</h5>
                     <a href="{{ route('frontend.about-us') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list text-white">About Us</a>
                     @if(isset(get_country_cookie(request())->country_id))
                         <a href="{{ route('frontend.contact', get_country_cookie(request())->country_id) }}" class="mb-3 d-block text-decoration-none no-result-list text-white">Contact Us</a>
