@@ -4,7 +4,7 @@
 
 @section('content')
 
-
+<link rel="stylesheet" href="{{url('css/vendors.css')}}">
 
 
 <form action="{{route('admin.global_advertisement.update')}}" method="post" enctype="multipart/form-data">
