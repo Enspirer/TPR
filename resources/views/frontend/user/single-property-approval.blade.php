@@ -217,6 +217,18 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row mt-2">
+                                        <div class="col-12">
+                                            <h6 style="font-weight: 600;" class="mb-3 ms-2">Description:</h6>
+                                            <table class="table table-hover table-borderless">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>{{ $single_approval->description}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

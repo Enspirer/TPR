@@ -74,7 +74,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
-                                            <label for="name" class="form-label mb-0">Name</label>
+                                            <label for="name" class="form-label mb-0 required">Name</label>
                                             <input type="text" class="form-control" name="name" id="name" aria-describedby="name" required>
                                         </div> 
                                     </div>
@@ -89,6 +89,13 @@
 
                                             </select>
                                         </div>  
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="form-label mb-0 mt-4 required">Description</label>
+                                        <textarea class="form-control" rows="4" name="description" required></textarea>
                                     </div>
                                 </div>
 

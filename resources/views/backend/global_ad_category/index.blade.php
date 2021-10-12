@@ -22,10 +22,10 @@
                         <thead>
                             <tr>
                                 <th scope="col">#ID</th>
+                                <th scope="col">Icon</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Order</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Icon</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -47,8 +47,8 @@
                     {{csrf_field()}}
                     <div class="modal-header">
                         <h3 class="modal-title" id="ModalDeleteLabel">Delete</h3>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <!-- <span aria-hidden="true">&times;</span> -->
                         </button>
                     </div>
                     <div class="modal-body">
@@ -78,10 +78,10 @@
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
+                    {data: 'icon', name: 'icon'},
                     {data: 'name', name: 'name'},
                     {data: 'order', name: 'order'},
                     {data: 'status', name: 'status'},
-                    {data: 'icon', name: 'icon'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             }); 

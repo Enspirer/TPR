@@ -209,6 +209,22 @@
             <div class="col-md-5 p-1">
                 <div class="card">
                     <div class="card-body">
+                        <div class="" >
+                            <div class="form-group">
+                                <label style="font-weight: 600;" class="ml-2">Description:</label>
+                                <table class="table table-hover table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ $property->description}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
                         <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
                             <div class="form-group">
                                 <label>Admin Approval</label>

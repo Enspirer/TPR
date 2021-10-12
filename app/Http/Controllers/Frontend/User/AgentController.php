@@ -312,6 +312,7 @@ class AgentController extends Controller
         $beds = $request->beds;
         $baths = $request->baths;
         $country = $request->country;
+        $description = $request->description;
 
         $admin_approval='Pending';
         $country_manager_approval='Pending';
@@ -320,6 +321,7 @@ class AgentController extends Controller
         $property = DB::table('properties') ->where('id', '=', request('hid_id'))->update(
             [
                 'name' => $name,
+                'description' => $description,
                 'property_type' => $propertyType,
                 'lat' => $lat,
                 'long' => $lng,
@@ -392,6 +394,7 @@ class AgentController extends Controller
         $addprop->country_manager_approval='Pending';
         $addprop->user_id = auth()->user()->id;
         $addprop->city=$request->city;
+        $addprop->description=$request->description;
 
         $addprop->country = $request->country;      
         

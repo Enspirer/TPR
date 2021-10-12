@@ -95,6 +95,13 @@
 
                                 <div class="row">
                                     <div class="col-12">
+                                        <label class="form-label mb-0 mt-4 required">Description</label>
+                                        <textarea class="form-control" rows="4" name="description" required>{{ $property->description }}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
                                         <label for="map" class="form-label mb-2 mt-4 required">Location</label>
                                         <div id="map" style="width: 100%; height: 400px;"></div>
                                         <input type="hidden" name="lat" id="lat" class="mt-3" value="{{ $property->lat }}">

@@ -8,6 +8,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="app-url" content="{{ getBaseURL() }}">
+    <meta name="file-base-url" content="{{ getFileBaseURL() }}">
     <title>@yield('title', app_name())</title>
     <meta name="description" content="@yield('meta_description', 'Laravel Boilerplate')">
     <meta name="author" content="@yield('meta_author', 'Anthony Rappa')">
@@ -19,17 +21,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
-
-
-    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script> -->
-
   
-    
+    <link rel="stylesheet" href="{{url('css/aiz-core.css')}}">    
+
+    <script>
+        var AIZ = AIZ || {};
+        AIZ.local = {
+        nothing_selected: 'Nothing selected',
+        nothing_found: 'Nothing found',
+        choose_file: 'Choose file',
+        file_selected: 'File selected',
+        files_selected: 'Files selected',
+        add_more_files: 'Add more files',
+        adding_more_files: 'Adding more files',
+        drop_files_here_paste_or: 'Drop files here, paste or',
+        browse: 'Browse',
+        upload_complete: 'Upload complete',
+        upload_paused: 'Upload paused',
+        resume_upload: 'Resume upload',
+        pause_upload: 'Pause upload',
+        retry_upload: 'Retry upload',
+        cancel_upload: 'Cancel upload',
+        uploading: 'Uploading',
+        processing: 'Processing',
+        complete: 'Complete',
+        file: 'File',
+        files: 'Files',
+        }
+    </script>
 
 
     {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
@@ -106,6 +125,9 @@
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
+
+    <script src="{{url('js/vendors.js')}}"></script>
+    <script src="{{url('js/aiz-core.js')}}"></script>
 
     @stack('after-scripts')
 </body>
