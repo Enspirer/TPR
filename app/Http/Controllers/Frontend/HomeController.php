@@ -30,6 +30,8 @@ class HomeController extends Controller
     {
         $country = Country::where('status',1)->get();
 
+        // dd($country);
+
         $global_categories = GlobalAdCategories::where('status', 1)->orderBy('order', 'asc')->get();
 
 

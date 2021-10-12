@@ -380,7 +380,7 @@
                     {
                         "id" : "{{$countryq->country_id}}",
                         "url" : "country/{{$countryq->country_id}}",
-                        "title" : "{{$countryq->country_name}} - 0 properties",
+                        "title" : "{{$countryq->country_name}} - {{ App\Models\Properties::where('country', $countryq->country_name)->count()}} properties",
                         "color" : "#009933",
                         "rollOverColor" : "#75CFED"
                     },
