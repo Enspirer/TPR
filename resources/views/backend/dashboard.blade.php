@@ -73,7 +73,7 @@
 </style>
 
 
-<div class="container">
+
         <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <div class="card-box" style="background-color: #435560; border-radius: 15px 15px 15px 15px;">
@@ -125,7 +125,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 
 
 

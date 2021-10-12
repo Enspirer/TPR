@@ -154,85 +154,99 @@
                     </div>
 
                     <div class="features">
-                        <h4 class="fw-bold" style="margin-top: 6rem;">Features and description</h4>
+                        <h4 class="fw-bold" style="margin-top: 6rem;">Features and Description</h4>
                         <div class="row mt-4 collapse" id="collapseExample" aria-expanded="false">
                             <div class="col-12">
                                 <ul style="list-style:none; padding:0">
 
-                                <div class="row">
-                                
-                                @if($property_details->baths == null)
-                                @else
-                                    <div class="col-6">
-                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Baths : {{ $property_details->baths }}</li>
+                                    <div class="row">
+                                    
+                                    @if($property_details->baths == null)
+                                    @else
+                                        <div class="col-6">
+                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Baths : {{ $property_details->baths }}</li>
+                                        </div>
+                                    @endif 
+
+                                    @if($property_details->beds == null)
+                                    @else
+                                        <div class="col-6">
+                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Beds : {{ $property_details->beds }}</li>
+                                        </div>
+                                    @endif  
+                                                                
+                                    @if($property_details->parking_type == null)
+                                    @else
+                                        <div class="col-6">
+                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Parking Type : {{ $property_details->parking_type }}</li>
+                                        </div>
+                                    @endif 
+
+                                    @if($property_details->building_type == null)
+                                    @else
+                                        <div class="col-6">
+                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Type : {{ $property_details->building_type }}</li>
+                                        </div>
+                                    @endif 
+
+                                    @if($property_details->farm_type == null)
+                                    @else
+                                        <div class="col-6">
+                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Farm Type : {{ $property_details->farm_type }}</li>
+                                        </div>
+                                    @endif 
+
+                                    @if($property_details->open_house_only == null)
+                                    @else
+                                        <div class="col-6">
+                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Open House Only : {{ $property_details->open_house_only }}</li>
+                                        </div>
+                                    @endif 
+
+                                    @if($property_details->number_of_units == null)
+                                    @else
+                                        <div class="col-6">
+                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Number of Units : {{ $property_details->number_of_units }}</li>
+                                        </div>
+                                    @endif 
+
+                                    @if($property_details->land_size == null)
+                                    @else
+                                        <div class="col-6">
+                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Land Size : {{ $property_details->land_size }}</li>
+                                        </div>
+                                    @endif 
+
+                                    @if($property_details->zoning_type == null)
+                                    @else
+                                        <div class="col-6">
+                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Zoning Type : {{ $property_details->zoning_type }}</li>
+                                        </div>                                
+                                    @endif 
+
+                                    @if($property_details->building_size == null)
+                                    @else
+                                        <div class="col-6">
+                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Size : {{ $property_details->building_size }}</li>
+                                        </div>
+                                    @endif 
+
                                     </div>
-                                @endif 
 
-                                @if($property_details->beds == null)
-                                @else
-                                    <div class="col-6">
-                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Beds : {{ $property_details->beds }}</li>
+                                    <div class="row mt-2">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label style="font-weight: 600;" class="mb-3">Description:</label>
+                                                <table >
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>{{ $property_details->description}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
-                                @endif  
-                                                               
-                                @if($property_details->parking_type == null)
-                                @else
-                                    <div class="col-6">
-                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Parking Type : {{ $property_details->parking_type }}</li>
-                                    </div>
-                                @endif 
-
-                                @if($property_details->building_type == null)
-                                @else
-                                    <div class="col-6">
-                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Type : {{ $property_details->building_type }}</li>
-                                    </div>
-                                @endif 
-
-                                @if($property_details->farm_type == null)
-                                @else
-                                    <div class="col-6">
-                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Farm Type : {{ $property_details->farm_type }}</li>
-                                    </div>
-                                @endif 
-
-                                @if($property_details->open_house_only == null)
-                                @else
-                                    <div class="col-6">
-                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Open House Only : {{ $property_details->open_house_only }}</li>
-                                    </div>
-                                @endif 
-
-                                @if($property_details->number_of_units == null)
-                                @else
-                                    <div class="col-6">
-                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Number of Units : {{ $property_details->number_of_units }}</li>
-                                    </div>
-                                @endif 
-
-                                @if($property_details->land_size == null)
-                                @else
-                                    <div class="col-6">
-                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Land Size : {{ $property_details->land_size }}</li>
-                                    </div>
-                                @endif 
-
-                                @if($property_details->zoning_type == null)
-                                @else
-                                    <div class="col-6">
-                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Zoning Type : {{ $property_details->zoning_type }}</li>
-                                    </div>                                
-                                @endif 
-
-                                @if($property_details->building_size == null)
-                                @else
-                                    <div class="col-6">
-                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Size : {{ $property_details->building_size }}</li>
-                                    </div>
-                                @endif 
-
-                                </div>
-
 
                                 </ul>
                             </div>
@@ -249,59 +263,7 @@
                         </div>
                     </div>
 
-                    <!-- <div class="more-information">
-                        <h4 class="fw-bold" style="margin-top: 3rem;">More Information</h4>
-                        <div class="1strow">
-                            <div class="row mt-4 justify-content-between">
-                                <a href="#" class="text-decoration-none text-dark more-box ms-3">
-                                    <div class="clearfix">
-                                        <div class="float-start">
-                                            Street view
-                                        </div>
-                                        <div class="float-end">
-                                            <i class="bi bi-chevron-right"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="text-decoration-none text-dark more-box me-3">
-                                    <div class="clearfix">
-                                        <div class="float-start">
-                                            Street view
-                                        </div>
-                                        <div class="float-end">
-                                            <i class="bi bi-chevron-right"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="2ndrow">
-                            <div class="row mt-4 justify-content-between">
-                                <a href="#" class="text-decoration-none text-dark more-box ms-3">
-                                    <div class="clearfix">
-                                        <div class="float-start">
-                                            Street view
-                                        </div>
-                                        <div class="float-end">
-                                            <i class="bi bi-chevron-right"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#" class="text-decoration-none text-dark more-box me-3">
-                                    <div class="clearfix">
-                                        <div class="float-start">
-                                            Street view
-                                        </div>
-                                        <div class="float-end">
-                                            <i class="bi bi-chevron-right"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div> -->
+                    
                 </div>
 
                 <div class="col-4 px-5">
