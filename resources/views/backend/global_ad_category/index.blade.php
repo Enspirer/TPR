@@ -22,10 +22,10 @@
                         <thead>
                             <tr>
                                 <th scope="col">#ID</th>
+                                <th scope="col">Icon</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Order</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Icon</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -78,10 +78,10 @@
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
+                    {data: 'icon', name: 'icon'},
                     {data: 'name', name: 'name'},
                     {data: 'order', name: 'order'},
                     {data: 'status', name: 'status'},
-                    {data: 'icon', name: 'icon'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             }); 

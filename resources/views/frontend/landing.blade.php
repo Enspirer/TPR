@@ -80,7 +80,7 @@
                             <div class="row">
                                 <div class="col-6 p-1 text-center">
                                 @if($advertisement->image !== null)
-                                    <img src="{{url('files/global_advertisement/',$advertisement->image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                    <img src="{{ uploaded_asset($advertisement->image) }}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:260px;">
                                     <input type="hidden" value="{{$advertisement->link}}" class="ad-link">
                                     <input type="hidden" value="{{$advertisement->description}}" class="ad-description">
                                 @else
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="col-6 p-1">
                                 @if($advertisement->large_right_image !== null)
-                                    <img src="{{url('files/global_advertisement/',$advertisement->large_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                    <img src="{{uploaded_asset($advertisement->large_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:260px;">
                                     <input type="hidden" value="{{$advertisement->large_right_link}}" class="ad-link">
                                     <input type="hidden" value="{{$advertisement->large_right_description}}" class="ad-description">
                                 @else
@@ -104,7 +104,7 @@
                             <div class="row">
                                 <div class="col-4 p-1">
                                 @if($advertisement->small_left_image !== null)
-                                    <img src="{{url('files/global_advertisement/',$advertisement->small_left_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                    <img src="{{uploaded_asset($advertisement->small_left_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                     <input type="hidden" value="{{$advertisement->small_left_link}}" class="ad-link">
                                     <input type="hidden" value="{{$advertisement->small_left_description}}" class="ad-description">
                                 @else
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="col-4 p-1">
                                 @if($advertisement->small_middle_image !== null)
-                                    <img src="{{url('files/global_advertisement/',$advertisement->small_middle_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                    <img src="{{uploaded_asset($advertisement->small_middle_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                     <input type="hidden" value="{{$advertisement->small_middle_link}}" class="ad-link">
                                     <input type="hidden" value="{{$advertisement->small_middle_description}}" class="ad-description">
                                 @else
@@ -126,7 +126,7 @@
                                 </div>  
                                 <div class="col-4 p-1">
                                 @if($advertisement->small_right_image !== null)
-                                    <img src="{{url('files/global_advertisement/',$advertisement->small_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                    <img src="{{uploaded_asset($advertisement->small_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                     <input type="hidden" value="{{$advertisement->small_right_link}}" class="ad-link">
                                     <input type="hidden" value="{{$advertisement->small_right_description}}" class="ad-description">
                                 @else
@@ -166,7 +166,7 @@
                                     <div class="row">
                                         <div class="col-6 p-1  text-center">
                                         @if($advertisement->image !== null)
-                                            <img src="{{url('files/global_advertisement/', $data->image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                            <img src="{{uploaded_asset($data->image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:260px;">
                                             <input type="hidden" value="{{$advertisement->link}}" class="ad-link">
                                             <input type="hidden" value="{{$advertisement->description}}" class="ad-description">
                                         @else
@@ -177,7 +177,7 @@
                                         </div>
                                         <div class="col-6 p-1">
                                         @if($advertisement->large_right_image !== null)
-                                            <img src="{{url('files/global_advertisement/',$data->large_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                            <img src="{{uploaded_asset($data->large_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:260px;">
                                             <input type="hidden" value="{{$advertisement->large_right_link}}" class="ad-link">
                                             <input type="hidden" value="{{$advertisement->large_right_description}}" class="ad-description">
                                         @else
@@ -190,7 +190,7 @@
                                     <div class="row">
                                         <div class="col-4 p-1">
                                         @if($advertisement->small_left_image !== null)
-                                            <img src="{{url('files/global_advertisement/',$data->small_left_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                            <img src="{{uploaded_asset($data->small_left_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                             <input type="hidden" value="{{$advertisement->small_left_link}}" class="ad-link">
                                             <input type="hidden" value="{{$advertisement->small_left_description}}" class="ad-description">
                                         @else
@@ -201,7 +201,7 @@
                                         </div>
                                         <div class="col-4 p-1">
                                         @if($advertisement->small_middle_image !== null)
-                                            <img src="{{url('files/global_advertisement/',$data->small_middle_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                            <img src="{{uploaded_asset($data->small_middle_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                             <input type="hidden" value="{{$advertisement->small_middle_link}}" class="ad-link">
                                             <input type="hidden" value="{{$advertisement->small_middle_description}}" class="ad-description">
                                         @else
@@ -212,7 +212,7 @@
                                         </div>  
                                         <div class="col-4 p-1">
                                         @if($advertisement->small_right_image !== null)
-                                            <img src="{{url('files/global_advertisement/',$data->small_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal">
+                                            <img src="{{uploaded_asset($data->small_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                             <input type="hidden" value="{{$advertisement->small_right_link}}" class="ad-link">
                                             <input type="hidden" value="{{$advertisement->small_right_description}}" class="ad-description">
                                         @else

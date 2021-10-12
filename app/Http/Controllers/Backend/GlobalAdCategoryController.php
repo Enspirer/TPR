@@ -27,13 +27,13 @@ class GlobalAdCategoryController extends Controller
             
                     ->addColumn('action', function($data){
                        
-                        $button = '<a href="'.route('admin.global_ad_categories.edit', $data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3"><i class="far fa-edit"></i> Edit </a>';
+                        $button = '<a href="'.route('admin.global_ad_categories.edit', $data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3"><i class="fas fa-edit"></i> Edit </a>';
                         $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm ml-3"><i class="fas fa-trash-alt"></i> Delete</button>';
                         return $button;
                     })
 
-                    ->addColumn('image', function($data){
-                        $img = '<img src="'.url('files/global_advertisement', $data->image).'" style="width: 70%">';
+                    ->addColumn('icon', function($data){
+                        $img = '<img src="'.url('files/global_advertisement', $data->icon).'" style="width: 70%">';
                      
                         return $img;
                     })
@@ -48,7 +48,7 @@ class GlobalAdCategoryController extends Controller
                         return $status;
                     })
                     
-                    ->rawColumns(['action', 'img', 'status'])
+                    ->rawColumns(['action', 'icon', 'status'])
                     ->make(true);
         }
         return back();
