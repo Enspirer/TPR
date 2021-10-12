@@ -20,9 +20,9 @@
                             <input type="text" class="form-control" name="name" value="{{ $global_advertisement->name }}" required>
                         </div>
                         <div class="form-group">
-                            <label>Global Ad Category</label>
+                            <label>Global Advertisement Category</label>
                             <select class="form-control" id="category" name="category" placeholder="Global Ad Category" required>
-                                <option value="" selected disabled hidden>Global Ad Category</option>
+                                <option value="" selected disabled>Select...</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}" {{ $category->id == App\Models\GlobalAdvertisement::where('id', $global_advertisement->id)->first()->global_category ? "selected" : "" }}>{{ $category->name }}</option>
                                 @endforeach
@@ -57,19 +57,29 @@
                 <div class="card-body" >
                     <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
                     <h5>Large Left</h5>                                                 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Image ( dimensions = width: 600px * height: 300px )</label>
                             <input type="file" class="form-control" name="large_left_image">
-                            <br>
-                            <img src="{{url('files/global_advertisement',$global_advertisement->image)}}" style="width: 30%;" alt="" >
-                        </div>  
+                        </div>   -->
+                        <div class="form-group">
+                            <label>Image <span class="text-danger">*</span></label>
+                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                </div>
+                                <div class="form-control file-amount">Choose File</div>
+                                <input type="hidden" name="large_left_image" value="{{ $global_advertisement->image}}" class="selected-files" >
+                            </div>
+                            <div class="file-preview box sm">
+                            </div>
+                        </div>
                         <div class="form-group mb-3">
                             <label>Link</label>
-                            <input type="text" class="form-control" name="ll_link" value="{{ $global_advertisement->link }}">
+                            <input type="text" class="form-control" name="ll_link" value="{{ $global_advertisement->link }}" required>
                         </div> 
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="2" name="ll_description">{{ $global_advertisement->description }}</textarea>
+                            <textarea class="form-control" rows="2" name="ll_description" required>{{ $global_advertisement->description }}</textarea>
                         </div>
                         <br>
                         <div class="d-flex justify-content-end">
@@ -82,19 +92,30 @@
                 <div class="card-body" >
                     <div class="" style="border-style: dashed;border-width: 1px;padding: 20px;"> 
                     <h5>Large Right</h5>                                               
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Image ( dimensions = width: 600px * height: 300px )</label>
                             <input type="file" class="form-control" name="large_right_image">
-                            <br>
-                            <img src="{{url('files/global_advertisement',$global_advertisement->large_right_image)}}" style="width: 30%;" alt="" >
-                        </div>  
+                        </div>   -->
+                        <div class="form-group">
+                            <label>Image <span class="text-danger">*</span></label>
+                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                </div>
+                                <div class="form-control file-amount">Choose File</div>
+                                <input type="hidden" name="large_right_image" value="{{ $global_advertisement->large_right_image}}" class="selected-files" >
+                            </div>
+                            <div class="file-preview box sm">
+                            </div>
+                        </div>
+
                         <div class="form-group mb-3">
                             <label>Link</label>
-                            <input type="text" class="form-control" name="lr_link" value="{{ $global_advertisement->large_right_link }}">
+                            <input type="text" class="form-control" name="lr_link" value="{{ $global_advertisement->large_right_link }}" required>
                         </div> 
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="2" name="lr_description">{{ $global_advertisement->large_right_description }}</textarea>
+                            <textarea class="form-control" rows="2" name="lr_description" required>{{ $global_advertisement->large_right_description }}</textarea>
                         </div>
                         <br>
                         <div class="d-flex justify-content-end">
@@ -107,19 +128,29 @@
                 <div class="card-body" >
                     <div class="" style="border-style: dashed;border-width: 1px;padding: 20px;"> 
                     <h5>Small Left</h5>                                                 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Image ( dimensions = width: 500px * height: 250px )</label>
-                            <input type="file" class="form-control" name="small_left_image">
-                            <br>
-                            <img src="{{url('files/global_advertisement',$global_advertisement->small_left_image)}}" style="width: 30%;" alt="" >
-                        </div>  
+                            <input type="file" class="form-control" name="small_left_image">                            
+                        </div>   -->
+                        <div class="form-group">
+                            <label>Image <span class="text-danger">*</span></label>
+                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                </div>
+                                <div class="form-control file-amount">Choose File</div>
+                                <input type="hidden" name="small_left_image" value="{{ $global_advertisement->small_left_image}}" class="selected-files" >
+                            </div>
+                            <div class="file-preview box sm">
+                            </div>
+                        </div>
                         <div class="form-group mb-3">
                             <label>Link</label>
-                            <input type="text" class="form-control" name="sl_link" value="{{ $global_advertisement->small_left_link }}">
+                            <input type="text" class="form-control" name="sl_link" value="{{ $global_advertisement->small_left_link }}" required>
                         </div> 
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="2" name="sl_description">{{ $global_advertisement->small_left_description }}</textarea>
+                            <textarea class="form-control" rows="2" name="sl_description" required>{{ $global_advertisement->small_left_description }}</textarea>
                         </div>
                         <br>
                         <div class="d-flex justify-content-end">
@@ -132,19 +163,29 @@
                 <div class="card-body" >
                     <div class="" style="border-style: dashed;border-width: 1px;padding: 20px;">   
                     <h5>Small Middle</h5>                                               
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Image ( dimensions = width: 500px * height: 250px )</label>
-                            <input type="file" class="form-control" name="small_middle_image">
-                            <br>
-                            <img src="{{url('files/global_advertisement',$global_advertisement->small_middle_image)}}" style="width: 30%;" alt="" >
-                        </div>  
+                            <input type="file" class="form-control" name="small_middle_image">                           
+                        </div>   -->
+                        <div class="form-group">
+                            <label>Image <span class="text-danger">*</span></label>
+                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                </div>
+                                <div class="form-control file-amount">Choose File</div>
+                                <input type="hidden" name="small_middle_image" value="{{ $global_advertisement->small_middle_image}}" class="selected-files" >
+                            </div>
+                            <div class="file-preview box sm">
+                            </div>
+                        </div>
                         <div class="form-group mb-3">
                             <label>Link</label>
-                            <input type="text" class="form-control" name="sm_link" value="{{ $global_advertisement->small_middle_link }}">
+                            <input type="text" class="form-control" name="sm_link" value="{{ $global_advertisement->small_middle_link }}" required>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="2" name="sm_description">{{ $global_advertisement->small_middle_description }}</textarea>
+                            <textarea class="form-control" rows="2" name="sm_description" required>{{ $global_advertisement->small_middle_description }}</textarea>
                         </div> 
                         <br>
                         <div class="d-flex justify-content-end">
@@ -157,19 +198,29 @@
                 <div class="card-body" >
                     <div class="" style="border-style: dashed;border-width: 1px;padding: 20px;">   
                     <h5>Small Right</h5>                                               
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Image ( dimensions = width: 500px * height: 250px )</label>
-                            <input type="file" class="form-control" name="small_right_image">
-                            <br>
-                            <img src="{{url('files/global_advertisement',$global_advertisement->small_right_image)}}" style="width: 30%;" alt="" >
-                        </div>  
+                            <input type="file" class="form-control" name="small_right_image">                            
+                        </div>   -->
+                        <div class="form-group">
+                            <label>Image <span class="text-danger">*</span></label>
+                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                </div>
+                                <div class="form-control file-amount">Choose File</div>
+                                <input type="hidden" name="small_right_image" value="{{ $global_advertisement->small_right_image}}" class="selected-files" >
+                            </div>
+                            <div class="file-preview box sm">
+                            </div>
+                        </div>
                         <div class="form-group mb-3">
                             <label>Link</label>
-                            <input type="text" class="form-control" name="sr_link" value="{{ $global_advertisement->small_right_link }}" >
+                            <input type="text" class="form-control" name="sr_link" value="{{ $global_advertisement->small_right_link }}" required>
                         </div> 
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="2" name="sr_description">{{ $global_advertisement->small_right_description }}</textarea>
+                            <textarea class="form-control" rows="2" name="sr_description" required>{{ $global_advertisement->small_right_description }}</textarea>
                         </div>
                         <br>
                         <div class="d-flex justify-content-end">

@@ -80,54 +80,53 @@ class GlobalAdvertisementController extends Controller
         // dd($request);
 
         $request->validate([
-            'large_left_image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=600,height=300',
-            'large_right_image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=600,height=300',
-            'small_left_image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=500,height=250',
-            'small_middle_image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=500,height=250',
-            'small_right_image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=500,height=250'         
+            'large_left_image'  => 'required',
+            'large_right_image'  => 'required',
+            'small_left_image'  => 'required',
+            'small_middle_image'  => 'required',
+            'small_right_image'  => 'required'         
         ]); 
     
-        if($request->file('large_left_image'))
-        {            
-            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->large_left_image->getClientOriginalExtension();
-            $fullURLsPreviewFile = $request->large_left_image->move(public_path('files/global_advertisement'), $preview_fileName);
-            $image_url1 = $preview_fileName;
-        }else{
-            $image_url1 = null;
-        } 
-        if($request->file('large_right_image'))
-        {            
-            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->large_right_image->getClientOriginalExtension();
-            $fullURLsPreviewFile = $request->large_right_image->move(public_path('files/global_advertisement'), $preview_fileName);
-            $image_url2 = $preview_fileName;
-        }else{
-            $image_url2 = null;
-        } 
-        if($request->file('small_left_image'))
-        {            
-            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_left_image->getClientOriginalExtension();
-            $fullURLsPreviewFile = $request->small_left_image->move(public_path('files/global_advertisement'), $preview_fileName);
-            $image_url3 = $preview_fileName;
-        }else{
-            $image_url3 = null;
-        } 
-        if($request->file('small_middle_image'))
-        {            
-            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_middle_image->getClientOriginalExtension();
-            $fullURLsPreviewFile = $request->small_middle_image->move(public_path('files/global_advertisement'), $preview_fileName);
-            $image_url4 = $preview_fileName;
-        }else{
-            $image_url4 = null;
-        } 
-        if($request->file('small_right_image'))
-        {            
-            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_right_image->getClientOriginalExtension();
-            $fullURLsPreviewFile = $request->small_right_image->move(public_path('files/global_advertisement'), $preview_fileName);
-            $image_url5 = $preview_fileName;
-        }else{
-            $image_url5 = null;
-        } 
-        // dd($image_url);
+        // if($request->file('large_left_image'))
+        // {            
+        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->large_left_image->getClientOriginalExtension();
+        //     $fullURLsPreviewFile = $request->large_left_image->move(public_path('files/global_advertisement'), $preview_fileName);
+        //     $image_url1 = $preview_fileName;
+        // }else{
+        //     $image_url1 = null;
+        // } 
+        // if($request->file('large_right_image'))
+        // {            
+        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->large_right_image->getClientOriginalExtension();
+        //     $fullURLsPreviewFile = $request->large_right_image->move(public_path('files/global_advertisement'), $preview_fileName);
+        //     $image_url2 = $preview_fileName;
+        // }else{
+        //     $image_url2 = null;
+        // } 
+        // if($request->file('small_left_image'))
+        // {            
+        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_left_image->getClientOriginalExtension();
+        //     $fullURLsPreviewFile = $request->small_left_image->move(public_path('files/global_advertisement'), $preview_fileName);
+        //     $image_url3 = $preview_fileName;
+        // }else{
+        //     $image_url3 = null;
+        // } 
+        // if($request->file('small_middle_image'))
+        // {            
+        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_middle_image->getClientOriginalExtension();
+        //     $fullURLsPreviewFile = $request->small_middle_image->move(public_path('files/global_advertisement'), $preview_fileName);
+        //     $image_url4 = $preview_fileName;
+        // }else{
+        //     $image_url4 = null;
+        // } 
+        // if($request->file('small_right_image'))
+        // {            
+        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_right_image->getClientOriginalExtension();
+        //     $fullURLsPreviewFile = $request->small_right_image->move(public_path('files/global_advertisement'), $preview_fileName);
+        //     $image_url5 = $preview_fileName;
+        // }else{
+        //     $image_url5 = null;
+        // } 
 
         $addAD = new GlobalAdvertisement;
         
@@ -138,23 +137,23 @@ class GlobalAdvertisementController extends Controller
 
         $addAD->link=$request->ll_link;
         $addAD->description=$request->ll_description;
-        $addAD->image=$image_url1;
+        $addAD->image=$request->large_left_image;
 
         $addAD->large_right_link=$request->lr_link;
         $addAD->large_right_description=$request->lr_description;
-        $addAD->large_right_image=$image_url2;
+        $addAD->large_right_image=$request->large_right_image;
 
         $addAD->small_left_link=$request->sl_link;
         $addAD->small_left_description=$request->sl_description;
-        $addAD->small_left_image=$image_url3;
+        $addAD->small_left_image=$request->small_left_image;
 
         $addAD->small_middle_link=$request->sm_link;
         $addAD->small_middle_description=$request->sm_description;
-        $addAD->small_middle_image=$image_url4;
+        $addAD->small_middle_image=$request->small_middle_image;
 
         $addAD->small_right_link=$request->sr_link;
         $addAD->small_right_description=$request->sr_description;
-        $addAD->small_right_image=$image_url5;
+        $addAD->small_right_image=$request->small_right_image;
 
         $addAD->save();
 
@@ -180,60 +179,58 @@ class GlobalAdvertisementController extends Controller
     {    
 
         $request->validate([
-            'large_left_image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=600,height=300',
-            'large_right_image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=600,height=300',
-            'small_left_image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=500,height=250',
-            'small_middle_image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=500,height=250',
-            'small_right_image'  => 'mimes:jpeg,png,jpg|max:20000|dimensions:width=500,height=250'         
+            'large_left_image'  => 'required',
+            'large_right_image'  => 'required',
+            'small_left_image'  => 'required',
+            'small_middle_image'  => 'required',
+            'small_right_image'  => 'required'         
         ]);  
         
-        if($request->file('large_left_image'))
-        {            
-            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->large_left_image->getClientOriginalExtension();
-            $fullURLsPreviewFile = $request->large_left_image->move(public_path('files/global_advertisement'), $preview_fileName);
-            $image_url1 = $preview_fileName;
-        }else{
-            $detail = GlobalAdvertisement::where('id',$request->hidden_id)->first();
-            $image_url1 = $detail->image;
-        } 
-        if($request->file('large_right_image'))
-        {            
-            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->large_right_image->getClientOriginalExtension();
-            $fullURLsPreviewFile = $request->large_right_image->move(public_path('files/global_advertisement'), $preview_fileName);
-            $image_url2 = $preview_fileName;
-        }else{
-            $detail = GlobalAdvertisement::where('id',$request->hidden_id)->first();
-            $image_url2 = $detail->large_right_image;
-        } 
-        if($request->file('small_left_image'))
-        {            
-            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_left_image->getClientOriginalExtension();
-            $fullURLsPreviewFile = $request->small_left_image->move(public_path('files/global_advertisement'), $preview_fileName);
-            $image_url3 = $preview_fileName;
-        }else{
-            $detail = GlobalAdvertisement::where('id',$request->hidden_id)->first();
-            $image_url3 = $detail->small_left_image;
-        } 
-        if($request->file('small_middle_image'))
-        {            
-            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_middle_image->getClientOriginalExtension();
-            $fullURLsPreviewFile = $request->small_middle_image->move(public_path('files/global_advertisement'), $preview_fileName);
-            $image_url4 = $preview_fileName;
-        }else{
-            $detail = GlobalAdvertisement::where('id',$request->hidden_id)->first();
-            $image_url4 = $detail->small_middle_image;
-        } 
-        if($request->file('small_right_image'))
-        {            
-            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_right_image->getClientOriginalExtension();
-            $fullURLsPreviewFile = $request->small_right_image->move(public_path('files/global_advertisement'), $preview_fileName);
-            $image_url5 = $preview_fileName;
-        }else{
-            $detail = GlobalAdvertisement::where('id',$request->hidden_id)->first();
-            $image_url5 = $detail->small_right_image;
-        } 
-
-         
+        // if($request->file('large_left_image'))
+        // {            
+        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->large_left_image->getClientOriginalExtension();
+        //     $fullURLsPreviewFile = $request->large_left_image->move(public_path('files/global_advertisement'), $preview_fileName);
+        //     $image_url1 = $preview_fileName;
+        // }else{
+        //     $detail = GlobalAdvertisement::where('id',$request->hidden_id)->first();
+        //     $image_url1 = $detail->image;
+        // } 
+        // if($request->file('large_right_image'))
+        // {            
+        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->large_right_image->getClientOriginalExtension();
+        //     $fullURLsPreviewFile = $request->large_right_image->move(public_path('files/global_advertisement'), $preview_fileName);
+        //     $image_url2 = $preview_fileName;
+        // }else{
+        //     $detail = GlobalAdvertisement::where('id',$request->hidden_id)->first();
+        //     $image_url2 = $detail->large_right_image;
+        // } 
+        // if($request->file('small_left_image'))
+        // {            
+        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_left_image->getClientOriginalExtension();
+        //     $fullURLsPreviewFile = $request->small_left_image->move(public_path('files/global_advertisement'), $preview_fileName);
+        //     $image_url3 = $preview_fileName;
+        // }else{
+        //     $detail = GlobalAdvertisement::where('id',$request->hidden_id)->first();
+        //     $image_url3 = $detail->small_left_image;
+        // } 
+        // if($request->file('small_middle_image'))
+        // {            
+        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_middle_image->getClientOriginalExtension();
+        //     $fullURLsPreviewFile = $request->small_middle_image->move(public_path('files/global_advertisement'), $preview_fileName);
+        //     $image_url4 = $preview_fileName;
+        // }else{
+        //     $detail = GlobalAdvertisement::where('id',$request->hidden_id)->first();
+        //     $image_url4 = $detail->small_middle_image;
+        // } 
+        // if($request->file('small_right_image'))
+        // {            
+        //     $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->small_right_image->getClientOriginalExtension();
+        //     $fullURLsPreviewFile = $request->small_right_image->move(public_path('files/global_advertisement'), $preview_fileName);
+        //     $image_url5 = $preview_fileName;
+        // }else{
+        //     $detail = GlobalAdvertisement::where('id',$request->hidden_id)->first();
+        //     $image_url5 = $detail->small_right_image;
+        // }          
         
         $upAD = new GlobalAdvertisement;
 
@@ -244,23 +241,23 @@ class GlobalAdvertisementController extends Controller
 
         $upAD->link=$request->ll_link;
         $upAD->description=$request->ll_description;
-        $upAD->image=$image_url1;
+        $upAD->image=$request->large_left_image;
 
         $upAD->large_right_link=$request->lr_link;
         $upAD->large_right_description=$request->lr_description;
-        $upAD->large_right_image=$image_url2;
+        $upAD->large_right_image=$request->large_right_image;
 
         $upAD->small_left_link=$request->sl_link;
         $upAD->small_left_description=$request->sl_description;
-        $upAD->small_left_image=$image_url3;
+        $upAD->small_left_image=$request->small_left_image;
 
         $upAD->small_middle_link=$request->sm_link;
         $upAD->small_middle_description=$request->sm_description;
-        $upAD->small_middle_image=$image_url4;
+        $upAD->small_middle_image=$request->small_middle_image;
 
         $upAD->small_right_link=$request->sr_link;
         $upAD->small_right_description=$request->sr_description;
-        $upAD->small_right_image=$image_url5;        
+        $upAD->small_right_image=$request->small_right_image;      
 
         GlobalAdvertisement::whereId($request->hidden_id)->update($upAD->toArray());
    

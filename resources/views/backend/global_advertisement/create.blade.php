@@ -5,17 +5,7 @@
 @section('content')
 
 
-<!-- <div class="form-group">
-            <div class="row m-0">
-              
-              @if(session()->has('error'))
-                  <div class="alert alert-danger">
-                      {{ session()->get('error') }}
-                  </div>
-              @endif
-                                      
-            </div>
-          </div> -->
+<link rel="stylesheet" href="{{url('css/vendors.css')}}">
 
 <form action="{{route('admin.global_advertisement.store')}}" method="post" enctype="multipart/form-data">
 {{csrf_field()}}
@@ -26,23 +16,24 @@
                     <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">                        
                     
                         <div class="form-group">
-                            <label>Name</label>
+                            <label>Name <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="name" required>
                         </div>
                         <div class="form-group">
-                            <select class="form-control" id="category" name="category" placeholder="Global Ad Category" required>
-                                <option value="" selected disabled hidden>Global Ad Category</option>
+                        <label>Global Advertisement Category <span class="text-danger">*</span></label>
+                            <select class="form-control" id="category" name="category" required>
+                                <option value="" selected disabled>Select...</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Order</label>
+                            <label>Order <span class="text-danger">*</span></label>
                             <input type="number" class="form-control" name="order" required>
                         </div>
                         <div class="form-group">
-                            <label>Status</label>
+                            <label>Status <span class="text-danger">*</span></label>
                             <select class="form-control" name="status" required>
                                 <option value="1">Enable</option>   
                                 <option value="0">Disable</option>                                
@@ -65,17 +56,29 @@
                 <div class="card-body" >
                     <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
                     <h5>Large Left</h5>                                                 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Image ( dimensions = width: 600px * height: 300px )</label>
                             <input type="file" class="form-control" name="large_left_image">
-                        </div>  
+                        </div>   -->
+                        <div class="form-group">
+                            <label>Image <span class="text-danger">*</span></label>
+                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                </div>
+                                <div class="form-control file-amount">Choose File</div>
+                                <input type="hidden" name="large_left_image" class="selected-files" >
+                            </div>
+                            <div class="file-preview box sm">
+                            </div>
+                        </div>
                         <div class="form-group mb-3">
-                            <label>Link</label>
-                            <input type="text" class="form-control" name="ll_link">
+                            <label>Link <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="ll_link" required>
                         </div> 
                         <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control" rows="2" name="ll_description"></textarea>
+                            <label>Description <span class="text-danger">*</span></label>
+                            <textarea class="form-control" rows="2" name="ll_description" required></textarea>
                         </div>
                     </div>   
                 </div>
@@ -84,17 +87,29 @@
                 <div class="card-body" >
                     <div class="" style="border-style: dashed;border-width: 1px;padding: 20px;"> 
                     <h5>Large Right</h5>                                               
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Image ( dimensions = width: 600px * height: 300px )</label>
                             <input type="file" class="form-control" name="large_right_image">
-                        </div>  
+                        </div>   -->
+                        <div class="form-group">
+                            <label>Image <span class="text-danger">*</span></label>
+                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                </div>
+                                <div class="form-control file-amount">Choose File</div>
+                                <input type="hidden" name="large_right_image" class="selected-files" >
+                            </div>
+                            <div class="file-preview box sm">
+                            </div>
+                        </div>
                         <div class="form-group mb-3">
                             <label>Link</label>
-                            <input type="text" class="form-control" name="lr_link">
+                            <input type="text" class="form-control" name="lr_link" required>
                         </div> 
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="2" name="lr_description"></textarea>
+                            <textarea class="form-control" rows="2" name="lr_description" required></textarea>
                         </div>
                     </div>   
                 </div>
@@ -103,17 +118,29 @@
                 <div class="card-body" >
                     <div class="" style="border-style: dashed;border-width: 1px;padding: 20px;"> 
                     <h5>Small Left</h5>                                                 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Image ( dimensions = width: 500px * height: 250px )</label>
                             <input type="file" class="form-control" name="small_left_image">
-                        </div>  
+                        </div>   -->
+                        <div class="form-group">
+                            <label>Image <span class="text-danger">*</span></label>
+                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                </div>
+                                <div class="form-control file-amount">Choose File</div>
+                                <input type="hidden" name="small_left_image" class="selected-files" >
+                            </div>
+                            <div class="file-preview box sm">
+                            </div>
+                        </div>
                         <div class="form-group mb-3">
                             <label>Link</label>
-                            <input type="text" class="form-control" name="sl_link">
+                            <input type="text" class="form-control" name="sl_link" required>
                         </div> 
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="2" name="sl_description"></textarea>
+                            <textarea class="form-control" rows="2" name="sl_description" required></textarea>
                         </div>
                     </div>   
                 </div>
@@ -122,17 +149,29 @@
                 <div class="card-body" >
                     <div class="" style="border-style: dashed;border-width: 1px;padding: 20px;">   
                     <h5>Small Middle</h5>                                               
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Image ( dimensions = width: 500px * height: 250px )</label>
                             <input type="file" class="form-control" name="small_middle_image">
-                        </div>  
+                        </div>   -->
+                        <div class="form-group">
+                            <label>Image <span class="text-danger">*</span></label>
+                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                </div>
+                                <div class="form-control file-amount">Choose File</div>
+                                <input type="hidden" name="small_middle_image" class="selected-files" >
+                            </div>
+                            <div class="file-preview box sm">
+                            </div>
+                        </div>
                         <div class="form-group mb-3">
                             <label>Link</label>
-                            <input type="text" class="form-control" name="sm_link">
+                            <input type="text" class="form-control" name="sm_link" required>
                         </div> 
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="2" name="sm_description"></textarea>
+                            <textarea class="form-control" rows="2" name="sm_description" required></textarea>
                         </div>
                     </div>   
                 </div>
@@ -141,17 +180,29 @@
                 <div class="card-body" >
                     <div class="" style="border-style: dashed;border-width: 1px;padding: 20px;">   
                     <h5>Small Right</h5>                                               
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Image ( dimensions = width: 500px * height: 250px )</label>
                             <input type="file" class="form-control" name="small_right_image">
-                        </div>  
+                        </div>   -->
+                        <div class="form-group">
+                            <label>Image <span class="text-danger">*</span></label>
+                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
+                                </div>
+                                <div class="form-control file-amount">Choose File</div>
+                                <input type="hidden" name="small_right_image" class="selected-files" >
+                            </div>
+                            <div class="file-preview box sm">
+                            </div>
+                        </div>
                         <div class="form-group mb-3">
                             <label>Link</label>
-                            <input type="text" class="form-control" name="sr_link">
+                            <input type="text" class="form-control" name="sr_link" required>
                         </div> 
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="2" name="sr_description"></textarea>
+                            <textarea class="form-control" rows="2" name="sr_description" required></textarea>
                         </div>
                     </div>   
                 </div>
