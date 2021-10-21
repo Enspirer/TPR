@@ -25,7 +25,7 @@
                 <div class="row justify-content-between mt-4">
 
                     <div class="container-fluid jumbotron text-center" style="background-color: #c6e4ee; border-radius: 15px 50px;">
-                    <h1 style="margin-top:60px;" class="display-5">Succesfully Created!</h1><br>
+                    <h1 style="margin-top:60px;" class="display-5">Successfully Created!</h1><br>
                         <!-- <p class="lead"><h3>Your request is sent. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p> -->
                         <hr><br>    
                         <p class="lead">
