@@ -23,10 +23,7 @@ class MapSearchController extends Controller
 
     public function index()
     {
-        $country = Country::where('country_id', $country_id)->where('status',1)->first();
-
-        $promu = Properties::where('admin_approval','Approved')->where('country', $country->country_name)->get();
-
+        $promu = Properties::where('admin_approval','Approved')->get();
 
         return view('frontend.map-search',[
             'promo' => $promu
