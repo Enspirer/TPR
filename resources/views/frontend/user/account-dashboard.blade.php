@@ -19,10 +19,14 @@
             </div>
 
             <div class="col-8">
-                <div class="row justify-content-between mt-5">
-                    <div class="col-12">
-                        <h4 class="fs-4 user-settings-head">Account Dashboard</h4>
-                        <hr>
+                
+                <div class="row justify-content-between">
+                    <div class="col-8 p-0">
+                        <div class="row align-items-center">
+                            <div class="col-6 ps-4">
+                                <h4 class="fs-4 fw-bolder user-settings-head">Account Dashboard</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
