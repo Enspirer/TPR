@@ -44,7 +44,7 @@
 
 @else
 
-    <div class="container user-settings" style="margin-top:8rem;">
+    <div class="container user-settings" style="margin-top:8rem;margin-bottom: 5rem;">
         <div class="row justify-content-between">
             <div class="col-4">
                 <div class="row">
