@@ -29,11 +29,15 @@ class CountryManagementController extends Controller
      */
     public function index()
     {
-        $approvedProperties = Properties::get()->where('admin_approval' , 'Approved')->count();
+        $user_id = auth()->user()->id;
 
-        $disapprovedProperties = Properties::get()->where('admin_approval' , 'Disapproved')->count();
+        $country = Country::where('country_manager',$user_id)->where('status',1)->first();
 
-        $supports = Feedback::get()->where('status', 'Pending')->count();
+        $approvedProperties = Properties::get()->where('admin_approval' , 'Approved')->where('country',$country->country_name)->count();
+
+        $disapprovedProperties = Properties::get()->where('admin_approval' , 'Disapproved')->where('country', $country->country_name)->count();
+
+        $supports = Feedback::get()->where('status', 'Pending')->where('country', $country->id)->count();
 
 
         return view('frontend.user.property-dashboard', [

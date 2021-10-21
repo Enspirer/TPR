@@ -31,7 +31,7 @@
                         <div class="px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
                             <div class="row">
                                 <div class="col-4">
-                                    <div class="card custom-shadow">
+                                    <div class="card custom-shadow p-3">
                                         <div class="card-img-top text-center">
                                             <p class="display-1 mb-0 account-dashboard-cards">{{ sprintf("%02d",$bookings) }}</p>
                                         </div>
@@ -42,7 +42,7 @@
                                 </div>
 
                                 <div class="col-4">
-                                    <div class="card custom-shadow">
+                                    <div class="card custom-shadow p-3">
                                         <div class="card-img-top text-center">
                                             <p class="display-1 mb-0 account-dashboard-cards">{{ sprintf("%02d",$all_favourite) }}</p>
                                         </div>
@@ -53,7 +53,7 @@
                                 </div>
 
                                 <div class="col-4">
-                                    <div class="card custom-shadow">
+                                    <div class="card custom-shadow p-3">
                                         <div class="card-img-top text-center">
                                             <p class="display-1 mb-0 account-dashboard-cards">{{ sprintf("%02d",$supports) }}</p>
                                         </div>
