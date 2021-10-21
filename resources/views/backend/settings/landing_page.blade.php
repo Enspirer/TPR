@@ -21,7 +21,7 @@
                                 <select class="form-control" name="psection1" required> 
                                         <option disabled selected value="">Select..</option>
                                     @foreach($country_list as $country)
-                                        <option value="{{ $country->id }}" {{ $country->id == App\Models\Settings::where('name', 'landing_page_psection_1', $country->id) ? "selected" : "" }}>{{ $country->country_name }}</option>
+                                        <option value="{{ $country->id }}" {{ $country->id == App\Models\Settings::where('name', 'landing_page_psection_1')-> $country->id ? "selected" : "" }}>{{ $country->country_name }}</option>
                                     @endforeach                                                                 
                                 </select>
                             </div> 
@@ -32,7 +32,7 @@
                                 <select class="form-control" name="psection2" required>
                                         <option disabled selected value="">Select..</option> 
                                     @foreach($country_list as $country)
-                                        <option value="{{ $country->id }}" {{ $country->id == App\Models\Settings::where('name', 'landing_page_psection_2', $country->id) ? "selected" : "" }}>{{ $country->country_name }}</option>
+                                        <option value="{{ $country->id }}" {{ $country->id == App\Models\Settings::where('name', 'landing_page_psection_2')-> $country->id ? "selected" : "" }}>{{ $country->country_name }}</option>
                                     @endforeach                                                                    
                                 </select>
                             </div> 
