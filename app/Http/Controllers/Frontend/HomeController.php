@@ -97,7 +97,7 @@ class HomeController extends Controller
 
         Cookie::queue("country_code", $country_id,1000);
 
-        $promu = Properties::where('admin_approval','Approved')->get();
+        $promu = Properties::where('admin_approval','Approved')->where('country', Country::where('country_id', $country_id)->first()->name)->get();
 
         $property_types = PropertyType::where('status','=','1')->get();
 
