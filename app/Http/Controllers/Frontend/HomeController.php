@@ -101,7 +101,7 @@ class HomeController extends Controller
 
         $country = Country::where('country_id', $country_id)->where('status',1)->first();
 
-        $promu = Properties::where('admin_approval','Approved')->where('country', $country->name)->get();
+        $promu = Properties::where('admin_approval','Approved')->where('country', $country->country_name)->get();
 
         $latest = Properties::where('country',$country->country_name)->where('admin_approval','Approved')->latest()->take(3)->get();
 
