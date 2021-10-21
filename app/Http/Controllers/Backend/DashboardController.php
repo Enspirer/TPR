@@ -16,7 +16,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $all_agent_request = AgentRequest::get()->count();
+        $all_agent_request = AgentRequest::get()->where('country_manager_approval','=','Approved')->count();
         $agent_approved = AgentRequest::get()->where('status','=','Approved')->count();
         $all_property = Properties::get()->count();
         $property_pending = Properties::get()->where('admin_approval','=','Pending')->count();
