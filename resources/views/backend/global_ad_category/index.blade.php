@@ -22,7 +22,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">#ID</th>
-                                <th scope="col">Icon</th>
+                                <!-- <th scope="col">Icon</th> -->
                                 <th scope="col">Name</th>
                                 <th scope="col">Order</th>
                                 <th scope="col">Status</th>
@@ -78,7 +78,7 @@
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
-                    {data: 'icon', name: 'icon'},
+                    // {data: 'icon', name: 'icon'},
                     {data: 'name', name: 'name'},
                     {data: 'order', name: 'order'},
                     {data: 'status', name: 'status'},
