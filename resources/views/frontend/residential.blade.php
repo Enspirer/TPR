@@ -98,8 +98,11 @@
     @if(count($filteredProperty) > 0)
         <section id="residential-properties">
             <div class="container" style="margin-top: 4rem; margin-bottom: 5rem;">
-                <h3 class="text-center fw-bolder">{{ ucfirst($category_type) }} Properties in {{ get_country_cookie(request())->country_name }}</h3>
-
+                @if(get_country_cookie(request()))
+                    <h3 class="text-center fw-bolder">
+                        {{ ucfirst($category_type) }} Properties in {{ get_country_cookie(request())->country_name }}
+                    </h3>
+                @endif
 
                 <div class="row mt-5">
                     <div class="col-8">

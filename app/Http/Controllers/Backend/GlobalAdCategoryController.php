@@ -32,11 +32,11 @@ class GlobalAdCategoryController extends Controller
                         return $button;
                     })
 
-                    ->addColumn('icon', function($data){
-                        $img = '<img src="'.url('files/global_advertisement', $data->icon).'" style="width: 70%">';
+                    // ->addColumn('icon', function($data){
+                    //     $img = '<img src="'.url('files/global_advertisement', $data->icon).'" style="width: 70%">';
                      
-                        return $img;
-                    })
+                    //     return $img;
+                    // })
                     
                     ->editColumn('status', function($data){
                         if($data->status == '1'){
@@ -48,7 +48,7 @@ class GlobalAdCategoryController extends Controller
                         return $status;
                     })
                     
-                    ->rawColumns(['action', 'icon', 'status'])
+                    ->rawColumns(['action','status'])
                     ->make(true);
         }
         return back();
@@ -124,13 +124,8 @@ class GlobalAdCategoryController extends Controller
 
     public function destroy($id)
     {        
-        $category = GlobalAdCategories::where('id', $id)->delete();  
-
-        $ad = DB::table('global_advertisement') ->where('global_category', $id)->update(
-            [
-                'status' => 0
-            ]
-        );
+        $data = GlobalAdCategories::findOrFail($id);
+        $data->delete();   
     }
 
 
