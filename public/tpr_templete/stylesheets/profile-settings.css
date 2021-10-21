@@ -67,7 +67,7 @@
     display: inline-block;
     border-radius: 80px;
     color: #ff8000;
-    padding: 1rem;
+    padding: 1rem!important;
 }
 
 
