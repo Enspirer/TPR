@@ -95,12 +95,12 @@
                                 </div>
 
 
-                                <div class="row mb-4">
+                                <!-- <div class="row mb-4">
                                     <div class="g-recaptcha p-0" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
-                                </div>
+                                </div> -->
 
                                 <div class="row">
-                                    <button type="submit" class="btn btn-primary w-100 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;" id="submit_btn" disabled>Sign Up</button>
+                                    <button type="submit" class="btn btn-primary w-100 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;" id="submit_btn">Sign Up</button>
 
                                     <p class="mt-3 p-0">Already have an account? <a href="{{route('frontend.auth.login')}}" class="text-decoration-none" style="color: #77CEEC;">Sign In</a></p>
                                 </div>
@@ -138,10 +138,10 @@
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-    <script>
+    <!-- <script>
         function checked() {
             $('#submit_btn').removeAttr('disabled');
         };
-    </script>
+    </script> -->
 @endpush
 
