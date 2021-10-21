@@ -354,10 +354,9 @@ class HomeController extends Controller
     public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type)
     {
 
-
         $property_types = PropertyType::where('status','=','1')->get();
 
-        $properties = Properties::where('admin_approval', 'Approved');
+        $properties = Properties::where('admin_approval', 'Approved')->where('country',get_country_cookie(request())->country_name);
 
         $side_ads = SidebarAd::where('country_management_approval', 'Approved')->get();
 
