@@ -1057,4 +1057,59 @@
             });
         </script>
 
+
+
+@push('after-scripts')
+<script>
+    const renderCity = async () => {
+            
+        @if(get_country_cookie(request()))
+            let country_id = <?php echo json_encode(get_country_cookie(request())->country_id); ?>;
+        @else
+            let country_id = 1;
+        @endif
+
+        let countries = <?php echo json_encode($countries); ?>;
+
+        let name;
+        let countryName;
+        let template;
+
+        for(let i = 0; i < countries.length; i++) {
+            if(countries[i]['country_id'] == country_id) {
+                name = countries[i]['slug'];
+            }
+        }
+
+        if(name.includes('-')){
+            countryName = name.replace("-", " ");
+        } else {
+            countryName = name;
+        }
+
+
+        $.ajax({
+            "type": "POST",
+            "url": "https://countriesnow.space/api/v0.1/countries/cities",
+            "data": {
+                "country": countryName
+            }
+        }).done(function (d) {
+
+            for(let i = 0; i < d['data'].length; i++) {
+                template+= `
+                    <option value="${d['data'][i]}">${d['data'][i]}</option>
+                `
+            }
+
+            $(".areas").append(template);
+        });
+    }
+
+        window.addEventListener('DOMContentLoaded', () => renderCity());
+</script>
+
+
+@endpush
+
 @endpush

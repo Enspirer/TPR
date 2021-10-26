@@ -107,6 +107,8 @@ class HomeController extends Controller
 
         $self = self::setCookie($country_id);
 
+        $countries = Country::where('status',1)->get();
+
         return view('frontend.home_page.index',[
             'country_id' => $country_id,
             'promo' => $promu,
@@ -114,7 +116,8 @@ class HomeController extends Controller
             'ad_category' => $ad_category,
             'homepage_ad' => $homepage_ad,
             'country' => $country,
-            'property_types' => $property_types
+            'property_types' => $property_types,
+            'countries' => $countries
         ]);
     }
 
@@ -185,6 +188,13 @@ class HomeController extends Controller
         }
         else {
             $max_price = 'max_price';
+        }
+
+        if(request('city') != null) {
+            $city = request('city');
+        }
+        else {
+            $city = 'city';
         }
 
 
@@ -311,7 +321,8 @@ class HomeController extends Controller
         //     $units,
         //     $building_size,
         //     $farm_type,
-        //     $parking_type);
+        //     $parking_type,
+        // $city);
 
 
         return redirect()->route('frontend.search_function', [
@@ -331,7 +342,8 @@ class HomeController extends Controller
             $units,
             $building_size,
             $farm_type,
-            $parking_type
+            $parking_type,
+            $city
         ]);
     }
 
@@ -351,7 +363,7 @@ class HomeController extends Controller
     }
 
 
-    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type)
+    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city)
     {
 
         $property_types = PropertyType::where('status','=','1')->get();
@@ -359,6 +371,8 @@ class HomeController extends Controller
         $properties = Properties::where('admin_approval', 'Approved')->where('country',get_country_cookie(request())->country_name);
 
         $side_ads = SidebarAd::where('country_management_approval', 'Approved')->get();
+
+        $countries = Country::where('status',1)->get();
 
         if($key_name != 'key_name'){
             $properties->where('name', 'like', '%' .  $key_name . '%');
@@ -447,13 +461,16 @@ class HomeController extends Controller
             $properties->where('parking_type', $parking_type);
         }
 
+        if($city != 'city'){
+            $properties->where('city', $city);
+        }
+
         // dd($properties->get());
 
         $filteredProperty = $properties->get();
 
 
-        // dd($filteredProperty);
-        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type]);
+        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'countries' => $countries]);
     }
 
 
