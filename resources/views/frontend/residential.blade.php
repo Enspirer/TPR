@@ -11,12 +11,12 @@
 
     <!--residential property search-->
     <section id="residential-property-search">
-        <div class="container pe-0" style="margin-top:5rem">
+        <div class="container-fluid" style="margin-top:5rem">
             <h3 class="fw-bolder text-center">Interactive Property Search</h3>
 
             <div class="row mt-4">
                 @if(count($filteredProperty) > 0)
-                    <div class="col-3">
+                    <div class="col-3" style="background-color: #F3F3F3">
                         <h5>Results: {{ count($filteredProperty) }} Listings</h5>
                         <div class="row align-items-center">
                             <div class="col-5">
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 @endif
-                <div class="col-9">
+                <div class="col-9 p-0">
                     <div id="map" style="height: 600px; width: 100%;"></div>
                 </div>
             </div>
@@ -184,7 +184,7 @@
                     <div class="col-4">
                         @if(count($side_ads) > 0)
                             @foreach($side_ads as $side_ad)
-                                <div class="row custom-shadow mt-5">
+                                <div class="row custom-shadow mb-4">
                                     <div class="col-12">
                                         <a href="{{ $side_ad->link }}"><img src="{{url('files/sidebar_ad', $side_ad->image)}}" alt="" class="img-fluid"></a>
                                     </div>

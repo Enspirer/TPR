@@ -268,7 +268,7 @@
 
                 <div class="col-4 px-5">
 
-                    <div class="row justify-content-center shadow py-4" style="margin-top: 3rem;">
+                    <div class="row justify-content-center shadow py-4">
                         <div align="center">
                             <a href="{{ url('individual-agent',$agent->id) }}" style="text-decoration:none">
                             @if($agent->photo == null)
@@ -377,14 +377,14 @@
 
     <!-- similar properties -->
     <section id="similar-properties">
-        <div class="container" style="margin-top: 6rem;">
+        <div class="container" style="margin-top: 6rem; margin-bottom: 3rem;">
             <h6 class="fw-bold">Similar Properties</h6>
 
             <div class="row mt-4">
                 <div class="swiper-container mySwiper">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper justify-content-center">
 
-                        <div class="swiper-slide row px-5">
+                        <div class="swiper-slide row">
                             <!-- <div class="row px-5"> -->
 
                             @foreach($random as $ran)
@@ -443,7 +443,7 @@
                 </div>
             </div>
 
-            <div class="row text-end mt-5">
+            <div class="row text-end mt-2">
                 <a href="{{ route('frontend.map-search')}}" class="text-decoration-none" style="color: #333232;">See all residential properties for sale in New homes <i class="bi bi-chevron-right"></i></a>
             </div>
         </div>

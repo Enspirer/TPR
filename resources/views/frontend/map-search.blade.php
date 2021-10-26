@@ -11,12 +11,12 @@
 
     <!--residential property search-->
     <section id="residential-property-search">
-        <div class="container pe-0" style="margin-top:5rem; margin-bottom:5rem;">
+        <div class="container-fluid" style="margin-top:5rem; margin-bottom:5rem;">
             <h3 class="fw-bolder text-center">Interactive Property Search</h3>
 
             <div class="row mt-4">
             @if(count($promo) > 0)
-                <div class="col-3">
+                <div class="col-3" style="background-color: #F3F3F3">
                     <h5>Results: {{ count($promo) }} Listings</h5>
                     <div class="row align-items-center">
                         <div class="col-5">
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 @endif
-                <div class="col-9">
+                <div class="col-9 p-0">
                     <div id="map" style="height: 600px; width: 100%;"></div>
                 </div>
             </div>

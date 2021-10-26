@@ -161,7 +161,7 @@
 
             <div class="row mt-4">
             @if(count($promo) > 0)
-                <div class="col-3 p-3" style="background-color: #F3F3F3">
+                <div class="col-3" style="background-color: #F3F3F3">
                     <h6 data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">Results: {{ count($promo) }} Listings</h6>
                     <div class="row align-items-center" data-aos="fade-right" data-aos-duration="500" data-aos-delay="400">
                         <div class="col-5">

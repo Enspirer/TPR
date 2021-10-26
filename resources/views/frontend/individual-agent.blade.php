@@ -60,8 +60,8 @@
                                 @endif
                             </h3>
                         </div>
-                        <div class="col-2">
-                            <button class="btn rounded-0 text-light px-4 py-2 mt-3" style="background-color: #008080; margin: 8rem 34rem 0 0; cursor: default;">{{ $agent_details->agent_type }}</button>
+                        <div class="col-2 text-end">
+                            <button class="btn rounded-0 text-light px-4 py-2 mt-3" style="background-color: #008080; cursor: default;">{{ $agent_details->agent_type }}</button>
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@
 
     <!-- agent tabs -->
     <section id="agent-tabs">
-        <div class="container" style="margin-top: 6rem; margin-bottom:5rem;">
+        <div class="container" style="margin-top: 4rem; margin-bottom:4rem;">
             <h4 class="fw-bold">All ads from {{ $agent_details->name }}</h4>
 
             @if(count($all_properties) == 0)
