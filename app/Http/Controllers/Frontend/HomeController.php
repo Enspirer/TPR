@@ -375,7 +375,9 @@ class HomeController extends Controller
         $countries = Country::where('status',1)->get();
 
         if($key_name != 'key_name'){
-            $properties->where('name', 'like', '%' .  $key_name . '%');
+
+            $properties->where('name', 'like', '%' .  $key_name . '%')->orWhere('city', 'like', '%' .  $key_name . '%');
+
         }
 
         if($max_price != 'max_price' && $min_price != 'min_price'){
