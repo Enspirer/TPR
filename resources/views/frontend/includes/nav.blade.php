@@ -165,7 +165,7 @@
                                 @foreach($tpr_countries as $tpr_country)
                                     <li>
                                         @if(isset(get_country_cookie(request())->country_id))
-                                            <a class="dropdown-item" href="{{ route('frontend.country_change', $tpr_country->country_id) }}"><div class="row align-items-center">
+                                            <a class="dropdown-item" href="{{ route('frontend.home_page', $tpr_country->country_id) }}"><div class="row align-items-center">
                                                     <div class="col-6">
                                                         {{ $tpr_country->country_name }}
                                                     </div>
