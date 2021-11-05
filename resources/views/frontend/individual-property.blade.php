@@ -61,15 +61,25 @@
 
                                 @foreach($final_out as $key => $image)
                                     @if($key == 0)
-                                    <div class="carousel-item active" width="100%">
+                                    <div class="carousel-item active" width="100%" data-toggle="modal" data-target="#exampleModal_{{$key}}">
                                         <img src="{{ url('images',$image) }}" class="d-block w-100" alt="..." style="object-fit:cover; height: 600px;">
                                     </div>
                                     @else  
-                                    <div class="carousel-item" width="100%">
+                                    <div class="carousel-item" width="100%" data-toggle="modal" data-target="#exampleModal_{{$key}}">
                                         <img src="{{ url('images',$image) }}" class="d-block w-100" alt="..." style="object-fit:cover;">
                                     </div>
-                                    @endif    
-                                @endforeach
+                                    @endif
+                                    <!-- Modal -->
+
+
+                                        <div class="modal fade bd-example-modal-lg" id="exampleModal_{{$key}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <img src="{{ url('images',$image) }}" class="d-block w-100" alt="..." style="object-fit:contain;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
 
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
@@ -102,8 +112,7 @@
                                 </p> -->
                             </div>
                             <div class="col-6 text-end">
-                                <button class="btn rounded-0 text-light px-4 py-2 mt-2 disabled" style="background-color: #EB8EB0;">Floor Plans</button>
-                                
+
                                 <p class="text-secondary mt-5">
                                     @if($property_details->baths == null)
                                     @else
