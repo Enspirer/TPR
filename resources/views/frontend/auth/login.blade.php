@@ -84,7 +84,7 @@
                                             </div>
                                         </div>
                                         <div class="float-end">
-                                            <a href="#" class="text-decoration-none" style="font-size: 0.9rem; color: #0A5C78">Forgot Password</a>
+                                            <a href="{{ route('frontend.auth.password.reset') }}" class="text-decoration-none" style="font-size: 0.9rem; color: #0A5C78">Forgot Password</a>
                                         </div>
                                     </div>
                                 </div>

@@ -61,10 +61,10 @@
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'find-agent' ? 'active' : null }}" href="{{ route('frontend.find-agent', ['area', 'agent_type', 'agent_name'] )}}">Find Agent</a>
                         <div class="line"></div>
                     </li>
-                    <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
+                    <!-- <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
                         <a class="nav-link text-white fw-bold" href="#">Market Trends</a>
                         <div class="line"></div>
-                    </li>
+                    </li> -->
 
                     @auth
                         <!-- <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
@@ -113,10 +113,10 @@
                         <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'commercial' ? 'active' : null }}" href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">Commercial</a>
                         <div class="line"></div>
                     </li>
-                    <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="600">
+                    <!-- <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="600">
                         <a class="nav-link text-body fw-bold" href="#">New Homes</a>
                         <div class="line"></div>
-                    </li>
+                    </li> -->
                     <li class="nav-item nav2 contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">
                     @if(isset(get_country_cookie(request())->country_id))
                         @if(isset(get_country_cookie(request())->country_id))

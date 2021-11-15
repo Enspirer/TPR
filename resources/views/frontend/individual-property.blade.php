@@ -74,9 +74,13 @@
 
                                         <div class="modal fade bd-example-modal-lg" id="exampleModal_{{$key}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
-                                                <div class="modal-content">
+                                                
+                                                <div class="modal-content" style="position: relative;">
+                                                    <button style="position: absolute; top: 0; right: 0; z-index: 1; margin-right:8px;" type="button" class="btn-close text-right mt-2" data-dismiss="modal" aria-label="Close">
+                                                    </button>
                                                     <img src="{{ url('images',$image) }}" class="d-block w-100" alt="..." style="object-fit:contain;">
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     @endforeach
@@ -483,7 +487,7 @@
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="shareModalLabel">Share</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </button>
             </div>
             <div class="modal-body">

@@ -19,7 +19,7 @@
                     <h5>Results: 159,728 Listings</h5>
                     <div class="row align-items-center">
                         <div class="col-5">
-                            <p class="mb-0 text">Sort By</p>
+                            <!-- <p class="mb-0 text">Sort By</p> -->
                         </div>
                         <div class="col-7">
                             <div class="dropdown">
@@ -28,7 +28,7 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                   <li><a class="dropdown-item" href="#">Newest</a></li>
-                                  <li><a class="dropdown-item" href="#">Oldest</a></li>
+                                  <!-- <li><a class="dropdown-item" href="#">Oldest</a></li> -->
                                 </ul>
                               </div>
                         </div>

@@ -1,11 +1,11 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.theme_app')
 
 @section('title', app_name() . ' | ' . __('labels.frontend.passwords.reset_password_box_title'))
 
 @section('content')
-    <div class="row justify-content-center align-items-center">
-        <div class="col col-sm-6 align-self-center">
-            <div class="card">
+    <div class="row justify-content-center align-items-center mt-5 mb-5">
+        <div class="col col-sm-6 align-self-center mt-5 mb-4">
+            <div class="card mt-5 mb-3">
                 <div class="card-header">
                     <strong>
                         @lang('labels.frontend.passwords.reset_password_box_title')
@@ -25,9 +25,9 @@
                             <div class="col">
                                 <div class="form-group">
                                     {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
-
+                                
                                     {{ html()->email('email')
-                                        ->class('form-control')
+                                        ->class('form-control mt-3 mb-4')
                                         ->placeholder(__('validation.attributes.frontend.email'))
                                         ->attribute('maxlength', 191)
                                         ->required()
