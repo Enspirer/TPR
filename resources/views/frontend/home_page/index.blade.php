@@ -285,11 +285,15 @@
                     @foreach($latest as $lat)
 
                         <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                            <div class="card p-4 custom-shadow border-0">
+                            <div class="card p-4 custom-shadow border-0" style="min-height: 250px; max-height: 250px;">
                                 <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
                                 <div class="card-body mt-4">
                                     <h5 class="card-title">{{ $lat->name }}</h5>
-                                    <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
+
+                                    @if($lat->beds != null)
+                                        <p class="card-text mt-3 mb-1">{{$lat->beds}} Beds Semidetached house</p>
+                                    @endif
+
                                     <p class="card-text">{{ $lat->city }}, {{ $lat->country }}</p>
 
                                     @if(get_country_cookie(request()))
