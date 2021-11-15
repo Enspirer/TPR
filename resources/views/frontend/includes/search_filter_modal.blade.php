@@ -51,8 +51,27 @@
 
                             <div class="col-3">
                                 <div>
-                                    <label for="max_price" class="form-label mb-0 required">Max Price</label>
-                                    <select class="form-select" aria-label="max_price" name="max_price" id="max_price">
+                                    <label for="category_type" class="form-label mb-0 required">Category</label>
+                                    <select class="form-select" aria-label="category_type" name="category_type" id="category_type">
+                                        <option value="">Select</option>
+                                        <option value="residential">Residential</option>
+                                        <option value="commercial">Commercial</option>
+                                        <option value="tp_developer">TP Developer</option>
+                                        <option value="investments">Investments</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        
+
+                        <div class="row mt-3">
+
+                            <div class="col-3">
+                                <div>
+                                    <label for="min_price" class="form-label mb-0 required">Min Price</label>
+                                    <select class="form-select" aria-label="min_price" name="min_price" id="min_price">
                                         <option value="0">Unlimited</option>
                                         <option value="25000">25,000</option>
                                         <option value="50000">50,000</option>
@@ -111,21 +130,7 @@
                                     </select>
                                 </div> 
                             </div>
-                        </div>
-
-                        <div class="row mt-3">
-                            <div class="col-3">
-                                <div>
-                                    <label for="category_type" class="form-label mb-0 required">Category</label>
-                                    <select class="form-select" aria-label="category_type" name="category_type" id="category_type">
-                                        <option value="">Select</option>
-                                        <option value="residential">Residential</option>
-                                        <option value="commercial">Commercial</option>
-                                        <option value="tp_developer">TP Developer</option>
-                                        <option value="investments">Investments</option>
-                                    </select>
-                                </div>
-                            </div>
+                            
 
                             <div class="col-3">
                                 <div>

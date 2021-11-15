@@ -290,7 +290,7 @@
                                 <div class="card-body mt-4">
                                     <h5 class="card-title">{{ $lat->name }}</h5>
                                     <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                    <p class="card-text">Lancaster, {{ $lat->country }}</p>
+                                    <p class="card-text">{{ $lat->city }}, {{ $lat->country }}</p>
 
                                     @if(get_country_cookie(request()))
                                         <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, $lat->price) }}</p>

@@ -148,8 +148,8 @@
 
                                         {{ App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->country_name }}
                                             
-                                        <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid">
-
+                                        <img src="https://flagcdn.com/w40/{{strtolower(get_country_cookie(request())->country_id)}}.png" alt="">
+                                        
                                         <p class="d-none">{{get_country_cookie(request())->country_id}}</p>
                                     @else
 
@@ -169,8 +169,8 @@
                                                     <div class="col-6">
                                                         {{ $tpr_country->country_name }}
                                                     </div>
-                                                    <div class="col-6 text-end">
-                                                        <img src="https://www.countryflags.io/{{$tpr_country->country_id}}/flat/64.png" alt="" class="img-fluid" style="height: 40px;">
+                                                    <div class="col-6 text-end">                                                    
+                                                        <img src="https://flagcdn.com/w40/{{strtolower($tpr_country->country_id)}}.png" alt="" class="img-fluid">
                                                     </div>
                                                 </div>
                                             </a>
@@ -182,7 +182,7 @@
                                                         {{ $tpr_country->country_name }}
                                                     </div>
                                                     <div class="col-6 text-end">
-                                                        <img src="https://www.countryflags.io/{{$tpr_country->country_id}}/flat/64.png" alt="" class="img-fluid" style="height: 40px;">
+                                                        <img src="https://flagcdn.com/w40/{{strtolower($tpr_country->country_id)}}.png" alt="" class="img-fluid">
                                                     </div>
                                                 </div>
                                             </a>
@@ -216,12 +216,12 @@
                     <div>
                         @foreach($tpr_countries as $tpr_country)
                             <a href="{{ route('frontend.country_change', $tpr_country->country_id) }}" class="text-decoration-none h6 text-dark">
-                                <div class="row align-items-center">
+                                <div class="row align-items-center mb-3">
                                     <div class="col-6">
                                         {{ $tpr_country->country_name }}
                                     </div>
                                     <div class="col-6 text-end">
-                                        <img src="https://www.countryflags.io/{{$tpr_country->country_id}}/flat/64.png" alt="" class="img-fluid" style="height: 40px;">
+                                        <img src="https://flagcdn.com/w40/{{strtolower($tpr_country->country_id)}}.png" alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </a>

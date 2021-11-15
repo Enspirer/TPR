@@ -80,21 +80,7 @@
 
                         </div>
 
-
-
-                        <div class="form-group">
-                            <label>Features Flag</label>
-                            <input type="text" class="form-control" name="features_flag" value="{{ $country->features_flag }}" required>
-                        </div>  
-                        <!-- <div class="form-group">
-                            <label>Features Manager</label>
-                            <input type="text" class="form-control" name="features_manager" value="{{ $country->features_manager }}">
-                        </div>                       -->
                         
-                        <!-- <div class="form-group">
-                            <label>Description</label>
-                            <textarea type="text" class="form-control" name="description" rows="8" required></textarea>
-                        </div> -->
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status" required>

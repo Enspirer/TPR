@@ -99,7 +99,6 @@ class CountryController extends Controller
         $addcountry->country_id=$request->country_id;
         $addcountry->user_id = auth()->user()->id;        
         $addcountry->country_manager=$user->id;
-        $addcountry->features_flag=$request->features_flag;
         $addcountry->status=$request->status;
 
         $addcountry->phone_numbers=json_encode($final_array);
@@ -173,7 +172,6 @@ class CountryController extends Controller
    
         $updatcountry->country_manager=$user->id;
 
-        $updatcountry->features_flag=$request->features_flag;
         $updatcountry->status=$request->status;
 
         $updatcountry->phone_numbers=json_encode($final_array);
