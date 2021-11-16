@@ -204,7 +204,7 @@
                                             @else
                                                 <div class="card">                                                    
                                                         <div class="text-center mt-2">
-                                                            <img src="{{ url('files/agent_request',$agent_details->photo) }}" class="rounded-circle card-img-top border border-2" alt="..." style="height: 7rem; width: 40%">
+                                                            <img src="{{ url('files/agent_request',$agent_details->photo) }}" class="rounded-circle card-img-top border border-2" alt="..." style="height: 7rem; width: 40%; object-fit:cover">
                                                         </div>
 
                                                     <div class="card-body">

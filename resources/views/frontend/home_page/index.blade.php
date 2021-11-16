@@ -285,9 +285,9 @@
                     @foreach($latest as $lat)
 
                         <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                            <div class="card p-4 custom-shadow border-0" style="min-height: 250px; max-height: 250px;">
+                            <div class="card p-4 custom-shadow border-0" style="height:24.5rem">
                                 <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
-                                <div class="card-body mt-4">
+                                <div class="card-body">
                                     <h5 class="card-title">{{ $lat->name }}</h5>
 
                                     @if($lat->beds != null)

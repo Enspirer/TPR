@@ -17,7 +17,7 @@
         <p class="lead"><h4>We appreciate you contacting us. One of our member will get back in touch with you soon!<br><br> Have a great day!</h4></p>
         <hr><br>    
         <p class="lead">
-            <a class="btn btn-success btn-md mb-5" href="{{url('contact')}}" role="button">Go Back to Contact Us Page</a>
+            <a class="btn btn-success btn-md mb-5" href="{{url('contact')}}" role="button">Go to Global Contact Page</a>
         </p>
     </div>
   
@@ -106,7 +106,7 @@
                             @endif
                         @endif
 
-                        <div class="follow" style="margin-top: 7rem;">
+                        <!-- <div class="follow" style="margin-top: 7rem;">
                             <h5 class="fw-bolde mb-5">Follow Us</h5>
                             <div class="row mt-5">
                                 <div class="col-2 me-3">
@@ -125,7 +125,7 @@
                                     <a href="#" class="p-4 fs-3" style="color: #81BF50; border: 2px solid #81BF50;"><i class="fab fa-youtube"></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 
             </div>

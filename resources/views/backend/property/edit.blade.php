@@ -188,7 +188,7 @@
                                         <div class="col-10">
                                             <div class="card">
                                                 <div class="text-center mt-2">
-                                                    <img src="{{ url('files/agent_request',$agent_details->photo) }}" class="rounded-circle card-img-top border border-2" alt="..." style="height: 120px; width: 50%">
+                                                    <img src="{{ url('files/agent_request',$agent_details->photo) }}" class="rounded-circle card-img-top border border-2" alt="..." style="height: 120px; width: 50%; object-fit:cover">
                                                 </div>
 
                                                 <div class="card-body">

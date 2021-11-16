@@ -127,6 +127,19 @@
                                                         <td>{{ $single_agent_request->license }}</td>
                                                     </tr>
                                                 @endif
+
+                                                <tr>
+                                                    @if($single_agent_request->validation_type == 'NIC')
+                                                        <td style="font-weight: 600;">NIC Photo:</td>
+                                                        <td><img src="{{url('files/agent_request/',$single_agent_request->nic_photo)}}" style="width: 40%;" alt="" ></td>
+                                                    @elseif($single_agent_request->validation_type == 'Passport')
+                                                        <td style="font-weight: 600;">Passport Photo:</td>
+                                                        <td> <img src="{{url('files/agent_request/',$single_agent_request->passport_photo)}}" style="width: 40%;" alt="" ></td>
+                                                    @else                        
+                                                        <td style="font-weight: 600;">License Photo:</td>
+                                                        <td><img src="{{url('files/agent_request/',$single_agent_request->license_photo)}}" style="width: 40%;" alt="" ></td>
+                                                    @endif
+                                                </tr>
                                                 
                                                 
                                                 <tr>
