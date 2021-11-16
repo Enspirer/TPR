@@ -40,7 +40,7 @@
         <div class="container">
             <div class="row py-3 align-items-center">
                 <div class="col-6">
-                    <p class="text-white mb-0">All Rights Reserved</p>
+                    <p class="text-white mb-0">	&copy; All Rights Reserved</p>
                 </div>
                 <div class="col-6 text-end">
                     <p class="text-white mb-0">Powered by <a href="https://www.enspirer.com" class="text-white text-decoration-none">Enspirer</a></p>

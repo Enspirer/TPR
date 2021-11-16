@@ -75,8 +75,8 @@
                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="30" height="30" class="rounded-circle me-2"> <span class="text-white fw-bold user-name">{{auth()->user()->first_name}}</span>
                               </a>
                               <div class="dropdown-menu text-light" aria-labelledby="navbarDropdownMenuLink" style="background-color: #4195E1">
-                                <a class="dropdown-item text-light" href="{{ route('frontend.user.account-dashboard') }}">My Account</a>
-                                <a class="dropdown-item text-light" href="{{ route('frontend.user.dashboard') }}">My Settings</a>
+                                <a class="dropdown-item text-light" href="{{ route('frontend.user.dashboard') }}">My Account</a>
+                                <a class="dropdown-item text-light" href="{{ route('frontend.user.account-dashboard') }}">My Settings</a>
                                 <a class="dropdown-item text-light" href="{{route('frontend.auth.logout')}}">Log Out</a>
                               </div>
                         </li>
