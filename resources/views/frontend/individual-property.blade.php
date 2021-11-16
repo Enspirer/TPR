@@ -329,9 +329,9 @@
 
 
                     <div class="row justify-content-center">
-                        <div class="col-12 text-center">
+                        <!-- <div class="col-12 text-center">
                             <a href="mailto:{{ $agent->email }}"><button class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid #707070;"><i class="bi bi-envelope"></i> Create email alert</button></a>
-                        </div>
+                        </div> -->
 
 
                         @auth
@@ -1187,7 +1187,7 @@
                                     </div>
                                 </div>
                                 <div class="float-end">
-                                    <a href="#" class="text-decoration-none" style="font-size: 0.9rem; color: #77CEEC;">Forgot Password</a>
+                                    <a href="{{ route('frontend.auth.password.reset') }}" class="text-decoration-none" style="font-size: 0.9rem; color: #77CEEC;">Forgot Password</a>
                                 </div>
                             </div>
                         </div>
@@ -1201,7 +1201,7 @@
                     <p class="text-end mt-3">Don't have an account? <a href="{{route('frontend.auth.register')}}" class="text-decoration-none" style="color: #77CEEC;">Sign Up</a></p>
 
 
-                    <div class="follow" style="margin-top: 3rem;">
+                    <!-- <div class="follow" style="margin-top: 3rem;">
                         <h6 class="fw-bolder mb-5">With Social Media</h6>
                         <div class="row mb-5">
                             <div class="col-2 me-3">
@@ -1220,7 +1220,7 @@
                                     <a href="#" class="fs-3" style="color: #83BE4A; border: 2px solid #83BE4A; padding: 24px 27px;"><i class="fab fa-apple"></i></a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

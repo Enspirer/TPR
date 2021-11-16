@@ -15,8 +15,8 @@
                 <h5 class="fw-bolder mt-2">MORE</h5>
                 <a href="{{ route('frontend.privacy-policy') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list text-white">Privacy Policy</a>
                 <a href="{{ route('frontend.terms-of-use') }}" class="mb-3 d-block text-decoration-none no-result-list text-white">Terms of Use</a>
-                <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">FAQ</a>
-                <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">Sitemap</a>
+                <!-- <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">FAQ</a>
+                <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">Sitemap</a> -->
             </div>
             <div class="col-3 ps-5">
                 <h5 class="fw-bolder mt-2">TOPICS</h5>
