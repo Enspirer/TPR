@@ -87,6 +87,10 @@ class CountryController extends Controller
 
         $user = User::where('email',$request->country_manager)->first();
 
+        if($user == null){
+            return back()->withErrors('Select Country Manager');
+        }
+
         $addcountry = new Country;
 
         $addcountry->country_name=$request->country;
@@ -156,6 +160,10 @@ class CountryController extends Controller
         // dd($phone_numbers); 
 
         $user = User::where('email',$request->country_manager)->first();
+
+        if($user == null){
+            return back()->withErrors('Select Country Manager');
+        }
 
         $updatcountry = new Country;
 

@@ -34,7 +34,12 @@ class IndividualPropertyController extends Controller
         $feature_image = FileManager::where('id',$property_details->feature_image_id)->get();
         // dd($feature_image);
 
-        $side_ads = SidebarAd::where('admin_approval', 'Approved')->where('status', 'Enable')->get();
+        if(get_country_cookie(request())){
+            $side_ads = SidebarAd::where('admin_approval', 'Approved')->where('country',get_country_cookie(request())->country_name)->where('status', 'Enable')->get();            
+        }
+        else{
+            $side_ads = SidebarAd::where('admin_approval', 'Approved')->where('status', 'Enable')->latest()->take(2)->get();
+        }
 
          $final_out = [];
 

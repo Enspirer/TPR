@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             <label>Currency Rate</label>
-                            <input type="number" class="form-control" name="currency_rate" value="{{ $country->currency_rate }}" required>
+                            <input type="number" class="form-control" name="currency_rate" step="any" value="{{ $country->currency_rate }}" required>
                         </div>
                         <div class="form-group">
                             <label>Country ID</label>

@@ -476,6 +476,7 @@
             </form> 
             
         </div>
+        </div>
     </div>
     @endif
 
@@ -505,6 +506,7 @@
                 </div>
             </form> 
             
+        </div>
         </div>
     </div>
     @endif

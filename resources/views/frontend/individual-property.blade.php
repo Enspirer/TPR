@@ -373,7 +373,7 @@
                         @foreach($side_ads as $side_ad)
                             <div class="row shadow mt-5">
                                 <div class="col-12">
-                                    <a href="{{ $side_ad->link }}"><img src="{{url('files/sidebar_ad', $side_ad->image)}}" alt="" class="img-fluid"></a>
+                                    <a href="{{ $side_ad->link }}" target="_blank"><img src="{{url('files/sidebar_ad', $side_ad->image)}}" alt="" class="img-fluid"></a>
                                 </div>
                                 <div class="col-12 mt-3" style="text-align: justify;">
                                     <p class="ns" style="height:140px; overflow:hidden !important; text-overflow: ellipsis;">{{ $side_ad->description }}</p>

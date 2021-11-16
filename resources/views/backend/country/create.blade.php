@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label>Currency Rate</label>
-                            <input type="number" class="form-control" name="currency_rate" required>
+                            <input type="number" class="form-control" name="currency_rate" step="any" required>
                         </div>
                         <div class="form-group">
                             <label>Country ID</label>
