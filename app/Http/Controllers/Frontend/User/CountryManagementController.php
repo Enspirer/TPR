@@ -689,28 +689,21 @@ class CountryManagementController extends Controller
     public function property_type_parameter() {
 
         $property_type = PropertyType::where('status',1)->get();
-        // dd($property_type);
-
-        // $property_type_parameter = PropertyTypeParameter::where('user_id',auth()->user()->id)->get();
-        // dd($property_type_parameter);
-    
+            
         return view('frontend.user.property_type_parameter',[
             'property_type' => $property_type
         ]);
     }  
 
-
     public function get_property_type(Request $request) {
 
         $property_type = PropertyType::where('status',1)->get();
-
         if($request->ajax())
         {
             return DataTables::of($property_type)
                 ->addColumn('action', function($data){                        
                         
-                    $button = '<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">External Parameter</button>';
-
+                    $button = '<a href="'.route('frontend.user.external_parameter',$data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3"> External Parameter </a>';
                     return $button;
                 })
                         
@@ -718,6 +711,15 @@ class CountryManagementController extends Controller
                 ->make(true);
         }
         return back();
+    }
+
+    public function external_parameter($id) {
+
+        $property_type = PropertyType::where('id',$id)->first();
+            
+        return view('frontend.user.external_parameter',[
+            'property_type' => $property_type
+        ]);
     }
 
 
