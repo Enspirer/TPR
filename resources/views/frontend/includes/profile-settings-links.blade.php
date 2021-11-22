@@ -84,9 +84,11 @@
 
             <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'property-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.property-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Property Approval</a>
 
+            <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Agent Approval</a>
+
             <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'supports' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.supports') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Help & Supports</a>
 
-            <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Agent Approval</a>
+            <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'property_type_parameter' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.property_type_parameter') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Property Type Parameter</a>
 
             <a class="nav-link bg-white border-0 dropdown-btn border-bottom ps-5 w-100 pb-3 advertisement" style="color:#0d6efd;">
                 Advertisement Management

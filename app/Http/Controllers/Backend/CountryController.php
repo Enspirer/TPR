@@ -109,6 +109,10 @@ class CountryController extends Controller
         $addcountry->opening_hours=$request->opening_hours;
         $addcountry->address=$request->address;
 
+        $addcountry->api_provider_name=$request->api_provider_name;
+        $addcountry->statistic_api_cliend_id=$request->statistic_api_cliend_id;
+        $addcountry->statistic_api_key=$request->statistic_api_key;
+        $addcountry->json_url=$request->json_url;
 
         $addcountry->save();
 
@@ -175,9 +179,7 @@ class CountryController extends Controller
         $updatcountry->currency=$request->currency;
         $updatcountry->currency_rate=$request->currency_rate;
         $updatcountry->country_id=$request->country_id;
-        $updatcountry->user_id = auth()->user()->id;
-
-   
+        $updatcountry->user_id = auth()->user()->id;   
         $updatcountry->country_manager=$user->id;
 
         $updatcountry->status=$request->status;
@@ -185,6 +187,11 @@ class CountryController extends Controller
         $updatcountry->phone_numbers=json_encode($final_array);
         $updatcountry->opening_hours=$request->opening_hours;
         $updatcountry->address=$request->address;
+
+        $updatcountry->api_provider_name=$request->api_provider_name;
+        $updatcountry->statistic_api_cliend_id=$request->statistic_api_cliend_id;
+        $updatcountry->statistic_api_key=$request->statistic_api_key;
+        $updatcountry->json_url=$request->json_url;
    
         Country::whereId($request->hidden_id)->update($updatcountry->toArray());
 
