@@ -36,7 +36,7 @@
                             </div>
                             <div class="col-4 text-end">
                                                           
-                                <div class="btn btn-info w-10" data-toggle="modal" data-target="#exampleModal">Explore Parameter</div>
+                                <!-- <div class="btn btn-info w-10" data-toggle="modal" data-target="#exampleModal">Explore Parameter</div> -->
 
                             </div>
                         </div>
@@ -54,8 +54,9 @@
                     <table class="table table-responsive" id="villadatatable" style="width:100%">
                         <thead class="table-head">
                             <tr>
+                                <th scope="col">Id</th>
                                 <th scope="col">Type Name</th>
-                                <th scope="col">Fields</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody class="align-middle table-data">
@@ -132,10 +133,11 @@
             serverSide: true,
             responsive: true,
             autoWidth: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
+                {data: 'id', name: 'id'},
                 {data: 'property_type_name', name: 'property_type_name'},
-                {data: 'activated_fields', name: 'activated_fields'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},                
             ],
             "fnDrawCallback": function( oSettings ) {
                 dispprove();

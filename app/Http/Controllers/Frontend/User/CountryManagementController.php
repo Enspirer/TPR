@@ -707,7 +707,14 @@ class CountryManagementController extends Controller
         if($request->ajax())
         {
             return DataTables::of($property_type)
-                
+                ->addColumn('action', function($data){                        
+                        
+                    $button = '<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">External Parameter</button>';
+
+                    return $button;
+                })
+                        
+                ->rawColumns(['action'])
                 ->make(true);
         }
         return back();
