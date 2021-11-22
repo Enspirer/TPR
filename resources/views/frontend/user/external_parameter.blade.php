@@ -23,7 +23,7 @@
             </div>
 
             <div class="col-8">
-                <div class="row justify-content-between">
+                <div class="row justify-content-between mb-5">
                     <div class="col-12 p-0">
                         <div class="row align-items-center">
                             <div class="col-7">
@@ -36,12 +36,47 @@
                             </div>
                             <div class="col-4 text-end">
                                                           
-                                <!-- <div class="btn btn-info w-10" data-toggle="modal" data-target="#exampleModal">Explore Parameter</div> -->
-
+                                
                             </div>
                         </div>
                     </div>
                 </div>
+    
+            @if($type_parameter_id == null)
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <form action="{{route('frontend.user.external_parameter_store')}}" method="post"  id="create_formInit">
+                                {{csrf_field()}}
+                                <div class="card-body">
+                                    <div id="build-wrap"></div><br><br>
+                                    <input type="hidden" name="property_type_form_data" value="{!! json_encode($type_parameter_decode) !!}" id="output_data" oninvalid="tabInvalied('register_formTabs')" required>
+                                    <input type="hidden" name="type_parameter_id" value="{{$type_parameter_id}}">
+                                    <input type="hidden" name="property_type" value="{{$property_type->id}}">
+                                    <button type="submit" class="btn btn-success" name="">Save</button>
+                                </div>
+                            </form>
+                        </div><!--card-->
+                    </div><!--col-->
+                </div><!--row-->
+            @else
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <form action="{{route('frontend.user.external_parameter_store')}}" method="post"  id="create_formInit">
+                                {{csrf_field()}}
+                                <div class="card-body">
+                                    <div id="build-wrap"></div><br><br>
+                                    <input type="hidden" name="property_type_form_data" value="{!! json_encode($type_parameter_decode) !!}" id="output_data" oninvalid="tabInvalied('register_formTabs')" required>
+                                    <input type="hidden" name="type_parameter_id" value="{{$type_parameter_id}}">
+                                    <input type="hidden" name="property_type" value="{{$property_type->id}}">
+                                    <button type="submit" class="btn btn-success" name="">Update</button>
+                                </div>
+                            </form>
+                        </div><!--card-->
+                    </div><!--col-->
+                </div><!--row-->
+            @endif
 
                
             </div>
@@ -56,8 +91,30 @@
 
 
 @push('after-scripts')
-<script>
-    
-</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
+  <script>
+        jQuery($ => {
+            const fbTemplate = document.getElementById('build-wrap');
+            var options = {
+                showActionButtons: false ,// defaults: `true`
+                typeUserEvents: {
+                    text: {
+                        onAddField: function(fld) {
+                            console.log('aaaa');
+                        }
+                    }},
+                formData: '{!! json_encode($type_parameter_decode) !!}'
+            };
+            var final_out = $(fbTemplate).formBuilder(options);
+
+            $('#create_formInit').submit(function() {
+                $('#output_data').val(final_out.actions.getData('json'));
+            });
+        });
+    </script>
 
 @endpush

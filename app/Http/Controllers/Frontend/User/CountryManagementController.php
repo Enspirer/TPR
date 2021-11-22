@@ -716,26 +716,67 @@ class CountryManagementController extends Controller
     public function external_parameter($id) {
 
         $property_type = PropertyType::where('id',$id)->first();
+        $type_parameter = PropertyTypeParameter::where('property_type_id',$id)->first();
+
+        if($type_parameter != null){
+            $type_parameter_decode = json_decode($type_parameter->form_json);
+            $type_parameter_id = $type_parameter->id;
+        }else{
+            $type_parameter_decode = null;
+            $type_parameter_id = null;
+        }
             
         return view('frontend.user.external_parameter',[
+            'type_parameter_decode' => $type_parameter_decode,
+            'type_parameter_id' => $type_parameter_id,
             'property_type' => $property_type
         ]);
     }
 
 
-    // public function adCategory_store(Request $request)
-    // {        
-    //     $add = new AdCategory;
+    public function external_parameter_store(Request $request)
+    {
+        // dd($request);
+        $type_parameter_id = $request->type_parameter_id;
+        $property_type = $request->property_type;
+        $property_type_form_data = $request->property_type_form_data;
+        $user_id = auth()->user()->id;
+        $country = Country::where('country_manager',auth()->user()->id)->first()->country_name;
+        // dd($type_parameter_id);
 
-    //     $add->name=$request->name;
-    //     $add->country=$request->country;
-    //     $add->country_manager_approval='Approved';  
-    //     $add->admin_approval='Pending'; 
+        $ptp = PropertyTypeParameter::where('id',$type_parameter_id)->first();
+        // dd($ptp);    
         
-    //     $add->save();
+        if($ptp == null){
 
-    //     return back();
-    // }
+            $add  = new PropertyTypeParameter;
+            
+            $add->property_type_id = $property_type;
+            $add->country = $country;
+            $add->user_id = $user_id;
+            $add->form_json = $property_type_form_data;
+            $add->status = 'Pending';
+            $add->save();
+
+            return redirect()->route('frontend.user.property_type_parameter')->withFlashSuccess('Added Successfully');
+
+        }else{
+
+            $update  = new PropertyTypeParameter;
+            $update->property_type_id = $property_type;
+            $update->country = $country;
+            $update->user_id = $user_id;
+            $update->form_json = $property_type_form_data;
+            $update->status = 'Pending';
+
+            PropertyTypeParameter::where('property_type_id',$property_type)->update($update->toArray());
+
+            return redirect()->route('frontend.user.property_type_parameter')->withFlashSuccess('Updated Successfully');
+
+        }        
+
+
+    }
 
     // public function adCategory_update(Request $request)
     // {                
