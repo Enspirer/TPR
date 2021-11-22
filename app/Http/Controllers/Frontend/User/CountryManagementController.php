@@ -15,6 +15,7 @@ use App\Models\AdCategory;
 use App\Models\HomePageAdvertisement;
 use App\Models\SidebarAd;
 use App\Models\FeaturePropertyUpdateRequest;
+use App\Models\PropertyTypeParameter;
 use Auth;
 use DataTables;
 
@@ -390,9 +391,6 @@ class CountryManagementController extends Controller
         return redirect('/country-management/property-approval');
     }   
     
-    
-// ******************************************  Advertisements  *************************************************
-
 
     public function adCategory() {
 
@@ -688,6 +686,71 @@ class CountryManagementController extends Controller
         return back();
     }
 
+    public function property_type_parameter() {
+
+        $property_type = PropertyType::where('status',1)->get();
+        // dd($property_type);
+
+        // $property_type_parameter = PropertyTypeParameter::where('user_id',auth()->user()->id)->get();
+        // dd($property_type_parameter);
+    
+        return view('frontend.user.property_type_parameter',[
+            'property_type' => $property_type
+        ]);
+    }  
+
+
+    public function get_property_type(Request $request) {
+
+        $property_type = PropertyType::where('status',1)->get();
+
+        if($request->ajax())
+        {
+            return DataTables::of($property_type)
+                
+                ->make(true);
+        }
+        return back();
+    }
+
+
+    // public function adCategory_store(Request $request)
+    // {        
+    //     $add = new AdCategory;
+
+    //     $add->name=$request->name;
+    //     $add->country=$request->country;
+    //     $add->country_manager_approval='Approved';  
+    //     $add->admin_approval='Pending'; 
+        
+    //     $add->save();
+
+    //     return back();
+    // }
+
+    // public function adCategory_update(Request $request)
+    // {                
+    //     $update = new AdCategory;
+
+    //     $update->name=$request->name;        
+    //     $update->country=$request->country;
+    //     $update->country_manager_approval='Approved';  
+    //     $update->admin_approval='Pending'; 
+        
+    //     AdCategory::whereId($request->hidden_id)->update($update->toArray());
+
+    //     return back(); 
+    // }
+
+    // public function adCategory_delete($id)
+    // {        
+    //     $projects = HomePageAdvertisement::where('category',$id)->update(array('category' => null));
+
+    //     $data = AdCategory::findOrFail($id);
+    //     $data->delete();   
+
+    //     return back();
+    // }
 
 
 }

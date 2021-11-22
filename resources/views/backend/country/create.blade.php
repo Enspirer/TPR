@@ -132,19 +132,46 @@
 
                                     <div id="newRow"></div>
                                     <button id="addRow" type="button" class="btn btn-info">Add Row</button>
-
                                                             
                             </div> 
-
                             
                         </div>
                     </div>
                 </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
+                        <h5>Property Static Api Intergrate</h5>
+                            <div class="form-group mt-4">
+                                <label>Api Provider Name</label>
+                                <input type="text" class="form-control" name="api_provider_name">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Statistic Api Cliend Id</label>
+                                <input type="text" class="form-control" name="statistic_api_cliend_id">
+                                </select>
+                            </div>   
+                            <div class="form-group">
+                                <label>Statistic Api Key</label>
+                                <input type="text" class="form-control" name="statistic_api_key">
+                                </select>
+                            </div>  
+                            <div class="form-group">
+                                <label>Json Url</label>
+                                <input type="text" class="form-control" name="json_url">
+                                </select>
+                            </div>                         
+                            
+                        </div>
+                    </div>
+                </div>
+
                 <div class="mt-3 text-center">
                     <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Create New</button>
                 </div>
-            </div>
-
+            </div>        
             
             
         </div>
