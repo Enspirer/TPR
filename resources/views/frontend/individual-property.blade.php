@@ -317,7 +317,10 @@
                             </div>
 
                             <div class="tab-pane fade" id="calculators" role="tabpanel" aria-labelledby="calculators-tab">
-                                
+
+
+                                <iframe src="{{route('frontend.calc_tpr',$property_details->price)}}" height="1000" width="100%" title="W3Schools Free Online Web Tutorials"></iframe>
+
                             </div>
                         </div>
 
