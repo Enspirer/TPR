@@ -508,4 +508,11 @@ class HomeController extends Controller
         }
 
     }
+
+    public function calc_tpr($price)
+    {
+        return view('frontend.caculator.iframe_panel',[
+            'price' => $price
+        ]);
+    }
 }

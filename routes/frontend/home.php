@@ -27,6 +27,8 @@ use App\Http\Controllers\Frontend\FileManagerController;
 Route::get('/', [HomeController::class, 'landing'])->name('landing');
 Route::get('country/{country_id}', [HomeController::class, 'index'])->name('home_page');
 
+Route::get('calc_tpr/{price}', [HomeController::class, 'calc_tpr'])->name('calc_tpr');
+
 Route::get('country/{country_id}/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('manager_contact/insert', [ContactController::class, 'manager_contact_store'])->name('manager_contact_store.store');
 
@@ -44,6 +46,9 @@ Route::get('map-search', [MapSearchController::class, 'index'])->name('map-searc
 Route::get('individual-property/{id}', [IndividualPropertyController::class, 'index'])->name('individual-property');
 Route::post('prop_favourite',[IndividualPropertyController::class,'propertyFavourite'])->name('propertyFavourite');
 Route::post('prop_favourite/unsave/{id}',[IndividualPropertyController::class,'propertyFavouriteDelete'])->name('propertyFavouriteDelete');
+
+Route::get('individual-property/{id}/calculator', [IndividualPropertyController::class, 'calculator'])->name('individual-property-calculator');
+
 
 Route::get('commercial', [CommercialController::class, 'index'])->name('commercial');
 

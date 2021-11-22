@@ -14,7 +14,7 @@ use App\Models\Favorite;
 
 
 /**
- * Class ContactController.
+ * Class IndividualPropertyController.
  */
 class IndividualPropertyController extends Controller
 {
@@ -134,6 +134,14 @@ class IndividualPropertyController extends Controller
         
         return back();
 
+    }
+
+
+    public function calculator($id)
+    {
+        $property_details = Properties::where('id',$id)->first();
+        
+        return view('frontend.includes.calculator');
     }
 
 
