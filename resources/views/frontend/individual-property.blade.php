@@ -168,112 +168,160 @@
 
                     <div class="features">
                         <h4 class="fw-bold" style="margin-top: 6rem;">Features and Description</h4>
-                        <div class="row mt-4 collapse" id="collapseExample" aria-expanded="false">
-                            <div class="col-12">
-                                <ul style="list-style:none; padding:0">
 
-                                    <div class="row">
-                                    
-                                    @if($property_details->baths == null)
-                                    @else
-                                        <div class="col-6">
-                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Baths : {{ $property_details->baths }}</li>
-                                        </div>
-                                    @endif 
+                        <ul class="nav nav-tabs border-bottom-0" id="myTab" role="tablist">
+                            <li class="nav-item w-25 text-center" role="presentation">
+                                <button class="nav-link active w-100" id="highlights-tab" data-bs-toggle="tab" data-bs-target="#highlights" type="button" role="tab" aria-controls="highlights" aria-selected="true">
+                                    <i class="fas fa-star"></i>
+                                    <h6 class="fw-bold">Highlights</h6>
+                                    <!-- <i class="fa fa-circle tabDot"></i> -->
+                                </button>
+                            </li>
+                            <li class="nav-item w-25" role="presentation">
+                                <button class="nav-link w-100" id="neighbourhood-tab" data-bs-toggle="tab" data-bs-target="#neighbourhood" type="button" role="tab" aria-controls="neighbourhood" aria-selected="false">
+                                    <img src="{{ url('images/icon_neighbourhood_gray.svg') }}" alt="" class="img-fluid mb-1" style="opacity: 0.6">
+                                    <h6 class="fw-bold">Neighbourhood</h6>
+                                </button>
+                            </li>
+                            <li class="nav-item w-25" role="presentation">
+                                <button class="nav-link w-100" id="statistics-tab" data-bs-toggle="tab" data-bs-target="#statistics" type="button" role="tab" aria-controls="statistics" aria-selected="false">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <h6 class="fw-bold">Statistics</h6>
+                                </button>
+                            </li>
 
-                                    @if($property_details->beds == null)
-                                    @else
-                                        <div class="col-6">
-                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Beds : {{ $property_details->beds }}</li>
-                                        </div>
-                                    @endif  
-                                                                
-                                    @if($property_details->parking_type == null)
-                                    @else
-                                        <div class="col-6">
-                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Parking Type : {{ $property_details->parking_type }}</li>
-                                        </div>
-                                    @endif 
+                            <li class="nav-item w-25" role="presentation">
+                                <button class="nav-link w-100" id="calculators-tab" data-bs-toggle="tab" data-bs-target="#calculators" type="button" role="tab" aria-controls="calculators" aria-selected="false">
+                                    <i class="fas fa-calculator"></i>
+                                    <h6 class="fw-bold">Calculators</h6>
+                                </button>
+                            </li>
+                        </ul>
 
-                                    @if($property_details->building_type == null)
-                                    @else
-                                        <div class="col-6">
-                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Type : {{ $property_details->building_type }}</li>
-                                        </div>
-                                    @endif 
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="highlights" role="tabpanel" aria-labelledby="highlights-tab">
+                                <div class="row mt-4 collapse" id="collapseExample" aria-expanded="false">
+                                    <div class="col-12">
+                                        <ul style="list-style:none; padding:0">
 
-                                    @if($property_details->farm_type == null)
-                                    @else
-                                        <div class="col-6">
-                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Farm Type : {{ $property_details->farm_type }}</li>
-                                        </div>
-                                    @endif 
+                                            <div class="row">
+                                            
+                                            @if($property_details->baths == null)
+                                            @else
+                                                <div class="col-6">
+                                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Baths : {{ $property_details->baths }}</li>
+                                                </div>
+                                            @endif 
 
-                                    @if($property_details->open_house_only == null)
-                                    @else
-                                        <div class="col-6">
-                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Open House Only : {{ $property_details->open_house_only }}</li>
-                                        </div>
-                                    @endif 
+                                            @if($property_details->beds == null)
+                                            @else
+                                                <div class="col-6">
+                                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Beds : {{ $property_details->beds }}</li>
+                                                </div>
+                                            @endif  
+                                                                        
+                                            @if($property_details->parking_type == null)
+                                            @else
+                                                <div class="col-6">
+                                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Parking Type : {{ $property_details->parking_type }}</li>
+                                                </div>
+                                            @endif 
 
-                                    @if($property_details->number_of_units == null)
-                                    @else
-                                        <div class="col-6">
-                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Number of Units : {{ $property_details->number_of_units }}</li>
-                                        </div>
-                                    @endif 
+                                            @if($property_details->building_type == null)
+                                            @else
+                                                <div class="col-6">
+                                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Type : {{ $property_details->building_type }}</li>
+                                                </div>
+                                            @endif 
 
-                                    @if($property_details->land_size == null)
-                                    @else
-                                        <div class="col-6">
-                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Land Size : {{ $property_details->land_size }}</li>
-                                        </div>
-                                    @endif 
+                                            @if($property_details->farm_type == null)
+                                            @else
+                                                <div class="col-6">
+                                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Farm Type : {{ $property_details->farm_type }}</li>
+                                                </div>
+                                            @endif 
 
-                                    @if($property_details->zoning_type == null)
-                                    @else
-                                        <div class="col-6">
-                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Zoning Type : {{ $property_details->zoning_type }}</li>
-                                        </div>                                
-                                    @endif 
+                                            @if($property_details->open_house_only == null)
+                                            @else
+                                                <div class="col-6">
+                                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Open House Only : {{ $property_details->open_house_only }}</li>
+                                                </div>
+                                            @endif 
 
-                                    @if($property_details->building_size == null)
-                                    @else
-                                        <div class="col-6">
-                                            <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Size : {{ $property_details->building_size }}</li>
-                                        </div>
-                                    @endif 
+                                            @if($property_details->number_of_units == null)
+                                            @else
+                                                <div class="col-6">
+                                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Number of Units : {{ $property_details->number_of_units }}</li>
+                                                </div>
+                                            @endif 
 
-                                    </div>
+                                            @if($property_details->land_size == null)
+                                            @else
+                                                <div class="col-6">
+                                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Land Size : {{ $property_details->land_size }}</li>
+                                                </div>
+                                            @endif 
 
-                                    <div class="row mt-2">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label style="font-weight: 600;" class="mb-3">Description:</label>
-                                                <table >
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>{{ $property_details->description}}</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                            @if($property_details->zoning_type == null)
+                                            @else
+                                                <div class="col-6">
+                                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Zoning Type : {{ $property_details->zoning_type }}</li>
+                                                </div>                                
+                                            @endif 
+
+                                            @if($property_details->building_size == null)
+                                            @else
+                                                <div class="col-6">
+                                                    <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">Building Size : {{ $property_details->building_size }}</li>
+                                                </div>
+                                            @endif 
+
                                             </div>
-                                        </div>
+
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label style="font-weight: 600;" class="mb-3">Description:</label>
+                                                        <table >
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>{{ $property_details->description}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </ul>
                                     </div>
+                                    
+                                </div>
 
-                                </ul>
+                                <hr class="mt-3">
+                                <div class="row justify-content-center text-center">
+                                    <div class="col-6 p-0">
+                                        <a role="button" class="collapsed text-decoration-none text-body collapse-button" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem;"></a>
+                                        <i class="bi bi-chevron-down ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem; cursor: pointer;"></i>
+                                        <i class="bi bi-chevron-up ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="display: none; font-size: 0.8rem; cursor: pointer;"></i>
+                                    </div>
+                                </div>
                             </div>
-                            
+
+                            <div class="tab-pane fade" id="neighbourhood" role="tabpanel" aria-labelledby="neighbourhood-tab">
+
+                            </div>
+
+                            <div class="tab-pane fade" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">
+
+                            </div>
+
+                            <div class="tab-pane fade" id="calculators" role="tabpanel" aria-labelledby="calculators-tab">
+                                
+                            </div>
                         </div>
 
-                        <hr class="mt-3">
-                        <div class="row justify-content-center text-center">
-                            <div class="col-6 p-0">
-                                <a role="button" class="collapsed text-decoration-none text-body collapse-button" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem;"></a>
-                                <i class="bi bi-chevron-down ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem; cursor: pointer;"></i>
-                                <i class="bi bi-chevron-up ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="display: none; font-size: 0.8rem; cursor: pointer;"></i>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     
@@ -1312,6 +1360,23 @@ type="text/javascript"></script>
       prevEl: ".swiper-button-prev",
     },
   });
+</script>
+
+<script>
+    // $('#neighbourhood-tab').hover(function() {
+    //     $(this).find('img').addClass('high-opacity');
+    // }, function() {
+    //     $(this).find('img').removeClass('high-opacity');
+    // });
+
+    $('ul li button').on('click', function() {
+        if($(this).attr('id') == 'neighbourhood-tab'){
+            $(this).find('img').addClass('high-opacity');
+        }
+        else {
+            $('#neighbourhood-tab').find('img').removeClass('high-opacity');
+        }
+    })
 </script>
 
 @endpush

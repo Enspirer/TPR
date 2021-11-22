@@ -32,3 +32,35 @@
     width: 47%;
     padding: 0.5rem 1rem;
 }
+
+.nav-tabs .nav-link {
+    border: none!important;
+    margin-bottom: -1px;
+    border-bottom: 2px solid transparent;
+    border-radius: 0!important;
+    color: #999;
+
+}
+
+.nav-tabs .nav-link.active {
+    border: none;
+    border-bottom: 5px solid green!important;
+}
+
+.nav-tabs .nav-link:hover {
+    border: none;
+    color: #495057;
+}
+.nav-tabs i {
+    font-size: 1.7rem;
+}
+
+.high-opacity {
+    opacity: 1!important;
+}
+.tabDot {
+    font-size: 0.9rem!important;
+}
+:focus-visible {
+    outline: none!important;
+}

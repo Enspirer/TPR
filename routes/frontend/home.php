@@ -45,6 +45,9 @@ Route::get('individual-property/{id}', [IndividualPropertyController::class, 'in
 Route::post('prop_favourite',[IndividualPropertyController::class,'propertyFavourite'])->name('propertyFavourite');
 Route::post('prop_favourite/unsave/{id}',[IndividualPropertyController::class,'propertyFavouriteDelete'])->name('propertyFavouriteDelete');
 
+Route::get('individual-property/{id}/calculator', [IndividualPropertyController::class, 'calculator'])->name('individual-property-calculator');
+
+
 Route::get('commercial', [CommercialController::class, 'index'])->name('commercial');
 
 Route::get('about-us', [FooterController::class, 'aboutUs'])->name('about-us');
