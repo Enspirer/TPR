@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label>Currency Rate</label>
-                            <input type="number" class="form-control" name="currency_rate" required>
+                            <input type="number" class="form-control" name="currency_rate" step="any" required>
                         </div>
                         <div class="form-group">
                             <label>Country ID</label>
@@ -88,17 +88,7 @@
                             </datalist>
                             <input  autoComplete="on" list="suggestions"/> 
                         </div> -->
-                        
-
-                        <div class="form-group">
-                            <label>Features Flag</label>
-                            <input type="text" class="form-control" name="features_flag" required>
-                        </div>  
-                        <!-- <div class="form-group">
-                            <label>Features Manager</label>
-                            <input type="text" class="form-control" name="features_manager">
-                        </div> -->
-                        
+                                                                        
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status" required>

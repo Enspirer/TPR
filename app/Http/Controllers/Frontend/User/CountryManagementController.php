@@ -226,7 +226,8 @@ class CountryManagementController extends Controller
                        
                        
                         $button = '<a href="'.route('frontend.user.supports.edit', $data->id).'" name="edit" id="'.$data->id.'" class="btn text-light table-btn me-4" style="background-color: #4195E1"> View </a>';
-                        $button .= '<a href="'.route('frontend.user.supports.delete', $data->id).'" name="delete" id="'.$data->id.'" class="btn text-light table-btn" style="background-color: #FF2C4B;" > Delete</a>';
+                        // $button .= '<a href="'.route('frontend.user.supports.delete', $data->id).'" name="delete" id="'.$data->id.'" class="btn text-light table-btn" style="background-color: #FF2C4B;" > Delete</a>';
+                        $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm">Delete</button>';
 
                         return $button;
                     })

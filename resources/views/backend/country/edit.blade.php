@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             <label>Currency Rate</label>
-                            <input type="number" class="form-control" name="currency_rate" value="{{ $country->currency_rate }}" required>
+                            <input type="number" class="form-control" name="currency_rate" step="any" value="{{ $country->currency_rate }}" required>
                         </div>
                         <div class="form-group">
                             <label>Country ID</label>
@@ -80,21 +80,7 @@
 
                         </div>
 
-
-
-                        <div class="form-group">
-                            <label>Features Flag</label>
-                            <input type="text" class="form-control" name="features_flag" value="{{ $country->features_flag }}" required>
-                        </div>  
-                        <!-- <div class="form-group">
-                            <label>Features Manager</label>
-                            <input type="text" class="form-control" name="features_manager" value="{{ $country->features_manager }}">
-                        </div>                       -->
                         
-                        <!-- <div class="form-group">
-                            <label>Description</label>
-                            <textarea type="text" class="form-control" name="description" rows="8" required></textarea>
-                        </div> -->
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status" required>

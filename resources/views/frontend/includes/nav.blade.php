@@ -61,10 +61,10 @@
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'find-agent' ? 'active' : null }}" href="{{ route('frontend.find-agent', ['area', 'agent_type', 'agent_name'] )}}">Find Agent</a>
                         <div class="line"></div>
                     </li>
-                    <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
+                    <!-- <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
                         <a class="nav-link text-white fw-bold" href="#">Market Trends</a>
                         <div class="line"></div>
-                    </li>
+                    </li> -->
 
                     @auth
                         <!-- <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
@@ -75,8 +75,8 @@
                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="30" height="30" class="rounded-circle me-2"> <span class="text-white fw-bold user-name">{{auth()->user()->first_name}}</span>
                               </a>
                               <div class="dropdown-menu text-light" aria-labelledby="navbarDropdownMenuLink" style="background-color: #4195E1">
-                                <a class="dropdown-item text-light" href="{{ route('frontend.user.account-dashboard') }}">My Account</a>
-                                <a class="dropdown-item text-light" href="{{ route('frontend.user.dashboard') }}">My Settings</a>
+                                <a class="dropdown-item text-light" href="{{ route('frontend.user.dashboard') }}">My Account</a>
+                                <a class="dropdown-item text-light" href="{{ route('frontend.user.account-dashboard') }}">My Settings</a>
                                 <a class="dropdown-item text-light" href="{{route('frontend.auth.logout')}}">Log Out</a>
                               </div>
                         </li>
@@ -113,10 +113,10 @@
                         <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'commercial' ? 'active' : null }}" href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}">Commercial</a>
                         <div class="line"></div>
                     </li>
-                    <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="600">
+                    <!-- <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="600">
                         <a class="nav-link text-body fw-bold" href="#">New Homes</a>
                         <div class="line"></div>
-                    </li>
+                    </li> -->
                     <li class="nav-item nav2 contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">
                     @if(isset(get_country_cookie(request())->country_id))
                         @if(isset(get_country_cookie(request())->country_id))
@@ -148,8 +148,8 @@
 
                                         {{ App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->country_name }}
                                             
-                                        <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid">
-
+                                        <img src="https://flagcdn.com/w40/{{strtolower(get_country_cookie(request())->country_id)}}.png" alt="">
+                                        
                                         <p class="d-none">{{get_country_cookie(request())->country_id}}</p>
                                     @else
 
@@ -169,8 +169,8 @@
                                                     <div class="col-6">
                                                         {{ $tpr_country->country_name }}
                                                     </div>
-                                                    <div class="col-6 text-end">
-                                                        <img src="https://www.countryflags.io/{{$tpr_country->country_id}}/flat/64.png" alt="" class="img-fluid" style="height: 40px;">
+                                                    <div class="col-6 text-end">                                                    
+                                                        <img src="https://flagcdn.com/w40/{{strtolower($tpr_country->country_id)}}.png" alt="" class="img-fluid">
                                                     </div>
                                                 </div>
                                             </a>
@@ -182,7 +182,7 @@
                                                         {{ $tpr_country->country_name }}
                                                     </div>
                                                     <div class="col-6 text-end">
-                                                        <img src="https://www.countryflags.io/{{$tpr_country->country_id}}/flat/64.png" alt="" class="img-fluid" style="height: 40px;">
+                                                        <img src="https://flagcdn.com/w40/{{strtolower($tpr_country->country_id)}}.png" alt="" class="img-fluid">
                                                     </div>
                                                 </div>
                                             </a>
@@ -216,12 +216,12 @@
                     <div>
                         @foreach($tpr_countries as $tpr_country)
                             <a href="{{ route('frontend.country_change', $tpr_country->country_id) }}" class="text-decoration-none h6 text-dark">
-                                <div class="row align-items-center">
+                                <div class="row align-items-center mb-3">
                                     <div class="col-6">
                                         {{ $tpr_country->country_name }}
                                     </div>
                                     <div class="col-6 text-end">
-                                        <img src="https://www.countryflags.io/{{$tpr_country->country_id}}/flat/64.png" alt="" class="img-fluid" style="height: 40px;">
+                                        <img src="https://flagcdn.com/w40/{{strtolower($tpr_country->country_id)}}.png" alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </a>

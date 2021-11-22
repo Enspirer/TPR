@@ -15,8 +15,8 @@
                 <h5 class="fw-bolder mt-2">MORE</h5>
                 <a href="{{ route('frontend.privacy-policy') }}" class="mt-4 mb-3 d-block text-decoration-none no-result-list text-white">Privacy Policy</a>
                 <a href="{{ route('frontend.terms-of-use') }}" class="mb-3 d-block text-decoration-none no-result-list text-white">Terms of Use</a>
-                <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">FAQ</a>
-                <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">Sitemap</a>
+                <!-- <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">FAQ</a>
+                <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">Sitemap</a> -->
             </div>
             <div class="col-3 ps-5">
                 <h5 class="fw-bolder mt-2">TOPICS</h5>
@@ -40,7 +40,7 @@
         <div class="container">
             <div class="row py-3 align-items-center">
                 <div class="col-6">
-                    <p class="text-white mb-0">All Rights Reserved</p>
+                    <p class="text-white mb-0">	&copy; All Rights Reserved</p>
                 </div>
                 <div class="col-6 text-end">
                     <p class="text-white mb-0">Powered by <a href="https://www.enspirer.com" class="text-white text-decoration-none">Enspirer</a></p>

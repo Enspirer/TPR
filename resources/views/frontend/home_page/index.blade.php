@@ -165,7 +165,7 @@
                     <h6 data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">Results: {{ count($promo) }} Listings</h6>
                     <div class="row align-items-center" data-aos="fade-right" data-aos-duration="500" data-aos-delay="400">
                         <div class="col-5">
-                            <p class="mb-0 text">Sort By</p>
+                            <!-- <p class="mb-0 text">Sort By</p> -->
                         </div>
                         <div class="col-7">
                             <div class="dropdown">
@@ -174,7 +174,7 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Newest</a></li>
-                                    <li><a class="dropdown-item" href="#">Oldest</a></li>
+                                    <!-- <li><a class="dropdown-item" href="#">Oldest</a></li> -->
                                 </ul>
                             </div>
                         </div>
@@ -285,12 +285,16 @@
                     @foreach($latest as $lat)
 
                         <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
-                            <div class="card p-4 custom-shadow border-0">
+                            <div class="card p-4 custom-shadow border-0" style="height:24.5rem">
                                 <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
-                                <div class="card-body mt-4">
+                                <div class="card-body">
                                     <h5 class="card-title">{{ $lat->name }}</h5>
-                                    <p class="card-text mt-3 mb-1">4 Bed Semidetached honse</p>
-                                    <p class="card-text">Lancaster, {{ $lat->country }}</p>
+
+                                    @if($lat->beds != null)
+                                        <p class="card-text mt-3 mb-1">{{$lat->beds}} Beds Semidetached house</p>
+                                    @endif
+
+                                    <p class="card-text">{{ $lat->city }}, {{ $lat->country }}</p>
 
                                     @if(get_country_cookie(request()))
                                         <p class="mt-1 text-info">{{ current_price(get_country_cookie(request())->country_id, $lat->price) }}</p>

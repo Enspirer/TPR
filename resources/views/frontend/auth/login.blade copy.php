@@ -80,7 +80,7 @@
                                             </div>
                                         </div>
                                         <div class="float-end">
-                                            <a href="#" class="text-decoration-none" style="font-size: 0.9rem; color: #77CEEC;">Forgot Password</a>
+                                            <a href="{{ route('frontend.auth.password.reset') }}" class="text-decoration-none" style="font-size: 0.9rem; color: #77CEEC;">Forgot Password</a>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
                         <p class="text-end mt-3">Don't have an account? <a href="{{route('frontend.auth.register')}}" class="text-decoration-none" style="color: #77CEEC;">Sign Up</a></p>
 
 
-                        <div class="follow" style="margin-top: 6rem;">
+                        <!-- <div class="follow" style="margin-top: 6rem;">
                             <h6 class="fw-bolder mb-5">With Social Media</h6>
                             <div class="row mt-5">
                                 <div class="col-2 me-3">
@@ -113,7 +113,7 @@
                                     <a href="#" class="fs-3" style="color: #83BE4A; border: 2px solid #83BE4A; padding: 24px 27px;"><i class="fab fa-apple"></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="col-6 ps-0">
@@ -145,7 +145,7 @@
                                             </div>
                                         </div>
                                         <div class="float-end">
-                                            <a href="#" class="text-decoration-none" style="font-size: 0.9rem; color: #77CEEC;">Forgot Password</a>
+                                            <a href="{{ route('frontend.auth.password.reset') }}" class="text-decoration-none" style="font-size: 0.9rem; color: #77CEEC;">Forgot Password</a>
                                         </div>
                                     </div>
                                 </div>
@@ -159,7 +159,7 @@
                         <p class="text-end mt-3">Don't have an account? <a href="{{route('frontend.auth.register')}}" class="text-decoration-none" style="color: #77CEEC;">Sign Up</a></p>
 
 
-                        <div class="follow" style="margin-top: 6rem;">
+                        <!-- <div class="follow" style="margin-top: 6rem;">
                             <h6 class="fw-bolder mb-5">With Social Media</h6>
                             <div class="row mt-5">
                                 <div class="col-2 me-3">
@@ -178,7 +178,7 @@
                                     <a href="#" class="fs-3" style="color: #83BE4A; border: 2px solid #83BE4A; padding: 24px 27px;"><i class="fab fa-apple"></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

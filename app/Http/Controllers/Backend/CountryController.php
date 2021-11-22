@@ -87,6 +87,10 @@ class CountryController extends Controller
 
         $user = User::where('email',$request->country_manager)->first();
 
+        if($user == null){
+            return back()->withErrors('Select Country Manager');
+        }
+
         $addcountry = new Country;
 
         $addcountry->country_name=$request->country;
@@ -99,7 +103,6 @@ class CountryController extends Controller
         $addcountry->country_id=$request->country_id;
         $addcountry->user_id = auth()->user()->id;        
         $addcountry->country_manager=$user->id;
-        $addcountry->features_flag=$request->features_flag;
         $addcountry->status=$request->status;
 
         $addcountry->phone_numbers=json_encode($final_array);
@@ -158,6 +161,10 @@ class CountryController extends Controller
 
         $user = User::where('email',$request->country_manager)->first();
 
+        if($user == null){
+            return back()->withErrors('Select Country Manager');
+        }
+
         $updatcountry = new Country;
 
         $updatcountry->country_name=$request->country;
@@ -173,7 +180,6 @@ class CountryController extends Controller
    
         $updatcountry->country_manager=$user->id;
 
-        $updatcountry->features_flag=$request->features_flag;
         $updatcountry->status=$request->status;
 
         $updatcountry->phone_numbers=json_encode($final_array);

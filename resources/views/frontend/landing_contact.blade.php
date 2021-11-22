@@ -93,7 +93,7 @@
                         <input type="submit" class="btn rounded-0 fw-bold w-100 text-white p-3" style="background-color: #77CEEC;" value="Submit" />
                     </form>
 
-                    <div class="follow" style="margin-top: 7rem;">
+                    <!-- <div class="follow" style="margin-top: 7rem;">
                         <h5 class="fw-bolde mb-5">Follow Us</h5>
                         <div class="row mt-5">
                             <div class="col-2 me-3">
@@ -112,7 +112,7 @@
                                 <a href="#" class="p-4 fs-3" style="color: #81BF50; border: 2px solid #81BF50;"><i class="fab fa-youtube"></i></a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

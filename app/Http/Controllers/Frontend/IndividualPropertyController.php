@@ -14,7 +14,7 @@ use App\Models\Favorite;
 
 
 /**
- * Class ContactController.
+ * Class IndividualPropertyController.
  */
 class IndividualPropertyController extends Controller
 {
@@ -34,7 +34,12 @@ class IndividualPropertyController extends Controller
         $feature_image = FileManager::where('id',$property_details->feature_image_id)->get();
         // dd($feature_image);
 
-        $side_ads = SidebarAd::where('admin_approval', 'Approved')->where('status', 'Enable')->get();
+        if(get_country_cookie(request())){
+            $side_ads = SidebarAd::where('admin_approval', 'Approved')->where('country',get_country_cookie(request())->country_name)->where('status', 'Enable')->get();            
+        }
+        else{
+            $side_ads = SidebarAd::where('admin_approval', 'Approved')->where('status', 'Enable')->latest()->take(2)->get();
+        }
 
          $final_out = [];
 
@@ -129,6 +134,14 @@ class IndividualPropertyController extends Controller
         
         return back();
 
+    }
+
+
+    public function calculator($id)
+    {
+        $property_details = Properties::where('id',$id)->first();
+        
+        return view('frontend.includes.calculator');
     }
 
 
