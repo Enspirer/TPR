@@ -55,6 +55,7 @@
                         <thead class="table-head">
                             <tr>
                                 <th scope="col">Type Name</th>
+                                <th scope="col">Fields</th>
                             </tr>
                         </thead>
                         <tbody class="align-middle table-data">
@@ -68,6 +69,41 @@
     </div>
 
     
+
+    <!-- ad category -->
+    <form action="" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content" style="font-size:15px;">            
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Explore Parameter</h5>
+                    <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" data-dismiss="modal" aria-label="Close">
+                    <!-- <span aria-hidden="true">&times;</span> -->
+                    </button>
+                </div>
+                <div class="modal-body">                
+                                                                                    
+                    <!-- <div class="form-group">
+                        <label>Category Name:</label>
+                        <input type="text" class="form-control mt-3" name="name" required>
+                    </div> -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="hidden" class="form-control" name="country">
+                    <input type="submit" class="btn btn-success" value="Add">
+                </div>
+               
+            </div>
+        </div>
+        </div>
+    </form> 
+
+
 
 
 @if(count($property_type) <= 0)
@@ -99,6 +135,7 @@
             order: [[0, "desc"]],
             columns: [
                 {data: 'property_type_name', name: 'property_type_name'},
+                {data: 'activated_fields', name: 'activated_fields'},
             ],
             "fnDrawCallback": function( oSettings ) {
                 dispprove();
