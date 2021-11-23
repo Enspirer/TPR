@@ -162,6 +162,9 @@
     color: #E9B815;
     font-size:1rem;
 }
+.mini-search-bar {
+    display: none;
+}
 
 
 
@@ -182,6 +185,10 @@
     .search-bar {
         display: none;
     }
+    .mini-search-bar {
+        display: block;
+    }
+    
     #index-property-search #map {
         height: 450px!important;
     }
