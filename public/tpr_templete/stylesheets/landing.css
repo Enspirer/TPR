@@ -138,3 +138,45 @@
 .mySwiper2 .swiper-button-prev, .swiper-rtl .swiper-button-next {
     left: 0px!important;
 }
+
+
+@media screen and (max-width: 576px) {
+    .logo-landing {
+        top: 0.8rem;
+        height: 2rem!important;
+    }
+    .map-banner {
+        height: 1100px!important;
+    }
+    .map-banner .container {
+        margin-top: 6rem!important;
+    }
+    .regions-div {
+        height: 500px;
+    }
+    .map-div h5 {
+        font-size: 16px;
+        left: 0;
+    }
+    #mapdiv {
+        width: 92.5%!important;
+        left: 14px!important;
+    }
+    .swiper-button-next {
+        display: none!important;
+    }
+    .swiper-button-prev {
+        display: none!important;
+    }
+    .mySwiper2 {
+        padding-bottom: 0!important;
+        padding-right: 0!important;
+        padding-left: 0!important;
+    }
+    #featured-properties .container {
+        margin-top: 4rem!important;
+    }
+    .join {
+        padding-left: 0rem!important;
+    }
+}

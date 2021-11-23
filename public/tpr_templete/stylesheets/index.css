@@ -162,3 +162,49 @@
     color: #E9B815;
     font-size:1rem;
 }
+
+
+
+
+
+
+
+@media screen and (max-width: 576px) {
+    .banner {
+        height: 350px;
+    }
+    .search {
+        top: 8.5rem;
+        padding: 0rem;
+        z-index: 1;
+        background-color: transparent!important;
+    }
+    .search-bar {
+        display: none;
+    }
+    #index-property-search #map {
+        height: 450px!important;
+    }
+    #index-cards .container {
+        margin-top: 4rem!important;
+    }
+    #index-featured-projects .container {
+        margin-top: 5rem!important;
+    }
+    .home-featured {
+        margin-top: 3rem!important;
+    }
+    .bottom-banner {
+        height: 230px!important;
+        margin-top: 3rem!important;
+    }
+    .bottom-banner .text {
+        padding-top: 5rem!important;
+    }
+    .bottom-banner .text h5 {
+        font-size: 15px!important;
+    }
+    .bottom-banner-stars {
+        font-size: 0.8rem!important;
+    }
+}

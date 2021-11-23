@@ -156,3 +156,17 @@ p {
     box-shadow: 0 0rem 1rem rgba(0,0,0,.175);
 }
 
+
+
+
+@media screen and (max-width: 576px) {
+    .first-nav .logo {
+        top: 0.8rem;
+        height: 2rem!important;
+    }
+
+    .globe {
+        top: 4.6rem;
+        left: 7%;
+    }
+}

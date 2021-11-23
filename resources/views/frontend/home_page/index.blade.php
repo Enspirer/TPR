@@ -58,7 +58,7 @@
 
                     </ul>
 
-                    <div class="tab-content mt-5 py-0" id="tabs-tabContent">
+                    <div class="tab-content mt-md-5 py-0" id="tabs-tabContent">
 
                         <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
                             
@@ -161,7 +161,7 @@
 
             <div class="row mt-4">
             @if(count($promo) > 0)
-                <div class="col-3" style="background-color: #F3F3F3">
+                <div class="col-12 col-md-3 mb-4 mb-md-0" style="background-color: #F3F3F3">
                     <h6 data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">Results: {{ count($promo) }} Listings</h6>
                     <div class="row align-items-center" data-aos="fade-right" data-aos-duration="500" data-aos-delay="400">
                         <div class="col-5">
@@ -207,7 +207,7 @@
                     </div>
                 </div>
                 @else
-                    <div class="col-3">
+                    <div class="col-12 col-md-3 mb-4 mb-md-0">
                         <div class="">
                             <div class="no-result border py-2 px-3">
                                 <h4 class="text-center">No Results</h4>
@@ -224,7 +224,7 @@
                         </div>
                     </div>
                 @endif
-                <div class="col-9 p-0">
+                <div class="col-12 col-md-9 p-md-0">
                     <div id="map" style="height: 600px; width: 100%;"></div>
                 </div>
             </div>
@@ -235,7 +235,7 @@
     <section id="index-cards">
         <div class="container mt-5">
             <div class="row">
-                <div class="col-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
+                <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
                     <div class="card p-4 custom-shadow border-0">
                         <img src="{{url('tpr_templete/images/card_1.svg')}}" class="card-img-top" alt="..." height="200rem">
                         <div class="card-body mt-4 p-2">
@@ -245,7 +245,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
                     <div class="card p-4 custom-shadow border-0">
                         <img src="{{url('tpr_templete/images/card_2.svg')}}" class="card-img-top" alt="..." height="200rem">
                         <div class="card-body mt-4 p-2">
@@ -255,7 +255,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500">
+                <div class="col-12 col-md-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500">
                     <div class="card p-4 custom-shadow border-0">
                         <img src="{{url('tpr_templete/images/card_3.svg')}}" class="card-img-top" alt="..." height="200rem">
                         <div class="card-body mt-4 p-2">
@@ -277,14 +277,14 @@
 
                 <h3 class="text-center fw-bolder" data-aos="fade-up" data-aos-duration="500">Featured Properties</h3>
 
-                <div class="mt-5">
+                <div class="mt-4 mt-md-5">
                     <h4 data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">Fresh in the Market</h4>
 
                     <div class="row mt-4">
 
                     @foreach($latest as $lat)
 
-                        <div class="col-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                        <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                             <div class="card p-4 custom-shadow border-0" style="height:24.5rem">
                                 <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
                                 <div class="card-body">
@@ -317,13 +317,13 @@
             @if(json_decode($country->features_manager) != null)
                 @if(json_decode($country->features_manager)[0]->properties != null)
                     
-                        <div style="margin-top: 6rem">
+                        <div class="home-featured" style="margin-top: 6rem">
 
                             <h4 data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">{{ json_decode($country->features_manager)[0]->title }}</h4>
 
                             <div class="row mt-4">
                                 @foreach(json_decode($country->features_manager)[0]->properties as $prop)
-                                <div class="col-4 mb-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                                <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                                     <div class="card p-4 custom-shadow border-0">
                                         <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
                                         <div class="card-body mt-4">
@@ -348,13 +348,13 @@
 
 
                 @if(json_decode($country->features_manager)[1]->properties != null)
-                    <div style="margin-top: 6rem">
+                    <div class="home-featured" style="margin-top: 6rem">
                         <h4 data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">{{ json_decode($country->features_manager)[1]->title }}</h4>
 
                         
                         <div class="row mt-4">
                             @foreach(json_decode($country->features_manager)[1]->properties as $prop)
-                            <div class="col-4 mb-4" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                            <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                                 <div class="card p-4 custom-shadow border-0">
                                     <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
                                     <div class="card-body mt-4">
@@ -385,8 +385,8 @@
     <section id="index-bottom-banner">
         <div class="container-fluid bottom-banner" style="margin-top:5rem">
             <div class="container">
-                <div class="row justify-content-end" style="padding-top: 7rem">
-                    <div class="col-4">
+                <div class="row justify-content-end text" style="padding-top: 7rem">
+                    <div class="col-12 col-md-4">
                         <div class="p-3 text-white rounded" style="background: rgba(0, 0, 0, .7)">
                             <h5 data-aos="fade-up" data-aos-duration="500">"I'm so pleased I chose <br> <span class="fw-bolder">Tropical Property!</span> <br> My property was a great valuation <br> and sold quickly, the perfect outcome"</h5>
                             <div class="stars mt-1">
@@ -402,24 +402,6 @@
             </div>
         </div>
     </section>
-
-
-    <!--get app-->
-    <!-- <section id="index-get-app">
-        <div class="container-fluid p-0 get-app">
-            <div class="container">
-                <div class="row py-5 align-items-center justify-content-center">
-                    <div class="col-6 text-center">
-                        <h2 class="text-white fw-bolder" data-aos="fade-right" data-aos-duration="500">Get The App Now!</h2>
-                    </div>
-                    <div class="col-6 text-center">
-                        <img src="{{url('tpr_templete/images/appstore.svg')}}" alt="" height="50rem" class="me-3" data-aos="fade-left" data-aos-duration="500">
-                        <img src="{{url('tpr_templete/images/playstore.svg')}}" alt="" height="50rem" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
 
     <!-- Filter Modal -->
@@ -642,7 +624,20 @@
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
-        }
+        },
+        breakpoints: {
+
+            0: {
+                slidesPerView: 1,
+            },
+
+            576: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 1,
+            }
+        },
     });
 
     var swiper2 = new Swiper(".mySwiper2", {
@@ -658,7 +653,20 @@
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
-        }
+        },
+        breakpoints: {
+
+            0: {
+                slidesPerView: 1,
+            },
+
+            576: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 1,
+            }
+        },
       });
 </script>
 
@@ -1048,18 +1056,18 @@
 
 
 <script>
-            $('.swiper-slide img').on('click', function() {
-                let img = $(this).attr('src');
-                let link = $(this).next().val();
-                let description = $(this).siblings('.ad-description').val();
+    $('.swiper-slide img').on('click', function() {
+        let img = $(this).attr('src');
+        let link = $(this).next().val();
+        let description = $(this).siblings('.ad-description').val();
 
-                $('#modal-ad-img').attr('src', img);
-                $('#modal-ad-link').attr('href', link);
-                $('#modal-ad-description').text(description);
+        $('#modal-ad-img').attr('src', img);
+        $('#modal-ad-link').attr('href', link);
+        $('#modal-ad-description').text(description);
 
-                
-            });
-        </script>
+        
+    });
+</script>
 
 
 

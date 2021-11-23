@@ -8,15 +8,15 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item nav1 mx-2" data-aos="fade-left" data-aos-duration="500">
-                        <a class="nav-link text-white fw-bold p-0 {{ Request::segment(1) == null ? 'active' : null }}" href="{{ route('frontend.landing') }}">Home</a>
+                        <a class="nav-link text-white fw-bold px-0 {{ Request::segment(1) == null ? 'active' : null }}" href="{{ route('frontend.landing') }}">Home</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav1 mx-2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
-                        <a class="nav-link text-white fw-bold p-0 {{ Request::segment(1) == 'about-us' ? 'active' : null }}" href="{{ route('frontend.about-us') }}">About Us</a>
+                        <a class="nav-link text-white fw-bold px-0 {{ Request::segment(1) == 'about-us' ? 'active' : null }}" href="{{ route('frontend.about-us') }}">About Us</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav1 mx-2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
-                        <a class="nav-link text-white fw-bold p-0 {{ Request::segment(1) == 'contact' ? 'active' : null }}" href="{{ route('frontend.landing_contact') }}">Contact Us</a>
+                        <a class="nav-link text-white fw-bold px-0 {{ Request::segment(1) == 'contact' ? 'active' : null }}" href="{{ route('frontend.landing_contact') }}">Contact Us</a>
                         <div class="line"></div>
                     </li>
                     @auth
@@ -36,10 +36,10 @@
                         </li>
                     @else
                         <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
-                            <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.login')}}">Login <i class="bi bi-person-check"></i></a>
+                            <a class="nav-link text-white fw-bold px-0" href="{{route('frontend.auth.login')}}">Login <i class="bi bi-person-check"></i></a>
                         </li>
                         <li class="nav-item join" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" style="padding-left : 2rem">
-                            <a class="nav-link text-white fw-bold" href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
+                            <a class="nav-link text-white fw-bold px-0" href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
                         </li>
                     @endauth
                 </ul>

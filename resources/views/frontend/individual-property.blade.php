@@ -309,7 +309,243 @@
                             </div>
 
                             <div class="tab-pane fade" id="neighbourhood" role="tabpanel" aria-labelledby="neighbourhood-tab">
+                                <div class="row mt-3">
+                                    <div class="col-5 pe-0">
 
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-school text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Elementary Schools</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-graduation-cap text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">High Schools</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-school text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Elementary Schools</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-volume-mute text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Quiet</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-walking text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Pedestrian friendly</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-tree text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Parks</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-bus text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Transit Friendly</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-car text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Car Friendly</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-utensils text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Restaurants</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-shopping-bag text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Shopping</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-baby text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Daycares</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-coffee text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Cafes</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-school text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Vibrant</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-3 py-2 border">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 text-center">
+                                                    <i class="fas fa-cloud-moon text-secondary"></i>
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="mb-0" style="font-size: 13px;">Nightlife</p>
+                                                </div>
+                                                <div class="col-2 ps-0 text-center">
+                                                    <div style="padding: 0.2rem;">
+                                                        <p class="mb-0 number" style="font-size: 13px;">10</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-7 ps-0">
+                                        <div class="location">
+                                            <div id="map2" style="height: 749px; width: 100%;"></div>
+                                            <input type="text" name="lat" id="lat" value="{{$property_details->lat}}" class="mt-3 d-none">
+                                            <input type="text" name="lng" id="lng" value="{{$property_details->long}}" class="mt-3 d-none">
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             </div>
 
                             <div class="tab-pane fade" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">
@@ -1316,6 +1552,27 @@
 
 
 <script>
+    function initMap() {
+        let lat = $('#lat').val();
+        let lng = $('#lng').val();
+
+        const myLatLng = { lat: parseFloat(lat), lng: parseFloat(lng) };
+
+            let options = {
+            zoom: 8,
+            center: myLatLng
+            };
+
+        const map = new google.maps.Map(document.getElementById("map"), options);
+
+        let marker = new google.maps.Marker({
+            position: myLatLng,
+            map:map
+        });
+    }
+</script>
+
+<script>
 
     function initMap() {
         let lat = $('#lat').val();
@@ -1328,7 +1585,7 @@
             center: myLatLng
             };
 
-            const map = new google.maps.Map(document.getElementById("map"), options);
+            const map = new google.maps.Map(document.getElementById("map2"), options);
 
 
             let marker = new google.maps.Marker({
@@ -1336,9 +1593,10 @@
                 map:map
             });
 
-            // console.log(myLatLng);
-}
+        }
+
 </script>
+
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
 type="text/javascript"></script>

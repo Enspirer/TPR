@@ -64,3 +64,11 @@
 :focus-visible {
     outline: none!important;
 }
+
+.number {
+    background-color: #19aa00;
+    color: white;
+    padding: 0.3rem 0.5rem;
+    border-radius: 30px;
+    text-align: center;
+}

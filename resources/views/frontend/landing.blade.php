@@ -15,8 +15,7 @@
     <div class="container" style="margin-top: 7rem;">
         <div class="row justify-content-between">
             
-            
-            <div class="col-3 position-relative">
+            <div class="col-12 col-md-3 position-relative regions-div">
                 <div class="p-3" style="background: rgb(0,0,0, 0.6)">
                     <h5 class="fw-bold text-white mb-0">Tropical Regions</h5>
                 </div>
@@ -32,10 +31,10 @@
                 </div>
             </div>
 
-            <div class="col-9 position-relative">
+            <div class="col-12 col-md-9 position-relative map-div">
                 <div class="map-large-ban"></div>
                 <div class="map-large-ban1"></div>
-                <h5 class="text-center text-white" style="width: 100%; height: 400px; position: absolute; top: 15px;">Select your preferred Tropical Region to view Properties</h5>
+                <h5 class="text-center text-white" style="width: 100%; position: absolute; top: 15px;">Select your preferred Tropical Region to view Properties</h5>
                 <div id="mapdiv" style="width: 97.3%; height: 394px; position: absolute; top: 55px;"></div>
             </div>
         </div>
@@ -78,7 +77,7 @@
                     <div class="swiper-slide">
                         <div class="container">
                             <div class="row">
-                                <div class="col-6 p-1 text-center">
+                                <div class="col-12 col-md-6 p-3 p-md-1 text-center">
                                 @if($advertisement->image !== null)
                                     <img src="{{ uploaded_asset($advertisement->image) }}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:260px;">
                                     <input type="hidden" value="{{$advertisement->link}}" class="ad-link">
@@ -89,7 +88,7 @@
                                 </div>  
                                 @endif
                                 </div>
-                                <div class="col-6 p-1">
+                                <div class="col-12 col-md-6 p-3 p-md-1">
                                 @if($advertisement->large_right_image !== null)
                                     <img src="{{uploaded_asset($advertisement->large_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:260px;">
                                     <input type="hidden" value="{{$advertisement->large_right_link}}" class="ad-link">
@@ -102,7 +101,7 @@
                                 </div>                  
                             </div>
                             <div class="row">
-                                <div class="col-4 p-1">
+                                <div class="col-12 col-md-4 p-3 p-1">
                                 @if($advertisement->small_left_image !== null)
                                     <img src="{{uploaded_asset($advertisement->small_left_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                     <input type="hidden" value="{{$advertisement->small_left_link}}" class="ad-link">
@@ -113,7 +112,7 @@
                                 </div>  
                                 @endif 
                                 </div>
-                                <div class="col-4 p-1">
+                                <div class="col-12 col-md-4 p-3 p-1">
                                 @if($advertisement->small_middle_image !== null)
                                     <img src="{{uploaded_asset($advertisement->small_middle_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                     <input type="hidden" value="{{$advertisement->small_middle_link}}" class="ad-link">
@@ -124,7 +123,7 @@
                                 </div>  
                                 @endif 
                                 </div>  
-                                <div class="col-4 p-1">
+                                <div class="col-12 col-md-4 p-3 p-1">
                                 @if($advertisement->small_right_image !== null)
                                     <img src="{{uploaded_asset($advertisement->small_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                     <input type="hidden" value="{{$advertisement->small_right_link}}" class="ad-link">
@@ -164,7 +163,7 @@
                             <div class="swiper-slide">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-6 p-1  text-center">
+                                        <div class="col-12 col-md-6 p-3 p-md-1 text-center">
                                         @if($advertisement->image !== null)
                                             <img src="{{uploaded_asset($data->image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:260px;">
                                             <input type="hidden" value="{{$advertisement->link}}" class="ad-link">
@@ -175,7 +174,7 @@
                                         </div>  
                                         @endif
                                         </div>
-                                        <div class="col-6 p-1">
+                                        <div class="col-12 col-md-6 p-3 p-md-1 ">
                                         @if($advertisement->large_right_image !== null)
                                             <img src="{{uploaded_asset($data->large_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:260px;">
                                             <input type="hidden" value="{{$advertisement->large_right_link}}" class="ad-link">
@@ -188,7 +187,7 @@
                                         </div>                  
                                     </div>
                                     <div class="row">
-                                        <div class="col-4 p-1">
+                                        <div class="col-12 col-md-4 p-3 p-1">
                                         @if($advertisement->small_left_image !== null)
                                             <img src="{{uploaded_asset($data->small_left_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                             <input type="hidden" value="{{$advertisement->small_left_link}}" class="ad-link">
@@ -199,7 +198,7 @@
                                         </div>  
                                         @endif 
                                         </div>
-                                        <div class="col-4 p-1">
+                                        <div class="col-12 col-md-4 p-3 p-1">
                                         @if($advertisement->small_middle_image !== null)
                                             <img src="{{uploaded_asset($data->small_middle_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                             <input type="hidden" value="{{$advertisement->small_middle_link}}" class="ad-link">
@@ -210,7 +209,7 @@
                                         </div>  
                                         @endif 
                                         </div>  
-                                        <div class="col-4 p-1">
+                                        <div class="col-12 col-md-4 p-3 p-1">
                                         @if($advertisement->small_right_image !== null)
                                             <img src="{{uploaded_asset($data->small_right_image)}}" alt="..." data-bs-toggle="modal" data-bs-target="#ad-modal" style="height:210px;">
                                             <input type="hidden" value="{{$advertisement->small_right_link}}" class="ad-link">
@@ -294,7 +293,7 @@
 
                             @foreach(json_decode($country_list1->features_manager)[0]->properties as $key=> $prop)   
                                 @if($key <= 2 )
-                                    <div class="col-4 mt-3" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                                    <div class="col-12 col-md-4 mt-3" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                                         <div class="card p-4 border-0 custom-shadow">
                                             <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top" alt="..." style="object-fit:cover; height: 210px;"></a>
                                             <div class="card-body mt-4">
@@ -328,7 +327,7 @@
 
                             @foreach(json_decode($country_list2->features_manager)[0]->properties as $key=> $prop)
                                 @if($key <= 2 )
-                                <div class="col-4 mt-3" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
+                                <div class="col-12 col-md-4 mt-3" data-aos="flip-right" data-aos-duration="500" data-aos-delay="200">
                                     <div class="card p-4 border-0 custom-shadow">
                                         <a href="{{ route('frontend.individual-property', $prop) }}"><img src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}" class="card-img-top" alt="..." style="object-fit:cover; height: 210px;"></a>
                                         <div class="card-body mt-4">

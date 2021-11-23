@@ -4,7 +4,6 @@
             <div class="row logo-flag">
                 <div class="col-9">
 
-                
                     @if(get_country_cookie(request()))
                         <a href="{{route('frontend.home_page',get_country_cookie(request())->country_id)}}"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo img-fluid rounded" alt=""></a>
 
@@ -14,27 +13,9 @@
 
                     @endif
 
-                
-
-                
-
-
-
-
                 </div>
-                <div class="col-10">
+                <div class="col-3">
                     <a href="{{ route('frontend.landing') }}">
-
-                        <!-- @if(isset(get_country_cookie(request())->country_id))
-                            @if(get_country_cookie(request())->country_id)
-                                <img src="https://www.countryflags.io/{{get_country_cookie(request())->country_id}}/flat/64.png" alt="" class="flag img-fluid" data-bs-toggle="modal" data-bs-target="#countrySelection" title="{{ App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->country_name }}"></a>
-                                <p class="d-none">{{get_country_cookie(request())->country_id}}</p>
-                            @else
-
-                            @endif
-                        @else
-
-                        @endif -->
                         <div class="globe row align-items-center">
                             <div class="col-4 p-0">
                                 <i class="bi bi-arrow-left me-1" style="font-size: 0.7rem;"></i>
@@ -44,8 +25,7 @@
                                 <p class="mb-0" style="font-size: 0.8rem; color: #0071BC;">Tropical World</p>
                             </div>
                         </div>
-                        
-
+                    </a>
                 </div>
             </div>
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
