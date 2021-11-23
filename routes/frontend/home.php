@@ -215,9 +215,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('country-management/property_type_parameter', [CountryManagementController::class, 'property_type_parameter'])->name('property_type_parameter');
         Route::get('get_property_type', [CountryManagementController::class, 'get_property_type'])->name('get_property_type');
         Route::get('external_parameter/{id}', [CountryManagementController::class, 'external_parameter'])->name('external_parameter');
-        // Route::post('ad-category/store', [CountryManagementController::class, 'adCategory_store'])->name('adCategory_store');
-        // Route::post('ad-category/update', [CountryManagementController::class, 'adCategory_update'])->name('adCategory_update');
-        // Route::get('ad-category/delete/{id}', [CountryManagementController::class, 'adCategory_delete'])->name('adCategory_delete');
+        Route::post('external_parameter/store', [CountryManagementController::class, 'external_parameter_store'])->name('external_parameter_store');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');

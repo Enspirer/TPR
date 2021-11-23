@@ -23,6 +23,7 @@
             </div>
 
             <div class="col-8">
+            @include('includes.partials.messages')
                 <div class="row justify-content-between">
                     <div class="col-12 p-0">
                         <div class="row align-items-center">
