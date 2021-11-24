@@ -698,29 +698,35 @@ class CountryManagementController extends Controller
     public function get_property_type(Request $request) {
 
         $property_type = PropertyType::where('status',1)->get();
-        if($request->ajax())
-        {
+
+
+
             return DataTables::of($property_type)
-                ->addColumn('action', function($data){                        
-                        
+                ->addColumn('action', function($data){
                     $button = '<a href="'.route('frontend.user.external_parameter',$data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3"> External Parameter </a>';
                     return $button;
                 })
                 ->addColumn('status', function($data){
-                    if(PropertyTypeParameter::where('property_type_id',$data->id)->first()->status == 'Approved'){
+                    $stack = PropertyTypeParameter::where('property_type_id',$data->id)->first();
+                    if( $stack == 'Approved'){
+
                         $status = '<span>Approved</span>';
-                    }elseif(PropertyTypeParameter::where('property_type_id',$data->id)->first()->status == 'Disapproved'){
-                        $status = '<span">Disapproved</span>';
+                        return $status;
+                    }elseif($stack == 'Disapproved'){
+
+                        $status = '<span>Disapproved</span>';
+                        return $status;
                     }else{
+
                         $status = '<span>Pending</span>';
-                    }   
-                    return $status;
+                        return $status;
+                    }
                 })
                         
                 ->rawColumns(['action','status'])
                 ->make(true);
-        }
-        return back();
+
+
     }
 
     public function external_parameter($id) {
@@ -747,9 +753,14 @@ class CountryManagementController extends Controller
     public function external_parameter_store(Request $request)
     {
         // dd($request);
+        $re_rush = self::form_name_changes($request->property_type_form_data);
+
+
+
+
         $type_parameter_id = $request->type_parameter_id;
         $property_type = $request->property_type;
-        $property_type_form_data = $request->property_type_form_data;
+        $property_type_form_data = $re_rush;
         $user_id = auth()->user()->id;
         $country = Country::where('country_manager',auth()->user()->id)->first()->country_name;
         // dd($type_parameter_id);
@@ -787,6 +798,26 @@ class CountryManagementController extends Controller
 
 
     }
+
+    public static function form_name_changes ($jsonData)
+    {
+        $jsondecodedfiles = json_decode($jsonData);
+
+        $finalOut =[];
+
+        foreach ($jsondecodedfiles as $item)
+        {
+
+            $item->name = 'json_form_'.$item->name;
+//            array_push($finalOut, $subOut);
+            array_push($finalOut,$item);
+
+        }
+
+        return json_encode($finalOut);
+
+    }
+
 
     // public function adCategory_update(Request $request)
     // {                
