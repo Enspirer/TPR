@@ -708,19 +708,25 @@ class CountryManagementController extends Controller
                 })
                 ->addColumn('status', function($data){
                     $stack = PropertyTypeParameter::where('property_type_id',$data->id)->first();
-                    if( $stack->status == 'Approved'){
-
-                        $status = '<span>Approved</span>';
-                        return $status;
-                    }elseif($stack->status == 'Disapproved'){
-
-                        $status = '<span>Disapproved</span>';
+                    if($stack == null){
+                        $status = '<span>Not Set</span>';
                         return $status;
                     }else{
+                        if( $stack->status == 'Approved'){
 
-                        $status = '<span>Pending</span>';
-                        return $status;
+                            $status = '<span>Approved</span>';
+                            return $status;
+                        }elseif($stack->status == 'Disapproved'){
+    
+                            $status = '<span>Disapproved</span>';
+                            return $status;
+                        }else{
+    
+                            $status = '<span>Pending</span>';
+                            return $status;
+                        }
                     }
+                    
                 })
                         
                 ->rawColumns(['action','status'])

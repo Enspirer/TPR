@@ -60,6 +60,9 @@
                     </div><!--col-->
                 </div><!--row-->
             @else
+            <div style="border:1px solid red; text-align:center" class="mb-4 p-1">
+                <h6 style="color:red" class="mb-2 mt-1">Warning!</h6><h6 class="mb-1" style="font-size:15px;"> You can change the form. But you should have to wait until admin approval.</h6>
+            </div>
                 <div class="row">
                     <div class="col">
                         <div class="card">
