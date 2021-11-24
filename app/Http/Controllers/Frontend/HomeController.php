@@ -17,6 +17,8 @@ use App\Models\SidebarAd;
 use App\Models\AdCategory;
 use App\Models\HomePageAdvertisement;
 use App\Models\GlobalAdCategories;
+use App\Models\PropertyTypeParameter;
+
 
 /**
  * Class HomeController.
@@ -161,6 +163,18 @@ class HomeController extends Controller
         // dd($final_out);
 
         return json_encode($final_out);
+    }
+
+    public function parameter($country,$id)
+    {
+        $property_type_para = PropertyTypeParameter::where('status','=','Approved')
+        ->where('country',$country)->where('property_type_id',$id)->first();
+
+        $output = json_decode($property_type_para->form_json);
+
+        // dd($property_type_para);
+
+        return json_encode($output);
     }
 
 

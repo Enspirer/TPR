@@ -15,7 +15,7 @@ use App\Http\Controllers\Backend\SidebarAdvertisementController;
 use App\Http\Controllers\Backend\PagesController;
 use App\Http\Controllers\Backend\FeaturePropertyUpdateRequestController;
 use App\Http\Controllers\Backend\GlobalAdCategoryController;
-
+use App\Http\Controllers\Backend\TypeParameterController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -146,3 +146,13 @@ Route::get('settings/delete/{id}', [SettingsController::class, 'destroy'])->name
 
 Route::get('landing_page', [SettingsController::class, 'landing_page'])->name('landing_page');
 Route::post('landing_page/update', [SettingsController::class, 'landing_page_update'])->name('landing_page_update');
+
+
+Route::get('property_parameter', [TypeParameterController::class, 'index'])->name('property_parameter.index');
+Route::get('property_parameter/getdetails', [TypeParameterController::class, 'getdetails'])->name('property_parameter.getdetails');
+Route::get('property_parameter/edit/{id}', [TypeParameterController::class, 'edit'])->name('property_parameter.edit');
+Route::post('property_parameter/update', [TypeParameterController::class, 'update'])->name('property_parameter.update');
+Route::get('property_parameter/delete/{id}', [TypeParameterController::class, 'destroy'])->name('property_parameter.destroy');
+
+
+

@@ -204,6 +204,13 @@
                                     </div>
                                 </div>
 
+                                <div class="row mt-4">
+                                    <div class="" id="fb-render">
+                                    </div>
+                                    <input type="hidden" id="agent_country" name="agent_country" value="{{$agent_request_country}}">
+                                    <!-- <button onclick="loadform('Malaysia','1')">Click me</button> -->
+                                </div>
+
                                 <div class="row">
                                     <div class="col-6">
                                         <div>
@@ -224,6 +231,7 @@
                                 <div class="row" id="incoming_fields">
 
                                 </div>
+                                
 
                                 <div class="mt-5 text-center">
                                     <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;" >
@@ -390,7 +398,11 @@
         // dropdown box changing field
         const renderFields = async () => {
             let value = $('#propertyType').val();
-
+            let agent_country = $('#agent_country').val();
+            // console.log(agent_country);
+            
+            loadform(agent_country,value);
+          
 
             let url = '{{url('/')}}/api/get_property_type_details/' + value;
             const res = await fetch(url);
@@ -619,8 +631,8 @@
 
         $('#propertyType').change(function() {
             renderFields();
-        });
 
+        });       
 
         $( "#name" ).change(function() {
             let name = $(this).val().split(' ').join('-').toLowerCase();
@@ -636,6 +648,46 @@
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap&libraries=places&v=weekly&channel=2"
 type="text/javascript"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
+    <script src='https://kevinchappell.github.io/formBuilder/assets/js/form-render.min.js'></script>
+
+
+        <script>
+
+            function loadform(country,value){
+
+                $.get("{{url('/')}}/api/get_property_type_parameter/" + country + '/' + value, function(data, status){
+                    // alert("Data: " + data + "\nStatus: " + status);
+
+                    const getUserDataBtn = document.getElementById("get-user-data");
+                    const fbRender = document.getElementById("fb-render");
+                    const originalFormData = data;
+                    // alert(originalFormData);
+                    
+                    const formData = originalFormData;
+                    // alert(formData);
+
+                    $(fbRender).formRender({ formData });
+                    getUserDataBtn.addEventListener(
+                        "click",
+                        () => {
+                            window.alert(window.JSON.stringify($(fbRender).formRender("userData")));
+                        },
+                        false
+                    );
+                    
+
+                });
+
+                
+
+            }           
+            
+        </script>
 
 
 @endpush

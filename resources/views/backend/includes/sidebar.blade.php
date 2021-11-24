@@ -53,6 +53,11 @@
                             Property Type
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/property_parameter'))}}" href="{{ route('admin.property_parameter.index') }}">
+                            Property Type Parmeter
+                        </a>
+                    </li>
                         
                 </ul>
             </li>            

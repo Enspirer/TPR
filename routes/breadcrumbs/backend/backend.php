@@ -131,6 +131,13 @@ Breadcrumbs::for('admin.landing_page', function ($trail) {
 });
 
 
+Breadcrumbs::for('admin.property_parameter.index', function ($trail) {
+    $trail->push('Property Type Parameter', route('admin.property_parameter.index'));
+});
+Breadcrumbs::for('admin.property_parameter.edit', function ($trail) {
+    $trail->push('Status Property Type Parameter', route('admin.property_parameter.edit',1));
+});
+
 
 Breadcrumbs::for('admin.about_us', function ($trail) {
     $trail->push('About Us', route('admin.about_us'));

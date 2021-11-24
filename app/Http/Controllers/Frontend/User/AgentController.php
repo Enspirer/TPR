@@ -9,6 +9,7 @@ use DB;
 use App\Models\AgentRequest;
 use App\Models\PropertyType;
 use App\Models\Properties;
+use App\Models\PropertyTypeParameter;
 use App\Models\Auth\User;
 use Auth;
 use App\Models\Booking;
@@ -253,9 +254,14 @@ class AgentController extends Controller
     {
         $property_type = PropertyType::where('status','=','1')->get();
 
+        $agent_request = AgentRequest::where('user_id',auth()->user()->id)->first();
+        $agent_request_country = $agent_request->country;
+        // dd($agent_request_country);
+      
 
         return view('frontend.user.create-property',[
-            'property_type' => $property_type
+            'property_type' => $property_type,
+            'agent_request_country' => $agent_request_country
         ]);
     }
 
@@ -364,6 +370,7 @@ class AgentController extends Controller
 
     public function createPropertyStore(Request $request)
     {       
+        // dd($request);
 
         $request->validate([
             'lat' => 'required',

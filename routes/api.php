@@ -22,3 +22,5 @@ Route::post('country_request', [HomeController::class, 'map_index'])->name('map_
 
 Route::get('get_property_type_details/{id}', [HomeController::class, 'property_type'])->name('property_type');
 
+Route::get('get_property_type_parameter/{country}/{id}', [HomeController::class, 'parameter'])->name('parameter');
+
