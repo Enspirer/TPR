@@ -31,13 +31,11 @@ class TypeParameterController extends Controller
                     })
                     ->addColumn('type', function($data){
                         
-                        if($data->property_type_id == null){
+                        if(PropertyType::where('id',$data->property_type_id) == null){
                             $details = '<span class="badge badge-danger">Not Set</span>';
                         }else{
-                        $ad_category = AdCategory::where('id',$data->category)->where('admin_approval', '=', 'Approved')->first();
-                        
-                        $details = $ad_category->name;
-
+                            $pt = PropertyType::where('id',$data->property_type_id)->first();                        
+                            $details = $pt->property_type_name;
                         }
                         return $details;
                         

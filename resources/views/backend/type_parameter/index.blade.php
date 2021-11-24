@@ -75,7 +75,7 @@
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'country', name: 'country'},
-                    {data: 'property_type_id', name: 'property_type_id'},
+                    {data: 'type', name: 'type'},
                     {data: 'status', name: 'status'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]

@@ -708,11 +708,11 @@ class CountryManagementController extends Controller
                 })
                 ->addColumn('status', function($data){
                     $stack = PropertyTypeParameter::where('property_type_id',$data->id)->first();
-                    if( $stack == 'Approved'){
+                    if( $stack->status == 'Approved'){
 
                         $status = '<span>Approved</span>';
                         return $status;
-                    }elseif($stack == 'Disapproved'){
+                    }elseif($stack->status == 'Disapproved'){
 
                         $status = '<span>Disapproved</span>';
                         return $status;
