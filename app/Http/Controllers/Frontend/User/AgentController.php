@@ -388,10 +388,7 @@ class AgentController extends Controller
         //This is JSon Form Data -
        $details_forms = self::getDynamicFormData($request->all());
 
-
-
-
-
+    //    dd($details_forms);
 
         $request->validate([
             'lat' => 'required',
@@ -423,6 +420,7 @@ class AgentController extends Controller
         $addprop->user_id = auth()->user()->id;
         $addprop->city=$request->city;
         $addprop->description=$request->description;
+        $addprop->external_parameter=json_encode($details_forms);
 
         $addprop->country = $request->country;      
         
