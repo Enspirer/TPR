@@ -168,7 +168,10 @@ class HomeController extends Controller
     public function parameter($country,$id)
     {
         $property_type_para = PropertyTypeParameter::where('status','=','Approved')
-        ->where('country',$country)->where('property_type_id',$id)->first();
+            ->where('country',$country)
+            ->where('property_type_id',$id)
+            ->first();
+
 
         $output = json_decode($property_type_para->form_json);
 

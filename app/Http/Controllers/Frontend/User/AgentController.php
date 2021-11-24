@@ -291,6 +291,7 @@ class AgentController extends Controller
         ]
     );
 
+
         $out_json = $request->property_images;
 
 
@@ -367,10 +368,30 @@ class AgentController extends Controller
         return back();
     }
 
+    public static function getDynamicFormData($requst)
+    {
+        $reqOut = [];
+        foreach ($requst as $key => $req) {
+            if (strpos($key, 'json_form_') !== false) {
+
+                $reqOut[$key] = $requst[$key];
+            } else {
+
+            }
+        }
+        return $reqOut;
+    }
+
 
     public function createPropertyStore(Request $request)
-    {       
-        // dd($request);
+    {
+        //This is JSon Form Data -
+       $details_forms = self::getDynamicFormData($request->all());
+
+
+
+
+
 
         $request->validate([
             'lat' => 'required',
