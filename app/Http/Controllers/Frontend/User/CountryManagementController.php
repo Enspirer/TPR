@@ -706,8 +706,18 @@ class CountryManagementController extends Controller
                     $button = '<a href="'.route('frontend.user.external_parameter',$data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3"> External Parameter </a>';
                     return $button;
                 })
+                ->addColumn('status', function($data){
+                    if(PropertyTypeParameter::where('property_type_id',$data->id)->first()->status == 'Approved'){
+                        $status = '<span>Approved</span>';
+                    }elseif(PropertyTypeParameter::where('property_type_id',$data->id)->first()->status == 'Disapproved'){
+                        $status = '<span">Disapproved</span>';
+                    }else{
+                        $status = '<span>Pending</span>';
+                    }   
+                    return $status;
+                })
                         
-                ->rawColumns(['action'])
+                ->rawColumns(['action','status'])
                 ->make(true);
         }
         return back();

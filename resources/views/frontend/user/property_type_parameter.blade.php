@@ -58,6 +58,7 @@
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Type Name</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -85,6 +86,7 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'property_type_name', name: 'property_type_name'},
+                {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},                
             ],
             "fnDrawCallback": function( oSettings ) {
