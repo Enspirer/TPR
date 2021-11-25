@@ -179,7 +179,7 @@
                             </li>
                             <li class="nav-item w-25" role="presentation">
                                 <button class="nav-link w-100" id="neighbourhood-tab" data-bs-toggle="tab" data-bs-target="#neighbourhood" type="button" role="tab" aria-controls="neighbourhood" aria-selected="false">
-                                    <img src="{{ url('images/icon_neighbourhood_gray.svg') }}" alt="" class="img-fluid mb-1" style="opacity: 0.6">
+                                    <img src="{{ url('img/icon_neighbourhood_gray.svg') }}" alt="" class="img-fluid mb-1" style="opacity: 0.6">
                                     <h6 class="fw-bold">Neighbourhood</h6>
                                 </button>
                             </li>
@@ -310,6 +310,11 @@
 
                             <div class="tab-pane fade" id="neighbourhood" role="tabpanel" aria-labelledby="neighbourhood-tab">
                                 <div class="row mt-3">
+
+                                    <div style="border:1px solid red; text-align:center" class="mb-4 p-1">
+                                        <h6 style="color:red" class="mb-2 mt-1">Warning!</h6><h6 class="mb-1" style="font-size:15px;"> Statistics API not connected. Please connect your Statistics API.</h6>
+                                    </div>
+
                                     <div class="col-5 pe-0">
 
                                         <div class="px-3 py-2 border">
