@@ -805,6 +805,7 @@ class CountryManagementController extends Controller
 
     }
 
+   
     public static function form_name_changes ($jsonData)
     {
         $jsondecodedfiles = json_decode($jsonData);
@@ -813,10 +814,19 @@ class CountryManagementController extends Controller
 
         foreach ($jsondecodedfiles as $item)
         {
+            
+            if(strpos($item->name, 'json_form_') !== false) {
 
-            $item->name = 'json_form_'.$item->name;
-//            array_push($finalOut, $subOut);
-            array_push($finalOut,$item);
+                //array_push($finalOut, $subOut);
+                array_push($finalOut,$item);
+            
+            } else {
+                        
+                $item->name = 'json_form_'.$item->name;
+                //array_push($finalOut, $subOut);
+                array_push($finalOut,$item);
+            
+            }           
 
         }
 

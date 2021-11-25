@@ -271,15 +271,24 @@ class AgentController extends Controller
         $property = Properties::where('id', $id)->first();
         $images = json_decode($property->image_ids);
 
+        $agent_request = AgentRequest::where('user_id',auth()->user()->id)->first();
+        $agent_request_country = $agent_request->country;
+        // dd($agent_request_country);
+
         return view('frontend.user.property-edit', [
             'property' => $property,
             'property_type' => $property_type,
-            'images' => $images
+            'images' => $images,
+            'agent_request_country' => $agent_request_country
         ]);
     }
 
     public function updateProperty(Request $request) {
 
+        //This is JSon Form Data -
+        $details_forms = self::getDynamicFormData($request->all());
+
+        // dd($details_forms);
 
         $request->validate([
             'lat' => 'required',
@@ -320,6 +329,8 @@ class AgentController extends Controller
         $baths = $request->baths;
         $country = $request->country;
         $description = $request->description;
+        $details_forms_submit = json_encode($details_forms);
+
 
         $admin_approval='Pending';
         $country_manager_approval='Pending';
@@ -352,7 +363,8 @@ class AgentController extends Controller
                 'baths' => $baths,
                 'city' => $city,
                 'admin_approval' => $admin_approval,
-                'country_manager_approval' => $country_manager_approval
+                'country_manager_approval' => $country_manager_approval,
+                'external_parameter' => $details_forms_submit
             ]
         );
 
@@ -382,13 +394,15 @@ class AgentController extends Controller
         return $reqOut;
     }
 
+    
+
 
     public function createPropertyStore(Request $request)
     {
         //This is JSon Form Data -
-       $details_forms = self::getDynamicFormData($request->all());
+        $details_forms = self::getDynamicFormData($request->all());
 
-    //    dd($details_forms);
+        //dd($details_forms);
 
         $request->validate([
             'lat' => 'required',
