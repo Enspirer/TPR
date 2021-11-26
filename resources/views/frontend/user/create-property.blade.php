@@ -164,6 +164,8 @@
                                 <h4 class="mt-5 mb-1">More About Property</h4>
                                 <h6 style="color: #5e6871">Tell us more about the agent</h6>
 
+                                <input type="hidden" id="json_form_data" value="" name="json_form_data">
+
 
                                 <div class="row">
                                     <div class="col-12">
@@ -234,9 +236,8 @@
                                 
 
                                 <div class="mt-5 text-center">
-                                    <input type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;" >
+                                    <input id="submit_data" type="submit" value="Submit" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;" >
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -672,7 +673,11 @@ type="text/javascript"></script>
 
                     var formRend = $(fbRender).formRender({ formData });
                     // console.log(formRend.userData);
-                    window.alert(JSON.stringify(formRend.userData));
+                    document.getElementById('submit_data').addEventListener('click', function() {
+                        $('#json_form_data').val(JSON.stringify(formRend.userData));
+                    });
+
+
 
 
                     $(fbRender).formRender({ formData });
@@ -683,13 +688,16 @@ type="text/javascript"></script>
                         },
                         false
                     );
-                    
-
                 });
+            }
 
-                
+            function rootred() {
+                const fbRender = document.getElementById("fb-render");
+                var formRendQ = $(fbRender).formRender();
 
-            }           
+                window.alert(JSON.stringify(formRendQ.userData));
+
+            }
             
         </script>
 
