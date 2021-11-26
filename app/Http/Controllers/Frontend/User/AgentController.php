@@ -284,9 +284,10 @@ class AgentController extends Controller
     }
 
     public function updateProperty(Request $request) {
+        dd($request);
 
         //This is JSon Form Data -
-        $details_forms = self::getDynamicFormData($request->all());
+        // $details_forms = self::getDynamicFormData($request->all());
 
         // dd($details_forms);
 
@@ -329,7 +330,9 @@ class AgentController extends Controller
         $baths = $request->baths;
         $country = $request->country;
         $description = $request->description;
-        $details_forms_submit = json_encode($details_forms);
+        // $details_forms_submit = json_encode($details_forms);
+        $details_forms_submit=$request->json_form_data;
+
 
 
         $admin_approval='Pending';
@@ -399,8 +402,9 @@ class AgentController extends Controller
 
     public function createPropertyStore(Request $request)
     {
+        // dd($request);
         //This is JSon Form Data -
-        $details_forms = self::getDynamicFormData($request->all());
+        // $details_forms = self::getDynamicFormData($request->all());
 
         //dd($details_forms);
 
@@ -434,7 +438,7 @@ class AgentController extends Controller
         $addprop->user_id = auth()->user()->id;
         $addprop->city=$request->city;
         $addprop->description=$request->description;
-        $addprop->external_parameter=json_encode($details_forms);
+        $addprop->external_parameter=$request->json_form_data;
 
         $addprop->country = $request->country;      
         

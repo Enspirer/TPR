@@ -278,7 +278,24 @@
 
                                             </div>
 
-                                            <div class="row mt-2">
+                                            @if($external_parameter != null)
+                                                <div class="row mt-2">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label style="font-weight: 600;" class="mb-3">External Features:</label>
+                                                            <br>                                                        
+                                                                @foreach($external_parameter as $external)
+                                                                    <div class="col-6">
+                                                                        <li class="mb-3 p-2" style="font-size: 1rem; border:2px solid grey;">{{$external->label}} : {{$external->userData[0]}}</li>
+                                                                    </div>                                                           
+                                                                @endforeach
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+
+                                            <div class="row mt-3">
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label style="font-weight: 600;" class="mb-3">Description:</label>

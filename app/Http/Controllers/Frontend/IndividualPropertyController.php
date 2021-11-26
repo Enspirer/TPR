@@ -71,6 +71,13 @@ class IndividualPropertyController extends Controller
             $favourite = null;
         }
 
+        if(json_decode($property_details->external_parameter) == null){
+            $external_parameter = null;
+        }else{
+            $external_parameter = json_decode($property_details->external_parameter);
+        }
+        // dd($external_parameter);
+
 
         // dd($favourite);
 
@@ -82,7 +89,8 @@ class IndividualPropertyController extends Controller
             'random' => $random,          
             'final_out' => $final_out,
             'side_ads' => $side_ads,
-            'favourite' => $favourite
+            'favourite' => $favourite,
+            'external_parameter' => $external_parameter
         ]);
     }
 

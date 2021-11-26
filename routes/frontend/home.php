@@ -55,6 +55,7 @@ Route::get('commercial', [CommercialController::class, 'index'])->name('commerci
 Route::get('about-us', [FooterController::class, 'aboutUs'])->name('about-us');
 Route::get('mobile-apps', [FooterController::class, 'mobileApps'])->name('mobile-apps');
 Route::get('privacy-policy', [FooterController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('cookie-policy', [FooterController::class, 'cookiePolicy'])->name('cookie-policy');
 Route::get('terms-of-use', [FooterController::class, 'termsOfUse'])->name('terms-of-use');
 
 Route::get('tips-for-buyers', [FooterController::class, 'TipsforBuyers'])->name('tips-for-buyers');

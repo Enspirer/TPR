@@ -28,6 +28,11 @@ class FooterController extends Controller
         return view('frontend.privacy-policy');
     }
 
+    public function cookiePolicy()
+    {
+        return view('frontend.cookie-policy');
+    }
+
     public function termsOfUse()
     {
         return view('frontend.terms-of-use');
