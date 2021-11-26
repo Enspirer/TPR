@@ -136,6 +136,8 @@ Route::post('tips_for_sellers/update', [PagesController::class, 'tips_for_seller
 Route::get('commercial_resources', [PagesController::class, 'commercial_resources'])->name('commercial_resources');
 Route::post('commercial_resources/update', [PagesController::class, 'commercial_resources_update'])->name('commercial_resources_update');
 
+Route::get('cookie_policy', [PagesController::class, 'cookie_policy'])->name('cookie_policy');
+Route::post('cookie_policy/update', [PagesController::class, 'cookie_policy_update'])->name('cookie_policy_update');
 
 
 Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');

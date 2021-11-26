@@ -130,6 +130,26 @@ class PagesController extends Controller
 
     }
 
+    public function cookie_policy()
+    {
+        $cookie_policy = Settings::where('name','=','cookie_policy_content')->first();
 
+        return view('backend.pages.cookie_policy',[
+            'cookie_policy' => $cookie_policy
+        ]);
+    }
+
+    public function cookie_policy_update(Request $request)
+    {            
+        $update = new Settings;
+
+        $update->key=$request->cookie_policy;
+        
+        Settings::where('name','=','cookie_policy_content')->update($update->toArray());
+        return back()->withFlashSuccess('Updated Successfully');                
+
+    }
+
+    
 
 }

@@ -145,6 +145,9 @@ Breadcrumbs::for('admin.about_us', function ($trail) {
 Breadcrumbs::for('admin.privacy_policy', function ($trail) {
     $trail->push('Privacy policy', route('admin.privacy_policy'));
 });
+Breadcrumbs::for('admin.cookie_policy', function ($trail) {
+    $trail->push('Cookie policy', route('admin.cookie_policy'));
+});
 Breadcrumbs::for('admin.terms_of_use', function ($trail) {
     $trail->push('Terms of Use', route('admin.terms_of_use'));
 });
