@@ -670,6 +670,11 @@ type="text/javascript"></script>
                     const formData = originalFormData;
                     // alert(formData);
 
+                    var formRend = $(fbRender).formRender({ formData });
+                    // console.log(formRend.userData);
+                    window.alert(JSON.stringify(formRend.userData));
+
+
                     $(fbRender).formRender({ formData });
                     getUserDataBtn.addEventListener(
                         "click",
