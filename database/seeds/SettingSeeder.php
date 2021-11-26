@@ -107,6 +107,40 @@ class SettingSeeder extends Seeder
             ]
         );
 
+        DB::table('settings')
+        ->insert(
+            [ 
+            'name' => 'api_client_id', 
+            'key' => 'api_client_id',
+            'user_id' => 1,
+            'caption' => 'Api Client Id',
+            'type' => 'text_field',
+            'static_value' => 0
+            ]
+        );
+        DB::table('settings')
+        ->insert(
+            [ 
+            'name' => 'api_key', 
+            'key' => 'api_key',
+            'user_id' => 1,
+            'caption' => 'Api Key',
+            'type' => 'text_field',
+            'static_value' => 0
+            ]
+        );
+        DB::table('settings')
+        ->insert(
+            [ 
+            'name' => 'url', 
+            'key' => 'url',
+            'user_id' => 1,
+            'caption' => 'URL',
+            'type' => 'text_field',
+            'static_value' => 0
+            ]
+        );
+
 
 
         

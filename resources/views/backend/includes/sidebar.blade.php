@@ -182,12 +182,19 @@
                     </a>
 
                     <ul class="nav-dropdown-items">
-                        <a class="nav-link {{active_class(Route::is('admin/settings'))}}" href="{{ route('admin.settings.index') }}">                        
-                            Settings
-                        </a>                    
+                        <li class="nav-item">
+                            <a class="nav-link {{active_class(Route::is('admin/settings'))}}" href="{{ route('admin.settings.index') }}">                        
+                                Settings
+                            </a>   
+                        </li>                                         
                         <li class="nav-item">
                             <a class="nav-link {{active_class(Route::is('admin/landing_page'))}}" href="{{ route('admin.landing_page') }}">
                                 Landing Page
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{active_class(Route::is('admin/pro_cal'))}}" href="{{ route('admin.pro_cal.index') }}">
+                                Property Calculator
                             </a>
                         </li>
                                                 

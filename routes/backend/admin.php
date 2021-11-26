@@ -147,6 +147,8 @@ Route::get('settings/delete/{id}', [SettingsController::class, 'destroy'])->name
 Route::get('landing_page', [SettingsController::class, 'landing_page'])->name('landing_page');
 Route::post('landing_page/update', [SettingsController::class, 'landing_page_update'])->name('landing_page_update');
 
+Route::get('pro_cal', [SettingsController::class, 'pro_cal'])->name('pro_cal.index');
+Route::post('pro_cal/update', [SettingsController::class, 'pro_cal_update'])->name('pro_cal_update');
 
 Route::get('property_parameter', [TypeParameterController::class, 'index'])->name('property_parameter.index');
 Route::get('property_parameter/getdetails', [TypeParameterController::class, 'getdetails'])->name('property_parameter.getdetails');

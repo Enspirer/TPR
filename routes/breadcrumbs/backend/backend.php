@@ -158,5 +158,8 @@ Breadcrumbs::for('admin.commercial_resources', function ($trail) {
     $trail->push('Commercial Resources', route('admin.commercial_resources'));
 });
 
+Breadcrumbs::for('admin.pro_cal.index', function ($trail) {
+    $trail->push('Property Calculator', route('admin.pro_cal.index'));
+});
 
 

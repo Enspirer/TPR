@@ -122,5 +122,41 @@ class SettingsController extends Controller
     }
 
 
+    public function pro_cal()
+    {  
+        $api_client_id = Settings::where('name','=','api_client_id')->first();
+        $api_key = Settings::where('name','=','api_key')->first();
+        $url = Settings::where('name','=','url')->first();
+
+        return view('backend.settings.pro_cal',[
+            'api_client_id' => $api_client_id,
+            'api_key' => $api_key,
+            'url' => $url
+        ]);
+    }
+
+    public function pro_cal_update(Request $request)
+    {  
+        $update = new Settings;
+
+        if($request->api_client_id){
+            $update->key=$request->api_client_id;
+            Settings::where('name','=','api_client_id')->update($update->toArray());
+        }
+
+        if($request->api_key){
+            $update->key=$request->api_key;
+            Settings::where('name','=','api_key')->update($update->toArray());
+        }
+
+        if($request->url){
+            $update->key=$request->url;
+            Settings::where('name','=','url')->update($update->toArray());
+        }
+
+
+        return back()->withFlashSuccess('Updated Successfully');                
+    }
+
 
 }
