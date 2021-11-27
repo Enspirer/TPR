@@ -705,9 +705,9 @@ class CountryManagementController extends Controller
 
     public function get_property_type(Request $request) {
 
+        $property_type = PropertyType::where('status',1)->get();
+        
         $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
-
-        $property_type = PropertyType::where('country', $country->country_name)->where('status',1)->get();
 
             return DataTables::of($property_type)
                 ->addColumn('action', function($data){
@@ -715,7 +715,7 @@ class CountryManagementController extends Controller
                     return $button;
                 })
                 ->addColumn('status', function($data){
-                    $stack = PropertyTypeParameter::where('property_type_id',$data->id)->first();
+                    $stack = PropertyTypeParameter::where('country',$country->country_name)->where('property_type_id',$data->id)->first();
                     if($stack == null){
                         $status = '<span>Not Set</span>';
                         return $status;
@@ -745,8 +745,10 @@ class CountryManagementController extends Controller
 
     public function external_parameter($id) {
 
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
+
         $property_type = PropertyType::where('id',$id)->first();
-        $type_parameter = PropertyTypeParameter::where('property_type_id',$id)->first();
+        $type_parameter = PropertyTypeParameter::where('country',$country->country_name)->where('property_type_id',$id)->first();
 
         if($type_parameter != null){
             $type_parameter_decode = json_decode($type_parameter->form_json);
