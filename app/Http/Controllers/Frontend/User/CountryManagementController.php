@@ -705,9 +705,9 @@ class CountryManagementController extends Controller
 
     public function get_property_type(Request $request) {
 
-        $property_type = PropertyType::where('status',1)->get();
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
 
-
+        $property_type = PropertyType::where('country', $country->country_name)->where('status',1)->get();
 
             return DataTables::of($property_type)
                 ->addColumn('action', function($data){
