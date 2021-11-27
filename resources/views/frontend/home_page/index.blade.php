@@ -611,63 +611,23 @@
 
     <!-- Initialize Swiper -->
     <script>
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        },
-        observer: true,
-        observeParents: true,
-        allowTouchMove: false,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-
-            0: {
-                slidesPerView: 1,
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
             },
+        });
 
-            576: {
-                slidesPerView: 1,
+        var swiper = new Swiper(".mySwiper2", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
             },
-            768: {
-                slidesPerView: 1,
-            }
-        },
-    });
-
-    var swiper2 = new Swiper(".mySwiper2", {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        observer: true,
-        observeParents: true,
-        allowTouchMove: false,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-
-            0: {
-                slidesPerView: 1,
-            },
-
-            576: {
-                slidesPerView: 1,
-            },
-            768: {
-                slidesPerView: 1,
-            }
-        },
-      });
+        });    
 </script>
 
 
