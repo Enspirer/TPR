@@ -707,7 +707,6 @@ class CountryManagementController extends Controller
 
         $property_type = PropertyType::where('status',1)->get();
         
-        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
 
             return DataTables::of($property_type)
                 ->addColumn('action', function($data){
@@ -715,7 +714,9 @@ class CountryManagementController extends Controller
                     return $button;
                 })
                 ->addColumn('status', function($data){
+                    $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
                     $stack = PropertyTypeParameter::where('country',$country->country_name)->where('property_type_id',$data->id)->first();
+                    
                     if($stack == null){
                         $status = '<span>Not Set</span>';
                         return $status;
