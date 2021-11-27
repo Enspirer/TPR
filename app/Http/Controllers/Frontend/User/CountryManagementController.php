@@ -370,11 +370,19 @@ class CountryManagementController extends Controller
 
         $images = json_decode($single_approval->image_ids);
 
+        if(json_decode($single_approval->external_parameter) == null){
+            $external_parameter = null;
+        }else{
+            $external_parameter = json_decode($single_approval->external_parameter);
+        }
+        // dd($external_parameter);
+
         return view('frontend.user.single-property-approval', [
             'single_approval'=> $single_approval,
             'images' => $images,
             'property_type' => $property_type,
-            'agent_details' => $agent_details
+            'agent_details' => $agent_details,
+            'external_parameter' => $external_parameter
         ]);
     }    
 

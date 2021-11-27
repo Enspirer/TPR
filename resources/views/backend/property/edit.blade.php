@@ -223,6 +223,28 @@
                         </div>
                     </div>
                 </div>
+
+                @if($external_parameter != null)
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="" >
+                                <div class="form-group">
+                                    <label style="font-weight: 600;" class="ml-2">External Features:</label>
+                                    <table class="table table-hover table-borderless">
+                                        <tbody>
+                                            @foreach($external_parameter as $external)
+                                                <tr>
+                                                    <td>{{$external->label}} : {{$external->userData[0]}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
                 <div class="card">
                     <div class="card-body">
                         <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">

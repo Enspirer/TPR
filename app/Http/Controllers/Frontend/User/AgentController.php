@@ -284,7 +284,7 @@ class AgentController extends Controller
     }
 
     public function updateProperty(Request $request) {
-        dd($request);
+        // dd($request);
 
         //This is JSon Form Data -
         // $details_forms = self::getDynamicFormData($request->all());

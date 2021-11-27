@@ -217,6 +217,24 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    @if($external_parameter != null)
+                                        <div class="row mt-2">
+                                            <div class="col-12">
+                                                <h6 style="font-weight: 600;" class="mb-3 ms-2">External Features:</h6>
+                                                <table class="table table-hover table-borderless">
+                                                    <tbody>
+                                                        @foreach($external_parameter as $external)
+                                                            <tr>
+                                                                <td>{{$external->label}} : {{$external->userData[0]}}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>                                            
+                                            </div>
+                                        </div>
+                                    @endif
+
                                     <div class="row mt-2">
                                         <div class="col-12">
                                             <h6 style="font-weight: 600;" class="mb-3 ms-2">Description:</h6>

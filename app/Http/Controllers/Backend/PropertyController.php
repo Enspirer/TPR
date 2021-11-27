@@ -65,13 +65,21 @@ class PropertyController extends Controller
 
         // $images = json_decode($property->image_ids);
         
-        // dd($property);              
+        // dd($property);    
+        
+        if(json_decode($property->external_parameter) == null){
+            $external_parameter = null;
+        }else{
+            $external_parameter = json_decode($property->external_parameter);
+        }
+        // dd($external_parameter);
 
         return view('backend.property.edit', [
             'property' => $property,
             'images' => $images ,
             'property_type' => $property_type,
-            'agent_details' => $agent_details       
+            'agent_details' => $agent_details,
+            'external_parameter' => $external_parameter
         ]);  
     }
 
