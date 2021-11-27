@@ -1596,7 +1596,7 @@
 
 <script>
 
-    function initMap() {
+    function initMaptwo() {
         let lat = $('#lat').val();
         let lng = $('#lng').val();
 
@@ -1621,6 +1621,9 @@
 
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
+type="text/javascript"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMaptwo"
 type="text/javascript"></script>
 
 <script>
