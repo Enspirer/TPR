@@ -562,8 +562,8 @@
                                     <div class="col-7 ps-0">
                                         <div class="location">
                                             <div id="map2" style="height: 749px; width: 100%;"></div>
-                                            <input type="text" name="lat" id="lat" value="{{$property_details->lat}}" class="mt-3 d-none">
-                                            <input type="text" name="lng" id="lng" value="{{$property_details->long}}" class="mt-3 d-none">
+                                            <input type="text" name="lat" id="lat2" value="{{$property_details->lat}}" class="mt-3 d-none">
+                                            <input type="text" name="lng" id="lng2" value="{{$property_details->long}}" class="mt-3 d-none">
                                         </div>
                                     </div>
                                 </div>
@@ -1591,14 +1591,16 @@
             position: myLatLng,
             map:map
         });
+
+        initMaptwo();
     }
 </script>
 
 <script>
 
     function initMaptwo() {
-        let lat = $('#lat').val();
-        let lng = $('#lng').val();
+        let lat = $('#lat2').val();
+        let lng = $('#lng2').val();
 
         const myLatLng = { lat: parseFloat(lat), lng: parseFloat(lng) };
 
@@ -1623,8 +1625,6 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
 type="text/javascript"></script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMaptwo"
-type="text/javascript"></script>
 
 <script>
     $('.collapse-button').on('click', function(){
