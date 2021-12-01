@@ -282,7 +282,7 @@
                     <div class="1strow mt-4">
                         <div class="row align-items-center">
                             <div class="col-1 pe-0">
-                                <img src="{{url('https://www.countryflags.io/'.$country_list1->country_id.'/flat/64.png')}}" alt="" style="height: 50px;">
+                                <img src="https://flagcdn.com/w40/{{strtolower($country_list1->country_id)}}.png" alt="" style="height: 30px;">
                             </div>
                             <div class="col-2 ps-0">
                                 <h5 class="mb-0">{{$country_list1->country_name}}</h5>
@@ -316,7 +316,7 @@
                     <div class="1strow" style="margin-top: 6rem;">
                         <div class="row align-items-center">
                             <div class="col-1 pe-0">
-                                <img src="{{url('https://www.countryflags.io/'.$country_list2->country_id.'/flat/64.png')}}" alt="" style="height: 50px;">
+                                <img src="https://flagcdn.com/w40/{{strtolower($country_list2->country_id)}}.png" alt="" style="height: 30px;">
                             </div>
                             <div class="col-2 ps-0">
                                 <h5 class="mb-0">{{$country_list2->country_name}}</h5>
