@@ -47,6 +47,7 @@
 
     <ul class="nav mb-3 justify-content-center mt-5" id="projects-tab" role="tablist">
         <li class="nav-item landing-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
+            <img src="{{url('tpr_templete/images/airlines_icon.svg')}}" alt="" class="img-fluid" width="25%" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true" />
             <a class="nav-link active tabs" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">ALL</a>
         </li> 
 
@@ -55,11 +56,10 @@
             @if(App\Models\GlobalAdvertisement::where('global_category',$global_category->id)->first() == null)
 
             @else
-
                 <li class="nav-item landing-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                    <img src="{{url('files/global_advertisement',$global_category->icon)}}" alt="" class="img-fluid" width="25%" data-bs-toggle="tab" data-bs-target="#tab{{ $global_category->id }}" type="button" role="tab" aria-controls="tab-{{ $global_category->id }}" aria-selected="false">
                     <a class="nav-link tabs text-uppercase" id="tab-id{{ $global_category->id }}" data-bs-toggle="tab" data-bs-target="#tab{{ $global_category->id }}" type="button" role="tab" aria-controls="tab-{{ $global_category->id }}" aria-selected="false">{{ $global_category->name }}</a>
                 </li>   
-
             @endif
                     
         @endforeach

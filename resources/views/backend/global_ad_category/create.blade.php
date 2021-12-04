@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-group">
                             <label>Icon</label>
-                            <input type="file" class="form-control" id="icon" name="icon">
+                            <input type="file" class="form-control" id="icon" name="icon" required>
                         </div>
                         <div class="form-group">
                             <label>Status</label>

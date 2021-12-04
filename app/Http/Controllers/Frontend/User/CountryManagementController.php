@@ -780,10 +780,10 @@ class CountryManagementController extends Controller
         $property_type_form_data = $re_rush;
         $user_id = auth()->user()->id;
         $country = Country::where('country_manager',auth()->user()->id)->first()->country_name;
-        // dd($type_parameter_id);
+        // dd($country);
 
-        $ptp = PropertyTypeParameter::where('id',$type_parameter_id)->first();
-        // dd($ptp);    
+        $ptp = PropertyTypeParameter::where('id',$type_parameter_id)->where('country',$country)->first();
+        // dd($ptp);
         
         if($ptp == null){
 
@@ -807,7 +807,9 @@ class CountryManagementController extends Controller
             $update->form_json = $property_type_form_data;
             $update->status = 'Pending';
 
-            PropertyTypeParameter::where('property_type_id',$property_type)->update($update->toArray());
+            // dd($update);
+
+            PropertyTypeParameter::where('property_type_id',$property_type)->where('country',$country)->update($update->toArray());
 
             return redirect()->route('frontend.user.property_type_parameter')->withFlashSuccess('Updated Successfully');
 

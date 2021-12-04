@@ -387,7 +387,14 @@ class HomeController extends Controller
 
         $properties = Properties::where('admin_approval', 'Approved')->where('country',get_country_cookie(request())->country_name);
 
-        $side_ads = SidebarAd::where('country_management_approval', 'Approved')->get();
+        // $side_ads = SidebarAd::where('country_management_approval', 'Approved')->get();
+        if(get_country_cookie(request())){
+            $side_ads = SidebarAd::where('admin_approval', 'Approved')->where('country',get_country_cookie(request())->country_name)->where('status', 'Enable')->get();            
+        }
+        else{
+            $side_ads = SidebarAd::where('admin_approval', 'Approved')->where('status', 'Enable')->latest()->take(2)->get();
+        }
+        // dd($side_ads);
 
         $countries = Country::where('status',1)->get();
 

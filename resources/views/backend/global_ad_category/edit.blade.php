@@ -48,11 +48,11 @@
 
                         <div class="form-group">
                             <label>Icon</label>
-                            <img src="{{ url('files/global_advertisement', $category->icon) }}" alt="" class="img-fluid">
+                            <img src="{{ url('files/global_advertisement', $category->icon) }}" alt="" width="40%" class="img-fluid">
                             <input type="hidden" class="form-control" name="old_icon" value="{{$category->icon}}">
 
                             <div class="input-group mt-4">
-                                <input type="file" class="form-control" id="icon" name="new_icon" value="">
+                                <input type="file" class="form-control" id="icon" name="new_icon" value="" >
                             </div>
                         </div>
                     </div>   
