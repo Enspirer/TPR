@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\PagesController;
 use App\Http\Controllers\Backend\FeaturePropertyUpdateRequestController;
 use App\Http\Controllers\Backend\GlobalAdCategoryController;
 use App\Http\Controllers\Backend\TypeParameterController;
+use App\Http\Controllers\Backend\PropertyHistoryController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -43,6 +44,12 @@ Route::get('property/getdetails', [PropertyController::class, 'getDetails'])->na
 Route::get('property/edit/{id}', [PropertyController::class, 'edit'])->name('property.edit');
 Route::post('property/update', [PropertyController::class, 'update'])->name('property.update');
 Route::get('property/delete/{id}', [PropertyController::class, 'destroy'])->name('property.destroy');
+
+Route::get('sold_properties', [PropertyHistoryController::class, 'index'])->name('sold_properties.index');
+Route::get('sold_properties/getdetails', [PropertyHistoryController::class, 'getdetails'])->name('sold_properties.getdetails');
+Route::get('sold_properties/edit/{id}', [PropertyHistoryController::class, 'edit'])->name('sold_properties.edit');
+Route::post('sold_properties/update', [PropertyHistoryController::class, 'update'])->name('sold_properties.update');
+Route::get('sold_properties/delete/{id}', [PropertyHistoryController::class, 'destroy'])->name('sold_properties.destroy');
 
 Route::get('property_type', [PropertyTypeController::class, 'index'])->name('property_type.index');
 Route::get('property_type/create', [PropertyTypeController::class, 'create'])->name('property_type.create');

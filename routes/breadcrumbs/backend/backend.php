@@ -39,6 +39,13 @@ Breadcrumbs::for('admin.property.edit', function ($trail) {
     $trail->push('Approval', route('admin.property.edit',1));
 });
 
+Breadcrumbs::for('admin.sold_properties.index', function ($trail) {
+    $trail->push('Sold Properties Request', route('admin.sold_properties.index'));
+});
+Breadcrumbs::for('admin.sold_properties.edit', function ($trail) {
+    $trail->push('Approval', route('admin.sold_properties.edit',1));
+});
+
 Breadcrumbs::for('admin.property_type.index', function ($trail) {
     $trail->push('Property Type', route('admin.property_type.index'));
 });
@@ -129,7 +136,6 @@ Breadcrumbs::for('admin.settings.edit', function ($trail) {
 Breadcrumbs::for('admin.landing_page', function ($trail) {
     $trail->push('Landing Page', route('admin.landing_page'));
 });
-
 
 Breadcrumbs::for('admin.property_parameter.index', function ($trail) {
     $trail->push('Property Type Parameter', route('admin.property_parameter.index'));

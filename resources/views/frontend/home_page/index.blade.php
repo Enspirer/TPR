@@ -33,7 +33,7 @@
                         <h3 class="fw-bolder" data-aos="fade-up" data-aos-duration="500">Property Market in {{ get_country_cookie(request())->country_name }}</h3>
                     </div>
 
-                <div class="container text-center p-0 mt-3">
+                <div class="container text-center p-0 mt-3" data-aos="fade-up" data-aos-duration="500">
                     <ul class="nav mb-3 justify-content-center" id="projects-tab" role="tablist">
                         <li class="nav-item project-item" role="presentation" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
                             <a class="nav-link active tabs" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">All</a>
@@ -379,6 +379,62 @@
 
         </div>
     </section>
+
+
+
+    <!--Properties Recently Sold-->
+    @if(get_country_cookie(request()))
+
+        @if(App\Models\Properties::where('country',get_country_cookie(request())->country_name)->where('sold_request','Sold')->where('admin_approval','Approved')->where('country_manager_approval','=','Approved')->first() == null)
+
+        @else
+            <!--recent projects-->
+            <section id="index-recent-projects" class="mt-5">  
+
+                <h3 class="text-center fw-bolder" data-aos="fade-up" data-aos-duration="500">Properties Recently Sold</h3>
+
+                <div class="container text-center p-0 mt-3">
+                    
+
+                    <div class="tab-content mt-md-5 py-0" id="tabs-tabContent">
+
+                        <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
+                            
+                            <div class="swiper container mySwiper" data-aos="fade-up" data-aos-duration="500">
+                                <div class="swiper-wrapper"> 
+
+                                        @foreach($sold_prop as $key => $sold)
+
+                                            @if(get_country_cookie(request())->country_name == $sold->country)
+                                            
+                                            <div class="swiper-slide">
+                                                <a href="{{ route('frontend.individual-property', $sold->id) }}"><img src="{{url('image_assest',$sold->feature_image_id)}}"  class="img-fluid" alt="" style="object-fit:cover; height: 210px;"></a>
+                                                
+                                            </div> 
+                                           
+                                            @endif
+
+                                        @endforeach
+
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+
+                        </div>                        
+
+                    </div>
+                </div>
+            </section>
+
+        @endif
+
+    @else
+
+    <h1 align="center">Select a Country</h1>
+
+    @endif
+
+    
 
 
     <!--bottom banner-->

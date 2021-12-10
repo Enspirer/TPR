@@ -3,7 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-3 mb-5 mb-md-0">
-                <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid" alt="" style="height: 4rem;">
+                <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid mb-4" alt="" style="height: 4rem;">
+                <div id="google_translate_element"></div>
             </div>
             <div class="col-12 col-md-3 ps-md-5 mb-4 mb-md-0">
                 <h5 class="fw-bolder mt-md-2">PAGES</h5>
@@ -50,3 +51,11 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

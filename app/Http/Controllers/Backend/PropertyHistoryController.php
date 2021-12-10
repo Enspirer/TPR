@@ -10,40 +10,37 @@ use App\Models\Properties;
 use App\Models\PropertyType;
 use App\Models\AgentRequest;
 
-class PropertyController extends Controller
+class PropertyHistoryController extends Controller
 {
-    
     public function index()
     {
-        return view('backend.property.index');
+        return view('backend.sold_properties.index');
     }
 
-    public function getDetails(Request $request)
+    public function getdetails(Request $request)
     {
         if($request->ajax())
         {
-            $data = Properties::where('country_manager_approval','=','Approved')->get();
+            $data = Properties::where('country_manager_approval','=','Approved')->where('admin_approval','=','Approved')->where('sold_request','!=',null)->get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){
                        
-                        $button = '<a href="'.route('admin.property.edit',$data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3" style="margin-right: 10px"><i class="fas fa-edit"></i> Approval </a>';
-                        $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
+                        $button = '<a href="'.route('admin.sold_properties.edit',$data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3" style="margin-right: 10px"><i class="fas fa-edit"></i> Approval </a>';
+                        // $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
                         return $button;
                     })
                     
-                    ->editColumn('admin_approval', function($data){
-                        if($data->admin_approval == 'Approved'){
-                            $status = '<span class="badge badge-success">Approved</span>';
-                        }elseif($data->admin_approval == 'Disapproved'){
-                            $status = '<span class="badge badge-danger">Disapproved</span>';
+                    ->editColumn('sold_request', function($data){
+                        if($data->sold_request == 'Sold'){
+                            $status = '<span class="badge badge-success">Sold</span>';
                         }else{
                             $status = '<span class="badge badge-warning">Pending</span>';
                         }   
                         return $status;
                     })
                     
-                    ->rawColumns(['action','admin_approval'])
+                    ->rawColumns(['action','sold_request'])
                     ->make(true);
         }
         return back();
@@ -74,7 +71,7 @@ class PropertyController extends Controller
         }
         // dd($external_parameter);
 
-        return view('backend.property.edit', [
+        return view('backend.sold_properties.edit', [
             'property' => $property,
             'images' => $images ,
             'property_type' => $property_type,
@@ -88,11 +85,11 @@ class PropertyController extends Controller
         
         $updatproperty = new Properties;
         
-        $updatproperty->admin_approval=$request->admin_approval;
+        $updatproperty->sold_request=$request->sold_request;
    
         Properties::whereId($request->hidden_id)->update($updatproperty->toArray());
 
-        return redirect()->route('admin.property.index')->withFlashSuccess('Updated Successfully');                      
+        return redirect()->route('admin.sold_properties.index')->withFlashSuccess('Updated Successfully');                      
 
     }
 
@@ -101,6 +98,4 @@ class PropertyController extends Controller
         $data = Properties::findOrFail($id);
         $data->delete();   
     }
-
-
 }

@@ -105,6 +105,8 @@ class HomeController extends Controller
 
         $promu = Properties::where('admin_approval','Approved')->where('country', $country->country_name)->get();
 
+        $sold_prop = Properties::where('admin_approval','Approved')->where('country', $country->country_name)->where('sold_request','Sold')->inRandomOrder()->limit(12)->get();
+
         $latest = Properties::where('country',$country->country_name)->where('admin_approval','Approved')->latest()->take(3)->get();
 
         $self = self::setCookie($country_id);
@@ -119,7 +121,8 @@ class HomeController extends Controller
             'homepage_ad' => $homepage_ad,
             'country' => $country,
             'property_types' => $property_types,
-            'countries' => $countries
+            'countries' => $countries,
+            'sold_prop' => $sold_prop
         ]);
     }
 

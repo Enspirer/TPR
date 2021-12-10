@@ -82,7 +82,7 @@
                                             
                                                 <img src="{{url('image_assest', $property->feature_image_id)}}" class="w-100" alt="..." style="height: 250px; object-fit:cover;">
                                         </div>
-                                        <div class="col-5">
+                                        <div class="col-6">
                                             <h5 class="card-title">{{ $property->name }}</h5>
                                                 @if($property->beds == null)
                                                 @else
@@ -97,17 +97,31 @@
                                             @endif
 
                                             <div class="row">
-                                                <div class="col-9">
+                                                <div class="col-10">
                                                     <div class="row">
-                                                        <div class="col-4">
+                                                        <div class="col-3">
                                                             <a href="{{ route('frontend.individual-property', $property->id) }}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</a>
                                                         </div>
-                                                        <div class="col-4">
+                                                        <div class="col-3">
                                                             <a href="{{ route('frontend.user.property-edit', $property->id) }}" class="btn px-3 rounded-0 text-light py-1" type="button" style="background-color: #4195E1">Edit</a>
                                                         </div>
-                                                        <div class="col-4 ps-1">
+                                                        <div class="col-3 ps-1">
                                                             <a href="{{ route('frontend.user.property-delete', $property->id) }}" class="btn px-4 rounded-0 text-light py-1 delete" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #ff2c4b"><i class="bi bi-trash-fill"></i></a>
                                                         </div>
+                                                        @if($property->sold_request == 'Sold')
+                                                            <div class="col-3 ps-1">
+                                                                <button class="btn px-4 rounded-0 text-light py-1 btn-success">Sold</button>
+                                                            </div>
+                                                        @elseif($property->sold_request == 'Pending')
+                                                            <div class="col-3 ps-1">
+                                                                <button class="btn px-4 rounded-0 py-1 btn-warning">Pending</button>
+                                                            </div>
+                                                        @else
+                                                            <div class="col-3 ps-1">
+                                                                <a href="{{ route('frontend.user.sold_status', $property->id) }}" class="btn px-4 rounded-0 py-1 text-light btn-secondary sold_status" data-bs-toggle="modal" data-bs-target="#sold_status_Modal">Sell</a>
+                                                            </div>
+                                                        @endif
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -263,7 +277,25 @@
             </div>
         </div>
 
+        <div class="modal fade" id="sold_status_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Sold Property</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Do you want to send this property sold request to admin?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="" class="btn btn-success">Send</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        
     </div>
 @endsection
 
@@ -271,6 +303,12 @@
 @push('after-scripts')
     <script>
         $('.delete').on('click', function() {
+            let link = $(this).attr('href');
+            $('.modal-footer a').attr('href', link);
+        })
+    </script>
+    <script>
+        $('.sold_status').on('click', function() {
             let link = $(this).attr('href');
             $('.modal-footer a').attr('href', link);
         })

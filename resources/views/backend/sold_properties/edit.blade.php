@@ -4,7 +4,7 @@
 
 @section('content')
     
-<form action="{{route('admin.property.update')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('admin.sold_properties.update')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-7 p-1">
@@ -256,16 +256,15 @@
                         <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
                             <div class="form-group">
                                 <label>Admin Approval</label>
-                                <select class="form-control" name="admin_approval" required>
-                                    <option value="Approved" {{ $property->admin_approval == 'Approved' ? "selected" : "" }}>Approve</option>   
-                                    <option value="Disapproved" {{ $property->admin_approval == 'Disapproved' ? "selected" : "" }}>Disapprove</option> 
-                                    <option value="Pending" {{ $property->admin_approval == 'Pending' ? "selected" : "" }}>Pending</option>                               
+                                <select class="form-control" name="sold_request" required>
+                                    <option value="Sold" {{ $property->sold_request == 'Sold' ? "selected" : "" }}>Sold</option>   
+                                    <option value="Pending" {{ $property->sold_request == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>
 
                             <div class="mt-5 text-center">
                                 <input type="hidden" name="hidden_id" value="{{ $property->id }}"/>
-                                <a href="{{route('admin.property.index')}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
+                                <a href="{{route('admin.sold_properties.index')}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
                                 <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
                             </div>
                         </div>

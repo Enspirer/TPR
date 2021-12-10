@@ -383,6 +383,17 @@ class AgentController extends Controller
         return back();
     }
 
+    public function sold_status($id) {
+
+        $updatproperty_sold = new Properties;
+        
+        $updatproperty_sold->sold_request='Pending';
+   
+        Properties::whereId($id)->update($updatproperty_sold->toArray());
+
+        return back();
+    }
+
     public static function getDynamicFormData($requst)
     {
         $reqOut = [];

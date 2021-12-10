@@ -164,6 +164,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('properties/delete/{id}', [AgentController::class, 'deleteProperty'])->name('property-delete');
 
+        Route::get('properties/sold_status/{id}', [AgentController::class, 'sold_status'])->name('sold_status');
+
+
+
 
         Route::get('booking/user-chat', [AgentController::class, 'userChat'])->name('user-chat');
 
