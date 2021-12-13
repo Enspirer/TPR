@@ -288,7 +288,6 @@
                             <div class="card p-4 custom-shadow border-0" style="height:24.5rem">
                                 <a href="{{ route('frontend.individual-property', $lat->id) }}"><img src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
                                 <div class="card-body">
-                                    <div class="ribbon ribbon-top-right"><span>ribbon</span></div>
 
                                     <h5 class="card-title">{{ $lat->name }}</h5>
 
@@ -413,7 +412,7 @@
                                             
                                             <div class="swiper-slide">
                                                 <a href="{{ route('frontend.individual-property', $sold->id) }}"><img src="{{url('image_assest',$sold->feature_image_id)}}"  class="img-fluid" alt="" style="object-fit:cover; height: 210px;"></a>
-                                                
+                                                <div class="ribbon ribbon-top-right"><span>Sold</span></div>
                                             </div> 
                                            
                                             @endif
