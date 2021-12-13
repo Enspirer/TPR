@@ -23,7 +23,6 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Country</th>
                                 <th scope="col">Category</th>
-                                <th scope="col">Status</th>
                                 <th scope="col">Order</th>
                                 <th scope="col">Admin Approval</th>
                                 <th scope="col">Option</th>
@@ -82,7 +81,6 @@
                     {data: 'name', name: 'name'},
                     {data: 'country', name: 'country'},
                     {data: 'category', name: 'category'},
-                    {data: 'status', name: 'status'},
                     {data: 'order', name: 'order'},
                     {data: 'admin_approval', name: 'admin_approval'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},

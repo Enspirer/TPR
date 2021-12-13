@@ -92,7 +92,7 @@
     <div class="app-body">
         @include('backend.includes.sidebar')
 
-        <main class="main">
+        <main class="main" style="margin-left:220px">
             @include('includes.partials.read-only')
             @include('includes.partials.logged-in-as')
             {!! Breadcrumbs::render() !!}

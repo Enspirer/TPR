@@ -1,6 +1,34 @@
-<div class="sidebar">
-    <nav class="sidebar-nav">
-        <ul class="nav">
+<style>
+    body {
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .notification {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+    }
+
+    .notification:hover {
+    background: red;
+    }
+
+    .notification .badge {
+    position: absolute;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    }
+</style>
+
+
+<div class="sidebar" style="width:220px">
+    <nav class="sidebar-nav" style="width:220px">
+        <ul class="nav" style="width:220px">
             <li class="nav-title">
                 @lang('menus.backend.sidebar.general')
             </li>
@@ -29,7 +57,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/fpur'))}}" href="{{ route('admin.fpur.index') }}">
-                            Feature Update Request
+                            Feature Update Request <span class="notification badge">{{App\Models\FeaturePropertyUpdateRequest::where('admin_approval','Pending')->get()->count()}}</span>
                         </a>
                     </li>                        
                 </ul>
@@ -45,7 +73,7 @@
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/property'))}}" href="{{ route('admin.property.index') }}">
-                            Property Request
+                            Property Request <span class="notification badge">{{App\Models\Properties::where('admin_approval','Pending')->get()->count()}}</span> 
                         </a>
                     </li>
                     <li class="nav-item">
@@ -55,12 +83,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/property_parameter'))}}" href="{{ route('admin.property_parameter.index') }}">
-                            Property Type Parmeter
+                            Property Type Parmeter <span class="notification badge">{{App\Models\PropertyTypeParameter::where('status','Pending')->get()->count()}}</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/sold_properties'))}}" href="{{ route('admin.sold_properties.index') }}">
-                            Sold Properties Request
+                            Sold Properties Request <span class="notification badge">{{App\Models\Properties::where('country_manager_approval','=','Approved')->where('admin_approval','=','Approved')->where('sold_request','Pending')->get()->count()}}</span>
                         </a>
                     </li>
                         
@@ -70,7 +98,7 @@
             <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/agent'))}}" href="{{ route('admin.agent.index') }}">
                     <i class="nav-icon fas fa-user-tie"></i>
-                    Agent Request
+                    Agent Request <span class="notification badge">{{App\Models\AgentRequest::where('status','Pending')->get()->count()}}</span>
                 </a>
             </li>
 
@@ -80,10 +108,6 @@
                     File Manager
                 </a>
             </li>
-
-
-
-
 
             <li class="nav-item nav-dropdown ">
                 <a class="nav-link nav-dropdown-toggle " href="#">
@@ -105,17 +129,17 @@
                     </li>                    
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/ad_category'))}}" href="{{ route('admin.ad_category.index') }}">
-                            Ad Category - Home Page
+                            Ad Category - Home Page <span class="notification badge">{{App\Models\AdCategory::where('admin_approval','Pending')->get()->count()}}</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/homepage_advertisement'))}}" href="{{ route('admin.homepage_advertisement.index') }}">
-                            Home Page Advertisement
+                            Home Page Advertisement <span class="notification badge">{{App\Models\HomePageAdvertisement::where('admin_approval','Pending')->get()->count()}}</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/sidebar_advertisement'))}}" href="{{ route('admin.sidebar_advertisement.index') }}">
-                            Sidebar Advertisement
+                            Sidebar Advertisement <span class="notification badge">{{App\Models\SidebarAd::where('admin_approval','Pending')->get()->count()}}</span>
                         </a>
                     </li>
                         
@@ -126,7 +150,7 @@
             <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">
                     <i class="nav-icon fas fa-comments"></i>
-                    Contact Us
+                    Contact Us <span class="notification badge">{{App\Models\ContactUs::where('status','Pending')->get()->count()}}</span>
                 </a>
             </li>
 
