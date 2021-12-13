@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-
 use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\Properties;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Models\PropertyType;
 use App\Models\FileManager;
@@ -541,5 +541,33 @@ class HomeController extends Controller
         return view('frontend.caculator.iframe_panel',[
             'price' => $price
         ]);
+    }
+
+    public function currency_update_api()
+    {
+        $curl_handle = curl_init();
+        $url = "http://api.exchangeratesapi.io/v1/latest?access_key=0cdc7c4987c8b16604c7367284c6b736&format=1";
+        curl_setopt($curl_handle, CURLOPT_URL, $url);
+        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+        $curl_data = curl_exec($curl_handle);
+        curl_close($curl_handle);
+        $response_data = json_decode($curl_data);
+
+        if(isset($response_data->error->code)){
+            return 'something wrong';
+        }else{
+
+            foreach ($response_data->rates as $key => $entrypan)
+            {
+                Country::where('currency',$key)->update(
+                    [
+                        'currency_rate' => $entrypan
+                    ]
+                );
+
+            }
+            return 'updated';
+        }
+
     }
 }

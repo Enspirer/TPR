@@ -3,7 +3,48 @@
 @section('title', app_name() . ' | ' . __('labels.frontend.contact.box_title'))
 
 @section('content')
+@push('after-styles')
+    <style>
+        .icon-link {
+            width: 150px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            background: #eee;
+            margin: 4px;
+        }
 
+        .icon-link:hover, .icon-link.active {
+            background: #78cfed;
+            box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.2)
+        }
+
+        .icon-link:hover .icon-txt, .icon-link.active .icon-txt {
+            color: #fff;
+        }
+
+        .icon-img {
+            width: 50%;
+            height: 50%;
+            object-fit: cover;
+        }
+
+        .icon-txt {
+            display: block;
+            color: #000;
+            font-weight: bold;
+            padding-top: 10px;
+        }
+
+        .all-img {
+            position: relative;
+            top: 10px;
+        }
+    </style>
+@endpush
 
 <!-- navbar -->
 @include('frontend.includes.landing_nav')
@@ -46,20 +87,33 @@
 @if(count($global_advertisement) !== 0)
 
     <ul class="nav mb-3 justify-content-center mt-5" id="projects-tab" role="tablist">
-        <li class="nav-item landing-item px-3" role="presentation" width="25%" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
-            <img src="{{url('tpr_templete/images/airlines_icon.svg')}}" alt="" class="img-fluid" style="border-bottom:0 !important" width="70px" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true" />
+        <!-- <li class="nav-item landing-item px-3" role="presentation" width="25%" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
+            <img src="{{url('tpr_templete/images/airlines_icon.svg')}}" alt="" class="img-fluid" style="border-bottom:0 !important" width="70px" height="70px" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true" />
             <a class="nav-link active tabs" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">ALL</a>
-        </li> 
+        </li>  -->
+
+        <li>
+            <a class="icon-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#tab-all" type="button" role="tab" aria-controls="tabs-all" aria-selected="true">
+                <img class="icon-img all-img" src="{{url('tpr_templete/images/airlines_icon.svg')}}" alt="">
+                <span class="icon-txt">All</span>
+            </a>
+        </li>
 
         @foreach($global_categories as $key => $global_category)
 
             @if(App\Models\GlobalAdvertisement::where('global_category',$global_category->id)->first() == null)
 
             @else
-                <li class="nav-item landing-item px-3" role="presentation" data-aos="fade-up" width="25%" data-aos-duration="500" data-aos-delay="300">
-                    <img src="{{url('files/global_advertisement',$global_category->icon)}}" alt="" class="img-fluid" style="border-bottom:0 !important" width="70px" data-bs-toggle="tab" data-bs-target="#tab{{ $global_category->id }}" type="button" role="tab" aria-controls="tab-{{ $global_category->id }}" aria-selected="false">
+                <!-- <li class="nav-item landing-item px-3" role="presentation" data-aos="fade-up" width="25%" data-aos-duration="500" data-aos-delay="300">
+                    <img src="{{url('files/global_advertisement',$global_category->icon)}}" alt="" class="img-fluid" style="border-bottom:0 !important" width="70px" height="70px" data-bs-toggle="tab" data-bs-target="#tab{{ $global_category->id }}" type="button" role="tab" aria-controls="tab-{{ $global_category->id }}" aria-selected="false">
                     <a class="nav-link tabs text-uppercase" id="tab-id{{ $global_category->id }}" data-bs-toggle="tab" data-bs-target="#tab{{ $global_category->id }}" type="button" role="tab" aria-controls="tab-{{ $global_category->id }}" aria-selected="false">{{ $global_category->name }}</a>
-                </li>   
+                </li>    -->
+                <li>
+                    <a class="icon-link" id="tab-id{{ $global_category->id }}" data-bs-toggle="tab" data-bs-target="#tab{{ $global_category->id }}" type="button" role="tab" aria-controls="tab-{{ $global_category->id }}" aria-selected="false">
+                        <img class="icon-img" src="{{url('files/global_advertisement',$global_category->icon)}}" alt="">
+                        <span class="icon-txt">{{ $global_category->name }}</span>
+                    </a>
+                </li>
             @endif
                     
         @endforeach

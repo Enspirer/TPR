@@ -24,3 +24,5 @@ Route::get('get_property_type_details/{id}', [HomeController::class, 'property_t
 
 Route::get('get_property_type_parameter/{country}/{id}', [HomeController::class, 'parameter'])->name('parameter');
 
+Route::get('currency_update_api', [HomeController::class, 'currency_update_api'])->name('currency_update_api');
+
