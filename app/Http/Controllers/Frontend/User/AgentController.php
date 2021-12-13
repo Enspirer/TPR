@@ -245,7 +245,7 @@ class AgentController extends Controller
     public function properties()
     {
         $id = Auth::user()->id;
-        $properties = Properties::where('user_id',  $id)->orderBy('id','DESC')->get();
+        $properties = Properties::where('user_id',  $id)->where('sold_request',null)->orderBy('id','DESC')->get();
 
         return view('frontend.user.properties', ['properties' => $properties]);
     }

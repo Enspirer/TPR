@@ -73,6 +73,7 @@ class HomeController extends Controller
                    $property = Properties::where('lat', 'like', '%' .  substr($cordinate->lat, 0, 7) . '%')
                        ->where('long', 'like', '%' .  substr($cordinate->long, 0, 7) . '%')
                        ->where('admin_approval','Approved')
+                       ->where('sold_request',null)
                        ->first();
 
                    $property->price_currency = current_price($country_id,$property->price);
@@ -107,7 +108,7 @@ class HomeController extends Controller
 
         $sold_prop = Properties::where('admin_approval','Approved')->where('country', $country->country_name)->where('sold_request','Sold')->inRandomOrder()->limit(12)->get();
 
-        $latest = Properties::where('country',$country->country_name)->where('admin_approval','Approved')->latest()->take(3)->get();
+        $latest = Properties::where('country',$country->country_name)->where('sold_request',null)->where('admin_approval','Approved')->latest()->take(3)->get();
 
         $self = self::setCookie($country_id);
 
@@ -388,7 +389,7 @@ class HomeController extends Controller
 
         $property_types = PropertyType::where('status','=','1')->get();
 
-        $properties = Properties::where('admin_approval', 'Approved')->where('country',get_country_cookie(request())->country_name);
+        $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->where('country',get_country_cookie(request())->country_name);
 
         // $side_ads = SidebarAd::where('country_management_approval', 'Approved')->get();
         if(get_country_cookie(request())){

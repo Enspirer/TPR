@@ -58,7 +58,7 @@ class FeaturePropertyUpdateRequestController extends Controller
 
         // $country_manager = Country::where('country_manager',$user_id)->first();
 
-        $properties = Properties::where('admin_approval', 'Approved')->where('country',$fpur->country)->get();
+        $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->where('country',$fpur->country)->get();
 
         // dd($properties);
 

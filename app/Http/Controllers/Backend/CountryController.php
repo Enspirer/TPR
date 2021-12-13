@@ -207,7 +207,7 @@ class CountryController extends Controller
 
         // $country_manager = Country::where('country_manager',$user_id)->first();
 
-        $properties = Properties::where('admin_approval', 'Approved')->where('country',$country->country_name)->get();
+        $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->where('country',$country->country_name)->get();
 
         // dd($properties);
 

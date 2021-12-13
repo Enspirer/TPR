@@ -195,6 +195,9 @@
                                     <p class="fw-bold mb-0">{{ $property->name }}</p>
                                     <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${{ $property->transaction_type }}</p>
                                     <p class="mb-0" style="font-size: 0.8rem;">Country: {{ $property->country }}</p>
+                                    @if($property->sold_request == 'Sold')
+                                    <p class="mb-0" style="font-size: 0.8rem; color:red">Sold</p>
+                                    @endif
                                     
                                     @if(get_country_cookie(request()))
                                         <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(get_country_cookie(request())->country_id, $property->price) }}</p>

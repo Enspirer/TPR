@@ -54,7 +54,7 @@ class FindAgentController extends Controller
         }
         else{
 
-            $prop = Properties::where('user_id',$final_out)->get();
+            $prop = Properties::where('user_id',$final_out)->where('sold_request',null)->get();
 
             $final_out2 = [];
             foreach($prop as $pro){
