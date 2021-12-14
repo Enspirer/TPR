@@ -193,7 +193,7 @@
                                     </div>
                                     
                                     <p class="fw-bold mb-0">{{ $property->name }}</p>
-                                    <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${{ $property->transaction_type }}</p>
+                                    <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: {{ $property->transaction_type }}</p>
                                     <p class="mb-0" style="font-size: 0.8rem;">Country: {{ $property->country }}</p>
                                     @if($property->sold_request == 'Sold')
                                     <p class="mb-0" style="font-size: 0.8rem; color:red">Sold</p>

@@ -11,6 +11,7 @@ use App\Models\Auth\User;
 use App\Models\AgentRequest; 
 use App\Models\SidebarAd; 
 use App\Models\Favorite; 
+use App\Models\ListingHistory; 
 
 
 /**
@@ -79,7 +80,8 @@ class IndividualPropertyController extends Controller
         // dd($external_parameter);
 
 
-        // dd($favourite);
+        $listing_history = ListingHistory::where('property_id',$id)->get();
+        // dd($listing_history);
 
         return view('frontend.individual-property',[
             'property_details' => $property_details,
@@ -90,7 +92,8 @@ class IndividualPropertyController extends Controller
             'final_out' => $final_out,
             'side_ads' => $side_ads,
             'favourite' => $favourite,
-            'external_parameter' => $external_parameter
+            'external_parameter' => $external_parameter,
+            'listing_history' => $listing_history
         ]);
     }
 

@@ -165,6 +165,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('properties/delete/{id}', [AgentController::class, 'deleteProperty'])->name('property-delete');
 
         Route::get('properties/sold_status/{id}', [AgentController::class, 'sold_status'])->name('sold_status');
+        Route::get('properties/pending_status/{id}', [AgentController::class, 'pending_status'])->name('pending_status');
 
 
 
@@ -222,6 +223,11 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('external_parameter/{id}', [CountryManagementController::class, 'external_parameter'])->name('external_parameter');
         Route::post('external_parameter/store', [CountryManagementController::class, 'external_parameter_store'])->name('external_parameter_store');
 
+
+        Route::get('management_sold_properties', [CountryManagementController::class, 'management_sold_properties'])->name('management_sold_properties');
+        Route::get('management_get_sold_properties', [CountryManagementController::class, 'management_get_sold_properties'])->name('management_get_sold_properties');
+       
+       
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');
 

@@ -1,4 +1,4 @@
-<footer class="app-footer">
+<footer class="app-footer" style="margin-left:220px">
     <div>
         <strong>@lang('labels.general.copyright') &copy; {{ date('Y') }}
             <!-- <a href="http://laravel-boilerplate.com"> -->

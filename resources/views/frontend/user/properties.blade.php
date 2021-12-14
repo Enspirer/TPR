@@ -114,7 +114,7 @@
                                                             </div>
                                                         @elseif($property->sold_request == 'Pending')
                                                             <div class="col-3 ps-1">
-                                                                <button class="btn px-4 rounded-0 py-1 btn-warning">Pending</button>
+                                                                <a href="{{ route('frontend.user.pending_status', $property->id) }}" class="btn px-4 rounded-0 py-1 btn-warning pending_status" data-bs-toggle="modal" data-bs-target="#pending_status_Modal">Pending</a>
                                                             </div>
                                                         @else
                                                             <div class="col-3 ps-1">
@@ -277,6 +277,26 @@
             </div>
         </div>
 
+
+        <div class="modal fade" id="pending_status_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cancel Request</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Do you want to cancel this property sold request?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="" class="btn btn-danger">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="modal fade" id="sold_status_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -309,6 +329,12 @@
     </script>
     <script>
         $('.sold_status').on('click', function() {
+            let link = $(this).attr('href');
+            $('.modal-footer a').attr('href', link);
+        })
+    </script>
+    <script>
+        $('.pending_status').on('click', function() {
             let link = $(this).attr('href');
             $('.modal-footer a').attr('href', link);
         })

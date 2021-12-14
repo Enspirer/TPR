@@ -263,6 +263,81 @@
                                 </select>
                             </div>
 
+                            <!-- <div class="mt-5 text-center">
+                                <input type="hidden" name="hidden_id" value="{{ $property->id }}"/>
+                                <a href="{{route('admin.property.index')}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
+                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 p-1">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="" style="border-style: ridge;border-width: 3px;padding: 20px;">
+
+                            <div class="form-group mb-5">
+                                <label class="mb-4"><b>Listning History</b></label>
+                                    <div class="row mb-4">
+                                        <div class="col-2 ml-3">Start Date</div>
+                                        <div class="col-2 ml-3">End Date</div>
+                                        <div class="col-2 ml-3">Price</div>
+                                        <div class="col-2 ml-3">Event</div>
+                                        <div class="col-2 ml-3">Listing ID</div>
+                                    </div>
+
+                                @if(count($listing_history) == 0)
+
+                                    <div id="inputFormRow">
+                                        <div class="input-group mb-3">
+                                                                                        
+                                            <input type="text" name="start_date[]" onfocus="(this.type='date')" class="form-control m-input" placeholder="Start Date" autocomplete="off" required>
+                                            <input type="text" name="end_date[]" onfocus="(this.type='date')" class="form-control m-input" placeholder="End Date" autocomplete="off" required>
+                                            <input type="text" name="price[]" class="form-control m-input" placeholder="Price" autocomplete="off" required>
+                                            <input type="text" name="event[]" class="form-control m-input" placeholder="Event" autocomplete="off" required>
+                                            <input type="text" name="listing_id[]" class="form-control m-input" placeholder="Listing ID" autocomplete="off" required>
+
+                                            <div class="input-group-append">                
+                                                <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="newRow"></div>
+                                    <button id="addRow" type="button" class="btn btn-info">Add Row</button>
+                                
+                                @else
+
+                                    <div id="inputFormRow">
+                                        @foreach($listing_history as $key => $listing)
+                                            <div class="input-group mb-3">
+                                                
+                                                <input type="text" name="start_date[]" value="{{ $listing->date_start }}" onfocus="(this.type='date')" class="form-control m-input" placeholder="Start Date" autocomplete="off" required>
+                                                <input type="text" name="end_date[]" value="{{ $listing->date_end }}" onfocus="(this.type='date')" class="form-control m-input" placeholder="End Date" autocomplete="off" required>
+                                                <input type="text" name="price[]" value="{{ $listing->price }}" class="form-control m-input" placeholder="Price" autocomplete="off" required>
+                                                <input type="text" name="event[]" value="{{ $listing->event }}" class="form-control m-input" placeholder="Event" autocomplete="off" required>
+                                                <input type="text" name="listing_id[]" value="{{ $listing->listing_id }}" class="form-control m-input" placeholder="Listing ID" autocomplete="off" required>
+
+                                                <div class="input-group-append">                
+                                                    <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <div id="newRow"></div>
+                                    <button id="addRow" type="button" class="btn btn-info">Add Row</button>
+
+
+
+                                @endif   
+                                                            
+                            </div> 
+
                             <div class="mt-5 text-center">
                                 <input type="hidden" name="hidden_id" value="{{ $property->id }}"/>
                                 <a href="{{route('admin.property.index')}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
@@ -305,5 +380,31 @@
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
 type="text/javascript"></script>
+
+
+    <script type="text/javascript">        
+        $("#addRow").click(function () {
+            var html = '';
+            html += '<div id="inputFormRow">';
+            html += '<div class="input-group mb-3">';
+            html += '<input type="date" name="start_date[]" class="form-control m-input" placeholder="Start Date" autocomplete="off" required>';
+            html += '<input type="date" name="end_date[]" class="form-control m-input" placeholder="End Date" autocomplete="off" required>';
+            html += '<input type="text" name="price[]" class="form-control m-input" placeholder="Price" autocomplete="off" required>';
+            html += '<input type="text" name="event[]" class="form-control m-input" placeholder="Event" autocomplete="off" required>';
+            html += '<input type="text" name="listing_id[]" class="form-control m-input" placeholder="Listing ID" autocomplete="off" required>';
+            html += '<div class="input-group-append">';
+            html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
+            html += '</div>';
+            html += '</div>';
+
+            $('#newRow').append(html);
+        });
+
+    
+        $(document).on('click', '#removeRow', function () {
+            // $(this).closest('#inputFormRow').remove();
+            $(this).parents('.input-group').remove();
+        });
+    </script>
 
 @endpush

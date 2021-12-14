@@ -245,7 +245,7 @@ class AgentController extends Controller
     public function properties()
     {
         $id = Auth::user()->id;
-        $properties = Properties::where('user_id',  $id)->where('sold_request',null)->orderBy('id','DESC')->get();
+        $properties = Properties::where('user_id',  $id)->orderBy('id','DESC')->get();
 
         return view('frontend.user.properties', ['properties' => $properties]);
     }
@@ -379,6 +379,17 @@ class AgentController extends Controller
     public function deleteProperty($id) {
 
         $property = Properties::where('id', $id)->delete();
+
+        return back();
+    }
+
+    public function pending_status($id) {
+
+        $updatproperty_cancel = new Properties;
+        
+        $updatproperty_cancel->sold_request = null;
+   
+        Properties::whereId($id)->update($updatproperty_cancel->toArray());
 
         return back();
     }

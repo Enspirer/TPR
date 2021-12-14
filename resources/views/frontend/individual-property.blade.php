@@ -585,7 +585,42 @@
                         
                     </div>
 
-                    
+
+
+                        @if(count($listing_history) != 0)
+                            <div class="features">
+                                <h4 class="fw-bold" style="margin-top: 6rem;">Listing History</h4>
+
+                                <table class="styled-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date Start</th>
+                                            <th>Date End</th>
+                                            <th>Price</th>
+                                            <th>Event</th>
+                                            <th>Listing ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($listing_history as $listing)
+                                            <tr>
+                                                <td>{{$listing->date_start}}</td>
+                                                <td>{{$listing->date_end}}</td>
+                                                <td>{{$listing->price}}</td>
+                                                <td>{{$listing->event}}</td>
+                                                <td>{{$listing->listing_id}}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
+                                
+                            </div>
+
+                        @endif
+
+
+    
                 </div>
 
                 <div class="col-4 px-5">

@@ -9,6 +9,7 @@ use DB;
 use App\Models\Properties;
 use App\Models\PropertyType;
 use App\Models\AgentRequest;
+use App\Models\ListingHistory;
 
 class PropertyController extends Controller
 {
@@ -74,23 +75,63 @@ class PropertyController extends Controller
         }
         // dd($external_parameter);
 
+        $listing_history = ListingHistory::where('property_id',$property->id)->get();
+        // dd($listing_history);
+
         return view('backend.property.edit', [
             'property' => $property,
             'images' => $images ,
             'property_type' => $property_type,
             'agent_details' => $agent_details,
-            'external_parameter' => $external_parameter
+            'external_parameter' => $external_parameter,
+            'listing_history' => $listing_history
         ]);  
     }
 
     public function update(Request $request)
     {    
+        // dd($request);
+
+       
+        if($request->start_date != null){
+           
+            $listing_history = [
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
+                'price' => $request->price,
+                'event' => $request->event,
+                'listing_id' => $request->listing_id
+            ];
+    
+            // dd($listing_history['listing_id']);
+
+            ListingHistory::where('property_id',$request->hidden_id)->delete();
+                        
+            foreach($listing_history['start_date'] as $key => $listing){
+                // dd($listing_history['start_date'][0]);
+    
+                DB::table('listing_histories')->insert([
+                    'date_start' => $listing_history['start_date'][$key],
+                    'date_end' => $listing_history['end_date'][$key],
+                    'price' => $listing_history['price'][$key],
+                    'event' => $listing_history['event'][$key],
+                    'listing_id' => $listing_history['listing_id'][$key],
+                    'property_id' => $request->hidden_id,
+                    'user_id' => auth()->user()->id
+                ]);
+    
+            }  
+
+        }     
+            
+
         
-        $updatproperty = new Properties;
-        
+        $updatproperty = new Properties;        
         $updatproperty->admin_approval=$request->admin_approval;
    
         Properties::whereId($request->hidden_id)->update($updatproperty->toArray());
+
+
 
         return redirect()->route('admin.property.index')->withFlashSuccess('Updated Successfully');                      
 

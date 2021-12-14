@@ -872,5 +872,41 @@ class CountryManagementController extends Controller
     //     return back();
     // }
 
+    public function management_sold_properties() {
+
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
+        // dd($country);
+
+        $sold_properties = Properties::where('country', $country->country_name)->where('sold_request','Sold')->orderBy('id', 'DESC')->get();
+        // dd($sold_properties);
+    
+        return view('frontend.user.sold_properties',[
+            'sold_properties' => $sold_properties
+        ]);
+    }  
+
+
+    public function management_get_sold_properties(Request $request) {
+
+        $country = Country::where('country_manager',auth()->user()->id)->where('status',1)->first();
+
+        $sold_prop = Properties::where('country', $country->country_name)->where('sold_request','Sold')->orderBy('id', 'DESC')->get();
+
+
+        if($request->ajax())
+        {
+            return DataTables::of($sold_prop)
+                    ->addColumn('action', function($data){
+                        
+                        $button = '<a href="'.url('individual-property', $data->id).'" name="delete" id="'.$data->id.'" class="btn text-light table-btn btn-success">View Property</a>';
+                        return $button;
+                    })
+                    
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+        return back();
+    }
+
 
 }
