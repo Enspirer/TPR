@@ -572,6 +572,10 @@
 
                             <div class="tab-pane fade" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">
 
+                                <div style="border:1px solid red; text-align:center" class="mt-3 mb-4 p-1">
+                                    <h6 style="color:red" class="mb-2 mt-1">Warning!</h6><h6 class="mb-1" style="font-size:15px;"> Statistics API not connected. Please connect your Statistics API.</h6>
+                                </div>
+
                             </div>
 
                             <div class="tab-pane fade" id="calculators" role="tabpanel" aria-labelledby="calculators-tab">
@@ -589,7 +593,7 @@
 
                         @if(count($listing_history) != 0)
                             <div class="features">
-                                <h4 class="fw-bold" style="margin-top: 6rem;">Listing History</h4>
+                                <h4 class="fw-bold" style="margin-top: 5rem;">Listing History</h4>
 
                                 <table class="styled-table">
                                     <thead>
@@ -644,25 +648,33 @@
 
                         <h6 class="fw-bold mb-0 text-center mt-3">Call agent : {{ $agent->telephone }}</h6>
 
-                        <div class="col-12 text-center mt-3">
-                            @auth
-                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#emailModal" style="background-color: #FF69B4;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
-                            @else
-                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#loginModal" style="background-color: #FF69B4;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
-                            @endauth
-                        </div>                        
+                        @if($property_details->sold_request == 'Sold')
+                            <div class="col-12 text-center mt-3">
+                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light btn-danger">Sold</a>
+                            </div> 
+                        @else
+                            <div class="col-12 text-center mt-3">
+                                @auth
+                                    <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#emailModal" style="background-color: #FF69B4;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                                @else
+                                    <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#loginModal" style="background-color: #FF69B4;"><i class="fas fa-envelope me-2"></i>Email Agent</a>
+                                @endauth
+                            </div>  
+                                        
 
-                        <div class="col-12 text-center mt-3">
+                            <div class="col-12 text-center mt-3">
 
-                            @auth     
-                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#bookaview" style="background-color: #008080;"><i class="fas fa-bookmark me-2"></i>Book a Viewing</a>                    
-                            @else
-                                <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#loginModal" style="background-color: #008080;"><i class="fas fa-bookmark me-2"></i>Book a Viewing</a>
-                            @endauth
-                           
-                           
-                            <!-- <button class="btn rounded-0 py-2 fw-bold w-75 text-light" style="background-color:#008080;"><i class="fas fa-bookmark me-2"></i> Book a Viewing</button>                         -->
-                        </div>
+                                @auth     
+                                    <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#bookaview" style="background-color: #008080;"><i class="fas fa-bookmark me-2"></i>Book a Viewing</a>                    
+                                @else
+                                    <a class="btn rounded-0 py-2 fw-bold w-75 text-light" href="" data-bs-toggle="modal" data-bs-target="#loginModal" style="background-color: #008080;"><i class="fas fa-bookmark me-2"></i>Book a Viewing</a>
+                                @endauth
+                            
+                            
+                                <!-- <button class="btn rounded-0 py-2 fw-bold w-75 text-light" style="background-color:#008080;"><i class="fas fa-bookmark me-2"></i> Book a Viewing</button>                         -->
+                            </div>
+
+                        @endif 
 
                         <div class="col-12 text-center mt-3">
                             <a data-toggle="modal" data-target="#shareModal" class="btn rounded-0 py-2 fw-bold w-75" style="border: 1.5px solid #707070;"><i class="far fa-share-square me-2"></i>Share</a>                            

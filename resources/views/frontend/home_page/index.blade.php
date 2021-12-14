@@ -414,8 +414,16 @@
                                             @if(get_country_cookie(request())->country_name == $sold->country)
                                             
                                             <div class="swiper-slide">
-                                                <a href="{{ route('frontend.individual-property', $sold->id) }}"><img src="{{url('image_assest',$sold->feature_image_id)}}"  class="img-fluid" alt="" style="object-fit:cover; height: 210px;"></a>
-                                                <div class="ribbon ribbon-top-right"><span>Sold</span></div>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <a href="{{ route('frontend.individual-property', $sold->id) }}" style="text-decoration:none">
+                                                            <img src="{{url('image_assest',$sold->feature_image_id)}}"  class="img-fluid" alt="" style="object-fit:cover; height: 210px;">
+                                                            <h4 class="mt-3">{{$sold->name}}</h4>
+                                                            <p class="mt-2" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{$sold->description}}</p>
+                                                            <div class="ribbon ribbon-top-right"><span>Sold</span></div>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div> 
                                            
                                             @endif
