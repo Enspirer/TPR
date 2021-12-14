@@ -104,7 +104,7 @@ class HomeController extends Controller
 
         $country = Country::where('country_id', $country_id)->where('status',1)->first();
 
-        $promu = Properties::where('admin_approval','Approved')->where('country', $country->country_name)->get();
+        $promu = Properties::where('admin_approval','Approved')->where('sold_request',null)->where('country', $country->country_name)->get();
 
         $sold_prop = Properties::where('admin_approval','Approved')->where('country', $country->country_name)->where('sold_request','Sold')->inRandomOrder()->limit(6)->get();
 
