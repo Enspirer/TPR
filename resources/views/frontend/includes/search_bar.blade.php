@@ -364,10 +364,11 @@
                 </div>
             </form>
 
-            <div class="card">
-                <div class="card-body">
-                    <p>The properties under this section will be subject to reviews and will be showcased only once it has been cleared by TPR.</p>
-                </div>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 8px;">
+                <strong>Coming Soon!</strong> The properties under this section will be subject to reviews and will be showcased only once it has been cleared by TPR.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="float: right;background: #fff3cd;border-style: solid;border-width: 1px;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         </div>
 
