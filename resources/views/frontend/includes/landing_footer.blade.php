@@ -10,7 +10,7 @@
                 <h5 class="fw-bolder mt-md-2">PAGES</h5>
                 <a href="{{ route('frontend.about-us') }}" class="mt-3 mt-md-4 mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">About Us</a>
                 <a href="{{ route('frontend.landing_contact') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Contact Us</a>
-                <a href="{{ route('frontend.mobile-apps') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Mobile Apps</a>
+                <!-- <a href="{{ route('frontend.mobile-apps') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Mobile Apps</a> -->
             </div>
             <div class="col-12 col-md-3 ps-md-5 mb-4 mb-md-0">
                 <h5 class="fw-bolder mt-md-2">MORE</h5>
@@ -24,7 +24,7 @@
                 <h5 class="fw-bolder mt-md-2">TOPICS</h5>
                 <a href="{{ route('frontend.tips-for-buyers') }}" class="mt-3 mt-md-4 mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Tips for buyers</a>
                 <a href="{{ route('frontend.tips-for-sellers') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Tips for sellers</a>
-                <a href="{{ route('frontend.commercial-resources') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Commercial Resources</a>
+                <!-- <a href="{{ route('frontend.commercial-resources') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Commercial Resources</a> -->
                 <a href="#"><img src="{{ asset('tpr_templete/images/fb.svg') }}" alt="" class="img-fluid me-2 ps-3 ps-md-0" style="height:1.4rem;"></a>
                 <a href="#"><img src="{{ asset('tpr_templete/images/twitter.svg') }}" alt="" class="img-fluid me-2" style="height:1.4rem;"></a>
                 <a href="#"><img src="{{ asset('tpr_templete/images/google_plus.svg') }}" alt="" class="img-fluid me-2" style="height:1.4rem;"></a>

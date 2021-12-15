@@ -239,9 +239,9 @@
                     <div class="card p-4 custom-shadow border-0">
                         <img src="{{url('tpr_templete/images/card_1.svg')}}" class="card-img-top" alt="..." height="200rem">
                         <div class="card-body mt-4 p-2">
-                            <h4 class="card-title text-center">Map Search</h4>
-                            <h5 class="text-info">Draw your map Options</h5>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque deleniti sed dolor molestiae aut vero harum voluptatem expedita possimus alias natus, odit recusandae est sit quas ullam minus deserunt assumenda, quaerat id, excepturi ad illum animi? Autem temporibus natus doloribus!</p>
+                            <h4 class="card-title text-center mb-4">Map Search</h4>
+                            <!-- <h5 class="text-info">Draw your map Options</h5> -->
+                            <p class="card-text">Broaden your view on different localities using the unique Map Search option available on our site. Access to your preferred locations and properties is just a click away.</p>
                         </div>
                     </div>
                 </div>
@@ -249,9 +249,9 @@
                     <div class="card p-4 custom-shadow border-0">
                         <img src="{{url('tpr_templete/images/card_2.svg')}}" class="card-img-top" alt="..." height="200rem">
                         <div class="card-body mt-4 p-2">
-                            <h4 class="card-title text-center">Properties Near Me</h4>
-                            <h5 class="text-info">SubTopic</h5>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque deleniti sed dolor molestiae aut vero harum voluptatem expedita possimus alias natus, odit recusandae est sit quas ullam minus deserunt assumenda, quaerat id, excepturi ad illum animi? Autem temporibus natus doloribus!</p>
+                            <h4 class="card-title text-center mb-4">Properties Near Me</h4>
+                            <!-- <h5 class="text-info">SubTopic</h5> -->
+                            <p class="card-text">Got your eye on a preferred location? Use our site to look for properties near your vicinity that will appeal to your budget and preference.</p>
                         </div>
                     </div>
                 </div>
@@ -259,9 +259,9 @@
                     <div class="card p-4 custom-shadow border-0">
                         <img src="{{url('tpr_templete/images/card_3.svg')}}" class="card-img-top" alt="..." height="200rem">
                         <div class="card-body mt-4 p-2">
-                            <h4 class="card-title text-center">Property Alerts Live</h4>
-                            <h5 class="text-info">SubTopic</h5>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque deleniti sed dolor molestiae aut vero harum voluptatem expedita possimus alias natus, odit recusandae est sit quas ullam minus deserunt assumenda, quaerat id, excepturi ad illum animi? Autem temporibus natus doloribus!</p>
+                            <h4 class="card-title text-center mb-4">Property Alerts Live</h4>
+                            <!-- <h5 class="text-info">SubTopic</h5> -->
+                            <p class="card-text">Register with us and get regular updates and insights about the properties and real estate market in your preferred locations.</p>
                         </div>
                     </div>
                 </div>

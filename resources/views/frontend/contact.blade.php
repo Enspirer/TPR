@@ -38,7 +38,7 @@
                 <div class="col-6">
                     <h3 class="fw-bolder">Contact Us</h3>
 
-                    <p class="mt-5" style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quo saepe odio error fugiat numquam eum, minima tenetur qui voluptates repudiandae doloribus porro eos iste tempore rerum! Nisi, molestias consectetur.</p>
+                    <!-- <p class="mt-5" style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quo saepe odio error fugiat numquam eum, minima tenetur qui voluptates repudiandae doloribus porro eos iste tempore rerum! Nisi, molestias consectetur.</p> -->
 
                     @if(isset(get_country_cookie(request())->country_id))
                         @if(get_country_cookie(request()))

@@ -193,11 +193,11 @@
                             Tips for sellers
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/commercial_resources'))}}" href="{{ route('admin.commercial_resources') }}">
                             Commercial Resources
                         </a>
-                    </li>
+                    </li> -->
                         
                 </ul>
             </li> 
