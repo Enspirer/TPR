@@ -363,6 +363,12 @@
                     <button type="button" class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                 </div>
             </form>
+
+            <div class="card">
+                <div class="card-body">
+                    <p>The properties under this section will be subject to reviews and will be showcased only once it has been cleared by TPR.</p>
+                </div>
+            </div>
         </div>
 
         <div class="tab-pane fade" id="pills-tp_developer" role="tabpanel" aria-labelledby="pills-tp_developer-tab">
