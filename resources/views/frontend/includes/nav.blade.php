@@ -101,7 +101,7 @@
                             <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'login' ? 'active' : null }}" href="{{route('frontend.auth.login')}}">Login <i class="bi bi-person-check"></i></a>
                             <div class="line"></div>
                         </li>
-                        <li class="nav-item join" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" style="padding-left : 2rem">
+                            <li class="nav-item join" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" style="padding-left : 2rem">
                             <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'register' ? 'active' : null }}" href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
                             <div class="line"></div>
                         </li>
@@ -209,6 +209,21 @@
                             </ul>
                         </div>
                     </li>
+                    <!-- icons bar -->
+                    <div class="icons-bar">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-bell" style="color:#82bf3e;"></i>
+                        </div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-bookmark" style="color:#4195e1;"></i>
+                        </div>
+                        <div class="icon-wrapper heart-wrapper">
+                            <i class="fas fa-heart" style="color:red;"></i>
+                            <div class="counter-wrapper">
+                                <p id="heartCounter">0</p>
+                            </div>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </nav>

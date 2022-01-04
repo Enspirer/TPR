@@ -170,3 +170,35 @@ p {
         left: 7%;
     }
 }
+
+/*custom styles for nav icons*/
+.icons-bar {
+    display: flex;
+    gap: 15px;
+    margin-left: 45px;
+}
+
+.icon-wrapper i {
+    font-size: 2rem;
+}
+
+.heart-wrapper {
+    position: relative;
+}
+
+.counter-wrapper {
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+
+.counter-wrapper p {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.8rem;
+}
