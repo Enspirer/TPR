@@ -236,8 +236,17 @@
 
             <script>
 
-                let lat = <?php echo json_encode(App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->latitude); ?>;
-                let lng = <?php echo json_encode(App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->longitude); ?>;
+                @if($search_long == 'long')
+                    let lng = <?php echo json_encode(App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->longitude); ?>;
+                @else
+                    let lng = {{$search_long}};
+                @endif
+
+                @if($search_long == 'lat')
+                    let lat = <?php echo json_encode(App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->latitude); ?>;
+                @else
+                    let lat = {{$search_lat}};
+                @endif
 
                 function initMap() {
                     const map = new google.maps.Map(document.getElementById("map"), {
