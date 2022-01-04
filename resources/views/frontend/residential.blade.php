@@ -274,7 +274,7 @@
                     });
 
 
-
+                    flightPath.setMap(map);
 
 
                     // Create an array of alphabetical characters used to label the markers.
