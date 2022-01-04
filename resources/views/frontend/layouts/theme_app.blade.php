@@ -75,7 +75,7 @@
 
       .feedback {
         position: fixed;
-        top: 750px;
+        top: 290px;
         right: 0px;
         width: max-content;
         margin-left: auto;
@@ -96,8 +96,83 @@
             background-color: #000;
         }
 
-        
+        label {
+            font-size: 52px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
+    .selection-box {
+        display: none;
+    }
+
+    .radio-btns {
+        display: block !important;
+    }
+
+    .radio-label {
+        color: #000 !important;
+        font-size: 0.8rem;
+    }
+
+    .radio-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom:15px;
+    }
+
+    .popup-submit {
+        display: block !important;
+        margin-top: 15px;
+    }
+
+    .feedbackModel h2 {
+        font-size: 1.5rem;
+    }
+
+    .feedbackModel h3 {
+        font-size: 1.25rem;
+    }
+
+    .star-label {
+        font-size: 30px;
+    }
+
+    .pop-content-wrapper {
+        text-align: left;
+    }
+
+    .full-area {
+        width: 100%;
+        outline: 0;
+    }
+
+    .feedbackModel {
+        position: relative;
+    }
+
+    .close-feedback {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+    }
+
+    .close-icon {
+        background-color: red !important;
+        font-size: 0.8rem;
+        padding: 8px 10px !important;
+        border-radius: 50% !important;
+    }
+
+    button.close-feedback {
+        background: transparent;
+        border: 0;
+        width: 50px;
+        height: 50px;
+    }
 
     </style>
 
@@ -119,10 +194,7 @@
     </div><!-- #app -->
 
     
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackModal">
-  Launch demo modal
-</button>
+
     <!--footer-->
     <section class="container-fluid pt-5 pb-3 text-white" id="footer" style="background-color: #1B1B3A;">
         <div class="container">
@@ -188,16 +260,171 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div> -->
-      <div class="modal-body">
-            <img style="width:100px;display:block;margin-left:auto;margin-right:auto;" src="{{ url('tpr_templete/images/tropical_logo.svg') }}" alt="">
+      <div class="modal-body feedbackModel" style="text-align:center;">
+      <button type="button" class="close-feedback" data-dismiss="modal"><i class="fas fa-times close-icon"></i></button>
+            <img style="width:200px;display:block;margin-left:auto;margin-right:auto;margin-bottom:30px;" src="{{ url('tpr_templete/images/tropical_logo.svg') }}" alt="">
             <h2>TPR Visitor Feedback</h2>
             <h3>Please rate your experience on TPR today.</h3>
-            
+
+            <form class="star">
+            <input type="radio" name="note" value="1" id="aze"> 
+                <div class="star-bar"> 
+                <label class="star-label"><!--for='aze'--> 
+                    ★
+                    <input type="radio" name="note" value="1" id="aze">
+                    </label>
+                
+                <label class="star-label"> 
+                    ★ 
+                    <input type="radio" name="note" value="2">
+                    </label>
+                <label class="star-label">
+                    ★
+                    <input type="radio" name="note" value="3">
+                    </label>
+                <label class="star-label">
+                    ★
+                    <input type="radio" name="note" value="4">
+                    </label>
+                <label class="star-label">
+                    ★
+                    <input type="radio" name="note" value="5">
+                </label>
+
+                </div>
+                <div class="pop-content-wrapper">
+                    <p>What is your feedback regarding?</p>
+                    <select name="cars" id="feedbackSelectList" class="full-area" onchange="feedbackSelection()">
+                        <option value="choose" selected="selected">Choose a topic</option>
+                        <option id="user-experience-option" value="UE">User Experience</option>
+                        <option id="suggesion-option" value="suggestion">Suggestion</option>
+                        <option value="report">Report a technical problem</option>
+                        <option value="general">General Inquiries</option>
+                    </select> 
+
+
+                    <div id="user-experience-box" class="selection-box">
+                        <p style="margin-top:15px;">Click here to type your comment question</p>
+                        <form action="">
+                                <textarea class="full-area" rows="4"></textarea>
+                                <p>Are you a First Time Buyer/Seller?</p>
+                                <div class="radio-wrapper">
+                                    <input class="radio-btns" type="radio" id="yes" name="fav_language" value="yes">
+                                    <label class="radio-label" for="yes">Yes</label>
+                                </div>
+                                <div class="radio-wrapper">
+                                    <input class="radio-btns" type="radio" id="no" name="fav_language" value="yes">
+                                    <label class="radio-label" for="no">No</label>
+                                </div>
+                                <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
+                                <select name="" id="" class="full-area">
+                                    <option value="" selected="selected">Choose..</option>
+                                    <option value="">Just Borrowing</option>
+                                    <option value="">Getting Started</option>
+                                    <option value="">Seriously Hunting</option>
+                                    <option value="">Recently Purchased</option>
+                                </select>
+                                <input class="popup-submit" type="submit" value="submit">
+                        </form>
+                        
+                        
+                    </div>
+                        <div id="suggestions-box" class="selection-box">
+                        <p style="margin-top:15px;">Please share your suggestion with us.</p>
+                        <form action="">
+                                <textarea class="full-area" rows="4"></textarea>
+                                <p>Are you a First Time Buyer/Seller?</p>
+                                <div class="radio-wrapper">
+                                    <input class="radio-btns" type="radio" id="yes" name="fav_language" value="yes">
+                                    <label class="radio-label" for="yes">Yes</label>
+                                </div>
+                                <div class="radio-wrapper">
+                                    <input class="radio-btns" type="radio" id="no" name="fav_language" value="yes">
+                                    <label class="radio-label" for="no">No</label>
+                                </div>
+                                <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
+                                <select name="" id="" class="full-area">
+                                    <option value="" selected="selected">Choose..</option>
+                                    <option value="">Just Borrowing</option>
+                                    <option value="">Getting Started</option>
+                                    <option value="">Seriously Hunting</option>
+                                    <option value="">Recently Purchased</option>
+                                </select>
+                                <input class="popup-submit" type="submit" value="submit">
+                        </form>
+                        </div>
+                        <div id="report-box" class="selection-box">
+                        
+                        
+                        <form action="">
+                            <p style="margin-top:15px;">What issues are you having?</p>
+                            <select name="" id="" class="full-area">
+                                <option value="" selected="selected">Choose..</option>
+                                <option value="">Searching for Properties</option>
+                                <option value="">Viewing Properties</option>
+                                <option value="">Contacting a TPR</option>
+                                <option value="">Website Performance</option>
+                                <option value="">TPR Account</option>
+                            </select>
+                            <p style="margin-top:15px;">Please provide details and your email address if you would like a response</p>
+                                <textarea class="full-area" rows="4"></textarea>    
+                                <p>Are you a First Time Buyer/Seller?</p>
+                                <div class="radio-wrapper">
+                                    <input class="radio-btns" type="radio" id="yes" name="fav_language" value="yes">
+                                    <label class="radio-label" for="yes">Yes</label>
+                                </div>
+                                <div class="radio-wrapper">
+                                    <input class="radio-btns" type="radio" id="no" name="fav_language" value="yes">
+                                    <label class="radio-label" for="no">No</label>
+                                </div>
+                                <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
+                                <select name="" id="" class="full-area">
+                                    <option value="" selected="selected">Choose..</option>
+                                    <option value="">Just Borrowing</option>
+                                    <option value="">Getting Started</option>
+                                    <option value="">Seriously Hunting</option>
+                                    <option value="">Recently Purchased</option>
+                                </select>
+                                <input class="popup-submit" type="submit" value="submit">
+                        </form>
+                        </div>
+                    <div id="general-box" class="selection-box">
+                    <p style="margin-top:15px;">Click here to type your comment question</p>
+                        <form action="">
+                                <textarea class="full-area" rows="4"></textarea>
+                                <p>Are you a First Time Buyer/Seller?</p>
+                                <div class="radio-wrapper">
+                                    <input class="radio-btns" type="radio" id="yes" name="fav_language" value="yes">
+                                    <label class="radio-label" for="yes">Yes</label>
+                                </div>
+                                <div class="radio-wrapper">
+                                    <input class="radio-btns" type="radio" id="no" name="fav_language" value="yes">
+                                    <label class="radio-label" for="no">No</label>
+                                </div>
+                                <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
+                                <select name="" id="" class="full-area">
+                                    <option value="" selected="selected">Choose..</option>
+                                    <option value="">Just Borrowing</option>
+                                    <option value="">Getting Started</option>
+                                    <option value="">Seriously Hunting</option>
+                                    <option value="">Recently Purchased</option>
+                                </select>
+                                <input class="popup-submit" type="submit" value="submit">
+                        </form>
+                    </div>
+
+                </div>
+              
+                
+            </form>  
+
+         
+
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -236,6 +463,124 @@ function googleTranslateElementInit() {
 
 
 @stack('after-scripts')
+<!-- feedback form  -->
+<script>
+    function feedbackSelection(){
+       
+       var feedbackSelectOne =  document.getElementById("feedbackSelectList").options[document.getElementById("feedbackSelectList").selectedIndex].value;
+
+       if(feedbackSelectOne == "UE") {
+           document.getElementById("user-experience-box").style.display = "block";
+           document.getElementById("suggestions-box").style.display = "none";
+           document.getElementById("report-box").style.display = "none";
+           document.getElementById("general-box").style.display = "none";
+       } 
+       else if (feedbackSelectOne == "suggestion") {
+        document.getElementById("user-experience-box").style.display = "none";
+        document.getElementById("suggestions-box").style.display = "block";
+        document.getElementById("report-box").style.display = "none";
+        document.getElementById("general-box").style.display = "none";
+       } 
+       else if (feedbackSelectOne == "report") {
+        document.getElementById("user-experience-box").style.display = "none";
+        document.getElementById("suggestions-box").style.display = "none";
+        document.getElementById("report-box").style.display = "block";
+        document.getElementById("general-box").style.display = "none";
+       } 
+       else if (feedbackSelectOne == "general") {
+        document.getElementById("user-experience-box").style.display = "none";
+        document.getElementById("suggestions-box").style.display = "none";
+        document.getElementById("report-box").style.display = "none";
+        document.getElementById("general-box").style.display = "block";
+       } 
+       else if (feedbackSelectOne == "choose") {
+        document.getElementById("user-experience-box").style.display = "none";
+        document.getElementById("suggestions-box").style.display = "none";
+        document.getElementById("report-box").style.display = "none";
+        document.getElementById("general-box").style.display = "none";
+       } 
+
+    }
+</script>
+
+
+<!-- five star -->
+<script>
+    const LABELCOLORINACTIV = "#B1A7A7";
+const LABELCOLORACTIV = "#921c22";
+
+const RATINGSLABELS = document.querySelectorAll("form.star label");
+const RATINGSINPUTS = document.querySelectorAll("form.star input");
+
+// make inputs disappear
+RATINGSINPUTS.forEach(function(anInput) {
+  anInput.style.display = "none";
+});
+
+// manage label click & hover display
+function notationLabels(e) {
+  let currentLabelRed = e.target;
+  let currentLabelBlack = e.target;
+  
+  // console.log(e.target.localName);
+  
+  if (e.type == "mouseenter" || !e.target.control.checked) {
+    // coloring red from the clicked/hovered label included, going backward till the node start - if we are hovering or the star isn't already checked.
+    while (currentLabelRed != null) {
+      currentLabelRed.style.color = LABELCOLORACTIV;
+      currentLabelRed = currentLabelRed.previousElementSibling;
+    }
+
+    // coloring black from the clicked/hovered label excluded, going forward till the node end
+    while ((currentLabelBlack = currentLabelBlack.nextElementSibling) != null) {
+      currentLabelBlack.style.color = LABELCOLORINACTIV;
+    }
+  } else {
+    // if the clicked label was already checked we uncheck it and prevent the click event from doing its job - defacto enabling zero star rating
+    e.target.control.checked = false;
+    e.preventDefault();
+  }
+  
+}
+
+function notationLabelsOut(e) {
+  let notesNode = e.target.parentNode.querySelectorAll("label");
+  let currentLabel = notesNode[notesNode.length - 1];
+  
+  // console.log("out : " + e.target.localName);
+  // console.log("out checked: " + e.target.control.checked);
+  
+  notesNode.forEach(function redrum(starLabel) {
+    starLabel.style.color = LABELCOLORACTIV;
+  });
+
+  while (currentLabel != null && !currentLabel.control.checked) {
+    currentLabel.style.color = LABELCOLORINACTIV;
+    currentLabel = currentLabel.previousElementSibling;
+    
+    //console.log("currentLabel null?: " + currentLabel);
+    // previousElementSibling become the input ...
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  RATINGSLABELS.forEach(function(aStar) {
+    aStar.style.color="#eee";
+    aStar.addEventListener("click", notationLabels);
+    aStar.addEventListener("mouseenter", notationLabels);
+    aStar.addEventListener("mouseout", notationLabelsOut);
+  });
+
+  // stop a callback to the label click event function notationLabels passed on the input element associated ... why ... that's behond me
+  // alternatively we could check for e.target.localName in the notationLabels function
+  RATINGSINPUTS.forEach(function(aStarInput) {
+    aStarInput.addEventListener("click", function(e) {
+    e.stopPropagation();
+    });
+  });
+});
+
+</script>
 
 </body>
 </html>
