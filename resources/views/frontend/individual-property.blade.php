@@ -689,9 +689,26 @@
                             <a href="mailto:{{ $agent->email }}"><button class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid #707070;"><i class="bi bi-envelope"></i> Create email alert</button></a>
                         </div> -->
 
+                        @auth
+                            @if($watch_list == null)
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid">Watch Listing</button>
+                                </div> 
+                            @else
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list_change" class="btn rounded-0 py-2 fw-bold fs-6 w-100 text-light" style="border: 1.5px solid; background-color:#28a3b3;">Watch Listing</button>
+                                </div> 
+                            @endif
+                        @else
+                            <div class="col-12 text-center mt-4">
+                                <a href="{{route('frontend.auth.login')}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid">Watch Listing</a>
+                            </div>
+                        @endauth
+
+
 
                         @auth
-                            @if($favourite  == null)
+                            @if($favourite == null)
 
                                 <form action="{{route('frontend.propertyFavourite')}}" method="post" enctype="multipart/form-data">
                                     {{csrf_field()}}
@@ -1484,24 +1501,110 @@
     @endauth
 
 
+    
+@if($watch_list == null)
+              
+    <div class="modal fade" id="watch_list" tabindex="-1" aria-labelledby="watch_listModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="watch_listModalLabel">Watch Listing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('frontend.watch_listing')}}" >
+                        {{csrf_field()}}
+
+                        <p>Watch this listing. Receive notification when it is sold. Watch this community. Receive updates on Detached homes in {{$property_details->city}} - {{$property_details->country}}</p>
+
+                        <div class="form-check">
+                            <input class="form-check-input" name="new_list" type="checkbox" value="new_list" id="new_list">
+                            <label class="form-check-label" for="new_list">
+                                New Listing
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="sold_list" type="checkbox" value="sold_list" id="sold_list">
+                            <label class="form-check-label" for="sold_list">
+                                Sold Listing
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="de_list" type="checkbox" value="de_list" id="de_list">
+                            <label class="form-check-label" for="de_list">
+                                Delisted Listing
+                            </label>
+                        </div>
+
+                        <input type="hidden" name="pro_hidden_id" value="{{ $property_details->id }}" />
+
+                        <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+@else
 
 
+    <div class="modal fade" id="watch_list_change" tabindex="-1" aria-labelledby="watch_list_changeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="watch_list_changeModalLabel">Watch Listing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('frontend.change_watch_listing')}}" >
+                        {{csrf_field()}}
+
+                        <p>Watch this listing. Receive notification when it is sold. Watch this community. Receive updates on Detached homes in {{$property_details->city}} - {{$property_details->country}}</p>
+
+                        <div class="form-check">
+                            @if($watch_list->new_list == null)
+                                <input class="form-check-input" name="new_list" type="checkbox" value="new_list" id="new_list">
+                            @else
+                                <input class="form-check-input" name="new_list" type="checkbox" value="new_list" id="new_list" checked>
+                            @endif
+                            <label class="form-check-label" for="new_list">
+                                New Listing
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            @if($watch_list->sold_list == null)
+                                <input class="form-check-input" name="sold_list" type="checkbox" value="sold_list" id="sold_list">
+                            @else
+                                <input class="form-check-input" name="sold_list" type="checkbox" value="sold_list" id="sold_list" checked>
+                            @endif
+                            <label class="form-check-label" for="sold_list">
+                                Sold Listing
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            @if($watch_list->de_list == null)
+                                <input class="form-check-input" name="de_list" type="checkbox" value="de_list" id="de_list">
+                            @else
+                                <input class="form-check-input" name="de_list" type="checkbox" value="de_list" id="de_list" checked>
+                            @endif
+                            <label class="form-check-label" for="de_list">
+                                Delisted Listing
+                            </label>
+                        </div>
+
+                        <input type="hidden" name="pro_hidden_id" value="{{ $property_details->id }}" />
+                        <input type="hidden" name="watch_list" value="{{ $watch_list->id }}" />
+
+                        <button type="submit" class="btn btn-primary w-100 mt-3 py-2" style="background-color: #77CEEC; border: 0; border-radius: 0;">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@endif
 
 
 

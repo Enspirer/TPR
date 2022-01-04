@@ -47,6 +47,11 @@ Route::get('individual-property/{id}', [IndividualPropertyController::class, 'in
 Route::post('prop_favourite',[IndividualPropertyController::class,'propertyFavourite'])->name('propertyFavourite');
 Route::post('prop_favourite/unsave/{id}',[IndividualPropertyController::class,'propertyFavouriteDelete'])->name('propertyFavouriteDelete');
 
+
+Route::post('watch_listing',[IndividualPropertyController::class,'watch_listing'])->name('watch_listing');
+Route::post('change_watch_listing',[IndividualPropertyController::class,'change_watch_listing'])->name('change_watch_listing');
+
+
 Route::get('individual-property/{id}/calculator', [IndividualPropertyController::class, 'calculator'])->name('individual-property-calculator');
 
 

@@ -12,6 +12,7 @@ use App\Models\AgentRequest;
 use App\Models\SidebarAd; 
 use App\Models\Favorite; 
 use App\Models\ListingHistory; 
+use App\Models\WatchListing; 
 
 
 /**
@@ -72,6 +73,17 @@ class IndividualPropertyController extends Controller
             $favourite = null;
         }
 
+        if(auth()->user())
+        {
+            $watch_list = WatchListing::where('property_id',$id)
+                ->where('user_id',auth()->user()->id)
+                ->first();
+        }else{
+            $watch_list = null;
+        }
+
+
+
         if(json_decode($property_details->external_parameter) == null){
             $external_parameter = null;
         }else{
@@ -93,8 +105,73 @@ class IndividualPropertyController extends Controller
             'side_ads' => $side_ads,
             'favourite' => $favourite,
             'external_parameter' => $external_parameter,
-            'listing_history' => $listing_history
+            'listing_history' => $listing_history,
+            'watch_list' => $watch_list
         ]);
+    }
+
+    public function watch_listing(Request $request)
+    { 
+        // dd($request);
+
+        $user_id = auth()->user()->id;
+
+        $add = new WatchListing;
+
+        if($request->new_list != null){
+            $add->new_list=$request->new_list; 
+        }
+
+        if($request->sold_list != null){
+            $add->sold_list=$request->sold_list; 
+        }
+
+        if($request->de_list != null){
+            $add->de_list=$request->de_list; 
+        }
+
+        $add->property_id=$request->pro_hidden_id; 
+        $add->user_id=$user_id;
+
+        $add->save();
+
+        return back();
+
+    }
+
+    public function change_watch_listing(Request $request)
+    {        
+        $user_id = auth()->user()->id;
+
+        $update = new WatchListing;
+
+        if($request->new_list != null){
+            $update->new_list=$request->new_list; 
+        }
+        else{
+            $update->new_list=null; 
+        }
+
+        if($request->sold_list != null){
+            $update->sold_list=$request->sold_list; 
+        }
+        else{
+            $update->sold_list=null; 
+        }
+
+        if($request->de_list != null){
+            $update->de_list=$request->de_list; 
+        }
+        else{
+            $update->de_list=null; 
+        }
+
+        $update->property_id=$request->pro_hidden_id; 
+        $update->user_id=$user_id;
+        
+        WatchListing::whereId($request->watch_list)->update($update->toArray());
+        
+        return back();
     }
 
     public function propertyFavourite(Request $request)
