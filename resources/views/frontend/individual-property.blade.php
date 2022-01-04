@@ -29,7 +29,7 @@
     <!-- back to search-->
     <section id="path">
         <div class="container" style="margin-top: 10rem;">
-            <a href="{{ route('frontend.search_function', ['key_name', 'max_price', 'min_price', 'category_type', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city'] )}}" class="text-decoration-none text-body fw-bolder"><i class="bi bi-chevron-left"></i> Back to search results</a>
+            <a href="{{ route('frontend.search_function', ['key_name', 'max_price', 'min_price', 'category_type', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat'] )}}" class="text-decoration-none text-body fw-bolder"><i class="bi bi-chevron-left"></i> Back to search results</a>
         </div>
     </section>
 
