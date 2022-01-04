@@ -17,6 +17,8 @@ use App\Http\Controllers\Backend\FeaturePropertyUpdateRequestController;
 use App\Http\Controllers\Backend\GlobalAdCategoryController;
 use App\Http\Controllers\Backend\TypeParameterController;
 use App\Http\Controllers\Backend\PropertyHistoryController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\BlogsController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -166,4 +168,18 @@ Route::post('property_parameter/update', [TypeParameterController::class, 'updat
 Route::get('property_parameter/delete/{id}', [TypeParameterController::class, 'destroy'])->name('property_parameter.destroy');
 
 
+Route::get('blog_category/index', [CategoryController::class, 'index'])->name('blog_category.index');
+Route::get('blog_category/create', [CategoryController::class, 'create'])->name('blog_category.create');
+Route::get('blog_category/show/{id}', [CategoryController::class, 'show'])->name('blog_category.show');
+Route::get('blog_category/category_details', [CategoryController::class, 'GetTableDetails'])->name('blog_category.get_category_details');
+Route::post('blog_category/store', [CategoryController::class, 'store'])->name('blog_category.store');
+Route::post('blog_category/update', [CategoryController::class, 'update'])->name('blog_category.update');
+Route::get('blog_category/destroy/{id}', [CategoryController::class, 'destroy'])->name('blog_category.destroy');
 
+Route::get('blog_post/index', [BlogsController::class, 'index'])->name('blog_post.index');
+Route::get('blog_post/create', [BlogsController::class, 'create'])->name('blog_post.create');
+Route::get('blog_post/post_details', [BlogsController::class, 'GetTableDetails'])->name('blog_post.get_post_details');
+Route::post('blog_post/store', [BlogsController::class, 'store'])->name('blog_post.store');
+Route::get('blog_post/show/{id}', [BlogsController::class, 'show'])->name('blog_post.show');
+Route::post('blog_post/update', [BlogsController::class, 'update'])->name('blog_post.update');
+Route::get('blog_post/destroy/{id}', [BlogsController::class, 'destroy'])->name('blog_post.destroy');

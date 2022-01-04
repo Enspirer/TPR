@@ -33,6 +33,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
                 <ul class="navbar-nav">
+                    
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500">
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'map-search' ? 'active' : null }}" href="{{ route('frontend.map-search' )}}">Map Search</a>
                         <div class="line"></div>
@@ -41,10 +42,45 @@
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'find-agent' ? 'active' : null }}" href="{{ route('frontend.find-agent', ['area', 'agent_type', 'agent_name'] )}}">Find Agent</a>
                         <div class="line"></div>
                     </li>
-                    <!-- <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
-                        <a class="nav-link text-white fw-bold" href="#">Market Trends</a>
-                        <div class="line"></div>
-                    </li> -->
+                    
+                    <li class="nav-item contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">
+                        
+                        <div class="dropdown">
+                            <a class="btn dropdown-toggle text-light fw-bold" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Idea & How To
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">                               
+                                <li>
+                                    <a class="dropdown-item" href="">
+                                        <div class="row align-items-center">
+                                            <div class="col-12">
+                                                Living Room Blog
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{route('frontend.tips-for-buyers')}}">
+                                        <div class="row align-items-center">
+                                            <div class="col-12">
+                                                Tips for Buyers
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{route('frontend.tips-for-sellers')}}">
+                                        <div class="row align-items-center">
+                                            <div class="col-12">
+                                                Tips for Sellers
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
                     @auth
                         <!-- <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">

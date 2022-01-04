@@ -15,6 +15,46 @@
                         <a class="nav-link text-white fw-bold px-0 {{ Request::segment(1) == 'about-us' ? 'active' : null }}" href="{{ route('frontend.about-us') }}">About Us</a>
                         <div class="line"></div>
                     </li>
+                    
+                    <li class="nav-item contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">
+                        
+                        <div class="dropdown">
+                            <a class="btn dropdown-toggle text-light fw-bold" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Idea & How To
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">                               
+                                <li>
+                                    <a class="dropdown-item" href="">
+                                        <div class="row align-items-center">
+                                            <div class="col-12">
+                                                Living Room Blog
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{route('frontend.tips-for-buyers')}}">
+                                        <div class="row align-items-center">
+                                            <div class="col-12">
+                                                Tips for Buyers
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{route('frontend.tips-for-sellers')}}">
+                                        <div class="row align-items-center">
+                                            <div class="col-12">
+                                                Tips for Sellers
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
                     <li class="nav-item nav1 mx-2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
                         <a class="nav-link text-white fw-bold px-0 {{ Request::segment(1) == 'contact' ? 'active' : null }}" href="{{ route('frontend.landing_contact') }}">Contact Us</a>
                         <div class="line"></div>

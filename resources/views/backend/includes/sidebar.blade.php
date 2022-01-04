@@ -111,7 +111,7 @@
 
             <li class="nav-item nav-dropdown ">
                 <a class="nav-link nav-dropdown-toggle " href="#">
-                    <i class="nav-icon fas fa-ad"></i>
+                    <i class="nav-icon fas fa-scroll"></i>
                     Advertisements
                 </a>
 
@@ -154,6 +154,27 @@
                 </a>
             </li>
 
+            <li class="nav-item nav-dropdown ">
+                <a class="nav-link nav-dropdown-toggle " href="#">
+                    <i class="nav-icon fas fa-paste"></i>
+                        Blog
+                </a>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/blog_category'))}}" href="{{ route('admin.blog_category.index') }}">
+                            Blog Category
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/blog_post'))}}" href="{{ route('admin.blog_post.index') }}">
+                            Blog Post
+                        </a>
+                    </li>   
+                        
+                </ul>
+            </li>  
 
             <li class="nav-item nav-dropdown ">
                 <a class="nav-link nav-dropdown-toggle " href="#">

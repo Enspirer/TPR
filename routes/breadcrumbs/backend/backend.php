@@ -171,4 +171,22 @@ Breadcrumbs::for('admin.pro_cal.index', function ($trail) {
     $trail->push('Property Calculator', route('admin.pro_cal.index'));
 });
 
+Breadcrumbs::for('admin.blog_category.index', function ($trail) {
+    $trail->push('Category', route('admin.blog_category.index'));
+});
+Breadcrumbs::for('admin.blog_category.create', function ($trail) {
+    $trail->push('Create Category', route('admin.blog_category.create'));
+});
+Breadcrumbs::for('admin.blog_category.show', function ($trail) {
+    $trail->push('Edit Category', route('admin.blog_category.show',1));
+});
 
+Breadcrumbs::for('admin.blog_post.index', function ($trail) {
+    $trail->push('Post', route('admin.blog_post.index'));
+});
+Breadcrumbs::for('admin.blog_post.create', function ($trail) {
+    $trail->push('Create Post', route('admin.blog_post.create'));
+});
+Breadcrumbs::for('admin.blog_post.show', function ($trail) {
+    $trail->push('Edit Post', route('admin.blog_post.show',1));
+});
