@@ -324,28 +324,21 @@ class HomeController extends Controller
             $parking_type = 'parking_type';
         }
 
+        if(request('long') != null) {
+            $long = request('long');
+        }
+        else {
+            $long = 'long';
+        }
 
+        if(request('lat') != null) {
+            $lat = request('lat');
+        }
+        else {
+            $lat = 'lat';
+        }
 
-        // dd($key_name,
-        //     $max_price,
-        //     $min_price,
-        //     $category_type,
-        //     $transaction_type,
-        //     $property_type,
-        //     $beds,
-        //     $baths,
-        //     $land_size,
-        //     $listed_since,
-        //     $building_type,
-        //     $open_house,
-        //     $zoning_type,
-        //     $units,
-        //     $building_size,
-        //     $farm_type,
-        //     $parking_type,
-        // $city);
-
-
+     
         return redirect()->route('frontend.search_function', [
             $key_name,
             $min_price,
@@ -364,7 +357,9 @@ class HomeController extends Controller
             $building_size,
             $farm_type,
             $parking_type,
-            $city
+            $city,
+            $long,
+            $lat
         ]);
     }
 
@@ -384,7 +379,7 @@ class HomeController extends Controller
     }
 
 
-    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city)
+    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat)
     {
 
         $property_types = PropertyType::where('status','=','1')->get();
@@ -493,6 +488,14 @@ class HomeController extends Controller
 
         if($city != 'city'){
             $properties->where('city', $city);
+        }
+
+        if($long != 'long'){
+            $properties->where('long', $long);
+        }
+
+        if($lat != 'lat'){
+            $properties->where('lat', $lat);
         }
 
         // dd($properties->get());
