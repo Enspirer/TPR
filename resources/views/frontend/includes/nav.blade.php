@@ -219,9 +219,13 @@
                         </div>
                         <div class="icon-wrapper heart-wrapper">
                             <i class="fas fa-heart" style="color:red;"></i>
-                            <div class="counter-wrapper">
-                                <p id="heartCounter">{{App\Models\Favorite::where('user_id',auth()->user()->id)->get()->count()}}</p>
-                            </div>
+                            @if(!empty( auth()->user()->id) === true)
+                                <div class="counter-wrapper">
+                                    <p id="heartCounter">                                        
+                                        {{App\Models\Favorite::where('user_id',auth()->user()->id)->get()->count()}}
+                                    </p>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </ul>
