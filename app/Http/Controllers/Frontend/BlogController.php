@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\BlogCategory; 
+use App\Models\BlogPost; 
 
 class BlogController extends Controller
 {
@@ -12,6 +14,11 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('frontend.blog');
+        $all_posts = BlogPost::where('status','1')->orderBy('order','ASC')->get();
+        // dd($all_posts);
+
+        return view('frontend.blog',[
+            'all_posts' => $all_posts
+        ]);
     }
 }
