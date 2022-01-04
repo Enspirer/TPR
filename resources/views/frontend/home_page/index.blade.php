@@ -714,20 +714,18 @@ function initMap() {
 }
 
 const locations = [
-    @foreach($promo as $prom) {
-        lat: {
-            {
-                $prom - > lat
-            }
-        },
-        lng: {
-            {
-                $prom - > long
-            }
-        }
-    },
+    @foreach($promo as $prom)
+         { lat: {{$prom->lat}}, lng: {{$prom->long}} },
     @endforeach
 ];
+
+function heart_toggle() {
+    $('.small-heart').on('click', function(){
+        $(".small-heart bi-heart").hide();
+        $(".small-heart bi-heart-fill").show();
+
+        $("i", this).toggle();
+    });
 
 function heart_toggle() {
     $('.small-heart').on('click', function() {
