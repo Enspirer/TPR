@@ -728,7 +728,8 @@ function heart_toggle() {
 
         $("i", this).toggle();
     });
-
+    
+}
 
 
 
