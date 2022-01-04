@@ -506,20 +506,14 @@ class HomeController extends Controller
             $properties->where('city', $city);
         }
 
-        if($long != 'long'){
-            $properties->where('long', $long);
-        }
 
-        if($lat != 'lat'){
-            $properties->where('lat', $lat);
-        }
 
         // dd($properties->get());
 
         $filteredProperty = $properties->get();
 
 
-        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'countries' => $countries]);
+        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'countries' => $countries,'search_long' => $long,'search_lat' => $lat]);
     }
 
 
