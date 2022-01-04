@@ -18,7 +18,7 @@ use App\Models\AdCategory;
 use App\Models\HomePageAdvertisement;
 use App\Models\GlobalAdCategories;
 use App\Models\PropertyTypeParameter;
-
+use GuzzleHttp;
 
 /**
  * Class HomeController.
@@ -185,8 +185,33 @@ class HomeController extends Controller
     }
 
 
+    public static function keyword_to_geo($keyword) {
+
+    }
+
+
     public function get_search_result(Request $request)
     {
+        $client = new GuzzleHttp\Client();
+
+        $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.urlencode($request->search_keyword).'&key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac';
+
+
+        $res = $client->request('GET', $url);
+
+        $refidymeter = json_decode($res->getBody()->getContents());
+
+
+        if($refidymeter->status == 'ZERO_RESULTS'){
+            dd($refidymeter);
+            $lat = null;
+            $lng = null;
+
+        }else{
+            $lat = $refidymeter->results[0]->geometry->location->lat;
+            $lng = $refidymeter->results[0]->geometry->location->lng;
+        }
+
 
         if(request('search_keyword') != null) {
             $key_name = request('search_keyword');
@@ -324,19 +349,16 @@ class HomeController extends Controller
             $parking_type = 'parking_type';
         }
 
-        if(request('long') != null) {
-            $long = request('long');
-        }
-        else {
-            $long = 'long';
+        if($lng == null) {
+            $lng = 'long';
         }
 
-        if(request('lat') != null) {
-            $lat = request('lat');
+        if($lat == null) {
+            $lat = 'long';
         }
-        else {
-            $lat = 'lat';
-        }
+
+
+      
 
      
         return redirect()->route('frontend.search_function', [
@@ -358,7 +380,7 @@ class HomeController extends Controller
             $farm_type,
             $parking_type,
             $city,
-            $long,
+            $lng,
             $lat
         ]);
     }
