@@ -74,11 +74,13 @@
       }
 
       .feedback {
-            position: sticky;
+            position: absolute;
             top: 800px;
             padding-top: 0px;
             width: max-content;
             margin-left: auto;
+            display: block;
+            margin-right: 60px;
         }
     </style>
 
@@ -88,7 +90,7 @@
 @include('includes.partials.read-only')
 
     <div id="app">
-        <h2 class="feedback">Absolue Feedback</h2>
+        <span class="feedback">feeedback <i class="far fa-comment-dots"></i></span>
         @include('includes.partials.logged-in-as')
         @include('frontend.includes.nav')
 
