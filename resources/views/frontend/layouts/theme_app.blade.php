@@ -74,14 +74,31 @@
       }
 
       .feedback {
-            position: absolute;
-            top: 800px;
-            padding-top: 0px;
-            width: max-content;
-            margin-left: auto;
-            display: block;
-            margin-right: 60px;
+        position: fixed;
+        top: 750px;
+        right: 0px;
+        width: max-content;
+        margin-left: auto;
+        display: block;
+        margin-right: 0px;
+        z-index: 100;
+        background: red;
+        padding: 10px;
+        color: #fff;
+        border-radius: 15px;
+        transform: rotate(
+    -90deg);
+        border: 0;
         }
+
+        .feedback:hover {
+            cursor: pointer;
+            background-color: #000;
+        }
+
+        
+
+
     </style>
 
 </head>
@@ -90,7 +107,7 @@
 @include('includes.partials.read-only')
 
     <div id="app">
-        <span class="feedback">feeedback <i class="far fa-comment-dots"></i></span>
+        <button class="feedback" data-toggle="modal" data-target="#feedbackModal"><i class="far fa-comment-dots" style="padding-right:5px;"></i>Feeedback</button>
         @include('includes.partials.logged-in-as')
         @include('frontend.includes.nav')
 
@@ -102,7 +119,10 @@
     </div><!-- #app -->
 
     
-
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackModal">
+  Launch demo modal
+</button>
     <!--footer-->
     <section class="container-fluid pt-5 pb-3 text-white" id="footer" style="background-color: #1B1B3A;">
         <div class="container">
@@ -158,6 +178,29 @@
         </div>
     </div>
 
+    <!-- feedback popup -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body">
+            <img style="width:100px;display:block;margin-left:auto;margin-right:auto;" src="{{ url('tpr_templete/images/tropical_logo.svg') }}" alt="">
+            <h2>TPR Visitor Feedback</h2>
+            <h3>Please rate your experience on TPR today.</h3>
+            
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 @stack('dialog_modal')
 

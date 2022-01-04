@@ -719,13 +719,7 @@ const locations = [
     @endforeach
 ];
 
-function heart_toggle() {
-    $('.small-heart').on('click', function(){
-        $(".small-heart bi-heart").hide();
-        $(".small-heart bi-heart-fill").show();
 
-        $("i", this).toggle();
-    });
 
 function heart_toggle() {
     $('.small-heart').on('click', function() {
@@ -734,7 +728,7 @@ function heart_toggle() {
 
         $("i", this).toggle();
     });
-}
+
 
 
 
