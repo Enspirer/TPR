@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\FindAgentController;
 use App\Http\Controllers\Frontend\IndividualAgentController;
@@ -51,6 +52,7 @@ Route::get('individual-property/{id}/calculator', [IndividualPropertyController:
 
 
 Route::get('commercial', [CommercialController::class, 'index'])->name('commercial');
+Route::get('blog', [BlogController::class, 'index'])->name('blog');
 
 Route::get('about-us', [FooterController::class, 'aboutUs'])->name('about-us');
 Route::get('mobile-apps', [FooterController::class, 'mobileApps'])->name('mobile-apps');
