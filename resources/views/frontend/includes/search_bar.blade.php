@@ -40,7 +40,9 @@
                 <div class="input-group">
                     {{csrf_field()}}
                     <input type="hidden" name="category_type" value="residential" class="category">
-                    <input type="text" name="search_keyword" class="form-control p-3 residential" aria-label="search" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
+
+                    <input type="text" name="search_keyword" class="form-control p-3 residential" id="autocomplete" placeholder="address, zip or city" onFocus="geolocate()"  aria-label="search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
+
                     <select class="form-select" aria-label="min_price" name="min_price" id="min_price" placeholder="Min Price">
                         <option value="0" selected disabled hidden>Min Price</option>
                         <option value="0">0</option>
@@ -190,7 +192,7 @@
                 <div class="input-group">
                 {{csrf_field()}}
                     <input type="hidden" name="category_type" value="commercial" class="category">
-                    <input type="text" name="search_keyword" class="form-control p-3 commercial" aria-label="search" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
+                    <input type="text" name="search_keyword" class="form-control p-3 commercial" id="autocompletetwo" placeholder="address, zip or city" onFocus="geolocate()"  aria-label="search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
                     <select class="form-select" aria-label="min_price" name="min_price" id="min_price" placeholder="Min Price">
                         <option value="0" selected disabled hidden>Min Price</option>
                         <option value="0">0</option>
