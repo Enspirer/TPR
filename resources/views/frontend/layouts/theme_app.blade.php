@@ -75,11 +75,10 @@
 
       .feedback {
             position: sticky;
-            top: 0px;
-            padding-top: 920px;
+            top: 800px;
+            padding-top: 0px;
             width: max-content;
             margin-left: auto;
-            transform: rotate(-90deg)
         }
     </style>
 
