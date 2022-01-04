@@ -22,80 +22,37 @@
             <div class="col-9">
                 <div class="row blog-card-row">
                     <h1 class="blog-title">Latest Posts</h1>
-                    <div class="blog-card col-4">
-                        <div class="card-wrapper">
-                            <img src="{{ url('tpr_templete/images/blog/blog1.jpg') }}" alt="" width="100%" >
-                            <div class="txt-wrapper">
-                                <h2>Lorem ipsum dolor</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-                                <div class="author-wrapper">
-                                    <img src="{{ url('tpr_templete/images/blog/author.jpg') }}" alt="" class="circle-prof"> <span>Mr.Lorem Ipsum</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog-card col-4">
-                            <div class="card-wrapper">
-                                <img src="{{ url('tpr_templete/images/blog/blog2.jpg') }}" alt="" width="100%" >
-                                <div class="txt-wrapper">
-                                    <h2>Lorem ipsum dolor</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-                                    <div class="author-wrapper">
-                                        <img src="{{ url('tpr_templete/images/blog/author.jpg') }}" alt="" class="circle-prof"> <span>Mr.Lorem Ipsum</span>
+
+                    @if(count($all_posts) == 0)
+
+                        @include('frontend.includes.not_found',[
+                           'not_found_title' => 'Posts not found',
+                           'not_found_description' => null,
+                           'not_found_button_caption' => null
+                        ])
+
+                    @else
+                        @foreach($all_posts as $all_post)
+                            <div class="blog-card col-4" >
+                                <div class="card-wrapper" style="min-height:350px; max-height:350px;">
+                                    <img src="{{uploaded_asset($all_post->feature_image)}}" alt="" style="height:90%" width="100%">
+                                    <div class="txt-wrapper">
+                                        <h2 style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{$all_post->title}}</h2>
+                                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
+                                            <p>{!!$all_post->body!!}</p>
+                                        </div>
+                                        <!-- <div class="author-wrapper">
+                                            <img src="{{ url('tpr_templete/images/blog/author.jpg') }}" alt="" class="circle-prof"> <span>Mr.Lorem Ipsum</span>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
-                    </div>
-                    <div class="blog-card col-4">
-                    <div class="card-wrapper">
-                            <img src="{{ url('tpr_templete/images/blog/blog3.jpg') }}" alt="" width="100%" >
-                            <div class="txt-wrapper">
-                                <h2>Lorem ipsum dolor</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-                                <div class="author-wrapper">
-                                    <img src="{{ url('tpr_templete/images/blog/author.jpg') }}" alt="" class="circle-prof"> <span>Mr.Lorem Ipsum</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row blog-card-row">
-                    <div class="blog-card col-4">
-                    <div class="card-wrapper">
-                            <img src="{{ url('tpr_templete/images/blog/blog2.jpg') }}" alt="" width="100%" >
-                            <div class="txt-wrapper">
-                                <h2>Lorem ipsum dolor</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-                                <div class="author-wrapper">
-                                    <img src="{{ url('tpr_templete/images/blog/author.jpg') }}" alt="" class="circle-prof"> <span>Mr.Lorem Ipsum</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog-card col-4">
-                    <div class="card-wrapper">
-                            <img src="{{ url('tpr_templete/images/blog/blog3.jpg') }}" alt="" width="100%" >
-                            <div class="txt-wrapper">
-                                <h2>Lorem ipsum dolor</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-                                <div class="author-wrapper">
-                                    <img src="{{ url('tpr_templete/images/blog/author.jpg') }}" alt="" class="circle-prof"> <span>Mr.Lorem Ipsum</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog-card col-4">
-                    <div class="card-wrapper">
-                            <img src="{{ url('tpr_templete/images/blog/blog1.jpg') }}" alt="" width="100%" >
-                            <div class="txt-wrapper">
-                                <h2>Lorem ipsum dolor</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-                                <div class="author-wrapper">
-                                    <img src="{{ url('tpr_templete/images/blog/author.jpg') }}" alt="" class="circle-prof"> <span>Mr.Lorem Ipsum</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                        @endforeach
+
+                    @endif
+                   
+
                 </div>
             </div>
             <div class="col-3">
