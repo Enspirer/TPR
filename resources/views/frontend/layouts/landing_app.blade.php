@@ -60,7 +60,7 @@
     </style>
 
 </head>
-<body>
+<body onload="initialize()">
 
     <div id="app">
         <div class="">

@@ -88,7 +88,7 @@
 @include('includes.partials.read-only')
 
     <div id="app">
-        <h2 class="feedback">Absolue Feedback</h2>
+        <!-- <h2 class="feedback">Absolue Feedback</h2> -->
         @include('includes.partials.logged-in-as')
         @include('frontend.includes.nav')
 
