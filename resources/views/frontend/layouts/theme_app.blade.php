@@ -71,7 +71,7 @@
     </style>
 
 </head>
-<body>
+<body onload="initialize()">
 
 @include('includes.partials.read-only')
 
