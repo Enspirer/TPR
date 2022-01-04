@@ -52,7 +52,7 @@
 
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">                               
                                 <li>
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{route('frontend.blog')}}">
                                         <div class="row align-items-center">
                                             <div class="col-12">
                                                 Living Room Blog
@@ -220,7 +220,7 @@
                         <div class="icon-wrapper heart-wrapper">
                             <i class="fas fa-heart" style="color:red;"></i>
                             <div class="counter-wrapper">
-                                <p id="heartCounter">0</p>
+                                <p id="heartCounter">{{App\Models\Favorite::where('user_id',auth()->user()->id)->get()->count()}}</p>
                             </div>
                         </div>
                     </div>
