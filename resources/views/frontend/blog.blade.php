@@ -14,6 +14,7 @@
     </div>
 </section>
 
+
 <!-- blog section -->
 <section class="blog">
     <div class="container">
@@ -34,16 +35,16 @@
                         </div>
                     </div>
                     <div class="blog-card col-4">
-                    <div class="card-wrapper">
-                            <img src="{{ url('tpr_templete/images/blog/blog2.jpg') }}" alt="" width="100%" >
-                            <div class="txt-wrapper">
-                                <h2>Lorem ipsum dolor</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-                                <div class="author-wrapper">
-                                    <img src="{{ url('tpr_templete/images/blog/author.jpg') }}" alt="" class="circle-prof"> <span>Mr.Lorem Ipsum</span>
+                            <div class="card-wrapper">
+                                <img src="{{ url('tpr_templete/images/blog/blog2.jpg') }}" alt="" width="100%" >
+                                <div class="txt-wrapper">
+                                    <h2>Lorem ipsum dolor</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                                    <div class="author-wrapper">
+                                        <img src="{{ url('tpr_templete/images/blog/author.jpg') }}" alt="" class="circle-prof"> <span>Mr.Lorem Ipsum</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                     <div class="blog-card col-4">
                     <div class="card-wrapper">

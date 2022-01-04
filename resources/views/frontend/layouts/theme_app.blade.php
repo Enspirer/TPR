@@ -68,6 +68,19 @@
         height: 230px;
         object-fit: cover;
       }
+
+      #app {
+          position: relative;
+      }
+
+      .feedback {
+            position: sticky;
+            top: 0px;
+            padding-top: 920px;
+            width: max-content;
+            margin-left: auto;
+            transform: rotate(-90deg)
+        }
     </style>
 
 </head>
@@ -76,13 +89,13 @@
 @include('includes.partials.read-only')
 
     <div id="app">
+        <h2 class="feedback">Absolue Feedback</h2>
         @include('includes.partials.logged-in-as')
         @include('frontend.includes.nav')
 
         <div class="">
             @include('includes.partials.messages')
             @include('frontend.includes.nav')
-
             @yield('content')
         </div><!-- container -->
     </div><!-- #app -->
