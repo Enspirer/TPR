@@ -4,6 +4,7 @@
 
 @section('content')
 <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
+<link rel="stylesheet" href="{{url('css/vendors.css')}}">
 
 <form action="{{route('admin.blog_post.store')}}" enctype="multipart/form-data" method="post">
 {{csrf_field()}}

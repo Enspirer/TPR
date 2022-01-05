@@ -3,6 +3,10 @@
 @section('title', __('Edit'))
 
 @section('content')
+
+<link rel="stylesheet" href="{{url('css/vendors.css')}}">
+
+
     <div class="row">
         <div class="col">
             <div class="card">
