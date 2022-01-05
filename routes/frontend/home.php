@@ -104,6 +104,10 @@ Route::get('/aiz-uploader/download/{id}', [AizUploadController::class, 'attachme
 Route::get('uploads/all/{file_name}',[AizUploadController::class,'get_image_content']);
 
 
+Route::post('save_search',[HomeController::class,'save_search'])->name('save_search');
+Route::post('save_search/unsave/{id}',[HomeController::class,'save_search_Delete'])->name('save_search_Delete');
+
+
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'
