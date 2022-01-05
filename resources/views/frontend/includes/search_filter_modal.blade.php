@@ -10,7 +10,7 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <input type="text" name="search_keyword" class="form-control p-3 rounded-0" aria-label="search" placeholder="Search Property">
+                            <input type="text" name="search_keyword" id="autocompleteFilter" class="form-control p-3 rounded-0" aria-label="search" placeholder="Search Property">
                             <!-- <input type="hidden" value="" name="categtype" id="modal-id"> -->
                         </div>
                         

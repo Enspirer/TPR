@@ -424,6 +424,10 @@
                                 { lat: {{$property->lat}}, lng: {{$property->long}} },
                             @endforeach
                         ];
+
+            
+
+
             </script>
         @else
 
@@ -582,6 +586,10 @@
                         { lat: {{$property->lat}}, lng: {{$property->long}} },
                     @endforeach
                 ];
+
+
+
+
         </script>
     @endif
 @endpush
@@ -972,7 +980,7 @@
     });
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&callback=initMap"
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac&&libraries=places&callback=initMap"
 type="text/javascript"></script>
 
 <script>

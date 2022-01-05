@@ -98,6 +98,8 @@
                 }).on('mouseleave', function() {
                       $(this).children('.line').css({'visibility' : 'hidden', 'width' : '0'});
                   });
+
+                  
     </script>
 
 @stack('after-scripts')
