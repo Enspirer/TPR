@@ -203,7 +203,6 @@ class HomeController extends Controller
 
 
         if($refidymeter->status == 'ZERO_RESULTS'){
-            dd($refidymeter);
             $lat = null;
             $lng = null;
 
@@ -362,7 +361,7 @@ class HomeController extends Controller
 
      
         return redirect()->route('frontend.search_function', [
-            $key_name,
+            'key_name',
             $min_price,
             $max_price,
             $category_type,
@@ -418,7 +417,7 @@ class HomeController extends Controller
         // dd($side_ads);
 
         $countries = Country::where('status',1)->get();
-        
+
 
         if($max_price != 'max_price' && $min_price != 'min_price'){
             $properties->where('price', '<=', $max_price)->where('price', '>=', $min_price);
@@ -507,20 +506,14 @@ class HomeController extends Controller
             $properties->where('city', $city);
         }
 
-        if($long != 'long'){
-            $properties->where('long', $long);
-        }
 
-        if($lat != 'lat'){
-            $properties->where('lat', $lat);
-        }
 
         // dd($properties->get());
 
         $filteredProperty = $properties->get();
 
 
-        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'countries' => $countries]);
+        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'countries' => $countries,'search_long' => $long,'search_lat' => $lat]);
     }
 
 

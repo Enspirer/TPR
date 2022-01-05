@@ -236,14 +236,47 @@
 
             <script>
 
-                let lat = <?php echo json_encode(App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->latitude); ?>;
-                let lng = <?php echo json_encode(App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->longitude); ?>;
+                @if($search_long == 'long')
+                    let lng = <?php echo json_encode(App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->longitude); ?>;
+                @else
+                    let lng = {{$search_long}};
+                @endif
+
+                @if($search_lat == 'lat')
+                    let lat = <?php echo json_encode(App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->latitude); ?>;
+                @else
+                    let lat = {{$search_lat}};
+                @endif
+
+
+
+
 
                 function initMap() {
                     const map = new google.maps.Map(document.getElementById("map"), {
-                        zoom: 7,
-                        center: { lat: parseInt(lat), lng: parseInt(lng) },
+                        zoom: 12,
+                        center: { lat: lat, lng: lng },
                     });
+
+
+                    const flightPlanCoordinates = [
+                        { lat: 37.772, lng: -122.214 },
+                        { lat: 21.291, lng: -157.821 },
+                        { lat: -18.142, lng: 178.431 },
+                        { lat: -27.467, lng: 153.027 },
+                    ];
+                    const flightPath = new google.maps.Polyline({
+                        path: flightPlanCoordinates,
+                        geodesic: true,
+                        strokeColor: "#FF0000",
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2,
+                    });
+
+
+                    flightPath.setMap(map);
+
+
                     // Create an array of alphabetical characters used to label the markers.
                     const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                     // Add some markers to the map.
