@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\TypeParameterController;
 use App\Http\Controllers\Backend\PropertyHistoryController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\BlogsController;
+use App\Http\Controllers\Backend\UsersFeedbackController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -73,7 +74,11 @@ Route::get('contact_us/edit/{id}', [ContactUsController::class, 'edit'])->name('
 Route::post('contact_us/update', [ContactUsController::class, 'update'])->name('contact_us.update');
 Route::get('contact_us/delete/{id}', [ContactUsController::class, 'destroy'])->name('contact_us.destroy');
 
-
+Route::get('feedbacks', [UsersFeedbackController::class, 'index'])->name('feedbacks.index');
+Route::get('feedbacks/getdetails', [UsersFeedbackController::class, 'getDetails'])->name('feedbacks.getDetails');
+Route::get('feedbacks/edit/{id}', [UsersFeedbackController::class, 'edit'])->name('feedbacks.edit');
+Route::post('feedbacks/update', [UsersFeedbackController::class, 'update'])->name('feedbacks.update');
+Route::get('feedbacks/delete/{id}', [UsersFeedbackController::class, 'destroy'])->name('feedbacks.destroy');
 
 
 Route::get('global-ad-categories', [GlobalAdCategoryController::class, 'index'])->name('global_ad_categories.index');
