@@ -254,27 +254,31 @@
 
                 function initMap() {
                     const map = new google.maps.Map(document.getElementById("map"), {
-                        zoom: 7,
+                        zoom: 12,
                         center: { lat: lat, lng: lng },
                     });
 
 
-                    const flightPlanCoordinates = [
-                        { lat: 37.772, lng: -122.214 },
-                        { lat: 21.291, lng: -157.821 },
-                        { lat: -18.142, lng: 178.431 },
-                        { lat: -27.467, lng: 153.027 },
-                    ];
-                    const flightPath = new google.maps.Polyline({
-                        path: flightPlanCoordinates,
-                        geodesic: true,
-                        strokeColor: "#FF0000",
-                        strokeOpacity: 1.0,
-                        strokeWeight: 2,
-                    });
+                    @if(count($area_coords) == 0)
 
 
-                    flightPath.setMap(map);
+                    @else
+
+
+                        var rectangle = new google.maps.Rectangle({
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 0.8,
+                            strokeWeight: 2,
+                            fillOpacity: 0,
+                            map: map,
+                            bounds: new google.maps.LatLngBounds(
+                                new google.maps.LatLng({{$area_coords['southwest_lat']}} , {{$area_coords['southwest_lng']}}),
+                                new google.maps.LatLng({{$area_coords['northeast_lat']}}, {{$area_coords['northeast_lng']}}))
+                        });
+                    @endif
+
+
+
 
 
                     // Create an array of alphabetical characters used to label the markers.
