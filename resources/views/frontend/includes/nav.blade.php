@@ -218,13 +218,19 @@
                             <i class="fas fa-bookmark" style="color:#4195e1;"></i>
                         </div>
                         <div class="icon-wrapper heart-wrapper">
-                            <i class="fas fa-heart" style="color:red;"></i>
                             @if(!empty( auth()->user()->id) === true)
-                                <div class="counter-wrapper">
-                                    <p id="heartCounter">                                        
-                                        {{App\Models\Favorite::where('user_id',auth()->user()->id)->get()->count()}}
-                                    </p>
-                                </div>
+                                <a href="{{route('frontend.user.favourites')}}">
+                                <i class="fas fa-heart" style="color:red;"></i>                            
+                                    <div class="counter-wrapper">
+                                        <p id="heartCounter">                                        
+                                            {{App\Models\Favorite::where('user_id',auth()->user()->id)->get()->count()}}
+                                        </p>
+                                    </div>
+                                </a>
+                            @else
+                                <a href="{{route('frontend.auth.login')}}">
+                                <i class="fas fa-heart" style="color:red;"></i>      
+                                </a>
                             @endif
                         </div>
                     </div>

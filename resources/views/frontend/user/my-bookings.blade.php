@@ -77,7 +77,7 @@
                                         <!-- <img src="{{ url('tpr_templete/images/users/user-2.png') }}" class="img-fluid border border-2" style="object-fit:cover; width:180px;" alt="..."> -->
                                             <div class="card">
                                                 <div class="text-center">
-                                                    <img src="{{ url('files/agent_request',\App\Medels\AgentRequest::where('id',$booking->agent_id)->first()->photo ) }}" class="rounded-circle card-img-top border border-2 img-fluid" alt="..." style="height: 7rem; width: 60%">
+                                                    <img src="{{ url('files/agent_request',\App\Medels\AgentRequest::where('id',$booking->agent_id)->first()->photo ) }}" class="rounded-circle card-img-top border border-2 img-fluid mt-2" alt="..." style="height: 6rem; width: 60%">
                                                 </div>
 
                                                 <div class="card-body text-center">
