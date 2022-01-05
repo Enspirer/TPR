@@ -1,11 +1,8 @@
 <section id="index-navbar">
-
-
     <nav class="navbar fixed-top first-nav navbar-expand-lg navbar-light" style="background-color: #4195E1">
         <div class="container">
             <div class="row logo-flag">
                 <div class="col-9">
-
 
                     @if(get_country_cookie(request()))
                     <a href="{{route('frontend.home_page',get_country_cookie(request())->country_id)}}"><img
@@ -42,7 +39,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500">
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'map-search' ? 'active' : null }}"
-                            href="{{ route('frontend.map-search' )}}">Map Search</a>
+                            href="{{ route('frontend.map-search' )}}">Find a Home</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
@@ -136,11 +133,11 @@
             </div>
 
                 <!-- post ad -->
-                <a class="post-ad-btn" href="">Post Ad</a>
+                <a class="post-ad-btn" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
 
                 <!-- language bar -->
                 <a href="" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
-                <i style="font-size:20px;color:#fff;" class="fas fa-language"></i>
+                <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
                 <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
                 </a>
             

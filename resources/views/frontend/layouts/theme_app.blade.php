@@ -207,13 +207,11 @@
     #google_translate_element {
         color: transparent;
     }
-      #google_translate_element a {
-          display: none;
-      }
+   
 
       /*language modal*/
       #langModal .modal-dialog {
-          width: 210px;
+          width: 500px;
       }
 
       .post-ad-btn {
@@ -231,6 +229,12 @@
 
       .post-ad-btn:hover {
         color: #000;
+    }
+
+    .icon-wrapper i {
+        font-size: 2rem;
+        background: unset;
+        padding: 0;
     }
 
     </style>
@@ -528,6 +532,25 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- ad popup -->
+<div class="modal fade" id="adModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-body" style="position:relative;">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute;right:-10px;top:-10px;background:red;border:0;border-radius:50%;width:25px;">
+          <span aria-hidden="true" style="color:#fff;">&times;</span>
+        </button>
+        <h2>Place your ad</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
   </div>
 </div>
