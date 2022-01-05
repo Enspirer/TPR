@@ -356,9 +356,12 @@ class HomeController extends Controller
             $lat = 'long';
         }
 
-
-      
-
+        if(request('area_coordinator') != null) {
+            $area_coordinator = request('area_coordinator');
+        }
+        else {
+            $area_coordinator = 'area_coordinator';
+        }
      
         return redirect()->route('frontend.search_function', [
             'key_name',
@@ -380,7 +383,8 @@ class HomeController extends Controller
             $parking_type,
             $city,
             $lng,
-            $lat
+            $lat,
+            $area_coordinator
         ]);
     }
 
@@ -400,7 +404,7 @@ class HomeController extends Controller
     }
 
 
-    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat)
+    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat,$area_coordinator)
     {
 
         $property_types = PropertyType::where('status','=','1')->get();
