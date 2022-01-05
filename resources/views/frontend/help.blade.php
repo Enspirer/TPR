@@ -39,6 +39,7 @@
   background: #FFFFFF;
   box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
   border-radius: 4px;
+  margin-bottom: 60px;
 }
 
 .faq .card {
