@@ -214,8 +214,21 @@
                         <div class="icon-wrapper">
                             <i class="fas fa-bell" style="color:#82bf3e;"></i>
                         </div>
-                        <div class="icon-wrapper">
-                            <i class="fas fa-bookmark" style="color:#4195e1;"></i>
+                        <div class="icon-wrapper heart-wrapper">
+                            @if(!empty( auth()->user()->id) === true)
+                                <a href="{{route('frontend.user.search_history')}}">
+                                <i class="fas fa-bookmark" style="color:#4195e1;"></i>                         
+                                    <div class="counter-wrapper">
+                                        <p id="heartCounter">                                        
+                                            {{App\Models\UserSearch::where('user_id',auth()->user()->id)->get()->count()}}
+                                        </p>
+                                    </div>
+                                </a>
+                            @else
+                                <a href="{{route('frontend.auth.login')}}">
+                                <i class="fas fa-bookmark" style="color:#4195e1;"></i>      
+                                </a>
+                            @endif
                         </div>
                         <div class="icon-wrapper heart-wrapper">
                             @if(!empty( auth()->user()->id) === true)
