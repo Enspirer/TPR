@@ -234,6 +234,11 @@ background: unset;
 padding: 0;
 }
 
+/*navigation fix*/
+/* li.nav-item.nav1 {
+    opacity: 1;
+} */
+
 
     </style>
 

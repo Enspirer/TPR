@@ -167,7 +167,7 @@
                         <a class="nav-link text-body fw-bold" href="#">New Homes</a>
                         <div class="line"></div>
                     </li> -->
-                    <li class="nav-item nav2 contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="800">
+                    <li class="nav-item nav2 contact" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400">
                         @if(isset(get_country_cookie(request())->country_id))
                         @if(isset(get_country_cookie(request())->country_id))
                         <a class="nav-link text-body fw-bold {{ Request::segment(3) == 'contact' ? 'active' : null }}"
