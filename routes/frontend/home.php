@@ -22,6 +22,7 @@ use App\Http\Controllers\Frontend\User\ResultsController;
 use App\Http\Controllers\Frontend\User\PreferencesController;
 use App\Http\Controllers\Frontend\User\CountryManagementController;
 use App\Http\Controllers\Frontend\FileManagerController;
+use App\Http\Controllers\Frontend\UserFeedbackController;
 
 /*
  * Frontend Controllers
@@ -108,6 +109,12 @@ Route::get('uploads/all/{file_name}',[AizUploadController::class,'get_image_cont
 
 Route::post('save_search',[HomeController::class,'save_search'])->name('save_search');
 Route::post('save_search/unsave/{id}',[HomeController::class,'save_search_Delete'])->name('save_search_Delete');
+
+
+Route::post('user_experience.store',[UserFeedbackController::class,'user_experience'])->name('user_experience.store');
+Route::post('suggestion.store',[UserFeedbackController::class,'suggestion'])->name('suggestion.store');
+Route::post('technical_problem.store',[UserFeedbackController::class,'technical_problem'])->name('technical_problem.store');
+Route::post('general_problems.store',[UserFeedbackController::class,'general_problems'])->name('general_problems.store');
 
 
 /*

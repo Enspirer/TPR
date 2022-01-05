@@ -28,13 +28,11 @@
     <link href="{{url('tpr_templete/stylesheets/rebon.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.css" integrity="sha512-7uSoC3grlnRktCWoO4LjHMjotq8gf9XDFQerPuaph+cqR7JC9XKGdvN+UwZMC14aAaBDItdRj3DcSDs4kMWUgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-   
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-   
-
+    
     
     @stack('after-styles')
 
@@ -179,64 +177,6 @@
         height: 50px;
     }
 
-    
-    /*google translator*/
-    select.goog-te-combo {
-
-        font-size: 16px;
-        background: #4195e1;
-        border-color: #4195e1;
-        color: white;
-        position: absolute;
-        top: 8px;
-        right: 60px;
-        font-weight: 500;
-
-    }
-
-    .goog-te-gadget .goog-te-combo {
-        outline:0;
-    }
-
-
-    .lang-wrapper {
-        width: 200px;
-        display: block;
-    }
-
-    #google_translate_element {
-        color: transparent;
-    }
-   
-
-      /*language modal*/
-      #langModal .modal-dialog {
-          width: 500px;
-      }
-
-      .post-ad-btn {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        background: red;
-        padding: 5px 15px;
-        border-radius: 5px;
-        margin-left: 30px;
-        margin-right: 30px;
-        border: 0;
-      }
-
-
-      .post-ad-btn:hover {
-        color: #000;
-    }
-
-    .icon-wrapper i {
-        font-size: 2rem;
-        background: unset;
-        padding: 0;
-    }
-
     </style>
 
 </head>
@@ -246,10 +186,9 @@
 
     <div id="app">
         <button class="feedback" data-toggle="modal" data-target="#feedbackModal"><i class="far fa-comment-dots" style="padding-right:5px;"></i>Feeedback</button>
-        <!-- <div style="position: fixed;z-index:10000; opacity:1; right:50px;top:5px;" id="google_translate_element"></div>  -->
         @include('includes.partials.logged-in-as')
         @include('frontend.includes.nav')
-  
+
         <div class="">
             @include('includes.partials.messages')
             @include('frontend.includes.nav')
@@ -265,7 +204,7 @@
             <div class="row">
                 <div class="col-12 col-md-3 mb-5 mb-md-0">
                     <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid mb-4" alt="" style="height: 4rem;">
-                   
+                    <div id="google_translate_element"></div>
                 </div>
                 <div class="col-12 col-md-3 ps-md-5 mb-4 mb-md-0">
                     <h5 class="fw-bolder mt-md-2">PAGES</h5>
@@ -329,38 +268,12 @@
             <img style="width:200px;display:block;margin-left:auto;margin-right:auto;margin-bottom:30px;" src="{{ url('tpr_templete/images/tropical_logo.svg') }}" alt="">
             <h2>TPR Visitor Feedback</h2>
             <h3>Please rate your experience on TPR today.</h3>
-
-            <div class="star">
-            <input type="radio" name="note" value="1" id="aze"> 
-                <div class="star-bar"> 
-                <label class="star-label"><!--for='aze'--> 
-                    ★
-                    <input type="radio" name="note" value="1" id="aze">
-                    </label>
-                
-                <label class="star-label"> 
-                    ★ 
-                    <input type="radio" name="note" value="2">
-                    </label>
-                <label class="star-label">
-                    ★
-                    <input type="radio" name="note" value="3">
-                    </label>
-                <label class="star-label">
-                    ★
-                    <input type="radio" name="note" value="4">
-                    </label>
-                <label class="star-label">
-                    ★
-                    <input type="radio" name="note" value="5">
-                </label>
-
-                </div>
+            
                 <div class="pop-content-wrapper">
                     <p style="margin-top:30px;">What is your feedback regarding?</p>
                     <div class="form-group">
-                        <select name="cars" id="feedbackSelectList" class="full-area fomr-control" onchange="feedbackSelection()">
-                            <option value="choose" selected="selected">Choose a topic</option>
+                        <select name="cars" id="feedbackSelectList" class="full-area form-control" onchange="feedbackSelection()">
+                            <option value="choose" selected="selected" disabled>Choose a topic</option>
                             <option id="user-experience-option" value="UE">User Experience</option>
                             <option id="suggesion-option" value="suggestion">Suggestion</option>
                             <option value="report">Report a technical problem</option>
@@ -371,76 +284,167 @@
 
                     <!-- user experience -->
                     <div id="user-experience-box" class="selection-box">
-                        <p style="margin-top:15px;">Click here to type your comment question</p>
-                        <form action="">
-                                <textarea style="margin-bottom:30px;" class="full-area form-control" rows="4"></textarea>
+                        <form action="{{route('frontend.user_experience.store')}}" method="post" enctype="multipart/form-data" >
+                            {{csrf_field()}}
+                                <div class="star mt-3">
+                                    <div class="star-bar"> 
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="1 Star" id="aze">
+                                            </label>
+                                        
+                                        <label class="star-label"> 
+                                            ★ 
+                                            <input type="radio" name="note" value="2 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="3 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="4 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="5 Stars">
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                                <p style="margin-top:10px;">Click here to type your comment question</p>                               
+
+                                <textarea style="margin-bottom:30px;" class="full-area form-control" name="comment_question" rows="4"></textarea>
+
                                 <p style="margin-bottom:5px;">Are you a First Time Buyer/Seller?</p>
                                 <div class="radio-wrapper form-check">
-                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="fav_language" value="yes">
+                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="buyer_seller" value="yes">
                                     <label class="radio-label form-check-label" for="yes">Yes</label>
                                 </div>
                                 <div class="radio-wrapper form-check">
-                                    <input class="radio-btns form-check-input" type="radio" id="no" name="fav_language" value="yes">
+                                    <input class="radio-btns form-check-input" type="radio" id="no" name="buyer_seller" value="no">
                                     <label class="radio-label form-check-label" for="no">No</label>
                                 </div>
                                 <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
                                 <div class="form-group">
-                                    <select name="" id="" class="full-area form-control">
-                                        <option value="" selected="selected">Choose..</option>
-                                        <option value="">Just Borrowing</option>
-                                        <option value="">Getting Started</option>
-                                        <option value="">Seriously Hunting</option>
-                                        <option value="">Recently Purchased</option>
+                                    <select name="stage_property" id="stage_property" class="full-area form-control">
+                                        <option value="" selected="selected" disabled>Choose..</option>
+                                        <option value="Just Borrowing">Just Borrowing</option>
+                                        <option value="Getting Started">Getting Started</option>
+                                        <option value="Seriously Hunting">Seriously Hunting</option>
+                                        <option value="Recently Purchased">Recently Purchased</option>
                                     </select>
                                 </div>
                                
+                                <input type="hidden" class="form-control" name="topic" value="User Experience">
                                 <input class="popup-submit btn btn-primary" type="submit" value="submit">
                         </form>
                         
                         
                     </div>
-                        <div id="suggestions-box" class="selection-box">
-                        <p style="margin-top:15px;">Please share your suggestion with us.</p>
-                        <form action="">
-                                <textarea style="margin-bottom:30px;" class="full-area form-control" rows="4"></textarea>
+                    <div id="suggestions-box" class="selection-box">
+                        <form action="{{route('frontend.suggestion.store')}}" method="post" enctype="multipart/form-data" >
+                            {{csrf_field()}}
+                                <div class="star mt-3">
+                                    <div class="star-bar"> 
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="1 Star" id="aze">
+                                            </label>
+                                        
+                                        <label class="star-label"> 
+                                            ★ 
+                                            <input type="radio" name="note" value="2 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="3 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="4 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="5 Stars">
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                                <p style="margin-top:10px;">Please share your suggestion with us.</p>
+
+                                <textarea style="margin-bottom:30px;" name="suggestion" class="full-area form-control" rows="4"></textarea>
+                                
                                 <p style="margin-bottom:5px;">Are you a First Time Buyer/Seller?</p>
                                 <div class="radio-wrapper form-check">
-                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="fav_language" value="yes">
+                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="buyer_seller" value="yes">
                                     <label class="radio-label form-check-label" for="yes">Yes</label>
                                 </div>
                                 <div class="radio-wrapper form-check">
-                                    <input class="radio-btns form-check-input" type="radio" id="no" name="fav_language" value="yes">
+                                    <input class="radio-btns form-check-input" type="radio" id="no" name="buyer_seller" value="no">
                                     <label class="radio-label form-check-label" for="no">No</label>
                                 </div>
                                 <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
                                 <div class="form-group">
-                                    <select name="" id="" class="full-area form-control">
-                                        <option value="" selected="selected">Choose..</option>
-                                        <option value="">Just Borrowing</option>
-                                        <option value="">Getting Started</option>
-                                        <option value="">Seriously Hunting</option>
-                                        <option value="">Recently Purchased</option>
+                                    <select name="stage_property" id="stage_property" class="full-area form-control">
+                                        <option value="" selected="selected" disabled>Choose..</option>
+                                        <option value="Just Borrowing">Just Borrowing</option>
+                                        <option value="Getting Started">Getting Started</option>
+                                        <option value="Seriously Hunting">Seriously Hunting</option>
+                                        <option value="Recently Purchased">Recently Purchased</option>
                                     </select>
                                 </div>
                                 
+                                <input type="hidden" class="form-control" name="topic" value="Suggestion">
                                 <input class="popup-submit btn btn-primary" type="submit" value="submit">
                         </form>
-                        </div>
+                    </div>
 
 
 
                         
-                        <div id="report-box" class="selection-box">   
-                        <form action="">
-                            <p style="margin-top:15px;">What issues are you having?</p>
+                    <div id="report-box" class="selection-box">   
+                        <form action="{{route('frontend.technical_problem.store')}}" method="post" enctype="multipart/form-data" >
+                            {{csrf_field()}}
+
+                                <div class="star mt-3">
+                                    <div class="star-bar"> 
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="1 Star" id="aze">
+                                            </label>
+                                        
+                                        <label class="star-label"> 
+                                            ★ 
+                                            <input type="radio" name="note" value="2 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="3 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="4 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="5 Stars">
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                            <p style="margin-top:10px;">What issues are you having?</p>
                             <div class="form-group">
-                                <select name="" id="" class="full-area form-control">
-                                    <option value="" selected="selected">Choose..</option>
-                                    <option value="">Searching for Properties</option>
-                                    <option value="">Viewing Properties</option>
-                                    <option value="">Contacting a TPR</option>
-                                    <option value="">Website Performance</option>
-                                    <option value="">TPR Account</option>
+                                <select name="issues" id="issues" class="full-area form-control">
+                                    <option value="" selected="selected" disabled>Choose..</option>
+                                    <option value="Searching for Properties">Searching for Properties</option>
+                                    <option value="Viewing Properties">Viewing Properties</option>
+                                    <option value="Contacting a TPR">Contacting a TPR</option>
+                                    <option value="Website Performance">Website Performance</option>
+                                    <option value="TPR Account">TPR Account</option>
                                 </select>
                             </div>
                           
@@ -448,58 +452,90 @@
                                 <textarea class="full-area" rows="4"></textarea>    
                                 <p style="margin-bottom:5px;">Are you a First Time Buyer/Seller?</p>
                                 <div class="radio-wrapper form-check">
-                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="fav_language" value="yes">
+                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="buyer_seller" value="yes">
                                     <label class="radio-label form-check-label" for="yes">Yes</label>
                                 </div>
                                 <div class="radio-wrapper form-check">
-                                    <input class="radio-btns form-check-input" type="radio" id="no" name="fav_language" value="yes">
-                                    <label class="radio-label form-check-label" for="no">No</label>
-                                </div>
-                                <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
-                                <select name="" id="" class="full-area form-control">
-                                    <option value="" selected="selected">Choose..</option>
-                                    <option value="">Just Borrowing</option>
-                                    <option value="">Getting Started</option>
-                                    <option value="">Seriously Hunting</option>
-                                    <option value="">Recently Purchased</option>
-                                </select>
-                                <input class="popup-submit btn btn-primary" type="submit" value="submit">
-                        </form>
-                        </div>
-                    <div id="general-box" class="selection-box">
-                    <p style="margin-top:15px;">Click here to type your comment question</p>
-                        <form action="">
-                                <textarea class="full-area form-control" rows="4"></textarea>
-                                <p style="margin-bottom:5px;">Are you a First Time Buyer/Seller?</p>
-                                <div class="radio-wrapper form-check">
-                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="fav_language" value="yes">
-                                    <label class="radio-label form-check-label" for="yes">Yes</label>
-                                </div>
-                                <div class="radio-wrapper form-check">
-                                    <input class="radio-btns form-check-input" type="radio" id="no" name="fav_language" value="yes">
+                                    <input class="radio-btns form-check-input" type="radio" id="no" name="buyer_seller" value="no">
                                     <label class="radio-label form-check-label" for="no">No</label>
                                 </div>
                                 <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
                                 <div class="form-group">
-                                    <select name="" id="" class="full-area form-control">
-                                        <option value="" selected="selected">Choose..</option>
-                                        <option value="">Just Borrowing</option>
-                                        <option value="">Getting Started</option>
-                                        <option value="">Seriously Hunting</option>
-                                        <option value="">Recently Purchased</option>
+                                    <select name="stage_property" id="stage_property" class="full-area form-control">
+                                        <option value="" selected="selected" disabled>Choose..</option>
+                                        <option value="Just Borrowing">Just Borrowing</option>
+                                        <option value="Getting Started">Getting Started</option>
+                                        <option value="Seriously Hunting">Seriously Hunting</option>
+                                        <option value="Recently Purchased">Recently Purchased</option>
+                                    </select>
+                                </div>
+
+                                <input type="hidden" class="form-control" name="topic" value="Technical Problem">
+                                <input class="popup-submit btn btn-primary" type="submit" value="submit">
+                        </form>
+                    </div>
+                    <div id="general-box" class="selection-box">
+                        <form action="{{route('frontend.general_problems.store')}}" method="post" enctype="multipart/form-data" >
+                            {{csrf_field()}}
+
+                                <div class="star mt-3">
+                                    <div class="star-bar"> 
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="1 Star" id="aze">
+                                            </label>
+                                        
+                                        <label class="star-label"> 
+                                            ★ 
+                                            <input type="radio" name="note" value="2 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="3 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="4 Stars">
+                                            </label>
+                                        <label class="star-label">
+                                            ★
+                                            <input type="radio" name="note" value="5 Stars">
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                                <p style="margin-top:10px;">Click here to type your comment question</p>
+
+                                <textarea class="full-area form-control mb-3" name="comment_question" rows="4"></textarea>
+
+                                <p style="margin-bottom:5px;">Are you a First Time Buyer/Seller?</p>
+                                <div class="radio-wrapper form-check">
+                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="buyer_seller" value="yes">
+                                    <label class="radio-label form-check-label" for="yes">Yes</label>
+                                </div>
+                                <div class="radio-wrapper form-check">
+                                    <input class="radio-btns form-check-input" type="radio" id="no" name="buyer_seller" value="no">
+                                    <label class="radio-label form-check-label" for="no">No</label>
+                                </div>
+                                <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
+                                <div class="form-group">
+                                    <select name="stage_property" id="stage_property" class="full-area form-control">
+                                        <option value="" selected="selected" disabled>Choose..</option>
+                                        <option value="Just Borrowing">Just Borrowing</option>
+                                        <option value="Getting Started">Getting Started</option>
+                                        <option value="Seriously Hunting">Seriously Hunting</option>
+                                        <option value="Recently Purchased">Recently Purchased</option>
                                     </select>
                                 </div>
                               
+                                <input type="hidden" class="form-control" name="topic" value="Inquiries">
                                 <input class="popup-submit btn btn-primary" type="submit" value="submit">
                         </form>
                     </div>
 
                 </div>
-              
-                
-</div>  
 
-         
 
       </div>
       <!-- <div class="modal-footer">
@@ -511,49 +547,28 @@
 </div>
 
 
-<!-- language modal -->
-<div class="modal fade" id="langModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <!-- <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-     
-      </div> -->
-      <div class="modal-body" style="position:relative;">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute;right:-10px;top:-10px;background:red;border:0;border-radius:50%;width:25px;">
-          <span aria-hidden="true" style="color:#fff;">&times;</span>
-        </button>
-        <div class="traslate-wrapper" style="display:flex;">
-            <div id="google_translate_element"></div><i style="font-size:28px;color:#23A1C0;background:transparent;position:absolute;top:-3px;right:0;" class="fas fa-language"></i>
+
+    @if(\Session::has('feedback_success'))
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="feedback_modal" data-toggle="modal" data-target="#voteModal"></button>
+
+        <div class="modal fade" id="voteModal" tabindex="-1" aria-labelledby="voteModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 3rem;">
+                        <h4 class="text-center">Feedback Submitted Successfully!</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
-    </div>
-  </div>
-</div>
+    @endif
 
-<!-- ad popup -->
-<div class="modal fade" id="adModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-    <div class="modal-body" style="position:relative;">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute;right:-10px;top:-10px;background:red;border:0;border-radius:50%;width:25px;">
-          <span aria-hidden="true" style="color:#fff;">&times;</span>
-        </button>
-        <h2>Place your ad</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 @stack('dialog_modal')
 
@@ -571,7 +586,11 @@
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
 
-
+<script>
+    if(document.getElementById("feedback_modal")){
+        $('#feedback_modal').click();
+    }
+</script>
 
 <script>
     AOS.init();
@@ -579,6 +598,13 @@
 <script src="{{ asset('tpr_templete/scripts/bootstrap-combobox.js') }}"></script>
 
 
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 @stack('after-scripts')
@@ -623,6 +649,7 @@
 </script>
 
 
+<!-- five star -->
 <script>
     const LABELCOLORINACTIV = "#B1A7A7";
 const LABELCOLORACTIV = "#e7f046";
