@@ -98,11 +98,69 @@
     @if(count($filteredProperty) > 0)
         <section id="residential-properties">
             <div class="container" style="margin-top: 4rem; margin-bottom: 5rem;">
-                @if(get_country_cookie(request()))
-                    <h3 class="text-center fw-bolder">
-                        {{ ucfirst($category_type) }} Properties in {{ get_country_cookie(request())->country_name }}
-                    </h3>
-                @endif
+
+                <div class="row">
+                    <div class="col-9">
+                        @if(get_country_cookie(request()))
+                            <h3 class="text-center fw-bolder">
+                                {{ ucfirst($category_type) }} Properties in {{ get_country_cookie(request())->country_name }}
+                            </h3>
+                        @endif
+                    </div>
+                    <div class="col-3">
+                        
+                        @auth
+                            @if(App\Models\UserSearch::where('user_id',auth()->user()->id)->where('url',url()->current())->first() == null)
+                                <form action="{{route('frontend.save_search')}}" method="post" enctype="multipart/form-data">
+                                {{csrf_field()}}
+                                    <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px;">
+                                        <div class="row justify-content-center">
+                                            <div class="col-4" style="padding-left:50px">
+                                                <i class="far fa-heart"></i>
+                                            </div>
+                                            <div class="col-7 p-0 text-start">
+                                                Save this Search
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <input type="hidden" name="save_url" value="{{ url()->current() }}" />
+                                </form>
+                            @else
+                                <form action="{{route('frontend.save_search_Delete',App\Models\UserSearch::where('user_id',auth()->user()->id)->where('url',url()->current())->first()->id)}}" method="post" enctype="multipart/form-data">
+                                {{csrf_field()}}
+                                    <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px; background-color:#F33A6A;">
+                                        <div class="row justify-content-center text-light">
+                                            <div class="col-3" style="padding-left:40px">
+                                                <i class="fas fa-heart"></i>
+                                            </div>
+                                            <div class="col-7 p-0 text-start">
+                                                Unsave this Search
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <input type="hidden" name="prop_hidden_id" value="{{ App\Models\UserSearch::where('user_id',auth()->user()->id)->where('url',url()->current())->first()->id }}" />
+                                </form>
+                            @endif
+                        @else
+                            
+                            <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px;">
+                                <div class="row justify-content-center">
+                                    <div class="col-4" style="padding-left:50px">
+                                        <i class="far fa-heart"></i>
+                                    </div>
+                                    <div class="col-7 p-0 text-start">
+                                        Save this Search
+                                    </div>
+                                </div>
+                            </a>
+                        @endauth
+
+                    </div>
+                </div>
+                
+
+
+                
 
                 <div class="row mt-5">
                     <div class="col-8">
