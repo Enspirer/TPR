@@ -39,7 +39,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
-                <ul class="navbar-nav" style="margin-right:175px;">
+                <ul class="navbar-nav">
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500">
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'map-search' ? 'active' : null }}"
                             href="{{ route('frontend.map-search' )}}">Map Search</a>
@@ -124,23 +124,25 @@
                         <div class="line"></div>
                     </li>
                     <li class="nav-item join" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400"
-                        style="padding-left : 2rem">
+                        >
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'register' ? 'active' : null }}"
                             href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
                            
                         <div class="line"></div>
                     </li>
                     @endauth
-
-                    <!-- <div id="google_translate_element"></div> -->
-
-
+                   
                 </ul>
             </div>
 
- 
+                <!-- post ad -->
+                <a class="post-ad-btn" href="">Post Ad</a>
 
-          
+                <!-- language bar -->
+                <a href="" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
+                <i style="font-size:20px;color:#fff;" class="fas fa-language"></i>
+                <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
+                </a>
             
 
         </div>
@@ -153,7 +155,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
-                <ul class="navbar-nav align-items-center>
+                <ul class="navbar-nav align-items-center" style="align-items:center;">
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400">
                         <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'residential' ? 'active' : null }}"
                             href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">Residential</a>
