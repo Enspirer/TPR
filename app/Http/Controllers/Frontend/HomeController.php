@@ -203,7 +203,6 @@ class HomeController extends Controller
 
 
         if($refidymeter->status == 'ZERO_RESULTS'){
-            dd($refidymeter);
             $lat = null;
             $lng = null;
 
@@ -357,12 +356,15 @@ class HomeController extends Controller
             $lat = 'long';
         }
 
-
-      
-
+        if(request('area_coordinator') != null) {
+            $area_coordinator = request('area_coordinator');
+        }
+        else {
+            $area_coordinator = 'area_coordinator';
+        }
      
         return redirect()->route('frontend.search_function', [
-            $key_name,
+            'key_name',
             $min_price,
             $max_price,
             $category_type,
@@ -381,7 +383,8 @@ class HomeController extends Controller
             $parking_type,
             $city,
             $lng,
-            $lat
+            $lat,
+            $area_coordinator
         ]);
     }
 
@@ -401,7 +404,7 @@ class HomeController extends Controller
     }
 
 
-    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat)
+    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat,$area_coordinator)
     {
 
         $property_types = PropertyType::where('status','=','1')->get();
@@ -418,7 +421,7 @@ class HomeController extends Controller
         // dd($side_ads);
 
         $countries = Country::where('status',1)->get();
-        
+
 
         if($max_price != 'max_price' && $min_price != 'min_price'){
             $properties->where('price', '<=', $max_price)->where('price', '>=', $min_price);
@@ -507,20 +510,14 @@ class HomeController extends Controller
             $properties->where('city', $city);
         }
 
-        if($long != 'long'){
-            $properties->where('long', $long);
-        }
 
-        if($lat != 'lat'){
-            $properties->where('lat', $lat);
-        }
 
         // dd($properties->get());
 
         $filteredProperty = $properties->get();
 
 
-        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'countries' => $countries]);
+        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'countries' => $countries,'search_long' => $long,'search_lat' => $lat]);
     }
 
 

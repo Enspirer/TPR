@@ -122,11 +122,11 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400">
-                        <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'residential' ? 'active' : null }}" href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat'] )}}">Residential</a>
+                        <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'residential' ? 'active' : null }}" href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">Residential</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">
-                        <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'commercial' ? 'active' : null }}" href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat'] )}}">Commercial</a>
+                        <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'commercial' ? 'active' : null }}" href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">Commercial</a>
                         <div class="line"></div>
                     </li>
                     <!-- <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="600">

@@ -97,7 +97,7 @@
         }
 
         label {
-            font-size: 52px;
+            font-size: 16px;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
