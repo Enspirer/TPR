@@ -194,31 +194,31 @@ class HomeController extends Controller
     public function get_search_result(Request $request)
     {
 
-        $client = new GuzzleHttp\Client();
-
-        $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.urlencode($request->search_keyword).'&key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac';
-
-
-        $res = $client->request('GET', $url);
-
-        $refidymeter = json_decode($res->getBody()->getContents());
-
-
-        if($refidymeter->status == 'ZERO_RESULTS'){
+        if($request->search_keyword == null){
             $lat = null;
             $lng = null;
-            $boundtry = 'area_coordinator';
             $areacod = 'area_coordinator';
         }else{
-            $lat = $refidymeter->results[0]->geometry->location->lat;
-            $lng = $refidymeter->results[0]->geometry->location->lng;
-            $boundtry = $refidymeter->results[0]->geometry->bounds;
+            $client = new GuzzleHttp\Client();
+            $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.urlencode($request->search_keyword).'&key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac';
+            $res = $client->request('GET', $url);
+            $refidymeter = json_decode($res->getBody()->getContents());
+            if($refidymeter->status == 'ZERO_RESULTS'){
+                $lat = null;
+                $lng = null;
+                $areacod = 'area_coordinator';
+            }else{
+                $lat = $refidymeter->results[0]->geometry->location->lat;
+                $lng = $refidymeter->results[0]->geometry->location->lng;
+                $boundtry = $refidymeter->results[0]->geometry->bounds;
 
-            $north_string1 =  $boundtry->northeast->lat.'_'.$boundtry->northeast->lng;
-            $south_string2 =  $boundtry->southwest->lat.'_'.$boundtry->southwest->lng;
-            $areacod = $north_string1.'_'.$south_string2;
+                $north_string1 =  $boundtry->northeast->lat.'_'.$boundtry->northeast->lng;
+                $south_string2 =  $boundtry->southwest->lat.'_'.$boundtry->southwest->lng;
+                $areacod = $north_string1.'_'.$south_string2;
 
+            }
         }
+
 
 
 
