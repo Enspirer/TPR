@@ -706,7 +706,9 @@
                         @endauth
 
 
-
+                                <div class="col-12 text-center mt-4">
+                                    <a href="https://www.google.com/maps/dir/?api=1&destination={{$property_details->lat}}%2c{{$property_details->long}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid">Directions</a>
+                                </div>
                         @auth
                             @if($favourite == null)
 
