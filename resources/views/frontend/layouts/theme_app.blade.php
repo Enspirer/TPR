@@ -143,6 +143,9 @@
 
     .pop-content-wrapper {
         text-align: left;
+        margin-bottom: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .full-area {
@@ -293,38 +296,44 @@
 
                 </div>
                 <div class="pop-content-wrapper">
-                    <p>What is your feedback regarding?</p>
-                    <select name="cars" id="feedbackSelectList" class="full-area" onchange="feedbackSelection()">
-                        <option value="choose" selected="selected">Choose a topic</option>
-                        <option id="user-experience-option" value="UE">User Experience</option>
-                        <option id="suggesion-option" value="suggestion">Suggestion</option>
-                        <option value="report">Report a technical problem</option>
-                        <option value="general">General Inquiries</option>
-                    </select> 
+                    <p style="margin-top:30px;">What is your feedback regarding?</p>
+                    <div class="form-group">
+                        <select name="cars" id="feedbackSelectList" class="full-area fomr-control" onchange="feedbackSelection()">
+                            <option value="choose" selected="selected">Choose a topic</option>
+                            <option id="user-experience-option" value="UE">User Experience</option>
+                            <option id="suggesion-option" value="suggestion">Suggestion</option>
+                            <option value="report">Report a technical problem</option>
+                            <option value="general">General Inquiries</option>
+                        </select> 
+                    </div>
+                    
 
-
+                    <!-- user experience -->
                     <div id="user-experience-box" class="selection-box">
                         <p style="margin-top:15px;">Click here to type your comment question</p>
                         <form action="">
-                                <textarea class="full-area" rows="4"></textarea>
-                                <p>Are you a First Time Buyer/Seller?</p>
-                                <div class="radio-wrapper">
-                                    <input class="radio-btns" type="radio" id="yes" name="fav_language" value="yes">
-                                    <label class="radio-label" for="yes">Yes</label>
+                                <textarea style="margin-bottom:30px;" class="full-area form-control" rows="4"></textarea>
+                                <p style="margin-bottom:5px;">Are you a First Time Buyer/Seller?</p>
+                                <div class="radio-wrapper form-check">
+                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="fav_language" value="yes">
+                                    <label class="radio-label form-check-label" for="yes">Yes</label>
                                 </div>
-                                <div class="radio-wrapper">
-                                    <input class="radio-btns" type="radio" id="no" name="fav_language" value="yes">
-                                    <label class="radio-label" for="no">No</label>
+                                <div class="radio-wrapper form-check">
+                                    <input class="radio-btns form-check-input" type="radio" id="no" name="fav_language" value="yes">
+                                    <label class="radio-label form-check-label" for="no">No</label>
                                 </div>
                                 <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
-                                <select name="" id="" class="full-area">
-                                    <option value="" selected="selected">Choose..</option>
-                                    <option value="">Just Borrowing</option>
-                                    <option value="">Getting Started</option>
-                                    <option value="">Seriously Hunting</option>
-                                    <option value="">Recently Purchased</option>
-                                </select>
-                                <input class="popup-submit" type="submit" value="submit">
+                                <div class="form-group">
+                                    <select name="" id="" class="full-area form-control">
+                                        <option value="" selected="selected">Choose..</option>
+                                        <option value="">Just Borrowing</option>
+                                        <option value="">Getting Started</option>
+                                        <option value="">Seriously Hunting</option>
+                                        <option value="">Recently Purchased</option>
+                                    </select>
+                                </div>
+                               
+                                <input class="popup-submit btn btn-primary" type="submit" value="submit">
                         </form>
                         
                         
@@ -332,84 +341,95 @@
                         <div id="suggestions-box" class="selection-box">
                         <p style="margin-top:15px;">Please share your suggestion with us.</p>
                         <form action="">
-                                <textarea class="full-area" rows="4"></textarea>
-                                <p>Are you a First Time Buyer/Seller?</p>
-                                <div class="radio-wrapper">
-                                    <input class="radio-btns" type="radio" id="yes" name="fav_language" value="yes">
-                                    <label class="radio-label" for="yes">Yes</label>
+                                <textarea style="margin-bottom:30px;" class="full-area form-control" rows="4"></textarea>
+                                <p style="margin-bottom:5px;">Are you a First Time Buyer/Seller?</p>
+                                <div class="radio-wrapper form-check">
+                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="fav_language" value="yes">
+                                    <label class="radio-label form-check-label" for="yes">Yes</label>
                                 </div>
-                                <div class="radio-wrapper">
-                                    <input class="radio-btns" type="radio" id="no" name="fav_language" value="yes">
-                                    <label class="radio-label" for="no">No</label>
+                                <div class="radio-wrapper form-check">
+                                    <input class="radio-btns form-check-input" type="radio" id="no" name="fav_language" value="yes">
+                                    <label class="radio-label form-check-label" for="no">No</label>
                                 </div>
                                 <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
-                                <select name="" id="" class="full-area">
-                                    <option value="" selected="selected">Choose..</option>
-                                    <option value="">Just Borrowing</option>
-                                    <option value="">Getting Started</option>
-                                    <option value="">Seriously Hunting</option>
-                                    <option value="">Recently Purchased</option>
-                                </select>
-                                <input class="popup-submit" type="submit" value="submit">
+                                <div class="form-group">
+                                    <select name="" id="" class="full-area form-control">
+                                        <option value="" selected="selected">Choose..</option>
+                                        <option value="">Just Borrowing</option>
+                                        <option value="">Getting Started</option>
+                                        <option value="">Seriously Hunting</option>
+                                        <option value="">Recently Purchased</option>
+                                    </select>
+                                </div>
+                                
+                                <input class="popup-submit btn btn-primary" type="submit" value="submit">
                         </form>
                         </div>
-                        <div id="report-box" class="selection-box">
+
+
+
                         
-                        
+                        <div id="report-box" class="selection-box">   
                         <form action="">
                             <p style="margin-top:15px;">What issues are you having?</p>
-                            <select name="" id="" class="full-area">
-                                <option value="" selected="selected">Choose..</option>
-                                <option value="">Searching for Properties</option>
-                                <option value="">Viewing Properties</option>
-                                <option value="">Contacting a TPR</option>
-                                <option value="">Website Performance</option>
-                                <option value="">TPR Account</option>
-                            </select>
+                            <div class="form-group">
+                                <select name="" id="" class="full-area form-control">
+                                    <option value="" selected="selected">Choose..</option>
+                                    <option value="">Searching for Properties</option>
+                                    <option value="">Viewing Properties</option>
+                                    <option value="">Contacting a TPR</option>
+                                    <option value="">Website Performance</option>
+                                    <option value="">TPR Account</option>
+                                </select>
+                            </div>
+                          
                             <p style="margin-top:15px;">Please provide details and your email address if you would like a response</p>
                                 <textarea class="full-area" rows="4"></textarea>    
-                                <p>Are you a First Time Buyer/Seller?</p>
-                                <div class="radio-wrapper">
-                                    <input class="radio-btns" type="radio" id="yes" name="fav_language" value="yes">
-                                    <label class="radio-label" for="yes">Yes</label>
+                                <p style="margin-bottom:5px;">Are you a First Time Buyer/Seller?</p>
+                                <div class="radio-wrapper form-check">
+                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="fav_language" value="yes">
+                                    <label class="radio-label form-check-label" for="yes">Yes</label>
                                 </div>
-                                <div class="radio-wrapper">
-                                    <input class="radio-btns" type="radio" id="no" name="fav_language" value="yes">
-                                    <label class="radio-label" for="no">No</label>
+                                <div class="radio-wrapper form-check">
+                                    <input class="radio-btns form-check-input" type="radio" id="no" name="fav_language" value="yes">
+                                    <label class="radio-label form-check-label" for="no">No</label>
                                 </div>
                                 <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
-                                <select name="" id="" class="full-area">
+                                <select name="" id="" class="full-area form-control">
                                     <option value="" selected="selected">Choose..</option>
                                     <option value="">Just Borrowing</option>
                                     <option value="">Getting Started</option>
                                     <option value="">Seriously Hunting</option>
                                     <option value="">Recently Purchased</option>
                                 </select>
-                                <input class="popup-submit" type="submit" value="submit">
+                                <input class="popup-submit btn btn-primary" type="submit" value="submit">
                         </form>
                         </div>
                     <div id="general-box" class="selection-box">
                     <p style="margin-top:15px;">Click here to type your comment question</p>
                         <form action="">
-                                <textarea class="full-area" rows="4"></textarea>
-                                <p>Are you a First Time Buyer/Seller?</p>
-                                <div class="radio-wrapper">
-                                    <input class="radio-btns" type="radio" id="yes" name="fav_language" value="yes">
-                                    <label class="radio-label" for="yes">Yes</label>
+                                <textarea class="full-area form-control" rows="4"></textarea>
+                                <p style="margin-bottom:5px;">Are you a First Time Buyer/Seller?</p>
+                                <div class="radio-wrapper form-check">
+                                    <input class="radio-btns form-check-input" type="radio" id="yes" name="fav_language" value="yes">
+                                    <label class="radio-label form-check-label" for="yes">Yes</label>
                                 </div>
-                                <div class="radio-wrapper">
-                                    <input class="radio-btns" type="radio" id="no" name="fav_language" value="yes">
-                                    <label class="radio-label" for="no">No</label>
+                                <div class="radio-wrapper form-check">
+                                    <input class="radio-btns form-check-input" type="radio" id="no" name="fav_language" value="yes">
+                                    <label class="radio-label form-check-label" for="no">No</label>
                                 </div>
                                 <p style="margin-top:15px;">What stage in the property buying journey are you in?</p>
-                                <select name="" id="" class="full-area">
-                                    <option value="" selected="selected">Choose..</option>
-                                    <option value="">Just Borrowing</option>
-                                    <option value="">Getting Started</option>
-                                    <option value="">Seriously Hunting</option>
-                                    <option value="">Recently Purchased</option>
-                                </select>
-                                <input class="popup-submit" type="submit" value="submit">
+                                <div class="form-group">
+                                    <select name="" id="" class="full-area form-control">
+                                        <option value="" selected="selected">Choose..</option>
+                                        <option value="">Just Borrowing</option>
+                                        <option value="">Getting Started</option>
+                                        <option value="">Seriously Hunting</option>
+                                        <option value="">Recently Purchased</option>
+                                    </select>
+                                </div>
+                              
+                                <input class="popup-submit btn btn-primary" type="submit" value="submit">
                         </form>
                     </div>
 
@@ -507,7 +527,7 @@ function googleTranslateElementInit() {
 <!-- five star -->
 <script>
     const LABELCOLORINACTIV = "#B1A7A7";
-const LABELCOLORACTIV = "#921c22";
+const LABELCOLORACTIV = "#e7f046";
 
 const RATINGSLABELS = document.querySelectorAll("form.star label");
 const RATINGSINPUTS = document.querySelectorAll("form.star input");
