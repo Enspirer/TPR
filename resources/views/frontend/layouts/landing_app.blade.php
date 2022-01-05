@@ -65,6 +65,11 @@
         height: 100%;
         object-fit: cover;
       }
+
+      li.nav-item.nav1, li.nav-item.contact {
+          opacity: 1;
+      }
+
     </style>
 
 </head>
@@ -94,7 +99,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // AOS.init();
+        AOS.init();
     </script>
     <script src="{{url('js/ammap.js')}}" type="text/javascript"></script>
     <script src="https://www.amcharts.com/lib/3/maps/js/worldHigh.js" type="text/javascript"></script>
