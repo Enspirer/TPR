@@ -193,6 +193,7 @@ class HomeController extends Controller
 
     public function get_search_result(Request $request)
     {
+
         $client = new GuzzleHttp\Client();
 
         $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.urlencode($request->search_keyword).'&key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac';
@@ -207,8 +208,7 @@ class HomeController extends Controller
             $lat = null;
             $lng = null;
             $boundtry = 'area_coordinator';
-            $areacod = null;
-
+            $areacod = 'area_coordinator';
         }else{
             $lat = $refidymeter->results[0]->geometry->location->lat;
             $lng = $refidymeter->results[0]->geometry->location->lng;
@@ -219,6 +219,7 @@ class HomeController extends Controller
             $areacod = $north_string1.'_'.$south_string2;
 
         }
+
 
 
         if(request('search_keyword') != null) {
@@ -367,7 +368,6 @@ class HomeController extends Controller
 
 
 
-     
         return redirect()->route('frontend.search_function', [
             'key_name',
             $min_price,
@@ -515,8 +515,13 @@ class HomeController extends Controller
             $properties->where('city', $city);
         }
 
+        if($area_coordinator == 'area_coordinator') {
 
-        $longertutr = self::areacordina_function($area_coordinator);
+            $longertutr = [];
+        }else{
+            $longertutr = self::areacordina_function($area_coordinator);
+        }
+
 
 
 
