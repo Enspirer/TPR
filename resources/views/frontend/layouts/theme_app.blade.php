@@ -194,6 +194,10 @@
 
     }
 
+    .goog-te-gadget .goog-te-combo {
+        outline:0;
+    }
+
 
     .lang-wrapper {
         width: 200px;
@@ -207,6 +211,27 @@
           display: none;
       }
 
+      /*language modal*/
+      #langModal .modal-dialog {
+          width: 210px;
+      }
+
+      .post-ad-btn {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        background: red;
+        padding: 5px 15px;
+        border-radius: 5px;
+        margin-left: 30px;
+        margin-right: 30px;
+        border: 0;
+      }
+
+
+      .post-ad-btn:hover {
+        color: #000;
+    }
 
     </style>
 
@@ -217,7 +242,7 @@
 
     <div id="app">
         <button class="feedback" data-toggle="modal" data-target="#feedbackModal"><i class="far fa-comment-dots" style="padding-right:5px;"></i>Feeedback</button>
-        <div style="position: fixed;z-index:10000; opacity:1; right:50px;top:5px;" id="google_translate_element"></div> 
+        <!-- <div style="position: fixed;z-index:10000; opacity:1; right:50px;top:5px;" id="google_translate_element"></div>  -->
         @include('includes.partials.logged-in-as')
         @include('frontend.includes.nav')
   
@@ -472,6 +497,32 @@
 
          
 
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+<!-- language modal -->
+<div class="modal fade" id="langModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+     
+      </div> -->
+      <div class="modal-body" style="position:relative;">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute;right:-10px;top:-10px;background:red;border:0;border-radius:50%;width:25px;">
+          <span aria-hidden="true" style="color:#fff;">&times;</span>
+        </button>
+        <div class="traslate-wrapper" style="display:flex;">
+            <div id="google_translate_element"></div><i style="font-size:28px;color:#23A1C0;background:transparent;position:absolute;top:-3px;right:0;" class="fas fa-language"></i>
+        </div>
+        
       </div>
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
