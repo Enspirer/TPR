@@ -29,6 +29,10 @@
 
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'my-bookings' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.my-bookings') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">My Bookings</a>
 
+        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'watch_listing' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.watch_listing') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Watch Listing</a>
+
+        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'search_history' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.search_history') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Saved Search History</a>
+
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.feedback') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Feedback</a>
 
 
