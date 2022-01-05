@@ -63,6 +63,7 @@ class UserFeedbackController extends Controller
 
         $add->stars = $request->note;
         $add->issues = $request->issues;
+        $add->provided_details = $request->provided_details;
         $add->buyer_seller = $request->buyer_seller;
         $add->stage_property = $request->stage_property;
         $add->topic = $request->topic;
