@@ -29,10 +29,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.css" integrity="sha512-7uSoC3grlnRktCWoO4LjHMjotq8gf9XDFQerPuaph+cqR7JC9XKGdvN+UwZMC14aAaBDItdRj3DcSDs4kMWUgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 
+    <!-- <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+   
+
     
     @stack('after-styles')
 
@@ -177,6 +186,16 @@
         height: 50px;
     }
 
+    
+    /*google translator*/
+    select.goog-te-combo {
+        width: 175px;
+        outline: 0;
+        border-radius: 0;
+    }
+
+
+
     </style>
 
 </head>
@@ -188,7 +207,7 @@
         <button class="feedback" data-toggle="modal" data-target="#feedbackModal"><i class="far fa-comment-dots" style="padding-right:5px;"></i>Feeedback</button>
         @include('includes.partials.logged-in-as')
         @include('frontend.includes.nav')
-
+  
         <div class="">
             @include('includes.partials.messages')
             @include('frontend.includes.nav')
@@ -204,7 +223,7 @@
             <div class="row">
                 <div class="col-12 col-md-3 mb-5 mb-md-0">
                     <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid mb-4" alt="" style="height: 4rem;">
-                    <div id="google_translate_element"></div>
+                   
                 </div>
                 <div class="col-12 col-md-3 ps-md-5 mb-4 mb-md-0">
                     <h5 class="fw-bolder mt-md-2">PAGES</h5>
@@ -473,13 +492,6 @@
 <script src="{{ asset('tpr_templete/scripts/bootstrap-combobox.js') }}"></script>
 
 
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
-</script>
-
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 @stack('after-scripts')
@@ -523,7 +535,13 @@ function googleTranslateElementInit() {
     }
 </script>
 
+<script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
 
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <!-- five star -->
 <script>
     const LABELCOLORINACTIV = "#B1A7A7";

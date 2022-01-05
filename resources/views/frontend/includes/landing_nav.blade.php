@@ -82,6 +82,8 @@
                             <a class="nav-link text-white fw-bold px-0" href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
                         </li>
                     @endauth
+                
+                    
                 </ul>
             </div>
         </div>
