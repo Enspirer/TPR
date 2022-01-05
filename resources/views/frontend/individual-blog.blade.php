@@ -22,14 +22,13 @@
         <div class="row">
             <div class="col-9">
                 <div class="row blog-card-row">
-                    <h1 class="blog-title">Lorem Ipsum Dolor</h1>
+                    <h2 class="blog-title">{{$post_details->title}}</h2>
                     <div class="blog-card col-12">
                         <div class="card-wrapper">
-                            <img src="{{ url('tpr_templete/images/blog/blog1.jpg') }}" alt="" width="100%" >
+                            <img src="{{ uploaded_asset($post_details->feature_image) }}" alt="" style="height:400px; object-fit:cover" width="100%" >
                             <div class="txt-wrapper">
                                 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <p>{!!$post_details->body!!}</p>
                             </div>
                         </div>
                     </div>
@@ -37,31 +36,23 @@
             </div>
             <div class="col-3">
                 <div class="sidebar-warpper">
-                    <h2 class="blog-title">Popular Posts</h2>
-                    <div class="popular-wrapper">
-                        <div class="popular-card-wrapper">
-                            <img src="{{ url('tpr_templete/images/blog/blog1.jpg') }}" alt="">
-                            <div class="popular-txt">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                            </div>
+                    @if(count($newest_posts) != 0)
+                        <h2 class="blog-title">Popular Posts</h2>
+                        <div class="popular-wrapper">
+                            @foreach($newest_posts as $newest_post)
+                            <a href="{{route('frontend.individual_blog',$newest_post->id)}}" style="text-decoration:none; color:black">
+                                <div class="popular-card-wrapper">
+                                    <img src="{{ uploaded_asset($newest_post->feature_image) }}" alt="" style="object-fit:cover">
+                                    <div class="popular-txt">
+                                        <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $newest_post->title }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                            @endforeach
+
                         </div>
-                        <div class="popular-card-wrapper">
-                            <img src="{{ url('tpr_templete/images/blog/blog2.jpg') }}" alt="">
-                            <div class="popular-txt">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                            </div>
-                        </div>
-                        <div class="popular-card-wrapper">
-                            <img src="{{ url('tpr_templete/images/blog/blog3.jpg') }}" alt="">
-                            <div class="popular-txt">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                            </div>
-                        </div>
-                    </div>
-                    <h2 class="blog-title">Latest Tweets</h2>
-                    <div class="tweets-warpper">
-                        Tweets here
-                    </div>
+                    @endif
+                    
                 </div>
                 
             </div>

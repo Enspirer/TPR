@@ -15,10 +15,12 @@ class BlogController extends Controller
     public function index()
     {
         $all_posts = BlogPost::where('status','1')->orderBy('order','ASC')->get();
+        $newest_posts = BlogPost::where('status','1')->latest()->take(4)->get();
         // dd($all_posts);
 
         return view('frontend.blog',[
-            'all_posts' => $all_posts
+            'all_posts' => $all_posts,
+            'newest_posts' => $newest_posts
         ]);
     }
 }
