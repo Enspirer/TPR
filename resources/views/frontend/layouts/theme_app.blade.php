@@ -182,9 +182,16 @@
     
     /*google translator*/
     select.goog-te-combo {
-        width: 175px;
-        outline: 0;
-        border-radius: 0;
+
+        font-size: 16px;
+        background: #4195e1;
+        border-color: #4195e1;
+        color: white;
+        position: absolute;
+        top: 8px;
+        right: 60px;
+        font-weight: 500;
+
     }
 
 
@@ -193,7 +200,12 @@
         display: block;
     }
 
-    #google_translate_element { color: transparent; } #google_translate_element a { display: none; }
+    #google_translate_element {
+        color: transparent;
+    }
+      #google_translate_element a {
+          display: none;
+      }
 
 
     </style>
@@ -536,14 +548,7 @@
     }
 </script>
 
-<!-- <script type="text/javascript">
-        function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
-    </script>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
-<!-- five star -->
 <script>
     const LABELCOLORINACTIV = "#B1A7A7";
 const LABELCOLORACTIV = "#e7f046";
