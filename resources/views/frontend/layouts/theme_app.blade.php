@@ -301,7 +301,7 @@
             <h2>TPR Visitor Feedback</h2>
             <h3>Please rate your experience on TPR today.</h3>
 
-            <form class="star">
+            <div class="star">
             <input type="radio" name="note" value="1" id="aze"> 
                 <div class="star-bar"> 
                 <label class="star-label"><!--for='aze'--> 
@@ -468,7 +468,7 @@
                 </div>
               
                 
-            </form>  
+</div>  
 
          
 
@@ -553,8 +553,8 @@
     const LABELCOLORINACTIV = "#B1A7A7";
 const LABELCOLORACTIV = "#e7f046";
 
-const RATINGSLABELS = document.querySelectorAll("form.star label");
-const RATINGSINPUTS = document.querySelectorAll("form.star input");
+const RATINGSLABELS = document.querySelectorAll("div.star label");
+const RATINGSINPUTS = document.querySelectorAll("div.star input");
 
 // make inputs disappear
 RATINGSINPUTS.forEach(function(anInput) {
