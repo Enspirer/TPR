@@ -28,14 +28,7 @@
     <link href="{{url('tpr_templete/stylesheets/rebon.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.css" integrity="sha512-7uSoC3grlnRktCWoO4LjHMjotq8gf9XDFQerPuaph+cqR7JC9XKGdvN+UwZMC14aAaBDItdRj3DcSDs4kMWUgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-
-    <!-- <script type="text/javascript">
-        function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
-    </script>
-
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+   
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -195,6 +188,13 @@
     }
 
 
+    .lang-wrapper {
+        width: 200px;
+        display: block;
+    }
+
+    #google_translate_element { color: transparent; } #google_translate_element a { display: none; }
+
 
     </style>
 
@@ -205,6 +205,7 @@
 
     <div id="app">
         <button class="feedback" data-toggle="modal" data-target="#feedbackModal"><i class="far fa-comment-dots" style="padding-right:5px;"></i>Feeedback</button>
+        <div style="position: fixed;z-index:10000; opacity:1; right:50px;top:5px;" id="google_translate_element"></div> 
         @include('includes.partials.logged-in-as')
         @include('frontend.includes.nav')
   
@@ -535,13 +536,13 @@
     }
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
         function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
         }
     </script>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
 <!-- five star -->
 <script>
     const LABELCOLORINACTIV = "#B1A7A7";

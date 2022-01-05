@@ -1,4 +1,6 @@
 <section id="index-navbar">
+
+
     <nav class="navbar fixed-top first-nav navbar-expand-lg navbar-light" style="background-color: #4195E1">
         <div class="container">
             <div class="row logo-flag">
@@ -37,7 +39,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" style="margin-right:175px;">
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500">
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'map-search' ? 'active' : null }}"
                             href="{{ route('frontend.map-search' )}}">Map Search</a>
@@ -125,16 +127,21 @@
                         style="padding-left : 2rem">
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'register' ? 'active' : null }}"
                             href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
+                           
                         <div class="line"></div>
                     </li>
-
                     @endauth
 
                     <!-- <div id="google_translate_element"></div> -->
 
-
+                    
                 </ul>
             </div>
+
+ 
+
+          
+            
 
         </div>
     </nav>
@@ -146,7 +153,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
-                <ul class="navbar-nav align-items-center">
+                <ul class="navbar-nav align-items-center>
                     <li class="nav-item nav2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400">
                         <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'residential' ? 'active' : null }}"
                             href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator'] )}}">Residential</a>
@@ -271,7 +278,6 @@
                             </a>
                             @endif
                         </div>
-                        <div id="google_translate_element"></div>
                     </div>
                 </ul>
             </div>
@@ -342,4 +348,15 @@ $('.nav-item').on('mouseenter', function() {
     });
 });
 </script>
+<script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+        $(window).load(function(){ $(".goog-logo-link").empty(); $('.goog-te-gadget').html($('.goog-te-gadget').children()); })
+
+    </script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
+
+
 @endpush
