@@ -25,7 +25,7 @@
 
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">                               
                                 <li>
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{route('frontend.blog')}}">
                                         <div class="row align-items-center">
                                             <div class="col-12">
                                                 Living Room Blog
