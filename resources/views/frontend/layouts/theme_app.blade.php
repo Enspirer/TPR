@@ -177,6 +177,64 @@
         height: 50px;
     }
 
+    /*google translator*/
+    select.goog-te-combo {
+
+font-size: 16px;
+background: #4195e1;
+border-color: #4195e1;
+color: white;
+position: absolute;
+top: 8px;
+right: 60px;
+font-weight: 500;
+
+}
+
+.goog-te-gadget .goog-te-combo {
+outline:0;
+}
+
+
+.lang-wrapper {
+width: 200px;
+display: block;
+}
+
+#google_translate_element {
+color: transparent;
+}
+
+
+/*language modal*/
+#langModal .modal-dialog {
+  width: 500px;
+}
+
+.post-ad-btn {
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+background: red;
+padding: 5px 15px;
+border-radius: 5px;
+margin-left: 30px;
+margin-right: 30px;
+border: 0;
+}
+
+
+.post-ad-btn:hover {
+color: #000;
+}
+
+.icon-wrapper i {
+font-size: 2rem;
+background: unset;
+padding: 0;
+}
+
+
     </style>
 
 </head>
@@ -204,7 +262,7 @@
             <div class="row">
                 <div class="col-12 col-md-3 mb-5 mb-md-0">
                     <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid mb-4" alt="" style="height: 4rem;">
-                    <div id="google_translate_element"></div>
+                    
                 </div>
                 <div class="col-12 col-md-3 ps-md-5 mb-4 mb-md-0">
                     <h5 class="fw-bolder mt-md-2">PAGES</h5>
@@ -546,6 +604,39 @@
   </div>
 </div>
 
+<!-- ad popup -->
+<div class="modal fade" id="adModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-body" style="position:relative;">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute;right:-10px;top:-10px;background:red;border:0;border-radius:50%;width:25px;">
+          <span aria-hidden="true" style="color:#fff;">&times;</span>
+        </button>
+        <h2>Place your ad</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- lang popup -->
+<div class="modal fade" id="langModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-body" style="position:relative;">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position:absolute;right:-10px;top:-10px;background:red;border:0;border-radius:50%;width:25px;">
+          <span aria-hidden="true" style="color:#fff;">&times;</span>
+        </button>
+        <div id="google_translate_element"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
     @if(\Session::has('feedback_success'))
@@ -566,6 +657,11 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
     @endif
 
 
