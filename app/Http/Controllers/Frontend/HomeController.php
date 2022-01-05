@@ -363,7 +363,7 @@ class HomeController extends Controller
         }
 
         if($lat == null) {
-            $lat = 'long';
+            $lat = 'lat';
         }
 
 
