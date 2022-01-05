@@ -4,6 +4,7 @@ use App\Models\Country;
 use App\Models\Favorite; 
 use Illuminate\Http\Request;
 use App\Models\Settings; 
+use App\Models\WatchListing; 
 
 if (! function_exists('app_name')) {
     /**
@@ -127,6 +128,27 @@ if (! function_exists('is_favorite')) {
         if($favorite)
         {
             return $favorite;
+        }else{
+            return null;
+        }
+    }
+}
+
+if (! function_exists('is_watch_listing')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_watch_listing($property_id, $user_id)
+    {
+
+        $watch_listing = WatchListing::where('user_id', $user_id )
+            ->where('property_id',$property_id)
+            ->first();
+        if($watch_listing)
+        {
+            return $watch_listing;
         }else{
             return null;
         }

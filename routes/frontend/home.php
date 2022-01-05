@@ -240,6 +240,12 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('management_sold_properties', [CountryManagementController::class, 'management_sold_properties'])->name('management_sold_properties');
         Route::get('management_get_sold_properties', [CountryManagementController::class, 'management_get_sold_properties'])->name('management_get_sold_properties');
        
+        Route::get('search_history', [DashboardController::class, 'search_history'])->name('search_history');
+        Route::get('search_history_get_details', [DashboardController::class, 'search_history_get_details'])->name('search_history_get_details');
+    
+        Route::get('watch_listing', [DashboardController::class, 'watch_listing'])->name('watch_listing');
+        Route::get('watch_listing/delete/{id}', [DashboardController::class, 'watch_listingDelete'])->name('watch_listingDelete');
+
        
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');

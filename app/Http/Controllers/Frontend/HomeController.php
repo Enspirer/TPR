@@ -193,6 +193,7 @@ class HomeController extends Controller
 
     public function get_search_result(Request $request)
     {
+
         $client = new GuzzleHttp\Client();
 
         $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.urlencode($request->search_keyword).'&key=AIzaSyAEBj8LhHUJaf2MXpqIQ_MOXs7HkeUXnac';
@@ -206,11 +207,19 @@ class HomeController extends Controller
         if($refidymeter->status == 'ZERO_RESULTS'){
             $lat = null;
             $lng = null;
-
+            $boundtry = 'area_coordinator';
+            $areacod = 'area_coordinator';
         }else{
             $lat = $refidymeter->results[0]->geometry->location->lat;
             $lng = $refidymeter->results[0]->geometry->location->lng;
+            $boundtry = $refidymeter->results[0]->geometry->bounds;
+
+            $north_string1 =  $boundtry->northeast->lat.'_'.$boundtry->northeast->lng;
+            $south_string2 =  $boundtry->southwest->lat.'_'.$boundtry->southwest->lng;
+            $areacod = $north_string1.'_'.$south_string2;
+
         }
+
 
 
         if(request('search_keyword') != null) {
@@ -354,16 +363,11 @@ class HomeController extends Controller
         }
 
         if($lat == null) {
-            $lat = 'long';
+            $lat = 'lat';
         }
 
-        if(request('area_coordinator') != null) {
-            $area_coordinator = request('area_coordinator');
-        }
-        else {
-            $area_coordinator = 'area_coordinator';
-        }
-     
+
+
         return redirect()->route('frontend.search_function', [
             'key_name',
             $min_price,
@@ -385,7 +389,7 @@ class HomeController extends Controller
             $city,
             $lng,
             $lat,
-            $area_coordinator
+            $areacod
         ]);
     }
 
@@ -511,6 +515,16 @@ class HomeController extends Controller
             $properties->where('city', $city);
         }
 
+        if($area_coordinator == 'area_coordinator') {
+
+            $longertutr = [];
+        }else{
+            $longertutr = self::areacordina_function($area_coordinator);
+        }
+
+
+
+
 
 
         // dd($properties->get());
@@ -518,7 +532,19 @@ class HomeController extends Controller
         $filteredProperty = $properties->get();
 
 
-        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'countries' => $countries,'search_long' => $long,'search_lat' => $lat]);
+        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'countries' => $countries,'search_long' => $long,'search_lat' => $lat,'area_coords'=>$longertutr]);
+    }
+
+    public static function areacordina_function($area_coordinator)
+    {
+        $str_arr = preg_split ("/\_/", $area_coordinator);
+        $outarray = [
+           'northeast_lat' => $str_arr[0],
+           'northeast_lng' => $str_arr[1],
+           'southwest_lat' => $str_arr[2],
+           'southwest_lng' => $str_arr[3],
+        ];
+        return $outarray;
     }
 
 
