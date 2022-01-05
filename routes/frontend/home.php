@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\Frontend\HelpController;
 use App\Http\Controllers\Frontend\IndividualBlogController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\FindAgentController;
@@ -61,6 +62,7 @@ Route::get('individual-property/{id}/calculator', [IndividualPropertyController:
 Route::get('commercial', [CommercialController::class, 'index'])->name('commercial');
 Route::get('blog', [BlogController::class, 'index'])->name('blog');
 Route::get('individual-blog/{id}', [IndividualBlogController::class, 'index'])->name('individual_blog');
+Route::get('help', [HelpController::class, 'index'])->name('help');
 
 Route::get('about-us', [FooterController::class, 'aboutUs'])->name('about-us');
 Route::get('mobile-apps', [FooterController::class, 'mobileApps'])->name('mobile-apps');

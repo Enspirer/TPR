@@ -2,7 +2,11 @@
 
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
+
+
 @section('content')
+
+
 
 
 
@@ -173,7 +177,6 @@
 <section id="index-property-search">
     <div class="container-fluid" style="margin-top:4rem">
         <h3 class="fw-bolder text-center" data-aos="fade-up" data-aos-duration="500">Interactive Property Search</h3>
-
         <div class="row mt-4">
             @if(count($promo) > 0)
             <div class="col-12 col-md-3 mb-4 mb-md-0" style="background-color: #F3F3F3">
@@ -265,6 +268,7 @@
                     <img src="{{url('tpr_templete/images/card_1.svg')}}" class="card-img-top" alt="..." height="200rem">
                     <div class="card-body mt-4 p-2">
                         <h4 class="card-title text-center mb-4">Map Search</h4>
+                        
                         <!-- <h5 class="text-info">Draw your map Options</h5> -->
                         <p class="card-text">Broaden your view on different localities using the unique Map Search
                             option available on our site. Access to your preferred locations and properties is just a
@@ -1156,6 +1160,8 @@ $('.swiper-slide img').on('click', function() {
 
 
 @push('after-scripts')
+
+
 <script>
 const renderCity = async () => {
 
