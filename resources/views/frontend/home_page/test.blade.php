@@ -551,6 +551,7 @@ let lat = <?php echo json_encode($country->latitude); ?>;
 let lng = <?php echo json_encode($country->longitude); ?>;
 
 function initMap() {
+
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 6,
         center: {
@@ -563,13 +564,9 @@ function initMap() {
 
 
 
-    
-
-
 
 
     const infoWindow = new google.maps.InfoWindow();
-
 
 
     const markers = locations.map((location, i) => {
@@ -579,28 +576,39 @@ function initMap() {
             label: labels[i % labels.length]
         });
 
-        return marker;
-        
+    
         marker.addListener("click", () => {
+                // infoWindow.open({
+                //     anchor: marker,
+                //     map,
+                //     shouldFocus: false,
+                // });
 
-            
-            var nameList = [{ id: 1, name: "NameOne"}, {  id: 2, name: "NameTwo"}, {  id: 3, name: "NameThree"}, {  id: 4, name: "NameFour"}, {  id: 5, name: "NameFive"}, {  id: 6, name: "NameFive"}, {  id: 7, name: "NameFive"}];
+                var nameList = [{ id: 1, name: "NameOne"}, {  id: 2, name: "NameTwo"}, {  id: 3, name: "NameThree"}, {  id: 4, name: "NameFour"}, {  id: 5, name: "NameFive"}, {  id: 6, name: "NameFive"}, {  id: 7, name: "NameFive"}];
 
 
-            const details = `<p>changed ${nameList[i].name} content</p>`;
+                const details = `<p>changed ${nameList[i].name} content</p>`;
 
-            infoWindow.open(map, markers[i]);
-            infoWindow.setContent(details);
+          
+
+
+                    infoWindow.open(map, markers[i]);
+                    infoWindow.setContent(details);
                 
-        });
+                 
+                });
 
-        
+
+        return marker;
                        
     });
 
 
 
-  
+    var markerCluster = new MarkerClusterer(map, markers, {
+        imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+    });
+
 
 
     // let property = <?php echo json_encode($promo); ?>;
@@ -643,10 +651,7 @@ function initMap() {
 
 
 
-    var markerCluster = new MarkerClusterer(map, markers, {
-        imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
-    });
-
+    
     google.maps.event.addListener(markerCluster, 'click', function(c) {
 
 
