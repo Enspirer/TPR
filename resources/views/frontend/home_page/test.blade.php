@@ -569,10 +569,7 @@ function initMap() {
         
 
 
-        marker.addListener("click", () => {
-                mapFix(c);
-        });
-
+        
                         return marker;
     });
 
@@ -623,10 +620,9 @@ function initMap() {
         imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
     });
 
-    // google.maps.event.addListener(markerCluster, 'click', function(c) {
+    google.maps.event.addListener(markerCluster, 'click', function(c) {
 
 
-        function mapFix(c) {
 
     
 
@@ -729,7 +725,7 @@ function initMap() {
             });
     }
     
-    // );
+     );
 
 
 }
