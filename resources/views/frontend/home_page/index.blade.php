@@ -581,13 +581,15 @@ function initMap() {
                 city: {{$crom->city}},
                 country: {{$crom->country}},
                 transaction_type: {{$crom->transaction_type}},
+                
             },
+            console.log({nameList[0].name);
             @endforeach
 
         ];
 
 
-        const details = `<p>changed ${nameList[i].name} content</p>`;
+        const details = `<p>changed  content</p>`;
 
             infoWindow.open(map, markers[i]);
             infoWindow.setContent(details);
