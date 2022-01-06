@@ -14,6 +14,7 @@ use App\Models\Favorite;
 use App\Models\Country;
 use App\Models\Feedback;
 use App\Models\UserSearch;
+use App\Models\Notifications;
 use App\Models\WatchListing;
 use DataTables;
 
@@ -201,6 +202,35 @@ class DashboardController extends Controller
         $addfeedback->save();
 
         session()->flash('message','Thanks!');
+
+        return back(); 
+        
+    }
+
+    public function user_notifications()
+    {
+        $notification = Notifications::where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
+        // dd($notification);
+
+        $property = Properties::get();
+
+        return view('frontend.user.notifications',[
+            'notification' => $notification,
+            'property' => $property
+        ]);
+    }
+
+
+    public function user_notifications_status(request $request, $id)
+    {
+        // dd($request);
+
+        $update = new Notifications;
+        
+        $update->status = 'Seen';
+        $update->user_id = auth()->user()->id;
+
+        Notifications::whereId($id)->update($update->toArray());
 
         return back(); 
         

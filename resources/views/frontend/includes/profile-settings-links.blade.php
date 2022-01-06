@@ -34,6 +34,8 @@
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'search_history' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.search_history') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Saved Search History</a>
 
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.feedback') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Feedback</a>
+        
+        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'user_notifications' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.user_notifications') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Notifications</a>
 
 
         @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
