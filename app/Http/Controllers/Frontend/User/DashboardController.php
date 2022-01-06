@@ -225,6 +225,9 @@ class DashboardController extends Controller
     {
         // dd($request);
 
+        $prop = Notifications::where('id',$id)->first()->url;
+        // dd($prop);
+
         $update = new Notifications;
         
         $update->status = 'Seen';
@@ -232,7 +235,18 @@ class DashboardController extends Controller
 
         Notifications::whereId($id)->update($update->toArray());
 
-        return back(); 
+        return redirect()->route('frontend.individual-property',[$prop]); 
+        
+    }
+
+    public function user_notifications_status_changed(request $request, $id)
+    {
+        // dd($request);
+
+        $prop = Notifications::where('id',$id)->first()->url;
+        // dd($prop);
+
+        return redirect()->route('frontend.individual-property',[$prop]); 
         
     }
 

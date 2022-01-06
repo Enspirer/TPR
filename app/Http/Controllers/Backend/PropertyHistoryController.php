@@ -91,12 +91,14 @@ class PropertyHistoryController extends Controller
     {    
         // dd($request);
 
+
         if($request->sold_request == 'Sold'){
             $watch_listings = WatchListing::where('property_id',$request->hidden_id)->get();
 
             foreach($watch_listings as $watch_listing){
+
                 if($watch_listing->watch_list != null){
-                    push_notification('title_test', 'description_test', 'url_test', $watch_listing->user_id);
+                    push_notification('Property Sold', 'You have received this email because you have chosen to receive Watched Community updates. If you do not wish to receive this update you may change your preferences.', $request->hidden_id, $watch_listing->user_id);
                 }
                                 
             }  
