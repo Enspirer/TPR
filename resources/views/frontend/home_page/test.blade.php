@@ -562,7 +562,7 @@ function initMap() {
     const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
-    var nameList = [{ id: 1, name: "NameOne"}, {  id: 2, name: "NameTwo"}, {  id: 3, name: "NameThree"}, {  id: 4, name: "NameFour"}, {  id: 4, name: "NameFive"}];
+
 
     var myName = "Banuka";
 
@@ -574,6 +574,7 @@ function initMap() {
 
     const markers = locations.map((location, i) => {
 
+        var nameList = [{ id: 1, name: "NameOne"}, {  id: 2, name: "NameTwo"}, {  id: 3, name: "NameThree"}, {  id: 4, name: "NameFour"}, {  id: 4, name: "NameFive"}];
         
     const contentString = ` <div id="content">
                 <h2>This is popup ${nameList[i].name} content </h2>
