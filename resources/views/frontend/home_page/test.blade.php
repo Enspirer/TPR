@@ -569,108 +569,11 @@ function initMap() {
         
 
 
-        marker.addListener("click", function(c) => {
+        marker.addListener("click", () => {
                     alert("You click the marker");
-                    var markers = c.getMarkers();
-        var newArray = [];
+                });
 
-        @if(get_country_cookie(request()))
-        let country_id = <?php echo json_encode(get_country_cookie(request())->country_id); ?>;
-        @else
-        let country_id = 1;
-        @endif
-
-        for (marker in markers) {
-            const cars = [];
-            cars['lat'] = markers[marker].getPosition().lat();
-            cars['long'] = markers[marker].getPosition().lng();
-            newArray.push(JSON.stringify(Object.assign({}, cars)));
-        }
-
-        myArray = JSON.stringify(Object.assign({}, newArray));
-
-        $.post("{{url('/')}}/api/country_request", {
-                coordinate_data: myArray,
-                country_id: country_id
-            },
-            function(data, status) {
-
-                var obj = JSON.parse(data);
-
-                let template = '';
-                let info = [];
-
-                for (let i = 0; i < obj.length; i++) {
-
-                    info[i] = [obj[i]['country'], obj[i]['long'], obj[i]['lat']];;
-                }
-
-
-                var infowindow = new google.maps.InfoWindow();
-
-
-                for (let i = 0; i < obj.length; i++) {
-                    let details;
-                    markers[i].addListener('click', function() {
-                        if (info[i][1] == markers[i].getPosition().lng() && info[i][2] == markers[i]
-                            .getPosition().lat()) {
-                            details = `  <div class="row align-items-center p-1" style="width: 500px;">
-                                                    <div class="col-6">
-                                                        <img src="{{url('/')}}/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <h5 class="fw-bold mb-2">${obj[i]['name']}</h5>
-                                                        <p class="mb-1" style="font-size: 0.8rem;">Transaction Type: ${obj[i]['transaction_type']}</p>
-                                                        <p class="mb-1" style="font-size: 0.8rem;">Country: ${obj[i]['country']}</p>
-                                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${obj[i]['price_currency']}</p>
-
-                                                        <div class="text-end mt-2">
-                                                            <a href="{{url('/')}}/individual-property/${obj[i]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
-                                                        </div>
-                                                    </div>
-                                                </div>`;
-
-                            infowindow.setContent(details);
-                            infowindow.open(map, markers[i]);
-                        }
-                    });
-                }
-
-
-
-                for (let i = 0; i < obj.length; i++) {
-
-                    let date = obj[i]['created_at'].split(' ')[0];
-
-                    template += `
-                                <div class="row border align-items-center p-1">
-                                    <div class="col-6">
-                                        <a href="{{url('/')}}/individual-property/${obj[i]['id']}"><img src="{{url('/')}}/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="row justify-content-between align-items-center">
-                                            <div class="col-9">
-                                                <p class="mb-0 small-num" style="font-size: 0.7rem;">${date}</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <p class="fw-bold mb-0">${obj[i]['name']}</p>
-                                        <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${obj[i]['transaction_type']}</p>
-                                        <p class="mb-0" style="font-size: 0.8rem;">Country: ${obj[i]['country']}</p>
-                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">${obj[i]['price_currency']}</p>
-                                    </div>
-                                </div>
-                            `
-                };
-
-
-                $(".properties").html(template);
-                heart_toggle();
-
-            });
-        });
-
-                return marker;
+                        return marker;
     });
 
 
