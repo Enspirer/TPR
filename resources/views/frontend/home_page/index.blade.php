@@ -264,7 +264,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
-                <div class="card p-4 custom-shadow border-0">
+                <div class="card p-4 custom-shadow border-0 home-card">
                     <img src="{{url('tpr_templete/images/card_1.svg')}}" class="card-img-top" alt="..." height="200rem">
                     <div class="card-body mt-4 p-2">
                         <h4 class="card-title text-center mb-4">Map Search</h4>
@@ -277,7 +277,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-                <div class="card p-4 custom-shadow border-0">
+                <div class="card p-4 custom-shadow border-0 home-card">
                     <img src="{{url('tpr_templete/images/card_2.svg')}}" class="card-img-top" alt="..." height="200rem">
                     <div class="card-body mt-4 p-2">
                         <h4 class="card-title text-center mb-4">Properties Near Me</h4>
@@ -288,7 +288,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500">
-                <div class="card p-4 custom-shadow border-0">
+                <div class="card p-4 custom-shadow border-0 home-card">
                     <img src="{{url('tpr_templete/images/card_3.svg')}}" class="card-img-top" alt="..." height="200rem">
                     <div class="card-body mt-4 p-2">
                         <h4 class="card-title text-center mb-4">Property Alerts Live</h4>
