@@ -570,7 +570,7 @@ function initMap() {
 
 
         marker.addListener("click", () => {
-                mapFix();
+                mapFix(c);
         });
 
                         return marker;
@@ -628,7 +628,7 @@ function initMap() {
 
         function mapFix(c) {
 
-            alert("map fix working");
+    
 
         var markers = c.getMarkers();
         var newArray = [];
