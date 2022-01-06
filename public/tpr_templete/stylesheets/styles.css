@@ -206,18 +206,21 @@ p {
 /*info car styles*/
 .info-card .img-wrapper {
     width: 40%;
+    height: 100%;
+}
+
+.img-wrapper img {
+    height: 135px;
+    width: 100%;
+    object-fit: cover;
 }
 
 .info-card {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-}
-
-.info-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    width: 280px;
+    height: 135px;
 }
 
 .info-txt-wrapper {

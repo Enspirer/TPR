@@ -578,7 +578,7 @@ function initMap() {
             { 
                 id: {{$crom->id}}, 
                 name: "{{$crom->name}}",
-                price: "{{$crom->price_currency}}",
+                price: "{{$crom->price}}",
                 city: "{{$crom->city}}",
                 country: "{{$crom->country}}",
                 transaction_type: "{{$crom->transaction_type}}",
@@ -594,7 +594,7 @@ function initMap() {
 
         const details = `  <div class="info-card">
             <div class="img-wrapper">
-                <img style="height:100%;width:100%;object-fit:cover;" src="${nameList[i].imgUrl}" alt="info-img">
+                <img src="${nameList[i].imgUrl}" alt="info-img">
             </div>
             <div class="info-txt-wrapper">
                 <h3>${nameList[i].name}</h3>
