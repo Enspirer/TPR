@@ -567,7 +567,7 @@ function initMap() {
     var myName = "Banuka";
 
     const contentString = ` <div id="content">
-                <h2>This is popup ${myName} content </h2>
+                <h2>This is popup ${nameList[0].name} content </h2>
                 <img src="hill.jpg" alt="">
             </div>`;
 
