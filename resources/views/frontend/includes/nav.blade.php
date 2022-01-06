@@ -261,7 +261,7 @@
                                 <i class="fas fa-bell" style="color:#82bf3e;"></i>                   
                                     <div class="counter-wrapper">
                                         <p id="heartCounter">                                        
-                                            {{App\Models\Notifications::where('user_id',auth()->user()->id)->get()->count()}}
+                                            {{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}}
                                         </p>
                                     </div>
                                 </a>

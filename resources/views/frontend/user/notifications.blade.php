@@ -48,18 +48,20 @@
                                     <a href="{{route('frontend.user.user_notifications_status',$notify->id)}}" style="text-decoration:none">
                                         <div class="row align-items-center justify-content-between mb-4 border py-3">                                           
                                             <div class="col-12">
-                                                <h5 class="card-title text-dark">{{ $notify->title }}</h5>
+                                                <h5 class="card-title text-dark">{{App\Models\Properties::where('id',$notify->url)->first()->name}} {{ $notify->title }}</h5>
                                                 <h6 class="card-title text-dark mt-3">{{ $notify->description }}</h6>                                               
                                             </div>
                                         </div>
                                     </a>
                                 @else
-                                   <div class="row align-items-center justify-content-between mb-4 border py-3">                                           
-                                        <div class="col-12">
-                                            <h5 class="card-title" style="color:#818589">{{ $notify->title }}</h5>
-                                            <h6 class="card-title mt-3" style="color:#818589">{{ $notify->description }}</h6>                                               
+                                    <a href="{{route('frontend.user.user_notifications_status_changed',$notify->id)}}" style="text-decoration:none">
+                                        <div class="row align-items-center justify-content-between mb-4 border py-3">                                           
+                                            <div class="col-12">
+                                                <h5 class="card-title" style="color:#818589">{{App\Models\Properties::where('id',$notify->url)->first()->name}} {{ $notify->title }}</h5>
+                                                <h6 class="card-title mt-3" style="color:#818589">{{ $notify->description }}</h6>                                               
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 @endif
                                     
                             @endforeach                        

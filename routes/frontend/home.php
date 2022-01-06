@@ -156,6 +156,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('user_notifications', [DashboardController::class, 'user_notifications'])->name('user_notifications');
         Route::get('user_notifications_status/{id}', [DashboardController::class, 'user_notifications_status'])->name('user_notifications_status');
+        Route::get('user_notifications_status_changed/{id}', [DashboardController::class, 'user_notifications_status_changed'])->name('user_notifications_status_changed');
 
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
