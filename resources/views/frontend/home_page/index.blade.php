@@ -573,14 +573,15 @@ function initMap() {
         marker.addListener("click", () => {
 
         var nameList = [
+            
             @foreach($promo as $crom)
             { 
                 id: {{$crom->id}}, 
-                name: {{$crom->name}},
-                price: {{$crom->price}},
-                city: {{$crom->city}},
-                country: {{$crom->country}},
-                transaction_type: {{$crom->transaction_type}},
+                name: "{{$crom->name}}",
+                price: "{{$crom->price}}",
+                city: "{{$crom->city}}",
+                country: "{{$crom->country}}",
+                transaction_type: "{{$crom->transaction_type}}",
                 
             },
             @endforeach
