@@ -62,3 +62,23 @@
     top: 844px !important;
     display: block !important;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {}
+
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .pac-container {
+        top: 888px !important;
+        display: block !important;
+    }
+}
+
+
+
+/*large screen*/
+@media screen and (min-width: 1400px) {
+   
+}
