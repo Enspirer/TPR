@@ -569,12 +569,12 @@ function initMap() {
    
     // }
 
-    const contentString = ` <div id="content">
-                    <h2>This is popup ${nameList[4].name} content </h2>
-                    <img src="hill.jpg" alt="">
-                </div>`;
+    // const contentString = ` <div id="content">
+    //                 <h2>This is popup ${nameList[4].name} content </h2>
+    //                 <img src="hill.jpg" alt="">
+    //             </div>`;
 
-    const newContent = `<p>changed content</p>`;
+    const details = `<p>changed content</p>`;
 
     var myName = "Banuka";
 
@@ -592,20 +592,27 @@ function initMap() {
             position: location,
             label: labels[i % labels.length]
         });
-        
-        marker.addListener("click", () => {
 
-            
-            infoWindow.open({
-                    anchor: marker,
-                    map,
-                    shouldFocus: false,
-                });
+        return marker;
+        
+        // marker.addListener("click", () => {
+
+
+        //     infoWindow.open({
+        //             anchor: marker,
+        //             map,
+        //             shouldFocus: false,
+        //         });
                 
-        });
+        // });
+
+        markers[i].addListener('click', function() {
+            infowindow.setContent(details);           
+            infowindow.open(map, markers[i]);
+      });
 
         
-                        return marker;
+                       
     });
 
 
