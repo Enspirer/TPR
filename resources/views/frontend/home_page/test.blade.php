@@ -567,7 +567,9 @@ function initMap() {
             label: labels[i % labels.length]
         });
         
-
+        marker.addListener("click", () => {
+                    alert("You click the marker");
+                });
 
         
                         return marker;
@@ -622,9 +624,6 @@ function initMap() {
 
     google.maps.event.addListener(markerCluster, 'click', function(c) {
 
-
-
-    
 
         var markers = c.getMarkers();
         var newArray = [];
