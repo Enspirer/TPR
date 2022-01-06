@@ -562,12 +562,12 @@ function initMap() {
     const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
-    var nameList = [{ id: 1, name: "NameOne"}, {  id: 2, name: "NameTwo"}, {  id: 3, name: "NameThree"}, {  id: 2, name: "NameFour"}, {  id: 2, name: "NameFive"}, {  id: 2, name: "NameSix"}];
+    var nameList = [{ id: 1, name: "NameOne"}, {  id: 2, name: "NameTwo"}, {  id: 3, name: "NameThree"}, {  id: 4, name: "NameFour"}, {  id: 4, name: "NameFive"}];
 
     var myName = "Banuka";
 
     const contentString = ` <div id="content">
-                <h2>This is popup content </h2>
+                <h2>This is popup ${i} content </h2>
                 <img src="hill.jpg" alt="">
             </div>`;
 
@@ -583,12 +583,12 @@ function initMap() {
         });
         
         marker.addListener("click", () => {
-            // infoWindow.open({
-            //         anchor: marker,
-            //         map,
-            //         shouldFocus: false,
-            //     });
-            alert(i);
+            infoWindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: false,
+                });
+ 
         });
 
         
