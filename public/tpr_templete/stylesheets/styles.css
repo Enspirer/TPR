@@ -202,3 +202,43 @@ p {
     color: #fff;
     font-size: 0.8rem;
 }
+
+/*info car styles*/
+.info-card .img-wrapper {
+    width: 40%;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.info-txt-wrapper {
+    padding: 0px 15px;
+    width: 60%;
+}
+
+.info-txt-wrapper h3 {
+    font-size: 1rem;
+}
+
+.info-txt-wrapper p {
+    font-size: 0.8rem;
+}
+
+span.price-tag {
+    display: block;
+    width: max-content;
+    padding: 5px;
+    font-size: 0.8rem;
+    background: #4195e1;
+    border-radius: 7px;
+    color: #fff;
+}
