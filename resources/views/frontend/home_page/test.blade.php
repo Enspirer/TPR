@@ -578,11 +578,6 @@ function initMap() {
 
     
         marker.addListener("click", () => {
-                // infoWindow.open({
-                //     anchor: marker,
-                //     map,
-                //     shouldFocus: false,
-                // });
 
                 var nameList = [{ id: 1, name: "NameOne"}, {  id: 2, name: "NameTwo"}, {  id: 3, name: "NameThree"}, {  id: 4, name: "NameFour"}, {  id: 5, name: "NameFive"}, {  id: 6, name: "NameFive"}, {  id: 7, name: "NameFive"}];
 
