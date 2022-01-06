@@ -155,6 +155,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('feedback/store', [DashboardController::class, 'feedbackStore'])->name('feedback.store');
 
         Route::get('user_notifications', [DashboardController::class, 'user_notifications'])->name('user_notifications');
+        Route::get('user_notifications_status/{id}', [DashboardController::class, 'user_notifications_status'])->name('user_notifications_status');
 
 
         Route::get('agent', [AgentController::class, 'index'])->name('agent');
