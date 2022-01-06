@@ -268,7 +268,7 @@
                     <img src="{{url('tpr_templete/images/card_1.svg')}}" class="card-img-top" alt="..." height="200rem">
                     <div class="card-body mt-4 p-2">
                         <h4 class="card-title text-center mb-4">Map Search</h4>
-
+                        
                         <!-- <h5 class="text-info">Draw your map Options</h5> -->
                         <p class="card-text">Broaden your view on different localities using the unique Map Search
                             option available on our site. Access to your preferred locations and properties is just a
@@ -565,53 +565,40 @@ function initMap() {
 
     const markers = locations.map((location, i) => {
 
-        const marker = new google.maps.Marker({
+        const marker =  new google.maps.Marker({
             position: location,
             label: labels[i % labels.length]
         });
 
         marker.addListener("click", () => {
 
-            var nameList = [
-
-                @foreach($promo as $crom) {
-                    id: {
-                        {
-                            $crom - > id
-                        }
-                    },
-                    name: "{{$crom->name}}",
-                    price: "{{$crom->price}}",
-                    city: "{{$crom->city}}",
-                    country: "{{$crom->country}}",
-                    transaction_type: "{{$crom->transaction_type}}",
-
-                },
-                @endforeach
-
-            ];
-
-
+        var nameList = [
             
-          
+            @foreach($promo as $crom)
+            { 
+                id: {{$crom->id}}, 
+                name: "{{$crom->name}}",
+                price: "{{$crom->price}}",
+                city: "{{$crom->city}}",
+                country: "{{$crom->country}}",
+                transaction_type: "{{$crom->transaction_type}}",
+                
+            },
+            @endforeach
+
+        ];
 
 
-            const details = `
-            <div class="infor-card">
-                <img src="">
-                <div class="info-txt-wrapper">
-                </div>
-            </div>
-        `;
+        const details = `${nameList[i].name}`;
 
             infoWindow.open(map, markers[i]);
             infoWindow.setContent(details);
-
+        
         });
 
 
         return marker;
-
+    
     });
 
     var markerCluster = new MarkerClusterer(map, markers, {
@@ -658,7 +645,7 @@ function initMap() {
 
 
 
-
+    
 
     google.maps.event.addListener(markerCluster, 'click', function(c) {
 
@@ -765,18 +752,8 @@ function initMap() {
 }
 
 const locations = [
-    @foreach($promo as $prom) {
-        lat: {
-            {
-                $prom - > lat
-            }
-        },
-        lng: {
-            {
-                $prom - > long
-            }
-        }
-    },
+    @foreach($promo as $prom)
+         { lat: {{$prom->lat}}, lng: {{$prom->long}} },
     @endforeach
 ];
 
@@ -789,8 +766,12 @@ function heart_toggle() {
 
         $("i", this).toggle();
     });
-
+    
 }
+
+
+
+
 </script>
 @endpush
 
