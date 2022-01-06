@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\HelpController;
 use App\Http\Controllers\Frontend\IndividualBlogController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\TestController;
 use App\Http\Controllers\Frontend\FindAgentController;
 use App\Http\Controllers\Frontend\IndividualAgentController;
 use App\Http\Controllers\Frontend\MapSearchController;
@@ -30,6 +31,8 @@ use App\Http\Controllers\Frontend\UserFeedbackController;
  */
 Route::get('/', [HomeController::class, 'landing'])->name('landing');
 Route::get('country/{country_id}', [HomeController::class, 'index'])->name('home_page');
+Route::get('test_home_page/{country_id}', [TestController::class, 'index'])->name('test_home_page');
+
 
 Route::get('calc_tpr/{price}', [HomeController::class, 'calc_tpr'])->name('calc_tpr');
 

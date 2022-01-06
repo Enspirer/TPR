@@ -44,8 +44,8 @@
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'find-agent' ? 'active' : null }}"
-                            href="{{ route('frontend.find-agent', ['area', 'agent_type', 'agent_name'] )}}">Find
-                            Agent</a>
+                            href="{{ route('frontend.find-agent', ['area', 'agent_type', 'agent_name'] )}}">Find a Realtor
+                            </a>
 
                         <div class="line"></div>
                     </li>
