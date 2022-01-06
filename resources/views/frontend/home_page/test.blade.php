@@ -561,20 +561,6 @@ function initMap() {
 
     const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    const markers = locations.map((location, i) => {
-        const marker =  new google.maps.Marker({
-            position: location,
-            label: labels[i % labels.length]
-        });
-        
-        marker.addListener("click", () => {
-                    alert("You click the marker");
-                });
-
-        
-                        return marker;
-    });
-
     const contentString = ` <div id="content">
                 <h2>This is popup content</h2>
                 <img src="hill.jpg" alt="">
@@ -584,6 +570,26 @@ function initMap() {
                 content: contentString,
                 disableAutoPan: true,
             });
+
+    const markers = locations.map((location, i) => {
+        const marker =  new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+        });
+        
+        marker.addListener("click", () => {
+            infoWindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: false,
+                });
+        });
+
+        
+                        return marker;
+    });
+
+  
 
 
     // let property = <?php echo json_encode($promo); ?>;
