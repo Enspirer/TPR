@@ -130,6 +130,10 @@ class IndividualPropertyController extends Controller
             $add->de_list=$request->de_list; 
         }
 
+        if($request->watch_listing != null){
+            $add->watch_list=$request->watch_listing; 
+        }
+
         $add->property_id=$request->pro_hidden_id; 
         $add->user_id=$user_id;
 
@@ -141,6 +145,7 @@ class IndividualPropertyController extends Controller
 
     public function change_watch_listing(Request $request)
     {        
+        // dd($request);
         $user_id = auth()->user()->id;
 
         $update = new WatchListing;
@@ -164,6 +169,13 @@ class IndividualPropertyController extends Controller
         }
         else{
             $update->de_list=null; 
+        }
+
+        if($request->watch_listing != null){
+            $update->watch_list=$request->watch_listing; 
+        }
+        else{
+            $update->watch_list=null; 
         }
 
         $update->property_id=$request->pro_hidden_id; 

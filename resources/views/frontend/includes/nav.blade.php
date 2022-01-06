@@ -255,8 +255,21 @@
                     </li>
                     <!-- icons bar -->
                     <div class="icons-bar">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-bell" style="color:#82bf3e;"></i>
+                        <div class="icon-wrapper heart-wrapper">
+                            @if(!empty( auth()->user()->id) === true)
+                                <a href="{{route('frontend.user.user_notifications')}}">
+                                <i class="fas fa-bell" style="color:#82bf3e;"></i>                   
+                                    <div class="counter-wrapper">
+                                        <p id="heartCounter">                                        
+                                            {{App\Models\Notifications::where('user_id',auth()->user()->id)->get()->count()}}
+                                        </p>
+                                    </div>
+                                </a>
+                            @else
+                                <a href="{{route('frontend.auth.login')}}">
+                                <i class="fas fa-bell" style="color:#82bf3e;"></i> 
+                                </a>
+                            @endif
                         </div>
                         <div class="icon-wrapper heart-wrapper">
                             @if(!empty( auth()->user()->id) === true)

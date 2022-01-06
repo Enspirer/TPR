@@ -1570,22 +1570,31 @@
                     <form method="post" action="{{route('frontend.watch_listing')}}" >
                         {{csrf_field()}}
 
-                        <p>Watch this listing. Receive notification when it is sold. Watch this community. Receive updates on Detached homes in {{$property_details->city}} - {{$property_details->country}}</p>
+                        <p>Watch this listing. Receive notification when it is sold.</p>
 
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing" id="watch_listing">
+                            <label class="form-check-label" for="watch_listing">
+                                Watch Listing
+                            </label>
+                        </div>
+
+                        <p>Watch this community. Receive updates on Detached homes in {{$property_details->city}} - {{$property_details->country}}</p>
+                        
                         <div class="form-check">
-                            <input class="form-check-input" name="new_list" type="checkbox" value="new_list" id="new_list">
+                            <input class="form-check-input" name="new_list" type="checkbox" value="{{$property_details->city}}" id="new_list">
                             <label class="form-check-label" for="new_list">
                                 New Listing
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" name="sold_list" type="checkbox" value="sold_list" id="sold_list">
+                            <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property_details->city}}" id="sold_list">
                             <label class="form-check-label" for="sold_list">
                                 Sold Listing
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" name="de_list" type="checkbox" value="de_list" id="de_list">
+                            <input class="form-check-input" name="de_list" type="checkbox" value="{{$property_details->city}}" id="de_list">
                             <label class="form-check-label" for="de_list">
                                 Delisted Listing
                             </label>
@@ -1614,13 +1623,27 @@
                     <form method="post" action="{{route('frontend.change_watch_listing')}}" >
                         {{csrf_field()}}
 
+                        <p>Watch this listing. Receive notification when it is sold.</p>
+
+                        <div class="form-check mb-3">
+                            @if($watch_list->watch_list == null)
+                                <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing" id="watch_listing">
+                            @else
+                                <input class="form-check-input" name="watch_listing" type="checkbox" value="watch_listing" id="watch_listing" checked>
+                            @endif
+                            <label class="form-check-label" for="watch_listing">
+                                Watch Listing
+                            </label>
+                        </div>
+                       
                         <p>Watch this listing. Receive notification when it is sold. Watch this community. Receive updates on Detached homes in {{$property_details->city}} - {{$property_details->country}}</p>
+
 
                         <div class="form-check">
                             @if($watch_list->new_list == null)
-                                <input class="form-check-input" name="new_list" type="checkbox" value="new_list" id="new_list">
+                                <input class="form-check-input" name="new_list" type="checkbox" value="{{$property_details->city}}" id="new_list">
                             @else
-                                <input class="form-check-input" name="new_list" type="checkbox" value="new_list" id="new_list" checked>
+                                <input class="form-check-input" name="new_list" type="checkbox" value="{{$property_details->city}}" id="new_list" checked>
                             @endif
                             <label class="form-check-label" for="new_list">
                                 New Listing
@@ -1628,9 +1651,9 @@
                         </div>
                         <div class="form-check">
                             @if($watch_list->sold_list == null)
-                                <input class="form-check-input" name="sold_list" type="checkbox" value="sold_list" id="sold_list">
+                                <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property_details->city}}" id="sold_list">
                             @else
-                                <input class="form-check-input" name="sold_list" type="checkbox" value="sold_list" id="sold_list" checked>
+                                <input class="form-check-input" name="sold_list" type="checkbox" value="{{$property_details->city}}" id="sold_list" checked>
                             @endif
                             <label class="form-check-label" for="sold_list">
                                 Sold Listing
@@ -1638,9 +1661,9 @@
                         </div>
                         <div class="form-check">
                             @if($watch_list->de_list == null)
-                                <input class="form-check-input" name="de_list" type="checkbox" value="de_list" id="de_list">
+                                <input class="form-check-input" name="de_list" type="checkbox" value="{{$property_details->city}}" id="de_list">
                             @else
-                                <input class="form-check-input" name="de_list" type="checkbox" value="de_list" id="de_list" checked>
+                                <input class="form-check-input" name="de_list" type="checkbox" value="{{$property_details->city}}" id="de_list" checked>
                             @endif
                             <label class="form-check-label" for="de_list">
                                 Delisted Listing

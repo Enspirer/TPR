@@ -18,6 +18,7 @@ class CreateWatchListingsTable extends Migration
             $table->text('new_list')->nullable();
             $table->text('sold_list')->nullable();
             $table->text('de_list')->nullable();
+            $table->text('watch_list')->nullable();
             $table->text('user_id');
             $table->text('property_id');
             $table->timestamps();

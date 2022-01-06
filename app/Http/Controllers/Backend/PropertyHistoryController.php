@@ -10,6 +10,7 @@ use App\Models\Properties;
 use App\Models\PropertyType;
 use App\Models\AgentRequest;
 use App\Models\ListingHistory;
+use App\Models\WatchListing;
 
 
 class PropertyHistoryController extends Controller
@@ -88,6 +89,22 @@ class PropertyHistoryController extends Controller
 
     public function update(Request $request)
     {    
+        // dd($request);
+
+        if($request->sold_request == 'Sold'){
+            $watch_listings = WatchListing::where('property_id',$request->hidden_id)->get();
+
+            foreach($watch_listings as $watch_listing){
+                if($watch_listing->watch_list != null){
+                    push_notification('title_test', 'description_test', 'url_test', $watch_listing->user_id);
+                }
+                                
+            }  
+            
+
+        }
+
+       
         
         $updatproperty = new Properties;
         

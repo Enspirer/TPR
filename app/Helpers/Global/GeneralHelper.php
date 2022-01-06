@@ -5,6 +5,8 @@ use App\Models\Favorite;
 use Illuminate\Http\Request;
 use App\Models\Settings; 
 use App\Models\WatchListing; 
+use App\Models\Notifications;
+
 
 if (! function_exists('app_name')) {
     /**
@@ -295,5 +297,30 @@ if (! function_exists('my_asset')) {
     function my_asset($path, $secure = null)
     {
          return app('url')->asset(''.$path, $secure);        
+    }
+}
+
+
+if (! function_exists('push_notification')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function push_notification($title, $description, $url, $user_id)
+    {
+
+        $add = new Notifications;
+
+        $add->title=$title;
+        $add->description=$description;
+        $add->url=$url;
+        $add->user_id=$user_id;
+        $add->status='Pending';
+
+        $add->save();
+      
+        return 'done';
+       
     }
 }
