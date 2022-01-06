@@ -600,7 +600,6 @@ function initMap() {
             <div class="infor-card">
                 <img src="">
                 <div class="info-txt-wrapper">
-                    ${nameList[i].city}
                 </div>
             </div>
         `;
