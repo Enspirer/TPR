@@ -332,8 +332,12 @@ class AgentController extends Controller
         $description = $request->description;
         // $details_forms_submit = json_encode($details_forms);
         $details_forms_submit=$request->json_form_data;
-
-
+        $states=$request->states;
+        $postal_code=$request->postal_code;
+        $address_one=$request->address_line_one;
+        $address_two=$request->address_line_two;
+        $virtual_tour=$request->virtual_tour;
+        $virtual_tour_access=$request->virtual_tour_access;
 
         $admin_approval='Pending';
         $country_manager_approval='Pending';
@@ -367,7 +371,13 @@ class AgentController extends Controller
                 'city' => $city,
                 'admin_approval' => $admin_approval,
                 'country_manager_approval' => $country_manager_approval,
-                'external_parameter' => $details_forms_submit
+                'external_parameter' => $details_forms_submit,
+                'states' => $states,
+                'postal_code' => $postal_code,
+                'address_one' => $address_one,
+                'address_two' => $address_two,
+                'virtual_tour' => $virtual_tour,
+                'virtual_tour_access' => $virtual_tour_access
             ]
         );
 
@@ -460,6 +470,12 @@ class AgentController extends Controller
         $addprop->user_id = auth()->user()->id;
         $addprop->city=$request->city;
         $addprop->description=$request->description;
+        $addprop->states=$request->states;
+        $addprop->postal_code=$request->postal_code;
+        $addprop->address_one=$request->address_line_one;
+        $addprop->address_two=$request->address_line_two;
+        $addprop->virtual_tour=$request->virtual_tour;
+        $addprop->virtual_tour_access=$request->virtual_tour_access;
         $addprop->external_parameter=$request->json_form_data;
 
         $addprop->country = $request->country;      

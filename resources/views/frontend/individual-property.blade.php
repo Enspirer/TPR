@@ -100,7 +100,7 @@
 
                     <div class="details mt-5">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-5">
                                 <h5 class="mb-1" style="color: #79CEEC;">{{ get_currency(request(),$property_details->price ) }}</h5>
                                 <h5 style="color: #83BE43">{{ $property_details->city }}, {{ $property_details->country }}</h5>
 
@@ -115,7 +115,34 @@
                                     2 bed semi-detached house
                                 </p> -->
                             </div>
-                            <div class="col-6 text-end">
+                            <div class="col-4">
+
+                            @auth
+                                @if($property_details->virtual_tour != null)
+                                    @if($property_details->virtual_tour_access == 'agents')
+                                        @if( App\Models\AgentRequest::where('user_id',auth()->user()->id)->where('status','Approved')->first() != null )
+                                            <div class="mt-3">
+                                                <button class="btn btn-success" data-toggle="modal" data-target="#virtual_tour_modal">Virtual Tour</button>
+                                            </div>
+                                        @endif
+                                    @else
+                                        <div class="mt-3">
+                                            <button class="btn btn-success" data-toggle="modal" data-target="#virtual_tour_modal">Virtual Tour</button>
+                                        </div>
+                                    @endif
+                                @endif
+
+                            @else
+                                @if($property_details->virtual_tour != null)
+                                    <div class="mt-3">
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#loginModal">Virtual Tour</button>
+                                    </div>
+                                @endif
+                            @endauth
+                            
+
+                            </div>
+                            <div class="col-3 text-end">
 
                                 <p class="text-secondary mt-5">
                                     @if($property_details->baths == null)
@@ -141,7 +168,7 @@
                         <input type="text" name="lng" id="lng" value="{{$property_details->long}}" class="mt-3 d-none">
                     </div>
 
-                    <div class="extra-details mt-2">
+                    <!-- <div class="extra-details mt-2">
                         <div class="row text-secondary">
                             <div class="col-6">
                                 <div class="row">
@@ -164,7 +191,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="features">
                         <h4 class="fw-bold" style="margin-top: 6rem;">Features and Description</h4>
@@ -706,9 +733,15 @@
                         @endauth
 
 
-                                <div class="col-12 text-center mt-4">
-                                    <a  target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{$property_details->lat}}%2c{{$property_details->long}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid">Directions</a>
-                                </div>
+                            <div class="col-12 text-center mt-4">
+                                <a  target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{$property_details->lat}}%2c{{$property_details->long}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid">Directions</a>
+                            </div>
+
+                            <div class="col-12 text-center mt-4">
+                                <button class="btn rounded-0 py-2 fw-bold fs-6 w-100" onclick="window.print()" style="border: 1.5px solid"><i class="bi bi-printer me-1"></i>Print</button>
+                            </div>
+
+
                         @auth
                             @if($favourite == null)
 
@@ -1502,6 +1535,26 @@
         </div>
     @endauth
 
+
+
+
+<div class="modal fade" id="virtual_tour_modal" tabindex="-1" aria-labelledby="virtual_tour_modalModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="virtual_tour_modalModalLabel">Virtal Tour</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+            {!!$property_details->virtual_tour!!}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
 
     
 @if($watch_list == null)
