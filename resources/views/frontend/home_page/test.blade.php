@@ -640,6 +640,7 @@ function initMap() {
 
 
         var markers = c.getMarkers();
+        console.log(markers);
         var newArray = [];
 
         @if(get_country_cookie(request()))
@@ -674,7 +675,7 @@ function initMap() {
                 }
 
 
-                var infowindow = new google.maps.InfoWindow();
+                // var infowindow = new google.maps.InfoWindow();
 
 
                 // for (let i = 0; i < obj.length; i++) {
