@@ -563,11 +563,16 @@ function initMap() {
 
 
     var nameList = [{ id: 1, name: "NameOne"}, {  id: 2, name: "NameTwo"}, {  id: 3, name: "NameThree"}, {  id: 4, name: "NameFour"}, {  id: 4, name: "NameFive"}];
-        
+      
+    
+    for(let j; j < nameList.length; i++) {
         const contentString = ` <div id="content">
-                    <h2>This is popup ${nameList[2].name} content </h2>
+                    <h2>This is popup ${nameList[i].name} content </h2>
                     <img src="hill.jpg" alt="">
                 </div>`;
+    }
+
+      
 
     var myName = "Banuka";
 
