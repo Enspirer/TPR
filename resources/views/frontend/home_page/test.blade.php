@@ -566,10 +566,7 @@ function initMap() {
       
     
     for(let j; j < nameList.length; j++) {
-        const contentString = ` <div id="content">
-                    <h2>This is popup ${nameList[j].name} content </h2>
-                    <img src="hill.jpg" alt="">
-                </div>`;
+   
     }
 
       
@@ -584,7 +581,10 @@ function initMap() {
 
     const markers = locations.map((location, i) => {
 
-       
+        const contentString = ` <div id="content">
+                    <h2>This is popup ${nameList[4].name} content </h2>
+                    <img src="hill.jpg" alt="">
+                </div>`;
 
         const marker =  new google.maps.Marker({
             position: location,
