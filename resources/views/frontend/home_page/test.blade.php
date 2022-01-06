@@ -691,35 +691,35 @@ function initMap() {
                 }
 
 
-                var infowindow = new google.maps.InfoWindow();
+                // var infowindow = new google.maps.InfoWindow();
 
 
-                for (let i = 0; i < obj.length; i++) {
-                    let details;
-                    markers[i].addListener('click', function() {
-                        if (info[i][1] == markers[i].getPosition().lng() && info[i][2] == markers[i]
-                            .getPosition().lat()) {
-                            details = `  <div class="row align-items-center p-1" style="width: 500px;">
-                                                    <div class="col-6">
-                                                        <img src="{{url('/')}}/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <h5 class="fw-bold mb-2">${obj[i]['name']}</h5>
-                                                        <p class="mb-1" style="font-size: 0.8rem;">Transaction Type: ${obj[i]['transaction_type']}</p>
-                                                        <p class="mb-1" style="font-size: 0.8rem;">Country: ${obj[i]['country']}</p>
-                                                        <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${obj[i]['price_currency']}</p>
+                // for (let i = 0; i < obj.length; i++) {
+                //     let details;
+                //     markers[i].addListener('click', function() {
+                //         if (info[i][1] == markers[i].getPosition().lng() && info[i][2] == markers[i]
+                //             .getPosition().lat()) {
+                //             details = `  <div class="row align-items-center p-1" style="width: 500px;">
+                //                                     <div class="col-6">
+                //                                         <img src="{{url('/')}}/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 150px!important; object-fit: cover!important; width: 100%";>
+                //                                     </div>
+                //                                     <div class="col-6">
+                //                                         <h5 class="fw-bold mb-2">${obj[i]['name']}</h5>
+                //                                         <p class="mb-1" style="font-size: 0.8rem;">Transaction Type: ${obj[i]['transaction_type']}</p>
+                //                                         <p class="mb-1" style="font-size: 0.8rem;">Country: ${obj[i]['country']}</p>
+                //                                         <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${obj[i]['price_currency']}</p>
 
-                                                        <div class="text-end mt-2">
-                                                            <a href="{{url('/')}}/individual-property/${obj[i]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
-                                                        </div>
-                                                    </div>
-                                                </div>`;
+                //                                         <div class="text-end mt-2">
+                //                                             <a href="{{url('/')}}/individual-property/${obj[i]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
+                //                                         </div>
+                //                                     </div>
+                //                                 </div>`;
 
-                            infowindow.setContent(details);
-                            infowindow.open(map, markers[i]);
-                        }
-                    });
-                }
+                //             infowindow.setContent(details);
+                //             infowindow.open(map, markers[i]);
+                //         }
+                //     });
+                // }
 
 
 
