@@ -670,7 +670,7 @@ function initMap() {
                 }
 
 
-                var infowindow = new google.maps.InfoWindow();
+                // var infowindow = new google.maps.InfoWindow();
 
 
                 // for (let i = 0; i < obj.length; i++) {
