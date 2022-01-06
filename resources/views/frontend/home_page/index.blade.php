@@ -590,7 +590,6 @@ function initMap() {
 
     
 
-        {{url('/')}}/image_assest/${nameList[i]['feature_image_id']}
 
 
         const details = `  <div class="info-card">
@@ -601,6 +600,7 @@ function initMap() {
                 <p>Country: ${nameList[i].country}</p>
                 <p>City: ${nameList[i].city}</p>
                 <span class="price-tag">${nameList[i].price}</span>
+                <p>${nameList[i].imgUrl}</p>
             </div>
         </div>`;
 
