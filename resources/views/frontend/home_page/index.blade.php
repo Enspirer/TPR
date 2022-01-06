@@ -565,7 +565,7 @@ function initMap() {
 
     const markers = locations.map((location, i) => {
 
-        return new google.maps.Marker({
+        const marker =  new google.maps.Marker({
             position: location,
             label: labels[i % labels.length]
         });
