@@ -572,10 +572,38 @@ function initMap() {
 
         marker.addListener("click", () => {
 
-        var nameList = [{ id: 1, name: "NameOne"}, {  id: 2, name: "NameTwo"}, {  id: 3, name: "NameThree"}, {  id: 4, name: "NameFour"}, {  id: 5, name: "NameFive"}, {  id: 6, name: "NameFive"}, {  id: 7, name: "NameFive"}];
+        var nameList = [
+            
+            @foreach($promo as $crom)
+            { 
+                id: {{$crom->id}}, 
+                name: "{{$crom->name}}",
+                price: "{{$crom->price}}",
+                city: "{{$crom->city}}",
+                country: "{{$crom->country}}",
+                transaction_type: "{{$crom->transaction_type}}",
+                imgUrl: "{{url('/')}}/image_assest/{{$crom->feature_image_id}}",
+            },
+            @endforeach
+
+        ];
+
+    
 
 
-        const details = `<p>changed ${nameList[i].name} content</p>`;
+
+        const details = `  <div class="info-card">
+            <div class="img-wrapper">
+                <img src="${nameList[i].imgUrl}" alt="info-img">
+            </div>
+            <div class="info-txt-wrapper">
+                <h3>${nameList[i].name}</h3>
+                <p>Transaction Type: ${nameList[i].transaction_type}</p>
+                <p>Country: ${nameList[i].country}</p>
+                <p>City: ${nameList[i].city}</p>
+                <span class="price-tag">${nameList[i].price}</span>
+            </div>
+        </div>`;
 
             infoWindow.open(map, markers[i]);
             infoWindow.setContent(details);
