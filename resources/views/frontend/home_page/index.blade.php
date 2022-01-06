@@ -582,7 +582,7 @@ function initMap() {
                 city: "{{$crom->city}}",
                 country: "{{$crom->country}}",
                 transaction_type: "{{$crom->transaction_type}}",
-                imgUrl: "{{url('/')}}/image_assest/$crom->feature_image_id}",
+                imgUrl: "{{url('/')}}/image_assest/{{$crom->feature_image_id}}",
             },
             @endforeach
 
