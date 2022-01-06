@@ -615,6 +615,8 @@ function initMap() {
 
     google.maps.event.addListener(markerCluster, 'click', function(c) {
 
+        console.log(c);
+
         var markers = c.getMarkers();
         var newArray = [];
 
