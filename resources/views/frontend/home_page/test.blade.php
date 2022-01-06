@@ -594,7 +594,8 @@ function initMap() {
         });
         
         marker.addListener("click", () => {
-            infowindow.setContent(newContent);
+
+            
             infoWindow.open({
                     anchor: marker,
                     map,
