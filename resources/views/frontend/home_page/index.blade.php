@@ -588,8 +588,21 @@ function initMap() {
 
         ];
 
+    
 
-        const details = `${nameList[i].name}`;
+
+
+
+        const details = `  <div class="info-card">
+            <img src="">
+            <div class="info-txt-wrapper">
+                <h3>${nameList[i].name}</h3>
+                <p>Transaction Type: ${nameList[i].transaction_type}</p>
+                <p>Country: ${nameList[i].country}</p>
+                <p>City: ${nameList[i].city}</p>
+                <span class="price-tag">${nameList[i].price}</span>
+            </div>
+        </div>`;
 
             infoWindow.open(map, markers[i]);
             infoWindow.setContent(details);
