@@ -583,11 +583,12 @@ function initMap() {
         });
         
         marker.addListener("click", () => {
-            infoWindow.open({
-                    anchor: marker,
-                    map,
-                    shouldFocus: false,
-                });
+            // infoWindow.open({
+            //         anchor: marker,
+            //         map,
+            //         shouldFocus: false,
+            //     });
+            alert(i);
         });
 
         
