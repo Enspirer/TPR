@@ -570,8 +570,8 @@ function initMap() {
 
 
         marker.addListener("click", () => {
-                    alert("You click the marker");
-                });
+                mapFix();
+        });
 
                         return marker;
     });
@@ -623,7 +623,12 @@ function initMap() {
         imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
     });
 
-    google.maps.event.addListener(markerCluster, 'click', function(c) {
+    // google.maps.event.addListener(markerCluster, 'click', function(c) {
+
+
+        function mapFix(c) {
+
+            alert("map fix working");
 
         var markers = c.getMarkers();
         var newArray = [];
@@ -722,7 +727,9 @@ function initMap() {
                 heart_toggle();
 
             });
-    });
+    }
+    
+    // );
 
 
 }
