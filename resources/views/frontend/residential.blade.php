@@ -358,7 +358,7 @@
 
                         var nameList = [
                             
-                            @foreach($promo as $crom)
+                            @foreach($filteredProperty  as $crom)
                             { 
                                 id: {{$crom->id}}, 
                                 name: "{{$crom->name}}",
@@ -569,7 +569,7 @@
 
                         var nameList = [
                             
-                            @foreach($promo as $crom)
+                            @foreach($filteredProperty as $crom)
                             { 
                                 id: {{$crom->id}}, 
                                 name: "{{$crom->name}}",
