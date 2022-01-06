@@ -60,4 +60,5 @@
 
 .pac-container {
     top: 844px !important;
+    display: block !important;
 }
