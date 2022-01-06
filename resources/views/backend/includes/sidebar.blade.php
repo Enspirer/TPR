@@ -147,13 +147,6 @@
             </li>            
 
 
-            <li class="nav-item">
-                <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">
-                    <i class="nav-icon fas fa-comments"></i>
-                    Contact Us <span class="notification badge">{{App\Models\ContactUs::where('status','Pending')->get()->count()}}</span>
-                </a>
-            </li>
-
             <li class="nav-item nav-dropdown ">
                 <a class="nav-link nav-dropdown-toggle " href="#">
                     <i class="nav-icon fas fa-paste"></i>
@@ -223,6 +216,19 @@
                 </ul>
             </li> 
 
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">
+                    <i class="nav-icon fas fa-comments"></i>
+                    Contact Us <span class="notification badge">{{App\Models\ContactUs::where('status','Pending')->get()->count()}}</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/feedbacks'))}}" href="{{ route('admin.feedbacks.index') }}">
+                    <i class="nav-icon fas fa-comment-dots"></i>
+                    Feedback <span class="notification badge">{{App\Models\UserFeedback::where('status','Pending')->get()->count()}}</span>
+                </a>
+            </li>
 
 
             @if ($logged_in_user->isAdmin())

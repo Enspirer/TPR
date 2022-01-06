@@ -512,7 +512,7 @@ padding: 0;
                             </div>
                           
                             <p style="margin-top:15px;">Please provide details and your email address if you would like a response</p>
-                                <textarea class="full-area" rows="4"></textarea>    
+                                <textarea class="full-area" name="provided_details" rows="4"></textarea>    
                                 <p style="margin-bottom:5px;">Are you a First Time Buyer/Seller?</p>
                                 <div class="radio-wrapper form-check">
                                     <input class="radio-btns form-check-input" type="radio" id="yes" name="buyer_seller" value="yes">
