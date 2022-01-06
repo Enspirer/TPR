@@ -593,7 +593,7 @@ function initMap() {
 
 
         const details = `  <div class="info-card">
-            <img src="https://wearesrilankan.org/tpr_development/public/image_assest/7" alt="info img">
+            <img src="${nameList[i].imgUrl}" alt="info img">
             <div class="info-txt-wrapper">
                 <h3>${nameList[i].name}</h3>
                 <p>Transaction Type: ${nameList[i].transaction_type}</p>
