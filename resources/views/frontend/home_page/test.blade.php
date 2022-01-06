@@ -567,6 +567,10 @@ function initMap() {
             label: labels[i % labels.length]
         });
 
+        marker.addListener("click", () => {
+                    alert("You clicked the marker");
+                });
+
     });
 
 
