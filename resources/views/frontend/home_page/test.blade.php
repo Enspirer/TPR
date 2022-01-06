@@ -562,7 +562,8 @@ function initMap() {
     const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     const markers = locations.map((location, i) => {
-        return new google.maps.Marker({
+        
+        const marker = new google.maps.Marker({
             position: location,
             label: labels[i % labels.length]
         });
@@ -571,6 +572,7 @@ function initMap() {
                     alert("You clicked the marker");
                 });
 
+        return marker;
     });
 
 
