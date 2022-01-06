@@ -572,7 +572,19 @@ function initMap() {
 
         marker.addListener("click", () => {
 
-        var nameList = [{ id: 1, name: "NameOne"}, {  id: 2, name: "NameTwo"}, {  id: 3, name: "NameThree"}, {  id: 4, name: "NameFour"}, {  id: 5, name: "NameFive"}, {  id: 6, name: "NameFive"}, {  id: 7, name: "NameFive"}];
+        var nameList = [
+            @foreach($promo as $crom)
+            { 
+                id: {{ $crom->id }}, 
+                name: {{ $crom->name}},
+                price: {{ $crom->price}},
+                city: {{ $crom->city}},
+                country: {{ $crom->country}},
+                transaction_type: {{ $crom->transaction_type}},
+            },
+            @endforeach
+
+        ];
 
 
         const details = `<p>changed ${nameList[i].name} content</p>`;
