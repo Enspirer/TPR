@@ -146,7 +146,7 @@
                                 <div class="col-8 full-size-width">
                                     <div class="ps-2">
                                         <div class="row">
-                                            <h5 class="fw-bolder">{{$prop->name}}</h5>
+                                            <h5 class="fw-bolder i-agent-card-title">{{$prop->name}}</h5>
                                         </div>
                                         <div class="row mt-3">
 
