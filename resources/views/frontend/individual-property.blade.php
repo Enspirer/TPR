@@ -347,8 +347,8 @@
                                 <div class="row justify-content-center text-center">
                                     <div class="col-6 p-0">
                                         <a role="button" id="chevronChanger" class="collapsed text-decoration-none text-body collapse-button" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem;"></a>
-                                        <i class="bi bi-chevron-down ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem; cursor: pointer;"></i>
-                                        <i class="bi bi-chevron-up ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="display: none; font-size: 0.8rem; cursor: pointer;"></i>
+                                        <i id="downArrow" class="bi bi-chevron-down ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem; cursor: pointer;"></i>
+                                        <i id="upArrow" class="bi bi-chevron-up ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="display: none; font-size: 0.8rem; cursor: pointer;"></i>
                                     </div>
                                 </div>
                             </div>
@@ -1864,19 +1864,19 @@ type="text/javascript"></script>
     // });
 
     let getButton = document.querySelector("#chevronChanger");
-    // let elementOne = document.querySelector(".bi bi-chevron-down");
-    // let elementTwo = document.querySelector(".bi bi-chevron-up");
+    let down = document.querySelector("#downArrow");
+    let up = document.querySelector("#upArrow");
     let temp = true;
     getButton.addEventListener('click', function() {
         temp = !temp;
         if(!temp) {
-            // elementOne.style.display = "none";
-            // elementTwo.style.display = "block";
+            down.style.display = "none";
+            up.style.display = "block";
             alert("Display One");
         }
         else {
-            // elementOne.style.display = "block";
-            // elementTwo.style.display = "none";
+            down.style.display = "block";
+            up.style.display = "none";
             alert("Display Two");
         }
     });
