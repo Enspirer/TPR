@@ -402,10 +402,10 @@
                 @if(json_decode($country_list2->features_manager)[0]->properties != null)
                     <div class="1strow" style="margin-top: 6rem;">
                         <div class="row align-items-center">
-                            <div class="col-1 pe-0">
+                            <div class="col-1 pe-0 flag-area">
                                 <img src="https://flagcdn.com/w40/{{strtolower($country_list2->country_id)}}.png" alt="" style="height: 30px;">
                             </div>
-                            <div class="col-2 ps-0">
+                            <div class="col-2 ps-0 coutry-name-area">
                                 <h5 class="mb-0">{{$country_list2->country_name}}</h5>
                             </div>
                         </div>                        
