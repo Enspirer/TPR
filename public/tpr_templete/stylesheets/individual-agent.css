@@ -45,7 +45,7 @@
 .tab-price {
     color: #E88EAF;
     position: relative;
-    top: 1.3rem;
+    top: 0.6rem;
 }
 .tab-price small {
     font-size: 0.8rem
@@ -64,6 +64,10 @@
 .i-agent-main-area {
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.i-agent-tags {
+    width: max-content;
 }
 
 /*mobile-view*/

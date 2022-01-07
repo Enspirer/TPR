@@ -16,7 +16,7 @@
 
             <div class="row mt-4">
                 @if(count($filteredProperty) > 0)
-                    <div class="col-3" style="background-color: #F3F3F3">
+                    <div class="col-3 full-size-width" style="background-color: #F3F3F3">
                         <h5>Results: {{ count($filteredProperty) }} Listings</h5>
                         <div class="row align-items-center">
                             <div class="col-5">
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 @else
-                    <div class="col-3">
+                    <div class="col-3 full-size-width">
                         <div class="">
                             <div class="no-result border py-2 px-3">
                                 <h4 class="text-center">No Results</h4>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 @endif
-                <div class="col-9 p-0">
+                <div class="col-9 p-0 full-size-width">
                     <div id="map" style="height: 600px; width: 100%;"></div>
                 </div>
             </div>
@@ -100,14 +100,14 @@
             <div class="container" style="margin-top: 4rem; margin-bottom: 5rem;">
 
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col-9 full-size-width">
                         @if(get_country_cookie(request()))
                             <h3 class="text-center fw-bolder">
                                 {{ ucfirst($category_type) }} Properties in {{ get_country_cookie(request())->country_name }}
                             </h3>
                         @endif
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 max-btn">
                         
                         @auth
                             @if(App\Models\UserSearch::where('user_id',auth()->user()->id)->where('url',url()->current())->first() == null)
@@ -115,7 +115,7 @@
                                 {{csrf_field()}}
                                     <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px;">
                                         <div class="row justify-content-center">
-                                            <div class="col-4" style="padding-left:50px">
+                                            <div class="col-4 mobile-icon-p-fix" style="padding-left:50px">
                                                 <i class="far fa-heart"></i>
                                             </div>
                                             <div class="col-7 p-0 text-start">
@@ -130,7 +130,7 @@
                                 {{csrf_field()}}
                                     <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px; background-color:#F33A6A;">
                                         <div class="row justify-content-center text-light">
-                                            <div class="col-3" style="padding-left:40px">
+                                            <div class="col-3 mobile-icon-p-fix" style="padding-left:40px">
                                                 <i class="fas fa-heart"></i>
                                             </div>
                                             <div class="col-7 p-0 text-start">
@@ -145,7 +145,7 @@
                             
                             <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px;">
                                 <div class="row justify-content-center">
-                                    <div class="col-4" style="padding-left:50px">
+                                    <div class="col-4 mobile-icon-p-fix" style="padding-left:50px">
                                         <i class="far fa-heart"></i>
                                     </div>
                                     <div class="col-7 p-0 text-start">
@@ -163,15 +163,15 @@
                 
 
                 <div class="row mt-5">
-                    <div class="col-8">
+                    <div class="col-8 full-size-width">
                         
                             @foreach($filteredProperty as $property)
                                 <div class="property mb-5 p-3 custom-shadow">
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-6 full-size-width">
                                             <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{ route('frontend.image_assets', $property->feature_image_id) }}" alt="" class="img-fluid w-100" style="object-fit:cover; height:240px;"></a>
                                         </div>
-                                        <div class="col-6 ps-4">
+                                        <div class="col-6 ps-4 full-size-width mobile-top-p">
                                             <div class="row justify-content-between">
                                                 <div class="col-9">
                                                     <h5 class="property-price mb-0">{{ $property->name }}</h5>

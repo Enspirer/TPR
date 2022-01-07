@@ -216,22 +216,22 @@
                         @foreach($com_properties as $key=> $prop)
                             @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
                             <div class="row border py-4 px-3 mb-4">
-                                <div class="col-4">
+                                <div class="col-4 full-size-width">
                                     <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:210px" width="100%" alt="" class="img-fluid">
                                 </div>
-                                <div class="col-8">
+                                <div class="col-8 full-size-width">
                                     <div class="ps-2">
                                         <div class="row">
-                                            <h5 class="fw-bolder">{{$prop->name}}</h5>
+                                            <h5 class="fw-bolder i-agent-card-title">{{$prop->name}}</h5>
                                         </div>
                                         <div class="row mt-3">
 
                                         @if($prop->main_category == 'Commercial')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
                                             </div>
                                         @else
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
                                             </div>
                                         @endif
@@ -284,22 +284,22 @@
                         @foreach($res_properties as $key=> $prop)
                             @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
                             <div class="row border py-4 px-3 mb-4">
-                                <div class="col-4">
+                                <div class="col-4  full-size-width">
                                     <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:210px" width="100%" alt="" class="img-fluid">
                                 </div>
-                                <div class="col-8">
+                                <div class="col-8  full-size-width">
                                     <div class="ps-2">
                                         <div class="row">
-                                            <h5 class="fw-bolder">{{$prop->name}}</h5>
+                                            <h5 class="fw-bolder i-agent-card-title">{{$prop->name}}</h5>
                                         </div>
                                         <div class="row mt-3">
 
                                         @if($prop->main_category == 'Commercial')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
                                             </div>
                                         @else
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
                                             </div>
                                         @endif
@@ -352,30 +352,30 @@
                         @foreach($tp_properties as $key=> $prop)
                             @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
                             <div class="row border py-4 px-3 mb-4">
-                                <div class="col-4">
+                                <div class="col-4 full-size-width">
                                     <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:210px" width="100%" alt="" class="img-fluid">
                                 </div>
-                                <div class="col-8">
+                                <div class="col-8 full-size-width">
                                     <div class="ps-2">
                                         <div class="row">
-                                            <h5 class="fw-bolder">{{$prop->name}}</h5>
+                                            <h5 class="fw-bolder i-agent-card-title">{{$prop->name}}</h5>
                                         </div>
                                         <div class="row mt-3">
 
                                         @if($prop->main_category == 'Commercial')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
                                             </div>
                                         @elseif($prop->main_category == 'Residential')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
                                             </div>
                                         @elseif($prop->main_category == 'TP_Developer')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">TP Developer</button>
                                             </div>  
                                         @else
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Investments</button>
                                             </div>  
                                         @endif
@@ -428,30 +428,30 @@
                         @foreach($invest_properties as $key=> $prop)
                             @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
                             <div class="row border py-4 px-3 mb-4">
-                                <div class="col-4">
+                                <div class="col-4 full-size-width">
                                     <img src="{{ url('images',$feature_image->file_name) }}" style="object-fit: cover; height:210px" width="100%" alt="" class="img-fluid">
                                 </div>
-                                <div class="col-8">
+                                <div class="col-8 full-size-width">
                                     <div class="ps-2">
                                         <div class="row">
-                                            <h5 class="fw-bolder">{{$prop->name}}</h5>
+                                            <h5 class="fw-bolder i-agent-card-title">{{$prop->name}}</h5>
                                         </div>
                                         <div class="row mt-3">
 
                                         @if($prop->main_category == 'Commercial')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
                                             </div>
                                         @elseif($prop->main_category == 'Residential')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
                                             </div>
                                         @elseif($prop->main_category == 'TP_Developer')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">TP Developer</button>
                                             </div>  
                                         @else
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Investments</button>
                                             </div>  
                                         @endif

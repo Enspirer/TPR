@@ -64,7 +64,21 @@
 }
 
 /*mobile-view*/
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
+    .mobile-icon-p-fix {
+        padding-left: 0 !important;
+        width: max-content;
+    }
+
+    .max-btn {
+        width: 185px;
+        margin-left: 15px;
+    }
+
+    .mobile-top-p {
+        padding-top: 15px;
+    }
+}
 
 
 

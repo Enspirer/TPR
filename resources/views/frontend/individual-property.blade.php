@@ -46,7 +46,7 @@
         <div class="container mt-4">
             <div class="row justify-content-between">
 
-                <div class="col-8">
+                <div class="col-8 full-size-width">
 
                     @if(json_decode($property_details->image_ids) == null)
 
@@ -149,7 +149,7 @@
 
                     <div class="details mt-5">
                         <div class="row">
-                            <div class="col-5">
+                            <div class="col-5 full-size-width">
                                 <h5 class="mb-1" style="color: #79CEEC;">{{ get_currency(request(),$property_details->price ) }}</h5>
                                 <h5 style="color: #83BE43">{{ $property_details->city }}, {{ $property_details->country }}</h5>
 
@@ -164,7 +164,7 @@
                                     2 bed semi-detached house
                                 </p> -->
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 full-size-width">
 
                             @auth
                                 @if($property_details->virtual_tour != null)
@@ -191,7 +191,7 @@
                             
 
                             </div>
-                            <div class="col-3 text-end">
+                            <div class="col-3 full-size-width text-end">
 
                                 <p class="text-secondary mt-5">
                                     @if($property_details->baths == null)
@@ -249,27 +249,27 @@
                             <li class="nav-item w-25 text-center" role="presentation">
                                 <button class="nav-link active w-100" id="highlights-tab" data-bs-toggle="tab" data-bs-target="#highlights" type="button" role="tab" aria-controls="highlights" aria-selected="true">
                                     <i class="fas fa-star decription-icon"></i>
-                                    <h6 class="fw-bold">Highlights</h6>
+                                    <h6 class="fw-bold mobile-font-small">Highlights</h6>
                                     <!-- <i class="fa fa-circle tabDot"></i> -->
                                 </button>
                             </li>
                             <li class="nav-item w-25" role="presentation">
                                 <button class="nav-link w-100" id="neighbourhood-tab" data-bs-toggle="tab" data-bs-target="#neighbourhood" type="button" role="tab" aria-controls="neighbourhood" aria-selected="false">
                                     <img src="{{ url('img/icon_neighbourhood_gray.svg') }}" alt="" class="img-fluid mb-1" style="opacity: 0.6">
-                                    <h6 class="fw-bold">Neighbourhood</h6>
+                                    <h6 class="fw-bold mobile-font-small">Neighbourhood</h6>
                                 </button>
                             </li>
                             <li class="nav-item w-25" role="presentation">
                                 <button class="nav-link w-100" id="statistics-tab" data-bs-toggle="tab" data-bs-target="#statistics" type="button" role="tab" aria-controls="statistics" aria-selected="false">
                                     <i class="fas fa-chart-bar decription-icon"></i>
-                                    <h6 class="fw-bold">Statistics</h6>
+                                    <h6 class="fw-bold mobile-font-small">Statistics</h6>
                                 </button>
                             </li>
 
                             <li class="nav-item w-25" role="presentation">
                                 <button class="nav-link w-100" id="calculators-tab" data-bs-toggle="tab" data-bs-target="#calculators" type="button" role="tab" aria-controls="calculators" aria-selected="false">
                                     <i class="fas fa-calculator decription-icon"></i>
-                                    <h6 class="fw-bold">Calculators</h6>
+                                    <h6 class="fw-bold mobile-font-small">Calculators</h6>
                                 </button>
                             </li>
                         </ul>
@@ -710,7 +710,7 @@
     
                 </div>
 
-                <div class="col-4 px-5">
+                <div class="col-4 px-5 full-size-width">
 
                     <div class="row justify-content-center shadow py-4">
                         <div align="center">
@@ -865,8 +865,8 @@
                             <!-- <div class="row px-5"> -->
 
                             @foreach($random as $ran)
-                                <div class="col-3">
-                                    <div class="card p-2 shadow border-0" style="height: 350px">
+                                <div class="col-3 full-size-width tab-width-p-card">
+                                    <div class="card p-2 shadow border-0 tab-height-p-card" style="height: 400px">
                                         <a href="{{ url('individual-property',$ran->id) }}" class="text-decoration-none">
                                             <img src="{{url('image_assest',$ran->feature_image_id)}}" style="object-fit:cover; height:210px" class="card-img-top w-100" alt="...">
                                         </a>
