@@ -63,6 +63,12 @@ class PropertyController extends Controller
             $images = json_decode($property->image_ids);
         }
 
+        if($property->interior_image == NULL){
+            $interior_image = null;
+        } else {
+            $interior_image = json_decode($property->interior_image);
+        }
+        
         // $images = json_decode($property->image_ids);
         
         // dd($property);    
@@ -81,7 +87,8 @@ class PropertyController extends Controller
             'images' => $images ,
             'property_type' => $property_type,
             'agent_details' => $agent_details,
-            'external_parameter' => $external_parameter
+            'external_parameter' => $external_parameter,
+            'interior_image' => $interior_image
         ]);  
     }
 

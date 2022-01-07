@@ -370,6 +370,8 @@ class CountryManagementController extends Controller
 
         $images = json_decode($single_approval->image_ids);
 
+        $interior_image = json_decode($single_approval->interior_image);
+
         if(json_decode($single_approval->external_parameter) == null){
             $external_parameter = null;
         }else{
@@ -382,7 +384,8 @@ class CountryManagementController extends Controller
             'images' => $images,
             'property_type' => $property_type,
             'agent_details' => $agent_details,
-            'external_parameter' => $external_parameter
+            'external_parameter' => $external_parameter,
+            'interior_image' => $interior_image
         ]);
     }    
 

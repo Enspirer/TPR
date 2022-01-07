@@ -27,6 +27,16 @@
                                 <div class="carousel">
                                     <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
                                         <div class="carousel-inner">
+
+                                            @if($interior_image != NULL)
+                                                @foreach($interior_image as $key => $interior)                                                
+                                                
+                                                        <div class="carousel-item">
+                                                            <img src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100" style="height:500px; object-fit:cover;" alt="...">
+                                                        </div>                                              
+
+                                                @endforeach
+                                            @endif
                                             @if($images != NULL)
                                                 @foreach($images as $index => $image)
                                                     

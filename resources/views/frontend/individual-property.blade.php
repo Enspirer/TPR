@@ -59,6 +59,55 @@
                             <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner" style="height:400px;">
 
+                                @auth
+                                    @if($interior_image != NULL)
+                                        @foreach($interior_image as $key => $interior)  
+
+                                            @if($property_details->interior_image_access == 'agents')
+                                                @if( App\Models\AgentRequest::where('user_id',auth()->user()->id)->where('status','Approved')->first() != null )                                             
+                                                
+                                                    <div class="carousel-item" data-toggle="modal" data-target="#interiorModal_{{$key}}">
+                                                        <img src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100" style="height:600px; object-fit:cover;" alt="...">
+                                                    </div>  
+                                                    
+                                                    <div class="modal fade bd-example-modal-lg" id="interiorModal_{{$key}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            
+                                                            <div class="modal-content" style="position: relative;">
+                                                                <button style="position: absolute; top: 0; right: 0; z-index: 1; margin-right:8px;" type="button" class="btn-close text-right mt-2" data-dismiss="modal" aria-label="Close">
+                                                                </button>
+                                                                <img src="{{ url('images',App\Models\FileManager::where('id', $interior)->first()->file_name) }}" class="d-block w-100" alt="..." style="object-fit:contain;">
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+
+                                                @endif    
+                                            @else 
+                                                <div class="carousel-item" data-toggle="modal" data-target="#interiorModal_{{$key}}">
+                                                        <img src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100" style="height:600px; object-fit:cover;" alt="...">
+                                                    </div>  
+                                                    
+                                                    <div class="modal fade bd-example-modal-lg" id="interiorModal_{{$key}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            
+                                                            <div class="modal-content" style="position: relative;">
+                                                                <button style="position: absolute; top: 0; right: 0; z-index: 1; margin-right:8px;" type="button" class="btn-close text-right mt-2" data-dismiss="modal" aria-label="Close">
+                                                                </button>
+                                                                <img src="{{ url('images',App\Models\FileManager::where('id', $interior)->first()->file_name) }}" class="d-block w-100" alt="..." style="object-fit:contain;">
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+
+                                            @endif                                
+
+                                            
+
+                                        @endforeach
+                                    @endif                                
+                                @endauth
+
                                 @foreach($final_out as $key => $image)
                                     @if($key == 0)
                                     <div class="carousel-item active" width="100%" data-toggle="modal" data-target="#exampleModal_{{$key}}">

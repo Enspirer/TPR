@@ -59,6 +59,9 @@ class IndividualPropertyController extends Controller
             }
             // dd($final_out);
         }
+
+        $interior_image = json_decode($property_details->interior_image);
+
         
         $random = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->inRandomOrder()->limit(4)->get();
         // dd($random);
@@ -106,7 +109,8 @@ class IndividualPropertyController extends Controller
             'favourite' => $favourite,
             'external_parameter' => $external_parameter,
             'listing_history' => $listing_history,
-            'watch_list' => $watch_list
+            'watch_list' => $watch_list,
+            'interior_image' => $interior_image
         ]);
     }
 
