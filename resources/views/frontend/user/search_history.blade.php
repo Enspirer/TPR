@@ -25,7 +25,7 @@
             <div class="col-8 full-size-width mobile-top-padding">
                 <div class="row justify-content-between">
                     <div class="col-12 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head mb-3">Saved Search History</h4>
+                        <h4 class="fs-4 fw-bolder user-settings-head mb-3 mobile-title-margin-left">Saved Search History</h4>
 
                         <div class="form-group">
                             <div class="row">
