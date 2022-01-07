@@ -1864,22 +1864,22 @@ type="text/javascript"></script>
     // });
 
     let getButton = document.querySelector("#chevronChanger");
-    let elementOne = document.querySelector(".bi bi-chevron-down");
-    let elementTwo = document.querySelector(".bi bi-chevron-up");
+    // let elementOne = document.querySelector(".bi bi-chevron-down");
+    // let elementTwo = document.querySelector(".bi bi-chevron-up");
     let temp = true;
     getButton.addEventListener('click', function() {
         temp = !temp;
         if(!temp) {
-            elementOne.style.display = "none";
-            elementTwo.style.display = "block";
+            // elementOne.style.display = "none";
+            // elementTwo.style.display = "block";
             alert("Display One");
         }
         else {
-            elementOne.style.display = "block";
-            elementTwo.style.display = "none";
+            // elementOne.style.display = "block";
+            // elementTwo.style.display = "none";
             alert("Display Two");
         }
-    })
+    });
 
 </script>
 
