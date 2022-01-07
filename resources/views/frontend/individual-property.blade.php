@@ -7,33 +7,7 @@
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/individual-property.css') }}">
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/swiper.css') }}">
-    <script>
-    // $('.collapse-button').on('click', function(){
-    //     $(".bi bi-chevron-down").hide();
-    //     $(".bi bi-chevron-up").show();
-        
-    //     $(".features i").toggle();
-    // });
-
-    let getButton = document.querySelector("#chevronChanger");
-    let down = document.querySelector("#downArrow");
-    let up = document.querySelector("#upArrow");
-    let temp = true;
-    getButton.addEventListener('click', function() {
-        temp = !temp;
-        if(!temp) {
-            down.style.display = "none";
-            up.style.display = "block";
-            alert("One");
-        }
-        else {
-            down.style.display = "block";
-            up.style.display = "none";
-            alert("Two");
-        }
-    });
-
-</script>
+   
 
 @endpush
 
@@ -1908,6 +1882,34 @@ type="text/javascript"></script>
       prevEl: ".swiper-button-prev",
     },
   });
+</script>
+
+<script>
+    // $('.collapse-button').on('click', function(){
+    //     $(".bi bi-chevron-down").hide();
+    //     $(".bi bi-chevron-up").show();
+        
+    //     $(".features i").toggle();
+    // });
+
+    let getButton = document.querySelector("#chevronChanger");
+    let down = document.querySelector("#downArrow");
+    let up = document.querySelector("#upArrow");
+    let temp = true;
+    getButton.addEventListener('click', function() {
+        temp = !temp;
+        if(!temp) {
+            down.style.display = "none";
+            up.style.display = "block";
+            alert("One");
+        }
+        else {
+            down.style.display = "block";
+            up.style.display = "none";
+            alert("Two");
+        }
+    });
+
 </script>
 
 <script>
