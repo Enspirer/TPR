@@ -111,7 +111,7 @@
             @else
 
                 <ul class="nav mb-3 mt-5" id="pills-tab" role="tablist">
-                    <li class="nav-item me-3 all" role="presentation" style="border: 2px solid #4A4A4A;">
+                    <li class="nav-item me-3 mobile-m-r-small all" role="presentation" style="border: 2px solid #4A4A4A;">
                     <a class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" style="color: #4A4A4A;">ALL</a>
                     </li>
                     <li class="nav-item me-3 mobile-m-r-small commercial" role="presentation" style="border: 2px solid #83BE43;">
