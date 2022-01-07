@@ -163,7 +163,7 @@
                 
 
                 <div class="row mt-5">
-                    <div class="col-8">
+                    <div class="col-8 full-size-width">
                         
                             @foreach($filteredProperty as $property)
                                 <div class="property mb-5 p-3 custom-shadow">
