@@ -16,7 +16,7 @@
 
             <div class="row mt-4">
                 @if(count($filteredProperty) > 0)
-                    <div class="col-3 full-size-width" style="background-color: #F3F3F3">
+                    <div class="col-3 full-size-width tab-left-side" style="background-color: #F3F3F3">
                         <h5>Results: {{ count($filteredProperty) }} Listings</h5>
                         <div class="row align-items-center">
                             <div class="col-5">
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 @else
-                    <div class="col-3 full-size-width">
+                    <div class="col-3 full-size-width tab-left-side">
                         <div class="">
                             <div class="no-result border py-2 px-3">
                                 <h4 class="text-center">No Results</h4>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 @endif
-                <div class="col-9 p-0 full-size-width">
+                <div class="col-9 p-0 full-size-width tab-right-side">
                     <div id="map" style="height: 600px; width: 100%;"></div>
                 </div>
             </div>

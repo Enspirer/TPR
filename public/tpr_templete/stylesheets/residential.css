@@ -113,6 +113,14 @@
         padding-left: 0 !important;
         width: max-content;
     }
+
+    .tab-left-side {
+        width: 30%;
+    }
+
+    .tab-right-side {
+        width: 70%;
+    }
 }
 
 
