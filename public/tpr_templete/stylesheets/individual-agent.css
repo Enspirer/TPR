@@ -60,3 +60,48 @@
     background-color: #E88EAF;
     border-color: #E88EAF;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .banner {
+        height: 300px;
+    }
+    .i-agent-main-area {
+        display: block;
+        width: 100%;
+        margin-top: 100px;
+    }
+    .mobile-i-agent-row {
+        flex-direction: column;
+    }
+    .i-agent-title {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .mobile-i-agent-btn-area {
+        text-align: left !important;
+    }
+
+    .i-agent-btn {
+        margin-top: 5px !important;
+    }
+
+    .i-agent-contact-btns-area {
+        float: unset;
+        width: 100%;
+    }
+}
+
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+
+
+/*large screen*/
+@media screen and (min-width: 1400px) {
+   
+}

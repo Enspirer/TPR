@@ -49,10 +49,10 @@
             <div class="row">
                 <div class="col-2"> 
                 </div> 
-                <div class="col-10"> 
-                    <div class="row">  
-                        <div class="col-10"> 
-                            <h3 class="fw-bolder mt-3">
+                <div class="col-10 i-agent-main-area"> 
+                    <div class="row mobile-i-agent-row">  
+                        <div class="col-10 full-size-width"> 
+                            <h3 class="fw-bolder mt-3 i-agent-title">
                                 @if($agent_details->company_name == null)
                                     {{ $agent_details->name }}
                                 @else
@@ -60,8 +60,8 @@
                                 @endif
                             </h3>
                         </div>
-                        <div class="col-2 text-end">
-                            <button class="btn rounded-0 text-light px-4 py-2 mt-3" style="background-color: #008080; cursor: default;">{{ $agent_details->agent_type }}</button>
+                        <div class="col-2 text-end full-size-width mobile-i-agent-btn-area">
+                            <button class="btn rounded-0 text-light px-4 py-2 mt-3 i-agent-btn" style="background-color: #008080; cursor: default;">{{ $agent_details->agent_type }}</button>
                         </div>
                     </div>
 
@@ -76,7 +76,7 @@
                     <br>
                     <div class="row">
                         <div class="clearfix">
-                            <div class="col-7 float-end" >
+                            <div class="col-7 float-end i-agent-contact-btns-area" >
                                 <div class="row mt-3">
                                     <div class="col-4">
                                         <a href="tel:{{ $agent_details->telephone }}" class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_phone_icon.svg') }}" alt="" class="img-fluid me-2"> Call</a>
@@ -140,10 +140,10 @@
                         @foreach($all_properties as $key=> $prop)
                             @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
                             <div class="row border py-4 px-3 mb-4">
-                                <div class="col-4">
+                                <div class="col-4 full-size-width">
                                     <img src="{{ url('images',$feature_image->file_name) }}" class="img-fluid w-100" alt="..." style="object-fit:cover; height:210px;">
                                 </div>
-                                <div class="col-8">
+                                <div class="col-8 full-size-width">
                                     <div class="ps-2">
                                         <div class="row">
                                             <h5 class="fw-bolder">{{$prop->name}}</h5>
