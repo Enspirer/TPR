@@ -88,6 +88,15 @@
                                         </div>
                                     </a>
                                 </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{route('frontend.help')}}">
+                                        <div class="row align-items-center">
+                                            <div class="col-12">
+                                                Help
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </li>

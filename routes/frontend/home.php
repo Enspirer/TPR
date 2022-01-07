@@ -76,6 +76,7 @@ Route::get('terms-of-use', [FooterController::class, 'termsOfUse'])->name('terms
 Route::get('tips-for-buyers', [FooterController::class, 'TipsforBuyers'])->name('tips-for-buyers');
 Route::get('tips-for-sellers', [FooterController::class, 'TipsforSellers'])->name('tips-for-sellers');
 Route::get('commercial-resources', [FooterController::class, 'CommercialResources'])->name('commercial-resources');
+Route::get('help', [FooterController::class, 'help'])->name('help');
 
 // Route::get('individual-property/{id}', [IndividualPropertyController::class, 'property_details'])->name('individual-property.property_details');
 
