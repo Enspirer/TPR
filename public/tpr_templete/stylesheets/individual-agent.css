@@ -118,6 +118,14 @@
         width: 100%;
         margin-top: 90px;
     }
+
+    .banner {
+        height: 300px;
+    }
+
+    .i-agent-tags {
+        width: max-content;
+    }
 }
 
 
