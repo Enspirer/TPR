@@ -346,12 +346,13 @@
                                 <div class="row justify-content-center text-center">
                                     <div class="col-6 p-0">
                                         <a role="button" class="collapsed text-decoration-none text-body collapse-button" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem;">
-                                        <i class="bi bi-chevron-down ms-1 collapsed" data-bs-toggle="collapse" style="font-size: 0.8rem; cursor: pointer;"></i>
-                                        <i class="bi bi-chevron-up ms-1 collapsed" data-bs-toggle="collapse"  style="display: none; font-size: 0.8rem; cursor: pointer;"></i>
+                                        <i class="bi bi-chevron-down ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem; cursor: pointer;"></i>
+                                        <i class="bi bi-chevron-up ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="display: none; font-size: 0.8rem; cursor: pointer;"></i>
                                     
                                     </a>
 
-                                        
+                                        <!-- <i class="bi bi-chevron-down ms-1 collapsed" data-bs-toggle="collapse" style="font-size: 0.8rem; cursor: pointer;"></i>
+                                        <i class="bi bi-chevron-up ms-1 collapsed" data-bs-toggle="collapse"  style="display: none; font-size: 0.8rem; cursor: pointer;"></i> -->
 
                                         <!-- <i class="bi bi-chevron-down ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem; cursor: pointer;"></i>
                                         <i class="bi bi-chevron-up ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="display: none; font-size: 0.8rem; cursor: pointer;"></i> -->
