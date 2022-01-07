@@ -82,6 +82,10 @@
     h6.text-secondary.mb-0 {
         font-size: 0.8rem;
     }
+
+    .mobile-max-width {
+        width: max-content !important;
+    }
 }
 
 
