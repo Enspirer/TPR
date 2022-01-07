@@ -530,7 +530,9 @@ class HomeController extends Controller
             $longertutr = self::areacordina_function($area_coordinator);
         }
 
-
+        if($external_keyword != 'external_keyword'){
+            $properties->where('search_keyword', $external_keyword);
+        }
 
 
 
