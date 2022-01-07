@@ -31,6 +31,18 @@
                     </a>
                 </div>
             </div>
+
+            <div class="mobile-nav-additional-wrapper">
+                 <!-- post ad -->
+             <a class="post-ad-btn visible-xs visible-tab" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
+
+            <!-- language bar -->
+            <a href="" class="visble-xs visible-tab" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
+            <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
+            <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
+            </a>
+            </div>
+            
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -88,15 +100,6 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{route('frontend.user_help')}}">
-                                        <div class="row align-items-center">
-                                            <div class="col-12">
-                                                Help
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </li>
@@ -142,10 +145,10 @@
             </div>
 
                 <!-- post ad -->
-                <a class="post-ad-btn" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
+                <a class="post-ad-btn hidden-xs hidden-tab" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
 
                 <!-- language bar -->
-                <a href="" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
+                <a href="" class="hidden-xs hidden-tab" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
                 <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
                 <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
                 </a>
@@ -203,7 +206,7 @@
 
                         @endif -->
                         <div class="dropdown">
-                            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            <a class="btn dropdown-toggle mobile-coutry-dropdown" href="#" role="button" id="dropdownMenuLink"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 @if(isset(get_country_cookie(request())->country_id))
                                 @if(get_country_cookie(request())->country_id)

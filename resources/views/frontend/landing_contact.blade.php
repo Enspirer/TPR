@@ -35,7 +35,7 @@
     <section id="contact-us">
         <div class="container" style="margin-top: 6rem; margin-bottom:5rem;">
             <div class="row justify-content-between">
-                <div class="col-6">
+                <div class="col-6 full-size-width">
                     <h3 class="fw-bolder">Contact Us</h3>
 
                     <!-- <p class="mt-5" style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quo saepe odio error fugiat numquam eum, minima tenetur qui voluptates repudiandae doloribus porro eos iste tempore rerum! Nisi, molestias consectetur.</p> -->
@@ -66,12 +66,10 @@
                     </div>
 
 
-                    <div class="contact-map" style="margin-top: 7rem;">
-                        <div class="mapouter"><div class="gmap_canvas"><iframe width="500" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=16/3%20Elliot%20Pl,%20Colombo%2000800&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies2.org"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:500px;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:500px; border-radius: 25rem;}</style></div></div>
-                    </div>
+                   
                 </div>
 
-                <div class="col-5">
+                <div class="col-5 full-size-width">
                     <form action="{{route('frontend.contact.store')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="mb-4">
@@ -114,6 +112,11 @@
                         </div>
                     </div> -->
                 </div>
+            </div>
+            <div class="row">
+            <div class="contact-map" style="margin-top: 7rem;">
+                        <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=16/3%20Elliot%20Pl,%20Colombo%2000800&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies2.org"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div></div>
+                    </div>
             </div>
         </div>
     </section>

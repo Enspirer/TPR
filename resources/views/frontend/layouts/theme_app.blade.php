@@ -211,22 +211,7 @@ color: transparent;
   width: 500px;
 }
 
-.post-ad-btn {
-color: #fff;
-text-decoration: none;
-font-weight: bold;
-background: red;
-padding: 5px 15px;
-border-radius: 5px;
-margin-left: 30px;
-margin-right: 30px;
-border: 0;
-}
 
-
-.post-ad-btn:hover {
-color: #000;
-}
 
 .icon-wrapper i {
 font-size: 2rem;
@@ -282,6 +267,10 @@ padding: 0;
                     <a href="{{ route('frontend.privacy-policy') }}" class="mt-3 mt-md-4 mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Privacy Policy</a>
                     <a href="{{ route('frontend.cookie-policy') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Cookie Policy</a>
                     <a href="{{ route('frontend.terms-of-use') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Terms of Use</a>
+
+                    <a href="{{route('frontend.user_help')}}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Help</a>
+
+                
                     <!-- <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">FAQ</a>
                     <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">Sitemap</a> -->
                 </div>

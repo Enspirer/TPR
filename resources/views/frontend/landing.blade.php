@@ -44,6 +44,27 @@
             top: 10px;
         }
 
+        .post-ad-btn {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            background: red;
+            padding: 5px 15px;
+            border-radius: 5px;
+            margin-left: 30px;
+            margin-right: 30px;
+            border: 0;
+        }
+
+        .post-ad-btn:hover {
+            color: #000;
+        }
+
+        .nav1 {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
         /*mobile-view*/
         @media screen and (max-width: 767px) {
             .coutry-name-area {

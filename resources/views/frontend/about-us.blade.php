@@ -11,7 +11,7 @@
 
     <!--about us-->
     <section id="about-us">
-        <div class="container pe-0" style="margin-top:10rem">
+        <div class="container about-container">
             <h3 class="fw-bolder">About Us</h3>
 
             <div class="row" style="text-align:justify;">

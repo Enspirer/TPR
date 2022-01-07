@@ -139,6 +139,12 @@
     left: 0px!important;
 }
 
+@media screen and (max-width: 320px){
+    .map-div h5 {
+        font-size: 14px;
+    }
+}
+
 
 @media screen and (max-width: 576px) {
     .logo-landing {
@@ -178,5 +184,56 @@
     }
     .join {
         padding-left: 0rem!important;
+    }
+}
+
+.hidden-xs {
+    display: block !important;
+}
+
+.visible-xs {
+    display: none !important;
+}
+
+.hidden-tab {
+    display: block !important;
+}
+
+.visible-tab {
+    display: none !important;
+}
+
+
+
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .hidden-xs {
+        display: none !important;
+    }
+ 
+    .visible-xs {
+     display: block !important;
+     }
+
+     .visible-tab {
+        display: block !important;
+    }
+
+    .mobile-nav-additional-wrapper {
+        margin-left: 85px !important;
+    }
+}
+
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .hidden-tab {
+        display: none !important;
+    }
+    
+    .visible-tab {
+        display: block !important;
     }
 }

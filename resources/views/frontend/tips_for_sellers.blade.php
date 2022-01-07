@@ -11,7 +11,7 @@
 
     <!--Tips for sellers-->
     <section id="privacy-policy">
-        <div class="container pe-0" style="margin-top:10rem">
+        <div class="container about-container">
             <h3 class="fw-bolder">Tips for sellers</h3>
 
             <div class="row" style="text-align:justify;">

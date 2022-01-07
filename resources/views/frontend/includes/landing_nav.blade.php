@@ -2,6 +2,19 @@
     <nav class="navbar fixed-top first-nav navbar-expand-lg navbar-light landing_nav" style="background-color: #4195E1">
         <div class="container">
             <a href="{{ route('frontend.landing') }}"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo-landing img-fluid rounded" alt=""></a>
+
+
+            <div class="mobile-nav-additional-wrapper">
+                 <!-- post ad -->
+                <a class="post-ad-btn visible-xs visible-tab" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
+
+                <!-- language bar -->
+                <a href="" class="visble-xs visible-tab" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
+                    <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
+                    <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
+                </a>
+            </div>
+
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -86,6 +99,17 @@
                     
                 </ul>
             </div>
+
+            <!-- post ad -->
+            <a class="post-ad-btn hidden-xs hidden-tab" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
+
+            <!-- language bar -->
+            <a href="" class="hidden-xs hidden-tab" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
+            <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
+            <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
+            </a>
+
+
         </div>
     </nav>
 </section>
