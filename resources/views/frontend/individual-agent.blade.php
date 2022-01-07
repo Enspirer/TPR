@@ -49,10 +49,10 @@
             <div class="row">
                 <div class="col-2"> 
                 </div> 
-                <div class="col-10"> 
-                    <div class="row">  
-                        <div class="col-10"> 
-                            <h3 class="fw-bolder mt-3">
+                <div class="col-10 i-agent-main-area"> 
+                    <div class="row mobile-i-agent-row">  
+                        <div class="col-10 full-size-width"> 
+                            <h3 class="fw-bolder mt-3 i-agent-title">
                                 @if($agent_details->company_name == null)
                                     {{ $agent_details->name }}
                                 @else
@@ -60,8 +60,8 @@
                                 @endif
                             </h3>
                         </div>
-                        <div class="col-2 text-end">
-                            <button class="btn rounded-0 text-light px-4 py-2 mt-3" style="background-color: #008080; cursor: default;">{{ $agent_details->agent_type }}</button>
+                        <div class="col-2 text-end full-size-width mobile-i-agent-btn-area">
+                            <button class="btn rounded-0 text-light px-4 py-2 mt-3 i-agent-btn" style="background-color: #008080; cursor: default;">{{ $agent_details->agent_type }}</button>
                         </div>
                     </div>
 
@@ -76,7 +76,7 @@
                     <br>
                     <div class="row">
                         <div class="clearfix">
-                            <div class="col-7 float-end" >
+                            <div class="col-7 float-end i-agent-contact-btns-area" >
                                 <div class="row mt-3">
                                     <div class="col-4">
                                         <a href="tel:{{ $agent_details->telephone }}" class="btn w-100 rounded-0 individual-about-buttons fw-bolder"><img src="{{ asset('tpr_templete/images/individual_phone_icon.svg') }}" alt="" class="img-fluid me-2"> Call</a>
@@ -111,21 +111,21 @@
             @else
 
                 <ul class="nav mb-3 mt-5" id="pills-tab" role="tablist">
-                    <li class="nav-item me-3 all" role="presentation" style="border: 2px solid #4A4A4A;">
+                    <li class="nav-item me-3 mobile-m-r-small all" role="presentation" style="border: 2px solid #4A4A4A;">
                     <a class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" style="color: #4A4A4A;">ALL</a>
                     </li>
-                    <li class="nav-item me-3 commercial" role="presentation" style="border: 2px solid #83BE43;">
+                    <li class="nav-item me-3 mobile-m-r-small commercial" role="presentation" style="border: 2px solid #83BE43;">
                         <a class="nav-link" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="false" style="color: #83BE43;">COMMERCIAL</a>
                     </li>
-                    <li class="nav-item me-3 residential" role="presentation" style="border: 2px solid #4195E1;">
+                    <li class="nav-item me-3 mobile-m-r-small residential" role="presentation" style="border: 2px solid #4195E1;">
                         <a class="nav-link" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="false" style="color: #4195E1;">RESIDENTIAL</a>
                     </li>
 
                     @if(is_country_manager($agent_details->user_id))
-                    <li class="nav-item me-3 tp_developer" role="presentation" style="border: 2px solid #F33A6A;">
+                    <li class="nav-item me-3 mobile-m-r-small tp_developer" role="presentation" style="border: 2px solid #F33A6A;">
                         <a class="nav-link" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="false" style="color: #F33A6A;">TP DEVELOPER</a>
                     </li>
-                    <li class="nav-item me-3 investments" role="presentation" style="border: 2px solid #FF8C00;">
+                    <li class="nav-item me-3 mobile-m-r-small investments" role="presentation" style="border: 2px solid #FF8C00;">
                         <a class="nav-link" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="false" style="color: #FF8C00;">INVESTMENTS</a>
                     </li>
                     @endif
@@ -140,30 +140,30 @@
                         @foreach($all_properties as $key=> $prop)
                             @foreach(App\Models\FileManager::where('id',$prop->feature_image_id)->get() as $feature_image)
                             <div class="row border py-4 px-3 mb-4">
-                                <div class="col-4">
+                                <div class="col-4 full-size-width">
                                     <img src="{{ url('images',$feature_image->file_name) }}" class="img-fluid w-100" alt="..." style="object-fit:cover; height:210px;">
                                 </div>
-                                <div class="col-8">
+                                <div class="col-8 full-size-width">
                                     <div class="ps-2">
                                         <div class="row">
-                                            <h5 class="fw-bolder">{{$prop->name}}</h5>
+                                            <h5 class="fw-bolder i-agent-card-title">{{$prop->name}}</h5>
                                         </div>
                                         <div class="row mt-3">
 
                                         @if($prop->main_category == 'Commercial')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
                                             </div>
                                         @elseif($prop->main_category == 'Residential')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
                                             </div>
                                         @elseif($prop->main_category == 'TP_Developer')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">TP Developer</button>
                                             </div>  
                                         @else
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Investments</button>
                                             </div>  
                                         @endif

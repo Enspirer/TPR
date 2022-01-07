@@ -60,3 +60,82 @@
     background-color: #E88EAF;
     border-color: #E88EAF;
 }
+
+.i-agent-main-area {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .banner {
+        height: 300px;
+    }
+    .i-agent-main-area {
+        display: block;
+        width: 100%;
+        margin-top: 100px;
+    }
+    .mobile-i-agent-row {
+        flex-direction: column;
+    }
+    .i-agent-title {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .mobile-i-agent-btn-area {
+        text-align: left !important;
+    }
+
+    .i-agent-btn {
+        margin-top: 5px !important;
+    }
+
+    .i-agent-contact-btns-area {
+        float: unset;
+        width: 100%;
+    }
+
+    .i-agent-tags {
+        width: max-content;
+    }
+
+    .tab-price {
+        top: 0.6rem;
+    }
+
+    .i-agent-card-title {
+        margin-top: 15px;
+    }
+
+    .mobile-m-r-small {
+        margin-right: 0.3rem !important;
+        margin-top: 10px;
+    }
+}
+
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .i-agent-main-area  {
+        width: 100%;
+        margin-top: 90px;
+    }
+
+    .banner {
+        height: 300px;
+    }
+
+    .i-agent-tags {
+        width: max-content;
+    }
+}
+
+
+
+/*large screen*/
+@media screen and (min-width: 1400px) {
+   
+}

@@ -292,6 +292,44 @@ span.price-tag {
     display: none !important;
 }
 
+div#adModal {
+    top: 100px;
+}
+
+    /*google translator*/
+    select.goog-te-combo {
+
+        font-size: 16px;
+        background: #4195e1;
+        border-color: #4195e1;
+        color: white;
+        position: absolute;
+        top: 8px;
+        right: 60px;
+        font-weight: 500;
+
+    }
+
+    .goog-te-gadget .goog-te-combo {
+    outline:0;
+    }
+
+
+    .lang-wrapper {
+        width: 200px;
+        display: block;
+    }
+
+    #google_translate_element {
+        color: transparent;
+    }
+
+
+/*language modal*/
+#langModal .modal-dialog {
+  width: 500px;
+}
+
 
 /*mobile-view*/
 @media screen and (max-width: 320px){
@@ -374,9 +412,6 @@ span.price-tag {
         width: 100%;
     }
 
-    div#adModal .modal-dialog {
-        margin-top: 60px;
-    }
 
     #langModal .modal-dialog {
         width: 90% !important;
@@ -413,6 +448,14 @@ span.price-tag {
 
     .mobile-row-content-start {
         justify-content: start !important;
+    }
+
+    .map-mobile-container {
+        padding: 15px !important;
+    }
+
+    section#residential-property-search {
+        margin-top: 150px;
     }
     
 }
@@ -480,23 +523,20 @@ span.price-tag {
     #navbarNav2 .navbar-nav {
         margin-top: 15px !important;
     }
-}
-
-
-@media (min-width: 992px) and (max-width: 1199px) {
-    /* .post-ad-btn {
-        margin-left: 5px !important;
-        margin-right: 5px !important;
+    
+    .tab-full-width {
+        width: 100%;
+        flex: 100%;
+    }
+    
+    .map-mobile-container {
+        padding: 15px !important;
     }
 
-    .nav1 {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    } 
-    .navbar-expand-lg .navbar-collapse {
-        margin-right: 15px !important;
-    } */
 }
+
+
+
 
 
 /*large screen*/

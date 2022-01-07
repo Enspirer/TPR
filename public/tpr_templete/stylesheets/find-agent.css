@@ -33,3 +33,49 @@
     color: #EB8EB0;
     padding: 0.5rem 1rem;
 }
+
+.agent-cat-btn {
+    width: max-content;
+}
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .mobile-agent-banner-txt-area {
+        flex-direction: column;
+        padding-top: 10rem;
+    }
+
+
+    .mobile-m-top-15 {
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mobile-center-content {
+        float: unset !important;
+        text-align: center;
+    }
+}
+
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .mobile-m-top-15 {
+        margin-top: 15px;
+    }
+
+    .agent-email-btn {
+        width: 180px !important;
+    }
+
+}
+
+
+
+/*large screen*/
+@media screen and (min-width: 1400px) {
+   
+}

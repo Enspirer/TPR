@@ -13,11 +13,11 @@
     <section id="index-banner">
         <div class="container-fluid banner">
             <div class="container">
-                <div class="row justify-content-between" style="padding-top: 14rem;">
-                    <div class="col-5" style="color: black;">
+                <div class="row justify-content-between mobile-agent-banner-txt-area" style="padding-top: 14rem;">
+                    <div class="col-5 full-size-width" style="color: black;">
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laudantium impedit nobis ea praesentium. Laudantium?</h3>
                     </div>
-                    <div class="col-5">
+                    <div class="col-5 full-size-width">
                         <form action="{{route('frontend.find-agent.store')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                             <div class="mb-4">
@@ -64,10 +64,10 @@
                 @foreach($agents as $agent)
                     @if($agent->status == 'Approved')
                         <div class="row shadow py-5 px-4 align-items-center" style="margin-top: 5rem;">
-                            <div class="col-4">
+                            <div class="col-4 full-size-width">
                                 <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid" width="100%" style="object-fit:cover; height:330px">
                             </div>
-                            <div class="col-8">
+                            <div class="col-8 full-size-width">
                                 <div class="row">
                                     <div class="clearfix">
                                         <div class="float-start">
@@ -92,11 +92,11 @@
                                     </div> -->
 
                                 
-                                    <div class="col-2 p-1">
+                                    <div class="p-1 agent-cat-btn">
                                         <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword'] )}}"><button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button></a>
                                     </div>
                                 
-                                    <div class="col-2 p-1">
+                                    <div class="p-1 agent-cat-btn">
                                         <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword'] )}}"><button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button></a>
                                     </div>
                                   
@@ -110,17 +110,17 @@
 
                                 <div class="row">
                                     <div class="clearfix">
-                                        <div class="float-end">
+                                        <div class="float-end mobile-center-content">
                                             <a href="{{ route('frontend.individual-agent', $agent->id) }}"><button class="btn border-1 border-dark rounded-0 px-5 py-2">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row mt-2">
-                                    <div class="col-4">
+                                    <div class="agent-cat-btn mobile-m-top-15 ">
                                         <a href="tel:{{ $agent->telephone }}" class="btn w-100 agent-contact"><i class="fas fa-mobile-alt me-2"></i>{{ $agent->telephone }}</a>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="agent-cat-btn mobile-m-top-15 agent-email-btn">
                                         <a href="mailto:{{ $agent->email }}" class="btn w-100 agent-contact" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="fas fa-envelope me-2"></i>{{ $agent->email }}</a>
                                     </div>
                                 </div>
