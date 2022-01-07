@@ -34,6 +34,10 @@
     padding: 0.5rem 1rem;
 }
 
+.agent-cat-btn {
+    width: max-content;
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
     .mobile-agent-banner-txt-area {
