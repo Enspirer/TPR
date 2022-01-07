@@ -168,7 +168,7 @@
                             @foreach($filteredProperty as $property)
                                 <div class="property mb-5 p-3 custom-shadow">
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-6 full-size-width">
                                             <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{ route('frontend.image_assets', $property->feature_image_id) }}" alt="" class="img-fluid w-100" style="object-fit:cover; height:240px;"></a>
                                         </div>
                                         <div class="col-6 ps-4">
