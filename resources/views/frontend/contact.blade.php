@@ -72,9 +72,7 @@
                     @endif
 
 
-                    <div class="contact-map" style="margin-top: 7rem;">
-                        <div class="mapouter"><div class="gmap_canvas"><iframe width="500" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=16/3%20Elliot%20Pl,%20Colombo%2000800&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies2.org"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:500px;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:500px; border-radius: 25rem;}</style></div></div>
-                    </div>
+                    
                 </div>
 
     
@@ -128,6 +126,11 @@
                         </div> -->
                     </div>
                 
+            </div>
+            <div class="row">
+            <div class="contact-map" style="margin-top: 7rem;">
+                        <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=16/3%20Elliot%20Pl,%20Colombo%2000800&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies2.org"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div></div>
+                    </div>
             </div>
         </div>
     </section>

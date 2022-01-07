@@ -267,6 +267,10 @@ padding: 0;
                     <a href="{{ route('frontend.privacy-policy') }}" class="mt-3 mt-md-4 mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Privacy Policy</a>
                     <a href="{{ route('frontend.cookie-policy') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Cookie Policy</a>
                     <a href="{{ route('frontend.terms-of-use') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Terms of Use</a>
+
+                    <a href="{{route('frontend.user_help')}}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Help</a>
+
+                
                     <!-- <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">FAQ</a>
                     <a href="#" class="mb-3 d-block text-decoration-none no-result-list text-white">Sitemap</a> -->
                 </div>
