@@ -86,6 +86,10 @@
     .mobile-max-width {
         width: max-content !important;
     }
+
+    .mobile-m-top {
+        margin-top: 15px;
+    }
 }
 
 
