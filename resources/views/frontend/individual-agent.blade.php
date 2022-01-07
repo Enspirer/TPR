@@ -155,15 +155,15 @@
                                                 <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
                                             </div>
                                         @elseif($prop->main_category == 'Residential')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button>
                                             </div>
                                         @elseif($prop->main_category == 'TP_Developer')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">TP Developer</button>
                                             </div>  
                                         @else
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #4195E1; border-radius: 0.7rem;">Investments</button>
                                             </div>  
                                         @endif
