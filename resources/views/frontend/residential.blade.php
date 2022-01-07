@@ -220,7 +220,7 @@
                                         </div>
                                     </div>
                                     <div class="row mt-4">
-                                        <div class="col-6">
+                                        <div class="col-6 mobile-max-width">
                                             <h6 class="text-secondary mb-0">Listed on {{ $property->created_at->toDateString() }}</h6>
                                         </div>
                                         <div class="col-6">

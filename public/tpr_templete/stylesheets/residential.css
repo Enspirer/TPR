@@ -78,6 +78,10 @@
     .mobile-top-p {
         padding-top: 15px;
     }
+
+    h6.text-secondary.mb-0 {
+        font-size: 0.8rem;
+    }
 }
 
 
