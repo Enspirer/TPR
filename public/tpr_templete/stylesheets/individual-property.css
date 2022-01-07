@@ -19,12 +19,12 @@
     height: 11rem;
 }
 
-.features a.collapsed::after {
+.features a.collapsed::before {
     content: 'See full description';
 }
 
 
-.features a:not(.collapsed)::after {
+.features a:not(.collapsed)::before {
     content: 'Hide description';
 }
 
