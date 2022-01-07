@@ -866,7 +866,7 @@
 
                             @foreach($random as $ran)
                                 <div class="col-3 full-size-width tab-width-p-card">
-                                    <div class="card p-2 shadow border-0 tab-height-p-card" style="height: 350px">
+                                    <div class="card p-2 shadow border-0 tab-height-p-card" style="height: 400px">
                                         <a href="{{ url('individual-property',$ran->id) }}" class="text-decoration-none">
                                             <img src="{{url('image_assest',$ran->feature_image_id)}}" style="object-fit:cover; height:210px" class="card-img-top w-100" alt="...">
                                         </a>
