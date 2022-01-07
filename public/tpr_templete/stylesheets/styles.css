@@ -231,7 +231,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 280px;
+    width: 290px;
     height: 135px;
 }
 
@@ -338,6 +338,10 @@ div#adModal {
     color: #fff;
     margin-top: 15px;
     text-decoration: none;
+}
+
+.link-anchor:hover {
+    color: #fff;
 }
 
 /*mobile-view*/
