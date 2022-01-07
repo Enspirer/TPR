@@ -1865,15 +1865,32 @@ type="text/javascript"></script>
 
 
 <script>
-    $('.collapse-button').on('click', function(){
-        $(".bi bi-chevron-down").hide();
-        $(".bi bi-chevron-up").show();
+    // $('.collapse-button').on('click', function(){
+    //     $(".bi bi-chevron-down").hide();
+    //     $(".bi bi-chevron-up").show();
         
-        $(".features i").toggle();
-    });
+    //     $(".features i").toggle();
+    // });
+
+    let getButton = document.querySelector(".collapse-button");
+    let elementOne = document.querySelector(".bi bi-chevron-down");
+    let elementTwo = document.querySelector(".bi bi-chevron-up");
+    let temp = true;
+    getButton.addEventListener('click', function() {
+        temp = !temp;
+        if(!temp) {
+            elementOne.style.display = "none";
+            elementTwo.style.display = "block";
+        }
+        else {
+            elementOne.style.display = "block";
+            elementTwo.style.display = "none";
+        }
+    })
+
 </script>
 
-<!-- Description List -->
+<!-- Description List
 <script>
         $(".show-more").click(function () {
         if($(".text").hasClass("show-more-height")) {
@@ -1884,7 +1901,7 @@ type="text/javascript"></script>
 
         $(".text").toggleClass("show-more-height");
     });
-</script>
+</script> -->
 
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
