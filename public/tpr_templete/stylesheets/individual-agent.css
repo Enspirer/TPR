@@ -66,6 +66,10 @@
     padding-right: 30px;
 }
 
+.i-agent-tags {
+    width: max-content;
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
     .banner {
