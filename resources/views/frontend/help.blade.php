@@ -139,7 +139,7 @@
                     <div class="col-md-12">
 
                         <div class="faq-title text-center pb-3">
-                            <h2>FAQ</h2>
+                            <h2>Help</h2>
                         </div>
                     </div>
                     <div class="col-md-12">
