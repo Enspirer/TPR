@@ -12,7 +12,7 @@
 
     <section id="sign-up">
         <div class="container-fluid">
-            <div class="container" style="padding-top: 10rem; margin-bottom: 3rem">
+            <div class="container register-container" style="padding-top: 10rem; margin-bottom: 3rem">
 
                  @include('includes.partials.messages')
 
@@ -22,7 +22,7 @@
                         {{ csrf_field() }}
                     <div class="row">
                     
-                        <div class="col-6 pe-0">                       
+                        <div class="col-6 pe-0 full-size-width">                       
                             <div class="text-center px-4 py-5" style="background: rgba(65, 149, 225, .3);">
                             
                                 <div class="input-group has-validation mb-4">
@@ -67,8 +67,8 @@
                             </div>
                         </div>
 
-                        <div class="col-6 ps-0">
-                            <div class="px-4 pt-5" style="background: rgba(65, 149, 225, .3); padding-bottom: 1.05rem;">
+                        <div class="col-6 ps-0 full-size-width terms-area-mobile">
+                            <div class="px-4 pt-5 mobile-pt-0" style="background: rgba(65, 149, 225, .3); padding-bottom: 1.05rem;">
                                 <div class="row shadow-sm p-0 pt-2 terms">
                                     <p class="fw-bolder mb-2">
                                         Terms of User Agreement

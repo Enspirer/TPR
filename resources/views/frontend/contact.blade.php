@@ -34,8 +34,8 @@
     <!-- contact-us -->
     <section id="contact-us">
         <div class="container" style="margin-top: 6rem; margin-bottom:5rem;">
-            <div class="row justify-content-between">
-                <div class="col-6 full-size-width">
+            <div class="row justify-content-between mobile-contact-row">
+                <div class="col-6 full-size-width tab-contact-side-left">
                     <h3 class="fw-bolder">Contact Us</h3>
 
                     <!-- <p class="mt-5" style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quo saepe odio error fugiat numquam eum, minima tenetur qui voluptates repudiandae doloribus porro eos iste tempore rerum! Nisi, molestias consectetur.</p> -->
@@ -47,7 +47,7 @@
                                     <i class="bi bi-geo-alt-fill fs-3"></i>
                                 </div>
                                 <div class="col-11">
-                                    <p class="mb-0">{{get_country_cookie(request())->address}}.</p>
+                                    <p class="mb-0 contact-detail-list">{{get_country_cookie(request())->address}}.</p>
                                 </div>
                             </div>                    
                             <div class="row align-items-center mt-2">
@@ -55,7 +55,7 @@
                                     <i class="bi bi-clock-fill fs-3"></i>
                                 </div>
                                 <div class="col-11">
-                                    <p class="mb-0">{{get_country_cookie(request())->opening_hours}}.</p>
+                                    <p class="mb-0 contact-detail-list">{{get_country_cookie(request())->opening_hours}}.</p>
                                 </div>
                             </div>
                             <div class="row align-items-center mt-3">
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-11">
                                     @foreach(json_decode(get_country_cookie(request())->phone_numbers) as $key => $number)
-                                        <p class="mb-0">{{$number->number}}</p>
+                                        <p class="mb-0 contact-detail-list">{{$number->number}}</p>
                                     @endforeach
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
 
     
                    
-                    <div class="col-5 full-size-width">
+                    <div class="col-5 full-size-width tab-contact-side-right">
                         @if(isset(get_country_cookie(request())->country_id))
                             @if(get_country_cookie(request()))
                                 <form action="{{route('frontend.manager_contact_store.store')}}" method="post" enctype="multipart/form-data">

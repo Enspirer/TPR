@@ -48,14 +48,14 @@
 
             @include('includes.partials.messages')
 
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mobile-row-content-start">
                     <div class="col-6">
                         <h5 class="fw-bold d-inline-block px-4 py-3 mb-0" style="background: rgba(65, 149, 225, .3); color: #77CEEC">Sign In</h5>
                     </div>
                 </div>
 
                 <div class="row justify-content-center">
-                    <div class="col-6">
+                    <div class="col-6 full-size-width ">
                         <div class="text-center px-4 py-5" style="background: rgba(65, 149, 225, .3);">
                             <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation" novalidate>
                                 {{csrf_field()}}
