@@ -43,6 +43,39 @@
             position: relative;
             top: 10px;
         }
+
+        /*mobile-view*/
+        @media screen and (max-width: 767px) {
+            .coutry-name-area {
+                width: 100px;
+            }
+
+            .flag-area {
+                width: 85px;
+            }
+        }
+
+
+
+        /*tab-portrait*/
+        @media (min-width: 768px) and (max-width: 991px) {
+            .coutry-name-area {
+                width: 100px;
+            }
+
+            .flag-area {
+                width: 85px;
+            }
+        }
+
+
+
+        /*large screen*/
+        @media screen and (min-width: 1400px) {
+        
+        }
+
+
     </style>
 @endpush
 
@@ -335,10 +368,10 @@
                 @if(json_decode($country_list1->features_manager)[0]->properties != null)
                     <div class="1strow mt-4">
                         <div class="row align-items-center">
-                            <div class="col-1 pe-0">
+                            <div class="col-1 pe-0 flag-area">
                                 <img src="https://flagcdn.com/w40/{{strtolower($country_list1->country_id)}}.png" alt="" style="height: 30px;">
                             </div>
-                            <div class="col-2 ps-0">
+                            <div class="col-2 ps-0 coutry-name-area">
                                 <h5 class="mb-0">{{$country_list1->country_name}}</h5>
                             </div>
                         </div>                        
