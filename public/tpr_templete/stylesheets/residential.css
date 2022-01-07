@@ -100,6 +100,19 @@
         top: 888px !important;
         display: block !important;
     }
+
+    .mobile-max-width {
+        width: max-content !important;
+    }
+
+    .mobile-m-top {
+        margin-top: 15px;
+    }
+
+    .mobile-icon-p-fix {
+        padding-left: 0 !important;
+        width: max-content;
+    }
 }
 
 
