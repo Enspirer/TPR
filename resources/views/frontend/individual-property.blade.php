@@ -333,6 +333,16 @@
                                                                 </tr>
                                                             </tbody>
                                                         </table>
+                                                        <div id="profile-description">
+                                                                    <div class="text show-more-height">
+                                                                        Some random text 
+                                                                        <br /><br />
+                                                                        At Cobalt we help people and businesses throughout the world realize their full potential. <br />
+                                                                        We make this simple mission come to life every day through our passion to create technologies <br><br>and develop products that touch just about every kind of customer.
+                                                                    </div>
+                                                                    <div class="show-more">(Show More)</div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -1860,6 +1870,19 @@ type="text/javascript"></script>
         $(".bi bi-chevron-up").show();
         
         $(".features i").toggle();
+    });
+</script>
+
+<!-- Description List -->
+<script>
+        $(".show-more").click(function () {
+        if($(".text").hasClass("show-more-height")) {
+            $(this).text("(Show Less)");
+        } else {
+            $(this).text("(Show More)");
+        }
+
+        $(".text").toggleClass("show-more-height");
     });
 </script>
 
