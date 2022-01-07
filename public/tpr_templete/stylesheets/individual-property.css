@@ -19,12 +19,12 @@
     height: 11rem;
 }
 
-.features a.collapsed::after {
+.features a.collapsed::before {
     content: 'See full description';
 }
 
 
-.features a:not(.collapsed)::after {
+.features a:not(.collapsed)::before {
     content: 'Hide description';
 }
 
@@ -143,3 +143,19 @@
     height: 65px; 
     overflow:hidden; 
   }
+
+a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-down.ms-1.collapsed {
+    display: inline-block !important;
+}
+
+a.text-decoration-none.text-body.collapse-button.collapsed a i.bi.bi-chevron-down.ms-1.collapsed {
+    display: inline-block !important;
+}
+
+a.text-decoration-none.text-body.collapse-button.collapsed a i.bi.bi-chevron-up.ms-1.collapsed {
+    display: none !important;
+}
+
+a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.collapsed {
+    display: inline-block !important;
+}
