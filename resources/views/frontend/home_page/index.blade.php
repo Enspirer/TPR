@@ -602,8 +602,7 @@ function initMap() {
                 <p>Country: ${nameList[i].country}</p>
                 <p>City: ${nameList[i].city}</p>
                 <span class="price-tag">${nameList[i].price}</span>
-                <span class="price-tag">
-                    <a href="{{ route('frontend.individual-property', ${nameList[i].id}) }}">Click Me</a>
+                <span class="price-tag">btn
                 </span>
             </div>
         </div>`;
