@@ -81,6 +81,16 @@ Breadcrumbs::for('admin.feedbacks.edit', function ($trail) {
     $trail->push('Edit Feedback', route('admin.feedbacks.edit',1));
 });
 
+Breadcrumbs::for('admin.help.index', function ($trail) {
+    $trail->push('Help', route('admin.help.index'));
+});
+Breadcrumbs::for('admin.help.create', function ($trail) {
+    $trail->push('Create Help', route('admin.help.create'));
+});
+Breadcrumbs::for('admin.help.edit', function ($trail) {
+    $trail->push('Edit Help', route('admin.help.edit',1));
+});
+
 Breadcrumbs::for('admin.file_manager.index', function ($trail) {
     $trail->push('File Manager', route('admin.file_manager.index'));
 });
