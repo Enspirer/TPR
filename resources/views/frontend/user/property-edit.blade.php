@@ -208,6 +208,33 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <div>
+                                            @include('frontend.file_manager.file_manager_dialog',['file_caption' => 'Interior Images','file_input_name' => 'interior_image','multiple' => true, 'data' => $interior_image, 'id' => 'id-multiple-interior', 'upload' => 'upload-multiple-interior', 'title' => 'Upload Images'])
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label for="interior_image_access" class="form-label mb-0 mt-4">Interior Image Access</label>
+                                            <select class="form-select" name="interior_image_access" id="interior_image_access" aria-describedby="interior_image_access" required>
+                                                <option selected disabled value="">Choose...</option>                                                
+                                                <option value="public" {{$property->interior_image_access == 'public' ? "selected" : "" }}>Public</option>                                                
+                                                <option value="agents" {{$property->interior_image_access == 'agents' ? "selected" : "" }}>Agents</option>                                                                   
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <label for="search_keyword" class="form-label mb-0 mt-4">Search Keywords</label>
+                                            <textarea class="form-control" name="search_keyword" rows="1" id="search_keyword" aria-describedby="search_keyword">{{$property->search_keyword}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
                             
 
                                 <h4 class="mt-5 mb-1">More About Property</h4>

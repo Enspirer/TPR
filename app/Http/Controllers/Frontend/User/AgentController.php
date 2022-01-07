@@ -270,6 +270,7 @@ class AgentController extends Controller
         $property_type = PropertyType::where('status','=','1')->get();
         $property = Properties::where('id', $id)->first();
         $images = json_decode($property->image_ids);
+        $interior_image = json_decode($property->interior_image);
 
         $agent_request = AgentRequest::where('user_id',auth()->user()->id)->first();
         $agent_request_country = $agent_request->country;
@@ -279,7 +280,8 @@ class AgentController extends Controller
             'property' => $property,
             'property_type' => $property_type,
             'images' => $images,
-            'agent_request_country' => $agent_request_country
+            'agent_request_country' => $agent_request_country,
+            'interior_image' => $interior_image
         ]);
     }
 
@@ -338,6 +340,9 @@ class AgentController extends Controller
         $address_two=$request->address_line_two;
         $virtual_tour=$request->virtual_tour;
         $virtual_tour_access=$request->virtual_tour_access;
+        $search_keyword=$request->search_keyword;
+        $interior_image=$request->interior_image;
+        $interior_image_access=$request->interior_image_access;
 
         $admin_approval='Pending';
         $country_manager_approval='Pending';
@@ -377,7 +382,10 @@ class AgentController extends Controller
                 'address_one' => $address_one,
                 'address_two' => $address_two,
                 'virtual_tour' => $virtual_tour,
-                'virtual_tour_access' => $virtual_tour_access
+                'virtual_tour_access' => $virtual_tour_access,
+                'interior_image' => json_encode($interior_image),
+                'interior_image_access' => $interior_image_access,
+                'search_keyword' => $search_keyword
             ]
         );
 
@@ -451,6 +459,7 @@ class AgentController extends Controller
     );
 
         $out_json = $request->property_images;
+        $out_json_interior_image = $request->interior_image;
 
         $addprop = new Properties;
 
@@ -476,6 +485,9 @@ class AgentController extends Controller
         $addprop->address_two=$request->address_line_two;
         $addprop->virtual_tour=$request->virtual_tour;
         $addprop->virtual_tour_access=$request->virtual_tour_access;
+        $addprop->search_keyword=$request->search_keyword;
+        $addprop->interior_image=json_encode($out_json_interior_image);
+        $addprop->interior_image_access=$request->interior_image_access;
         $addprop->external_parameter=$request->json_form_data;
 
         $addprop->country = $request->country;      
