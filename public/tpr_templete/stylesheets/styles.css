@@ -330,6 +330,15 @@ div#adModal {
   width: 500px;
 }
 
+.link-tag {
+    margin-top: 5px;
+}
+
+.link-anchor {
+    color: #fff;
+    margin-top: 15px;
+    text-decoration: none;
+}
 
 /*mobile-view*/
 @media screen and (max-width: 320px){
