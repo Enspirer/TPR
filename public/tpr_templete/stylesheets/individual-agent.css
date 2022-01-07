@@ -103,6 +103,11 @@
     .i-agent-card-title {
         margin-top: 15px;
     }
+
+    .mobile-m-r-small {
+        margin-right: 0.3rem !important;
+        margin-top: 10px;
+    }
 }
 
 

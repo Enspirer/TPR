@@ -114,18 +114,18 @@
                     <li class="nav-item me-3 all" role="presentation" style="border: 2px solid #4A4A4A;">
                     <a class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" style="color: #4A4A4A;">ALL</a>
                     </li>
-                    <li class="nav-item me-3 commercial" role="presentation" style="border: 2px solid #83BE43;">
+                    <li class="nav-item me-3 mobile-m-r-small commercial" role="presentation" style="border: 2px solid #83BE43;">
                         <a class="nav-link" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="false" style="color: #83BE43;">COMMERCIAL</a>
                     </li>
-                    <li class="nav-item me-3 residential" role="presentation" style="border: 2px solid #4195E1;">
+                    <li class="nav-item me-3 mobile-m-r-small residential" role="presentation" style="border: 2px solid #4195E1;">
                         <a class="nav-link" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="false" style="color: #4195E1;">RESIDENTIAL</a>
                     </li>
 
                     @if(is_country_manager($agent_details->user_id))
-                    <li class="nav-item me-3 tp_developer" role="presentation" style="border: 2px solid #F33A6A;">
+                    <li class="nav-item me-3 mobile-m-r-small tp_developer" role="presentation" style="border: 2px solid #F33A6A;">
                         <a class="nav-link" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="false" style="color: #F33A6A;">TP DEVELOPER</a>
                     </li>
-                    <li class="nav-item me-3 investments" role="presentation" style="border: 2px solid #FF8C00;">
+                    <li class="nav-item me-3 mobile-m-r-small investments" role="presentation" style="border: 2px solid #FF8C00;">
                         <a class="nav-link" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="false" style="color: #FF8C00;">INVESTMENTS</a>
                     </li>
                     @endif
