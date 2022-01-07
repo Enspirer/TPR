@@ -34,7 +34,7 @@
     <!-- contact-us -->
     <section id="contact-us">
         <div class="container" style="margin-top: 6rem; margin-bottom:5rem;">
-            <div class="row justify-content-between">
+            <div class="row justify-content-between mobile-contact-row">
                 <div class="col-6 full-size-width">
                     <h3 class="fw-bolder">Contact Us</h3>
 

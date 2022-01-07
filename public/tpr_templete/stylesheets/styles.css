@@ -165,6 +165,10 @@ p {
     padding-right: 15px;
 }
 
+/*contact page*/
+.mobile-contact-row {
+    gap: 30px;
+}
 
 
 @media screen and (max-width: 576px) {
