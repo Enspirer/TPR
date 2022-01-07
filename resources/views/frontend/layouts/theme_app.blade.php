@@ -177,39 +177,6 @@
         height: 50px;
     }
 
-    /*google translator*/
-    select.goog-te-combo {
-
-font-size: 16px;
-background: #4195e1;
-border-color: #4195e1;
-color: white;
-position: absolute;
-top: 8px;
-right: 60px;
-font-weight: 500;
-
-}
-
-.goog-te-gadget .goog-te-combo {
-outline:0;
-}
-
-
-.lang-wrapper {
-width: 200px;
-display: block;
-}
-
-#google_translate_element {
-color: transparent;
-}
-
-
-/*language modal*/
-#langModal .modal-dialog {
-  width: 500px;
-}
 
 
 
