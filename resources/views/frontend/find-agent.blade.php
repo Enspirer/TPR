@@ -92,11 +92,11 @@
                                     </div> -->
 
                                 
-                                    <div class="p-1 mobile-btn-fifty agent-cat-btn">
+                                    <div class="p-1 agent-cat-btn">
                                         <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword'] )}}"><button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button></a>
                                     </div>
                                 
-                                    <div class="p-1 mobile-btn-fifty agent-cat-btn">
+                                    <div class="p-1 agent-cat-btn">
                                         <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword'] )}}"><button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button></a>
                                     </div>
                                   
@@ -117,10 +117,10 @@
                                 </div>
 
                                 <div class="row mt-2">
-                                    <div class="col-4 full-size-width mobile-m-top-15 tab-fifty-btn">
+                                    <div class="agent-cat-btn mobile-m-top-15 ">
                                         <a href="tel:{{ $agent->telephone }}" class="btn w-100 agent-contact"><i class="fas fa-mobile-alt me-2"></i>{{ $agent->telephone }}</a>
                                     </div>
-                                    <div class="col-4 full-size-width mobile-m-top-15 tab-fifty-btn">
+                                    <div class="agent-cat-btn mobile-m-top-15 ">
                                         <a href="mailto:{{ $agent->email }}" class="btn w-100 agent-contact" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="fas fa-envelope me-2"></i>{{ $agent->email }}</a>
                                     </div>
                                 </div>

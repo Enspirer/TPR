@@ -45,10 +45,6 @@
         padding-top: 10rem;
     }
 
-    .mobile-btn-fifty {
-        width: 50%;
-        flex: 50%;
-    }
 
     .mobile-m-top-15 {
         margin-top: 15px;
@@ -64,10 +60,6 @@
 
 /*tab-portrait*/
 @media (min-width: 768px) and (max-width: 991px) {
-    .mobile-btn-fifty {
-        width: 50%;
-        flex: 50%;
-    }
 
     .mobile-m-top-15 {
         margin-top: 15px;
