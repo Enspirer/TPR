@@ -130,7 +130,7 @@
                                 {{csrf_field()}}
                                     <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px; background-color:#F33A6A;">
                                         <div class="row justify-content-center text-light">
-                                            <div class="col-3" style="padding-left:40px">
+                                            <div class="col-3 mobile-icon-p-fix" style="padding-left:40px">
                                                 <i class="fas fa-heart"></i>
                                             </div>
                                             <div class="col-7 p-0 text-start">
