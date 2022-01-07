@@ -33,3 +33,24 @@
     color: #EB8EB0;
     padding: 0.5rem 1rem;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .mobile-agent-banner-txt-area {
+        flex-direction: column;
+        padding-top: 10rem;
+    }
+}
+
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+
+
+/*large screen*/
+@media screen and (min-width: 1400px) {
+   
+}

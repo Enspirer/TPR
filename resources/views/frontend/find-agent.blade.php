@@ -13,11 +13,11 @@
     <section id="index-banner">
         <div class="container-fluid banner">
             <div class="container">
-                <div class="row justify-content-between" style="padding-top: 14rem;">
-                    <div class="col-5" style="color: black;">
+                <div class="row justify-content-between mobile-agent-banner-txt-area" style="padding-top: 14rem;">
+                    <div class="col-5 full-size-width" style="color: black;">
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore laudantium impedit nobis ea praesentium. Laudantium?</h3>
                     </div>
-                    <div class="col-5">
+                    <div class="col-5 full-size-width">
                         <form action="{{route('frontend.find-agent.store')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                             <div class="mb-4">
