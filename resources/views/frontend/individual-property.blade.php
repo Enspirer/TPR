@@ -249,27 +249,27 @@
                             <li class="nav-item w-25 text-center" role="presentation">
                                 <button class="nav-link active w-100" id="highlights-tab" data-bs-toggle="tab" data-bs-target="#highlights" type="button" role="tab" aria-controls="highlights" aria-selected="true">
                                     <i class="fas fa-star decription-icon"></i>
-                                    <h6 class="fw-bold">Highlights</h6>
+                                    <h6 class="fw-bold mobile-font-small">Highlights</h6>
                                     <!-- <i class="fa fa-circle tabDot"></i> -->
                                 </button>
                             </li>
                             <li class="nav-item w-25" role="presentation">
                                 <button class="nav-link w-100" id="neighbourhood-tab" data-bs-toggle="tab" data-bs-target="#neighbourhood" type="button" role="tab" aria-controls="neighbourhood" aria-selected="false">
                                     <img src="{{ url('img/icon_neighbourhood_gray.svg') }}" alt="" class="img-fluid mb-1" style="opacity: 0.6">
-                                    <h6 class="fw-bold">Neighbourhood</h6>
+                                    <h6 class="fw-bold mobile-font-small">Neighbourhood</h6>
                                 </button>
                             </li>
                             <li class="nav-item w-25" role="presentation">
                                 <button class="nav-link w-100" id="statistics-tab" data-bs-toggle="tab" data-bs-target="#statistics" type="button" role="tab" aria-controls="statistics" aria-selected="false">
                                     <i class="fas fa-chart-bar decription-icon"></i>
-                                    <h6 class="fw-bold">Statistics</h6>
+                                    <h6 class="fw-bold mobile-font-small">Statistics</h6>
                                 </button>
                             </li>
 
                             <li class="nav-item w-25" role="presentation">
                                 <button class="nav-link w-100" id="calculators-tab" data-bs-toggle="tab" data-bs-target="#calculators" type="button" role="tab" aria-controls="calculators" aria-selected="false">
                                     <i class="fas fa-calculator decription-icon"></i>
-                                    <h6 class="fw-bold">Calculators</h6>
+                                    <h6 class="fw-bold mobile-font-small">Calculators</h6>
                                 </button>
                             </li>
                         </ul>
