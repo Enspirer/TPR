@@ -139,6 +139,12 @@
     left: 0px!important;
 }
 
+@media screen and (max-width: 320px){
+    .map-div h5 {
+        font-size: 14px;
+    }
+}
+
 
 @media screen and (max-width: 576px) {
     .logo-landing {
