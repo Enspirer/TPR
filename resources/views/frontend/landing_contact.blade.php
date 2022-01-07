@@ -35,7 +35,7 @@
     <section id="contact-us">
         <div class="container" style="margin-top: 6rem; margin-bottom:5rem;">
             <div class="row justify-content-between mobile-contact-row">
-                <div class="col-6 full-size-width">
+                <div class="col-6 full-size-width tab-contact-side-left">
                     <h3 class="fw-bolder">Contact Us</h3>
 
                     <!-- <p class="mt-5" style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quo saepe odio error fugiat numquam eum, minima tenetur qui voluptates repudiandae doloribus porro eos iste tempore rerum! Nisi, molestias consectetur.</p> -->
@@ -45,7 +45,7 @@
                             <i class="bi bi-geo-alt-fill fs-3"></i>
                         </div>
                         <div class="col-11">
-                            <p class="mb-0">15, Colombo, Sri Lanka.</p>
+                            <p class="mb-0 contact-detail-list">15, Colombo, Sri Lanka.</p>
                         </div>
                     </div>
                     <div class="row align-items-center mt-2">
@@ -53,7 +53,7 @@
                             <i class="bi bi-clock-fill fs-3"></i>
                         </div>
                         <div class="col-11">
-                            <p class="mb-0">Monday - Saturday from 08:00 to 20:00</p>
+                            <p class="mb-0 contact-detail-list">Monday - Saturday from 08:00 to 20:00</p>
                         </div>
                     </div>
                     <div class="row align-items-center mt-3">
@@ -61,7 +61,7 @@
                             <img src="{{ asset('tpr_templete/images/contact_phone_icon.svg') }}" alt="">
                         </div>
                         <div class="col-11">
-                            <p class="mb-0">15, Colombo, Sri Lanka.</p>
+                            <p class="mb-0 contact-detail-list">15, Colombo, Sri Lanka.</p>
                         </div>
                     </div>
 
@@ -69,7 +69,7 @@
                    
                 </div>
 
-                <div class="col-5 full-size-width">
+                <div class="col-5 full-size-width tab-contact-side-right">
                     <form action="{{route('frontend.contact.store')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="mb-4">
