@@ -247,6 +247,23 @@ span.price-tag {
     color: #fff;
 }
 
+.post-ad-btn {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    background: red;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+    border: 0;
+    }
+    
+    
+    .post-ad-btn:hover {
+    color: #000;
+    }
+
 .hidden-xs {
     display: block !important;
 }
@@ -255,6 +272,13 @@ span.price-tag {
     display: none !important;
 }
 
+.hidden-tab {
+    display: block !important;
+}
+
+.visible-tab {
+    display: none !important;
+}
 
 
 /*mobile-view*/
@@ -265,6 +289,8 @@ span.price-tag {
     .mobile-nav-additional-wrapper {
         gap: 10px !important;
     }
+
+
 }
 
 
@@ -275,6 +301,10 @@ span.price-tag {
 
    .visible-xs {
     display: block !important;
+    }
+
+    .visible-tab {
+        display: block !important;
     }
 
     a.post-ad-btn.visible-xs {
@@ -354,6 +384,12 @@ span.price-tag {
         width: 100%;
         margin-bottom: 15px;
     }
+
+    .full-size-width {
+        width: 100%;
+        max-width: 100%;
+        flex: 100%;
+    }
     
 }
 
@@ -361,8 +397,82 @@ span.price-tag {
 
 /*tab-portrait*/
 @media (min-width: 768px) and (max-width: 991px) {
+    .hidden-tab {
+        display: none !important;
+    }
+    
+    .visible-tab {
+        display: block !important;
+    }
+
+    .mobile-nav-additional-wrapper {
+        display: flex;
+        margin-left: 50%;
+        align-items: center;
+    }
+
+    .globe {
+        left: 67%;
+    }
+
+    .navbar-nav {
+        padding-left: 15px;
+        margin-top: 60px;
+    }
+
+    .nav1 {
+        padding: 0;
+    }
+
+    a#dropdownMenuLink {
+        padding-left: 0;
+    }
+
+    .mobile-coutry-dropdown {
+        width: 100%;
+    }
+
+   
+
+    .icons-bar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .icon-wrapper i {
+        font-size: 1.5rem !important;
+    }
+
+    button.feedback {
+        font-size: 0.8rem;
+        right: -20px;
+        padding: 5px 10px;
+    }
+
+    #navbarNav2 .navbar-nav {
+        margin-top: 15px !important;
+    }
 }
 
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* .post-ad-btn {
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+
+    .nav1 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    } 
+    .navbar-expand-lg .navbar-collapse {
+        margin-right: 15px !important;
+    } */
+}
 
 
 /*large screen*/

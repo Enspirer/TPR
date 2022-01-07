@@ -35,7 +35,7 @@
     <section id="contact-us">
         <div class="container" style="margin-top: 6rem; margin-bottom:5rem;">
             <div class="row justify-content-between">
-                <div class="col-6">
+                <div class="col-6 full-size-width">
                     <h3 class="fw-bolder">Contact Us</h3>
 
                     <!-- <p class="mt-5" style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quo saepe odio error fugiat numquam eum, minima tenetur qui voluptates repudiandae doloribus porro eos iste tempore rerum! Nisi, molestias consectetur.</p> -->
@@ -71,7 +71,7 @@
                     </div>
                 </div>
 
-                <div class="col-5">
+                <div class="col-5 full-size-width">
                     <form action="{{route('frontend.contact.store')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="mb-4">

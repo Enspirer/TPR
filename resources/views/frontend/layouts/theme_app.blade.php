@@ -211,22 +211,7 @@ color: transparent;
   width: 500px;
 }
 
-.post-ad-btn {
-color: #fff;
-text-decoration: none;
-font-weight: bold;
-background: red;
-padding: 5px 15px;
-border-radius: 5px;
-margin-left: 30px;
-margin-right: 30px;
-border: 0;
-}
 
-
-.post-ad-btn:hover {
-color: #000;
-}
 
 .icon-wrapper i {
 font-size: 2rem;

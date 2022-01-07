@@ -35,7 +35,7 @@
     <section id="contact-us">
         <div class="container" style="margin-top: 6rem; margin-bottom:5rem;">
             <div class="row justify-content-between">
-                <div class="col-6">
+                <div class="col-6 full-size-width">
                     <h3 class="fw-bolder">Contact Us</h3>
 
                     <!-- <p class="mt-5" style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quo saepe odio error fugiat numquam eum, minima tenetur qui voluptates repudiandae doloribus porro eos iste tempore rerum! Nisi, molestias consectetur.</p> -->
@@ -79,7 +79,7 @@
 
     
                    
-                    <div class="col-5">
+                    <div class="col-5 full-size-width">
                         @if(isset(get_country_cookie(request())->country_id))
                             @if(get_country_cookie(request()))
                                 <form action="{{route('frontend.manager_contact_store.store')}}" method="post" enctype="multipart/form-data">

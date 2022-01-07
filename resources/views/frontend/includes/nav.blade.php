@@ -34,10 +34,10 @@
 
             <div class="mobile-nav-additional-wrapper">
                  <!-- post ad -->
-             <a class="post-ad-btn visible-xs" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
+             <a class="post-ad-btn visible-xs visible-tab" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
 
             <!-- language bar -->
-            <a href="" class="visble-xs" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
+            <a href="" class="visble-xs visible-tab" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
             <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
             <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
             </a>
@@ -154,10 +154,10 @@
             </div>
 
                 <!-- post ad -->
-                <a class="post-ad-btn hidden-xs" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
+                <a class="post-ad-btn hidden-xs hidden-tab" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
 
                 <!-- language bar -->
-                <a href="" class="hidden-xs" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
+                <a href="" class="hidden-xs hidden-tab" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
                 <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
                 <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
                 </a>
