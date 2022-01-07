@@ -144,10 +144,10 @@
     overflow:hidden; 
   }
 
-  #downArrow {
-      display: block;
-  }
+  i.bi.bi-chevron-down.ms-1.collapsed {
+    display: inline-block !important;
+}
 
-  #upArrow {
-      display: none;
-  }
+i.bi.bi-chevron-up.ms-1.collapsed {
+    display: none;
+}
