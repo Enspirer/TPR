@@ -230,6 +230,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/help'))}}" href="{{ route('admin.help.index') }}">
+                    <i class="nav-icon fas fa-question-circle"></i>
+                    Help 
+                </a>
+            </li>
+
 
             @if ($logged_in_user->isAdmin())
                 <li class="nav-title">

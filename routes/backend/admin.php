@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\PropertyHistoryController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\BlogsController;
 use App\Http\Controllers\Backend\UsersFeedbackController;
+use App\Http\Controllers\Backend\HelpController;
 
 
 // All route names are prefixed with 'admin.'.
@@ -88,10 +89,6 @@ Route::post('global-ad-categories/create', [GlobalAdCategoryController::class, '
 Route::get('global-ad-categories/edit/{id}', [GlobalAdCategoryController::class, 'edit'])->name('global_ad_categories.edit');
 Route::post('global-ad-categories/update', [GlobalAdCategoryController::class, 'update'])->name('global_ad_categories.update');
 Route::get('global-ad-categories/delete/{id}', [GlobalAdCategoryController::class, 'destroy'])->name('global_ad_categories.destroy');
-
-
-
-
 
 
 Route::get('file_manager', [FileManagerController::class, 'index'])->name('file_manager.index');
@@ -188,3 +185,13 @@ Route::post('blog_post/store', [BlogsController::class, 'store'])->name('blog_po
 Route::get('blog_post/show/{id}', [BlogsController::class, 'show'])->name('blog_post.show');
 Route::post('blog_post/update', [BlogsController::class, 'update'])->name('blog_post.update');
 Route::get('blog_post/destroy/{id}', [BlogsController::class, 'destroy'])->name('blog_post.destroy');
+
+
+Route::get('help', [HelpController::class, 'index'])->name('help.index');
+Route::get('help/create', [HelpController::class, 'create'])->name('help.create');
+Route::post('help/store', [HelpController::class, 'store'])->name('help.store');
+Route::get('help/getdetails', [HelpController::class, 'getdetails'])->name('help.getdetails');
+Route::get('help/edit/{id}', [HelpController::class, 'edit'])->name('help.edit');
+Route::post('help/update', [HelpController::class, 'update'])->name('help.update');
+Route::get('help/delete/{id}', [HelpController::class, 'destroy'])->name('help.destroy');
+
