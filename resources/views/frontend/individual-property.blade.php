@@ -46,7 +46,7 @@
         <div class="container mt-4">
             <div class="row justify-content-between">
 
-                <div class="col-8">
+                <div class="col-8 full-size-width">
 
                     @if(json_decode($property_details->image_ids) == null)
 
@@ -149,7 +149,7 @@
 
                     <div class="details mt-5">
                         <div class="row">
-                            <div class="col-5">
+                            <div class="col-5 full-size-width">
                                 <h5 class="mb-1" style="color: #79CEEC;">{{ get_currency(request(),$property_details->price ) }}</h5>
                                 <h5 style="color: #83BE43">{{ $property_details->city }}, {{ $property_details->country }}</h5>
 
@@ -164,7 +164,7 @@
                                     2 bed semi-detached house
                                 </p> -->
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 full-size-width">
 
                             @auth
                                 @if($property_details->virtual_tour != null)
@@ -191,7 +191,7 @@
                             
 
                             </div>
-                            <div class="col-3 text-end">
+                            <div class="col-3 full-size-width text-end">
 
                                 <p class="text-secondary mt-5">
                                     @if($property_details->baths == null)
@@ -710,7 +710,7 @@
     
                 </div>
 
-                <div class="col-4 px-5">
+                <div class="col-4 px-5 full-size-width">
 
                     <div class="row justify-content-center shadow py-4">
                         <div align="center">
