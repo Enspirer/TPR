@@ -220,10 +220,10 @@
                                         </div>
                                     </div>
                                     <div class="row mt-4">
-                                        <div class="col-6">
+                                        <div class="col-6 mobile-max-width">
                                             <h6 class="text-secondary mb-0">Listed on {{ $property->created_at->toDateString() }}</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6 mobile-max-width mobile-m-top">
                                             <div class="row">
                                                 <div class="col-6">
                                                     <p class="mb-0"><i class="bi bi-telephone me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
