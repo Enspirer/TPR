@@ -145,7 +145,7 @@
                             
                             <a href="{{route('frontend.auth.login')}}" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px;">
                                 <div class="row justify-content-center">
-                                    <div class="col-4" style="padding-left:50px">
+                                    <div class="col-4 mobile-icon-p-fix" style="padding-left:50px">
                                         <i class="far fa-heart"></i>
                                     </div>
                                     <div class="col-7 p-0 text-start">
