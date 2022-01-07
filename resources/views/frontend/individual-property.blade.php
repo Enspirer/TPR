@@ -333,6 +333,7 @@
                                                                 </tr>
                                                             </tbody>
                                                         </table>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -345,7 +346,7 @@
                                 <hr class="mt-3">
                                 <div class="row justify-content-center text-center">
                                     <div class="col-6 p-0">
-                                        <a role="button" class="collapsed text-decoration-none text-body collapse-button" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem;"></a>
+                                        <a role="button" id="chevronChanger" class="collapsed text-decoration-none text-body collapse-button" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem;"></a>
                                         <i class="bi bi-chevron-down ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem; cursor: pointer;"></i>
                                         <i class="bi bi-chevron-up ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="display: none; font-size: 0.8rem; cursor: pointer;"></i>
                                     </div>
@@ -1855,13 +1856,45 @@ type="text/javascript"></script>
 
 
 <script>
-    $('.collapse-button').on('click', function(){
-        $(".bi bi-chevron-down").hide();
-        $(".bi bi-chevron-up").show();
+    // $('.collapse-button').on('click', function(){
+    //     $(".bi bi-chevron-down").hide();
+    //     $(".bi bi-chevron-up").show();
         
-        $(".features i").toggle();
+    //     $(".features i").toggle();
+    // });
+
+    let getButton = document.querySelector("#chevronChanger");
+    // let elementOne = document.querySelector(".bi bi-chevron-down");
+    // let elementTwo = document.querySelector(".bi bi-chevron-up");
+    let temp = true;
+    getButton.addEventListener('click', function() {
+        temp = !temp;
+        if(!temp) {
+            // elementOne.style.display = "none";
+            // elementTwo.style.display = "block";
+            alert("Display One");
+        }
+        else {
+            // elementOne.style.display = "block";
+            // elementTwo.style.display = "none";
+            alert("Display Two");
+        }
     });
+
 </script>
+
+<!-- Description List
+<script>
+        $(".show-more").click(function () {
+        if($(".text").hasClass("show-more-height")) {
+            $(this).text("(Show Less)");
+        } else {
+            $(this).text("(Show More)");
+        }
+
+        $(".text").toggleClass("show-more-height");
+    });
+</script> -->
 
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
