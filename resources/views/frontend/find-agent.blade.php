@@ -120,7 +120,7 @@
                                     <div class="agent-cat-btn mobile-m-top-15 ">
                                         <a href="tel:{{ $agent->telephone }}" class="btn w-100 agent-contact"><i class="fas fa-mobile-alt me-2"></i>{{ $agent->telephone }}</a>
                                     </div>
-                                    <div class="agent-cat-btn mobile-m-top-15 ">
+                                    <div class="agent-cat-btn mobile-m-top-15 agent-email-btn">
                                         <a href="mailto:{{ $agent->email }}" class="btn w-100 agent-contact" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="fas fa-envelope me-2"></i>{{ $agent->email }}</a>
                                     </div>
                                 </div>

@@ -48,6 +48,8 @@
 
     .mobile-m-top-15 {
         margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .mobile-center-content {
@@ -65,9 +67,10 @@
         margin-top: 15px;
     }
 
-    .tab-fifty-btn {
-        width: 50%;
+    .agent-email-btn {
+        width: 180px !important;
     }
+
 }
 
 
