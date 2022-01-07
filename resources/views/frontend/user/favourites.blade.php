@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <div class="col-8 full-size-width">
+            <div class="col-8 full-size-width mobile-top-padding">
 
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
