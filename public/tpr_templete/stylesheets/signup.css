@@ -48,3 +48,35 @@
     border-radius: 0;
     background: #b0b0b0;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .terms-area-mobile {
+        padding-left: 12px !important;
+        padding-right: 0;
+    }
+    .register-container {
+        padding-left: 0;
+    }
+
+    .mobile-pt-0 {
+        padding-top: 0 !important;
+    }
+}
+
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/*large screen*/
+@media screen and (min-width: 1400px) {
+    section#sign-up {
+        min-height: 74vh;
+    }
+    .register-container {
+        padding-top: 20vh !important;
+    }
+}
+
