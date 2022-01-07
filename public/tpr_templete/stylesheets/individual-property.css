@@ -20,8 +20,9 @@
 }
 
 .features a.collapsed::after {
-    content: 'See full description <i class="fas fa-chevron-down"></i>';
+    content: 'See full description';
 }
+
 
 .features a:not(.collapsed)::after {
     content: 'Hide description';
