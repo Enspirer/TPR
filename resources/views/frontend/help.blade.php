@@ -145,7 +145,7 @@
                     <div class="col-md-12">
                         <div class="faq" id="accordion">
 
-                            @if(count($helps) != 0)
+                            @if(count($helps) == 0)
 
                                 @include('frontend.includes.not_found',[
                                     'not_found_title' => 'Data not found',
