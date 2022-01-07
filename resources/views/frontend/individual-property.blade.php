@@ -23,11 +23,13 @@
         temp = !temp;
         if(!temp) {
             down.style.display = "none";
-            up.style.display = "inline-block";
+            up.style.display = "block";
+            alert("One");
         }
         else {
-            down.style.display = "inline-block";
+            down.style.display = "block";
             up.style.display = "none";
+            alert("Two");
         }
     });
 
@@ -371,7 +373,7 @@
 
                                 <hr class="mt-3">
                                 <div class="row justify-content-center text-center">
-                                    <div class="col-6 p-0">
+                                    <div class="col-6 p-0" style="display:flex;">
                                         <a role="button" id="chevronChanger" class="collapsed text-decoration-none text-body collapse-button" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem;"></a>
                                         <i id="downArrow" class="bi bi-chevron-down ms-1 " style="font-size: 0.8rem; cursor: pointer;"></i>
                                         <i id="upArrow" class="bi bi-chevron-up ms-1 "  style=" font-size: 0.8rem; cursor: pointer;"></i>
