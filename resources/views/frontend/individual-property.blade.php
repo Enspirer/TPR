@@ -7,8 +7,6 @@
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/individual-property.css') }}">
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/swiper.css') }}">
-   
-
 @endpush
 
 @if ( session()->has('message') )
@@ -335,7 +333,6 @@
                                                                 </tr>
                                                             </tbody>
                                                         </table>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -347,10 +344,10 @@
 
                                 <hr class="mt-3">
                                 <div class="row justify-content-center text-center">
-                                    <div class="col-6 p-0" style="display:flex;">
-                                        <a role="button" id="chevronChanger" class="collapsed text-decoration-none text-body collapse-button" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem;"></a>
-                                        <i id="downArrow" class="bi bi-chevron-down ms-1 " style="font-size: 0.8rem; cursor: pointer;"></i>
-                                        <i id="upArrow" class="bi bi-chevron-up ms-1 "  style=" font-size: 0.8rem; cursor: pointer;"></i>
+                                    <div class="col-6 p-0">
+                                        <a role="button" class="collapsed text-decoration-none text-body collapse-button" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem;"></a>
+                                        <i class="bi bi-chevron-down ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.8rem; cursor: pointer;"></i>
+                                        <i class="bi bi-chevron-up ms-1 collapsed" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="display: none; font-size: 0.8rem; cursor: pointer;"></i>
                                     </div>
                                 </div>
                             </div>
@@ -1857,19 +1854,14 @@
 type="text/javascript"></script>
 
 
-
-<!-- Description List
 <script>
-        $(".show-more").click(function () {
-        if($(".text").hasClass("show-more-height")) {
-            $(this).text("(Show Less)");
-        } else {
-            $(this).text("(Show More)");
-        }
-
-        $(".text").toggleClass("show-more-height");
+    $('.collapse-button').on('click', function(){
+        $(".bi bi-chevron-down").hide();
+        $(".bi bi-chevron-up").show();
+        
+        $(".features i").toggle();
     });
-</script> -->
+</script>
 
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -1882,34 +1874,6 @@ type="text/javascript"></script>
       prevEl: ".swiper-button-prev",
     },
   });
-</script>
-
-<script>
-    // $('.collapse-button').on('click', function(){
-    //     $(".bi bi-chevron-down").hide();
-    //     $(".bi bi-chevron-up").show();
-        
-    //     $(".features i").toggle();
-    // });
-
-    let getButton = document.querySelector("#chevronChanger");
-    let down = document.querySelector("#downArrow");
-    let up = document.querySelector("#upArrow");
-    let temp = true;
-    getButton.addEventListener('click', function() {
-        temp = !temp;
-        if(!temp) {
-            down.style.display = "none";
-            up.style.display = "block";
-            alert("One");
-        }
-        else {
-            down.style.display = "block";
-            up.style.display = "none";
-            alert("Two");
-        }
-    });
-
 </script>
 
 <script>
