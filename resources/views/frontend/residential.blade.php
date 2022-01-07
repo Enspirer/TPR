@@ -100,14 +100,14 @@
             <div class="container" style="margin-top: 4rem; margin-bottom: 5rem;">
 
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col-9 full-size-width">
                         @if(get_country_cookie(request()))
                             <h3 class="text-center fw-bolder">
                                 {{ ucfirst($category_type) }} Properties in {{ get_country_cookie(request())->country_name }}
                             </h3>
                         @endif
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 max-btn">
                         
                         @auth
                             @if(App\Models\UserSearch::where('user_id',auth()->user()->id)->where('url',url()->current())->first() == null)
@@ -115,7 +115,7 @@
                                 {{csrf_field()}}
                                     <button type="submit" class="btn py-2 fw-bold w-100 rounded-pill tab-full-btn" style="border: 1.5px solid rgb(112, 112, 112);font-size: 12px;width: 230px;">
                                         <div class="row justify-content-center">
-                                            <div class="col-4" style="padding-left:50px">
+                                            <div class="col-4 mobile-icon-p-fix" style="padding-left:50px">
                                                 <i class="far fa-heart"></i>
                                             </div>
                                             <div class="col-7 p-0 text-start">
