@@ -145,7 +145,7 @@
   }
 
   #downArrow {
-      display: block;
+      display: inline-block;
   }
 
   #upArrow {
