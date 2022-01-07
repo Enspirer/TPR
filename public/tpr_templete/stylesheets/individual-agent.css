@@ -91,6 +91,10 @@
         float: unset;
         width: 100%;
     }
+
+    .i-agent-tags {
+        width: max-content;
+    }
 }
 
 

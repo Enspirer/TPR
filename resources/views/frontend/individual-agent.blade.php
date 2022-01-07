@@ -151,7 +151,7 @@
                                         <div class="row mt-3">
 
                                         @if($prop->main_category == 'Commercial')
-                                            <div class="col-2 p-1">
+                                            <div class="col-2 p-1 i-agent-tags">
                                                 <button class="btn text-white w-100" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button>
                                             </div>
                                         @elseif($prop->main_category == 'Residential')
