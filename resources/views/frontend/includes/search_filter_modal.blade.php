@@ -13,6 +13,11 @@
                             <input type="text" name="search_keyword" id="autocompleteFilter" class="form-control p-3 rounded-0" aria-label="search" placeholder="Search Property">
                             <!-- <input type="hidden" value="" name="categtype" id="modal-id"> -->
                         </div>
+
+                        <div>
+                            <input type="text" name="external_keyword" id="autocompleteFilter" class="form-control mt-3 p-3 rounded-0" aria-label="search" placeholder="Search Keyword">
+                            <!-- <input type="hidden" value="" name="categtype" id="modal-id"> -->
+                        </div>
                         
                         <div class="row mt-3 mobile-filter-row">
                             <div class="col-3 mobile-filter-full-width">
