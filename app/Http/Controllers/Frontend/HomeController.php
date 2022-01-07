@@ -210,11 +210,43 @@ class HomeController extends Controller
             }else{
                 $lat = $refidymeter->results[0]->geometry->location->lat;
                 $lng = $refidymeter->results[0]->geometry->location->lng;
-                $boundtry = $refidymeter->results[0]->geometry->bounds;
 
-                $north_string1 =  $boundtry->northeast->lat.'_'.$boundtry->northeast->lng;
-                $south_string2 =  $boundtry->southwest->lat.'_'.$boundtry->southwest->lng;
-                $areacod = $north_string1.'_'.$south_string2;
+                if (isset($refidymeter->results[0]->geometry->bounds)) {
+                    $boundtry = $refidymeter->results[0]->geometry->bounds;
+                }else {
+                    $boundtry = null;
+                }
+                // dd($boundtry);
+
+                if($boundtry == null) {
+                    $north_string1 = null;
+                }else {
+                    $north_string1 = $boundtry->northeast->lat.'_'.$boundtry->northeast->lng;
+                }
+
+                // dd($north_string1);
+
+
+                if($boundtry == null) {
+                    $south_string2 = null;
+                }else {
+                    $south_string2 = $boundtry->southwest->lat.'_'.$boundtry->southwest->lng;
+                }
+
+                // dd($south_string2);
+
+                if($north_string1 || $south_string2 == null){
+                    $areacod = 'area_coordinator';
+                }else{
+                    $areacod = $north_string1.'_'.$south_string2;
+                }
+
+                // dd($areacod);
+
+
+                // $north_string1 =  $boundtry->northeast->lat.'_'.$boundtry->northeast->lng;
+                // $south_string2 =  $boundtry->southwest->lat.'_'.$boundtry->southwest->lng;
+
 
             }
         }
