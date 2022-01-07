@@ -449,6 +449,14 @@ div#adModal {
     .mobile-row-content-start {
         justify-content: start !important;
     }
+
+    .map-mobile-container {
+        padding: 15px !important;
+    }
+
+    section#residential-property-search {
+        margin-top: 150px;
+    }
     
 }
 
@@ -516,24 +524,19 @@ div#adModal {
         margin-top: 15px !important;
     }
     
+    .tab-full-width {
+        width: 100%;
+        flex: 100%;
+    }
     
-}
-
-
-@media (min-width: 992px) and (max-width: 1199px) {
-    /* .post-ad-btn {
-        margin-left: 5px !important;
-        margin-right: 5px !important;
+    .map-mobile-container {
+        padding: 15px !important;
     }
 
-    .nav1 {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    } 
-    .navbar-expand-lg .navbar-collapse {
-        margin-right: 15px !important;
-    } */
 }
+
+
+
 
 
 /*large screen*/
