@@ -64,10 +64,10 @@
                 @foreach($agents as $agent)
                     @if($agent->status == 'Approved')
                         <div class="row shadow py-5 px-4 align-items-center" style="margin-top: 5rem;">
-                            <div class="col-4">
+                            <div class="col-4 full-size-width">
                                 <img src="{{ url('files/agent_request', $agent->photo) }}" alt="" class="img-fluid" width="100%" style="object-fit:cover; height:330px">
                             </div>
-                            <div class="col-8">
+                            <div class="col-8 full-size-width">
                                 <div class="row">
                                     <div class="clearfix">
                                         <div class="float-start">
@@ -92,11 +92,11 @@
                                     </div> -->
 
                                 
-                                    <div class="col-2 p-1">
+                                    <div class="col-2 p-1 mobil-btn-fifty">
                                         <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword'] )}}"><button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button></a>
                                     </div>
                                 
-                                    <div class="col-2 p-1">
+                                    <div class="col-2 p-1 mobil-btn-fifty">
                                         <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword'] )}}"><button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button></a>
                                     </div>
                                   

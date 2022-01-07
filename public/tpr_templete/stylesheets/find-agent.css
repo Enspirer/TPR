@@ -40,6 +40,11 @@
         flex-direction: column;
         padding-top: 10rem;
     }
+
+    .mobil-btn-fifty {
+        width: 50%;
+        flex: 50%;
+    }
 }
 
 
