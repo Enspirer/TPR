@@ -65,7 +65,7 @@ Route::get('individual-property/{id}/calculator', [IndividualPropertyController:
 Route::get('commercial', [CommercialController::class, 'index'])->name('commercial');
 Route::get('blog', [BlogController::class, 'index'])->name('blog');
 Route::get('individual-blog/{id}', [IndividualBlogController::class, 'index'])->name('individual_blog');
-Route::get('help', [HelpController::class, 'index'])->name('help');
+Route::get('user_help', [HelpController::class, 'index'])->name('user_help');
 
 Route::get('about-us', [FooterController::class, 'aboutUs'])->name('about-us');
 Route::get('mobile-apps', [FooterController::class, 'mobileApps'])->name('mobile-apps');
@@ -76,7 +76,7 @@ Route::get('terms-of-use', [FooterController::class, 'termsOfUse'])->name('terms
 Route::get('tips-for-buyers', [FooterController::class, 'TipsforBuyers'])->name('tips-for-buyers');
 Route::get('tips-for-sellers', [FooterController::class, 'TipsforSellers'])->name('tips-for-sellers');
 Route::get('commercial-resources', [FooterController::class, 'CommercialResources'])->name('commercial-resources');
-Route::get('help', [FooterController::class, 'help'])->name('help');
+
 
 // Route::get('individual-property/{id}', [IndividualPropertyController::class, 'property_details'])->name('individual-property.property_details');
 
