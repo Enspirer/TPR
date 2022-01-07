@@ -95,6 +95,10 @@
     .i-agent-tags {
         width: max-content;
     }
+
+    .tab-price {
+        top: 0.6rem;
+    }
 }
 
 
