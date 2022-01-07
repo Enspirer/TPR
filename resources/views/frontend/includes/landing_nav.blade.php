@@ -86,6 +86,17 @@
                     
                 </ul>
             </div>
+
+            <!-- post ad -->
+            <a class="post-ad-btn" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
+
+            <!-- language bar -->
+            <a href="" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
+            <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
+            <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
+            </a>
+
+
         </div>
     </nav>
 </section>
