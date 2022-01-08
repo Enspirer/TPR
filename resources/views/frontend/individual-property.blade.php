@@ -775,22 +775,22 @@
                         @auth
                             @if($watch_list == null)
                                 <div class="col-12 text-center mt-4">
-                                    <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="fas fa-eye"></i>Watch Listing</button>
+                                    <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</button>
                                 </div> 
                             @else
                                 <div class="col-12 text-center mt-4">
-                                    <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list_change" class="btn rounded-0 py-2 fw-bold fs-6 w-100 text-light" style="border: 1.5px solid; background-color:#28a3b3;"><i class="fas fa-eye"></i>Watch Listing</button>
+                                    <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list_change" class="btn rounded-0 py-2 fw-bold fs-6 w-100 text-light" style="border: 1.5px solid; background-color:#28a3b3;"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</button>
                                 </div> 
                             @endif
                         @else
                             <div class="col-12 text-center mt-4">
-                                <a href="{{route('frontend.auth.login')}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid">Watch Listing</a>
+                                <a href="{{route('frontend.auth.login')}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</a>
                             </div>
                         @endauth
 
 
                             <div class="col-12 text-center mt-4">
-                                <a  target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{$property_details->lat}}%2c{{$property_details->long}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"> <i class="fas fa-directions"></i>Directions</a>
+                                <a  target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{$property_details->lat}}%2c{{$property_details->long}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"> <i style="margin-right:5px;" class="fas fa-directions"></i>Directions</a>
                             </div>
 
                             <div class="col-12 text-center mt-4">
