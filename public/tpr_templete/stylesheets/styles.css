@@ -344,6 +344,13 @@ div#adModal {
     color: #fff;
 }
 
+.pac-container {
+    z-index: 1100;
+    display: block;
+}
+
+
+
 /*mobile-view*/
 @media screen and (max-width: 320px){
     a.post-ad-btn.visible-xs {
@@ -548,13 +555,33 @@ div#adModal {
         padding: 15px !important;
     }
 
+    .container.search-bar {
+        display: none;
+    }
+
+    .container.mini-search-bar {
+        display: block;
+    }
+
 }
 
 
+/*small laptop screen*/
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .nav2 {
+        padding: 0 !important;
+        font-size: 0.8rem !important;
+    }
+    .globe {
+        top: 4.3rem;
+    }
+}
 
 
 
 /*large screen*/
 @media screen and (min-width: 1400px) {
-   
+    .globe {
+        left: 43%;
+    }
 }

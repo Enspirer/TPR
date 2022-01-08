@@ -10,12 +10,12 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <input type="text" name="search_keyword" id="autocompleteFilter" class="form-control p-3 rounded-0" aria-label="search" placeholder="Search Property">
+                            <input type="text" name="search_keyword" id="autocompleteProperty" class="form-control p-3 rounded-0" aria-label="search" placeholder="Search Property">
                             <!-- <input type="hidden" value="" name="categtype" id="modal-id"> -->
                         </div>
 
                         <div>
-                            <input type="text" name="external_keyword" id="autocompleteFilter" class="form-control mt-3 p-3 rounded-0" aria-label="search" placeholder="Search Keyword">
+                            <input type="text" name="external_keyword" class="form-control mt-3 p-3 rounded-0" aria-label="search" placeholder="Search Keyword">
                             <!-- <input type="hidden" value="" name="categtype" id="modal-id"> -->
                         </div>
                         

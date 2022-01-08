@@ -815,7 +815,7 @@ function initialize() {
         });
     autocomplete = new google.maps.places.Autocomplete(
         /** @type {HTMLInputElement} */
-        (document.getElementById('autocompleteFilter')), {
+        (document.getElementById('autocompleteProperty')), {
             types: ['geocode']
         });
         
