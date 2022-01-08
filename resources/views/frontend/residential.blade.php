@@ -42,6 +42,7 @@
                                         <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{url('image_assest', $property->feature_image_id)}}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
                                     </div>
                                     <div class="col-6">
+                                         <a href="{{ route('frontend.individual-property', $property->id) }}" style="text-decoration:none;">
                                         <div class="row justify-content-between align-items-center">
                                             <div class="col-9">
                                                 <p class="mb-0 small-num" style="font-size: 0.7rem;">{{ $property->created_at->toDateString() }}</p>
@@ -57,6 +58,7 @@
                                         @else
                                             <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(1, $property->price) }}</p>
                                         @endif
+                                        </a>
                                     </div>
                                 </div>
                             @endforeach
