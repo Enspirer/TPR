@@ -1,7 +1,7 @@
 <section id="index-navbar">
     <nav class="navbar fixed-top first-nav navbar-expand-lg navbar-light landing_nav" style="background-color: #4195E1">
         <div class="container">
-            <a href="{{ route('frontend.landing') }}"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="logo-landing img-fluid rounded" alt=""></a>
+            <a href="{{ route('frontend.landing') }}"><img src="{{url('tpr_templete/images/tropical-logo.png')}}" class="logo-landing img-fluid rounded" alt=""></a>
 
 
             <div class="mobile-nav-additional-wrapper">
