@@ -7,10 +7,11 @@
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('tpr_templete/stylesheets/residential.css') }}">
 @endpush
+<!-- banner -->
 
 
     <!--residential property search-->
-    <section id="residential-property-search">
+    <section id="residential-property-search" style="padding-top:120px;">
         <div class="container-fluid" style="margin-top:5rem">
             <h3 class="fw-bolder text-center">Interactive Property Search</h3>
 
@@ -86,11 +87,11 @@
         </div>
     </section>
 
-
-    <!--search-->
-    <section id="index-search" class="container-fluid filter-search" style="margin-top: 5rem;">
+<!--search-->
+<section id="index-search" class="container-fluid filter-search" style="margin-top: 5rem;">
         @include('frontend.includes.search_bar')
     </section>
+    
 
 
     <!--residential properties-->

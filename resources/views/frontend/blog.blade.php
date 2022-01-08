@@ -19,7 +19,7 @@
 <section class="blog">
     <div class="container">
         <div class="row">
-            <div class="col-9">
+            <div class="col-9 full-size-width">
                 <div class="row blog-card-row">
                     <h1 class="blog-title">Latest Posts</h1>
 
@@ -33,7 +33,7 @@
 
                     @else
                         @foreach($all_posts as $all_post)
-                            <div class="blog-card col-4 mt-4">
+                            <div class="blog-card col-4 mt-4 full-size-width">
                                 <a href="{{route('frontend.individual_blog',$all_post->id)}}" style="text-decoration:none; color:black">
                                     <div class="card-wrapper" style="min-height:365px; max-height:365px;">
                                         <img src="{{uploaded_asset($all_post->feature_image)}}" alt="" style="height:155px; object-fit:cover" width="100%">
@@ -57,7 +57,7 @@
 
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-3 blog-fifty-mobile">
                 <div class="sidebar-warpper">
                     @if(count($newest_posts) != 0)
                         <h2 class="blog-title">Popular Posts</h2>
