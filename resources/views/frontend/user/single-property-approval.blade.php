@@ -69,10 +69,17 @@
                             <div class="row mt-5">
                                 <div class="col-12">
                                     <div class="row align-items-center">
-                                        <div class="col-6">
+                                        <div class="col-5">
                                             <h4 class="mb-0">{{ $single_approval->name }}</h4>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-4">
+                                            @if($single_approval->virtual_tour != null)
+                                                <div class="mt-3">
+                                                    <button class="btn btn-success" data-toggle="modal" data-target="#virtual_tour_modal">Virtual Tour</button>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="col-3">
                                             <div class="text-end">
                                                 <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #4195E1;">{{ $property_type->property_type_name }}</h5>
                                             </div>
@@ -273,6 +280,26 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="virtual_tour_modal" tabindex="-1" aria-labelledby="virtual_tour_modalModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="virtual_tour_modalModalLabel">Virtal Tour</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                    {!!$single_approval->virtual_tour!!}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
             </div>
         </div>
     </div>

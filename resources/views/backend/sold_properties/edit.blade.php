@@ -15,6 +15,17 @@
                                 <div class="carousel">
                                     <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
                                         <div class="carousel-inner">
+
+                                        @if($interior_image != NULL)
+                                            @foreach($interior_image as $key => $interior)                                                
+                                              
+                                                    <div class="carousel-item">
+                                                        <img src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100" style="height:370px; object-fit:cover;" alt="...">
+                                                    </div>                                              
+
+                                            @endforeach
+                                        @endif
+                                        
                                         @if($images != NULL)
                                             @foreach($images as $index => $image)
                                                 
@@ -49,10 +60,17 @@
                         <div class="row mt-5">
                             <div class="col-12">
                                 <div class="row align-items-center">
-                                    <div class="col-6">
+                                    <div class="col-5">
                                         <h4 class="mb-0">{{ $property->name}}</h4>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
+                                        @if($property->virtual_tour != null)
+                                            <div class="mt-3">
+                                                <a class="btn btn-success text-light mb-2" data-toggle="modal" data-target="#virtual_tour_modal">Virtual Tour</a>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="col-3">
                                         <div class="text-end">
                                             <h5 class="d-inline-block mb-0 py-2 px-4 text-light" style="background-color: #4195E1;">{{ $property_type->property_type_name}}</h5>
                                         </div>
@@ -348,6 +366,25 @@
             </div>
         </div>
     </form>
+
+
+    <div class="modal fade" id="virtual_tour_modal" tabindex="-1" aria-labelledby="virtual_tour_modalModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="virtual_tour_modalModalLabel">Virtal Tour</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                    {!!$property->virtual_tour!!}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+            </div>
+        </div>
+    </div>
 
 @endsection
 

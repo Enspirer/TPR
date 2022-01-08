@@ -63,6 +63,12 @@ class PropertyHistoryController extends Controller
             $images = json_decode($property->image_ids);
         }
 
+        if($property->interior_image == NULL){
+            $interior_image = null;
+        } else {
+            $interior_image = json_decode($property->interior_image);
+        }
+
         // $images = json_decode($property->image_ids);
         
         // dd($property);    
@@ -83,7 +89,8 @@ class PropertyHistoryController extends Controller
             'property_type' => $property_type,
             'agent_details' => $agent_details,
             'external_parameter' => $external_parameter,
-            'listing_history' => $listing_history
+            'listing_history' => $listing_history,
+            'interior_image' => $interior_image
         ]);  
     }
 

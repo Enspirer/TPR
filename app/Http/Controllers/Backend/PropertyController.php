@@ -22,7 +22,7 @@ class PropertyController extends Controller
     {
         if($request->ajax())
         {
-            $data = Properties::where('country_manager_approval','=','Approved')->get();
+            $data = Properties::where('country_manager_approval','=','Approved')->where('sold_request',null)->get();
             return DataTables::of($data)
             
                     ->addColumn('action', function($data){
