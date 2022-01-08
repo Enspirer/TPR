@@ -175,6 +175,7 @@
                                             <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{ route('frontend.image_assets', $property->feature_image_id) }}" alt="" class="img-fluid w-100" style="object-fit:cover; height:240px;"></a>
                                         </div>
                                         <div class="col-6 ps-4 full-size-width mobile-top-p">
+                                        <a href="{{ route('frontend.individual-property', $property->id) }}">
                                             <div class="row justify-content-between">
                                                 <div class="col-9">
                                                     <h5 class="property-price mb-0">{{ $property->name }}</h5>
@@ -220,6 +221,7 @@
                                             @else
                                                 <p class="text-secondary ms-4"><i class="fas fa-bath me-2"></i>Not available<i class="fas fa-bed ms-4 me-2"></i>Not available</p>
                                             @endif
+                                        </a>
                                         </div>
                                     </div>
                                     <div class="row mt-4">
