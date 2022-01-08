@@ -228,11 +228,11 @@
                                         </div>
                                         <div class="col-6 mobile-max-width mobile-m-top">
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="residential-phone">
                                                     <p class="mb-0"><i class="bi bi-telephone me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->telephone }}</p>
                                                 </div>
-                                                <div class="col-6" >
-                                                    <p class="mb-0" id="ppp" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="bi bi-envelope me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
+                                                <div class="residential-email" >
+                                                    <p class="mb-0" id="ppp"><i class="bi bi-envelope me-1"></i>{{ App\Models\AgentRequest::where('user_id', $property->user_id)->first()->email }}</p>
                                                 </div>
                                             </div>
                                         </div>

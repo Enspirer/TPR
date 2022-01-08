@@ -63,6 +63,14 @@
     display: block !important;
 } */
 
+.residential-phone {
+    width: max-content;
+}
+
+.residential-email {
+    width: max-content;
+}
+
 /*mobile-view*/
 @media screen and (max-width: 767px) {
     .mobile-icon-p-fix {
