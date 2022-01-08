@@ -10,7 +10,7 @@
 
     <div class="container user-settings" style="margin-top:8rem; margin-bottom: 5rem;">
         <div class="row justify-content-between">
-            <div class="col-4">
+            <div class="col-4 full-size-width">
                 <div class="row">
                     <div class="col-12">
                         @include('frontend.includes.profile-settings-links')
@@ -18,13 +18,13 @@
                 </div>
             </div>
 
-            <div class="col-8">
+            <div class="col-8 full-size-width mobile-top-padding">
 
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
                         <div class="row align-items-center">
                             <div class="col-6 ps-4">
-                                <h4 class="fs-4 fw-bolder user-settings-head mb-3">Notifications</h4>
+                                <h4 class="fs-4 fw-bolder user-settings-head mb-3 mobile-title-margin-left">Notifications</h4>
                             </div>
                         </div>
                     </div>

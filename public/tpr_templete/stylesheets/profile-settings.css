@@ -111,3 +111,26 @@
 .ad-hide {
     display: block!important;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .mobile-top-padding {
+        padding-top: 15px;
+    }
+    .mobile-title-margin-left {
+        margin-left: 15px;
+    }
+}
+
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+
+
+/*large screen*/
+@media screen and (min-width: 1400px) {
+   
+}

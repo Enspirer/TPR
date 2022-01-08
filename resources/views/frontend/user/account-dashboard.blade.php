@@ -10,7 +10,7 @@
 
     <div class="container user-settings" style="margin-top:8rem; margin-bottom: 5rem;">
         <div class="row justify-content-between">
-            <div class="col-4">
+            <div class="col-4 full-size-width">
                 <div class="row">
                     <div class="col-12">
                         @include('frontend.includes.profile-settings-links')
@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <div class="col-8">
+            <div class="col-8 full-size-width mobile-top-padding">
                 
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
@@ -34,7 +34,7 @@
                     <div class="col-12">
                         <div class="px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-4 full-size-width">
                                     <div class="card custom-shadow p-3">
                                         <div class="card-img-top text-center">
                                             <p class="display-1 mb-0 account-dashboard-cards">{{ sprintf("%02d",$bookings) }}</p>
@@ -45,7 +45,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-4 full-size-width">
                                     <div class="card custom-shadow p-3">
                                         <div class="card-img-top text-center">
                                             <p class="display-1 mb-0 account-dashboard-cards">{{ sprintf("%02d",$all_favourite) }}</p>
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-4 full-size-width">
                                     <div class="card custom-shadow p-3">
                                         <div class="card-img-top text-center">
                                             <p class="display-1 mb-0 account-dashboard-cards">{{ sprintf("%02d",$supports) }}</p>

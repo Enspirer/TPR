@@ -231,7 +231,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 280px;
+    width: 290px;
     height: 135px;
 }
 
@@ -250,7 +250,7 @@ p {
 }
 
 span.price-tag {
-    display: block;
+    display: inline-block;
     width: max-content;
     padding: 5px;
     font-size: 0.8rem;
@@ -329,6 +329,26 @@ div#adModal {
 #langModal .modal-dialog {
   width: 500px;
 }
+
+.link-tag {
+    margin-top: 5px;
+}
+
+.link-anchor {
+    color: #fff;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.link-anchor:hover {
+    color: #fff;
+}
+
+.pac-container {
+    z-index: 1100;
+    display: block;
+}
+
 
 
 /*mobile-view*/
@@ -535,13 +555,33 @@ div#adModal {
         padding: 15px !important;
     }
 
+    .container.search-bar {
+        display: none;
+    }
+
+    .container.mini-search-bar {
+        display: block;
+    }
+
 }
 
 
+/*small laptop screen*/
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .nav2 {
+        padding: 0 !important;
+        font-size: 0.8rem !important;
+    }
+    .globe {
+        top: 4.3rem;
+    }
+}
 
 
 
 /*large screen*/
 @media screen and (min-width: 1400px) {
-   
+    .globe {
+        left: 43%;
+    }
 }

@@ -13,7 +13,7 @@
 
     <div class="container user-settings" style="margin-top:8rem; margin-bottom: 5rem;">
         <div class="row justify-content-between">
-            <div class="col-4">
+            <div class="col-4 full-size-width">
                 <div class="row">
                     <div class="col-12">
                         @include('frontend.includes.profile-settings-links')
@@ -22,10 +22,10 @@
             </div>
 
             
-            <div class="col-8">
+            <div class="col-8 full-size-width mobile-top-padding">
                 <div class="row justify-content-between">
                     <div class="col-12 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head mb-3">Saved Search History</h4>
+                        <h4 class="fs-4 fw-bolder user-settings-head mb-3 mobile-title-margin-left">Saved Search History</h4>
 
                         <div class="form-group">
                             <div class="row">

@@ -578,7 +578,7 @@ padding: 0;
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Become a Agent</button>
       </div>
     </div>
   </div>
@@ -815,7 +815,7 @@ function initialize() {
         });
     autocomplete = new google.maps.places.Autocomplete(
         /** @type {HTMLInputElement} */
-        (document.getElementById('autocompleteFilter')), {
+        (document.getElementById('autocompleteProperty')), {
             types: ['geocode']
         });
         
