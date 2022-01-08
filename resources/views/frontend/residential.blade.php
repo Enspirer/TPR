@@ -175,7 +175,7 @@
                                             <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{ route('frontend.image_assets', $property->feature_image_id) }}" alt="" class="img-fluid w-100" style="object-fit:cover; height:240px;"></a>
                                         </div>
                                         <div class="col-6 ps-4 full-size-width mobile-top-p">
-                                        <a href="{{ route('frontend.individual-property', $property->id) }}">
+                                        <a href="{{ route('frontend.individual-property', $property->id) }}" style="text-decoration:none;">
                                             <div class="row justify-content-between">
                                                 <div class="col-9">
                                                     <h5 class="property-price mb-0">{{ $property->name }}</h5>
