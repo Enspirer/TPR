@@ -208,6 +208,7 @@
                                     style="height: 90px!important; object-fit: cover!important; width: 100%" ;></a>
                         </div>
                         <div class="col-6">
+                        <a href="{{ route('frontend.individual-property', $property->id) }}">
                             <div class="row justify-content-between align-items-center">
                                 <div class="col-9">
                                     <p class="mb-0 small-num" style="font-size: 0.7rem;">
@@ -229,6 +230,7 @@
                                 style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">
                                 {{ current_price(1, $property->price) }}</p>
                             @endif
+                        </a>    
                         </div>
                     </div>
                     @endforeach
