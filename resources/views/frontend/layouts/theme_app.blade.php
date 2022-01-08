@@ -578,7 +578,7 @@ padding: 0;
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Become a Agent</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('frontend.auth.login')}}'">Become a Agent</button>
       </div>
     </div>
   </div>
