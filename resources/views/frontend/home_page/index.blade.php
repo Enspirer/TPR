@@ -601,7 +601,7 @@ function initMap() {
                 <p>Transaction Type: ${nameList[i].transaction_type}</p>
                 <p>Country: ${nameList[i].country}</p>
                 <p>City: ${nameList[i].city}</p>
-                <span class="price-tag">${nameList[i].price}</span>
+                <span class="price-tag">USD${nameList[i].price}</span>
                 <span class="price-tag link-tag">
                     <a class="link-anchor" href="{{ url('/') }}/individual-property/${nameList[i].id} ">View Property</a>
 

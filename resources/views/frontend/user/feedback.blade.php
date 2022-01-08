@@ -15,7 +15,7 @@
 
 <div class="container user-settings" style="margin-top:8rem; margin-bottom: 5rem;">
         <div class="row justify-content-between">
-            <div class="col-4">
+            <div class="col-4 full-size-width">
                 <div class="row">
                     <div class="col-12">
                         @include('frontend.includes.profile-settings-links')
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <div class="col-8">
+            <div class="col-8 full-size-width mobile-top-padding">
                 <div class="row justify-content-between mt-4">
 
                     <div class="container-fluid jumbotron text-center" style="background-color: #c6e4ee; border-radius: 15px 50px;">
@@ -45,7 +45,7 @@
 
     <div class="container user-settings" style="margin-top:8rem; margin-bottom: 5rem;">
         <div class="row justify-content-between">
-            <div class="col-4">
+            <div class="col-4 full-size-width">
                 <div class="row">
                     <div class="col-12">
                         @include('frontend.includes.profile-settings-links')
@@ -55,7 +55,7 @@
 
                 
 
-            <div class="col-8">
+            <div class="col-8 full-size-width mobile-top-padding">
                 <div class="row justify-content-between">
                     <div class="col-12 p-0">
                         <h4 class="fs-4 fw-bolder user-settings-head">Feedback Form</h4>
