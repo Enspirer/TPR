@@ -20,7 +20,7 @@
 <section class="blog">
     <div class="container">
         <div class="row">
-            <div class="col-9">
+            <div class="col-9 full-size-width tab-full-width">
                 <div class="row blog-card-row">
                     <h2 class="blog-title">{{$post_details->title}}</h2>
                     <div class="blog-card col-12">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-3 blog-fifty-mobile">
                 <div class="sidebar-warpper">
                     @if(count($newest_posts) != 0)
                         <h2 class="blog-title">Popular Posts</h2>

@@ -58,10 +58,10 @@
     font-size: 0.8rem;
 }
 
-.pac-container {
+/* .pac-container {
     top: 844px !important;
     display: block !important;
-}
+} */
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {

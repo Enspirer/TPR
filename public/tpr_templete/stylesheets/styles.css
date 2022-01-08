@@ -582,6 +582,6 @@ div#adModal {
 /*large screen*/
 @media screen and (min-width: 1400px) {
     .globe {
-        left: 43%;
+        left: 38%;
     }
 }

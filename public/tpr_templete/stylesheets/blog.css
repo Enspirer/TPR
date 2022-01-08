@@ -68,3 +68,39 @@ img.circle-prof {
 .txt-wrapper h2 {
     font-size: 1.5rem;
 }
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .blog-fifty-mobile {
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .tab-blog-card {
+        width: 50%;
+    }
+    .tab-full-width {
+        width: 100%;
+    }
+
+    .blog-fifty-mobile {
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+/*large screen*/
+@media screen and (min-width: 1400px) {
+   
+}
