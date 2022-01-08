@@ -83,6 +83,12 @@ img.circle-prof {
 
 /*tab-portrait*/
 @media (min-width: 768px) and (max-width: 991px) {
+    .tab-blog-card {
+        width: 50%;
+    }
+    .tab-full-width {
+        width: 100%;
+    }
 }
 
 
