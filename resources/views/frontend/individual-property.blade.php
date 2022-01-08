@@ -921,7 +921,7 @@
             </div>
 
             <div class="row text-end mt-2">
-                <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword'] )}} class="text-decoration-none" style="color: #333232;">See all residential properties for sale in New homes <i class="bi bi-chevron-right"></i></a>
+                <a href="{{ route('frontend.map-search')}}" class="text-decoration-none" style="color: #333232;">See all residential properties for sale in New homes <i class="bi bi-chevron-right"></i></a>
             </div>
         </div>
     </section>
