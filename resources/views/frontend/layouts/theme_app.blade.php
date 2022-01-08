@@ -581,13 +581,13 @@ padding: 0;
 
         @auth
 
-        @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
-        <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('frontend.user.agent')}}'">Become a Agent</button>
-        @else
-        <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('frontend.user.properties')}}'">Add Property</button>
-        @endif
+            @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
+                <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('frontend.user.agent')}}'">Become a Agent</button>
+            @else
+                <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('frontend.user.properties')}}'">Add Property</button>
+            @endif
         @else 
-        <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('frontend.auth.register')}}'">Create Account</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('frontend.auth.register')}}'">Create Account</button>
         @endauth
       </div>
     </div>
