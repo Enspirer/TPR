@@ -37,9 +37,9 @@
                         @if(count($notification) == 0)
 
                             @include('frontend.includes.not_found',[
-                            'not_found_title' => 'Notifications item not found',
-                            'not_found_description' => 'Favorite item not found.please add Favorite ',
-                            'not_found_button_caption' => 'Explorer Property'
+                            'not_found_title' => 'Notifications not found',
+                            'not_found_description' => null,
+                            'not_found_button_caption' => null
                             ])
 
                         @else
