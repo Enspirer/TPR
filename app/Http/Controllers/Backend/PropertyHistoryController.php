@@ -105,7 +105,7 @@ class PropertyHistoryController extends Controller
             foreach($watch_listings as $watch_listing){
 
                 if($watch_listing->watch_list != null){
-                    push_notification('Property Sold', 'You have received this email because you have chosen to receive Watched Community updates. If you do not wish to receive this update you may change your preferences.', $request->hidden_id, $watch_listing->user_id);
+                    push_notification('Property Sold', 'You have received this notification because you have chosen to receive Watched Community updates. If you do not wish to receive this update you may change your preferences.', $request->hidden_id, $watch_listing->user_id);
                 }
                                 
             }  
