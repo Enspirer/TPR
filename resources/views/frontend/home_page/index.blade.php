@@ -301,7 +301,7 @@
                     <div class="card p-4 custom-shadow border-0 home-card">
                         <img src="{{url('tpr_templete/images/card_3.svg')}}" class="card-img-top" alt="..." height="200rem">
                         <div class="card-body mt-4 p-2">
-                            <h4 class="card-title text-center mb-4">Property Alerts Live</h4>
+                            <h4 class="card-title text-center mb-4">Property Alerts</h4>
                             <!-- <h5 class="text-info">SubTopic</h5> -->
                             <p class="card-text">Register with us and get regular updates and insights about the properties
                                 and real estate market in your preferred locations.</p>
