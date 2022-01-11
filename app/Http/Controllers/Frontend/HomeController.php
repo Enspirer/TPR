@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\Properties;
+use App\Models\PropertyCalulation;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Models\PropertyType;
@@ -29,6 +30,26 @@ class HomeController extends Controller
     /**
      * @return \Illuminate\View\View
      */
+
+    public function property_view_calulaion($property_id,$file_id,$count)
+    {
+        $propertyCalcDetails = PropertyCalulation::where('property_id',$property_id)->where('file_id',$file_id)->first();
+
+        if($propertyCalcDetails){
+            PropertyCalulation::where('property_id',$property_id)->where('file_id',$file_id)->update([
+               'count' => $propertyCalcDetails-> count + $count
+            ]);
+            return 'updated';
+        }else{
+            $peopDetails = new PropertyCalulation;
+            $peopDetails->property_id = $property_id;
+            $peopDetails->file_id = $file_id;
+            $peopDetails->count = $count;
+            $peopDetails->save();
+            return 'saved';
+        }
+    }
+
     public function landing()
     {
         $country = Country::where('status',1)->get();
