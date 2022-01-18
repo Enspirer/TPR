@@ -326,7 +326,7 @@
                         <div class="icon-wrapper heart-wrapper">
                             @if(!empty( auth()->user()->id) === true)
                                 <a href="{{route('frontend.user.search_history')}}">
-                                <i class="fas fa-bookmark" style="color:#4195e1;"></i>                         
+                                <i class="fas fa-bookmark" style="color:#4195e1;"></i>
                                     <div class="counter-wrapper">
                                         <p id="heartCounter">                                        
                                             {{App\Models\UserSearch::where('user_id',auth()->user()->id)->get()->count()}}
@@ -354,7 +354,7 @@
                                     <i class="fas fa-heart" style="color:red;"></i>
                                     <div class="counter-wrapper">
                                         <p id="heartCounter">
-                                            {{ get_favourite_cookie_item() }}
+                                            {{ count($favourites_cookies) }}
                                         </p>
                                     </div>
                                 </a>

@@ -5,7 +5,6 @@ namespace App\Http\Composers;
 use Illuminate\View\View;
 use App\Models\Country;
 use Cart;
-
 /**
  * Class GlobalComposer.
  */
@@ -21,6 +20,7 @@ class GlobalComposer
         $country = Country::orderBy('country_name', 'ASC')->get();
 
         $itemsCart = Cart::getContent();
+
 
         $view->with('tpr_countries', $country);
         $view->with('favourites_cookies', $itemsCart);

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Settings; 
 use App\Models\WatchListing; 
 use App\Models\Notifications;
-use Cart;
 
 if (! function_exists('app_name')) {
     /**
@@ -387,8 +386,7 @@ if (! function_exists('get_favourite_cookie_item')) {
 
         // $cart = Cart::getContent();
         // dd($cart);
-      
-        return count($cart);
+
        
     }
 
