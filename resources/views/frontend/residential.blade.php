@@ -202,9 +202,13 @@
                                                         </form>
                                                     </div>
                                                     @endif
-                                                @else
+                                                @else                                                                                                    
                                                     <div class="col-3 small-heart">
-                                                        <a href="{{ route('frontend.auth.login') }}" class="bi bi-heart border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF"></a>
+                                                        <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
+                                                        {{csrf_field()}}
+                                                            <input type="hidden" name="cookie_property_id" value="{{ $property->id }}" />
+                                                            <button class="bi bi-heart border-0" type="submit" style="font-size: 1.5rem; display: block; color: #E88DAF; background-color: transparent;"></button>
+                                                        </form>                                                        
                                                     </div>
                                                 @endauth
                                             </div>

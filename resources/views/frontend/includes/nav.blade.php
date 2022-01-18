@@ -350,7 +350,7 @@
                                     </div>
                                 </a>
                             @else
-                                <a href="{{route('frontend.auth.login')}}">
+                                <a href="{{route('frontend.favourite_cookie_properties')}}">
                                     <i class="fas fa-heart" style="color:red;"></i>
                                     <div class="counter-wrapper">
                                         <p id="heartCounter">

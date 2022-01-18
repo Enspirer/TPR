@@ -218,8 +218,12 @@ padding: 0;
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-3 mb-5 mb-md-0">
-                    <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid mb-4" alt="" style="height: 4rem;">
-                    
+                   
+                    @if(get_country_cookie(request()))
+                        <a href="{{route('frontend.home_page',get_country_cookie(request())->country_id)}}"><img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="img-fluid mb-4" alt=""></a>
+                    @else
+                        <img src="{{url('tpr_templete/images/tropical_logo.svg')}}" class="img-fluid mb-4" alt="" style="cursor:pointer;">
+                    @endif
                 </div>
                 <div class="col-12 col-md-3 ps-md-5 mb-4 mb-md-0">
                     <h5 class="fw-bolder mt-md-2">PAGES</h5>

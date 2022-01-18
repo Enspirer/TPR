@@ -3,8 +3,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-3 mb-5 mb-md-0">
-                <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid mb-4" alt="" style="height: 4rem;">
-                <!-- <div id="google_translate_element"></div> -->
+                <a href="{{ route('frontend.landing') }}">
+                    <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid mb-4" alt="" style="height: 4rem;">
+                    <!-- <div id="google_translate_element"></div> -->
+                </a>
             </div>
             <div class="col-12 col-md-3 ps-md-5 mb-4 mb-md-0">
                 <h5 class="fw-bolder mt-md-2">PAGES</h5>
