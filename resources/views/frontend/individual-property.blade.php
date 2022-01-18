@@ -834,9 +834,13 @@
 
                         @else
 
-                            <div class="col-12 text-center mt-4">
-                                <a href="{{route('frontend.auth.login')}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="bi bi-heart me-1"></i> Save this Property</a>
-                            </div>
+                            <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
+                            {{csrf_field()}}
+                                <div class="col-12 text-center mt-4">
+                                    <input type="hidden" name="cookie_property_id" value="{{ $property_details->id }}" />
+                                    <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="bi bi-heart me-1"></i> Save this Property</button>
+                                </div>
+                            </form>
 
                         @endauth
 

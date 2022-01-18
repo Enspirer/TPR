@@ -21,6 +21,7 @@ use App\Models\GlobalAdCategories;
 use App\Models\PropertyTypeParameter;
 use App\Models\UserSearch;
 use GuzzleHttp;
+use Cart;
 
 /**
  * Class HomeController.
@@ -714,4 +715,16 @@ class HomeController extends Controller
         }
 
     }
+
+
+    public function favourite_cookie(Request $request)
+    {        
+        // dd($request);
+        
+        Cart::add(455, 'Sample Item', 100.99, 2, array());
+        
+        return back();
+    }
+
+
 }

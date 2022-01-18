@@ -123,6 +123,8 @@ Route::post('technical_problem.store',[UserFeedbackController::class,'technical_
 Route::post('general_problems.store',[UserFeedbackController::class,'general_problems'])->name('general_problems.store');
 
 
+Route::post('favourite_cookie/store',[HomeController::class,'favourite_cookie'])->name('favourite_cookie.store');
+
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'
