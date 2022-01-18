@@ -77,7 +77,7 @@ class HomeController extends Controller
                        ->where('sold_request',null)
                        ->first();
 
-                   $property->price_currency = current_price($country_id,$property->price);
+                   $property->price_currency = current_price($request,$country_id,$property->price);
 
                    $property->price_current =
                    array_push($out,$property);
@@ -126,6 +126,18 @@ class HomeController extends Controller
             'countries' => $countries,
             'sold_prop' => $sold_prop
         ]);
+    }
+
+    public function currencyChange(Request $request) {
+
+        $country_currency = $request->currency_type;
+        // dd($country_currency);
+
+        Cookie::queue("country_currency", $country_currency ,1000);
+        return back();
+
+        // return redirect()->route('frontend.for_sale');
+   
     }
 
 

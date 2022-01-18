@@ -171,10 +171,10 @@
                                             <div class="col-6">
                                                 @if(get_country_cookie(request()))
                                                     
-                                                    <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
+                                                    <p class="ns fw-bolder tab-price">{{ current_price(request(),get_country_cookie(request())->country_id, $prop->price) }}</p>
                                     
                                                 @else
-                                                    <p class="mt-1 text-info">{{ current_price(1, $prop->price) }}</p>
+                                                    <p class="mt-1 text-info">{{ current_price(request(),1, $prop->price) }}</p>
                                                 @endif
                                             </div>
                                         </div>
@@ -239,10 +239,10 @@
                                             <div class="col-6">
                                                 @if(get_country_cookie(request()))
                                                     
-                                                    <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
+                                                    <p class="ns fw-bolder tab-price">{{ current_price(request(), get_country_cookie(request())->country_id, $prop->price) }}</p>
                                     
                                                 @else
-                                                    <p class="mt-1 text-info">{{ current_price(1, $prop->price) }}</p>
+                                                    <p class="mt-1 text-info">{{ current_price(request(), 1, $prop->price) }}</p>
                                                 @endif
                                             </div>
                                         </div>
@@ -307,10 +307,10 @@
                                             <div class="col-6">
                                                 @if(get_country_cookie(request()))
 
-                                                    <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
+                                                    <p class="ns fw-bolder tab-price">{{ current_price(request(), get_country_cookie(request())->country_id, $prop->price) }}</p>
                                     
                                                 @else
-                                                    <p class="mt-1 text-info">{{ current_price(1, $prop->price) }}</p>
+                                                    <p class="mt-1 text-info">{{ current_price(request(), 1, $prop->price) }}</p>
                                                 @endif
                                             </div>
                                         </div>
@@ -383,10 +383,10 @@
                                             <div class="col-6">
                                                 @if(get_country_cookie(request()))
 
-                                                    <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
+                                                    <p class="ns fw-bolder tab-price">{{ current_price(request(), get_country_cookie(request())->country_id, $prop->price) }}</p>
                                     
                                                 @else
-                                                    <p class="mt-1 text-info">{{ current_price(1, $prop->price) }}</p>
+                                                    <p class="mt-1 text-info">{{ current_price(request(), 1, $prop->price) }}</p>
                                                 @endif
                                             </div>
                                         </div>
@@ -459,10 +459,10 @@
                                             <div class="col-6">
                                                 @if(get_country_cookie(request()))
 
-                                                    <p class="ns fw-bolder tab-price">{{ current_price(get_country_cookie(request())->country_id, $prop->price) }}</p>
+                                                    <p class="ns fw-bolder tab-price">{{ current_price(request(), get_country_cookie(request())->country_id, $prop->price) }}</p>
                                     
                                                 @else
-                                                    <p class="mt-1 text-info">{{ current_price(1, $prop->price) }}</p>
+                                                    <p class="mt-1 text-info">{{ current_price(request(), 1, $prop->price) }}</p>
                                                 @endif
                                             </div>
                                         </div>

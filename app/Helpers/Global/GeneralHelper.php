@@ -192,7 +192,16 @@ if (! function_exists('get_currency')) {
     {
         $value = $request->cookie('country_code');
 
-        $country_details = Country::where('country_id',$value)->first();
+
+        $currency_only = $request->cookie('country_currency');
+        // dd($currency_only);
+
+        if($currency_only == null){
+            $country_details = Country::where('country_id',$value)->first();
+        }
+        else{
+            $country_details = Country::where('currency',$currency_only)->first();
+        }
 
 
         if($country_details)
@@ -211,15 +220,33 @@ if (! function_exists('current_price')) {
      *
      * @return string
      */
-    function current_price($country_id,$price)
+    function current_price($request,$country_id,$price)
     {
+
+        $currency_only = $request->cookie('country_currency');
+        // dd($currency_only);
+
         $country_details = Country::where('country_id',$country_id)->first();
-        if($country_details)
-        {
-            return $country_details->currency.' '.number_format($country_details->currency_rate * $price,2);
+
+        if($currency_only == null){
+            if($country_details)
+            {
+                return $country_details->currency.' '.number_format($country_details->currency_rate * $price,2);
+            }else{
+                return 'USD '. number_format($price,2);
+            }
         }else{
-            return 'USD '. number_format($price,2);
+
+            $currency_type_details = Country::where('currency',$currency_only)->first();
+
+            if($currency_type_details)
+            {
+                return $currency_type_details->currency.' '.number_format($currency_type_details->currency_rate * $price,2);
+            }else{
+                return 'USD '. number_format($price,2);
+            }
         }
+        
     }
 }
 
@@ -240,6 +267,29 @@ if (! function_exists('get_settings')) {
             return $settings->key;
         }
 
+    }
+}
+
+
+if (! function_exists('get_currency_only')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function get_currency_only($request)
+    {
+        
+        $value = $request->cookie('country_currency');
+
+        $currency_details = Country::where('currency',$value)->first();
+
+        if($currency_details)
+        {
+            return $currency_details;
+        }else{
+            return null;
+        }
     }
 }
 

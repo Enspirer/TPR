@@ -34,6 +34,8 @@ Route::get('country/{country_id}', [HomeController::class, 'index'])->name('home
 Route::get('test_home_page/{country_id}', [TestController::class, 'index'])->name('test_home_page');
 
 
+Route::post('currency-change', [HomeController::class, 'currencyChange'])->name('currency_change');
+
 Route::get('calc_tpr/{price}', [HomeController::class, 'calc_tpr'])->name('calc_tpr');
 
 Route::get('country/{country_id}/contact', [ContactController::class, 'index'])->name('contact');

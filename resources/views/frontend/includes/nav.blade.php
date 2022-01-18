@@ -144,17 +144,55 @@
                     @endauth
                    
                 </ul>
+                
             </div>
+
+                
 
                 <!-- post ad -->
                 <a class="post-ad-btn hidden-xs hidden-tab" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
 
                 <!-- language bar -->
                 <a href="" class="hidden-xs hidden-tab" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
-                <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
-                <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
+                    <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
+                    <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
                 </a>
-            
+        
+
+                @if(isset(get_currency_only(request())->currency))
+
+                    <form action="{{route('frontend.currency_change')}}" method="post">
+                        {{csrf_field()}}
+
+                        <select name="currency_type" class="ms-3 me-3" onchange="this.form.submit()">
+                            <option value="" selected disabled>Select Your Country</option>
+
+                            @foreach($tpr_countries as $tpr_country)
+                                <option value="{{ $tpr_country->currency }}" {{ get_currency_only(request())->currency == $tpr_country->currency ? "selected" : "" }}>{{ $tpr_country->currency }}</option>
+                            @endforeach
+
+                        </select>
+
+                    </form>
+                @else
+
+                    <form action="{{route('frontend.currency_change')}}" method="post" class="filter-form">
+                        {{csrf_field()}}
+
+                        <select name="currency_type" class="ms-3 me-3" onchange="this.form.submit()">
+                            <option value="" selected disabled>Select Currency Type</option>
+
+                            @foreach($tpr_countries as $tpr_country)
+                            <option value="{{ $tpr_country->currency }}">{{ $tpr_country->currency }}</option>
+                            @endforeach
+
+                        </select>
+
+                    </form>
+                @endif
+
+
+
 
         </div>
     </nav>

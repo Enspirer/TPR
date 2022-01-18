@@ -91,9 +91,9 @@
                                             <p class="card-text">Property Type : {{ App\Models\PropertyType::where('id', $property->property_type)->first()->property_type_name }}</p>
                                             <!-- <p class="mt-1 text-info">$ {{ $property['price'] }}</p> -->
                                             @if(get_country_cookie(request()))
-                                                <p class="mb-0 d-inline-block px-2 py-1 text-light mb-3" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(get_country_cookie(request())->country_id, $property->price) }}</p>
+                                                <p class="mb-0 d-inline-block px-2 py-1 text-light mb-3" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(request(), get_country_cookie(request())->country_id, $property->price) }}</p>
                                             @else
-                                                <p class="mb-0 d-inline-block px-2 py-1 text-light mb-3" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(1, $property->price) }}</p>
+                                                <p class="mb-0 d-inline-block px-2 py-1 text-light mb-3" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(request(), 1, $property->price) }}</p>
                                             @endif
 
                                             <div class="row">
