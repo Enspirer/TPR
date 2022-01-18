@@ -26,3 +26,5 @@ Route::get('get_property_type_parameter/{country}/{id}', [HomeController::class,
 
 Route::get('currency_update_api', [HomeController::class, 'currency_update_api'])->name('currency_update_api');
 
+Route::get('property_view_calulaion/{property_id}/{file_id}/{count}', [HomeController::class, 'property_view_calulaion'])->name('property_view_calulaion');
+

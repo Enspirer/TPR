@@ -266,40 +266,70 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
-                <div class="card p-4 custom-shadow border-0 home-card">
-                    <img src="{{url('tpr_templete/images/card_1.svg')}}" class="card-img-top" alt="..." height="200rem">
-                    <div class="card-body mt-4 p-2">
-                        <h4 class="card-title text-center mb-4">Map Search</h4>
-                        
-                        <!-- <h5 class="text-info">Draw your map Options</h5> -->
-                        <p class="card-text">Broaden your view on different localities using the unique Map Search
-                            option available on our site. Access to your preferred locations and properties is just a
-                            click away.</p>
+                <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword'] )}}" style="text-decoration: none;">
+                    <div class="card p-4 custom-shadow border-0 home-card">
+                        <img src="{{url('tpr_templete/images/card_1.svg')}}" class="card-img-top" alt="..." height="200rem">
+                        <div class="card-body mt-4 p-2">
+                            <h4 class="card-title text-center mb-4">Map Search</h4>
+
+                            <!-- <h5 class="text-info">Draw your map Options</h5> -->
+                            <p class="card-text">Broaden your view on different localities using the unique Map Search
+                                option available on our site. Access to your preferred locations and properties is just a
+                                click away.</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-                <div class="card p-4 custom-shadow border-0 home-card">
-                    <img src="{{url('tpr_templete/images/card_2.svg')}}" class="card-img-top" alt="..." height="200rem">
-                    <div class="card-body mt-4 p-2">
-                        <h4 class="card-title text-center mb-4">Properties Near Me</h4>
-                        <!-- <h5 class="text-info">SubTopic</h5> -->
-                        <p class="card-text">Got your eye on a preferred location? Use our site to look for properties
-                            near your vicinity that will appeal to your budget and preference.</p>
-                    </div>
-                </div>
+               <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword'] )}}" style="text-decoration: none;">
+                   <div class="card p-4 custom-shadow border-0 home-card">
+                       <img src="{{url('tpr_templete/images/card_2.svg')}}" class="card-img-top" alt="..." height="200rem">
+                       <div class="card-body mt-4 p-2">
+                           <h4 class="card-title text-center mb-4">Properties Near Me</h4>
+                           <!-- <h5 class="text-info">SubTopic</h5> -->
+                           <p class="card-text">Got your eye on a preferred location? Use our site to look for properties
+                               near your vicinity that will appeal to your budget and preference.</p>
+                       </div>
+                   </div>
+               </a>
+
             </div>
+            @auth
             <div class="col-12 col-md-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500">
-                <div class="card p-4 custom-shadow border-0 home-card">
-                    <img src="{{url('tpr_templete/images/card_3.svg')}}" class="card-img-top" alt="..." height="200rem">
-                    <div class="card-body mt-4 p-2">
-                        <h4 class="card-title text-center mb-4">Property Alerts Live</h4>
-                        <!-- <h5 class="text-info">SubTopic</h5> -->
-                        <p class="card-text">Register with us and get regular updates and insights about the properties
-                            and real estate market in your preferred locations.</p>
+                <a href="{{route('frontend.user.user_notifications')}}" style="text-decoration: none;">
+
+                    <div class="card p-4 custom-shadow border-0 home-card">
+                        <img src="{{url('tpr_templete/images/card_3.svg')}}" class="card-img-top" alt="..." height="200rem">
+                        <div class="card-body mt-4 p-2">
+                            <h4 class="card-title text-center mb-4">Property Alerts</h4>
+                            <!-- <h5 class="text-info">SubTopic</h5> -->
+                            <p class="card-text">Register with us and get regular updates and insights about the properties
+                                and real estate market in your preferred locations.</p>
+                        </div>
                     </div>
-                </div>
+                </a>
+
             </div>
+
+            @else
+
+                    <div class="col-12 col-md-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500">
+                        <a href="{{route('frontend.auth.register')}}" style="text-decoration: none;">
+
+                        <div class="card p-4 custom-shadow border-0 home-card">
+                            <img src="{{url('tpr_templete/images/card_3.svg')}}" class="card-img-top" alt="..." height="200rem">
+                            <div class="card-body mt-4 p-2">
+                                <h4 class="card-title text-center mb-4">Property Alerts Live</h4>
+                                <!-- <h5 class="text-info">SubTopic</h5> -->
+                                <p class="card-text">Register with us and get regular updates and insights about the properties
+                                    and real estate market in your preferred locations.</p>
+                            </div>
+                        </div>
+                        </a>
+
+                    </div>
+            @endauth
+
         </div>
     </div>
 </section>
