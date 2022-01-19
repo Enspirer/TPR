@@ -113,16 +113,18 @@
                                 <label>Phone Numbers</label>
 
                                     <div id="inputFormRow">
-                                        @foreach(json_decode($country->phone_numbers) as $key => $count)
-                                            <div class="input-group mb-3">
-                                                
-                                                <input type="number" name="phone_numbers[]" class="form-control m-input" value="{{ $count->number }}" autocomplete="off" required>
-                                                
-                                                <div class="input-group-append">                
-                                                    <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                                        @if(json_decode($country->phone_numbers) != 0)
+                                            @foreach(json_decode($country->phone_numbers) as $key => $count)
+                                                <div class="input-group mb-3">
+                                                    
+                                                    <input type="number" name="phone_numbers[]" class="form-control m-input" value="{{ $count->number }}" autocomplete="off" required>
+                                                    
+                                                    <div class="input-group-append">                
+                                                        <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
+                                            @endforeach
+                                        @endif
                                     </div>
                                     
 

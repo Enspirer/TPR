@@ -99,6 +99,13 @@ class HomeController extends Controller
                        ->where('sold_request',null)
                        ->first();
 
+                    if(is_favorite_cookie($property->id)){
+                        $property->is_favourite = true;
+                    }else{
+                        $property->is_favourite = false;
+                    }
+                   
+
                    $property->price_currency = current_price($request,$country_id,$property->price);
 
                    $property->price_current =
