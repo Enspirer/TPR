@@ -164,7 +164,7 @@
                     <form action="{{route('frontend.currency_change')}}" method="post">
                         {{csrf_field()}}
 
-                        <select name="currency_type" class="ms-3 me-3" onchange="this.form.submit()">
+                        <select name="currency_type" class="ms-3 me-3 text-light text-center" style="border:none; background-color:#4195E1" onchange="this.form.submit()">
 
                             @foreach($tpr_countries as $tpr_country)
                                 <option value="{{ $tpr_country->currency }}" {{ get_currency_only(request())->currency == $tpr_country->currency ? "selected" : "" }}>{{ $tpr_country->currency }}</option>
@@ -178,7 +178,7 @@
                     <form action="{{route('frontend.currency_change')}}" method="post" class="filter-form">
                         {{csrf_field()}}
 
-                        <select name="currency_type" class="ms-3 me-3" onchange="this.form.submit()">
+                        <select name="currency_type" class="ms-3 me-3 text-light text-center" onchange="this.form.submit()" style="border:none; background-color:#4195E1">
                             <option value="" selected disabled>Currency</option>
 
                             @foreach($tpr_countries as $tpr_country)

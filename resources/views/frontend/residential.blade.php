@@ -535,25 +535,59 @@
 
                                     let date = obj[i]['created_at'].split(' ')[0];
 
-                                    template += `
-                                        <div class="row border align-items-center p-1">
-                                            <div class="col-6">
-                                                <a href="{{url('/')}}/individual-property/${obj[i]['id']}"><img src="{{url('/')}}/image_assest/${obj[i]['feature_image_id']}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row justify-content-between align-items-center">
-                                                    <div class="col-9">
-                                                        <p class="mb-0 small-num" style="font-size: 0.7rem;">${date}</p>
-                                                    </div>
-                                                </div>
-                                                
-                                                <p class="fw-bold mb-0">${obj[i]['name']}</p>
-                                                <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: ${obj[i]['transaction_type']}</p>
-                                                <p class="mb-0" style="font-size: 0.8rem;">Country: ${obj[i]['country']}</p>
-                                                <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">${obj[i]['price_currency']}</p>
-                                            </div>
-                                        </div>
-                                    `
+                                    if(obj[i]['is_favourite'] == true){
+
+                                    template += '<div class="row border align-items-center p-1">' + 
+                                                '<div class="col-6">' +
+                                                    '<a href="{{url('/')}}/individual-property/'+ obj[i]['id'] +'"><img src="{{url('/')}}/image_assest/'+ obj[i]['feature_image_id'] +'" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>' +
+                                                '</div>' +
+                                                '<div class="col-6">' +
+                                                    '<div class="row justify-content-between align-items-center">' +
+                                                        '<div class="col-8">' +
+                                                            '<p class="mb-0 small-num" style="font-size: 0.7rem;">'+ date +'</p>' +
+                                                        '</div>' +
+                                                        '<div class="col-4 small-heart">' +
+                                                            '<form action="{{url('/')}}/favourite_cookie/store" method="post" enctype="multipart/form-data">' +
+                                                            '{{csrf_field()}}' +
+                                                                '<input type="hidden" name="cookie_property_id" value="'+ obj[i]['id'] +'" />' +
+                                                                '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>' +
+                                                            '</form>' +                                                        
+                                                        '</div>' +
+                                                    '</div>' +                                        
+                                                    '<p class="fw-bold mb-0">'+ obj[i]['name'] +'</p>' +
+                                                    '<p class="mb-0" style="font-size: 0.8rem;">Transaction Type: '+ obj[i]['transaction_type'] +'</p>' +
+                                                    '<p class="mb-0" style="font-size: 0.8rem;">Country: '+ obj[i]['country'] +'</p>' +
+                                                    '<p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">'+ obj[i]['price_currency'] +'</p>' +
+                                                '</div>' +
+                                            '</div>'
+
+                                    }else{
+
+                                    template += '<div class="row border align-items-center p-1">' + 
+                                                '<div class="col-6">' +
+                                                    '<a href="{{url('/')}}/individual-property/'+ obj[i]['id'] +'"><img src="{{url('/')}}/image_assest/'+ obj[i]['feature_image_id'] +'" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>' +
+                                                '</div>' +
+                                                '<div class="col-6">' +
+                                                    '<div class="row justify-content-between align-items-center">' +
+                                                        '<div class="col-8">' +
+                                                            '<p class="mb-0 small-num" style="font-size: 0.7rem;">'+ date +'</p>' +
+                                                        '</div>' +
+                                                        '<div class="col-4 small-heart">' +
+                                                            '<form action="{{url('/')}}/favourite_cookie/store" method="post" enctype="multipart/form-data">' +
+                                                            '{{csrf_field()}}' +
+                                                                '<input type="hidden" name="cookie_property_id" value="'+ obj[i]['id'] +'" />' +
+                                                                '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>' +
+                                                            '</form>' +                                                        
+                                                        '</div>' +
+                                                    '</div>' +                                       
+                                                    '<p class="fw-bold mb-0">'+ obj[i]['name'] +'</p>' +
+                                                    '<p class="mb-0" style="font-size: 0.8rem;">Transaction Type: '+ obj[i]['transaction_type'] +'</p>' +
+                                                    '<p class="mb-0" style="font-size: 0.8rem;">Country: '+ obj[i]['country'] +'</p>' +
+                                                    '<p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">'+ obj[i]['price_currency'] +'</p>' +
+                                                '</div>' +
+                                            '</div>'
+
+                                    }
                                     // info[i] = [obj[i]['long'], obj[i]['lat']];
 
                                     

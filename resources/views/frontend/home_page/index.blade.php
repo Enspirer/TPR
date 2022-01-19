@@ -820,11 +820,15 @@ function initMap() {
                                     '<div class="col-6">' +
                                         '<div class="row justify-content-between align-items-center">' +
                                             '<div class="col-8">' +
-                                                '<p class="mb-0 small-num" style="font-size: 0.7rem;">${date}</p>' +
+                                                '<p class="mb-0 small-num" style="font-size: 0.7rem;">'+ date +'</p>' +
                                             '</div>' +
                                             '<div class="col-4 small-heart">' +
-                                                '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>' +
-                                            '</div>'+
+                                                '<form action="{{url('/')}}/favourite_cookie/store" method="post" enctype="multipart/form-data">' +
+                                                '{{csrf_field()}}' +
+                                                    '<input type="hidden" name="cookie_property_id" value="'+ obj[i]['id'] +'" />' +
+                                                    '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>' +
+                                                '</form>' +                                                        
+                                            '</div>' +
                                         '</div>' +                                        
                                         '<p class="fw-bold mb-0">'+ obj[i]['name'] +'</p>' +
                                         '<p class="mb-0" style="font-size: 0.8rem;">Transaction Type: '+ obj[i]['transaction_type'] +'</p>' +
@@ -842,12 +846,16 @@ function initMap() {
                                     '<div class="col-6">' +
                                         '<div class="row justify-content-between align-items-center">' +
                                             '<div class="col-8">' +
-                                                '<p class="mb-0 small-num" style="font-size: 0.7rem;">${date}</p>' +
+                                                '<p class="mb-0 small-num" style="font-size: 0.7rem;">'+ date +'</p>' +
                                             '</div>' +
                                             '<div class="col-4 small-heart">' +
-                                                '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>' +
-                                            '</div>'+
-                                        '</div>' +                                        
+                                                '<form action="{{url('/')}}/favourite_cookie/store" method="post" enctype="multipart/form-data">' +
+                                                '{{csrf_field()}}' +
+                                                    '<input type="hidden" name="cookie_property_id" value="'+ obj[i]['id'] +'" />' +
+                                                    '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>' +
+                                                '</form>' +                                                        
+                                            '</div>' +
+                                        '</div>' +                                       
                                         '<p class="fw-bold mb-0">'+ obj[i]['name'] +'</p>' +
                                         '<p class="mb-0" style="font-size: 0.8rem;">Transaction Type: '+ obj[i]['transaction_type'] +'</p>' +
                                         '<p class="mb-0" style="font-size: 0.8rem;">Country: '+ obj[i]['country'] +'</p>' +
