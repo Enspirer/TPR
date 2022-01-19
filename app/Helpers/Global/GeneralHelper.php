@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Settings; 
 use App\Models\WatchListing; 
 use App\Models\Notifications;
+use App\Models\Properties;
+use Cart as FAVCart;
 
 if (! function_exists('app_name')) {
     /**
@@ -122,10 +124,12 @@ if (! function_exists('is_favorite')) {
      */
     function is_favorite($property_id, $user_id)
     {
+      
+        if($user_id){
+            $favorite = Favorite::where('user_id', $user_id )->where('property_id',$property_id)->first();
+        }
+        
 
-        $favorite = Favorite::where('user_id', $user_id )
-            ->where('property_id',$property_id)
-            ->first();
         if($favorite)
         {
             return $favorite;
@@ -134,6 +138,41 @@ if (! function_exists('is_favorite')) {
         }
     }
 }
+
+if (! function_exists('is_favorite_cookie')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_favorite_cookie($property_id)
+    {     
+        // dd($property_id);
+        
+        $favorite_cookie = FAVCart::getContent();
+        // dd($favorite_cookie);
+
+        if(count($favorite_cookie) == 0){
+            return null;
+        }else{
+            
+            foreach($favorite_cookie as $key => $favorite_cook){
+                // dd($favorite_cook);
+
+                if($favorite_cook->id == $property_id){
+                    $property = Properties::where('id',$favorite_cook->id)->first();
+                    // dd('yes');
+
+                    return $property;
+                }
+               
+            }
+        }
+        
+    }
+}
+
+
 
 if (! function_exists('is_watch_listing')) {
     /**

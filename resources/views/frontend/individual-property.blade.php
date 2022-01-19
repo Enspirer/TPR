@@ -831,16 +831,21 @@
                                     </div>
                                 </form>
                             @endif
-
                         @else
-
-                            <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
-                            {{csrf_field()}}
+                        
+                            @if(is_favorite_cookie($property_details->id))
                                 <div class="col-12 text-center mt-4">
-                                    <input type="hidden" name="cookie_property_id" value="{{ $property_details->id }}" />
-                                    <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="bi bi-heart me-1"></i> Save this Property</button>
+                                    <button type="submit" class="btn rounded-0 py-2 text-light fw-bold fs-6 w-100" style="border: 1.5px solid; background-color:#F33A6A;"><i class="bi bi-heart-fill me-1"></i> Save this Property</button>
                                 </div>
-                            </form>
+                            @else                                
+                                <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
+                                {{csrf_field()}}
+                                    <div class="col-12 text-center mt-4">
+                                        <input type="hidden" name="cookie_property_id" value="{{ $property_details->id }}" />
+                                        <button type="submit" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i class="bi bi-heart me-1"></i> Save this Property</button>
+                                    </div>
+                                </form>
+                            @endif
 
                         @endauth
 
