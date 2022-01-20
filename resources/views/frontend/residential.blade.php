@@ -12,10 +12,172 @@
 
     <!--residential property search-->
     <section id="residential-property-search" style="padding-top:120px;">
+
+
+          <!-- top search bar -->
+    <div class="container-fluid">
+        <div class="row">
+        <div class="top-search-bar">
+            <!-- first row -->
+            <div class="row top-search-bar-first-row">
+                <!-- anything -->
+                <input type="text" class="search-anything" placeholder="Search any property here.." />
+                <div class="top-search-middle-wrapper">
+                    <!-- property types -->
+                    <select name="property-types" id="property-types">
+                        <option value="all-types">All Property Types</option>
+                        <option value="detached">Detached</option>
+                        <option value="semi-detached">Semi Detached</option>
+                        <option value="freehold-townhouse">Freehold Townhouse</option>
+                        <option value="condo-townhouse">Condo Townhouse</option>
+                        <option value="condo-apt">Condo Apt</option>
+                        <option value="link">Link</option>
+                        <option value="multiplex">Multiplex</option>
+                        <option value="vacant-land">Vacant Land</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <!-- for sale and rent -->
+                    <div class="switch-field">
+                        <input type="radio" id="radio-one" name="switch-one" value="for-sale" checked />
+                        <label for="radio-one">For Sale</label>
+                        <input type="radio" id="radio-two" name="switch-one" value="for-lease" />
+                        <label for="radio-two">For Lease</label>
+                    </div>
+
+                </div>
+
+
+
+                <!-- top right panel -->
+                <div class="top-right-filter-panel">
+                    <div class="mobile-fix-row-wrapper">
+                        <button type="button" class="filter-btn ">Active</button>
+                        <!-- daus all-->
+                        <select name="days-all" id="days-all">
+                            <option value="1-days">Last 1 Days</option>
+                            <option value="3-days">Last 3 Days</option>
+                            <option value="7-days">Last 7 Days</option>
+                            <option value="30-days">Last 30 Days</option>
+                            <option value="90-days">Last 90 Days</option>
+                            <option value="all-days">Listing data - All</option>
+                        </select>
+                    </div>
+                    <div class="mobile-fix-row-wrapper">
+                        <button type="button" class="filter-btn ">Leased</button>
+                        <!-- daus leased-->
+                        <select name="days-leased" id="days-leased">
+                            <option value="1-days">Last 1 Days</option>
+                            <option value="3-days">Last 3 Days</option>
+                            <option value="7-days">Last 7 Days</option>
+                            <option value="30-days">Last 30 Days</option>
+                            <option value="90-days">Last 90 Days</option>
+                            <option value="all-days">Listing data - All</option>
+                        </select>
+                    </div>
+
+
+                    <div class="mobile-fix-row-wrapper">
+                        <!-- De-listed -->
+                        <button type="button" class="filter-btn ">De-listed</button>
+                        <!-- daus de-listed-->
+                        <select name="days-delisted" id="days-delisted">
+                            <option value="1-days">Last 1 Days</option>
+                            <option value="3-days">Last 3 Days</option>
+                            <option value="7-days">Last 7 Days</option>
+                            <option value="30-days">Last 30 Days</option>
+                            <option value="90-days">Last 90 Days</option>
+                            <option value="all-days">Listing data - All</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+            <!-- second row -->
+            <div class="row top-search-filter-bar-second-row">
+
+                <!-- min max -->
+                <div class="min-max-wrapper bottom-button-area">
+
+                    <div class="popover popover-price">
+                        <button class="popover__trigger">$0-$9500</button>
+                        <div class="popover__menu">
+                            <div class="min-max-slider" data-legendnum="2">
+                                <label for="min">Minimum price</label>
+                                <input id="min" class="min" name="min" type="range" step="1" min="0" max="9500" />
+                                <label for="max">Maximum price</label>
+                                <input id="max" class="max" name="max" type="range" step="1" min="0" max="9500" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- more filters -->
+                <div class="more-filters-wrapper">
+                    <!-- <div class="popover-more">
+                            <button class="popover_more__trigger">$0-$9500</button>
+                            <div class="popover__menu2">
+                               more filter contents here
+                            </div>
+                        </div> -->
+                    <button type="button" onclick="moreFilters()" class="more-filters-btn">More Filters</button>
+
+                    <script>
+                        function moreFilters() {
+                            if (document.querySelector(".map-side-over-content-wrapper").style.opacity == "1") {
+                                document.querySelector(".map-side-over-content-wrapper").style.opacity = "0";
+                            } else {
+                                document.querySelector(".map-side-over-content-wrapper").style.opacity = "1";
+                            }
+                        }
+                    </script>
+                </div>
+
+                <!-- 
+                    <script>
+                        var popovers2 = document.querySelectorAll('.popover-more');
+                        var popoverTriggers2 = document.querySelectorAll('.popover_more__trigger');
+
+                        for (var i = 0; i < popoverTriggers2.length; i++) {
+                            popoverTriggers2[i].addEventListener('click', function(event) {
+                                closeAllOthers(this.parentElement);
+                                this.parentElement.classList.toggle('popover--active');
+                            });
+                        }
+
+                        function closeAllOthers(ignore) {
+                            for (var i = 0; i < popovers2.length; i++) {
+                                if ( popovers2[i] !== ignore) {
+                                    popovers2[i].classList.remove('popover--active');	
+                                }
+                            }
+                        }
+
+
+                    </script> -->
+
+
+                <!-- watched areas -->
+                <button type="button" class="bottom-button-area">Watched Areas</button>
+            </div>
+        </div>
+        </div>
+        
+    </div>
+
+
+
+
+
         <div class="container-fluid" style="margin-top:5rem">
             <h3 class="fw-bolder text-center">Interactive Property Search</h3>
 
-            <div class="row mt-4">
+            <div class="row mt-4 mobile-reverse">
                 @if(count($filteredProperty) > 0)
                     <div class="col-3 full-size-width tab-left-side" style="background-color: #F3F3F3">
                         <h5>Results: {{ count($filteredProperty) }} Listings</h5>
@@ -122,8 +284,133 @@
                         </div>
                     </div>
                 @endif
-                <div class="col-9 p-0 full-size-width tab-right-side">
+                <div class="col-9 p-0 full-size-width tab-right-side map-wrapper">
                     <div id="map" style="height: 600px; width: 100%;"></div>
+                    <!-- more filters -->
+                <div class="map-side-over-content-wrapper">
+                    <p style="margin-top:0;">Description Contains Keywords</p>
+                    <input type="text" class="des-txt-input" placeholder="Waterfront, Pool, Fireplace" />
+                    <p>Bedroom</p>
+                    <div class="switch-field">
+                        <input type="radio" id="radio-bed-all" name="switch-two" value="all" checked />
+                        <label for="radio-bed-all">All</label>
+
+                        <input type="radio" id="radio-bed-zero" name="switch-two" value="zero" />
+                        <label for="radio-bed-zero">0</label>
+
+                        <input type="radio" id="radio-bed-one" name="switch-two" value="one" />
+                        <label for="radio-bed-one">1</label>
+                        <input type="radio" id="radio-bed-two" name="switch-two" value="two" />
+                        <label for="radio-bed-two">2</label>
+                        <input type="radio" id="radio-bed-three" name="switch-two" value="three" />
+                        <label for="radio-bed-three">3</label>
+                        <input type="radio" id="radio-bed-four" name="switch-two" value="four" />
+                        <label for="radio-bed-four">4</label>
+                        <input type="radio" id="radio-bed-fiveplus" name="switch-two" value="fiveplus" />
+                        <label for="radio-bed-fiveplus">5+</label>
+                    </div>
+
+                    <p>Bathroom</p>
+                    <div class="switch-field">
+                        <input type="radio" id="radio-bathroom-all" name="switch-three" value="all" checked />
+                        <label for="radio-bathroom-all">All</label>
+
+                        <input type="radio" id="radio-bathroom-zero" name="switch-three" value="zero" />
+                        <label for="radio-bathroom-zero">0</label>
+                        <input type="radio" id="radio-bathroom-one" name="switch-three" value="one" />
+                        <label for="radio-bathroom-one">1</label>
+                        <input type="radio" id="radio-bathroom-two" name="switch-three" value="two" />
+                        <label for="radio-bathroom-two">2</label>
+                        <input type="radio" id="radio-bathroom-three" name="switch-three" value="three" />
+                        <label for="radio-bathroom-three">3</label>
+                        <input type="radio" id="radio-bathroom-four" name="switch-three" value="four" />
+                        <label for="radio-bathroom-four">4</label>
+                        <input type="radio" id="radio-bathroom-fiveplus" name="switch-three" value="fiveplus" />
+                        <label for="radio-bathroom-fiveplus">5+</label>
+                    </div>
+                    <p>Garage/Parking</p>
+                    <div class="switch-field">
+                        <input type="radio" id="radio-garage-all" name="switch-four" value="all" checked />
+                        <label for="radio-garage-all">All</label>
+
+                        <input type="radio" id="radio-garage-zero" name="switch-four" value="zero" />
+                        <label for="radio-garage-zero">0</label>
+                        <input type="radio" id="radio-garage-one" name="switch-four" value="one" />
+                        <label for="radio-garage-one">1</label>
+                        <input type="radio" id="radio-garage-two" name="switch-four" value="two" />
+                        <label for="radio-garage-two">2</label>
+                        <input type="radio" id="radio-garage-three" name="switch-four" value="three" />
+                        <label for="radio-garage-three">3</label>
+                        <input type="radio" id="radio-garage-four" name="switch-four" value="four" />
+                        <label for="radio-garage-four">4</label>
+                        <input type="radio" id="radio-garage-fiveplus" name="switch-four" value="fiveplus" />
+                        <label for="radio-garage-fiveplus">5+</label>
+                    </div>
+
+                    <p>Open House</p>
+                    <div class="switch-field">
+                        <input type="radio" id="radio-open-house-unspecified" name="switch-five" value="all" checked />
+                        <label for="radio-open-house-unspecified">Unspecified</label>
+
+                        <input type="radio" id="radio-open-house-today" name="switch-five" value="today" />
+                        <label for="radio-open-house-today">Today</label>
+
+                        <input type="radio" id="radio-open-house-tomorrow" name="switch-five" value="tomorrow" />
+                        <label for="radio-open-house-tomorrow">Tomorrow</label>
+
+                        <input type="radio" id="radio-open-house-7days" name="switch-five" value="7days" />
+                        <label for="radio-open-house-7days">7 Days</label>
+
+                    </div>
+                    <!-- open house last -all open houses- -->
+                    <div class="all-open-house-wrapper switch-field">
+                        <input type="radio" id="radio-open-house-all-open-houses" name="switch-five"
+                            value="all-open-houses" />
+                        <label for="radio-open-house-all-open-houses">All Open Houses</label>
+                    </div>
+
+                    <p>Basement</p>
+                    <div class="switch-field">
+                        <input type="radio" id="radio-basement-finished" name="switch-five" value="basement-finished" />
+                        <label for="radio-basement-finished">Finished</label>
+                        <input type="radio" id="radio-basement-seperate" name="switch-five" value="basement-seperate" />
+                        <label for="radio-basement-seperate">Seperate Entrance</label>
+                        <input type="radio" id="radio-basement-walkout" name="switch-five" value="basement-walkout" />
+                        <label for="radio-basement-walkout">Walk-out</label>
+                    </div>
+
+                    <p>Max Maintenance Fee</p>
+                    <input type="text" placeholder="0">
+
+                    <p>Lot Front (feet)</p>
+
+                    <div class="more-filter-min-max" data-legendnum="3">
+                        <label for="min">Minimum price</label>
+                        <input id="min" class="min" name="min" type="range" step="1" min="0" max="100" />
+                        <label for="max">Maximum price</label>
+                        <input id="max" class="max" name="max" type="range" step="1" min="0" max="100" />
+                    </div>
+
+
+                    <p>Square Footage</p>
+
+                    <div class="more-filter-min-max" data-legendnum="3">
+                        <label for="min">Minimum price</label>
+                        <input id="min" class="min" name="min" type="range" step="1" min="0" max="4000" />
+                        <label for="max">Maximum price</label>
+                        <input id="max" class="max" name="max" type="range" step="1" min="0" max="4000" />
+                    </div>
+
+                    <p>Nearby Sold</p>
+                    <div class="tick-wrapper">
+                        <input type="checkbox" id="tick">
+                        <label for="tick">I want to show NEARBY SOLD listings for comparison</label>
+
+                    </div>
+
+                    <button type="button" class="more-filter-bottom-btn">Clear</button>
+                    <button type="button" class="more-filter-bottom-btn">Confirm</button>
+                </div>
                 </div>
             </div>
         </div>
@@ -342,36 +629,23 @@
         @if(get_country_cookie(request())->country_id)
 
             <script>
-
                 @if($search_long == 'long')
                     let lng = parseInt( <?php echo json_encode(App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->longitude); ?>);
                 @else
                     let lng = {{$search_long}};
                 @endif
-
                 @if($search_lat == 'lat')
                     let lat = parseInt ( <?php echo json_encode(App\Models\Country::where('country_id', get_country_cookie(request())->country_id)->first()->latitude); ?>);
                 @else
                     let lat = {{$search_lat}};
                 @endif
-
-
-
-
-
                 function initMap() {
                     const map = new google.maps.Map(document.getElementById("map"), {
                         zoom: 7,
                         center: { lat: lat, lng: lng },
                     });
-
-
                     @if(count($area_coords) == 0)
-
-
                     @else
-
-
                         var rectangle = new google.maps.Rectangle({
                             strokeColor: '#FF0000',
                             strokeOpacity: 0.8,
@@ -383,28 +657,19 @@
                                 new google.maps.LatLng({{$area_coords['northeast_lat']}}, {{$area_coords['northeast_lng']}}))
                         });
                     @endif
-
-
-
-
-
                     // Create an array of alphabetical characters used to label the markers.
                     const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                     // Add some markers to the map.
                     // Note: The code uses the JavaScript Array.prototype.map() method to
                     // create an array of markers based on a given "locations" array.
                     // The map() method here has nothing to do with the Google Maps API.
-
                     const infoWindow = new google.maps.InfoWindow();
-
                     const markers = locations.map((location, i) => {
                         const marker =  new google.maps.Marker({
                             position: location,
                             label: labels[i % labels.length]
                         });
-
                         marker.addListener("click", () => {
-
                         var nameList = [
                             
                             @foreach($filteredProperty  as $crom)
@@ -418,13 +683,7 @@
                                 imgUrl: "{{url('/')}}/image_assest/{{$crom->feature_image_id}}",
                             },
                             @endforeach
-
                         ];
-
-
-
-
-
                         const details = `  <div class="info-card">
                             <div class="img-wrapper">
                                 <img src="${nameList[i].imgUrl}" alt="info-img">
@@ -440,38 +699,25 @@
                                 </span>
                             </div>
                         </div>`;
-
                             infoWindow.open(map, markers[i]);
                             infoWindow.setContent(details);
-
                         });
-
-
                         return marker;
-
                     });
-
-
                     // Add a marker clusterer to manage the markers.
                     var markerCluster = new MarkerClusterer(map, markers, {
                         imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
                     });
-
                     google.maps.event.addListener(markerCluster, 'click', function(c) {
                         // console.log('Number of managed markers in cluster: ' + c.getSize());
                         var markers = c.getMarkers();
-
                         // console.log('Number of managed markers in cluster: ' + c.getSize());
                         var newArray = [];
-
                         @if(get_country_cookie(request()))
                             let country_id = <?php echo json_encode(get_country_cookie(request())->country_id); ?>;
                         @else
                             let country_id = 1;
                         @endif
-
-
-
                         for (marker in markers) {
                             const cars = [];
                             cars['lat']= markers[marker].getPosition().lat();
@@ -479,28 +725,19 @@
                             newArray.push(JSON.stringify(Object.assign({}, cars)));
                         }
                         myArray = JSON.stringify(Object.assign({}, newArray));
-
                         $.post("{{url('/')}}/api/country_request",
                             {
                                 coordinate_data: myArray,
                                 country_id : country_id
                             },
                             function(data, status){
-
                                 var obj = JSON.parse(data);
-
                                 let template = '';
                                 let info = [];
-
                                 for(let i = 0; i < obj.length; i++) {
-
                                     info[i] = [obj[i]['country'], obj[i]['long'], obj[i]['lat']];;
                                 }
-
-
                                 // var infowindow = new google.maps.InfoWindow();
-
-
                                 // for(let i = 0; i < obj.length; i++) {
                                 //     let details;
                                 //     markers[i].addListener('click', function() {
@@ -514,7 +751,6 @@
                                 //                                 <p class="mb-1" style="font-size: 0.8rem;">Transaction Type: ${obj[i]['transaction_type']}</p>
                                 //                                 <p class="mb-1" style="font-size: 0.8rem;">Country: ${obj[i]['country']}</p>
                                 //                                 <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${obj[i]['price_currency']}</p>
-
                                 //                                 <div class="text-end mt-2">
                                 //                                     <a href="{{url('/')}}/individual-property/${obj[i]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
                                 //                                 </div>
@@ -527,16 +763,11 @@
                                 //     });
                                 // }
                                 
-
                                 
                                 
-
                                 for(let i = 0; i < obj.length; i++) {
-
                                     let date = obj[i]['created_at'].split(' ')[0];
-
                                     if(obj[i]['is_favourite'] == true){
-
                                     template += '<div class="row border align-items-center p-1">' + 
                                                 '<div class="col-6">' +
                                                     '<a href="{{url('/')}}/individual-property/'+ obj[i]['id'] +'"><img src="{{url('/')}}/image_assest/'+ obj[i]['feature_image_id'] +'" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>' +
@@ -560,9 +791,7 @@
                                                     '<p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">'+ obj[i]['price_currency'] +'</p>' +
                                                 '</div>' +
                                             '</div>'
-
                                     }else{
-
                                     template += '<div class="row border align-items-center p-1">' + 
                                                 '<div class="col-6">' +
                                                     '<a href="{{url('/')}}/individual-property/'+ obj[i]['id'] +'"><img src="{{url('/')}}/image_assest/'+ obj[i]['feature_image_id'] +'" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>' +
@@ -586,42 +815,29 @@
                                                     '<p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">'+ obj[i]['price_currency'] +'</p>' +
                                                 '</div>' +
                                             '</div>'
-
                                     }
                                     // info[i] = [obj[i]['long'], obj[i]['lat']];
-
                                     
-
                                 };
-
                                 // console.log(obj);
-
                                 $(".properties").html(template);
-
                                 // var infoWindow = new google.maps.InfoWindow({
                                 //     content:'<h1>dfdf</h1>'
                                 // });
-
                                 // for (marker in markers) {
                                 //     const cars = [];
                                 //     cars['lat']= markers[marker].getPosition().lat();
                                 //     cars['long']= markers[marker].getPosition().lng();
                                 // }
-
                                 });
                             });
-
-
                         }
                         const locations = [
                             @foreach($filteredProperty as $property)
                                 { lat: {{$property->lat}}, lng: {{$property->long}} },
                             @endforeach
                         ];
-
             
-
-
             </script>
         @else
 
@@ -639,20 +855,14 @@
                 // Note: The code uses the JavaScript Array.prototype.map() method to
                 // create an array of markers based on a given "locations" array.
                 // The map() method here has nothing to do with the Google Maps API.
-
                 const infoWindow = new google.maps.InfoWindow();
-
-
                 const markers = locations.map((location, i) => {
-
                     const marker =  new google.maps.Marker({
                         position: location,
                         label: labels[i % labels.length]
                     });
-
                     
                     marker.addListener("click", () => {
-
                         var nameList = [
                             
                             @foreach($filteredProperty as $crom)
@@ -666,13 +876,7 @@
                                 imgUrl: "{{url('/')}}/image_assest/{{$crom->feature_image_id}}",
                             },
                             @endforeach
-
                         ];
-
-
-
-
-
                         const details = `  <div class="info-card">
                             <div class="img-wrapper">
                                 <img src="${nameList[i].imgUrl}" alt="info-img">
@@ -685,39 +889,26 @@
                                 <span class="price-tag">${nameList[i].price}</span>
                             </div>
                         </div>`;
-
                             infoWindow.open(map, markers[i]);
                             infoWindow.setContent(details);
-
                         });
-
-
                         return marker;
                         
-
                 });
-
-
                 // Add a marker clusterer to manage the markers.
                 var markerCluster = new MarkerClusterer(map, markers, {
                     imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
                 });
-
                 google.maps.event.addListener(markerCluster, 'click', function(c) {
                     // console.log('Number of managed markers in cluster: ' + c.getSize());
                     var markers = c.getMarkers();
-
                     // console.log('Number of managed markers in cluster: ' + c.getSize());
                     var newArray = [];
-
                     @if(get_country_cookie(request()))
                         let country_id = <?php echo json_encode(get_country_cookie(request())->country_id); ?>;
                     @else
                         let country_id = 1;
                     @endif
-
-
-
                     for (marker in markers) {
                         const cars = [];
                         cars['lat']= markers[marker].getPosition().lat();
@@ -725,28 +916,19 @@
                         newArray.push(JSON.stringify(Object.assign({}, cars)));
                     }
                     myArray = JSON.stringify(Object.assign({}, newArray));
-
                     $.post("{{url('/')}}/api/country_request",
                         {
                             coordinate_data: myArray,
                             country_id : country_id
                         },
                         function(data, status){
-
                             var obj = JSON.parse(data);
-
                             let template = '';
                             let info = [];
-
                             for(let i = 0; i < obj.length; i++) {
-
                                 info[i] = [obj[i]['country'], obj[i]['long'], obj[i]['lat']];;
                             }
-
-
                             // var infowindow = new google.maps.InfoWindow();
-
-
                             // for(let i = 0; i < obj.length; i++) {
                             //     let details;
                             //     markers[i].addListener('click', function() {
@@ -760,7 +942,6 @@
                             //                                 <p class="mb-1" style="font-size: 0.8rem;">Transaction Type: ${obj[i]['transaction_type']}</p>
                             //                                 <p class="mb-1" style="font-size: 0.8rem;">Country: ${obj[i]['country']}</p>
                             //                                 <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">Price : ${obj[i]['price_currency']}</p>
-
                             //                                 <div class="text-end mt-2">
                             //                                     <a href="{{url('/')}}/individual-property/${obj[i]['id']}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">VIEW</a>
                             //                                 </div>
@@ -773,14 +954,10 @@
                             //     });
                             // }
                             
-
                             
                             
-
                             for(let i = 0; i < obj.length; i++) {
-
                                 let date = obj[i]['created_at'].split(' ')[0];
-
                                 template += `
                                     <div class="row border align-items-center p-1">
                                         <div class="col-6">
@@ -801,39 +978,26 @@
                                     </div>
                                 `
                                 // info[i] = [obj[i]['long'], obj[i]['lat']];
-
                                 
-
                             };
-
                             // console.log(obj);
-
                             $(".properties").html(template);
-
                             // var infoWindow = new google.maps.InfoWindow({
                             //     content:'<h1>dfdf</h1>'
                             // });
-
                             // for (marker in markers) {
                             //     const cars = [];
                             //     cars['lat']= markers[marker].getPosition().lat();
                             //     cars['long']= markers[marker].getPosition().lng();
                             // }
-
                             });
                         });
-
-
                     }
                     const locations = [
                     @foreach($filteredProperty as $property)
                         { lat: {{$property->lat}}, lng: {{$property->long}} },
                     @endforeach
                 ];
-
-
-
-
         </script>
     @endif
 @endpush
@@ -854,21 +1018,17 @@
     // dropdown box changing field
         const renderFields = async () => {
             let value = $('#propertyType').val();
-
             if(value == '') {
                 
-
             } 
             else {
                 let url = '{{url('/')}}/api/get_property_type_details/' + value;
-
                 const res = await fetch(url);
                 const data = await res.json();
                 const fields = (data[0]['activated_fields']);
                 let template = '';
                 let first = '';
                 let second = '';
-
                 for(let i = 0; i < fields.length; i++) {
                     if(i == 0) {
                         let name = fields[i].split(' ').join('_').toLowerCase();
@@ -981,7 +1141,6 @@
                                 </div>`
                             }
                     } 
-
                     else if(i == 1) {
                         let name = fields[i].split(' ').join('_').toLowerCase();
                         if(name == 'beds' || name == 'baths' || name == 'building_type' || name == 'parking_type' || name == 'zoning_type' || name == 'farm_type') {
@@ -1212,13 +1371,10 @@
                 $('#incoming_fields').html(template);
             }
         }
-
         // window.addEventListener('DOMContentLoaded', () => renderFields());
-
     $('.filter-button').on('click', function(){
             renderFields();
     })
-
     $('.filter-reset').click(function(){
         $('#filter-form')[0].reset();
     });
@@ -1229,9 +1385,7 @@ type="text/javascript"></script>
 
 <script>
     $('.small-heart').on('click', function(){
-
         let status = $(this).find('.favourite').val();
-
         if(status == 'non-favourite') {
             $(this).find('button').removeClass('bi-heart');
             $(this).find('button').addClass('bi-heart-fill');
@@ -1254,26 +1408,20 @@ type="text/javascript"></script>
         @else
             let country_id = 1;
         @endif
-
         let countries = <?php echo json_encode($countries); ?>;
-
         let name;
         let countryName;
         let template;
-
         for(let i = 0; i < countries.length; i++) {
             if(countries[i]['country_id'] == country_id) {
                 name = countries[i]['slug'];
             }
         }
-
         if(name.includes('-')){
             countryName = name.replace("-", " ");
         } else {
             countryName = name;
         }
-
-
         $.ajax({
             "type": "POST",
             "url": "https://countriesnow.space/api/v0.1/countries/cities",
@@ -1281,17 +1429,284 @@ type="text/javascript"></script>
                 "country": countryName
             }
         }).done(function (d) {
-
             for(let i = 0; i < d['data'].length; i++) {
                 template+= `
                     <option value="${d['data'][i]}">${d['data'][i]}</option>
                 `
             }
-
             $(".areas").append(template);
         });
     }
-
         window.addEventListener('DOMContentLoaded', () => renderCity());
+</script>
+
+<script>
+$('.filter-btn').click(function() {
+    $(this).toggleClass("active");
+});
+</script>
+
+<script>
+var popovers = document.querySelectorAll('.popover');
+var popoverTriggers = document.querySelectorAll('.popover__trigger');
+
+for (var i = 0; i < popoverTriggers.length; i++) {
+    popoverTriggers[i].addEventListener('click', function(event) {
+        closeAllOthers(this.parentElement);
+        this.parentElement.classList.toggle('popover--active');
+    });
+}
+
+function closeAllOthers(ignore) {
+    for (var i = 0; i < popovers.length; i++) {
+        if (popovers[i] !== ignore) {
+            popovers[i].classList.remove('popover--active');
+        }
+    }
+}
+</script>
+
+<script>
+var thumbsize = 14;
+
+function draw(slider, splitvalue) {
+
+    /* set function vars */
+    var min = slider.querySelector('.min');
+    var max = slider.querySelector('.max');
+    var lower = slider.querySelector('.lower');
+    var upper = slider.querySelector('.upper');
+    var legend = slider.querySelector('.legend');
+    var thumbsize = parseInt(slider.getAttribute('data-thumbsize'));
+    var rangewidth = parseInt(slider.getAttribute('data-rangewidth'));
+    var rangemin = parseInt(slider.getAttribute('data-rangemin'));
+    var rangemax = parseInt(slider.getAttribute('data-rangemax'));
+
+    /* set min and max attributes */
+    min.setAttribute('max', splitvalue);
+    max.setAttribute('min', splitvalue);
+
+    /* set css */
+    min.style.width = parseInt(thumbsize + ((splitvalue - rangemin) / (rangemax - rangemin)) * (rangewidth - (2 *
+        thumbsize))) + 'px';
+    max.style.width = parseInt(thumbsize + ((rangemax - splitvalue) / (rangemax - rangemin)) * (rangewidth - (2 *
+        thumbsize))) + 'px';
+    min.style.left = '0px';
+    max.style.left = parseInt(min.style.width) + 'px';
+    min.style.top = lower.offsetHeight + 'px';
+    max.style.top = lower.offsetHeight + 'px';
+    legend.style.marginTop = min.offsetHeight + 'px';
+    slider.style.height = (lower.offsetHeight + min.offsetHeight + legend.offsetHeight) + 'px';
+
+    /* correct for 1 off at the end */
+    if (max.value > (rangemax - 1)) max.setAttribute('data-value', rangemax);
+
+    /* write value and labels */
+    max.value = max.getAttribute('data-value');
+    min.value = min.getAttribute('data-value');
+    lower.innerHTML = min.getAttribute('data-value');
+    upper.innerHTML = max.getAttribute('data-value');
+
+}
+
+function init(slider) {
+    /* set function vars */
+    var min = slider.querySelector('.min');
+    var max = slider.querySelector('.max');
+    var rangemin = parseInt(min.getAttribute('min'));
+    var rangemax = parseInt(max.getAttribute('max'));
+    var avgvalue = (rangemin + rangemax) / 2;
+    var legendnum = slider.getAttribute('data-legendnum');
+
+    /* set data-values */
+    min.setAttribute('data-value', rangemin);
+    max.setAttribute('data-value', rangemax);
+
+    /* set data vars */
+    slider.setAttribute('data-rangemin', rangemin);
+    slider.setAttribute('data-rangemax', rangemax);
+    slider.setAttribute('data-thumbsize', thumbsize);
+    slider.setAttribute('data-rangewidth', slider.offsetWidth);
+
+    /* write labels */
+    var lower = document.createElement('span');
+    var upper = document.createElement('span');
+    lower.classList.add('lower', 'value');
+    upper.classList.add('upper', 'value');
+    lower.appendChild(document.createTextNode(rangemin));
+    upper.appendChild(document.createTextNode(rangemax));
+    slider.insertBefore(lower, min.previousElementSibling);
+    slider.insertBefore(upper, min.previousElementSibling);
+
+    /* write legend */
+    var legend = document.createElement('div');
+    legend.classList.add('legend');
+    var legendvalues = [];
+    for (var i = 0; i < legendnum; i++) {
+        legendvalues[i] = document.createElement('div');
+        var val = Math.round(rangemin + (i / (legendnum - 1)) * (rangemax - rangemin));
+        legendvalues[i].appendChild(document.createTextNode(val));
+        legend.appendChild(legendvalues[i]);
+
+    }
+    slider.appendChild(legend);
+
+    /* draw */
+    draw(slider, avgvalue);
+
+    /* events */
+    min.addEventListener("input", function() {
+        update(min);
+    });
+    max.addEventListener("input", function() {
+        update(max);
+    });
+}
+
+function update(el) {
+    /* set function vars */
+    var slider = el.parentElement;
+    var min = slider.querySelector('#min');
+    var max = slider.querySelector('#max');
+    var minvalue = Math.floor(min.value);
+    var maxvalue = Math.floor(max.value);
+
+    /* set inactive values before draw */
+    min.setAttribute('data-value', minvalue);
+    max.setAttribute('data-value', maxvalue);
+
+    var avgvalue = (minvalue + maxvalue) / 2;
+
+    /* draw */
+    draw(slider, avgvalue);
+}
+
+var sliders = document.querySelectorAll('.min-max-slider');
+sliders.forEach(function(slider) {
+    init(slider);
+});
+</script>
+
+
+
+<script>
+var thumbsize = 14;
+
+function draw(slider, splitvalue) {
+
+    /* set function vars */
+    var min = slider.querySelector('.min');
+    var max = slider.querySelector('.max');
+    var lower = slider.querySelector('.lower');
+    var upper = slider.querySelector('.upper');
+    var legend = slider.querySelector('.legend');
+    var thumbsize = parseInt(slider.getAttribute('data-thumbsize'));
+    var rangewidth = parseInt(slider.getAttribute('data-rangewidth'));
+    var rangemin = parseInt(slider.getAttribute('data-rangemin'));
+    var rangemax = parseInt(slider.getAttribute('data-rangemax'));
+
+    /* set min and max attributes */
+    min.setAttribute('max', splitvalue);
+    max.setAttribute('min', splitvalue);
+
+    /* set css */
+    min.style.width = parseInt(thumbsize + ((splitvalue - rangemin) / (rangemax - rangemin)) * (rangewidth - (2 *
+        thumbsize))) + 'px';
+    max.style.width = parseInt(thumbsize + ((rangemax - splitvalue) / (rangemax - rangemin)) * (rangewidth - (2 *
+        thumbsize))) + 'px';
+    min.style.left = '0px';
+    max.style.left = parseInt(min.style.width) + 'px';
+    min.style.top = lower.offsetHeight + 'px';
+    max.style.top = lower.offsetHeight + 'px';
+    legend.style.marginTop = min.offsetHeight + 'px';
+    slider.style.height = (lower.offsetHeight + min.offsetHeight + legend.offsetHeight) + 'px';
+
+    /* correct for 1 off at the end */
+    if (max.value > (rangemax - 1)) max.setAttribute('data-value', rangemax);
+
+    /* write value and labels */
+    max.value = max.getAttribute('data-value');
+    min.value = min.getAttribute('data-value');
+    lower.innerHTML = min.getAttribute('data-value');
+    upper.innerHTML = max.getAttribute('data-value');
+
+}
+
+function init(slider) {
+    /* set function vars */
+    var min = slider.querySelector('.min');
+    var max = slider.querySelector('.max');
+    var rangemin = parseInt(min.getAttribute('min'));
+    var rangemax = parseInt(max.getAttribute('max'));
+    var avgvalue = (rangemin + rangemax) / 2;
+    var legendnum = slider.getAttribute('data-legendnum');
+
+    /* set data-values */
+    min.setAttribute('data-value', rangemin);
+    max.setAttribute('data-value', rangemax);
+
+    /* set data vars */
+    slider.setAttribute('data-rangemin', rangemin);
+    slider.setAttribute('data-rangemax', rangemax);
+    slider.setAttribute('data-thumbsize', thumbsize);
+    slider.setAttribute('data-rangewidth', slider.offsetWidth);
+
+    /* write labels */
+    var lower = document.createElement('span');
+    var upper = document.createElement('span');
+    lower.classList.add('lower', 'value');
+    upper.classList.add('upper', 'value');
+    lower.appendChild(document.createTextNode(rangemin));
+    upper.appendChild(document.createTextNode(rangemax));
+    slider.insertBefore(lower, min.previousElementSibling);
+    slider.insertBefore(upper, min.previousElementSibling);
+
+    /* write legend */
+    var legend = document.createElement('div');
+    legend.classList.add('legend');
+    var legendvalues = [];
+    for (var i = 0; i < legendnum; i++) {
+        legendvalues[i] = document.createElement('div');
+        var val = Math.round(rangemin + (i / (legendnum - 1)) * (rangemax - rangemin));
+        legendvalues[i].appendChild(document.createTextNode(val));
+        legend.appendChild(legendvalues[i]);
+
+    }
+    slider.appendChild(legend);
+
+    /* draw */
+    draw(slider, avgvalue);
+
+    /* events */
+    min.addEventListener("input", function() {
+        update(min);
+    });
+    max.addEventListener("input", function() {
+        update(max);
+    });
+}
+
+function update(el) {
+    /* set function vars */
+    var slider = el.parentElement;
+    var min = slider.querySelector('#min');
+    var max = slider.querySelector('#max');
+    var minvalue = Math.floor(min.value);
+    var maxvalue = Math.floor(max.value);
+
+    /* set inactive values before draw */
+    min.setAttribute('data-value', minvalue);
+    max.setAttribute('data-value', maxvalue);
+
+    var avgvalue = (minvalue + maxvalue) / 2;
+
+    /* draw */
+    draw(slider, avgvalue);
+}
+
+var sliders = document.querySelectorAll('.more-filter-min-max');
+sliders.forEach(function(slider) {
+    init(slider);
+});
 </script>
 @endpush

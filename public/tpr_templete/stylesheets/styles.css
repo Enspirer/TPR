@@ -178,8 +178,12 @@ p {
     }
 
     .globe {
-        top: 4.6rem;
+        top: 5.6rem;
         left: 57%;
+    }
+
+    .second-nav {
+        top: 5rem;
     }
 }
 
@@ -476,6 +480,7 @@ div#adModal {
 
     section#residential-property-search {
         margin-top: 150px;
+        padding-top: 0 !important; 
     }
 
    
@@ -500,8 +505,17 @@ div#adModal {
         align-items: center;
     }
 
+    section#residential-property-search {
+        padding-top: 150px !important;
+    }
+
     .globe {
         left: 67%;
+        top: 6rem;
+    }
+
+    .second-nav {
+        top: 5rem;
     }
 
     .navbar-nav {
