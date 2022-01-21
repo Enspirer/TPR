@@ -306,7 +306,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
-                <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword'] )}}" style="text-decoration: none;">
+                <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name'] )}}" style="text-decoration: none;">
                     <div class="card p-4 custom-shadow border-0 home-card">
                         <img src="{{url('tpr_templete/images/card_1.svg')}}" class="card-img-top" alt="..." height="200rem">
                         <div class="card-body mt-4 p-2">
@@ -321,7 +321,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-               <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword'] )}}" style="text-decoration: none;">
+               <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name'] )}}" style="text-decoration: none;">
                    <div class="card p-4 custom-shadow border-0 home-card">
                        <img src="{{url('tpr_templete/images/card_2.svg')}}" class="card-img-top" alt="..." height="200rem">
                        <div class="card-body mt-4 p-2">
@@ -968,7 +968,6 @@ const renderFields = async () => {
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
-                                                <option value="5">5</option>
                                                 <option value="greater-than-5">5+</option>
                                             </select>
                                         </div> `
@@ -1074,7 +1073,6 @@ const renderFields = async () => {
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
-                                                <option value="5">5</option>
                                                 <option value="greater-than-5">5+</option>
                                             </select>
                                         </div> `
@@ -1180,7 +1178,6 @@ const renderFields = async () => {
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
-                                                <option value="5">5</option>
                                                 <option value="greater-than-5">5+</option>
                                             </select>
                                         </div> `
