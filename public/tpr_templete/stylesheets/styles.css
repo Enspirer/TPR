@@ -353,6 +353,10 @@ div#adModal {
     display: block;
 }
 
+.currency-filter-form  {
+    margin-bottom: 0;
+}
+
 
 
 /*mobile-view*/
