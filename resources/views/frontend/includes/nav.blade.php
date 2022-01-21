@@ -175,7 +175,7 @@
                     </form>
                 @else
 
-                    <form action="{{route('frontend.currency_change')}}" method="post" class="filter-form">
+                    <form action="{{route('frontend.currency_change')}}" method="post" class="filter-form currency-filter-form">
                         {{csrf_field()}}
 
                         <select name="currency_type" class="ms-3 me-3 text-light text-center" onchange="this.form.submit()" style="border:none; background-color:#4195E1">
