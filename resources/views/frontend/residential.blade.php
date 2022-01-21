@@ -185,7 +185,7 @@
 
 
         <div class="container-fluid" style="margin-top:2rem">
-            <h3 class="fw-bolder text-center">Interactive Property Search</h3>
+            <!-- <h3 class="fw-bolder text-center">Interactive Property Search</h3> -->
 
             <div class="row mt-4 mobile-reverse">
                 @if(count($filteredProperty) > 0)
