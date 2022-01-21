@@ -167,7 +167,6 @@
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
                         <option value="greater-than-5">5+</option>
                     </select>
                     <select class="form-select" aria-label="baths" name="baths" id="baths">
@@ -177,7 +176,6 @@
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
                         <option value="greater-than-5">5+</option>
                     </select>
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>

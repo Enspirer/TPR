@@ -234,6 +234,7 @@ class HomeController extends Controller
 
     public function get_search_result(Request $request)
     {
+        // dd($request);
 
         if($request->search_keyword == null){
             $lat = null;
@@ -302,6 +303,7 @@ class HomeController extends Controller
             $key_name = 'key_name';
         }
 
+        // dd($key_name);
 
         if(request('category_type') != null) {
             $category_type = request('category_type');
@@ -332,6 +334,8 @@ class HomeController extends Controller
         else {
             $min_price = 'min_price';
         }
+
+        // dd($min_price);
 
 
         if(request('transaction_type') != null) {
@@ -446,7 +450,19 @@ class HomeController extends Controller
             $external_keyword = 'external_keyword';
         }
 
+        // dd(request('description_key_name'));
 
+
+        if(request('description_key_name') != null) {
+            $description_key_name = request('description_key_name');
+        }
+        else {
+            $description_key_name = 'description_key_name';
+        }
+
+        // dd($description_key_name);
+
+        
 
         return redirect()->route('frontend.search_function', [
             'key_name',
@@ -470,7 +486,8 @@ class HomeController extends Controller
             $lng,
             $lat,
             $areacod,
-            $external_keyword
+            $external_keyword,
+            $description_key_name
         ]);
     }
 
@@ -490,8 +507,9 @@ class HomeController extends Controller
     }
 
 
-    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat,$area_coordinator,$external_keyword)
+    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat,$area_coordinator,$external_keyword,$description_key_name)
     {
+        // dd($description_key_name);
 
         $property_types = PropertyType::where('status','=','1')->get();
 
@@ -508,17 +526,23 @@ class HomeController extends Controller
 
         $countries = Country::where('status',1)->get();
 
+        // dd($properties->get());
+        // dd($max_price);
+
 
         if($max_price != 'max_price' && $min_price != 'min_price'){
             $properties->where('price', '<=', $max_price)->where('price', '>=', $min_price);
         }
         elseif($max_price != 'max_price' && $min_price == 'min_price'){
             $properties->where('price', '<=', $max_price);
+        // dd($properties->get());
+
         }
         elseif($max_price == 'max_price' && $min_price != 'min_price'){
             $properties->where('price', '>=', $min_price);
         }
 
+        
 
         if($category_type != 'category_type'){
             if($category_type == 'all') {
@@ -538,18 +562,32 @@ class HomeController extends Controller
             $properties->where('property_type', $property_type);
         }
 
+        // dd($beds);
+
+
         if($beds != 'beds'){
             if($beds == 'greater-than-5') {
-                $properties->where('beds', '>', 5);
+                $properties->where('beds', '>=', 5);
+            }
+            elseif($beds == 'all') {
+                $properties->where('beds', '!=', null);
             }
             else {
                 $properties->where('beds', $beds);
             }
         }
 
+        // dd($properties->get());
+
+
+        // dd($baths);
+
         if($baths != 'baths'){
             if($baths == 'greater-than-5') {
                 $properties->where('baths', '>', 5);
+            }
+            elseif($beds == 'all') {
+                $properties->where('baths', '!=', null);
             }
             else {
                 $properties->where('baths', $baths);
@@ -607,6 +645,12 @@ class HomeController extends Controller
             $properties->where('search_keyword', $external_keyword);
         }
 
+        if($description_key_name != 'description_key_name'){
+
+            $properties->where('description', 'like', '%' .  $description_key_name . '%');
+
+        }
+
 
 
 
@@ -615,7 +659,7 @@ class HomeController extends Controller
         $filteredProperty = $properties->get();
 
 
-        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'countries' => $countries,'search_long' => $long,'search_lat' => $lat,'area_coords'=>$longertutr]);
+        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'baths' => $baths, 'beds' => $beds, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'transaction_type' =>  $transaction_type, 'countries' => $countries,'search_long' => $long,'search_lat' => $lat,'area_coords'=>$longertutr]);
     }
 
     public static function areacordina_function($area_coordinator)

@@ -93,7 +93,7 @@ Route::post('search_result',[HomeController::class,'get_search_result'])->name('
 Route::post('agent', [IndividualPropertyController::class, 'contact_agent'])->name('invidual_property');
 
 
-Route::get('search_result_filter/{key_name}/{min_price}/{max_price}/{category_type}/{transaction_type}/{property_type}/{listed_since}/{building_type}/{beds}/{baths}/{land_size}/{open_house}/{zoning_type}/{units}/{building_size}/{farm_type}/{parking_type}/{city}/{long}/{lat}/{area_coordinator}/{external_keyword}',[HomeController::class,'search_function'])->name('search_function');
+Route::get('search_result_filter/{key_name}/{min_price}/{max_price}/{category_type}/{transaction_type}/{property_type}/{listed_since}/{building_type}/{beds}/{baths}/{land_size}/{open_house}/{zoning_type}/{units}/{building_size}/{farm_type}/{parking_type}/{city}/{long}/{lat}/{area_coordinator}/{external_keyword}/{description_key_name}',[HomeController::class,'search_function'])->name('search_function');
 
 
 Route::post('favourite/property', [HomeController::class, 'favouriteHeart'])->name('favourite_heart');

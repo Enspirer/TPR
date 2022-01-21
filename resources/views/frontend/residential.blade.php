@@ -19,152 +19,162 @@
         <div class="row">
         <div class="top-search-bar">
             <!-- first row -->
-            <div class="row top-search-bar-first-row">
-                <!-- anything -->
-                <input type="text" class="search-anything" placeholder="Search any property here.." />
-                <div class="top-search-middle-wrapper">
-                    <!-- property types -->
-                    <select name="property-types" id="property-types">
-                        <option value="all-types">All Property Types</option>
-                        <option value="detached">Detached</option>
-                        <option value="semi-detached">Semi Detached</option>
-                        <option value="freehold-townhouse">Freehold Townhouse</option>
-                        <option value="condo-townhouse">Condo Townhouse</option>
-                        <option value="condo-apt">Condo Apt</option>
-                        <option value="link">Link</option>
-                        <option value="multiplex">Multiplex</option>
-                        <option value="vacant-land">Vacant Land</option>
-                        <option value="other">Other</option>
-                    </select>
-                    <!-- for sale and rent -->
-                    <div class="switch-field">
-                        <input type="radio" id="radio-one" name="switch-one" value="for-sale" checked />
-                        <label for="radio-one">For Sale</label>
-                        <input type="radio" id="radio-two" name="switch-one" value="for-lease" />
-                        <label for="radio-two">For Lease</label>
+
+            <form action="{{route('frontend.search_result_function')}}" method="post" class="filter-form">
+            {{csrf_field()}}
+                <div class="row top-search-bar-first-row">
+                    <!-- anything -->
+                    <input type="text" name="search_keyword" id="autocompleteProperty" class="search-anything" placeholder="Search any property here.." />
+                    <div class="top-search-middle-wrapper">
+                        <!-- property types -->
+                        <select class="me-2" name="category_type" id="category_type" style="border-color: #dcdfe6 !important; font-size: 0.9rem; padding: 10px;">
+                            <option value="">Select Category</option>
+                            <option value="residential" {{$category_type == 'residential' ? "selected" : "" }}>Residential</option>
+                            <option value="commercial" {{$category_type == 'commercial' ? "selected" : "" }}>Commercial</option>
+                            <option value="tp_developer" {{$category_type == 'tp_developer' ? "selected" : "" }}>TP Developer</option>
+                            <option value="investments" {{$category_type == 'investments' ? "selected" : "" }}>Investments</option>
+                        </select>
+                        <!-- for sale and rent -->
+                        <div class="switch-field">
+                            @if($transaction_type == 'sale')
+                                <input type="radio" id="radio-one" name="transaction_type" value="sale" checked />
+                            @else
+                                <input type="radio" id="radio-one" name="transaction_type" value="sale" />
+                            @endif
+                            <label for="radio-one">For Sale</label>
+                            @if($transaction_type == 'rent')
+                                <input type="radio" id="radio-two" name="transaction_type" value="rent" checked/>
+                            @else
+                                <input type="radio" id="radio-two" name="transaction_type" value="rent" />
+                            @endif
+                            <label for="radio-two">For Rent</label>
+                        </div>
+
                     </div>
+
+
+
+                    <!-- top right panel -->
+                    <div class="top-right-filter-panel">
+                        <div class="mobile-fix-row-wrapper">
+                            <button type="button" class="filter-btn ">Active</button>
+                            <!-- daus all-->
+                            <select name="days-all" id="days-all">
+                                <option value="1-days">Last 1 Days</option>
+                                <option value="3-days">Last 3 Days</option>
+                                <option value="7-days">Last 7 Days</option>
+                                <option value="30-days">Last 30 Days</option>
+                                <option value="90-days">Last 90 Days</option>
+                                <option value="all-days">Listing data - All</option>
+                            </select>
+                        </div>
+                        <div class="mobile-fix-row-wrapper">
+                            <button type="button" class="filter-btn ">Leased</button>
+                            <!-- daus leased-->
+                            <select name="days-leased" id="days-leased">
+                                <option value="1-days">Last 1 Days</option>
+                                <option value="3-days">Last 3 Days</option>
+                                <option value="7-days">Last 7 Days</option>
+                                <option value="30-days">Last 30 Days</option>
+                                <option value="90-days">Last 90 Days</option>
+                                <option value="all-days">Listing data - All</option>
+                            </select>
+                        </div>
+
+
+                        <div class="mobile-fix-row-wrapper">
+                            <!-- De-listed -->
+                            <button type="button" class="filter-btn ">De-listed</button>
+                            <!-- daus de-listed-->
+                            <select name="days-delisted" id="days-delisted">
+                                <option value="1-days">Last 1 Days</option>
+                                <option value="3-days">Last 3 Days</option>
+                                <option value="7-days">Last 7 Days</option>
+                                <option value="30-days">Last 30 Days</option>
+                                <option value="90-days">Last 90 Days</option>
+                                <option value="all-days">Listing data - All</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-success ms-2" type="submit"><i class="fa fa-search"></i></button>
+
+
+                    </div>
+
+
 
                 </div>
 
+                <!-- second row -->
+                <div class="row top-search-filter-bar-second-row">
 
+                    <!-- min max -->
+                    <div class="min-max-wrapper bottom-button-area">
 
-                <!-- top right panel -->
-                <div class="top-right-filter-panel">
-                    <div class="mobile-fix-row-wrapper">
-                        <button type="button" class="filter-btn ">Active</button>
-                        <!-- daus all-->
-                        <select name="days-all" id="days-all">
-                            <option value="1-days">Last 1 Days</option>
-                            <option value="3-days">Last 3 Days</option>
-                            <option value="7-days">Last 7 Days</option>
-                            <option value="30-days">Last 30 Days</option>
-                            <option value="90-days">Last 90 Days</option>
-                            <option value="all-days">Listing data - All</option>
-                        </select>
-                    </div>
-                    <div class="mobile-fix-row-wrapper">
-                        <button type="button" class="filter-btn ">Leased</button>
-                        <!-- daus leased-->
-                        <select name="days-leased" id="days-leased">
-                            <option value="1-days">Last 1 Days</option>
-                            <option value="3-days">Last 3 Days</option>
-                            <option value="7-days">Last 7 Days</option>
-                            <option value="30-days">Last 30 Days</option>
-                            <option value="90-days">Last 90 Days</option>
-                            <option value="all-days">Listing data - All</option>
-                        </select>
-                    </div>
-
-
-                    <div class="mobile-fix-row-wrapper">
-                        <!-- De-listed -->
-                        <button type="button" class="filter-btn ">De-listed</button>
-                        <!-- daus de-listed-->
-                        <select name="days-delisted" id="days-delisted">
-                            <option value="1-days">Last 1 Days</option>
-                            <option value="3-days">Last 3 Days</option>
-                            <option value="7-days">Last 7 Days</option>
-                            <option value="30-days">Last 30 Days</option>
-                            <option value="90-days">Last 90 Days</option>
-                            <option value="all-days">Listing data - All</option>
-                        </select>
-                    </div>
-
-                </div>
-
-
-
-
-            </div>
-
-            <!-- second row -->
-            <div class="row top-search-filter-bar-second-row">
-
-                <!-- min max -->
-                <div class="min-max-wrapper bottom-button-area">
-
-                    <div class="popover popover-price">
-                        <button class="popover__trigger">$0-$9500</button>
-                        <div class="popover__menu">
-                            <div class="min-max-slider" data-legendnum="2">
-                                <label for="min">Minimum price</label>
-                                <input id="min" class="min" name="min" type="range" step="1" min="0" max="9500" />
-                                <label for="max">Maximum price</label>
-                                <input id="max" class="max" name="max" type="range" step="1" min="0" max="9500" />
+                        <div class="popover popover-price">
+                            <button type="button" class="popover__trigger">$0-$950000</button>
+                            <div class="popover__menu">
+                                <div class="min-max-slider" data-legendnum="2">
+                                    <label for="min">Minimum price</label>
+                                    <input id="min" class="min" name="min_price" type="range" step="1" min="0" max="950000" />
+                                    <label for="max">Maximum price</label>
+                                    <input id="max" class="max" name="max_price" type="range" step="1" min="0" max="950000" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
-                <!-- more filters -->
-                <div class="more-filters-wrapper">
-                    <!-- <div class="popover-more">
-                            <button class="popover_more__trigger">$0-$9500</button>
-                            <div class="popover__menu2">
-                               more filter contents here
-                            </div>
-                        </div> -->
-                    <button type="button" onclick="moreFilters()" class="more-filters-btn">More Filters</button>
+                    <!-- more filters -->
+                    <div class="more-filters-wrapper">
+                        <!-- <div class="popover-more">
+                                <button class="popover_more__trigger">$0-$9500</button>
+                                <div class="popover__menu2">
+                                more filter contents here
+                                </div>
+                            </div> -->
+                        <button type="button" onclick="moreFilters()" class="more-filters-btn">More Filters</button>
 
-                    <script>
-                        function moreFilters() {
-                            if (document.querySelector(".map-side-over-content-wrapper").style.opacity == "1") {
-                                document.querySelector(".map-side-over-content-wrapper").style.opacity = "0";
-                            } else {
-                                document.querySelector(".map-side-over-content-wrapper").style.opacity = "1";
-                            }
-                        }
-                    </script>
-                </div>
-
-                <!-- 
-                    <script>
-                        var popovers2 = document.querySelectorAll('.popover-more');
-                        var popoverTriggers2 = document.querySelectorAll('.popover_more__trigger');
-
-                        for (var i = 0; i < popoverTriggers2.length; i++) {
-                            popoverTriggers2[i].addEventListener('click', function(event) {
-                                closeAllOthers(this.parentElement);
-                                this.parentElement.classList.toggle('popover--active');
-                            });
-                        }
-
-                        function closeAllOthers(ignore) {
-                            for (var i = 0; i < popovers2.length; i++) {
-                                if ( popovers2[i] !== ignore) {
-                                    popovers2[i].classList.remove('popover--active');	
+                        <script>
+                            function moreFilters() {
+                                if (document.querySelector(".map-side-over-content-wrapper").style.opacity == "1") {
+                                    document.querySelector(".map-side-over-content-wrapper").style.opacity = "0";
+                                } else {
+                                    document.querySelector(".map-side-over-content-wrapper").style.opacity = "1";
                                 }
                             }
-                        }
+                        </script>
+                    </div>
+
+                    <!-- 
+                        <script>
+                            var popovers2 = document.querySelectorAll('.popover-more');
+                            var popoverTriggers2 = document.querySelectorAll('.popover_more__trigger');
+
+                            for (var i = 0; i < popoverTriggers2.length; i++) {
+                                popoverTriggers2[i].addEventListener('click', function(event) {
+                                    closeAllOthers(this.parentElement);
+                                    this.parentElement.classList.toggle('popover--active');
+                                });
+                            }
+
+                            function closeAllOthers(ignore) {
+                                for (var i = 0; i < popovers2.length; i++) {
+                                    if ( popovers2[i] !== ignore) {
+                                        popovers2[i].classList.remove('popover--active');	
+                                    }
+                                }
+                            }
 
 
-                    </script> -->
+                        </script> -->
 
 
-                <!-- watched areas -->
-                <button type="button" class="bottom-button-area">Watched Areas</button>
-            </div>
+                    <!-- watched areas -->
+                    <button type="button" class="bottom-button-area">Watched Areas</button>
+                </div>
+            </form>
+
         </div>
         </div>
         
@@ -287,130 +297,200 @@
                 <div class="col-9 p-0 full-size-width tab-right-side map-wrapper">
                     <div id="map" style="height: 600px; width: 100%;"></div>
                     <!-- more filters -->
-                <div class="map-side-over-content-wrapper">
-                    <p style="margin-top:0;">Description Contains Keywords</p>
-                    <input type="text" class="des-txt-input" placeholder="Waterfront, Pool, Fireplace" />
-                    <p>Bedroom</p>
-                    <div class="switch-field">
-                        <input type="radio" id="radio-bed-all" name="switch-two" value="all" checked />
-                        <label for="radio-bed-all">All</label>
 
-                        <input type="radio" id="radio-bed-zero" name="switch-two" value="zero" />
-                        <label for="radio-bed-zero">0</label>
+                    <form action="{{route('frontend.search_result_function')}}" method="post" class="filter-form">
+                    {{csrf_field()}}
+                        <div class="map-side-over-content-wrapper">
+                            <p style="margin-top:0;">Description Contains Keywords</p>
+                            <input type="text" name="description_key_name" class="des-txt-input" placeholder="Waterfront, Pool, Fireplace" />
+                            <p>Bedroom</p>
+                            <div class="switch-field">
+                                @if($beds == 'all')
+                                    <input type="radio" id="radio-bed-all" name="beds" value="all" checked/>
+                                @else
+                                    <input type="radio" id="radio-bed-all" name="beds" value="all"/>
+                                @endif
+                                <label for="radio-bed-all">All</label>
+                            
+                                @if($beds == 0)
+                                    <input type="radio" id="radio-bed-zero" name="beds" value="0" checked/>
+                                @else
+                                    <input type="radio" id="radio-bed-zero" name="beds" value="0" />
+                                @endif                                
+                                <label for="radio-bed-zero">0</label>
 
-                        <input type="radio" id="radio-bed-one" name="switch-two" value="one" />
-                        <label for="radio-bed-one">1</label>
-                        <input type="radio" id="radio-bed-two" name="switch-two" value="two" />
-                        <label for="radio-bed-two">2</label>
-                        <input type="radio" id="radio-bed-three" name="switch-two" value="three" />
-                        <label for="radio-bed-three">3</label>
-                        <input type="radio" id="radio-bed-four" name="switch-two" value="four" />
-                        <label for="radio-bed-four">4</label>
-                        <input type="radio" id="radio-bed-fiveplus" name="switch-two" value="fiveplus" />
-                        <label for="radio-bed-fiveplus">5+</label>
-                    </div>
+                                @if($beds == 1)
+                                    <input type="radio" id="radio-bed-one" name="beds" value="1" checked/>
+                                @else
+                                    <input type="radio" id="radio-bed-one" name="beds" value="1" />
+                                @endif                                
+                                <label for="radio-bed-one">1</label>
 
-                    <p>Bathroom</p>
-                    <div class="switch-field">
-                        <input type="radio" id="radio-bathroom-all" name="switch-three" value="all" checked />
-                        <label for="radio-bathroom-all">All</label>
+                                @if($beds == 2)
+                                    <input type="radio" id="radio-bed-two" name="beds" value="2" checked/>
+                                @else
+                                    <input type="radio" id="radio-bed-two" name="beds" value="2" />
+                                @endif                                   
+                                <label for="radio-bed-two">2</label>
 
-                        <input type="radio" id="radio-bathroom-zero" name="switch-three" value="zero" />
-                        <label for="radio-bathroom-zero">0</label>
-                        <input type="radio" id="radio-bathroom-one" name="switch-three" value="one" />
-                        <label for="radio-bathroom-one">1</label>
-                        <input type="radio" id="radio-bathroom-two" name="switch-three" value="two" />
-                        <label for="radio-bathroom-two">2</label>
-                        <input type="radio" id="radio-bathroom-three" name="switch-three" value="three" />
-                        <label for="radio-bathroom-three">3</label>
-                        <input type="radio" id="radio-bathroom-four" name="switch-three" value="four" />
-                        <label for="radio-bathroom-four">4</label>
-                        <input type="radio" id="radio-bathroom-fiveplus" name="switch-three" value="fiveplus" />
-                        <label for="radio-bathroom-fiveplus">5+</label>
-                    </div>
-                    <p>Garage/Parking</p>
-                    <div class="switch-field">
-                        <input type="radio" id="radio-garage-all" name="switch-four" value="all" checked />
-                        <label for="radio-garage-all">All</label>
+                                @if($beds == 3)
+                                    <input type="radio" id="radio-bed-three" name="beds" value="3" checked/>
+                                @else
+                                    <input type="radio" id="radio-bed-three" name="beds" value="3" />
+                                @endif                                     
+                                <label for="radio-bed-three">3</label>
 
-                        <input type="radio" id="radio-garage-zero" name="switch-four" value="zero" />
-                        <label for="radio-garage-zero">0</label>
-                        <input type="radio" id="radio-garage-one" name="switch-four" value="one" />
-                        <label for="radio-garage-one">1</label>
-                        <input type="radio" id="radio-garage-two" name="switch-four" value="two" />
-                        <label for="radio-garage-two">2</label>
-                        <input type="radio" id="radio-garage-three" name="switch-four" value="three" />
-                        <label for="radio-garage-three">3</label>
-                        <input type="radio" id="radio-garage-four" name="switch-four" value="four" />
-                        <label for="radio-garage-four">4</label>
-                        <input type="radio" id="radio-garage-fiveplus" name="switch-four" value="fiveplus" />
-                        <label for="radio-garage-fiveplus">5+</label>
-                    </div>
+                                @if($beds == 4)
+                                    <input type="radio" id="radio-bed-four" name="beds" value="4" checked/>
+                                @else
+                                    <input type="radio" id="radio-bed-four" name="beds" value="4" />
+                                @endif                            
+                                <label for="radio-bed-four">4</label>
 
-                    <p>Open House</p>
-                    <div class="switch-field">
-                        <input type="radio" id="radio-open-house-unspecified" name="switch-five" value="all" checked />
-                        <label for="radio-open-house-unspecified">Unspecified</label>
+                                @if($beds == 'greater-than-5')
+                                    <input type="radio" id="radio-bed-fiveplus" name="beds" value="greater-than-5" checked/>
+                                @else
+                                    <input type="radio" id="radio-bed-fiveplus" name="beds" value="greater-than-5" />
+                                @endif                                       
+                                <label for="radio-bed-fiveplus">5+</label>
+                            </div>
 
-                        <input type="radio" id="radio-open-house-today" name="switch-five" value="today" />
-                        <label for="radio-open-house-today">Today</label>
+                            <p>Bathroom</p>
+                            <div class="switch-field">
+                                @if($baths == 'all')
+                                    <input type="radio" id="radio-bathroom-all" name="baths" value="all" checked/>
+                                @else
+                                    <input type="radio" id="radio-bathroom-all" name="baths" value="all" />
+                                @endif  
+                                <label for="radio-bathroom-all">All</label>
 
-                        <input type="radio" id="radio-open-house-tomorrow" name="switch-five" value="tomorrow" />
-                        <label for="radio-open-house-tomorrow">Tomorrow</label>
+                                @if($baths == 0)
+                                    <input type="radio" id="radio-bathroom-zero" name="baths" value="0" checked/>
+                                @else
+                                    <input type="radio" id="radio-bathroom-zero" name="baths" value="0" />
+                                @endif  
+                                <label for="radio-bathroom-zero">0</label>
 
-                        <input type="radio" id="radio-open-house-7days" name="switch-five" value="7days" />
-                        <label for="radio-open-house-7days">7 Days</label>
+                                @if($baths == 1)
+                                    <input type="radio" id="radio-bathroom-one" name="baths" value="1" checked/>
+                                @else
+                                    <input type="radio" id="radio-bathroom-one" name="baths" value="1" />
+                                @endif  
+                                <label for="radio-bathroom-one">1</label>
 
-                    </div>
-                    <!-- open house last -all open houses- -->
-                    <div class="all-open-house-wrapper switch-field">
-                        <input type="radio" id="radio-open-house-all-open-houses" name="switch-five"
-                            value="all-open-houses" />
-                        <label for="radio-open-house-all-open-houses">All Open Houses</label>
-                    </div>
+                                @if($baths == 2)
+                                    <input type="radio" id="radio-bathroom-two" name="baths" value="2" checked/>
+                                @else
+                                    <input type="radio" id="radio-bathroom-two" name="baths" value="2" />
+                                @endif  
+                                <label for="radio-bathroom-two">2</label>
 
-                    <p>Basement</p>
-                    <div class="switch-field">
-                        <input type="radio" id="radio-basement-finished" name="switch-five" value="basement-finished" />
-                        <label for="radio-basement-finished">Finished</label>
-                        <input type="radio" id="radio-basement-seperate" name="switch-five" value="basement-seperate" />
-                        <label for="radio-basement-seperate">Seperate Entrance</label>
-                        <input type="radio" id="radio-basement-walkout" name="switch-five" value="basement-walkout" />
-                        <label for="radio-basement-walkout">Walk-out</label>
-                    </div>
+                                @if($baths == 3)
+                                    <input type="radio" id="radio-bathroom-three" name="baths" value="3" checked/>
+                                @else
+                                    <input type="radio" id="radio-bathroom-three" name="baths" value="3" />
+                                @endif  
+                                <label for="radio-bathroom-three">3</label>
 
-                    <p>Max Maintenance Fee</p>
-                    <input type="text" placeholder="0">
+                                @if($baths == 4)
+                                    <input type="radio" id="radio-bathroom-four" name="baths" value="4" checked/>
+                                @else
+                                    <input type="radio" id="radio-bathroom-four" name="baths" value="4" />
+                                @endif  
+                                <label for="radio-bathroom-four">4</label>
 
-                    <p>Lot Front (feet)</p>
+                                @if($baths == 'greater-than-5')
+                                    <input type="radio" id="radio-bathroom-fiveplus" name="baths" value="greater-than-5" checked/>
+                                @else
+                                    <input type="radio" id="radio-bathroom-fiveplus" name="baths" value="greater-than-5" />
+                                @endif  
+                                <label for="radio-bathroom-fiveplus">5+</label>
 
-                    <div class="more-filter-min-max" data-legendnum="3">
-                        <label for="min">Minimum price</label>
-                        <input id="min" class="min" name="min" type="range" step="1" min="0" max="100" />
-                        <label for="max">Maximum price</label>
-                        <input id="max" class="max" name="max" type="range" step="1" min="0" max="100" />
-                    </div>
+                            </div>
+                            <p>Garage/Parking</p>
+                            <div class="switch-field">
+                                <input type="radio" id="radio-garage-all" name="switch-four" value="all" checked />
+                                <label for="radio-garage-all">All</label>
+
+                                <input type="radio" id="radio-garage-zero" name="switch-four" value="zero" />
+                                <label for="radio-garage-zero">0</label>
+                                <input type="radio" id="radio-garage-one" name="switch-four" value="one" />
+                                <label for="radio-garage-one">1</label>
+                                <input type="radio" id="radio-garage-two" name="switch-four" value="two" />
+                                <label for="radio-garage-two">2</label>
+                                <input type="radio" id="radio-garage-three" name="switch-four" value="three" />
+                                <label for="radio-garage-three">3</label>
+                                <input type="radio" id="radio-garage-four" name="switch-four" value="four" />
+                                <label for="radio-garage-four">4</label>
+                                <input type="radio" id="radio-garage-fiveplus" name="switch-four" value="fiveplus" />
+                                <label for="radio-garage-fiveplus">5+</label>
+                            </div>
+
+                            <p>Open House</p>
+                            <div class="switch-field">
+                                <input type="radio" id="radio-open-house-unspecified" name="switch-five" value="all" checked />
+                                <label for="radio-open-house-unspecified">Unspecified</label>
+
+                                <input type="radio" id="radio-open-house-today" name="switch-five" value="today" />
+                                <label for="radio-open-house-today">Today</label>
+
+                                <input type="radio" id="radio-open-house-tomorrow" name="switch-five" value="tomorrow" />
+                                <label for="radio-open-house-tomorrow">Tomorrow</label>
+
+                                <input type="radio" id="radio-open-house-7days" name="switch-five" value="7days" />
+                                <label for="radio-open-house-7days">7 Days</label>
+
+                            </div>
+                            <!-- open house last -all open houses- -->
+                            <div class="all-open-house-wrapper switch-field">
+                                <input type="radio" id="radio-open-house-all-open-houses" name="switch-five"
+                                    value="all-open-houses" />
+                                <label for="radio-open-house-all-open-houses">All Open Houses</label>
+                            </div>
+
+                            <p>Basement</p>
+                            <div class="switch-field">
+                                <input type="radio" id="radio-basement-finished" name="switch-five" value="basement-finished" />
+                                <label for="radio-basement-finished">Finished</label>
+                                <input type="radio" id="radio-basement-seperate" name="switch-five" value="basement-seperate" />
+                                <label for="radio-basement-seperate">Seperate Entrance</label>
+                                <input type="radio" id="radio-basement-walkout" name="switch-five" value="basement-walkout" />
+                                <label for="radio-basement-walkout">Walk-out</label>
+                            </div>
+
+                            <p>Max Maintenance Fee</p>
+                            <input type="text" placeholder="0">
+
+                            <p>Lot Front (feet)</p>
+
+                            <div class="more-filter-min-max" data-legendnum="3">
+                                <label for="min">Minimum price</label>
+                                <input id="min" class="min" name="min" type="range" step="1" min="0" max="100" />
+                                <label for="max">Maximum price</label>
+                                <input id="max" class="max" name="max" type="range" step="1" min="0" max="100" />
+                            </div>
 
 
-                    <p>Square Footage</p>
+                            <p>Square Footage</p>
 
-                    <div class="more-filter-min-max" data-legendnum="3">
-                        <label for="min">Minimum price</label>
-                        <input id="min" class="min" name="min" type="range" step="1" min="0" max="4000" />
-                        <label for="max">Maximum price</label>
-                        <input id="max" class="max" name="max" type="range" step="1" min="0" max="4000" />
-                    </div>
+                            <div class="more-filter-min-max" data-legendnum="3">
+                                <label for="min">Minimum price</label>
+                                <input id="min" class="min" name="min" type="range" step="1" min="0" max="4000" />
+                                <label for="max">Maximum price</label>
+                                <input id="max" class="max" name="max" type="range" step="1" min="0" max="4000" />
+                            </div>
 
-                    <p>Nearby Sold</p>
-                    <div class="tick-wrapper">
-                        <input type="checkbox" id="tick">
-                        <label for="tick">I want to show NEARBY SOLD listings for comparison</label>
+                            <p>Nearby Sold</p>
+                            <div class="tick-wrapper">
+                                <input type="checkbox" id="tick">
+                                <label for="tick">I want to show NEARBY SOLD listings for comparison</label>
 
-                    </div>
+                            </div>
 
-                    <button type="button" class="more-filter-bottom-btn">Clear</button>
-                    <button type="button" class="more-filter-bottom-btn">Confirm</button>
-                </div>
+                            <button type="reset" class="more-filter-bottom-btn">Clear</button>
+                            <button type="submit" class="more-filter-bottom-btn">Search</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1042,7 +1122,6 @@
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
-                                                <option value="5">5</option>
                                                 <option value="greater-than-5">5+</option>
                                             </select>
                                         </div> `
@@ -1153,7 +1232,6 @@
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
-                                                <option value="5">5</option>
                                                 <option value="greater-than-5">5+</option>
                                             </select>
                                         </div> `
@@ -1264,7 +1342,6 @@
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
-                                                <option value="5">5</option>
                                                 <option value="greater-than-5">5+</option>
                                             </select>
                                         </div> `
