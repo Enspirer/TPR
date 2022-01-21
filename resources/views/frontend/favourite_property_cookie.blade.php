@@ -25,8 +25,12 @@
                                 </div>
                                 <div class="col-6">
                                     <h5 class="card-title">{{ $prop->name }}</h5>
-                                    <p class="mt-1 text-info">$ {{ $prop->price }}</p>
-
+                                    <h5 class="card-title" style="font-size:13px; font-family:calibri; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{App\Models\Properties::where('id',$prop->id)->first()->description}}</h5>
+                                    @if(get_country_cookie(request()))
+                                        <p class="mt-1 text-primary">{{ current_price(request(), get_country_cookie(request())->country_id, $prop->price) }}</p>      
+                                    @else                              
+                                        <p class="mt-1 text-primary">{{ current_price(request(), 1, $prop->price) }}</p>     
+                                    @endif                               
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="{{ route('frontend.individual-property', $prop->id) }}" class="btn px-4 rounded-0 text-light py-1" style="background-color: #4195E1">View</a>
