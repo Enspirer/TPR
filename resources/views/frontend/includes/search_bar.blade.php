@@ -26,7 +26,7 @@
                 <div class="input-group">
                     {{csrf_field()}}
                     <input type="hidden" name="category_type" value="all">
-                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
+                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;background: #ffffff8c;">
                         <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 
@@ -41,9 +41,9 @@
                     {{csrf_field()}}
                     <input type="hidden" name="category_type" value="residential" class="category">
                     
-                    <input type="text" name="search_keyword" id="autocomplete" class="form-control p-3 residential" placeholder="address, zip or city" onFocus="geolocate()"  aria-label="search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
+                    <input  type="text" name="search_keyword" id="autocomplete" class="form-control p-3 residential" placeholder="address, zip or city" onFocus="geolocate()"  aria-label="search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;background: #ffffff8c;">
 
-                    <select class="form-select" aria-label="min_price" name="min_price" id="min_price" placeholder="Min Price">
+                    <select class="form-select" aria-label="min_price" name="min_price" id="min_price" placeholder="Min Price" style="background: #ffffff8c;">
                         <option value="0" selected disabled hidden>Min Price</option>
                         <option value="0">0</option>
                         <option value="25000">25,000</option>
@@ -101,7 +101,7 @@
                         <option value="15000000">15,000,000</option>
                         <option value="20000000">20,000,000</option>
                     </select>
-                    <select class="form-select" aria-label="min_price" name="min_price" id="min_price" placeholder="Max Price">
+                    <select class="form-select" aria-label="min_price" name="min_price" id="min_price" placeholder="Max Price" style="background: #ffffff8c;">
                         <option value="0" selected disabled hidden>Max Price</option>
                         <option value="0">0</option>
                         <option value="0">0</option>
@@ -160,7 +160,7 @@
                         <option value="15000000">15,000,000</option>
                         <option value="20000000">20,000,000</option>
                     </select>
-                    <select class="form-select" aria-label="beds" name="beds" id="beds">
+                    <select class="form-select" aria-label="beds" name="beds" id="beds" style="background: #ffffff8c;">
                         <option value="" selected disabled hidden>Beds</option>
                         <option value="">Any</option>
                         <option value="1">1</option>
@@ -169,7 +169,7 @@
                         <option value="4">4</option>
                         <option value="greater-than-5">5+</option>
                     </select>
-                    <select class="form-select" aria-label="baths" name="baths" id="baths">
+                    <select class="form-select" aria-label="baths" name="baths" id="baths" style="background: #ffffff8c;">
                         <option value="" selected disabled hidden>Baths</option>
                         <option value="">Any</option>
                         <option value="1">1</option>
@@ -178,7 +178,7 @@
                         <option value="4">4</option>
                         <option value="greater-than-5">5+</option>
                     </select>
-                    <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
+                    <button type="submit" class="btn text-white" style="border-top-right-radius: 35px; border-bottom-right-radius: 35px;background: #ffffff8c;"><i class="bi bi-search me-2"></i> Search</button>
 
                     <button type="button" class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                 </div>
@@ -190,8 +190,8 @@
                 <div class="input-group">
                 {{csrf_field()}}
                     <input type="hidden" name="category_type" value="commercial" class="category">
-                    <input type="text" name="search_keyword" class="form-control p-3 commercial" id="autocompletetwo" placeholder="address, zip or city" onFocus="geolocate()"  aria-label="search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
-                    <select class="form-select" aria-label="min_price" name="min_price" id="min_price" placeholder="Min Price">
+                    <input type="text" name="search_keyword" class="form-control p-3 commercial" id="autocompletetwo" placeholder="address, zip or city" onFocus="geolocate()"  aria-label="search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;background: #ffffff8c;">
+                    <select class="form-select" aria-label="min_price" name="min_price" id="min_price" placeholder="Min Price" style="background: #ffffff8c;">
                         <option value="0" selected disabled hidden>Min Price</option>
                         <option value="0">0</option>
                         <option value="25000">25,000</option>
@@ -249,7 +249,7 @@
                         <option value="15000000">15,000,000</option>
                         <option value="20000000">20,000,000</option>
                     </select>
-                    <select class="form-select" aria-label="min_price" name="min_price" id="min_price" placeholder="Max Price">
+                    <select class="form-select" aria-label="min_price" name="min_price" id="min_price" placeholder="Max Price" style="background: #ffffff8c;">
                         <option value="0" selected disabled hidden>Max Price</option>
                         <option value="0">0</option>
                         <option value="0">0</option>
@@ -308,7 +308,7 @@
                         <option value="15000000">15,000,000</option>
                         <option value="20000000">20,000,000</option>
                     </select>
-                    <select class="form-select" name="building_size" id="building_size">
+                    <select class="form-select" name="building_size" id="building_size" style="background: #ffffff8c;">
                         <option value="" selected disabled hidden>Building Size</option>
                         <option value="" >Any</option>
                         <option value="0-5000">0-5,000 sqft</option>
@@ -329,7 +329,7 @@
                         <option value="250001-0">Over 250,000 sqft</option>
 
                     </select>
-                    <select class="form-select" name="land_size" id="land_size">
+                    <select class="form-select" name="land_size" id="land_size" style="background: #ffffff8c;">
                         <option value="" selected disabled hidden>Land Size</option>
                         <option value=" ">Any</option>
                         <option value="1-0">1+ acres</option>
@@ -356,7 +356,7 @@
                 <div class="input-group">
                 {{csrf_field()}}
                     <input type="hidden" name="category_type" value="tp_developer" class="category">
-                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
+                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;background: #ffffff8c;">
                     <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 
@@ -377,7 +377,7 @@
                 <div class="input-group">
                 {{csrf_field()}}
                     <input type="hidden" name="category_type" value="tp_developer" class="category">
-                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
+                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="background-color:#ffffff8c;border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
                     <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 
@@ -391,7 +391,7 @@
                 <div class="input-group">
                 {{csrf_field()}}
                     <input type="hidden" name="category_type" value="investments" class="category">
-                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
+                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;background: #ffffff8c;">
                     <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 

@@ -29,8 +29,43 @@
     <!-- back to search-->
     <section id="path">
         <div class="container" style="margin-top: 10rem;">
-            <a href="{{ route('frontend.search_function', ['key_name', 'max_price', 'min_price', 'category_type', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name'] )}}" class="text-decoration-none text-body fw-bolder"><i class="bi bi-chevron-left"></i> Back to search results</a>
+            <div class="row">
+                <div class="col-3 text-center mt-3">
+                    <a href="{{ route('frontend.search_function', ['key_name', 'max_price', 'min_price', 'category_type', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name'] )}}" class="text-decoration-none text-body fw-bolder"><i class="bi bi-chevron-left"></i> Back to search results</a>
+
+                </div>
+                @auth
+                @if($watch_list == null)
+                    <div class="col-3 text-center mt-3">
+                        <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</button>
+                    </div>
+                @else
+                    <div class="col-3 text-center mt-3">
+                        <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list_change" class="btn rounded-0 py-2 fw-bold fs-6 w-100 text-light" style="border: 1.5px solid; background-color:#28a3b3;"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</button>
+                    </div>
+                @endif
+                @else
+                    <div class="col-3 text-center mt-3">
+                        <a href="{{route('frontend.auth.login')}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</a>
+                    </div>
+                    @endauth
+
+
+                    <div class="col-3 text-center mt-3">
+                        <a  target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{$property_details->lat}}%2c{{$property_details->long}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"> <i style="margin-right:5px;" class="fas fa-directions"></i>Directions</a>
+                    </div>
+
+                    <div class="col-3 text-center mt-3">
+                        <button class="btn rounded-0 py-2 fw-bold fs-6 w-100" onclick="window.print()" style="border: 1.5px solid"><i class="bi bi-printer me-1"></i>Print</button>
+                    </div>
+
+
+
+            </div>
+
         </div>
+
+
     </section>
 
     <!-- title-->
@@ -786,30 +821,7 @@
                             <a href="mailto:{{ $agent->email }}"><button class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid #707070;"><i class="bi bi-envelope"></i> Create email alert</button></a>
                         </div> -->
 
-                        @auth
-                            @if($watch_list == null)
-                                <div class="col-12 text-center mt-4">
-                                    <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</button>
-                                </div> 
-                            @else
-                                <div class="col-12 text-center mt-4">
-                                    <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list_change" class="btn rounded-0 py-2 fw-bold fs-6 w-100 text-light" style="border: 1.5px solid; background-color:#28a3b3;"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</button>
-                                </div> 
-                            @endif
-                        @else
-                            <div class="col-12 text-center mt-4">
-                                <a href="{{route('frontend.auth.login')}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</a>
-                            </div>
-                        @endauth
 
-
-                            <div class="col-12 text-center mt-4">
-                                <a  target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{$property_details->lat}}%2c{{$property_details->long}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1.5px solid"> <i style="margin-right:5px;" class="fas fa-directions"></i>Directions</a>
-                            </div>
-
-                            <div class="col-12 text-center mt-4">
-                                <button class="btn rounded-0 py-2 fw-bold fs-6 w-100" onclick="window.print()" style="border: 1.5px solid"><i class="bi bi-printer me-1"></i>Print</button>
-                            </div>
 
 
                         @auth
