@@ -177,7 +177,7 @@
 
 @media screen and (max-width: 576px) {
     .banner {
-        height: 350px;
+        height: 400px;
     }
     .search {
         top: 10.5rem;
@@ -216,5 +216,13 @@
     }
     .bottom-banner-stars {
         font-size: 0.8rem!important;
+    }
+}
+
+
+/*mobile-view*/
+@media screen and (max-width: 767px) {
+    .mobile-mt-30 {
+        margin-top: 30px;
     }
 }
