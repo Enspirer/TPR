@@ -513,7 +513,11 @@ class HomeController extends Controller
 
         $property_types = PropertyType::where('status','=','1')->get();
 
-        $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->where('country',get_country_cookie(request())->country_name);
+        if(get_country_cookie(request())){
+            $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null)->where('country',get_country_cookie(request())->country_name);
+        }else{
+            $properties = Properties::where('admin_approval', 'Approved')->where('sold_request',null);
+        }
 
         // $side_ads = SidebarAd::where('country_management_approval', 'Approved')->get();
         if(get_country_cookie(request())){
