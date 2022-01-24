@@ -531,7 +531,7 @@
             <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
 
                 <div class="swiper container mySwiper" data-aos="fade-up" data-aos-duration="500">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper mobile-vertical-wrapper">
 
                         @foreach($sold_prop as $key => $sold)
 
