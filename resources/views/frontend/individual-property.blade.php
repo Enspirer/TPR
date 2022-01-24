@@ -193,7 +193,7 @@
                         </div>
                     @endif
 
-                    <div class="details mt-5">
+                    <div class="details mt-5 mobile-m-15">
                         <div class="row">
                             <div class="col-5 full-size-width">
                                 <h5 class="mb-1" style="color: #79CEEC;">{{ get_currency(request(),$property_details->price ) }}</h5>
@@ -201,7 +201,7 @@
 
                                 @if($property_details->beds == null)
                                 @else
-                                    <p class="fw-bold mt-5" style="font-size: 1rem;">
+                                    <p class="fw-bold mt-5 mobile-m-15" style="font-size: 1rem;">
                                         {{ $property_details->beds }} bed semi-detached house
                                     </p>
                                 @endif

@@ -195,6 +195,10 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
     .mobile-slide-height-fix {
         height: 350px !important;
     }
+
+    .mobile-m-15 {
+        margin-top: 15px !important;
+    }
     
 }
 
