@@ -171,8 +171,8 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
         max-width: 100% !important;
     }
 
-    .mobile-full-area a {
-        width: max-content;
+    .mobile-full-area a, .print-btn-mobile {
+        width: max-content !important;
     }
 
     .back-to-search-mobile-row {

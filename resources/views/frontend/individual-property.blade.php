@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="col-2 text-center mt-2 mobile-full-area">
-                        <button class="btn rounded-0 py-2 fw-bold fs-6 w-100" onclick="window.print()" style="border: 1px;border-radius: 25px !important;background: #4195e1;color: white;"><i class="bi bi-printer me-1" style="margin-right:5px;"></i>Print</button>
+                        <button class="btn rounded-0 py-2 fw-bold fs-6 w-100 print-btn-mobile" onclick="window.print()" style="border: 1px;border-radius: 25px !important;background: #4195e1;color: white;"><i class="bi bi-printer me-1" style="margin-right:5px;"></i>Print</button>
                     </div>
             </div>
 
