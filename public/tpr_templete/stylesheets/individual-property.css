@@ -160,6 +160,13 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
     display: inline-block !important;
 }
 
+.mobile-full-area  {
+    width: max-content;
+}
+
+.row.back-to-search-mobile-row {
+    align-items: center;
+}
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {
@@ -178,6 +185,7 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
     .back-to-search-mobile-row {
         display: flex;
     }
+    
 }
 
 
