@@ -487,7 +487,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">High Schools</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -503,7 +503,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Elementary Schools</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -519,7 +519,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Quiet</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -535,7 +535,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Pedestrian friendly</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -551,7 +551,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Parks</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -567,7 +567,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Transit Friendly</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -583,7 +583,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Car Friendly</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -599,7 +599,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Restaurants</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -615,7 +615,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Shopping</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -631,7 +631,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Daycares</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -647,7 +647,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Cafes</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -663,7 +663,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Vibrant</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -679,7 +679,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Nightlife</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
