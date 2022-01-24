@@ -221,6 +221,10 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
         width: 190px;
     }
 
+    .mobile-slide-height-fix {
+        height: 350px !important;
+    }
+
 }
 
 
