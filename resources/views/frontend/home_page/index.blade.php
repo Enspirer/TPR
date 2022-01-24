@@ -923,6 +923,18 @@ var swiper = new Swiper(".mySwiper", {
         el: ".swiper-pagination",
         clickable: true,
     },
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+
+        576: {
+            slidesPerView: 3,
+        },
+        768: {
+            slidesPerView: 3,
+        }
+    },
 });
 
 var swiper = new Swiper(".mySwiper2", {
