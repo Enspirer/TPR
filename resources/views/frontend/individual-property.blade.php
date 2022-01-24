@@ -83,13 +83,13 @@
                     @if(json_decode($property_details->image_ids) == null)
 
                         <div align="center">
-                            <img src="{{ url('images/no_image_available.png') }}" style="object-fit: cover;" width="100%" height="300px" alt="...">
+                            <img src="{{ url('images/no_image_available.png') }}" style="object-fit: cover;" width="100%" height="100%" alt="...">
                         </div>
 
                     @else
                         <div class="carousel">
                             <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner" style="height:400px;">
+                                <div class="carousel-inner" style="height:100%;">
 
                                 @auth
                                     @if($interior_image != NULL)
