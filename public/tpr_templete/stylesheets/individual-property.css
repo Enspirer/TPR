@@ -166,6 +166,14 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
     .mobile-font-small {
         font-size: 0.7rem;
     }
+    .mobile-full-area {
+        flex: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .back-to-search-mobile-row {
+        display: flex;
+    }
 }
 
 

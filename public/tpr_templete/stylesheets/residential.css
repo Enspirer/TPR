@@ -479,6 +479,10 @@ select#property-types {
         gap: 5px;
     }
 
+    .no-result.border.py-2.px-3 {
+        margin-top: 15px;
+    }
+
     button.filter-btn {
         width: 100px;
     }

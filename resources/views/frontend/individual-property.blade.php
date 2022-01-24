@@ -29,33 +29,33 @@
     <!-- back to search-->
     <section id="path">
         <div class="container" style="margin-top: 10rem;">
-            <div class="row">
-                <div class="col-2 text-center mt-2">
+            <div class="row back-to-search-mobile-row">
+                <div class="col-2 text-center mt-2 mobile-full-area">
                     <a href="{{ route('frontend.search_function', ['key_name', 'max_price', 'min_price', 'category_type', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name'] )}}" class="text-decoration-none text-body fw-bolder"><i class="bi bi-chevron-left"></i> Back to search results</a>
 
                 </div>
                 @auth
                 @if($watch_list == null)
-                    <div class="col-2 text-center mt-2" >
+                    <div class="col-2 text-center mt-2 mobile-full-area" >
                         <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1px;border-radius: 25px !important;background: #4195e1;color: white;"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</button>
                     </div>
                 @else
-                    <div class="col-2 text-center mt-2">
+                    <div class="col-2 text-center mt-2 mobile-full-area">
                         <button type="submit" data-bs-toggle="modal" data-bs-target="#watch_list_change" class="btn rounded-0 py-2 fw-bold fs-6 w-100 text-light" style="border: 1px;border-radius: 25px !important;background: #4195e1;color: white;"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</button>
                     </div>
                 @endif
                 @else
-                    <div class="col-2 text-center mt-2">
+                    <div class="col-2 text-center mt-2 mobile-full-area">
                         <a href="{{route('frontend.auth.login')}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1px;border-radius: 25px !important;background: #4195e1;color: white;"><i style="margin-right:5px;" class="fas fa-eye"></i>Watch Listing</a>
                     </div>
                     @endauth
 
 
-                    <div class="col-2 text-center mt-2">
+                    <div class="col-2 text-center mt-2 mobile-full-area">
                         <a  target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{$property_details->lat}}%2c{{$property_details->long}}" class="btn rounded-0 py-2 fw-bold fs-6 w-100" style="border: 1px;border-radius: 25px !important;background: #4195e1;color: white;"> <i style="margin-right:5px;" class="fas fa-directions"></i>Directions</a>
                     </div>
 
-                    <div class="col-2 text-center mt-2">
+                    <div class="col-2 text-center mt-2 mobile-full-area">
                         <button class="btn rounded-0 py-2 fw-bold fs-6 w-100" onclick="window.print()" style="border: 1px;border-radius: 25px !important;background: #4195e1;color: white;"><i class="bi bi-printer me-1" style="margin-right:5px;"></i>Print</button>
                     </div>
             </div>

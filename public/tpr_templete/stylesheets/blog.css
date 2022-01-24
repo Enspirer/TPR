@@ -77,6 +77,10 @@ img.circle-prof {
         margin-left: auto;
         margin-right: auto;
     }
+
+    .blog-banner {
+        height: 500px;
+    }
 }
 
 
