@@ -175,7 +175,7 @@
 
 <!--property search-->
 <section id="index-property-search">
-    <div class="container-fluid" style="margin-top:4rem">
+    <div class="container-fluid mobile-mt-15" style="margin-top:4rem">
         <h3 class="fw-bolder text-center" data-aos="fade-up" data-aos-duration="500">Interactive Property Search</h3>
         <div class="row mt-4">
             @if(count($promo) > 0)
