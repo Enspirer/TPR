@@ -249,6 +249,11 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
         margin-top: 30px;
     }
 
+    .col-3.text-end.more-btn-mobile {
+        white-space: nowrap;
+        margin-top: 20px;
+    }
+
 }
 
 
