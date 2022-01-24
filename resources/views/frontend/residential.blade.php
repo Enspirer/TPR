@@ -112,7 +112,7 @@
                     <div class="min-max-wrapper bottom-button-area">
 
                         <div class="popover popover-price">
-                            <button type="button" class="popover__trigger">$0-$950000</button>
+                            <button type="button" class="popover__trigger filter-btn">$0-$950000</button>
                             <div class="popover__menu">
                                 <div class="min-max-slider" data-legendnum="2">
                                     <label for="min">Minimum price</label>
@@ -133,7 +133,7 @@
                                 more filter contents here
                                 </div>
                             </div> -->
-                        <button type="button" onclick="moreFilters()" class="more-filters-btn">More Filters</button>
+                        <button type="button" onclick="moreFilters()" class="more-filters-btn filter-btn">More Filters</button>
 
                         <script>
                             function moreFilters() {
@@ -171,7 +171,7 @@
 
 
                     <!-- watched areas -->
-                    <button type="button" class="bottom-button-area">Watched Areas</button>
+                    <button type="button" class="bottom-button-area filter-btn">Watched Areas</button>
                 </div>
             </form>
 

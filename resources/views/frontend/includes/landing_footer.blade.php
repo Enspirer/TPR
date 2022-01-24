@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12 col-md-3 mb-5 mb-md-0">
                 <a href="{{ route('frontend.landing') }}">
-                    <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid mb-4" alt="" style="height: 4rem;">
+                    <img src="{{ asset('tpr_templete/images/tropical_logo.svg') }}" class="img-fluid mb-4 footer-logo" alt="" style="height: 4rem;">
                     <!-- <div id="google_translate_element"></div> -->
                 </a>
             </div>

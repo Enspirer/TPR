@@ -241,12 +241,11 @@ select#days-all, select#days-leased, select#days-delisted, select#property-types
 button.popover__trigger, button.popover_more__trigger {
     width: 100%;
     background: #fff;
-    border: 0;
+    border-radius: 5px;
 }
 
 button.more-filters-btn, button.bottom-button-area {
     background: #fff;
-    border: 0;
 }
 
 .popover__menu, .popover__menu2 {
@@ -299,9 +298,7 @@ button.more-filters-btn, button.bottom-button-area {
     display: block;
     opacity: 1;
 }
-body {
-    background: #f2f2f2;
-}
+
 button {
     border-color: #ccc;
     border-radius: 4px;
@@ -322,8 +319,9 @@ button {
     gap: 15px;
 }
 
-.bottom-button-area {
+.bottom-button-area, button.more-filters-btn, button.bottom-button-area {
     flex: 1;
+    border-radius: 5px;
 }
 
 .more-filters-wrapper {
@@ -421,6 +419,8 @@ select#property-types {
 
 .top-search-bar {
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
 } 
 
 /*small mobile*/

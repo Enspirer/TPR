@@ -33,33 +33,134 @@
             </div>
 
             <div class="mobile-nav-additional-wrapper">
-                 <!-- post ad -->
-             <a class="post-ad-btn visible-xs visible-tab" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
+                <!-- post ad -->
+                <a class="post-ad-btn visible-xs visible-tab" href="" data-toggle="modal" data-target="#adModal">Post
+                    Ad</a>
 
-            <!-- language bar -->
-            <a href="" class="visble-xs visible-tab" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
-            <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
-            <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
-            </a>
+                <!-- language bar -->
+                <a href="" class="visible-xs visible-tab mobile-language-bar"
+                    style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"
+                    data-toggle="modal" data-target="#langModal">
+                    <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
+                    <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
+                </a>
+
+
+
+
+                <!-- currency area for tab-->
+                <div class="currency-wrapper tab-currency-bar">
+
+                    @if(isset(get_currency_only(request())->currency))
+
+                    <form action="{{route('frontend.currency_change')}}" method="post"
+                        class="filter-form currency-filter-form">
+                        {{csrf_field()}}
+
+                        <select name="currency_type" class="ms-3 me-3 text-light text-center currency-picker"
+                            style="border:none; background-color:#4195E1" onchange="this.form.submit()">
+
+                            @foreach($tpr_countries as $tpr_country)
+                            <option value="{{ $tpr_country->currency }}"
+                                {{ get_currency_only(request())->currency == $tpr_country->currency ? "selected" : "" }}>
+                                {{ $tpr_country->currency }}</option>
+                            @endforeach
+
+                        </select>
+
+                    </form>
+                    @else
+
+                    <form action="{{route('frontend.currency_change')}}" method="post"
+                        class="filter-form currency-filter-form">
+                        {{csrf_field()}}
+
+                        <select name="currency_type" class="ms-3 me-3 text-light text-center currency-picker"
+                            onchange="this.form.submit()" style="border:none; background-color:#4195E1">
+                            <option value="" selected disabled>Currency</option>
+
+                            @foreach($tpr_countries as $tpr_country)
+                            <option value="{{ $tpr_country->currency }}">{{ $tpr_country->currency }}</option>
+                            @endforeach
+
+                        </select>
+
+                    </form>
+                    @endif
+
+                </div>
+
             </div>
-            
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
+            <div class="currency-with-toggler-wrapper">
+
+                <!-- currency area for tab-->
+                <div class="currency-wrapper mobile-currency-bar">
+
+                    @if(isset(get_currency_only(request())->currency))
+
+                    <form action="{{route('frontend.currency_change')}}" method="post"
+                        class="filter-form currency-filter-form">
+                        {{csrf_field()}}
+
+                        <select name="currency_type" class="ms-3 me-3 text-light text-center currency-picker"
+                            style="border:none; background-color:#4195E1" onchange="this.form.submit()">
+
+                            @foreach($tpr_countries as $tpr_country)
+                            <option value="{{ $tpr_country->currency }}"
+                                {{ get_currency_only(request())->currency == $tpr_country->currency ? "selected" : "" }}>
+                                {{ $tpr_country->currency }}</option>
+                            @endforeach
+
+                        </select>
+
+                    </form>
+                    @else
+
+                    <form action="{{route('frontend.currency_change')}}" method="post"
+                        class="filter-form currency-filter-form">
+                        {{csrf_field()}}
+
+                        <select name="currency_type" class="ms-3 me-3 text-light text-center currency-picker"
+                            onchange="this.form.submit()" style="border:none; background-color:#4195E1">
+                            <option value="" selected disabled>Currency</option>
+
+                            @foreach($tpr_countries as $tpr_country)
+                            <option value="{{ $tpr_country->currency }}">{{ $tpr_country->currency }}</option>
+                            @endforeach
+
+                        </select>
+
+                    </form>
+                    @endif
+
+                </div>
+
+
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav1" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav1">
                 <ul class="navbar-nav">
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500">
                         <!-- <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'map-search' ? 'active' : null }}"
                             href="{{ route('frontend.map-search' )}}">Find a Home</a> -->
-                        <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'residential' ? 'active' : null }}" style="color:#fff !important;"
-                            href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name'] )}}">Map Search</a>
+                        <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'residential' ? 'active' : null }}"
+                            style="color:#fff !important;"
+                            href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name'] )}}">Map
+                            Search</a>
                         <div class="line"></div>
                     </li>
                     <li class="nav-item nav1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'find-agent' ? 'active' : null }}"
-                            href="{{ route('frontend.find-agent', ['area', 'agent_type', 'agent_name'] )}}">Find a Realtor
-                            </a>
+                            href="{{ route('frontend.find-agent', ['area', 'agent_type', 'agent_name'] )}}">Find a
+                            Realtor
+                        </a>
 
                         <div class="line"></div>
                     </li>
@@ -134,62 +235,73 @@
                             href="{{route('frontend.auth.login')}}">Login <i class="bi bi-person-check"></i></a>
                         <div class="line"></div>
                     </li>
-                    <li class="nav-item join" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400"
-                        >
+                    <li class="nav-item join" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400">
                         <a class="nav-link text-white fw-bold {{ Request::segment(1) == 'register' ? 'active' : null }}"
                             href="{{route('frontend.auth.register')}}">Join <i class="bi bi-person-plus"></i></a>
-                           
+
                         <div class="line"></div>
                     </li>
                     @endauth
-                   
+
                 </ul>
-                
+
             </div>
 
-                
 
-                <!-- post ad -->
-                <a class="post-ad-btn hidden-xs hidden-tab" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
 
-                <!-- language bar -->
-                <a href="" class="hidden-xs hidden-tab" style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"data-toggle="modal" data-target="#langModal">
-                    <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
-                    <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
-                </a>
-        
+            <!-- post ad -->
+            <a class="post-ad-btn hidden-xs hidden-tab" href="" data-toggle="modal" data-target="#adModal">Post Ad</a>
+
+            <!-- language bar -->
+            <a href="" class="hidden-xs hidden-tab mobile-language-bar"
+                style="width:max-content;display:flex;flex-direction:column;text-decoration:none;justify-content:center;align-items:center;"
+                data-toggle="modal" data-target="#langModal">
+                <i style="font-size:20px;color:#fff;padding:0 !important;" class="fas fa-language"></i>
+                <span style="display:inline-flex;font-size:12px;color:#fff;">Translate</span>
+            </a>
+
+
+            <!-- cuurency area desktop -->
+            <div class="currency-wrapper hidden-xs hidden-tab">
 
                 @if(isset(get_currency_only(request())->currency))
 
-                    <form action="{{route('frontend.currency_change')}}" method="post">
-                        {{csrf_field()}}
+                <form action="{{route('frontend.currency_change')}}" method="post"
+                    class="filter-form currency-filter-form">
+                    {{csrf_field()}}
 
-                        <select name="currency_type" class="ms-3 me-3 text-light text-center" style="border:none; background-color:#4195E1" onchange="this.form.submit()">
+                    <select name="currency_type" class="ms-3 me-3 text-light text-center currency-picker"
+                        style="border:none; background-color:#4195E1" onchange="this.form.submit()">
 
-                            @foreach($tpr_countries as $tpr_country)
-                                <option value="{{ $tpr_country->currency }}" {{ get_currency_only(request())->currency == $tpr_country->currency ? "selected" : "" }}>{{ $tpr_country->currency }}</option>
-                            @endforeach
+                        @foreach($tpr_countries as $tpr_country)
+                        <option value="{{ $tpr_country->currency }}"
+                            {{ get_currency_only(request())->currency == $tpr_country->currency ? "selected" : "" }}>
+                            {{ $tpr_country->currency }}</option>
+                        @endforeach
 
-                        </select>
+                    </select>
 
-                    </form>
+                </form>
                 @else
 
-                    <form action="{{route('frontend.currency_change')}}" method="post" class="filter-form currency-filter-form">
-                        {{csrf_field()}}
+                <form action="{{route('frontend.currency_change')}}" method="post"
+                    class="filter-form currency-filter-form">
+                    {{csrf_field()}}
 
-                        <select name="currency_type" class="ms-3 me-3 text-light text-center" onchange="this.form.submit()" style="border:none; background-color:#4195E1">
-                            <option value="" selected disabled>Currency</option>
+                    <select name="currency_type" class="ms-3 me-3 text-light text-center currency-picker"
+                        onchange="this.form.submit()" style="border:none; background-color:#4195E1">
+                        <option value="" selected disabled>Currency</option>
 
-                            @foreach($tpr_countries as $tpr_country)
-                            <option value="{{ $tpr_country->currency }}">{{ $tpr_country->currency }}</option>
-                            @endforeach
+                        @foreach($tpr_countries as $tpr_country)
+                        <option value="{{ $tpr_country->currency }}">{{ $tpr_country->currency }}</option>
+                        @endforeach
 
-                        </select>
+                    </select>
 
-                    </form>
+                </form>
                 @endif
 
+            </div>
 
 
 
@@ -245,8 +357,8 @@
 
                         @endif -->
                         <div class="dropdown">
-                            <a class="btn dropdown-toggle mobile-coutry-dropdown" href="#" role="button" id="dropdownMenuLink"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="btn dropdown-toggle mobile-coutry-dropdown" href="#" role="button"
+                                id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 @if(isset(get_country_cookie(request())->country_id))
                                 @if(get_country_cookie(request())->country_id)
 
@@ -308,55 +420,55 @@
                     <div class="icons-bar">
                         <div class="icon-wrapper heart-wrapper">
                             @if(!empty( auth()->user()->id) === true)
-                                <a href="{{route('frontend.user.user_notifications')}}">
-                                <i class="fas fa-bell" style="color:#82bf3e;"></i>                   
-                                    <div class="counter-wrapper">
-                                        <p id="heartCounter">                                        
-                                            {{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}}
-                                        </p>
-                                    </div>
-                                </a>
+                            <a href="{{route('frontend.user.user_notifications')}}">
+                                <i class="fas fa-bell" style="color:#82bf3e;"></i>
+                                <div class="counter-wrapper">
+                                    <p id="heartCounter">
+                                        {{App\Models\Notifications::where('user_id',auth()->user()->id)->where('status','Pending')->get()->count()}}
+                                    </p>
+                                </div>
+                            </a>
                             @else
-                                <a href="{{route('frontend.auth.login')}}">
-                                <i class="fas fa-bell" style="color:#82bf3e;"></i> 
-                                </a>
+                            <a href="{{route('frontend.auth.login')}}">
+                                <i class="fas fa-bell" style="color:#82bf3e;"></i>
+                            </a>
                             @endif
                         </div>
                         <div class="icon-wrapper heart-wrapper">
                             @if(!empty( auth()->user()->id) === true)
-                                <a href="{{route('frontend.user.search_history')}}">
+                            <a href="{{route('frontend.user.search_history')}}">
                                 <i class="fas fa-bookmark" style="color:#4195e1;"></i>
-                                    <div class="counter-wrapper">
-                                        <p id="heartCounter">                                        
-                                            {{App\Models\UserSearch::where('user_id',auth()->user()->id)->get()->count()}}
-                                        </p>
-                                    </div>
-                                </a>
+                                <div class="counter-wrapper">
+                                    <p id="heartCounter">
+                                        {{App\Models\UserSearch::where('user_id',auth()->user()->id)->get()->count()}}
+                                    </p>
+                                </div>
+                            </a>
                             @else
-                                <a href="{{route('frontend.auth.login')}}">
-                                <i class="fas fa-bookmark" style="color:#4195e1;"></i>      
-                                </a>
+                            <a href="{{route('frontend.auth.login')}}">
+                                <i class="fas fa-bookmark" style="color:#4195e1;"></i>
+                            </a>
                             @endif
                         </div>
                         <div class="icon-wrapper heart-wrapper">
                             @if(!empty( auth()->user()->id) === true)
-                                <a href="{{route('frontend.user.favourites')}}">
-                                    <i class="fas fa-heart" style="color:red;"></i>
-                                    <div class="counter-wrapper">
-                                        <p id="heartCounter">
-                                            {{App\Models\Favorite::where('user_id',auth()->user()->id)->get()->count()}}
-                                        </p>
-                                    </div>
-                                </a>
+                            <a href="{{route('frontend.user.favourites')}}">
+                                <i class="fas fa-heart" style="color:red;"></i>
+                                <div class="counter-wrapper">
+                                    <p id="heartCounter">
+                                        {{App\Models\Favorite::where('user_id',auth()->user()->id)->get()->count()}}
+                                    </p>
+                                </div>
+                            </a>
                             @else
-                                <a href="{{route('frontend.favourite_cookie_properties')}}">
-                                    <i class="fas fa-heart" style="color:red;"></i>
-                                    <div class="counter-wrapper">
-                                        <p id="heartCounter">
-                                            {{ count($favourites_cookies) }}
-                                        </p>
-                                    </div>
-                                </a>
+                            <a href="{{route('frontend.favourite_cookie_properties')}}">
+                                <i class="fas fa-heart" style="color:red;"></i>
+                                <div class="counter-wrapper">
+                                    <p id="heartCounter">
+                                        {{ count($favourites_cookies) }}
+                                    </p>
+                                </div>
+                            </a>
                             @endif
                         </div>
                     </div>
@@ -430,16 +542,18 @@ $('.nav-item').on('mouseenter', function() {
 });
 </script>
 <script type="text/javascript">
-        function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
-
-    </script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en'
+    }, 'google_translate_element');
+}
+</script>
 
 <script>
-    
+
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
 
 
 @endpush

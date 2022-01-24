@@ -170,7 +170,32 @@ p {
     gap: 30px;
 }
 
+/*translater autoshow bar hidden*/
+.skiptranslate iframe {
+    display: none;
+}
 
+
+/*small mobile screens*/
+@media screen and (max-width: 320px) {
+    button.navbar-toggler.ms-auto {
+        margin-top: 5px !important;
+    }
+
+    .globe {
+        top: 6.9rem !important;
+    }
+
+    .currency-with-toggler-wrapper {
+        margin-top: 0 !important;
+    }
+
+    .second-nav {
+        top: 5.5rem !important;
+    }
+}
+
+ 
 @media screen and (max-width: 576px) {
     .first-nav .logo {
         top: 0.8rem;
@@ -178,12 +203,12 @@ p {
     }
 
     .globe {
-        top: 5.6rem;
+        top: 7.5rem;
         left: 57%;
     }
 
     .second-nav {
-        top: 5rem;
+        top: 6.5rem;
     }
 }
 
@@ -357,7 +382,17 @@ div#adModal {
     margin-bottom: 0;
 }
 
+.visible-tab {
+    display: none !important; 
+}
 
+.tab-currency-bar {
+    display: none !important;
+}
+
+.mobile-currency-bar {
+    display: none !important;
+}
 
 /*mobile-view*/
 @media screen and (max-width: 320px){
@@ -385,6 +420,35 @@ div#adModal {
         display: block !important;
     }
 
+    .footer-logo {
+        margin-bottom: 0 !important;
+    }
+
+    .currency-picker {
+        margin-left: 0 !important;
+        padding: 5px 10px;
+    }
+
+    .currency-filter-form {
+        padding-top: 5px;
+    }
+
+    .mobile-currency-bar {
+        display: block !important; 
+    }
+
+    .mobile-language-bar {
+        margin-top: 5px;
+    }
+
+    .currency-with-toggler-wrapper {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        margin-top: 15px;
+        justify-content: space-between;
+    }
+
     a.post-ad-btn.visible-xs {
         margin-left: 0;
         margin-right: 0;
@@ -392,7 +456,7 @@ div#adModal {
         display: flex !important;
         justify-content: center;
         align-items: center;
-        padding: 0px 10px;
+        padding: 5px 20px;
 
     }
 
@@ -404,6 +468,7 @@ div#adModal {
         display: flex;
         gap: 15px;
         margin-left: 70px;
+        margin-top: 5px;
     }
 
     .navbar-nav {
@@ -487,7 +552,10 @@ div#adModal {
         padding-top: 0 !important; 
     }
 
-   
+    div#navbarNav1 {
+        border-top: 2px solid #fff;
+        margin-top: 20px;
+    }
     
 }
 
@@ -505,8 +573,12 @@ div#adModal {
 
     .mobile-nav-additional-wrapper {
         display: flex;
-        margin-left: 50%;
+        margin-left: 25%;
         align-items: center;
+    }
+
+    .tab-currency-bar {
+        display: block !important;
     }
 
     section#residential-property-search {
@@ -515,11 +587,11 @@ div#adModal {
 
     .globe {
         left: 67%;
-        top: 6rem;
+        top: 4.4rem !important;
     }
 
     .second-nav {
-        top: 5rem;
+        top: 3.5rem;
     }
 
     .navbar-nav {
@@ -592,6 +664,19 @@ div#adModal {
     }
     .globe {
         top: 4.3rem;
+    }
+
+    ul.navbar-nav {
+        font-size: 0.9rem !important;
+    }
+
+    .post-ad-btn {
+        margin-left: 0 !important;
+        margin-right: 5px !important;
+    }
+
+    a#dropdownMenuLink {
+        font-size: 0.9rem !important;
     }
 }
 
