@@ -236,4 +236,8 @@
     .visible-tab {
         display: block !important;
     }
+
+    .mobile-nav-additional-wrapper {
+        margin-left: 50% !important;
+    }
 }
