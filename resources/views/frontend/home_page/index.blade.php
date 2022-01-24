@@ -277,7 +277,7 @@
                 </div>
             </div>
             @else
-            <div class="col-12 col-md-3 mb-4 mb-md-0 tab-65">
+            <div class="col-12 col-md-3 mb-4 mb-md-0 tab-35">
                 <div class="">
                     <div class="no-result border py-2 px-3">
                         <h4 class="text-center">No Results</h4>
@@ -294,7 +294,7 @@
                 </div>
             </div>
             @endif
-            <div class="col-12 col-md-9 p-md-0">
+            <div class="col-12 col-md-9 p-md-0 tab-65">
                 <div id="map" style="height: 600px; width: 100%;"></div>
             </div>
         </div>
