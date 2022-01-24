@@ -238,6 +238,17 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
         padding: 0;
     }
 
+    .tab-full-size {
+        width: 100%;
+    }
+
+    .tab-half {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+    }
+
 }
 
 

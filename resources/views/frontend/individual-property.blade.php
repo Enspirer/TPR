@@ -78,7 +78,7 @@
         <div class="container mt-4">
             <div class="row justify-content-between">
 
-                <div class="col-8 full-size-width">
+                <div class="col-8 full-size-width tab-full-size">
 
                     @if(json_decode($property_details->image_ids) == null)
 
@@ -756,7 +756,7 @@
     
                 </div>
 
-                <div class="col-4 px-5 full-size-width">
+                <div class="col-4 px-5 full-size-width tab-half">
 
                     <div class="row justify-content-center shadow py-4">
                         <div align="center">
