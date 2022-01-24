@@ -225,6 +225,11 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
         height: 350px !important;
     }
 
+    .tab-back-to-search-full {
+        width: 100%;
+        text-align: left !important;
+    }
+
 }
 
 
