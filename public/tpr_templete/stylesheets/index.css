@@ -229,9 +229,4 @@
     .mobile-mt-15 {
         margin-top: 15px !important;
     }
-
-    .mobile-vertical-wrapper {
-        flex-direction: column;
-        gap: 15px;
-    }
 }
