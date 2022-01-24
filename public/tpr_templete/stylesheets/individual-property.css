@@ -168,6 +168,8 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
 
 .mobile-full-area a, .print-btn-mobile {
     width: 200px !important;
+    margin-right: 15px;
+    white-space: nowrap;
 }
 
 /*mobile-view*/
