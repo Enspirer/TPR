@@ -167,7 +167,7 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
 }
 
 .mobile-full-area a, .print-btn-mobile {
-    width: 200px !important;
+    width: 100%;
     white-space: nowrap;
 }
 
@@ -187,11 +187,12 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
     }
 
     .mobile-full-area a, .print-btn-mobile {
-        width: 250px !important;
+        width: 100%;
     }
 
     .back-to-search-mobile-row {
         display: flex;
+        justify-content: center;
     }
     
 }
