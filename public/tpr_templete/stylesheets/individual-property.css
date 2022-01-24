@@ -217,6 +217,10 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
         width: 33%;
     }
 
+    .mobile-full-area {
+        width: 190px;
+    }
+
 }
 
 
