@@ -232,5 +232,6 @@
 
     .mobile-vertical-wrapper {
         flex-direction: column;
+        gap: 15px;
     }
 }
