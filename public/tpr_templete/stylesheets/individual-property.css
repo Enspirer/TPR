@@ -200,6 +200,9 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
         margin-top: 15px !important;
     }
     
+    .mobile-number-tag {
+        padding-right: 0;
+    }
 }
 
 
