@@ -577,6 +577,14 @@ div#adModal {
         align-items: center;
     }
 
+    .tab-35 {
+        width: 35% !important;
+    }
+
+    .tab-65 {
+        width: 65% !important;
+    }
+
     .tab-currency-bar {
         display: block !important;
     }
