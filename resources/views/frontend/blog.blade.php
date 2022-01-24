@@ -40,7 +40,7 @@
                                         <div class="txt-wrapper">
                                             <h5 style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{$all_post->title}}</h5>
                                             <div  style="overflow: hidden;text-overflow: ellipsis;height: 125px;">
-                                                <p class="txt-wrapper-inner">{!!$all_post->body!!}</p>
+                                                <p>{!!$all_post->body!!}</p>
                                             </div>
                                             <!-- <div class="author-wrapper">
                                                 <img src="{{ url('tpr_templete/images/blog/author.jpg') }}" alt="" class="circle-prof"> <span>Mr.Lorem Ipsum</span>
