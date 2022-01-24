@@ -39,7 +39,7 @@
                                         <img src="{{uploaded_asset($all_post->feature_image)}}" alt="" style="height:155px; object-fit:cover" width="100%">
                                         <div class="txt-wrapper">
                                             <h5 style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{$all_post->title}}</h5>
-                                            <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
+                                            <div class="txt-wrapper-inner" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
                                                 <p>{!!$all_post->body!!}</p>
                                             </div>
                                             <!-- <div class="author-wrapper">
