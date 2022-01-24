@@ -83,7 +83,11 @@ img.circle-prof {
     }
 
     .txt-wrapper-inner {
-        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
     }
     
 }
