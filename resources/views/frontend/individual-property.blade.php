@@ -99,7 +99,7 @@
                                                 @if( App\Models\AgentRequest::where('user_id',auth()->user()->id)->where('status','Approved')->first() != null )                                             
                                                 
                                                     <div class="carousel-item" data-toggle="modal" data-target="#interiorModal_{{$key}}">
-                                                        <img  src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100" style="height:600px; object-fit:cover;" alt="...">
+                                                        <img  src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100 mobile-slide-height-fix" style="height:600px; object-fit:cover;" alt="...">
                                                     </div>  
                                                     
                                                     <div class="modal fade bd-example-modal-lg" id="interiorModal_{{$key}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -117,7 +117,7 @@
                                                 @endif    
                                             @else 
                                                 <div class="carousel-item" data-toggle="modal" data-target="#interiorModal_{{$key}}">
-                                                        <img src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100" style="height:600px; object-fit:cover;" alt="...">
+                                                        <img src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100 mobile-slide-height-fix" style="height:600px; object-fit:cover;" alt="...">
                                                     </div>  
                                                     
                                                     <div class="modal fade bd-example-modal-lg" id="interiorModal_{{$key}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -143,11 +143,11 @@
                                 @foreach($final_out as $key => $image)
                                     @if($key == 0)
                                     <div class="carousel-item active" width="100%" data-toggle="modal" data-target="#exampleModal_{{$key}}">
-                                        <img onclick="count_views('{{$property_details->id}}','{{$image[$key]}}',1)"  src="{{ url('images',$image) }}" class="d-block w-100" alt="..." style="object-fit:cover; height: 600px;">
+                                        <img onclick="count_views('{{$property_details->id}}','{{$image[$key]}}',1)"  src="{{ url('images',$image) }}" class="d-block w-100 mobile-slide-height-fix" alt="..." style="object-fit:cover; height: 600px;">
                                     </div>
                                     @else  
                                     <div class="carousel-item" width="100%" data-toggle="modal" data-target="#exampleModal_{{$key}}">
-                                        <img onclick="count_views('{{$property_details->id}}','{{$image[0]}}',1)" src="{{ url('images',$image) }}" class="d-block w-100" alt="..." style="object-fit:cover;">
+                                        <img onclick="count_views('{{$property_details->id}}','{{$image[0]}}',1)" src="{{ url('images',$image) }}" class="d-block w-100 mobile-slide-height-fix" alt="..." style="object-fit:cover;">
                                     </div>
 
                                     @endif
