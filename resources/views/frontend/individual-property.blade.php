@@ -471,8 +471,8 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Elementary Schools</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
-                                                    <div class="mobile-number-tag" style="padding: 0.2rem;">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
+                                                    <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
                                                 </div>

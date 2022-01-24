@@ -201,7 +201,11 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
     }
     
     .mobile-number-tag {
-        padding-right: 0;
+        padding-right: 0 !important;
+    }
+
+    .number {
+        padding: 0;
     }
 }
 
