@@ -170,9 +170,20 @@ p {
     gap: 30px;
 }
 
+i.social-icon.fab.fa-twitter-square {
+    font-size: 26px;
+    position: relative;
+    top: 3px;
+    color: #fff;
+}
 /*translater autoshow bar hidden*/
 .skiptranslate iframe {
     display: none;
+}
+
+.social-icon-bar {
+    display: flex;
+    align-items: center;
 }
 
 

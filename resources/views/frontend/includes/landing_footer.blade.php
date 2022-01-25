@@ -28,9 +28,12 @@
                 <a href="{{ route('frontend.tips-for-buyers') }}" class="mt-3 mt-md-4 mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Tips for buyers</a>
                 <a href="{{ route('frontend.tips-for-sellers') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Tips for sellers</a>
                 <!-- <a href="{{ route('frontend.commercial-resources') }}" class="mb-3 d-block text-decoration-none no-result-list text-white ps-3 ps-md-0">Commercial Resources</a> -->
-                <a href="#"><img src="{{ asset('tpr_templete/images/fb.svg') }}" alt="" class="img-fluid me-2 ps-3 ps-md-0" style="height:1.4rem;"></a>
-                <a href="#"><img src="{{ asset('tpr_templete/images/instagram.svg') }}" alt="" class="img-fluid me-2" style="height:1.4rem;"></a>
-                <a href="#><i class="social-icon fab fa-twitter-square"></i></a>
+                <div class="social-icon-bar">
+                    <a href="#"><img src="{{ asset('tpr_templete/images/fb.svg') }}" alt="" class="img-fluid me-2 ps-3 ps-md-0" style="height:1.4rem;"></a>
+                    <a href="#"><img src="{{ asset('tpr_templete/images/instagram.svg') }}" alt="" class="img-fluid me-2" style="height:1.4rem;"></a>
+                    <a href="#"><i class="social-icon fab fa-twitter-square"></i></a>
+                </div>
+            
                 
             </div>
         </div>
