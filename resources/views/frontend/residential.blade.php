@@ -250,7 +250,7 @@
                                                             <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
                                                             {{csrf_field()}}
                                                                 <input type="hidden" name="cookie_property_id" value="{{ $property->id }}" />
-                                                                <button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
+                                                                <button class="bi bi-heart tab-heart-left border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
                                                             </form>                                                        
                                                         </div>
                                                         
@@ -604,7 +604,7 @@
                                                             {{csrf_field()}}
                                                                 <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
                                                                 <input type="hidden" class="favourite" name='favourite' value="non-favourite">
-                                                                <button class="bi bi-heart border-0" type="submit" style="font-size: 1.5rem; display: block; color: #ff0000; background-color: transparent;"></button>
+                                                                <button class="bi bi-heart tab-heart-left border-0" type="submit" style="font-size: 1.5rem; display: block; color: #ff0000; background-color: transparent;"></button>
                                                         </form>
                                                     </div>
                                                     @endif
@@ -618,7 +618,7 @@
                                                             <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
                                                             {{csrf_field()}}
                                                                 <input type="hidden" name="cookie_property_id" value="{{ $property->id }}" />
-                                                                <button class="bi bi-heart border-0" type="submit" style="font-size: 1.5rem; display: block; color: #ff0000; background-color: transparent;"></button>
+                                                                <button class="bi bi-heart tab-heart-left border-0" type="submit" style="font-size: 1.5rem; display: block; color: #ff0000; background-color: transparent;"></button>
                                                             </form>                                                        
                                                         </div>
                                                     @endif
