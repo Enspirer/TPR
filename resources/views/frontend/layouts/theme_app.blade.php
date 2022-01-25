@@ -670,8 +670,8 @@ padding: 0;
         if($('#pills-commercial-tab').hasClass('active')) {
 
         // remove residential activation
-            residentialvalue = 1;
-           if(residentialSelect.val() == residentialvalue) {
+            
+           if(residentialSelect.value == 1) {
                alert("residential one slected");
            } else {
                alert("not selected");
