@@ -685,7 +685,7 @@ padding: 0;
             
             //remove commercial activation
             if(commercialSelect.value == "commercial") {
-                $("#propertyType option[value='commercial']").remove();
+                $("#category_type option[value='commercial']").remove();
             }
 
             //add selected to the residential
