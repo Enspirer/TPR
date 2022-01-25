@@ -797,5 +797,12 @@ class HomeController extends Controller
         ]);
     }
 
+    public function favourite_cookie_properties_remove($id)
+    {           
+        Cart::remove($id);
+
+        return back();
+    }
+
 
 }
