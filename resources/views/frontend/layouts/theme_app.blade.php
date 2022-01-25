@@ -709,19 +709,19 @@ padding: 0;
             // }
 
             if(commercialSelect.value == "commercial") {
-                alert("commercial have to remove");
-                // $("#propertyType option[value='1']").remove();
-                // alert("residential removed");
-                // $("#category_type option[value='commercial']").attr('selected', '')
-                // $("#propertyType option[value='select']").attr('selected', '')
+             
+                $("#category_type option[value='commercial']").remove();
+                $("#category_type option[value='select']").attr('selected', '')
+                $("#propertyType option[value='1']").attr('selected', '')
+                alert("commercial removed");
             }
 
             //add selected to the residential
-            elem = document.getElementById("propertyType").value = "1";
+            // elem = document.getElementById("propertyType").value = "1";
             
-            $(elem).attr('selected', '');
+            // $(elem).attr('selected', '');
 
-            alert("after residential");
+            // alert("after residential");
             
         }
         
