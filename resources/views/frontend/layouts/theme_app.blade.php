@@ -720,11 +720,14 @@ padding: 0;
             if(commercialSelect.value == "commercial") {
              
                 $("#category_type option[value='commercial']").removeAttr('selected');
-                $("#category_type option[value='select']").attr('selected', '')
+                $("#category_type option[value='select']").attr('selected', '');
+
                 $("#propertyType option[value='select']").removeAttr('selected');
                 elem = document.getElementById("propertyType").value = "1";
             
                 $(elem).attr('selected', '');
+
+                alert("after residential");
                 alert("this is working");
             } else {
 
