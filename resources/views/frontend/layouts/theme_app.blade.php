@@ -680,7 +680,7 @@ padding: 0;
            
            elem = document.getElementById("category_type").value = "commercial";
            
-            elem.setAttribute("selected", "");
+           $(elem).attr('selected', '');
       
             alert("after alert commercial");
         } 
@@ -698,7 +698,7 @@ padding: 0;
             //add selected to the residential
             elem = document.getElementById("propertyType").value = "1";
             
-            elem.setAttribute("selected", "");
+            $(elem).attr('selected', '');
 
             alert("after alert resiential");
         }
