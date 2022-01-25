@@ -424,17 +424,7 @@ select#property-types {
 } 
 
 
-/*heart active style fix*/
-.heart-fix-a  {
-    width: max-content;
-}
-.heart-fix-a .property-location, .heart-fix-a .small-num {
-    white-space: nowrap;
-}
 
-.bi-heart-fill {
-    margin-left: 15px;
-}
 
 /*small mobile*/
 @media screen and (max-width: 375px) {

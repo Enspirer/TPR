@@ -394,6 +394,19 @@ div#adModal {
     display: none !important;
 }
 
+
+/*heart active style fix*/
+.heart-fix-a  {
+    width: max-content;
+}
+.heart-fix-a .property-location, .heart-fix-a .small-num {
+    white-space: nowrap;
+}
+
+.bi-heart-fill {
+    margin-left: 15px;
+}
+
 /*mobile-view*/
 @media screen and (max-width: 320px){
     a.post-ad-btn.visible-xs {
