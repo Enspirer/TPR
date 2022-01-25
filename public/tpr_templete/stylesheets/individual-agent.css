@@ -122,6 +122,8 @@
         width: 33% !important;
         margin-top: 35px;
     }
+
+    
 }
 
 
@@ -139,6 +141,10 @@
 
     .i-agent-tags {
         width: max-content;
+    }
+
+    .more-btn-mobile {
+        width: 140px;
     }
 }
 

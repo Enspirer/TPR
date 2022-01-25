@@ -256,4 +256,9 @@
     .tab-mt-30 {
         margin-top: 30px;
     }
+
+    .container-fluid.bottom-banner {
+        margin-top: 2rem !important;
+    } 
+
 }

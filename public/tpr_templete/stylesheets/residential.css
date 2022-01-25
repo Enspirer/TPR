@@ -575,6 +575,10 @@ select#property-types {
     .map-side-over-content-wrapper {
         width: 70%;
     }
+
+    .tab-heart-left {
+        margin-left: -15px !important;
+    } 
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {

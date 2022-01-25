@@ -699,6 +699,12 @@ div#adModal {
     a#dropdownMenuLink {
         font-size: 0.9rem !important;
     }
+
+    
+    div#navbarNav1 ul li a {
+        font-size: 0.8rem !important;
+    }
+
 }
 
 
