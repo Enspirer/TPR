@@ -221,7 +221,7 @@
                                                                 {{csrf_field()}}
                                                                     <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
                                                                     <input type="hidden" class="favourite" name='favourite' value="non-favourite">
-                                                                    <button class="bi bi-heart-fill border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>
+                                                                    <button class="bi bi-heart-fill border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
                                                             </form>
                                                         </div>
                                                     @else
@@ -231,14 +231,14 @@
                                                                 {{csrf_field()}}
                                                                     <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
                                                                     <input type="hidden" class="favourite" name='favourite' value="favourite">
-                                                                    <button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>
+                                                                    <button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
                                                             </form>
                                                         </div>
                                                     @endif
                                                 @else       
                                                     @if(is_favorite_cookie($property->id)) 
                                                         <div class="col-4 small-heart">
-                                                            <a href="{{url('favourite_cookie_properties/remove',$property->id)}}" class="bi bi-heart-fill border-0 heart-without-form" style="text-decoration:none; font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></a>
+                                                            <a href="{{url('favourite_cookie_properties/remove',$property->id)}}" class="bi bi-heart-fill border-0 heart-without-form" style="text-decoration:none; font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></a>
                                                         </div>                                                                                      
                                                         
                                                     @else
@@ -246,7 +246,7 @@
                                                             <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
                                                             {{csrf_field()}}
                                                                 <input type="hidden" name="cookie_property_id" value="{{ $property->id }}" />
-                                                                <button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>
+                                                                <button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
                                                             </form>                                                        
                                                         </div>
                                                         
@@ -826,7 +826,7 @@ function initMap() {
                                                 '<form action="{{url('/')}}/favourite_cookie/store" method="post" enctype="multipart/form-data">' +
                                                 '{{csrf_field()}}' +
                                                     '<input type="hidden" name="cookie_property_id" value="'+ obj[i]['id'] +'" />' +
-                                                    '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>' +
+                                                    '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>' +
                                                 '</form>' +                                                        
                                             '</div>' +
                                         '</div>' +                                        
@@ -852,7 +852,7 @@ function initMap() {
                                                 '<form action="{{url('/')}}/favourite_cookie/store" method="post" enctype="multipart/form-data">' +
                                                 '{{csrf_field()}}' +
                                                     '<input type="hidden" name="cookie_property_id" value="'+ obj[i]['id'] +'" />' +
-                                                    '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>' +
+                                                    '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>' +
                                                 '</form>' +                                                        
                                             '</div>' +
                                         '</div>' +                                       
