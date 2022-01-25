@@ -658,7 +658,7 @@ padding: 0;
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
 
 <!-- search bar auto select filter fields  -->
-<script>
+<!-- <script>
 
     function filterSelection() {
 
@@ -722,7 +722,7 @@ padding: 0;
                 alert("after residential");
             }
 
-            //add selected to the residential
+            //add selected to the residential -->
             
             
         }
