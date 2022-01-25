@@ -668,14 +668,15 @@ padding: 0;
 
         //commercial
         if($('#pills-commercial-tab').hasClass('active')) {
+            alert("working");
             elem = commercialSelect.value = "commercial";
             elem.setAttribute("selected", "selected");
             
 
             //remove residential activation
-           if(residentialSelect.value == 1) {
-               console.log("residential 1");
-           }
+        //    if(residentialSelect.value("1").hasAttribute("selected")) {
+        //        console.log("residential 1");
+        //    }
            
         } 
         //residential
