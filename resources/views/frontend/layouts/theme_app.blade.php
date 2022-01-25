@@ -673,7 +673,7 @@ padding: 0;
             if(residentialSelect.value == 1) {
                 $("#propertyType option[value='1']").remove();
                 alert("residential removed");
-                $("#category_type option[value='commercial']").setAttribute("selected", "");
+                $("#category_type option[value='commercial']").attr('selected', '')
             }
             // $("#propertyType option[value='1']").remove();
             // elemremoved = document.getElementById("propertyType").value = "select";
