@@ -657,6 +657,26 @@ padding: 0;
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
 
+<!-- search bar auto select filter fields  -->
+<script>
+
+    function filterSelection() {
+        //commercial
+        if($('#pills-commercial-tab').hasClass('active')) {
+            elem = document.getElementById("category_type").value = "2";
+            elem.setAttribute("selected", "selected");
+            alert("Commercial active this time");
+        } 
+        //residential
+        else if ($('#pills-residential-tab').hasClass('active')){
+            elem = document.getElementById("propertyType").value = "1";
+            elem.setAttribute("selected", "selected");
+            alert("Residential active this time");
+        }
+        
+    };
+</script>
+
 <script>
     if(document.getElementById("feedback_modal")){
         $('#feedback_modal').click();
