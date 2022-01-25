@@ -240,4 +240,8 @@
     .search {
         top: 13rem;
     }
+
+    h1.mobile-mt-30 {
+        margin-top: 15px;
+    }
 }
