@@ -712,7 +712,7 @@ padding: 0;
              
                 $("#category_type option[value='commercial']").remove();
                 $("#category_type option[value='select']").attr('selected', '')
-                $("#propertyType option[value='1']").attr('selected', '')
+                // $("#propertyType option[value='1']").attr('selected', '')
                 alert("this is working");
             } else {
                 elem = document.getElementById("propertyType").value = "1";
