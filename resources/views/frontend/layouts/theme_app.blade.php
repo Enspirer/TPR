@@ -671,7 +671,8 @@ padding: 0;
 
         //     // remove residential activation
             if(residentialSelect.value == 1) {
-                alert("residential should remove");
+                $("#propertyType option[value='1']").remove();
+                alert("residential removed");
             }
             // $("#propertyType option[value='1']").remove();
             // elemremoved = document.getElementById("propertyType").value = "select";
