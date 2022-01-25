@@ -677,15 +677,11 @@ padding: 0;
             $(elem).attr('selected', '');
         } 
         else if (filtertype == 'commercial', category=='commercial', modaltype=='commercialmodal') {
-            // //residential normalization
-            // residentialelem = document.getElementById("propertyType").value = "select";
-            // $(residentialelem).attr('selected', '');
+            elem = document.getElementById("propertyType").value = "select";
+            $(elem).attr('selected', '');
 
-            // //commercial activation
-            // // $("#category_type option[value='commercial']").removeAttr('selected');
-            // elem = document.getElementById("category_type").value = "commercial";
-            // $(elem).attr('selected', '');
-            // alert("commercial activation");
+            elem = document.getElementById("category_type").value = "commercial";
+            $(elem).attr('selected', '');
         } 
         else if (filtertype == 'comingsoon', category=='comingsoon', modaltype=='comingsoonmodal') {
             alert("comingsoon activation");
