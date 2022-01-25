@@ -672,7 +672,8 @@ padding: 0;
         // remove residential activation
             
            if(residentialSelect.value == 1) {
-               alert("residential one slected");
+                residentialSelect.value.removeAttribute("selected", "selected");
+                alert("working fine");
            } else {
                alert("not selected");
            }
