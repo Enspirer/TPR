@@ -714,14 +714,16 @@ padding: 0;
                 $("#category_type option[value='select']").attr('selected', '')
                 $("#propertyType option[value='1']").attr('selected', '')
                 alert("this is working");
+            } else {
+                elem = document.getElementById("propertyType").value = "1";
+            
+                $(elem).attr('selected', '');
+
+                alert("after residential");
             }
 
             //add selected to the residential
-            // elem = document.getElementById("propertyType").value = "1";
             
-            // $(elem).attr('selected', '');
-
-            // alert("after residential");
             
         }
         
