@@ -673,11 +673,15 @@ padding: 0;
             alert("residential activation");
         } 
         else if (filtertype == 'commercial', category=='commercial', modaltype=='commercialmodal') {
+            //residential normalization
             $("#propertyType option[value='1']").removeAttr('selected');
             elem = document.getElementById("propertyType").value = "select";
             $(elem).attr('selected', '');
 
-
+            //commercial activation
+            $("#category_type option[value='commercial']").removeAttr('selected');
+            elem = document.getElementById("propertyType").value = "commercial";
+            $(elem).attr('selected', '');
             alert("commercial activation");
         } 
         else if (filtertype == 'comingsoon', category=='comingsoon', modaltype=='comingsoonmodal') {
