@@ -25,7 +25,7 @@
                                     <label for="propertyType" class="form-label mb-0 required">Property Type</label>
                                     <select class="form-select" aria-label="propertyType" name="propertyType" id="propertyType" onChange="renderFields()">
 
-                                        <option value="select" selected> Select </option>
+                                        <option value="select"> Select </option>
                                         @foreach($property_types as $type)
                                             <option value="{{$type->id}}"> {{$type->property_type_name}} </option>
                                         @endforeach
