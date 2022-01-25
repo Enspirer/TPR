@@ -432,6 +432,10 @@ select#property-types {
     white-space: nowrap;
 }
 
+.bi-heart-fill {
+    margin-left: 15px;
+}
+
 /*small mobile*/
 @media screen and (max-width: 375px) {
     .top-search-middle-wrapper {
