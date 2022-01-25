@@ -661,17 +661,30 @@ padding: 0;
 <script>
 
     function filterSelection() {
+
+        //selectors
+        commercialSelect = document.getElementById("category_type");
+        residentialSelect = document.getElementById("propertyType")
+
         //commercial
         if($('#pills-commercial-tab').hasClass('active')) {
-            elem = document.getElementById("category_type").value = "commercial";
+            elem = commercialSelect.value = "commercial";
             elem.setAttribute("selected", "selected");
-            alert("Commercial active this time");
+            alert("commercial active this time");
+
+            //remove residential activation
+           
+           
         } 
         //residential
         else if ($('#pills-residential-tab').hasClass('active')){
-            elem = document.getElementById("propertyType").value = "1";
+            elem = residentialSelect.value = "1";
             elem.setAttribute("selected", "selected");
             alert("Residential active this time");
+
+
+            //remove commercial activation
+
         }
         
     };
