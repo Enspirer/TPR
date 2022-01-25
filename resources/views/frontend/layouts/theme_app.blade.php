@@ -671,10 +671,11 @@ padding: 0;
 
         //     // remove residential activation
             if(residentialSelect.value == "1") {
-                alert("residential have to remove");
+                alert("residential have to change normal select");
                 $("#propertyType option[value='1']").removeAttr('selected');
-                $("#category_type option[value='commercial']").attr('selected', '')
                 $("#propertyType option[value='select']").attr('selected', '')
+                $("#category_type option[value='commercial']").attr('selected', '')
+                
             }
             // $("#propertyType option[value='1']").remove();
             // elemremoved = document.getElementById("propertyType").value = "select";
@@ -716,6 +717,8 @@ padding: 0;
                 // $("#propertyType option[value='1']").attr('selected', '')
                 alert("this is working");
             } else {
+
+                $("#propertyType option[value='select']").removeAttr('selected');
                 elem = document.getElementById("propertyType").value = "1";
             
                 $(elem).attr('selected', '');
