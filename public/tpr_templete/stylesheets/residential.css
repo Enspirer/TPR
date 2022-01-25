@@ -424,6 +424,9 @@ select#property-types {
 } 
 
 
+.bi-heart-fill {
+    margin-left: 15px !important;
+}
 
 
 /*small mobile*/
