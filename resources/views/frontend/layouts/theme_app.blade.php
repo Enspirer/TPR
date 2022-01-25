@@ -673,6 +673,7 @@ padding: 0;
             alert("residential activation");
         } 
         else if (filtertype == 'commercial', category=='commercial', modaltype=='commercialmodal') {
+            $("#propertyType option[value='1']").removeAttr('selected');
             alert("commercial activation");
         } 
         else if (filtertype == 'comingsoon', category=='comingsoon', modaltype=='comingsoonmodal') {
