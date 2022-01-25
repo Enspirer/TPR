@@ -713,7 +713,7 @@ padding: 0;
                 $("#category_type option[value='commercial']").remove();
                 $("#category_type option[value='select']").attr('selected', '')
                 $("#propertyType option[value='1']").attr('selected', '')
-                alert("commercial removed");
+                alert("this is working");
             }
 
             //add selected to the residential
