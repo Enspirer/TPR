@@ -248,4 +248,8 @@
     .container-fluid.mobile-mt-15 {
         margin-top: 15px !important;
     }
+
+    .tab-card-height {
+        height: 27.5rem !important;
+    }
 }
