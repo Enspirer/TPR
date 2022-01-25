@@ -238,7 +238,7 @@
                                                 @else       
                                                     @if(is_favorite_cookie($property->id)) 
                                                         <div class="col-4 small-heart">
-                                                            <a href="{{url('favourite_cookie_properties/remove',$property->id)}}" class="bi bi-heart-fill border-0" style="text-decoration:none; font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></a>
+                                                            <a href="{{url('favourite_cookie_properties/remove',$property->id)}}" class="bi bi-heart-fill border-0 heart-without-form" style="text-decoration:none; font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></a>
                                                         </div>                                                                                      
                                                         
                                                     @else
