@@ -677,8 +677,7 @@ padding: 0;
            }
 
            //add selected to the commercial
-           elem = document.getElementById("category_type").value = "commercial";
-            elem.setAttribute("selected", "selected");
+           $("#category_type option[value='commercial']").setAttribute("selected", "selected");
            
         } 
 
@@ -693,8 +692,7 @@ padding: 0;
             }
 
             //add selected to the residential
-            elem = document.getElementById("propertyType").value = "1";
-            elem.setAttribute("selected", "selected");
+            $("#propertyType option[value='1']").setAttribute("selected", "selected");
         }
         
     };
