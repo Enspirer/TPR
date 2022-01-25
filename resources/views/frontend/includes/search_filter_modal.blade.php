@@ -58,7 +58,7 @@
                                 <div>
                                     <label for="category_type" class="form-label mb-0 required">Category</label>
                                     <select class="form-select" aria-label="category_type" name="category_type" id="category_type">
-                                        <option value="">Select</option>
+                                        <option value="select">Select</option>
                                         <option value="residential">Residential</option>
                                         <option value="commercial">Commercial</option>
                                         <option value="tp_developer">TP Developer</option>

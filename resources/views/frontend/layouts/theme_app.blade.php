@@ -671,6 +671,9 @@ padding: 0;
 
         //     // remove residential activation
             $("#propertyType option[value='1']").remove();
+            elemremoved = document.getElementById("propertyType").value = "select";
+            
+            $(elemremoved).attr('selected', '');
         //    if($("#propertyType option[value='1']")) {
         //         $("#propertyType option[value='1']").remove();
         //    } else {
@@ -692,6 +695,9 @@ padding: 0;
             
             // //remove commercial activation
             $("#category_type option[value='commercial']").remove();
+            elemremoved = document.getElementById("category_type").value = "select";
+            
+            $(elemremoved).attr('selected', '');
             // if(commercialSelect == "commercial") {
             //     $("#category_type option[value='commercial']").remove();
             // } else {
