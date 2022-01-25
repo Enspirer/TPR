@@ -697,8 +697,6 @@ padding: 0;
 
             elem = document.getElementById("category_type").value = "select";
             $(elem).attr('selected', '');
-
-            alert("all model");
         } 
 
         else if (filtertype == 'tpdeveloper', category=='tpdeveloper', modaltype=='tpdevelopermodal') {
