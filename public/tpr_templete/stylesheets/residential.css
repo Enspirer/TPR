@@ -423,6 +423,15 @@ select#property-types {
     justify-content: center;
 } 
 
+
+/*heart active style fix*/
+.heart-fix-a  {
+    width: max-content;
+}
+.heart-fix-a .property-location {
+    white-space: nowrap;
+}
+
 /*small mobile*/
 @media screen and (max-width: 375px) {
     .top-search-middle-wrapper {
