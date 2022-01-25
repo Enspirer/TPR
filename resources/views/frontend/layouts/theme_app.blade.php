@@ -671,7 +671,6 @@ padding: 0;
 
         //     // remove residential activation
             if(residentialSelect.value == "1") {
-                alert("residential have to change normal select");
                 $("#propertyType option[value='1']").removeAttr('selected');
                 $("#propertyType option[value='select']").attr('selected', '');
                 $("#category_type option[value='commercial']").attr('selected', '');
