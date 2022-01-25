@@ -675,13 +675,13 @@ padding: 0;
         //    } else {
         //     $("#propertyType option[value='select']").setAttribute("selected", "selected");
         //    }
-            alert("before alert commercial");
+      
            //add selected to the commercial
            
            elem = document.getElementById("category_type").value = "commercial";
 
             elem.setAttribute("selected", "selected");
-
+            alert("after alert commercial");
 
         } 
 
@@ -694,11 +694,13 @@ padding: 0;
             // } else {
             //     $("#category_type option[value='commercial']").setAttribute("selected", "selected");
             // }
-            alert("before alert resiential");
+
             //add selected to the residential
             elem = document.getElementById("propertyType").value = "1";
 
             elem.setAttribute("selected", "selected");
+
+            alert("after alert resiential");
         }
         
     };
