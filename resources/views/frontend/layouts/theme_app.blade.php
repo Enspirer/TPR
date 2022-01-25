@@ -676,7 +676,9 @@ padding: 0;
                 $("#category_type option[value='commercial']").attr('selected', '');
                 alert("after residential -> commercial active'");
                 
-            } else {
+            } 
+
+            else {
                 $("#category_type option[value='select']").removeAttr('selected');
                 elem = document.getElementById("category_type").value = "commercial";
             
@@ -684,66 +686,70 @@ padding: 0;
 
                 alert("commercial activation");
             }
-            // $("#propertyType option[value='1']").remove();
-            // elemremoved = document.getElementById("propertyType").value = "select";
+                    // $("#propertyType option[value='1']").remove();
+                    // elemremoved = document.getElementById("propertyType").value = "select";
+                    
+                    // $(elemremoved).attr('selected', '');
+                //    if($("#propertyType option[value='1']")) {
+                //         $("#propertyType option[value='1']").remove();
+                //    } else {
+                //     $("#propertyType option[value='select']").setAttribute("selected", "selected");
+                //    }
             
-            // $(elemremoved).attr('selected', '');
-        //    if($("#propertyType option[value='1']")) {
-        //         $("#propertyType option[value='1']").remove();
-        //    } else {
-        //     $("#propertyType option[value='select']").setAttribute("selected", "selected");
-        //    }
-      
-           //add selected to the commercial
-           
-        //    elem = document.getElementById("category_type").value = "commercial";
-           
-        //    $(elem).attr('selected', '');
-      
+                //add selected to the commercial
+                
+                //    elem = document.getElementById("category_type").value = "commercial";
+                
+                //    $(elem).attr('selected', '');
+            } 
 
-        } 
+            //residential
+            else if ($('#pills-residential-tab').hasClass('active')){
+                
+                // //remove commercial activation
+                // $("#category_type option[value='commercial']").remove();
+                // elemremoved = document.getElementById("category_type").value = "select";
+                
+                // $(elemremoved).attr('selected', '');
+                // if(commercialSelect == "commercial") {
+                //     $("#category_type option[value='commercial']").remove();
+                // } else {
+                //     $("#category_type option[value='commercial']").setAttribute("selected", "selected");
+                // }
 
-        //residential
-        else if ($('#pills-residential-tab').hasClass('active')){
+                if(commercialSelect.value == "commercial") {
+                
+                    $("#category_type option[value='commercial']").removeAttr('selected');
+                    $("#category_type option[value='select']").attr('selected', '');
+
+                    $("#propertyType option[value='select']").removeAttr('selected');
+                    elem = document.getElementById("propertyType").value = "1";
+                
+                    $(elem).attr('selected', '');
+
+                    alert("after commercial -> residential active");
+                } else {
+
+                    $("#propertyType option[value='select']").removeAttr('selected');
+                    elem = document.getElementById("propertyType").value = "1";
+                
+                    $(elem).attr('selected', '');
+
+                    alert("residential active");
+                }
+
+                //add selected to the residential
+                
+                
+            }  
             
-            // //remove commercial activation
-            // $("#category_type option[value='commercial']").remove();
-            // elemremoved = document.getElementById("category_type").value = "select";
-            
-            // $(elemremoved).attr('selected', '');
-            // if(commercialSelect == "commercial") {
-            //     $("#category_type option[value='commercial']").remove();
-            // } else {
-            //     $("#category_type option[value='commercial']").setAttribute("selected", "selected");
-            // }
-
-            if(commercialSelect.value == "commercial") {
-             
-                $("#category_type option[value='commercial']").removeAttr('selected');
-                $("#category_type option[value='select']").attr('selected', '');
-
-                $("#propertyType option[value='select']").removeAttr('selected');
-                elem = document.getElementById("propertyType").value = "1";
-            
-                $(elem).attr('selected', '');
-
-                alert("after commercial -> residential active");
-            } else {
-
-                $("#propertyType option[value='select']").removeAttr('selected');
-                elem = document.getElementById("propertyType").value = "1";
-            
-                $(elem).attr('selected', '');
-
-                alert("residential active");
+            else {
+                alert("nothing special");
             }
-
-            //add selected to the residential
-            
-            
-        }
         
     };
+
+
 </script>
 
 <script>
