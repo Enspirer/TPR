@@ -691,6 +691,16 @@ padding: 0;
             $(elem).attr('selected', '');
         } 
 
+        else if (filtertype == 'all', category=='all', modaltype=='allmodal') {
+            elem = document.getElementById("propertyType").value = "select";
+            $(elem).attr('selected', '');
+
+            elem = document.getElementById("category_type").value = "select";
+            $(elem).attr('selected', '');
+
+            alert("all model");
+        } 
+
         else if (filtertype == 'tpdeveloper', category=='tpdeveloper', modaltype=='tpdevelopermodal') {
             elem = document.getElementById("propertyType").value = "select";
             $(elem).attr('selected', '');
@@ -698,7 +708,7 @@ padding: 0;
             elem = document.getElementById("category_type").value = "tp_developer";
             $(elem).attr('selected', '');
         } 
-        
+
         else if (filtertype == 'investment', category=='investment', modaltype=='investmentmodal') {
             elem = document.getElementById("propertyType").value = "select";
             $(elem).attr('selected', '');
