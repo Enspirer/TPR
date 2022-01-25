@@ -657,6 +657,49 @@ padding: 0;
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
 
+<!-- search bar auto select filter fields  -->
+<script>
+
+    function filterSelection() {
+
+        //selectors
+        commercialSelect = document.getElementById("category_type");
+        residentialSelect = document.getElementById("propertyType")
+
+        //commercial
+        if($('#pills-commercial-tab').hasClass('active')) {
+
+            // remove residential activation
+           if(residentialSelect.value == 1) {
+                $("#propertyType option[value='1']").remove();
+           } else {
+            $("#propertyType option[value='select']").setAttribute("selected", "selected");
+           }
+
+           //add selected to the commercial
+           elem = document.getElementById("category_type").value = "commercial";
+            elem.setAttribute("selected", "selected");
+           
+        } 
+
+        //residential
+        else if ($('#pills-residential-tab').hasClass('active')){
+            
+            //remove commercial activation
+            if(commercialSelect.value == "commercial") {
+                $("#category_type option[value='commercial']").remove();
+            } else {
+                $("#category_type option[value='commercial']").setAttribute("selected", "selected");
+            }
+
+            //add selected to the residential
+            elem = document.getElementById("propertyType").value = "1";
+            elem.setAttribute("selected", "selected");
+        }
+        
+    };
+</script>
+
 <script>
     if(document.getElementById("feedback_modal")){
         $('#feedback_modal').click();

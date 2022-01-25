@@ -30,7 +30,7 @@
     <section id="path">
         <div class="container" style="margin-top: 10rem;">
             <div class="row back-to-search-mobile-row">
-                <div class="col-2 text-center mt-2 mobile-full-area">
+                <div class="col-2 text-center mt-2 mobile-full-area tab-back-to-search-full">
                     <a href="{{ route('frontend.search_function', ['key_name', 'max_price', 'min_price', 'category_type', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name'] )}}" class="text-decoration-none text-body fw-bolder"><i class="bi bi-chevron-left"></i> Back to search results</a>
 
                 </div>
@@ -78,18 +78,18 @@
         <div class="container mt-4">
             <div class="row justify-content-between">
 
-                <div class="col-8 full-size-width">
+                <div class="col-8 full-size-width tab-full-size">
 
                     @if(json_decode($property_details->image_ids) == null)
 
                         <div align="center">
-                            <img src="{{ url('images/no_image_available.png') }}" style="object-fit: cover;" width="100%" height="300px" alt="...">
+                            <img src="{{ url('images/no_image_available.png') }}" style="object-fit: cover;" width="100%" height="100%" alt="...">
                         </div>
 
                     @else
                         <div class="carousel">
                             <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner" style="height:400px;">
+                                <div class="carousel-inner" style="height:100%;">
 
                                 @auth
                                     @if($interior_image != NULL)
@@ -99,7 +99,7 @@
                                                 @if( App\Models\AgentRequest::where('user_id',auth()->user()->id)->where('status','Approved')->first() != null )                                             
                                                 
                                                     <div class="carousel-item" data-toggle="modal" data-target="#interiorModal_{{$key}}">
-                                                        <img  src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100" style="height:600px; object-fit:cover;" alt="...">
+                                                        <img  src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100 mobile-slide-height-fix" style="height:600px; object-fit:cover;" alt="...">
                                                     </div>  
                                                     
                                                     <div class="modal fade bd-example-modal-lg" id="interiorModal_{{$key}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -117,7 +117,7 @@
                                                 @endif    
                                             @else 
                                                 <div class="carousel-item" data-toggle="modal" data-target="#interiorModal_{{$key}}">
-                                                        <img src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100" style="height:600px; object-fit:cover;" alt="...">
+                                                        <img src="{{url('images', App\Models\FileManager::where('id', $interior)->first()->file_name)}}" class="d-block w-100 mobile-slide-height-fix" style="height:600px; object-fit:cover;" alt="...">
                                                     </div>  
                                                     
                                                     <div class="modal fade bd-example-modal-lg" id="interiorModal_{{$key}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -143,11 +143,11 @@
                                 @foreach($final_out as $key => $image)
                                     @if($key == 0)
                                     <div class="carousel-item active" width="100%" data-toggle="modal" data-target="#exampleModal_{{$key}}">
-                                        <img onclick="count_views('{{$property_details->id}}','{{$image[$key]}}',1)"  src="{{ url('images',$image) }}" class="d-block w-100" alt="..." style="object-fit:cover; height: 600px;">
+                                        <img onclick="count_views('{{$property_details->id}}','{{$image[$key]}}',1)"  src="{{ url('images',$image) }}" class="d-block w-100 mobile-slide-height-fix" alt="..." style="object-fit:cover; height: 600px;">
                                     </div>
                                     @else  
                                     <div class="carousel-item" width="100%" data-toggle="modal" data-target="#exampleModal_{{$key}}">
-                                        <img onclick="count_views('{{$property_details->id}}','{{$image[0]}}',1)" src="{{ url('images',$image) }}" class="d-block w-100" alt="..." style="object-fit:cover;">
+                                        <img onclick="count_views('{{$property_details->id}}','{{$image[0]}}',1)" src="{{ url('images',$image) }}" class="d-block w-100 mobile-slide-height-fix" alt="..." style="object-fit:cover;">
                                     </div>
 
                                     @endif
@@ -193,7 +193,7 @@
                         </div>
                     @endif
 
-                    <div class="details mt-5">
+                    <div class="details mt-5 mobile-m-15">
                         <div class="row">
                             <div class="col-5 full-size-width">
                                 <h5 class="mb-1" style="color: #79CEEC;">{{ get_currency(request(),$property_details->price ) }}</h5>
@@ -201,7 +201,7 @@
 
                                 @if($property_details->beds == null)
                                 @else
-                                    <p class="fw-bold mt-5" style="font-size: 1rem;">
+                                    <p class="fw-bold mt-5 mobile-m-15" style="font-size: 1rem;">
                                         {{ $property_details->beds }} bed semi-detached house
                                     </p>
                                 @endif
@@ -471,7 +471,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Elementary Schools</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -487,7 +487,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">High Schools</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -503,7 +503,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Elementary Schools</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -519,7 +519,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Quiet</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -535,7 +535,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Pedestrian friendly</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -551,7 +551,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Parks</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -567,7 +567,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Transit Friendly</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -583,7 +583,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Car Friendly</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -599,7 +599,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Restaurants</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -615,7 +615,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Shopping</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -631,7 +631,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Daycares</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -647,7 +647,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Cafes</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -663,7 +663,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Vibrant</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -679,7 +679,7 @@
                                                 <div class="col-8">
                                                     <p class="mb-0" style="font-size: 13px;">Nightlife</p>
                                                 </div>
-                                                <div class="col-2 ps-0 text-center">
+                                                <div class="col-2 ps-0 text-center mobile-number-tag">
                                                     <div style="padding: 0.2rem;">
                                                         <p class="mb-0 number" style="font-size: 13px;">10</p>
                                                     </div>
@@ -756,7 +756,7 @@
     
                 </div>
 
-                <div class="col-4 px-5 full-size-width">
+                <div class="col-4 px-5 full-size-width tab-half">
 
                     <div class="row justify-content-center shadow py-4">
                         <div align="center">

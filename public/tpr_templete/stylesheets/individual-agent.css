@@ -117,6 +117,11 @@
         margin-right: 0.3rem !important;
         margin-top: 10px;
     }
+
+    .more-btn-mobile {
+        width: 33% !important;
+        margin-top: 35px;
+    }
 }
 
 

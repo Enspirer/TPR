@@ -199,7 +199,7 @@
                                             <div class="col-8">
                                                 <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
                                             </div>
-                                            <div class="col-3 text-end">
+                                            <div class="col-3 text-end more-btn-mobile">
                                                 <a href="{{ route('frontend.individual-property', $prop->id) }}"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
                                             </div>
                                         </div>
@@ -267,7 +267,7 @@
                                             <div class="col-8">
                                                 <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
                                             </div>
-                                            <div class="col-3 text-end">
+                                            <div class="col-3 text-end more-btn-mobile">
                                                 <a href="{{ route('frontend.individual-property', $prop->id) }}"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
                                             </div>
                                         </div>
@@ -335,7 +335,7 @@
                                             <div class="col-8">
                                                 <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
                                             </div>
-                                            <div class="col-3 text-end">
+                                            <div class="col-3 text-end more-btn-mobile">
                                                 <a href="{{ route('frontend.individual-property', $prop->id) }}"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
                                             </div>
                                         </div>
@@ -411,7 +411,7 @@
                                             <div class="col-8">
                                                 <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
                                             </div>
-                                            <div class="col-3 text-end">
+                                            <div class="col-3 text-end more-btn-mobile">
                                                 <a href="{{ route('frontend.individual-property', $prop->id) }}"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
                                             </div>
                                         </div>
@@ -487,7 +487,7 @@
                                             <div class="col-8">
                                                 <p class="mt-2" style="text-align: justify;">For Viewing And Other Further Information Of The Apartment, Pleas... </p>
                                             </div>
-                                            <div class="col-3 text-end">
+                                            <div class="col-3 text-end more-btn-mobile">
                                                 <a href="{{ route('frontend.individual-property', $prop->id) }}"><button class="btn border-1 border-dark rounded-0">MORE <i class="bi bi-chevron-double-right ms-1"></i></button></a>
                                             </div>
                                         </div>

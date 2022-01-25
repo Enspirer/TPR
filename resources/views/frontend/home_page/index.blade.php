@@ -137,7 +137,7 @@
 
 @else
 
-<h1 align="center">Select a Country</h1>
+<h1 class="mobile-mt-30" align="center">Select a Country</h1>
 
 @endif
 
@@ -175,11 +175,11 @@
 
 <!--property search-->
 <section id="index-property-search">
-    <div class="container-fluid" style="margin-top:4rem">
+    <div class="container-fluid mobile-mt-15" style="margin-top:4rem">
         <h3 class="fw-bolder text-center" data-aos="fade-up" data-aos-duration="500">Interactive Property Search</h3>
         <div class="row mt-4">
             @if(count($promo) > 0)
-            <div class="col-12 col-md-3 mb-4 mb-md-0" style="background-color: #F3F3F3">
+            <div class="col-12 col-md-3 mb-4 mb-md-0 tab-35" style="background-color: #F3F3F3">
                 <h6 data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">Results: {{ count($promo) }}
                     Listings</h6>
                 <div class="row align-items-center" data-aos="fade-right" data-aos-duration="500" data-aos-delay="400">
@@ -277,7 +277,7 @@
                 </div>
             </div>
             @else
-            <div class="col-12 col-md-3 mb-4 mb-md-0">
+            <div class="col-12 col-md-3 mb-4 mb-md-0 tab-35">
                 <div class="">
                     <div class="no-result border py-2 px-3">
                         <h4 class="text-center">No Results</h4>
@@ -294,7 +294,7 @@
                 </div>
             </div>
             @endif
-            <div class="col-12 col-md-9 p-md-0">
+            <div class="col-12 col-md-9 p-md-0 tab-65">
                 <div id="map" style="height: 600px; width: 100%;"></div>
             </div>
         </div>
@@ -531,7 +531,7 @@
             <div class="tab-pane fade show active" id="tab-all" role="tabpanel" aria-labelledby="all-tab">
 
                 <div class="swiper container mySwiper" data-aos="fade-up" data-aos-duration="500">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper mobile-vertical-wrapper">
 
                         @foreach($sold_prop as $key => $sold)
 
@@ -923,6 +923,18 @@ var swiper = new Swiper(".mySwiper", {
         el: ".swiper-pagination",
         clickable: true,
     },
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+
+        576: {
+            slidesPerView: 3,
+        },
+        768: {
+            slidesPerView: 3,
+        }
+    },
 });
 
 var swiper = new Swiper(".mySwiper2", {
@@ -945,7 +957,7 @@ const renderFields = async () => {
 
 
     } else {
-        let url = '{{url(' / ')}}/api/get_property_type_details/' + value;
+        let url = '{{url('/')}}/api/get_property_type_details/' + value;
 
         const res = await fetch(url);
         const data = await res.json();

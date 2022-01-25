@@ -171,9 +171,7 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
     white-space: nowrap;
 }
 
-.col-2.text-center.mt-2.mobile-full-area {
-    margin-right: 30px;
-}
+
 
 /*mobile-view*/
 @media screen and (max-width: 767px) {
@@ -181,8 +179,8 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
         font-size: 0.7rem;
     }
     .mobile-full-area {
-        flex: 100% !important;
-        max-width: 100% !important;
+        flex: 75% !important;
+        max-width: 75% !important;
     }
 
     .mobile-full-area a, .print-btn-mobile {
@@ -193,7 +191,22 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
         display: flex;
         justify-content: center;
     }
+
+    .mobile-slide-height-fix {
+        height: 350px !important;
+    }
+
+    .mobile-m-15 {
+        margin-top: 15px !important;
+    }
     
+    .mobile-number-tag {
+        padding-right: 0 !important;
+    }
+
+    .number {
+        padding: 0;
+    }
 }
 
 
@@ -202,6 +215,43 @@ a.text-decoration-none.text-body.collapse-button a i.bi.bi-chevron-up.ms-1.colla
 @media (min-width: 768px) and (max-width: 991px) {
     .tab-width-p-card {
         width: 33%;
+    }
+
+    .mobile-full-area {
+        width: 190px;
+    }
+
+    .mobile-slide-height-fix {
+        height: 350px !important;
+    }
+
+    .tab-back-to-search-full {
+        width: 100%;
+        text-align: left !important;
+    }
+
+    .mobile-number-tag {
+        padding-right: 0 !important;
+    }
+
+    .number {
+        padding: 0;
+    }
+
+    .tab-full-size {
+        width: 100%;
+    }
+
+    .tab-half {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+    }
+
+    .col-3.text-end.more-btn-mobile {
+        white-space: nowrap;
+        margin-top: 20px;
     }
 
 }
