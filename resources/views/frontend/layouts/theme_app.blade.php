@@ -658,7 +658,7 @@ padding: 0;
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
 
 <!-- search bar auto select filter fields  -->
-<!-- <script>
+<script>
 
     function filterSelection() {
 
@@ -670,13 +670,13 @@ padding: 0;
         if($('#pills-commercial-tab').hasClass('active')) {
 
         //     // remove residential activation
-            if(residentialSelect.value == "1") {
-                alert("residential have to change normal select");
-                $("#propertyType option[value='1']").removeAttr('selected');
-                $("#propertyType option[value='select']").attr('selected', '')
-                $("#category_type option[value='commercial']").attr('selected', '')
+            // if(residentialSelect.value == "1") {
+            //     alert("residential have to change normal select");
+            //     $("#propertyType option[value='1']").removeAttr('selected');
+            //     $("#propertyType option[value='select']").attr('selected', '')
+            //     $("#category_type option[value='commercial']").attr('selected', '')
                 
-            }
+            // }
             // $("#propertyType option[value='1']").remove();
             // elemremoved = document.getElementById("propertyType").value = "select";
             
@@ -732,7 +732,7 @@ padding: 0;
         }
         
     };
-</script> -->
+</script>
 
 <script>
     if(document.getElementById("feedback_modal")){
