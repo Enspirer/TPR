@@ -658,7 +658,7 @@ padding: 0;
 <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
 
 <!-- search bar auto select filter fields  -->
-<!-- <script>
+<script>
 
     function filterSelection() {
 
@@ -671,7 +671,7 @@ padding: 0;
 
         //     // remove residential activation
             if(residentialSelect.value == 1) {
-                $("#propertyType option[value='1']").remove();
+                $("#propertyType option[value='1']").removeAttr();
                 $("#category_type option[value='commercial']").attr('selected', '')
                 $("#propertyType option[value='select']").attr('selected', '')
             }
@@ -710,7 +710,7 @@ padding: 0;
 
             if(commercialSelect.value == "commercial") {
              
-                $("#category_type option[value='commercial']").remove();
+                $("#category_type option[value='commercial']").removeAttr();
                 $("#category_type option[value='select']").attr('selected', '')
                 // $("#propertyType option[value='1']").attr('selected', '')
                 alert("this is working");
@@ -722,7 +722,7 @@ padding: 0;
                 alert("after residential");
             }
 
-            //add selected to the residential -->
+            //add selected to the residential
             
             
         }
