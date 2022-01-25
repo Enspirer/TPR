@@ -673,8 +673,9 @@ padding: 0;
             if(residentialSelect.value == "1") {
                 alert("residential have to change normal select");
                 $("#propertyType option[value='1']").removeAttr('selected');
-                $("#propertyType option[value='select']").attr('selected', '')
-                $("#category_type option[value='commercial']").attr('selected', '')
+                $("#propertyType option[value='select']").attr('selected', '');
+                $("#category_type option[value='commercial']").attr('selected', '');
+                alert("after residential commercial active'");
                 
             } else {
                 $("#category_type option[value='select']").removeAttr('selected');
