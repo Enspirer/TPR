@@ -702,7 +702,7 @@ div#adModal {
 
     
     div#navbarNav1 ul li a {
-        font-size: 0.8rem;
+        font-size: 0.8rem !important;
     }
 
 }
