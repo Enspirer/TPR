@@ -670,10 +670,10 @@ padding: 0;
         if($('#pills-commercial-tab').hasClass('active')) {
 
         //     // remove residential activation
-            $("#propertyType option[value='1']").remove();
-            elemremoved = document.getElementById("propertyType").value = "select";
+            // $("#propertyType option[value='1']").remove();
+            // elemremoved = document.getElementById("propertyType").value = "select";
             
-            $(elemremoved).attr('selected', '');
+            // $(elemremoved).attr('selected', '');
         //    if($("#propertyType option[value='1']")) {
         //         $("#propertyType option[value='1']").remove();
         //    } else {
@@ -694,10 +694,10 @@ padding: 0;
         else if ($('#pills-residential-tab').hasClass('active')){
             
             // //remove commercial activation
-            $("#category_type option[value='commercial']").remove();
-            elemremoved = document.getElementById("category_type").value = "select";
+            // $("#category_type option[value='commercial']").remove();
+            // elemremoved = document.getElementById("category_type").value = "select";
             
-            $(elemremoved).attr('selected', '');
+            // $(elemremoved).attr('selected', '');
             // if(commercialSelect == "commercial") {
             //     $("#category_type option[value='commercial']").remove();
             // } else {
