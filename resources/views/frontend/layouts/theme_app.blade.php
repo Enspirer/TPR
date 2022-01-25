@@ -663,7 +663,7 @@ padding: 0;
     function filterSelection() {
         //commercial
         if($('#pills-commercial-tab').hasClass('active')) {
-            elem = document.getElementById("category_type").value = "2";
+            elem = document.getElementById("category_type").value = "commercial";
             elem.setAttribute("selected", "selected");
             alert("Commercial active this time");
         } 
