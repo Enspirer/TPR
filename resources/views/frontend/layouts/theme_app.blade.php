@@ -667,19 +667,18 @@ padding: 0;
         // alert(modaltype);
 
         if(filtertype == 'residential', category=='residential', modaltype=='residentialmodal') {
-            $("#propertyType option[value='select']").removeAttr('selected');
+            // $("#propertyType option[value='select']").removeAttr('selected');
             elem = document.getElementById("propertyType").value = "1";
             $(elem).attr('selected', '');
             alert("residential activation");
         } 
         else if (filtertype == 'commercial', category=='commercial', modaltype=='commercialmodal') {
             //residential normalization
-            $("#propertyType option[value='1']").removeAttr('selected');
             elem = document.getElementById("propertyType").value = "select";
             $(elem).attr('selected', '');
 
             //commercial activation
-            $("#category_type option[value='commercial']").removeAttr('selected');
+            // $("#category_type option[value='commercial']").removeAttr('selected');
             elem = document.getElementById("propertyType").value = "commercial";
             $(elem).attr('selected', '');
             alert("commercial activation");
