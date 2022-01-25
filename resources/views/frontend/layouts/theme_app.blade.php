@@ -677,8 +677,12 @@ padding: 0;
         //    }
             alert("before alert commercial");
            //add selected to the commercial
-           $("#category_type option[value='commercial']").setAttribute("selected", "selected");
            
+           elem = document.getElementById("category_type").value = "commercial";
+
+            elem.setAttribute("selected", "selected");
+
+
         } 
 
         //residential
@@ -690,9 +694,11 @@ padding: 0;
             // } else {
             //     $("#category_type option[value='commercial']").setAttribute("selected", "selected");
             // }
-            alert("before alert residential");
+            alert("before alert resiential");
             //add selected to the residential
-            $("#propertyType option[value='1']").setAttribute("selected", "selected");
+            elem = document.getElementById("propertyType").value = "1";
+
+            elem.setAttribute("selected", "selected");
         }
         
     };
