@@ -670,13 +670,20 @@ padding: 0;
         if($('#pills-commercial-tab').hasClass('active')) {
 
         //     // remove residential activation
-            // if(residentialSelect.value == "1") {
-            //     alert("residential have to change normal select");
-            //     $("#propertyType option[value='1']").removeAttr('selected');
-            //     $("#propertyType option[value='select']").attr('selected', '')
-            //     $("#category_type option[value='commercial']").attr('selected', '')
+            if(residentialSelect.value == "1") {
+                alert("residential have to change normal select");
+                $("#propertyType option[value='1']").removeAttr('selected');
+                $("#propertyType option[value='select']").attr('selected', '')
+                $("#category_type option[value='commercial']").attr('selected', '')
                 
-            // }
+            } else {
+                $("#category_type option[value='select']").removeAttr('selected');
+                elem = document.getElementById("category_type").value = "commercial";
+            
+                $(elem).attr('selected', '');
+
+                alert("after commercial activation");
+            }
             // $("#propertyType option[value='1']").remove();
             // elemremoved = document.getElementById("propertyType").value = "select";
             
