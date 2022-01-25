@@ -675,7 +675,7 @@ padding: 0;
                 $("#propertyType option[value='1']").removeAttr('selected');
                 $("#propertyType option[value='select']").attr('selected', '');
                 $("#category_type option[value='commercial']").attr('selected', '');
-                alert("after residential commercial active'");
+                alert("after residential -> commercial active'");
                 
             } else {
                 $("#category_type option[value='select']").removeAttr('selected');
@@ -683,7 +683,7 @@ padding: 0;
             
                 $(elem).attr('selected', '');
 
-                alert("after commercial activation");
+                alert("commercial activation");
             }
             // $("#propertyType option[value='1']").remove();
             // elemremoved = document.getElementById("propertyType").value = "select";
@@ -728,8 +728,7 @@ padding: 0;
             
                 $(elem).attr('selected', '');
 
-                alert("after residential");
-                alert("this is working");
+                alert("after commercial -> residential active");
             } else {
 
                 $("#propertyType option[value='select']").removeAttr('selected');
@@ -737,7 +736,7 @@ padding: 0;
             
                 $(elem).attr('selected', '');
 
-                alert("after residential");
+                alert("residential active");
             }
 
             //add selected to the residential
