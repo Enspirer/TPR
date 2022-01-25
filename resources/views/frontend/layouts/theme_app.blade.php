@@ -670,7 +670,8 @@ padding: 0;
         if($('#pills-commercial-tab').hasClass('active')) {
 
         //     // remove residential activation
-            if(residentialSelect.value == 1) {
+            if(residentialSelect.value == "1") {
+                alert("residential have to remove");
                 $("#propertyType option[value='1']").removeAttr('selected');
                 $("#category_type option[value='commercial']").attr('selected', '')
                 $("#propertyType option[value='select']").attr('selected', '')
