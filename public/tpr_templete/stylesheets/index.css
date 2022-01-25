@@ -230,3 +230,30 @@
         margin-top: 15px !important;
     }
 }
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .banner {
+        height: 400px;
+    }
+
+    .search {
+        top: 13rem;
+    }
+
+    h1.mobile-mt-30 {
+        margin-top: 15px;
+    }
+
+    .container-fluid.mobile-mt-15 {
+        margin-top: 15px !important;
+    }
+
+    .tab-card-height {
+        height: 27.5rem !important;
+    }
+
+    .tab-mt-30 {
+        margin-top: 30px;
+    }
+}

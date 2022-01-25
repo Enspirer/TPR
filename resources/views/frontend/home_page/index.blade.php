@@ -221,7 +221,7 @@
                                                                 {{csrf_field()}}
                                                                     <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
                                                                     <input type="hidden" class="favourite" name='favourite' value="non-favourite">
-                                                                    <button class="bi bi-heart-fill border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>
+                                                                    <button class="bi bi-heart-fill border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
                                                             </form>
                                                         </div>
                                                     @else
@@ -231,14 +231,14 @@
                                                                 {{csrf_field()}}
                                                                     <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
                                                                     <input type="hidden" class="favourite" name='favourite' value="favourite">
-                                                                    <button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>
+                                                                    <button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
                                                             </form>
                                                         </div>
                                                     @endif
                                                 @else       
                                                     @if(is_favorite_cookie($property->id)) 
                                                         <div class="col-4 small-heart">
-                                                            <a href="{{url('favourite_cookie_properties/remove',$property->id)}}" class="bi bi-heart-fill border-0 heart-without-form" style="text-decoration:none; font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></a>
+                                                            <a href="{{url('favourite_cookie_properties/remove',$property->id)}}" class="bi bi-heart-fill border-0 heart-without-form" style="text-decoration:none; font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></a>
                                                         </div>                                                                                      
                                                         
                                                     @else
@@ -246,7 +246,7 @@
                                                             <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
                                                             {{csrf_field()}}
                                                                 <input type="hidden" name="cookie_property_id" value="{{ $property->id }}" />
-                                                                <button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>
+                                                                <button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
                                                             </form>                                                        
                                                         </div>
                                                         
@@ -391,7 +391,7 @@
 
                 <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="flip-right" data-aos-duration="500"
                     data-aos-delay="200">
-                    <div class="card p-4 custom-shadow border-0" style="height:24.5rem">
+                    <div class="card p-4 custom-shadow border-0 tab-card-height" style="height:24.5rem">
                         <a href="{{ route('frontend.individual-property', $lat->id) }}"><img
                                 src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top w-100"
                                 alt="..." style="object-fit:cover; height:210px;"></a>
@@ -436,7 +436,7 @@
                 @foreach(json_decode($country->features_manager)[0]->properties as $prop)
                 <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="flip-right" data-aos-duration="500"
                     data-aos-delay="200">
-                    <div class="card p-4 custom-shadow border-0">
+                    <div class="card p-4 custom-shadow border-0 tab-card-height">
                         <a href="{{ route('frontend.individual-property', $prop) }}"><img
                                 src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}"
                                 class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
@@ -476,7 +476,7 @@
                 @foreach(json_decode($country->features_manager)[1]->properties as $prop)
                 <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="flip-right" data-aos-duration="500"
                     data-aos-delay="200">
-                    <div class="card p-4 custom-shadow border-0">
+                    <div class="card p-4 custom-shadow border-0 tab-card-height">
 
                         <a href="{{ route('frontend.individual-property', $prop) }}"><img
                                 src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}"
@@ -572,7 +572,7 @@
 
 @else
 
-<h1 align="center">Select a Country</h1>
+<h1 class="tab-mt-30" align="center">Select a Country</h1>
 
 @endif
 
@@ -826,7 +826,7 @@ function initMap() {
                                                 '<form action="{{url('/')}}/favourite_cookie/store" method="post" enctype="multipart/form-data">' +
                                                 '{{csrf_field()}}' +
                                                     '<input type="hidden" name="cookie_property_id" value="'+ obj[i]['id'] +'" />' +
-                                                    '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>' +
+                                                    '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>' +
                                                 '</form>' +                                                        
                                             '</div>' +
                                         '</div>' +                                        
@@ -852,7 +852,7 @@ function initMap() {
                                                 '<form action="{{url('/')}}/favourite_cookie/store" method="post" enctype="multipart/form-data">' +
                                                 '{{csrf_field()}}' +
                                                     '<input type="hidden" name="cookie_property_id" value="'+ obj[i]['id'] +'" />' +
-                                                    '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #E88DAF; background-color: transparent;"></button>' +
+                                                    '<button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>' +
                                                 '</form>' +                                                        
                                             '</div>' +
                                         '</div>' +                                       
