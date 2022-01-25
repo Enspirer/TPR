@@ -252,4 +252,8 @@
     .tab-card-height {
         height: 27.5rem !important;
     }
+
+    .tab-mt-30 {
+        margin-top: 30px;
+    }
 }
