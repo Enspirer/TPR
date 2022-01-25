@@ -214,7 +214,7 @@
                                         <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{url('image_assest', $property->feature_image_id)}}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
                                     </div>
                                     <div class="col-6">
-                                         <a href="{{ route('frontend.individual-property', $property->id) }}" style="text-decoration:none;">
+                                         <a class="heart-fix-a" href="{{ route('frontend.individual-property', $property->id) }}" style="text-decoration:none;">
                                         <div class="row justify-content-between align-items-center">
                                             <div class="col-8">
                                                 <p class="mb-0 small-num" style="font-size: 0.7rem;">{{ $property->created_at->toDateString() }}</p>
