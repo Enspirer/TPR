@@ -230,3 +230,14 @@
         margin-top: 15px !important;
     }
 }
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .banner {
+        height: 580px;
+    }
+
+    .search {
+        top: 24rem;
+    }
+}
