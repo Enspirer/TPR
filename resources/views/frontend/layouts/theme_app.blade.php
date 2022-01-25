@@ -672,6 +672,8 @@ padding: 0;
             // remove residential activation
            if(residentialSelect.value == 1) {
                 $("#propertyType option[value='1']").remove();
+           } else {
+            $("#propertyType option[value='select']").setAttribute("selected", "selected");
            }
 
            //add selected to the commercial
@@ -686,6 +688,8 @@ padding: 0;
             //remove commercial activation
             if(commercialSelect.value == "commercial") {
                 $("#category_type option[value='commercial']").remove();
+            } else {
+                $("#category_type option[value='commercial']").setAttribute("selected", "selected");
             }
 
             //add selected to the residential
