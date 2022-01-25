@@ -674,6 +674,7 @@ padding: 0;
                 $("#propertyType option[value='1']").remove();
                 alert("residential removed");
                 $("#category_type option[value='commercial']").attr('selected', '')
+                $("#propertyType option[value='select']").attr('selected', '')
             }
             // $("#propertyType option[value='1']").remove();
             // elemremoved = document.getElementById("propertyType").value = "select";
