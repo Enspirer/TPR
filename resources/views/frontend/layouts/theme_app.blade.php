@@ -721,6 +721,7 @@ padding: 0;
              
                 $("#category_type option[value='commercial']").removeAttr('selected');
                 $("#category_type option[value='select']").attr('selected', '')
+                $("#propertyType option[value='select']").removeAttr('selected');
                 $("#propertyType option[value='1']").attr('selected', '')
                 alert("this is working");
             } else {
