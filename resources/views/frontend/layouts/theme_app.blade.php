@@ -673,6 +673,7 @@ padding: 0;
             if(residentialSelect.value == 1) {
                 $("#propertyType option[value='1']").remove();
                 alert("residential removed");
+                $("#category_type option[value='commercial']").setAttribute("selected", "");
             }
             // $("#propertyType option[value='1']").remove();
             // elemremoved = document.getElementById("propertyType").value = "select";
@@ -686,9 +687,9 @@ padding: 0;
       
            //add selected to the commercial
            
-           elem = document.getElementById("category_type").value = "commercial";
+        //    elem = document.getElementById("category_type").value = "commercial";
            
-           $(elem).attr('selected', '');
+        //    $(elem).attr('selected', '');
       
            alert("after commercial");
             
