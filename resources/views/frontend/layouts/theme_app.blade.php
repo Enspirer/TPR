@@ -670,12 +670,11 @@ padding: 0;
             // $("#propertyType option[value='select']").removeAttr('selected');
             elem = document.getElementById("propertyType").value = "1";
             $(elem).attr('selected', '');
-            alert("residential activation");
-
 
             elem = document.getElementById("category_type").value = "residential";
             $(elem).attr('selected', '');
         } 
+
         else if (filtertype == 'commercial', category=='commercial', modaltype=='commercialmodal') {
             elem = document.getElementById("propertyType").value = "select";
             $(elem).attr('selected', '');
@@ -683,9 +682,15 @@ padding: 0;
             elem = document.getElementById("category_type").value = "commercial";
             $(elem).attr('selected', '');
         } 
+
         else if (filtertype == 'comingsoon', category=='comingsoon', modaltype=='comingsoonmodal') {
-            alert("comingsoon activation");
+            elem = document.getElementById("propertyType").value = "select";
+            $(elem).attr('selected', '');
+
+            elem = document.getElementById("category_type").value = "select";
+            $(elem).attr('selected', '');
         } 
+
         else if (filtertype == 'tpdeveloper', category=='tpdeveloper', modaltype=='tpdevelopermodal') {
             elem = document.getElementById("propertyType").value = "select";
             $(elem).attr('selected', '');
@@ -693,13 +698,14 @@ padding: 0;
             elem = document.getElementById("category_type").value = "tp_developer";
             $(elem).attr('selected', '');
         } 
+        
         else if (filtertype == 'investment', category=='investment', modaltype=='investmentmodal') {
             elem = document.getElementById("propertyType").value = "select";
             $(elem).attr('selected', '');
 
             elem = document.getElementById("category_type").value = "investments";
             $(elem).attr('selected', '');
-            alert("investment activation");
+            
         } 
 
         // //selectors
