@@ -674,6 +674,10 @@ padding: 0;
         } 
         else if (filtertype == 'commercial', category=='commercial', modaltype=='commercialmodal') {
             $("#propertyType option[value='1']").removeAttr('selected');
+            elem = document.getElementById("propertyType").value = "select";
+            $(elem).attr('selected', '');
+
+
             alert("commercial activation");
         } 
         else if (filtertype == 'comingsoon', category=='comingsoon', modaltype=='comingsoonmodal') {
