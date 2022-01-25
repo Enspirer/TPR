@@ -957,7 +957,7 @@ const renderFields = async () => {
 
 
     } else {
-        let url = '{{url(' / ')}}/api/get_property_type_details/' + value;
+        let url = '{{url('/')}}/api/get_property_type_details/' + value;
 
         const res = await fetch(url);
         const data = await res.json();
