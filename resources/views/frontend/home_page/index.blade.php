@@ -391,7 +391,7 @@
 
                 <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="flip-right" data-aos-duration="500"
                     data-aos-delay="200">
-                    <div class="card p-4 custom-shadow border-0" style="height:24.5rem">
+                    <div class="card p-4 custom-shadow border-0 tab-card-height" style="height:24.5rem">
                         <a href="{{ route('frontend.individual-property', $lat->id) }}"><img
                                 src="{{url('image_assest',$lat->feature_image_id)}}" class="card-img-top w-100"
                                 alt="..." style="object-fit:cover; height:210px;"></a>
@@ -436,7 +436,7 @@
                 @foreach(json_decode($country->features_manager)[0]->properties as $prop)
                 <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="flip-right" data-aos-duration="500"
                     data-aos-delay="200">
-                    <div class="card p-4 custom-shadow border-0">
+                    <div class="card p-4 custom-shadow border-0 tab-card-height">
                         <a href="{{ route('frontend.individual-property', $prop) }}"><img
                                 src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}"
                                 class="card-img-top w-100" alt="..." style="object-fit:cover; height:210px;"></a>
@@ -476,7 +476,7 @@
                 @foreach(json_decode($country->features_manager)[1]->properties as $prop)
                 <div class="col-12 col-md-4 mb-4 mb-md-0" data-aos="flip-right" data-aos-duration="500"
                     data-aos-delay="200">
-                    <div class="card p-4 custom-shadow border-0">
+                    <div class="card p-4 custom-shadow border-0 tab-card-height">
 
                         <a href="{{ route('frontend.individual-property', $prop) }}"><img
                                 src="{{url('image_assest', App\Models\Properties::where('id', $prop)->first()->feature_image_id)}}"
