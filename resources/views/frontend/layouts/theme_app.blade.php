@@ -672,7 +672,7 @@ padding: 0;
         // remove residential activation
             
            if(residentialSelect.value == 1) {
-                residentialSelect.value.removeAttribute("selected", "selected");
+                $("#propertyType option[value='1']").remove();
                 alert("working fine");
            } else {
                alert("not selected");
