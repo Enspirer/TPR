@@ -670,19 +670,19 @@ padding: 0;
         if($('#pills-commercial-tab').hasClass('active')) {
             elem = commercialSelect.value = "commercial";
             elem.setAttribute("selected", "selected");
-            alert("commercial active this time");
+            
 
             //remove residential activation
-           
+           if(residentialSelect.value == 1) {
+               console.log("residential 1");
+           }
            
         } 
         //residential
         else if ($('#pills-residential-tab').hasClass('active')){
             elem = residentialSelect.value = "1";
             elem.setAttribute("selected", "selected");
-            alert("Residential active this time");
-
-
+            
             //remove commercial activation
 
         }
