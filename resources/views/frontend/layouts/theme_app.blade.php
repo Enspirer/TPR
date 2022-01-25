@@ -674,8 +674,8 @@ padding: 0;
         } 
         else if (filtertype == 'commercial', category=='commercial', modaltype=='commercialmodal') {
             //residential normalization
-            elem = document.getElementById("propertyType").value = "select";
-            $(elem).attr('selected', '');
+            residentialelem = document.getElementById("propertyType").value = "select";
+            $(residentialelem).attr('selected', '');
 
             //commercial activation
             // $("#category_type option[value='commercial']").removeAttr('selected');
