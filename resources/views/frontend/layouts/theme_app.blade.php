@@ -669,8 +669,9 @@ padding: 0;
         //commercial
         if($('#pills-commercial-tab').hasClass('active')) {
             elem = commercialSelect.value = "commercial";
-            elem.setAttribute("selected", "selected");
             alert("working");
+            elem.setAttribute("selected", "selected");
+            console.log("working console");
             
 
             //remove residential activation
