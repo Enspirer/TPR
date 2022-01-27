@@ -31,11 +31,7 @@ class AgentController extends Controller
     }
 
     public function store(Request $request)
-    {        
-
-        if(strlen($request->get('description_msg')) < 600){
-            return back()->with('error', 'Minimum length of the characters in Description Message should be 600');
-        }
+    {               
     
         if($request->file('photo'))
         {            
@@ -138,10 +134,7 @@ class AgentController extends Controller
     public function update_agent(Request $request)
     {        
         // dd($request);
-
-        if(strlen($request->get('description_msg')) < 600){
-            return back()->with('error', 'Minimum length of the characters in Description Message should be 600');
-        }
+       
 
         if($request->file('photo'))
         {            

@@ -252,7 +252,7 @@
 
                                 <div class="row">
                                     <div class="col-12">
-                                        <label class="form-label mb-0 mt-4 required">Description Message (Minimum length of the characters in Description should be 600)</label>
+                                        <label class="form-label mb-0 mt-4 required">Description Message</label>
                                         <textarea class="form-control" rows="4" name="description_msg" placeholder="Description Message" required></textarea>
                                     </div>
                                 </div>
