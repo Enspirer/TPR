@@ -19,7 +19,9 @@
 
 <!--search-->
 <section id="index-search" class="container-fluid search" style="background: rgba(255, 255, 255, .5)">
-    @include('frontend.includes.search_bar')
+    @include('frontend.includes.search_bar',[
+            'category_type' => 'category_type'
+        ])
 </section>
 
 

@@ -1,6 +1,7 @@
 <div class="container search-bar">
     <ul class="nav nav-pills ms-4" id="pills-tab" role="tablist">
 
+    
         @if($category_type == 'residential' || $category_type == 'commercial' || $category_type == 'tp_developer' || $category_type == 'investments')
             <li class="nav-item text-white rounded-0 fs-6 fs-md-5 ms-1" role="presentation">
                 <button class="nav-link text-white rounded-0 px-5" style="background-color : #83BC3E" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
