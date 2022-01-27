@@ -1,23 +1,61 @@
 <div class="container search-bar">
     <ul class="nav nav-pills ms-4" id="pills-tab" role="tablist">
-        <li class="nav-item text-white rounded-0 fs-6 fs-md-5 ms-1" role="presentation">
-            <button class="nav-link text-white rounded-0 active px-5" style="background-color : #83BC3E" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
-        </li>
-        <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-            <button class="nav-link text-white rounded-0" style="background-color : #00C1FB" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500">Residential</button>
-        </li>
-        <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-            <button class="nav-link text-white rounded-0" style="background-color : #83BC3E" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Commercial</button>
-        </li>
+
+        @if($category_type == 'residential' || $category_type == 'commercial' || $category_type == 'tp_developer' || $category_type == 'investments')
+            <li class="nav-item text-white rounded-0 fs-6 fs-md-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0 px-5" style="background-color : #83BC3E" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
+            </li>
+        @else
+            <li class="nav-item text-white rounded-0 fs-6 fs-md-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0 active px-5" style="background-color : #83BC3E" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
+            </li>
+        @endif
+
+        @if($category_type == 'residential')
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0 active" style="background-color : #00C1FB" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500">Residential</button>
+            </li>
+        @else
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0" style="background-color : #00C1FB" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500">Residential</button>
+            </li>
+        @endif
+
+        @if($category_type == 'commercial')
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0 active" style="background-color : #83BC3E" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Commercial</button>
+            </li>
+        @else
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0" style="background-color : #83BC3E" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Commercial</button>
+            </li>
+        @endif
+        
         <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
             <button class="nav-link text-white rounded-0" style="background-color : #EB8EB0" id="pills-coming-tab" data-bs-toggle="pill" data-bs-target="#pills-coming" type="button" role="tab" aria-controls="pills-coming" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Coming Soon</button>
         </li>
-        <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-            <button class="nav-link text-white rounded-0" style="background-color : #0EA7CE" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
-        </li>
-        <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-            <button class="nav-link text-white rounded-0" style="background-color : #4195E1" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
-        </li>
+
+        @if($category_type == 'tp_developer')
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0 active" style="background-color : #0EA7CE" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
+            </li>
+        @else
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0" style="background-color : #0EA7CE" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
+            </li>
+        @endif
+
+        @if($category_type == 'investments')
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0 active" style="background-color : #4195E1" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
+            </li>
+        @else
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0" style="background-color : #4195E1" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
+            </li>
+        @endif
+        
+        
     </ul>
 
     <div class="tab-content" id="pills-tabContent">
