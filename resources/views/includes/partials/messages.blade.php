@@ -4,6 +4,7 @@
             <span aria-hidden="true">&times;</span>
         </button> -->
 
+
         <div class="row">
             <div class="col-11">
                 @foreach($errors->all() as $error)
