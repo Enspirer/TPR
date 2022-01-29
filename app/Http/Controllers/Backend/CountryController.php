@@ -33,7 +33,8 @@ class CountryController extends Controller
             return DataTables::of($data)
                     ->addColumn('action', function($data){
                        
-                        $button = '<a href="'.route('admin.country.features',$data->id).'" name="feature" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3"><i class="fas fa-edit"></i> Features </a>';
+                        $button = '<a href="'.route('admin.country.features',$data->id).'" name="feature" id="'.$data->id.'" class="edit btn btn-warning btn-sm ml-3"><i class="fas fa-edit"></i> Features </a>';
+                        $button .= '<a href="'.route('admin.country.home_banner',$data->id).'" name="home_banner" id="'.$data->id.'" class="edit btn btn-primary btn-sm ml-3"><i class="fas fa-image"></i> Home Banner </a>';
                         $button .= '<a href="'.route('admin.country.edit',$data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3 mr-3"><i class="fas fa-edit"></i> Edit </a>';
                         $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
                         return $button;
@@ -199,6 +200,30 @@ class CountryController extends Controller
 
     }
 
+    public function home_banner($id)
+    {
+        
+        $country = Country::where('id', $id)->first();
+        // dd($country);              
+
+        return view('backend.country.home_banner',[
+            'country' => $country
+        ]);  
+    }
+
+
+    public function home_bannerUpdate(Request $request)
+    {    
+        // dd($request);
+        $update = new Country;
+        
+        $update->home_banner=$request->home_banner;
+   
+        Country::whereId($request->hidden_id)->update($update->toArray());
+
+        return redirect()->route('admin.country.index')->withFlashSuccess('Updated Successfully');                      
+
+    }
 
     public function features($id)
     {

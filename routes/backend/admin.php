@@ -33,6 +33,8 @@ Route::post('country/create', [CountryController::class, 'store'])->name('countr
 Route::get('country/getdetails', [CountryController::class, 'getDetails'])->name('country.getDetails');
 Route::get('country/features/{id}', [CountryController::class, 'features'])->name('country.features');
 Route::post('country/features/update', [CountryController::class, 'featuresUpdate'])->name('country.featuresUpdate');
+Route::get('country/home_banner/{id}', [CountryController::class, 'home_banner'])->name('country.home_banner');
+Route::post('country/home_banner/update', [CountryController::class, 'home_bannerUpdate'])->name('country.home_bannerUpdate');
 Route::get('country/edit/{id}', [CountryController::class, 'edit'])->name('country.edit');
 Route::post('country/update', [CountryController::class, 'update'])->name('country.update');
 Route::get('country/delete/{id}', [CountryController::class, 'destroy'])->name('country.destroy');

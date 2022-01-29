@@ -12,8 +12,13 @@
 
 <!-- banner -->
 <section id="index-banner">
-    <div class="container-fluid banner">
-    </div>
+    @if($country->home_banner == null)
+        <div class="container-fluid banner" style="background-image: url( {{url('tpr_templete/images/index_banner.png' )}} );">
+        </div>
+    @else
+        <div class="container-fluid banner" style="background-image: url( {{url( uploaded_asset($country->home_banner) )}} );">
+        </div>
+    @endif
 </section>
 
 
@@ -29,8 +34,7 @@
 
 @if(get_country_cookie(request()))
 
-@if(App\Models\HomePageAdvertisement::where('country',get_country_cookie(request())->country_name)->where('status','=','Enable')->where('category','!=',null)->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->first()
-== null)
+@if(App\Models\HomePageAdvertisement::where('country',get_country_cookie(request())->country_name)->where('status','=','Enable')->where('category','!=',null)->where('admin_approval','=','Approved')->where('country_manager_approval','=','Approved')->first() == null)
 
 @else
 <!--recent projects-->
