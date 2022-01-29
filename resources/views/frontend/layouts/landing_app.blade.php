@@ -103,7 +103,15 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Become a Agent</button>
+        @auth
+            @if(App\Models\AgentRequest::where('user_id',auth()->user()->id)->first() == null)
+                <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('frontend.user.agent')}}'">Become a Agent</button>
+            @else
+                <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('frontend.user.properties')}}'">Add Property</button>
+            @endif
+        @else 
+            <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('frontend.auth.register')}}'">Create Account</button>
+        @endauth
       </div>
     </div>
   </div>
