@@ -1,0 +1,9 @@
+#pills-tabContent .input-group button[type="submit"] {
+    background-color: #ffffff8c !important;
+    border: 1px solid #ced4da;
+    border-left: none !important;
+}
+
+#pills-tabContent .input-group input[type="text"] {
+    background-color: #ffffff8c !important;
+}
