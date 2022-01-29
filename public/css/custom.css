@@ -7,3 +7,39 @@
 #pills-tabContent .input-group input[type="text"] {
     background-color: #ffffff8c !important;
 }
+
+@media screen and (max-width: 768px) {
+    #pills-tabContent .input-group button[type="submit"] {
+        background-color: #eb8eb0 !important;
+        border: none;
+        border-radius: 0 !important;
+    }
+
+    #pills-tabContent .input-group button[type="button"] {
+        background-color: #f177a3 !important;
+        border: none;
+        border-radius: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    #pills-tabContent .input-group input[type="text"] {
+        background-color: #fff !important;
+        border: 1px solid #ced4da;
+        border-radius: 0 !important;
+    }
+
+    .mini-search-bar {
+        display: block !important;
+    }
+
+    .search-bar {
+        display: none !important;
+    }
+
+    section#index-search {
+        position: relative;
+        top: -2rem;
+        padding: 0;
+        background-color: transparent !important;
+    }
+}
