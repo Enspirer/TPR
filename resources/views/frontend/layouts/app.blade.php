@@ -39,6 +39,7 @@
         {!! script(mix('js/manifest.js')) !!}
         {!! script(mix('js/vendor.js')) !!}
         {!! script(mix('js/frontend.js')) !!}
+        {!! script(mix('js/custom.js')) !!}
         @stack('after-scripts')
 
         @include('includes.partials.ga')
