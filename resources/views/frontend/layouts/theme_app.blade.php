@@ -1047,7 +1047,9 @@ function geolocate() {
 // [END region_geolocation]
 
 /*end of form autofilling scripts*/
+
 </script>
+<script src="{{ url('js/custom.js') }}"></script>
 
 </body>
 </html>
