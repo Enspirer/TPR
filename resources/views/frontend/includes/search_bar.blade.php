@@ -217,7 +217,7 @@
                         <option value="4">4</option>
                         <option value="greater-than-5">5+</option>
                     </select>
-                    <button type="submit" class="btn text-white" style="border-top-right-radius: 35px; border-bottom-right-radius: 35px;background: #ffffff8c;"><i class="bi bi-search me-2"></i> Search</button>
+                    <button type="submit" class="btn text-white" style="border-top-right-radius: 35px; border-bottom-right-radius: 35px;background: #eb8eb0;"><i class="bi bi-search me-2"></i> Search</button>
 
                     <button type="button" onclick="filterSelection('residential', 'residential', 'residentialmodal')"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                 </div>
@@ -526,7 +526,7 @@
                     <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
                     <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
-                    
+
                     <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
 
                 </div>
