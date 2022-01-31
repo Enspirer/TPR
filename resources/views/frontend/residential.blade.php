@@ -439,13 +439,16 @@
                                 <input type="radio" id="radio-open-house-7days" name="switch-five" value="7days" />
                                 <label for="radio-open-house-7days">7 Days</label>
 
+                                <input type="radio" id="radio-open-house-all-open-houses" name="switch-five" value="all-open-houses" />
+                                <label for="radio-open-house-all-open-houses">All Open Houses</label>
+
                             </div>
                             <!-- open house last -all open houses- -->
-                            <div class="all-open-house-wrapper switch-field">
+                            <!-- <div class="all-open-house-wrapper switch-field">
                                 <input type="radio" id="radio-open-house-all-open-houses" name="switch-five"
                                     value="all-open-houses" />
                                 <label for="radio-open-house-all-open-houses">All Open Houses</label>
-                            </div>
+                            </div> -->
 
                             <p>Basement</p>
                             <div class="switch-field">

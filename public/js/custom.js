@@ -4,6 +4,10 @@ $(".currency-with-toggler-wrapper button").click(function () {
     $(".globe").toggle();
 });
 
+function moreFilters() {
+    $(".map-side-over-content-wrapper").toggle();
+}
+
 /* mobile search bar */
 
 // function mobileSearchBar(screenSize) {
