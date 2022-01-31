@@ -3,11 +3,11 @@
 
     
         @if($category_type == 'residential' || $category_type == 'commercial' || $category_type == 'tp_developer' || $category_type == 'investments')
-            <li class="nav-item text-white rounded-0 fs-6 fs-md-5 ms-1" role="presentation">
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
                 <button class="nav-link text-white rounded-0 px-5" style="background-color : #83BC3E" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
             </li>
         @else
-            <li class="nav-item text-white rounded-0 fs-6 fs-md-5 ms-1" role="presentation">
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
                 <button class="nav-link text-white rounded-0 active px-5" style="background-color : #83BC3E" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
             </li>
         @endif
@@ -451,9 +451,10 @@
                     <input type="hidden" name="category_type" value="all">
                     <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
                         <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
-                    <button type="button" class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;"><i class="bi bi-zoom-in text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
-
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
+
+                    <button type="button" class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;"><i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
+
 
                 </div>
             </form>
@@ -465,8 +466,9 @@
                     {{csrf_field()}}
                     <input type="hidden" name="category_type" value="residential" class="category">
                     <input type="text" name="search_keyword" class="form-control p-3 residential" aria-label="search" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
-                    <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-zoom-in text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
+
+                    <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                 </div>
             </form>
         </div>
@@ -478,8 +480,9 @@
                     <input type="hidden" name="category_type" value="commercial" class="category">
                     <input type="text" name="search_keyword" class="form-control p-3 commercial" aria-label="search" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
 
-                    <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-zoom-in text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
+
+                    <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
 
                 </div>
             </form>
@@ -492,8 +495,9 @@
                     <input type="hidden" name="category_type" value="tp_developer" class="category">
                     <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
                     <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
-                    <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-zoom-in text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
+
+                    <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
 
                 </div>
             </form>
@@ -506,8 +510,9 @@
                     <input type="hidden" name="category_type" value="tp_developer" class="category">
                     <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
                     <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
-                    <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-zoom-in text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
+
+                    <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
 
                 </div>
             </form>
@@ -520,8 +525,9 @@
                     <input type="hidden" name="category_type" value="investments" class="category">
                     <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
                     <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
-                    <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-zoom-in text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
+                    
+                    <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
 
                 </div>
             </form>
