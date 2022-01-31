@@ -23,6 +23,10 @@ Breadcrumbs::for('admin.country.features', function ($trail) {
     $trail->push('Features', route('admin.country.features', 1));
 });
 
+Breadcrumbs::for('admin.country.home_banner', function ($trail) {
+    $trail->push('Home Banner', route('admin.country.home_banner',1));
+});
+
 Breadcrumbs::for('admin.fpur.index', function ($trail) {
     $trail->push('Featured Property Update Request', route('admin.fpur.index'));
 });

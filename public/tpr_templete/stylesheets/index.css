@@ -1,6 +1,5 @@
 /* banner */
-.banner {
-    background-image: url('../images/index_banner.png');
+.banner {   
     background-repeat: no-repeat;
     width: 100%;
     background-size: cover;
