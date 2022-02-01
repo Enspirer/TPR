@@ -3,12 +3,12 @@
 
     
         @if($category_type == 'residential' || $category_type == 'commercial' || $category_type == 'tp_developer' || $category_type == 'investments')
-            <li class="nav-item text-white rounded-0 fs-6 fs-md-5 ms-1" role="presentation">
-                <button class="nav-link text-white rounded-0 px-5" style="background-color : #83BC3E" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0 px-5" style="background-color : #ff6961" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
             </li>
         @else
-            <li class="nav-item text-white rounded-0 fs-6 fs-md-5 ms-1" role="presentation">
-                <button class="nav-link text-white rounded-0 active px-5" style="background-color : #83BC3E" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
+            <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
+                <button class="nav-link text-white rounded-0 active px-5" style="background-color : #ff6961" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
             </li>
         @endif
 
@@ -38,21 +38,21 @@
 
         @if($category_type == 'tp_developer')
             <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-                <button class="nav-link text-white rounded-0 active" style="background-color : #0EA7CE" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
+                <button class="nav-link text-white rounded-0 active" style="background-color : #1245a8" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
             </li>
         @else
             <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-                <button class="nav-link text-white rounded-0" style="background-color : #0EA7CE" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
+                <button class="nav-link text-white rounded-0" style="background-color : #1245a8" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
             </li>
         @endif
 
         @if($category_type == 'investments')
             <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-                <button class="nav-link text-white rounded-0 active" style="background-color : #4195E1" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
+                <button class="nav-link text-white rounded-0 active" style="background-color : #f4cb53;background-image: linear-gradient(to bottom right, #947404, #f4cb53);" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
             </li>
         @else
             <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-                <button class="nav-link text-white rounded-0" style="background-color : #4195E1" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
+                <button class="nav-link text-white rounded-0" style="background-color : #f4cb53; background-image: linear-gradient(to bottom right, #947404, #f4cb53);" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
             </li>
         @endif
         
@@ -217,7 +217,7 @@
                         <option value="4">4</option>
                         <option value="greater-than-5">5+</option>
                     </select>
-                    <button type="submit" class="btn text-white" style="border-top-right-radius: 35px; border-bottom-right-radius: 35px;background: #ffffff8c;"><i class="bi bi-search me-2"></i> Search</button>
+                    <button type="submit" class="btn text-white" style="border-top-right-radius: 35px; border-bottom-right-radius: 35px;background: #eb8eb0;"><i class="bi bi-search me-2"></i> Search</button>
 
                     <button type="button" onclick="filterSelection('residential', 'residential', 'residentialmodal')"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                 </div>
@@ -443,27 +443,6 @@
 
 
 <div class="container mini-search-bar">
-    <ul class="nav nav-pills justify-content-center mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item text-white rounded-0 m-1" role="presentation">
-            <button class="nav-link text-white rounded-0 active px-2 py-1" style="background-color : #83BC3E; font-size: 0.9rem;" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
-        </li>
-        <li class="nav-item text-white rounded-0 m-1" role="presentation">
-            <button class="nav-link text-white rounded-0 p-1" style="background-color : #00C1FB; font-size: 0.9rem;" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500">Residential</button>
-        </li>
-        <li class="nav-item text-white rounded-0 m-1" role="presentation">
-            <button class="nav-link text-white rounded-0 p-1" style="background-color : #83BC3E; font-size: 0.9rem;" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Commercial</button>
-        </li>
-        <li class="nav-item text-white rounded-0 m-1" role="presentation">
-            <button class="nav-link text-white rounded-0 p-1" style="background-color : #EB8EB0; font-size: 0.9rem;" id="pills-coming-tab" data-bs-toggle="pill" data-bs-target="#pills-coming" type="button" role="tab" aria-controls="pills-coming" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Coming Soon</button>
-        </li>
-        <li class="nav-item text-white rounded-0 m-1" role="presentation">
-            <button class="nav-link text-white rounded-0 p-1" style="background-color : #0EA7CE; font-size: 0.9rem;" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
-        </li>
-        <li class="nav-item text-white rounded-0 m-1" role="presentation">
-            <button class="nav-link text-white rounded-0 p-1" style="background-color : #4195E1; font-size: 0.9rem;" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
-        </li>
-    </ul>
-
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
             <form method="post" action="{{route('frontend.search_result_function')}}">
@@ -472,9 +451,11 @@
                     <input type="hidden" name="category_type" value="all">
                     <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
                         <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
-                    <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i></button>
+                    <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 
                     <button type="button" class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;"><i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
+
+
                 </div>
             </form>
         </div>
@@ -486,6 +467,7 @@
                     <input type="hidden" name="category_type" value="residential" class="category">
                     <input type="text" name="search_keyword" class="form-control p-3 residential" aria-label="search" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
+
                     <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
                 </div>
             </form>
@@ -501,6 +483,7 @@
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 
                     <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
+
                 </div>
             </form>
         </div>
@@ -515,6 +498,7 @@
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 
                     <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
+
                 </div>
             </form>
         </div>
@@ -529,6 +513,7 @@
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 
                     <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
+
                 </div>
             </form>
         </div>
@@ -543,8 +528,30 @@
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 
                     <button type="button" onclick="filterSelection()"  class="btn rounded-pill ms-3 filter-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color : white; color:#259FBC; font-size: 0.8rem;">Filters <i class="bi bi-filter text-white" style="background-color: #F177A3; border-radius: 50px; padding: 0.3rem; font-size: 1rem;"></i></button>
+
                 </div>
             </form>
         </div>
     </div>
+
+    <ul class="nav nav-pills justify-content-center mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item text-white rounded-0 m-1" role="presentation">
+            <button class="nav-link text-white rounded-0 active px-2 py-1" style="background-color : #ff6961; font-size: 0.9rem;" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true" data-aos="fade-up" data-aos-duration="500">All</button>
+        </li>
+        <li class="nav-item text-white rounded-0 m-1" role="presentation">
+            <button class="nav-link text-white rounded-0 p-1" style="background-color : #00C1FB; font-size: 0.9rem;" id="pills-residential-tab" data-bs-toggle="pill" data-bs-target="#pills-residential" type="button" role="tab" aria-controls="pills-residential" aria-selected="true" data-aos="fade-up" data-aos-duration="500">Residential</button>
+        </li>
+        <li class="nav-item text-white rounded-0 m-1" role="presentation">
+            <button class="nav-link text-white rounded-0 p-1" style="background-color : #83BC3E; font-size: 0.9rem;" id="pills-commercial-tab" data-bs-toggle="pill" data-bs-target="#pills-commercial" type="button" role="tab" aria-controls="pills-commercial" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Commercial</button>
+        </li>
+        <li class="nav-item text-white rounded-0 m-1" role="presentation">
+            <button class="nav-link text-white rounded-0 p-1" style="background-color : #EB8EB0; font-size: 0.9rem;" id="pills-coming-tab" data-bs-toggle="pill" data-bs-target="#pills-coming" type="button" role="tab" aria-controls="pills-coming" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Coming Soon</button>
+        </li>
+        <li class="nav-item text-white rounded-0 m-1" role="presentation">
+            <button class="nav-link text-white rounded-0 p-1" style="background-color : #1245a8; font-size: 0.9rem;" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
+        </li>
+        <li class="nav-item text-white rounded-0 m-1" role="presentation">
+            <button class="nav-link text-white rounded-0 p-1" style="background-color : #f4cb53; background-image: linear-gradient(to bottom right, #947404, #f4cb53); font-size: 0.9rem;" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
+        </li>
+    </ul>
 </div>

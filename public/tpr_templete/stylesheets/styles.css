@@ -1,36 +1,35 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 p {
     font-size: 0.9rem;
-    color: #504F4F;
+    color: #504f4f;
 }
 .ns {
     font-size: 1rem;
 }
 .no-result-list {
     font-size: 0.9rem;
-    color: #504F4F;
+    color: #504f4f;
 }
 
 /* Override default bootstrp styles */
 .fw-bold {
-    font-weight: 500!important;
+    font-weight: 500 !important;
 }
 .rounded {
-    border-radius: 0.35rem!important;
+    border-radius: 0.35rem !important;
 }
 .text-secondary {
-    color: #686767!important;
+    color: #686767 !important;
 }
-
 
 /* logo and navbar */
 .logo {
     position: fixed;
-    top: 1.8rem;
+    top: 0.2rem;
     z-index: 1;
-    height: 4rem;
+    height: 3.5rem;
 }
 
 .logo-landing {
@@ -49,9 +48,9 @@ p {
 }
 .globe {
     position: fixed;
-    top: 4.5rem;
+    top: 4.75rem;
     z-index: 10000;
-    left: 30%;
+    left: 20rem;
     width: 140px;
 }
 
@@ -60,7 +59,7 @@ p {
 } */
 /* .nav1 {
     padding: 0 1.5rem; */
-    /* border-right: 0.5px solid #C0C0C0; */
+/* border-right: 0.5px solid #C0C0C0; */
 /* } */
 .nav2 {
     padding: 0 1rem;
@@ -85,41 +84,41 @@ p {
     border-bottom: 1px solid black!important;
 } */
 .nav2 .dropdown-menu {
-    min-width: 12rem!important;
+    min-width: 12rem !important;
 }
 
 .navbar .active {
     border-bottom: 2px solid red;
 }
 
-
 /* user image styles */
 #index-navbar .dropdown-toggle::after {
     color: white;
 }
-#index-navbar .dropdown-item:focus, .dropdown-item:hover {
-    color: black!important;
+#index-navbar .dropdown-item:focus,
+.dropdown-item:hover {
+    color: black !important;
     background-color: #e9ecef;
 }
 .second-nav .dropdown-toggle::after {
-    color: black!important;
+    color: black !important;
 }
-
 
 /* get app banner */
 .get-app {
-    background-image: linear-gradient(to right, rgba(135, 206, 235), rgba(25, 164, 25,0.5));
+    background-image: linear-gradient(
+        to right,
+        rgba(135, 206, 235),
+        rgba(25, 164, 25, 0.5)
+    );
     padding: 15rem;
 }
 
-
-
-
-.nav-modal .modal-content{
-    overflow:hidden;
-    }
-.nav-modal .modal-body{
-    overflow-y:scroll;
+.nav-modal .modal-content {
+    overflow: hidden;
+}
+.nav-modal .modal-body {
+    overflow-y: scroll;
 }
 .nav-modal .modal-body::-webkit-scrollbar {
     width: 8px;
@@ -137,8 +136,6 @@ p {
     background-color: #c4c3be;
 }
 
-
-
 /* .project-item a {
     color: #212529;
     border: none;
@@ -149,14 +146,9 @@ p {
     color: #212529;
 } */
 
-
-
-
 .custom-shadow {
-    box-shadow: 0 0rem 1rem rgba(0,0,0,.175);
+    box-shadow: 0 0rem 1rem rgba(0, 0, 0, 0.175);
 }
-
-
 
 /*about us page*/
 .about-container {
@@ -186,7 +178,6 @@ i.social-icon.fab.fa-twitter-square {
     align-items: center;
 }
 
-
 /*small mobile screens*/
 @media screen and (max-width: 320px) {
     button.navbar-toggler.ms-auto {
@@ -206,11 +197,10 @@ i.social-icon.fab.fa-twitter-square {
     }
 }
 
- 
 @media screen and (max-width: 576px) {
     .first-nav .logo {
         top: 0.8rem;
-        height: 2rem!important;
+        height: 2rem !important;
     }
 
     .globe {
@@ -309,12 +299,11 @@ span.price-tag {
     margin-left: 30px;
     margin-right: 30px;
     border: 0;
-    }
-    
-    
-    .post-ad-btn:hover {
+}
+
+.post-ad-btn:hover {
     color: #000;
-    }
+}
 
 .hidden-xs {
     display: block !important;
@@ -336,38 +325,34 @@ div#adModal {
     top: 100px;
 }
 
-    /*google translator*/
-    select.goog-te-combo {
+/*google translator*/
+select.goog-te-combo {
+    font-size: 16px;
+    background: #4195e1;
+    border-color: #4195e1;
+    color: white;
+    position: absolute;
+    top: 8px;
+    right: 60px;
+    font-weight: 500;
+}
 
-        font-size: 16px;
-        background: #4195e1;
-        border-color: #4195e1;
-        color: white;
-        position: absolute;
-        top: 8px;
-        right: 60px;
-        font-weight: 500;
+.goog-te-gadget .goog-te-combo {
+    outline: 0;
+}
 
-    }
+.lang-wrapper {
+    width: 200px;
+    display: block;
+}
 
-    .goog-te-gadget .goog-te-combo {
-    outline:0;
-    }
-
-
-    .lang-wrapper {
-        width: 200px;
-        display: block;
-    }
-
-    #google_translate_element {
-        color: transparent;
-    }
-
+#google_translate_element {
+    color: transparent;
+}
 
 /*language modal*/
 #langModal .modal-dialog {
-  width: 500px;
+    width: 500px;
 }
 
 .link-tag {
@@ -389,12 +374,12 @@ div#adModal {
     display: block;
 }
 
-.currency-filter-form  {
+.currency-filter-form {
     margin-bottom: 0;
 }
 
 .visible-tab {
-    display: none !important; 
+    display: none !important;
 }
 
 .tab-currency-bar {
@@ -405,12 +390,12 @@ div#adModal {
     display: none !important;
 }
 
-
 /*heart active style fix*/
-.heart-fix-a  {
+.heart-fix-a {
     width: max-content;
 }
-.heart-fix-a .property-location, .heart-fix-a .small-num {
+.heart-fix-a .property-location,
+.heart-fix-a .small-num {
     white-space: nowrap;
 }
 
@@ -419,25 +404,22 @@ div#adModal {
 }
 
 /*mobile-view*/
-@media screen and (max-width: 320px){
+@media screen and (max-width: 320px) {
     a.post-ad-btn.visible-xs {
         margin-left: 10px !important;
     }
     .mobile-nav-additional-wrapper {
         gap: 10px !important;
     }
-
-
 }
 
-
 @media screen and (max-width: 767px) {
-   .hidden-xs {
-       display: none !important;
-   }
+    .hidden-xs {
+        display: none !important;
+    }
 
-   .visible-xs {
-    display: block !important;
+    .visible-xs {
+        display: block !important;
     }
 
     .visible-tab {
@@ -458,7 +440,7 @@ div#adModal {
     }
 
     .mobile-currency-bar {
-        display: block !important; 
+        display: block !important;
     }
 
     .mobile-language-bar {
@@ -481,7 +463,6 @@ div#adModal {
         justify-content: center;
         align-items: center;
         padding: 5px 20px;
-
     }
 
     button.navbar-toggler.ms-auto {
@@ -514,7 +495,7 @@ div#adModal {
         margin-left: 0;
         margin-top: 15px;
     }
-    
+
     .icon-wrapper i {
         font-size: 1.5rem !important;
     }
@@ -528,7 +509,6 @@ div#adModal {
     .mobile-coutry-dropdown {
         width: 100%;
     }
-
 
     #langModal .modal-dialog {
         width: 90% !important;
@@ -573,24 +553,21 @@ div#adModal {
 
     section#residential-property-search {
         margin-top: 150px;
-        padding-top: 0 !important; 
+        padding-top: 0 !important;
     }
 
     div#navbarNav1 {
         border-top: 2px solid #fff;
         margin-top: 20px;
     }
-    
 }
-
-
 
 /*tab-portrait*/
 @media (min-width: 768px) and (max-width: 991px) {
     .hidden-tab {
         display: none !important;
     }
-    
+
     .visible-tab {
         display: block !important;
     }
@@ -618,8 +595,12 @@ div#adModal {
     }
 
     .globe {
-        left: 67%;
-        top: 4.4rem !important;
+        left: 3rem;
+        top: 4.75rem !important;
+    }
+
+    .logo {
+        height: 3.2rem;
     }
 
     .second-nav {
@@ -643,8 +624,6 @@ div#adModal {
         width: 100%;
     }
 
-   
-
     .icons-bar {
         width: 100%;
         display: flex;
@@ -653,7 +632,7 @@ div#adModal {
         margin-top: 15px;
         margin-bottom: 15px;
     }
-    
+
     .icon-wrapper i {
         font-size: 1.5rem !important;
     }
@@ -667,12 +646,12 @@ div#adModal {
     #navbarNav2 .navbar-nav {
         margin-top: 15px !important;
     }
-    
+
     .tab-full-width {
         width: 100%;
         flex: 100%;
     }
-    
+
     .map-mobile-container {
         padding: 15px !important;
     }
@@ -684,9 +663,7 @@ div#adModal {
     .container.mini-search-bar {
         display: block;
     }
-
 }
-
 
 /*small laptop screen*/
 @media (min-width: 1024px) and (max-width: 1200px) {
@@ -695,7 +672,8 @@ div#adModal {
         font-size: 0.8rem !important;
     }
     .globe {
-        top: 4.3rem;
+        top: 4.75rem;
+        left: 4rem;
     }
 
     ul.navbar-nav {
@@ -711,18 +689,13 @@ div#adModal {
         font-size: 0.9rem !important;
     }
 
-    
     div#navbarNav1 ul li a {
         font-size: 0.8rem !important;
     }
-
 }
 
-
-
-/*large screen*/
-@media screen and (min-width: 1400px) {
+@media screen and (max-width: 1440px) {
     .globe {
-        left: 38%;
+        left: 5rem;
     }
 }

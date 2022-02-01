@@ -35,7 +35,7 @@
                     <div class="tab-pane fade show active" id="pills-accountInformation" role="tabpanel" aria-labelledby="pills-accountInformation-tab">
 
                         <div class="row justify-content-between">
-                            <div class="col-8 p-0">
+                            <div class="col px-2">
                                 <h4 class="fs-4 fw-bolder user-settings-head">Account Information</h4>
                                 <h6 class="user-settings-sub" style="color: #5e6871">Here you can customize your basic account set-up information.</h6>
                             </div>

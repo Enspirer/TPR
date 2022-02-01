@@ -1,9 +1,113 @@
-#pills-tabContent .input-group button[type="submit"] {
+/* #pills-tabContent .input-group button[type="submit"] {
     background-color: #ffffff8c !important;
     border: 1px solid #ced4da;
     border-left: none !important;
+} */
+
+#pills-tab .nav-link.text-white.active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: red;
+}
+
+.mini-search-bar #pills-tab .nav-link.active::after {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.search .nav .active {
+    border-top: none !important;
+}
+
+.filter-search #pills-tab .nav-link.active {
+    border-top: none !important;
+}
+
+.mini-search-bar #pills-tab .nav-link {
+    border-radius: 5px !important;
 }
 
 #pills-tabContent .input-group input[type="text"] {
     background-color: #ffffff8c !important;
+}
+
+.popover__menu {
+    display: none;
+}
+
+.map-side-over-content-wrapper {
+    display: none;
+    opacity: 1 !important;
+}
+
+.map-side-over-content-wrapper .switch-field {
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 767px) {
+    #pills-tabContent .input-group button[type="submit"] {
+        background-color: #eb8eb0 !important;
+        border: none;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 5px !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 5px !important;
+    }
+
+    #pills-tabContent .input-group button[type="button"] {
+        background-color: #f177a3 !important;
+        border: none;
+        border-radius: 5px !important;
+    }
+
+    #pills-tabContent .input-group input[type="text"] {
+        background-color: #fff !important;
+        border: 1px solid #ced4da;
+        border-top-left-radius: 5px !important;
+        border-top-right-radius: 0 !important;
+        border-bottom-left-radius: 5px !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .mini-search-bar {
+        display: block !important;
+    }
+
+    .search-bar {
+        display: none !important;
+    }
+
+    section#index-search {
+        position: relative;
+        top: -2rem;
+        padding: 0;
+        background-color: transparent !important;
+    }
+
+    #index-navbar .second-nav {
+        top: 6.5rem;
+    }
+
+    .user-settings {
+        margin-top: 12rem !important;
+    }
+
+    .globe {
+        top: 7.5rem;
+        left: 69%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .col.px-2 {
+        text-align: center;
+    }
+
+    .globe {
+        left: 59%;
+    }
 }
