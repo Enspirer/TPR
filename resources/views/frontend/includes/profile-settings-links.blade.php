@@ -68,11 +68,34 @@
 
             <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'home-page-feature' ? 'active' : null }}" href="{{ route('frontend.user.home_page_feature') }}" type="button" role="tab" aria-controls="nav-properties" aria-selected="true">Home Page Feature</a>
 
-            <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'property-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.property-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Property Approval</a>
 
-            <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Agent Approval</a>
+            <div class="row w-100">
+                <div class="col-10 ">
+                    <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'property-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.property-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Property Approval</a>
+                </div>
+                <div class="col-2 mt-2">
+                        <b style="color:red">{{ count(App\Models\Properties::where('country_manager_approval','Pending')->get()) }}</b>
+                </div>
+            </div>
 
-            <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'supports' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.supports') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Help & Supports</a>
+            <div class="row w-100">
+                <div class="col-10 ">
+                    <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Agent Approval</a>
+                </div>
+                <div class="col-2 mt-2">
+                        <b style="color:red">{{ count(App\Models\AgentRequest::where('country_manager_approval','Pending')->get()) }}</b>
+                </div>
+            </div>
+
+            <div class="row w-100">
+                <div class="col-10 ">
+                    <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'supports' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.supports') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Help & Supports</a>
+                </div>
+                <div class="col-2 mt-2">
+                        <b style="color:red">{{ count(App\Models\Feedback::where('status','Pending')->get()) }}</b>
+                </div>
+            </div>
+            
 
             <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'management_sold_properties' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.management_sold_properties') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Sold Properties</a>
 
