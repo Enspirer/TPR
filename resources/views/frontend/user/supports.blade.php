@@ -37,9 +37,9 @@
                         <thead class="table-head">
                             <tr>
                                 <th scope="col">User Name</th>
-                                <th scope="col">Status</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Date</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -95,9 +95,9 @@
             order: [[0, "desc"]],
             columns: [
                 {data: 'name', name: 'name'},
-                {data: 'status', name: 'status'},
                 {data: 'title', name: 'title'},
                 {data: 'created_at', name: 'created_at'},
+                {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
         });

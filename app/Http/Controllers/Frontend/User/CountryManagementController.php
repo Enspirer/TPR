@@ -164,8 +164,30 @@ class CountryManagementController extends Controller
 
                         return $button;
                     })
+
+                    ->editColumn('admin_approval', function($data){
+                        if($data->admin_approval == 'Approved'){
+                            $status = '<b style="color:green">Approved</b>';
+                        }elseif($data->admin_approval == 'Disapproved'){
+                            $status = '<b style="color:#F6BE00">Disapproved</b>';
+                        }else{
+                            $status = '<b style="color:red">Pending</b>';
+                        }   
+                        return $status;
+                    })
+
+                    ->editColumn('country_manager_approval', function($data){
+                        if($data->country_manager_approval == 'Approved'){
+                            $status = '<b style="color:green">Approved</b>';
+                        }elseif($data->country_manager_approval == 'Disapproved'){
+                            $status = '<b style="color:#F6BE00">Disapproved</b>';
+                        }else{
+                            $status = '<b style="color:red">Pending</b>';
+                        }   
+                        return $status;
+                    })
                     
-                    ->rawColumns(['action'])
+                    ->rawColumns(['action','admin_approval','country_manager_approval'])
                     ->make(true);
         }
         return back();
@@ -232,8 +254,19 @@ class CountryManagementController extends Controller
 
                         return $button;
                     })
+
+                    ->editColumn('status', function($data){
+                        if($data->status == 'Solved'){
+                            $status = '<b style="color:green">Solved</b>';
+                        }elseif($data->status == 'Not Solved'){
+                            $status = '<b style="color:#F6BE00">Not Solved</b>';
+                        }else{
+                            $status = '<b style="color:red">Pending</b>';
+                        }   
+                        return $status;
+                    })
                     
-                    ->rawColumns(['action'])
+                    ->rawColumns(['action','status'])
                     ->make(true);
         }
         return back();
@@ -308,8 +341,30 @@ class CountryManagementController extends Controller
 
                         return $button;
                     })
+
+                    ->editColumn('status', function($data){
+                        if($data->status == 'Approved'){
+                            $status = '<b style="color:green">Approved</b>';
+                        }elseif($data->status == 'Disapproved'){
+                            $status = '<b style="color:#F6BE00">Disapproved</b>';
+                        }else{
+                            $status = '<b style="color:red">Pending</b>';
+                        }   
+                        return $status;
+                    })
+
+                    ->editColumn('country_manager_approval', function($data){
+                        if($data->country_manager_approval == 'Approved'){
+                            $status = '<b style="color:green">Approved</b>';
+                        }elseif($data->country_manager_approval == 'Disapproved'){
+                            $status = '<b style="color:#F6BE00">Disapproved</b>';
+                        }else{
+                            $status = '<b style="color:red">Pending</b>';
+                        }   
+                        return $status;
+                    })
                     
-                    ->rawColumns(['action'])
+                    ->rawColumns(['action','status','country_manager_approval'])
                     ->make(true);
         }
         return back();
@@ -437,8 +492,19 @@ class CountryManagementController extends Controller
 
                         return $button;
                     })
+
+                    ->editColumn('admin_approval', function($data){
+                        if($data->admin_approval == 'Approved'){
+                            $status = '<b style="color:green">Approved</b>';
+                        }elseif($data->admin_approval == 'Disapproved'){
+                            $status = '<b style="color:#F6BE00">Disapproved</b>';
+                        }else{
+                            $status = '<b style="color:red">Pending</b>';
+                        }   
+                        return $status;
+                    })
                     
-                    ->rawColumns(['action'])
+                    ->rawColumns(['action','admin_approval'])
                     ->make(true);
         }
         return back();
@@ -721,20 +787,20 @@ class CountryManagementController extends Controller
                     $stack = PropertyTypeParameter::where('country',$country->country_name)->where('property_type_id',$data->id)->first();
                     
                     if($stack == null){
-                        $status = '<span>Not Set</span>';
+                        $status = '<span style="color:blue"><b>Not Set</b></span>';
                         return $status;
                     }else{
                         if( $stack->status == 'Approved'){
 
-                            $status = '<span>Approved</span>';
+                            $status = '<span style="color:green"><b>Approved</b></span>';
                             return $status;
                         }elseif($stack->status == 'Disapproved'){
     
-                            $status = '<span>Disapproved</span>';
+                            $status = '<span style="color:#F6BE00"><b>Disapproved</b></span>';
                             return $status;
                         }else{
     
-                            $status = '<span>Pending</span>';
+                            $status = '<span style="color:red"><b>Pending</b></span>';
                             return $status;
                         }
                     }

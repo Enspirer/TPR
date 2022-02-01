@@ -84,19 +84,39 @@
                                                                 <td width="23%" cellpadding="0" cellspacing="0">  
                                                                     <p align="left"><b>Admin Approval:</b> </p>  
                                                                 </td>
-                                                                <td  cellpadding="0" cellspacing="0">  
-                                                                    <p align="left">{{ $ad1->admin_approval }}</p> 
-                                                                    <hr>                
-                                                                </td>
+                                                                @if($ad1->admin_approval == 'Approved')
+                                                                    <td  cellpadding="0" cellspacing="0">  
+                                                                        <p align="left" style="color:green"><b>Approved</b> </p>  
+                                                                        <hr>
+                                                                    </td>
+                                                                @elseif($ad1->admin_approval == 'Disapproved')
+                                                                    <td  cellpadding="0" cellspacing="0">  
+                                                                        <p align="left" style="color:#F6BE00"><b>Disapproved</b> </p>  
+                                                                        <hr>
+                                                                    </td>
+                                                                @else
+                                                                    <td  cellpadding="0" cellspacing="0">  
+                                                                        <p align="left" style="color:red"><b>Pending</b> </p>  
+                                                                        <hr>
+                                                                    </td>
+                                                                @endif
                                                             </tr>
                                                             <tr>            
                                                                 <td width="23%" cellpadding="0" cellspacing="0">
                                                                     <p align="left"><b>Status:</b> </p>
                                                                 </td>
-                                                                <td  cellpadding="0" cellspacing="0">     
-                                                                    <p align="left"> {{ $ad1->status }} </p>  
-                                                                    <hr>         
-                                                                </td>
+                                                                @if($ad1->status == 'Enable')
+                                                                    <td  cellpadding="0" cellspacing="0">     
+                                                                        <p align="left" style="color:green"><b>Enabled</b> </p>  
+                                                                        <hr>         
+                                                                    </td>
+                                                                @else
+                                                                    <td  cellpadding="0" cellspacing="0">     
+                                                                        <p align="left" style="color:red"><b>Disabled</b> </p>  
+                                                                        <hr>         
+                                                                    </td>
+                                                                @endif 
+                                                                
                                                             </tr>
                                                             <tr>            
                                                                 <td width="23%" cellpadding="0" cellspacing="0">  
@@ -165,19 +185,38 @@
                                                                 <td width="23%" cellpadding="0" cellspacing="0">  
                                                                     <p align="left"><b>Admin Approval:</b> </p>  
                                                                 </td>
-                                                                <td  cellpadding="0" cellspacing="0">  
-                                                                    <p align="left">{{ $ad2->admin_approval }}</p> 
-                                                                    <hr>                
-                                                                </td>
+                                                                @if($ad2->admin_approval == 'Approved')
+                                                                    <td  cellpadding="0" cellspacing="0">  
+                                                                        <p align="left" style="color:green"><b>Approved</b> </p>  
+                                                                        <hr>
+                                                                    </td>
+                                                                @elseif($ad2->admin_approval == 'Disapproved')
+                                                                    <td  cellpadding="0" cellspacing="0">  
+                                                                        <p align="left" style="color:#F6BE00"><b>Disapproved</b> </p>  
+                                                                        <hr>
+                                                                    </td>
+                                                                @else
+                                                                    <td  cellpadding="0" cellspacing="0">  
+                                                                        <p align="left" style="color:red"><b>Pending</b> </p>  
+                                                                        <hr>
+                                                                    </td>
+                                                                @endif
                                                             </tr>
                                                             <tr>            
                                                                 <td width="23%" cellpadding="0" cellspacing="0">
                                                                     <p align="left"><b>Status:</b> </p>
                                                                 </td>
-                                                                <td  cellpadding="0" cellspacing="0">     
-                                                                    <p align="left">{{ $ad2->status }} </p>  
-                                                                    <hr>         
-                                                                </td>
+                                                                @if($ad2->status == 'Enable')
+                                                                    <td  cellpadding="0" cellspacing="0">     
+                                                                        <p align="left" style="color:green"><b>Enabled</b> </p>  
+                                                                        <hr>         
+                                                                    </td>
+                                                                @else
+                                                                    <td  cellpadding="0" cellspacing="0">     
+                                                                        <p align="left" style="color:red"><b>Disabled</b> </p>  
+                                                                        <hr>         
+                                                                    </td>
+                                                                @endif 
                                                             </tr>
                                                             <tr>            
                                                                 <td width="23%" cellpadding="0" cellspacing="0">  

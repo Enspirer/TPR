@@ -85,12 +85,25 @@
                                     @if($home_ad->category == null)
                                         <td style="color:red">Not Set</td>
                                     @else
-                                    <td> {{ App\Models\AdCategory::where('id',$home_ad->category)->where('admin_approval', '=', 'Approved')->first()->name }} </td>
+                                        <td> {{ App\Models\AdCategory::where('id',$home_ad->category)->where('admin_approval', '=', 'Approved')->first()->name }} </td>
                                     @endif 
-                                    
-                                    <td> {{ $home_ad->status }} </td>
+
+                                    @if($home_ad->status == 'Enable')
+                                        <td style="color:green"><b>Enabled</b></td>
+                                    @else
+                                        <td style="color:red"><b>Disabled</b></td>
+                                    @endif 
+                                                                        
                                     <td> {{ $home_ad->order }} </td>
-                                    <td> {{ $home_ad->admin_approval }} </td>
+                                    
+                                    @if($home_ad->admin_approval == 'Approved')
+                                        <td style="color:green"><b>Approved</b></td>
+                                    @elseif($home_ad->admin_approval == 'Disapproved')
+                                        <td style="color:#F6BE00"><b>Disapproved</b></td>
+                                    @else
+                                        <td style="color:red"><b>Pending</b></td>
+                                    @endif 
+
                                     <td>
                                         <div class="row">
                                             <div class="col-6">
@@ -113,9 +126,22 @@
                                     <td> {{ App\Models\AdCategory::where('id',$home_ad->category)->where('admin_approval', '=', 'Approved')->first()->name }} </td>
                                     @endif 
                                     
-                                    <td> {{ $home_ad->status }} </td>
+                                    @if($home_ad->status == 'Enable')
+                                        <td style="color:green"><b>Enabled</b></td>
+                                    @else
+                                        <td style="color:red"><b>Disabled</b></td>
+                                    @endif 
+                                    
                                     <td> {{ $home_ad->order }} </td>
-                                    <td> {{ $home_ad->admin_approval }} </td>
+
+                                    @if($home_ad->admin_approval == 'Approved')
+                                        <td style="color:green"><b>Approved</b></td>
+                                    @elseif($home_ad->admin_approval == 'Disapproved')
+                                        <td style="color:#F6BE00"><b>Disapproved</b></td>
+                                    @else
+                                        <td style="color:red"><b>Pending</b></td>
+                                    @endif 
+
                                     <td>
                                         <div class="row">
                                             <div class="col-6">
