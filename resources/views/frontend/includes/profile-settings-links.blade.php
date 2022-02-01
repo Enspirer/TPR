@@ -95,7 +95,7 @@
                         <b style="color:red">{{ count(App\Models\Feedback::where('status','Pending')->get()) }}</b>
                 </div>
             </div>
-            
+
 
             <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'management_sold_properties' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.management_sold_properties') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Sold Properties</a>
 
@@ -139,7 +139,15 @@
 
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'feedback' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.feedback') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Feedback</a>
         
-        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'user_notifications' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.user_notifications') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Notifications</a>
+        <div class="row w-100">
+            <div class="col-10 ">
+                <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'user_notifications' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.user_notifications') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Notifications</a>
+            </div>
+            <div class="col-2 mt-2">
+                    <b style="color:red">{{ count(App\Models\Notifications::where('status','Pending')->get()) }}</b>
+            </div>
+        </div>
+
 
 
         <!-- <h5 class="px-3 mt-4 pb-2 mb-0">My Settings</h5>
