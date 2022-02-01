@@ -10,6 +10,16 @@
   display: none;
   padding-left: 30px;
 }
+
+.numberround{
+    color:red; 
+    background: #fff; 
+    border-radius:50%; 
+    width:50%; 
+    border: 1px solid #0d6efd; 
+    text-align: center;
+}
+
 </style>
 
 <div class="border">
@@ -74,7 +84,7 @@
                     <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'property-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.property-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Property Approval</a>
                 </div>
                 <div class="col-2 mt-2">
-                        <b style="color:red">{{ count(App\Models\Properties::where('country_manager_approval','Pending')->get()) }}</b>
+                        <b class="px-2 py-0 numberround">{{ count(App\Models\Properties::where('country_manager_approval','Pending')->get()) }}</b>
                 </div>
             </div>
 
@@ -83,7 +93,7 @@
                     <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'agent-approval' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.agent-approval') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Agent Approval</a>
                 </div>
                 <div class="col-2 mt-2">
-                        <b style="color:red">{{ count(App\Models\AgentRequest::where('country_manager_approval','Pending')->get()) }}</b>
+                        <b class="px-2 py-0 numberround">{{ count(App\Models\AgentRequest::where('country_manager_approval','Pending')->get()) }}</b>
                 </div>
             </div>
 
@@ -92,7 +102,7 @@
                     <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(2) == 'supports' ? 'active' : null }}" id="nav-booking-tab" href="{{ route('frontend.user.supports') }}" type="button" role="tab" aria-controls="nav-booking" aria-selected="false">Help & Supports</a>
                 </div>
                 <div class="col-2 mt-2">
-                        <b style="color:red">{{ count(App\Models\Feedback::where('status','Pending')->get()) }}</b>
+                        <b class="px-2 py-0 numberround">{{ count(App\Models\Feedback::where('status','Pending')->get()) }}</b>
                 </div>
             </div>
 
@@ -144,7 +154,7 @@
                 <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'user_notifications' ? 'active' : null }}" id="nav-favourite-tab" href="{{ route('frontend.user.user_notifications') }}" type="button" role="tab" aria-controls="nav-favourite" aria-selected="false">Notifications</a>
             </div>
             <div class="col-2 mt-2">
-                    <b style="color:red">{{ count(App\Models\Notifications::where('status','Pending')->get()) }}</b>
+                    <b class="px-2 py-0 numberround">{{ count(App\Models\Notifications::where('status','Pending')->get()) }}</b>
             </div>
         </div>
 

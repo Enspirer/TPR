@@ -38,21 +38,21 @@
 
         @if($category_type == 'tp_developer')
             <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-                <button class="nav-link text-white rounded-0 active" style="background-color : #1245a8" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
+                <button class="nav-link text-white rounded-0 active" style="background-color : #053962" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
             </li>
         @else
             <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-                <button class="nav-link text-white rounded-0" style="background-color : #1245a8" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
+                <button class="nav-link text-white rounded-0" style="background-color : #053962" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
             </li>
         @endif
 
         @if($category_type == 'investments')
             <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-                <button class="nav-link text-white rounded-0 active" style="background-color : #f4cb53;background-image: linear-gradient(to bottom right, #947404, #f4cb53);" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
+                <button class="nav-link text-white rounded-0 active" style="background-color : #937851;" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
             </li>
         @else
             <li class="nav-item text-white rounded-0 fs-5 ms-1" role="presentation">
-                <button class="nav-link text-white rounded-0" style="background-color : #f4cb53; background-image: linear-gradient(to bottom right, #947404, #f4cb53);" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
+                <button class="nav-link text-white rounded-0" style="background-color : #937851;" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
             </li>
         @endif
         
@@ -548,10 +548,10 @@
             <button class="nav-link text-white rounded-0 p-1" style="background-color : #EB8EB0; font-size: 0.9rem;" id="pills-coming-tab" data-bs-toggle="pill" data-bs-target="#pills-coming" type="button" role="tab" aria-controls="pills-coming" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Coming Soon</button>
         </li>
         <li class="nav-item text-white rounded-0 m-1" role="presentation">
-            <button class="nav-link text-white rounded-0 p-1" style="background-color : #1245a8; font-size: 0.9rem;" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
+            <button class="nav-link text-white rounded-0 p-1" style="background-color : #053962; font-size: 0.9rem;" id="pills-tp_developer-tab" data-bs-toggle="pill" data-bs-target="#pills-tp_developer" type="button" role="tab" aria-controls="pills-tp_developer" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">TP Developer</button>
         </li>
         <li class="nav-item text-white rounded-0 m-1" role="presentation">
-            <button class="nav-link text-white rounded-0 p-1" style="background-color : #f4cb53; background-image: linear-gradient(to bottom right, #947404, #f4cb53); font-size: 0.9rem;" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
+            <button class="nav-link text-white rounded-0 p-1" style="background-color : #937851; font-size: 0.9rem;" id="pills-investments-tab" data-bs-toggle="pill" data-bs-target="#pills-investments" type="button" role="tab" aria-controls="pills-investments" aria-selected="true" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Investments</button>
         </li>
     </ul>
 </div>
