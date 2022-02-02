@@ -53,6 +53,11 @@
     text-align: left !important;
 }
 
+.back-to-search-mobile-row .col-2 {
+    width: auto;
+    padding: 0 0.5rem;
+}
+
 .back-to-search-mobile-row .mobile-full-area .btn {
     border: 1px solid #ccc !important;
     color: #4195e1 !important;
