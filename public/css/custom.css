@@ -74,6 +74,17 @@
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 }
 
+#copyright {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+section#footer {
+    position: absolute;
+    bottom: 53px;
+}
+
 @media screen and (max-width: 767px) {
     #pills-tabContent .input-group button[type="submit"] {
         background-color: #eb8eb0 !important;
