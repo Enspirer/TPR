@@ -844,7 +844,7 @@
                         
                             @if(is_favorite_cookie($property_details->id))
                                 <div class="col-12 text-center mt-4">
-                                    <a href="{{url('favourite_cookie_properties/remove',$property_details->id)}}" class="btn rounded-0 py-2 text-light fw-bold fs-6 w-100" style="text-decoration:none; border: 1.5px solid; background-color:#F33A6A;"><i class="bi bi-heart-fill me-1"></i> Save this Property</a>
+                                    <a href="{{url('favourite_cookie_properties/remove',$property_details->id)}}" class="btn rounded-0 py-2 text-light fw-bold fs-6 w-100" style="text-decoration:none; border: 1.5px solid; background-color:#F33A6A;"><i class="bi bi-heart-fill me-1"></i> Unsave this Property</a>
                                 </div>
                             @else                                
                                 <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
