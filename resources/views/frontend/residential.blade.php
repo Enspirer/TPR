@@ -729,7 +729,7 @@
                 @endif
                 function initMap() {
                     const map = new google.maps.Map(document.getElementById("map"), {
-                        zoom: 7,
+                        zoom: 12,
                         center: { lat: lat, lng: lng },
                     });
                     @if(count($area_coords) == 0)
