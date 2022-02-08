@@ -11,8 +11,10 @@
 
                     @else
 
-                    <img src="{{url('tpr_templete/images/tropical-logo.png')}}" class="logo img-fluid rounded" alt=""
-                        data-bs-toggle="modal" data-bs-target="#countrySelection" style="cursor:pointer;">
+                    <!-- <img src="{{url('tpr_templete/images/tropical-logo.png')}}" class="logo img-fluid rounded" alt=""
+                        data-bs-toggle="modal" data-bs-target="#countrySelection" style="cursor:pointer;"> -->
+
+                        <a href="{{ route('frontend.landing') }}"><img src="{{url('tpr_templete/images/tropical-logo.png')}}" class="logo-landing img-fluid rounded" alt=""></a>
 
                     @endif
 
