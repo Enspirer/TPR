@@ -630,7 +630,7 @@ let lng = <?php echo json_encode($country->longitude); ?>;
 
 function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 6,
+        zoom: 8,
         center: {
             lat: parseInt(lat),
             lng: parseInt(lng)
