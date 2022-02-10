@@ -193,15 +193,18 @@
                         <!-- <p class="mb-0 text">Sort By</p> -->
                     </div>
                     <div class="col-7">
-                        <!-- <div class="dropdown">
+                        <div class="dropdown">
                             <button class="btn btn-light dropdown-toggle w-100" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Newest
+                                Sorting
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Newest</a></li>
+                                <li><a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'category_type', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name', 'newest'] )}}" class="dropdown-item">Newest</a></li>
+                                <li><a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'category_type', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name', 'oldest'] )}}" class="dropdown-item">Oldest</a></li>
+                                <li><a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'category_type', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name', 'low_price'] )}}" class="dropdown-item">Low Price</a></li>
+                                <li><a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'category_type', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name', 'high_price'] )}}" class="dropdown-item">High Price</a></li>
                             </ul>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
                 <div class="properties">
