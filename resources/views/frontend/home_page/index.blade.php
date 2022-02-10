@@ -217,7 +217,7 @@
                         </div>
                         <div class="col-6">
                         <a class="heart-fix-a" href="{{ route('frontend.individual-property', $property->id) }}" style="text-decoration:none;">
-                            <div class="row justify-content-between align-items-center">
+                            <div class="row justify-content-between heart-icon align-items-center">
                                 <div class="col-8">
                                     <p class="mb-0 small-num" style="font-size: 0.7rem;">
                                         {{ $property->created_at->toDateString() }}</p>

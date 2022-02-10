@@ -77,14 +77,53 @@ html {
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 }
 
-.input-group > .form-control:focus,
-.input-group > .form-select:focus {
+.input-group>.form-control:focus,
+.input-group>.form-select:focus {
     z-index: unset !important;
 }
 
 #about-us .about-container {
     margin-top: 13rem;
 }
+
+/* modal tabs */
+
+.modal-dialog {
+    margin-top: 5rem;
+}
+
+.tab-group {
+    position: absolute;
+    top: -35px;
+    left: 3rem;
+}
+
+.tab-group .tab-btn {
+    border: 1px solid transparent;
+    color: #fff;
+    width: 120px;
+    height: 35px;
+    position: relative;
+}
+
+.tab-group .tab-btn.active:after {
+    content: '';
+    width: 120px;
+    height: 4px;
+    background-color: red;
+    position: absolute;
+    left: -1px;
+    top: -4px;
+}
+
+.tab-group .tab-btn#tabBtn1 {
+    background-color: #00C1FB;
+}
+
+.tab-group .tab-btn#tabBtn2 {
+    background-color: #83BC3E;
+}
+
 
 @media screen and (max-width: 767px) {
     #pills-tabContent .input-group button[type="submit"] {
@@ -133,19 +172,10 @@ html {
     .user-settings {
         margin-top: 12rem !important;
     }
-
-    .globe {
-        top: 7.5rem;
-        left: 69%;
-    }
 }
 
 @media screen and (max-width: 576px) {
     .col.px-2 {
         text-align: center;
-    }
-
-    .globe {
-        left: 59%;
     }
 }

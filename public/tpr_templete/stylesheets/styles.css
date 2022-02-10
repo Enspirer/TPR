@@ -1,13 +1,16 @@
 body {
     font-family: "Roboto", sans-serif;
 }
+
 p {
     font-size: 0.9rem;
     color: #504f4f;
 }
+
 .ns {
     font-size: 1rem;
 }
+
 .no-result-list {
     font-size: 0.9rem;
     color: #504f4f;
@@ -17,9 +20,11 @@ p {
 .fw-bold {
     font-weight: 500 !important;
 }
+
 .rounded {
     border-radius: 0.35rem !important;
 }
+
 .text-secondary {
     color: #686767 !important;
 }
@@ -39,6 +44,16 @@ p {
     height: 4rem;
 }
 
+.logo-flag {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.logo-flag a {
+    text-decoration: none !important;
+}
+
 .flag {
     /* position: fixed;
     top: 4rem; */
@@ -46,12 +61,16 @@ p {
     height: 30px;
     /* left: 30%; */
 }
+
 .globe {
-    position: fixed;
+    /* position: fixed;
     top: 4.75rem;
     z-index: 10000;
-    left: 20rem;
+    left: 20rem; */
     width: 140px;
+    position: relative;
+    top: 3.5rem;
+    left: 1.5rem;
 }
 
 /* .nav-hover {
@@ -65,11 +84,13 @@ p {
     padding: 0 1rem;
     /* border-right: 0.5px solid #C0C0C0; */
 }
+
 .second-nav {
     position: fixed;
     top: 3.5rem;
     z-index: 2;
 }
+
 .line {
     text-align: center;
     height: 2px;
@@ -80,6 +101,7 @@ p {
     margin: 0 auto;
     visibility: hidden;
 }
+
 /* .nav2 .active {
     border-bottom: 1px solid black!important;
 } */
@@ -95,43 +117,48 @@ p {
 #index-navbar .dropdown-toggle::after {
     color: white;
 }
+
 #index-navbar .dropdown-item:focus,
 .dropdown-item:hover {
     color: black !important;
     background-color: #e9ecef;
 }
+
 .second-nav .dropdown-toggle::after {
     color: black !important;
 }
 
 /* get app banner */
 .get-app {
-    background-image: linear-gradient(
-        to right,
-        rgba(135, 206, 235),
-        rgba(25, 164, 25, 0.5)
-    );
+    background-image: linear-gradient(to right,
+            rgba(135, 206, 235),
+            rgba(25, 164, 25, 0.5));
     padding: 15rem;
 }
 
 .nav-modal .modal-content {
     overflow: hidden;
 }
+
 .nav-modal .modal-body {
     overflow-y: scroll;
 }
+
 .nav-modal .modal-body::-webkit-scrollbar {
     width: 8px;
     border: 1px solid #d5d5d5;
 }
+
 .nav-modal .modal-body::-webkit-scrollbar-track {
     border-radius: 0;
     background: #eeeeee;
 }
+
 .nav-modal .modal-body::-webkit-scrollbar-thumb {
     border-radius: 0;
     background: #b0b0b0;
 }
+
 .nav-modal .modal-body a div:hover {
     background-color: #c4c3be;
 }
@@ -168,6 +195,7 @@ i.social-icon.fab.fa-twitter-square {
     top: 3px;
     color: #fff;
 }
+
 /*translater autoshow bar hidden*/
 .skiptranslate iframe {
     display: none;
@@ -176,41 +204,6 @@ i.social-icon.fab.fa-twitter-square {
 .social-icon-bar {
     display: flex;
     align-items: center;
-}
-
-/*small mobile screens*/
-@media screen and (max-width: 320px) {
-    button.navbar-toggler.ms-auto {
-        margin-top: 5px !important;
-    }
-
-    .globe {
-        top: 6.9rem !important;
-    }
-
-    .currency-with-toggler-wrapper {
-        margin-top: 0 !important;
-    }
-
-    .second-nav {
-        top: 5.5rem !important;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .first-nav .logo {
-        top: 0.8rem;
-        height: 2rem !important;
-    }
-
-    .globe {
-        top: 7.5rem;
-        left: 57%;
-    }
-
-    .second-nav {
-        top: 6.5rem;
-    }
 }
 
 /*custom styles for nav icons*/
@@ -394,6 +387,7 @@ select.goog-te-combo {
 .heart-fix-a {
     width: max-content;
 }
+
 .heart-fix-a .property-location,
 .heart-fix-a .small-num {
     white-space: nowrap;
@@ -403,13 +397,134 @@ select.goog-te-combo {
     margin-left: 5px;
 }
 
-/*mobile-view*/
-@media screen and (max-width: 320px) {
-    a.post-ad-btn.visible-xs {
-        margin-left: 10px !important;
+@media (min-width: 768px) and (max-width: 1440px) {
+    .heart-icon {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
     }
+}
+
+/*small laptop screen*/
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .nav2 {
+        padding: 0 !important;
+        font-size: 0.8rem !important;
+    }
+
+    ul.navbar-nav {
+        font-size: 0.9rem !important;
+    }
+
+    .post-ad-btn {
+        margin-left: 0 !important;
+        margin-right: 5px !important;
+    }
+
+    a#dropdownMenuLink {
+        font-size: 0.9rem !important;
+    }
+
+    div#navbarNav1 ul li a {
+        font-size: 0.8rem !important;
+    }
+}
+
+/*tab-portrait*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .hidden-tab {
+        display: none !important;
+    }
+
+    .visible-tab {
+        display: block !important;
+    }
+
     .mobile-nav-additional-wrapper {
-        gap: 10px !important;
+        display: flex;
+        margin-left: 25%;
+        align-items: center;
+    }
+
+    .tab-35 {
+        width: 35% !important;
+    }
+
+    .tab-65 {
+        width: 65% !important;
+    }
+
+    .tab-currency-bar {
+        display: block !important;
+    }
+
+    section#residential-property-search {
+        padding-top: 150px !important;
+    }
+
+    .logo {
+        height: 3.2rem;
+    }
+
+    .second-nav {
+        top: 3.5rem;
+    }
+
+    .navbar-nav {
+        padding-left: 15px;
+        margin-top: 60px;
+    }
+
+    .nav1 {
+        padding: 0;
+    }
+
+    a#dropdownMenuLink {
+        padding-left: 0;
+    }
+
+    .mobile-coutry-dropdown {
+        width: 100%;
+    }
+
+    .icons-bar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .icon-wrapper i {
+        font-size: 1.5rem !important;
+    }
+
+    button.feedback {
+        font-size: 0.8rem;
+        right: -20px;
+        padding: 5px 10px;
+    }
+
+    #navbarNav2 .navbar-nav {
+        margin-top: 15px !important;
+    }
+
+    .tab-full-width {
+        width: 100%;
+        flex: 100%;
+    }
+
+    .map-mobile-container {
+        padding: 15px !important;
+    }
+
+    .container.search-bar {
+        display: none;
+    }
+
+    .container.mini-search-bar {
+        display: block;
     }
 }
 
@@ -560,142 +675,66 @@ select.goog-te-combo {
         border-top: 2px solid #fff;
         margin-top: 20px;
     }
-}
-
-/*tab-portrait*/
-@media (min-width: 768px) and (max-width: 991px) {
-    .hidden-tab {
-        display: none !important;
-    }
-
-    .visible-tab {
-        display: block !important;
-    }
-
-    .mobile-nav-additional-wrapper {
-        display: flex;
-        margin-left: 25%;
-        align-items: center;
-    }
-
-    .tab-35 {
-        width: 35% !important;
-    }
-
-    .tab-65 {
-        width: 65% !important;
-    }
-
-    .tab-currency-bar {
-        display: block !important;
-    }
-
-    section#residential-property-search {
-        padding-top: 150px !important;
-    }
 
     .globe {
-        left: 3rem;
-        top: 4.75rem !important;
+        top: 6.75rem;
+        left: 25rem;
     }
+}
 
-    .logo {
-        height: 3.2rem;
+@media screen and (max-width: 576px) {
+    .first-nav .logo {
+        top: 0.8rem;
+        height: 2rem !important;
     }
 
     .second-nav {
-        top: 3.5rem;
+        top: 6.5rem;
     }
 
-    .navbar-nav {
-        padding-left: 15px;
-        margin-top: 60px;
-    }
-
-    .nav1 {
-        padding: 0;
-    }
-
-    a#dropdownMenuLink {
-        padding-left: 0;
-    }
-
-    .mobile-coutry-dropdown {
-        width: 100%;
-    }
-
-    .icons-bar {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-left: 0;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-
-    .icon-wrapper i {
-        font-size: 1.5rem !important;
-    }
-
-    button.feedback {
-        font-size: 0.8rem;
-        right: -20px;
-        padding: 5px 10px;
-    }
-
-    #navbarNav2 .navbar-nav {
-        margin-top: 15px !important;
-    }
-
-    .tab-full-width {
-        width: 100%;
-        flex: 100%;
-    }
-
-    .map-mobile-container {
-        padding: 15px !important;
-    }
-
-    .container.search-bar {
-        display: none;
-    }
-
-    .container.mini-search-bar {
-        display: block;
+    .globe {
+        position: absolute;
+        top: 6rem;
     }
 }
 
-/*small laptop screen*/
-@media (min-width: 1024px) and (max-width: 1200px) {
-    .nav2 {
-        padding: 0 !important;
-        font-size: 0.8rem !important;
-    }
+@media screen and (max-width: 425px) {
     .globe {
-        top: 4.75rem;
-        left: 4rem;
-    }
-
-    ul.navbar-nav {
-        font-size: 0.9rem !important;
-    }
-
-    .post-ad-btn {
-        margin-left: 0 !important;
-        margin-right: 5px !important;
-    }
-
-    a#dropdownMenuLink {
-        font-size: 0.9rem !important;
-    }
-
-    div#navbarNav1 ul li a {
-        font-size: 0.8rem !important;
+        left: 18rem;
     }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 375px) {
     .globe {
-        left: 5rem;
+        top: 6rem;
+        left: 15rem;
+    }
+}
+
+/*mobile-view*/
+@media screen and (max-width: 320px) {
+    a.post-ad-btn.visible-xs {
+        margin-left: 10px !important;
+    }
+
+    .mobile-nav-additional-wrapper {
+        gap: 10px !important;
+    }
+
+    button.navbar-toggler.ms-auto {
+        margin-top: 5px !important;
+    }
+
+    .currency-with-toggler-wrapper {
+        margin-top: 0 !important;
+    }
+
+    .second-nav {
+        top: 5.5rem !important;
+    }
+
+    .globe {
+        top: 5.5rem;
+        left: 12rem;
     }
 }
