@@ -462,6 +462,12 @@ class HomeController extends Controller
 
         // dd($description_key_name);
 
+        if(request('sorting') != null) {
+            $sorting = request('sorting');
+        }
+        else {
+            $sorting = 'sorting';
+        }
         
 
         return redirect()->route('frontend.search_function', [
@@ -487,7 +493,8 @@ class HomeController extends Controller
             $lat,
             $areacod,
             $external_keyword,
-            $description_key_name
+            $description_key_name,
+            $sorting
         ]);
     }
 
@@ -507,7 +514,7 @@ class HomeController extends Controller
     }
 
 
-    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat,$area_coordinator,$external_keyword,$description_key_name)
+    public function search_function($key_name,$min_price,$max_price,$category_type,$transaction_type,$property_type,$beds,$baths,$land_size,$listed_since,$building_type,$open_house,$zoning_type,$units,$building_size,$farm_type,$parking_type,$city,$long,$lat,$area_coordinator,$external_keyword,$description_key_name,$sorting)
     {
         // dd($description_key_name);
 
@@ -655,15 +662,43 @@ class HomeController extends Controller
 
         }
 
-
-
+            // dd($sorting);
+        if($sorting != 'sorting'){
+            if($sorting == 'newest') {
+                $properties->orderBy('id','DESC');
+            }
+            elseif($sorting == 'oldest') {
+                $properties->orderBy('id','ASC');
+            }
+            elseif($sorting == 'low_price')
+            {
+                $properties->orderBy('price','DESC');
+            }
+            else{
+                $properties->orderBy('price','ASC');
+            }
+            
+        }
 
         // dd($properties->get());
 
         $filteredProperty = $properties->get();
 
 
-        return view('frontend.residential', ['filteredProperty' => $filteredProperty, 'baths' => $baths, 'beds' => $beds, 'property_types' => $property_types, 'side_ads' => $side_ads, 'category_type' => $category_type, 'transaction_type' =>  $transaction_type, 'countries' => $countries,'search_long' => $long,'search_lat' => $lat,'area_coords'=>$longertutr]);
+        return view('frontend.residential', [
+            'filteredProperty' => $filteredProperty, 
+            'baths' => $baths, 
+            'beds' => $beds, 
+            'property_types' => $property_types, 
+            'side_ads' => $side_ads, 
+            'category_type' => $category_type, 
+            'transaction_type' => $transaction_type, 
+            'countries' => $countries,
+            'search_long' => $long,
+            'search_lat' => $lat,
+            'area_coords'=> $longertutr,
+            'sorting'=> $sorting
+        ]);
     }
 
     public static function areacordina_function($area_coordinator)

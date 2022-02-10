@@ -93,11 +93,11 @@
 
                                 
                                     <div class="p-1 agent-cat-btn">
-                                        <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name'] )}}"><button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button></a>
+                                        <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name', 'sorting'] )}}"><button class="btn w-100 text-white" style="background-color: #4195E1; border-radius: 0.7rem;">Residential</button></a>
                                     </div>
                                 
                                     <div class="p-1 agent-cat-btn">
-                                        <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name'] )}}"><button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button></a>
+                                        <a href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'commercial', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name', 'sorting'] )}}"><button class="btn w-100 text-white" style="background-color: #83BE43; border-radius: 0.7rem;">Commercial</button></a>
                                     </div>
                                   
                                     
