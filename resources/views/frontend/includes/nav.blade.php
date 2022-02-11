@@ -154,7 +154,7 @@
                             href="{{ route('frontend.map-search' )}}">Find a Home</a> -->
                         <a class="nav-link text-body fw-bold {{ Request::segment(5) == 'residential' ? 'active' : null }}"
                             style="color:#fff !important;"
-                            href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'residential', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name', 'sorting'] )}}">Map
+                            href="{{ route('frontend.search_function', ['key_name', 'min_price', 'max_price', 'all', 'transaction_type', 'property_type', 'beds', 'baths', 'land_size', 'listed_since', 'building_type', 'open_house', 'zoning_type', 'units', 'building_size', 'farm_type', 'parking_type', 'city', 'long', 'lat', 'area_coordinator', 'external_keyword', 'description_key_name', 'sorting'] )}}">Map
                             Search</a>
                         <div class="line"></div>
                     </li>

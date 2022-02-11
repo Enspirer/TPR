@@ -65,7 +65,7 @@
                 <div class="input-group">
                     {{csrf_field()}}
                     <input type="hidden" name="category_type" value="all">
-                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;background: #ffffff8c;">
+                    <input type="text" name="search_keyword" class="form-control p-3" id="autocompletethree" placeholder="address, zip or city" onFocus="geolocate()" aria-label="search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;background: #ffffff8c;">
                         <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 
@@ -394,8 +394,8 @@
             <form method="post" action="{{route('frontend.search_result_function')}}">
                 <div class="input-group">
                 {{csrf_field()}}
-                    <input type="hidden" name="category_type" value="tp_developer" class="category">
-                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;background: #ffffff8c;">
+                    <input type="hidden" name="category_type" value="comingsoon" class="category">
+                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" id="autocompletefour" placeholder="address, zip or city" onFocus="geolocate()" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;background: #ffffff8c;">
                     <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 
@@ -416,7 +416,7 @@
                 <div class="input-group">
                 {{csrf_field()}}
                     <input type="hidden" name="category_type" value="tp_developer" class="category">
-                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="background-color:#ffffff8c;border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
+                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" id="autocompletetfive" placeholder="address, zip or city" onFocus="geolocate()" style="background-color:#ffffff8c;border-top-left-radius: 35px; border-bottom-left-radius: 35px;">
                     <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 
@@ -430,7 +430,7 @@
                 <div class="input-group">
                 {{csrf_field()}}
                     <input type="hidden" name="category_type" value="investments" class="category">
-                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;background: #ffffff8c;">
+                    <input type="text" name="search_keyword" class="form-control p-3" aria-label="search" id="autocompletesix" placeholder="address, zip or city" onFocus="geolocate()" style="border-top-left-radius: 35px; border-bottom-left-radius: 35px;background: #ffffff8c;">
                     <!-- <button class="btn rounded-0 text-white" style="background-color : #F177A3"><i class="bi bi-zoom-in"></i></button> -->
                     <button type="submit" class="btn text-white" style="background-color : #EB8EB0; border-top-right-radius: 35px; border-bottom-right-radius: 35px;"><i class="bi bi-search me-2"></i> Search</button>
 

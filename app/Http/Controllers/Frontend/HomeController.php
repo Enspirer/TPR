@@ -560,7 +560,11 @@ class HomeController extends Controller
                 $properties->get();
             }
             else {
-                $properties->where('main_category', $category_type);
+                if($category_type == 'comingsoon' || $category_type == 'tp_developer' || $category_type == 'investments'){
+                    return view('frontend.coming_soon');
+                }else{
+                    $properties->where('main_category', $category_type);                    
+                }
             }
             
         }

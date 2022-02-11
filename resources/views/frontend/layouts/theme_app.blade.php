@@ -983,6 +983,26 @@ function initialize() {
         });
     autocomplete = new google.maps.places.Autocomplete(
         /** @type {HTMLInputElement} */
+        (document.getElementById('autocompletethree')), {
+            types: ['geocode']
+        });
+    autocomplete = new google.maps.places.Autocomplete(
+        /** @type {HTMLInputElement} */
+        (document.getElementById('autocompletefour')), {
+            types: ['geocode']
+        });
+    autocomplete = new google.maps.places.Autocomplete(
+        /** @type {HTMLInputElement} */
+        (document.getElementById('autocompletetfive')), {
+            types: ['geocode']
+        });
+    autocomplete = new google.maps.places.Autocomplete(
+        /** @type {HTMLInputElement} */
+        (document.getElementById('autocompletesix')), {
+            types: ['geocode']
+        });
+    autocomplete = new google.maps.places.Autocomplete(
+        /** @type {HTMLInputElement} */
         (document.getElementById('autocompleteProperty')), {
             types: ['geocode']
         });
