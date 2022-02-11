@@ -1405,7 +1405,6 @@ window.addEventListener('DOMContentLoaded', () => renderCity());
 })();
 </script>
 
-
 @endpush
 
 @endpush

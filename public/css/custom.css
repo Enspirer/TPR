@@ -104,6 +104,8 @@ html {
     width: 120px;
     height: 35px;
     position: relative;
+    border-radius: 0;
+    line-height: 0;
 }
 
 .tab-group .tab-btn.active:after {
