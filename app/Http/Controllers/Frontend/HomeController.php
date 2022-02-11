@@ -669,19 +669,16 @@ class HomeController extends Controller
             // dd($sorting);
         if($sorting != 'sorting'){
             if($sorting == 'newest') {
-                $properties->orderBy('id','desc');
+                $properties->orderBy('id','DESC');
             }
             elseif($sorting == 'oldest') {
-                $properties->orderBy('id','asc');
+                $properties->orderBy('id','ASC');
             }
-            elseif($sorting == 'low_price')
-            {
-                // dd($sorting);
-                $properties->orderBy('price','asc');
+            elseif($sorting == 'low_price'){
+                $properties->orderByRaw('CAST(price as DECIMAL(8,2)) ASC');
             }
             else{
-                // dd('gg');
-                $properties->orderBy('price','desc');
+                $properties->orderByRaw('CAST(price as DECIMAL(8,2)) DESC');
             }
             
         }
