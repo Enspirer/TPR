@@ -254,4 +254,8 @@ items.forEach(item => {
     });
 });
 
+$('.filter-reset').click(function () {
+    $('.tab-btn').removeClass("active");
+});
+
 </script>
