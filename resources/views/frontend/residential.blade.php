@@ -223,65 +223,68 @@
                             @foreach($filteredProperty as $property)
                                 <div class="row border align-items-center p-1">
                                     <div class="col-6">
-                                        <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{url('image_assest', $property->feature_image_id)}}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%";></a>
+                                        <a href="{{ route('frontend.individual-property', $property->id) }}"><img src="{{url('image_assest', $property->feature_image_id)}}" alt="" class="img-fluid" style="height: 90px!important; object-fit: cover!important; width: 100%;"></a>
                                     </div>
                                     <div class="col-6">
-                                         <a class="heart-fix-a" href="{{ route('frontend.individual-property', $property->id) }}" style="text-decoration:none;">
-                                        <div class="row justify-content-between align-items-center">
-                                            <div class="col-8">
-                                                <p class="mb-0 small-num" style="font-size: 0.7rem;">{{ $property->created_at->toDateString() }}</p>
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <p class="mb-0 small-num" style="margin-top:10px; font-size: 0.8rem;">2021-08-25</p>
                                             </div>
-                                                @auth
-                                                    @if(is_favorite($property->id, auth()->user()->id))
-                                                        <div class="col-4 small-heart">
-                                                            <form action="{{ route('frontend.favourite_heart') }}" method="POST">
+                                            <div class="col-5">
+                                                <a class="heart-fix-a" href="{{ route('frontend.individual-property', $property->id) }}" style="text-decoration:none;">
+                                                    @auth
+                                                        @if(is_favorite($property->id, auth()->user()->id))
+                                                            <div class="col-4 small-heart">
+                                                                <form action="{{ route('frontend.favourite_heart') }}" method="POST">
+                                                                    {{csrf_field()}}
+                                                                        <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
+                                                                        <input type="hidden" class="favourite" name='favourite' value="non-favourite">
+                                                                        <button class="bi bi-heart-fill border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
+                                                                </form>
+                                                            </div>
+                                                        @else
+                                                                    
+                                                            <div class="col-4 small-heart">
+                                                                <form action="{{ route('frontend.favourite_heart') }}" method="POST">
+                                                                    {{csrf_field()}}
+                                                                        <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
+                                                                        <input type="hidden" class="favourite" name='favourite' value="favourite">
+                                                                        <button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
+                                                                </form>
+                                                            </div>
+                                                        @endif
+                                                    @else       
+                                                        @if(is_favorite_cookie($property->id)) 
+                                                            <div class="col-4 small-heart">
+                                                                <a href="{{url('favourite_cookie_properties/remove',$property->id)}}" class="bi bi-heart-fill border-0 heart-without-form" style="text-decoration:none; font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></a>
+                                                            </div>    
+                                                        @else
+                                                            <div class="col-4 small-heart">
+                                                                <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
                                                                 {{csrf_field()}}
-                                                                    <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
-                                                                    <input type="hidden" class="favourite" name='favourite' value="non-favourite">
-                                                                    <button class="bi bi-heart-fill border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
-                                                            </form>
-                                                        </div>
-                                                    @else
-                                                        
-                                                        <div class="col-4 small-heart">
-                                                            <form action="{{ route('frontend.favourite_heart') }}" method="POST">
-                                                                {{csrf_field()}}
-                                                                    <input type="hidden" class="property_id" name='hid_id' value="{{ $property->id }}">
-                                                                    <input type="hidden" class="favourite" name='favourite' value="favourite">
-                                                                    <button class="bi bi-heart tab-heart-left border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
-                                                            </form>
-                                                        </div>
-                                                    @endif
-                                                @else       
-                                                    @if(is_favorite_cookie($property->id)) 
-                                                        <div class="col-4 small-heart">
-                                                            <a href="{{url('favourite_cookie_properties/remove',$property->id)}}" class="bi bi-heart-fill border-0" style="text-decoration:none; font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></a>
-                                                        </div>    
-                                                    @else
-                                                        <div class="col-4 small-heart">
-                                                            <form action="{{route('frontend.favourite_cookie.store')}}" method="post" enctype="multipart/form-data">
-                                                            {{csrf_field()}}
-                                                                <input type="hidden" name="cookie_property_id" value="{{ $property->id }}" />
-                                                                <button class="bi bi-heart tab-heart-left border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
-                                                            </form>                                                        
-                                                        </div>
-                                                        
-                                                    @endif
-                                                    
-                                                    
-                                                @endauth
-                                        </div>
-                                        
-                                        <p class="fw-bold mb-0">{{ $property->name }}</p>
-                                        <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: {{ $property->transaction_type }}</p>
-                                        <p class="mb-0" style="font-size: 0.8rem;">Country: {{ $property->country }}</p>
+                                                                    <input type="hidden" name="cookie_property_id" value="{{ $property->id }}" />
+                                                                    <button class="bi bi-heart border-0" type="submit" style="font-size: 1rem; display: block; color: #ff0000; background-color: transparent;"></button>
+                                                                </form>                                                        
+                                                            </div>                                                        
+                                                        @endif                                                  
+                                                                
+                                                    @endauth
+                                                </a>
+                                            </div>
 
-                                        @if(get_country_cookie(request()))
-                                            <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(request(), get_country_cookie(request())->country_id, $property->price) }}</p>
-                                        @else
-                                            <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">{{ current_price(request(), 1, $property->price) }}</p>
-                                        @endif
-                                        </a>
+                                            <p class="fw-bold mb-0">{{ $property->name }}</p>
+                                            <p class="mb-0" style="font-size: 0.8rem;">Transaction Type: {{ $property->transaction_type }}</p>
+                                            <p class="mb-0" style="font-size: 0.8rem;">Country: {{ $property->country }}</p>
+
+                                            @if(get_country_cookie(request()))
+                                                <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">
+                                                {{ current_price(request(), get_country_cookie(request())->country_id, $property->price) }}</p>
+                                            @else
+                                                <p class="mb-0 d-inline-block px-2 py-1 mt-2 text-light mb-1" style="font-size: 0.8rem; background: #4195e1; border-radius: 7px;">
+                                                {{ current_price(request(), 1, $property->price) }}</p>
+                                            @endif
+
+                                        </div>   
                                     </div>
                                 </div>
                             @endforeach
