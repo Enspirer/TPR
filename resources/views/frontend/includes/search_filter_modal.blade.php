@@ -241,11 +241,11 @@
 // Search filter modal tab change
 const items = document.querySelectorAll('.tab-btn');
 
-items.forEach(item => {
+items.forEach(function (item) {
     item.addEventListener("click", function () {
         var val = $('.tab-btn').val();
-        items.forEach(a => {
-            a.classList.remove("active");
+        items.forEach(function (tab) {
+            tab.classList.remove("active");
         });
         item.classList.add("active");
         var val = item.value;
