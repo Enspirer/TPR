@@ -1,5 +1,5 @@
 /* banner */
-.banner {   
+.banner {
     background-repeat: no-repeat;
     width: 100%;
     background-size: cover;
@@ -16,40 +16,44 @@
     padding: 2.3rem 0rem;
     z-index: 1;
 }
+
 .search .nav li {
-    border-top: 2px solid transparent!important;
+    border-top: 2px solid transparent !important;
 }
+
 .input-group .btn {
     z-index: 0;
 }
+
 /* .search .nav-pills .nav-link.active, .search .nav-pills .show>.nav-link {
     color: red!important;
 } */
 
 #pills-residential .residential {
-    width: 35%!important;
+    width: 35% !important;
 }
 
 #pills-residential select {
-    font-size: 0.9rem!important;
+    font-size: 0.9rem !important;
     color: #999;
 }
 
 #pills-commercial .commercial {
-    width: 25%!important;
+    width: 25% !important;
 }
 
 #pills-commercial select {
-    font-size: 0.9rem!important;
+    font-size: 0.9rem !important;
     color: #999;
 }
 
 
 .search .nav .active {
-    border-top: 5px solid red!important;
+    border-top: 5px solid red !important;
 }
 
-.modal .fa, .modal .fas {
+.modal .fa,
+.modal .fas {
     font-weight: 900;
     color: white;
     text-align: center;
@@ -63,50 +67,61 @@
 
 /* recent projects */
 .project-item a {
-    color: #9B9B9B!important;
+    color: #9B9B9B !important;
 }
+
 .project-item a:hover {
-    color: black!important;
+    color: black !important;
 }
+
 .project-item .active {
-    border-bottom: 1px solid black!important;
-    color: black!important;
+    border-bottom: 1px solid black !important;
+    color: black !important;
     font-weight: 600;
 }
 
 .swiper {
-    padding-bottom: 35px!important;
-    padding-top: 35px!important;
-    padding-right: 28px!important;
-    padding-left: 28px!important;
+    padding-bottom: 35px !important;
+    padding-top: 35px !important;
+    padding-right: 28px !important;
+    padding-left: 28px !important;
 }
+
 .swiper-pagination {
-    bottom: 5px!important;
+    bottom: 5px !important;
 }
 
 .swiper-slide img {
     cursor: pointer;
 }
 
-.swiper-button-next, .swiper-rtl .swiper-button-prev {
-    right: 0px!important;
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+    right: 0px !important;
 }
-.swiper-button-prev, .swiper-rtl .swiper-button-next {
-    left: 0px!important;
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    left: 0px !important;
 }
-.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
-    font-size: 2rem!important;
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+    font-size: 2rem !important;
     opacity: 0.5;
 }
-.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
-    font-size: 2rem!important;
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+    font-size: 2rem !important;
     opacity: 0.5;
 }
 
 
 
 /* cards */
-#index-cards .card-title, #featured-projects .card-title {
+#index-cards .card-title,
+#featured-projects .card-title {
     color: #83BC3E;
 }
 
@@ -114,7 +129,7 @@
 
 /* featured projects */
 #index-featured-projects .text-info {
-    color: #79CEEC!important;
+    color: #79CEEC !important;
 }
 
 
@@ -125,24 +140,38 @@
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
 .properties::-webkit-scrollbar {
     width: 8px;
     border: 1px solid #d5d5d5;
 }
+
 .properties::-webkit-scrollbar-track {
     border-radius: 0;
     background: #eeeeee;
 }
+
 .properties::-webkit-scrollbar-thumb {
     border-radius: 0;
     background: #b0b0b0;
 }
+
 .small-num {
     color: #79CEEC;
 }
+
 .small-heart {
     color: #E88DAF;
     cursor: pointer;
+}
+
+.small-heart button[type=submit] {
+    font-size: 2rem !important;
+    right: 1.5rem;
+}
+
+.small-heart a.heart-without-form {
+    font-size: 2rem !important;
 }
 
 
@@ -157,10 +186,12 @@
     background-position: center center;
     height: 630px;
 }
+
 .bottom-banner-stars {
     color: #E9B815;
-    font-size:1rem;
+    font-size: 1rem;
 }
+
 .mini-search-bar {
     display: none;
 }
@@ -178,44 +209,56 @@
     .banner {
         height: 400px;
     }
+
     .search {
         top: 10.5rem;
         padding: 0rem;
         z-index: 1;
-        background-color: transparent!important;
+        background-color: transparent !important;
     }
+
     .search-bar {
         display: none;
     }
+
     .mini-search-bar {
         display: block;
     }
-    
+
     #index-property-search #map {
-        height: 450px!important;
+        height: 450px !important;
     }
+
     #index-cards .container {
-        margin-top: 4rem!important;
+        margin-top: 4rem !important;
     }
+
     #index-featured-projects .container {
-        margin-top: 5rem!important;
+        margin-top: 5rem !important;
     }
+
     .home-featured {
-        margin-top: 3rem!important;
+        margin-top: 3rem !important;
     }
+
     .bottom-banner {
-        height: 230px!important;
-        margin-top: 3rem!important;
+        height: 230px !important;
+        margin-top: 3rem !important;
     }
+
     .bottom-banner .text {
-        padding-top: 5rem!important;
+        padding-top: 5rem !important;
     }
+
     .bottom-banner .text h5 {
-        font-size: 15px!important;
+        font-size: 15px !important;
     }
+
     .bottom-banner-stars {
-        font-size: 0.8rem!important;
+        font-size: 0.8rem !important;
     }
+
+
 }
 
 
@@ -258,6 +301,6 @@
 
     .container-fluid.bottom-banner {
         margin-top: 2rem !important;
-    } 
+    }
 
 }

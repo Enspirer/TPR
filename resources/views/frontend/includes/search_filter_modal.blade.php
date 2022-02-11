@@ -4,6 +4,13 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
+                    <div class="tab-group">
+                        <!-- <button type="button" class="tab-btn"  id="tabBtn1">Residential</button>
+                        <button type="button" class="tab-btn"  id="tabBtn2">Agricultural</button> -->
+                        @foreach($property_types as $type)
+                            <button type="button" class="tab-btn" value="{{$type->id}}"  id="tabBtn{{$type->id}}">{{$type->property_type_name}}</button>
+                        @endforeach
+                    </div>
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Search Filters</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -229,3 +236,26 @@
             </div>
         </div>
 </form>
+
+<script>
+// Search filter modal tab change
+const items = document.querySelectorAll('.tab-btn');
+
+items.forEach(item => {
+    item.addEventListener("click", function () {
+        var val = $('.tab-btn').val();
+        items.forEach(a => {
+            a.classList.remove("active");
+        });
+        item.classList.add("active");
+        var val = item.value;
+        $('#propertyType').val(val);
+        renderFields();
+    });
+});
+
+$('.filter-reset').click(function () {
+    $('.tab-btn').removeClass("active");
+});
+
+</script>
